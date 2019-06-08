@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3cb199c7-6e2a-4569-be89-fe44cf821f65">
+	<property name="ireport.zoom" value="1.9487171000000014"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="116"/>
+	<parameter name="idIntern" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="beginDate" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="endDate" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="nombre" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT DATE_FORMAT(begin, '%d/%m/%Y') As "DÍA", DATE_FORMAT(begin, '%H:%i') As "ENTRADA", DATE_FORMAT(end, '%H:%i') As "SALIDA", FORMAT(TIMESTAMPDIFF(MINUTE,begin,end)/60.0,2) As "CANT. HORAS" FROM InternsXAssistance WHERE idIntern=$P{idIntern} AND begin>=STR_TO_DATE(CONCAT($P{beginDate},' 00:00:00'), '%d/%m/%Y %H:%i:%s') AND end<=STR_TO_DATE(CONCAT($P{endDate}," 23:59:59"), '%d/%m/%Y %H:%i:%s')]]>
+	</queryString>
+	<field name="DÍA" class="java.lang.String"/>
+	<field name="ENTRADA" class="java.lang.String"/>
+	<field name="SALIDA" class="java.lang.String"/>
+	<field name="CANT. HORAS" class="java.lang.String"/>
+	<variable name="CANTIDAD_HORAS_TOTAL" class="java.lang.Float" calculation="Sum">
+		<variableExpression><![CDATA[Float.parseFloat($F{CANT. HORAS})]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="71" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="71" forecolor="#FFFFFF" backcolor="#060668" uuid="9bf3caf6-8eb1-47ad-bcd9-46a40e89447c"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Gill Sans MT" size="48" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[INFOPUC ]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="119" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="45" uuid="b63991ca-ff6a-4b0b-99cd-64bf6852539f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Lucida Sans Typewriter" size="24" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Reporte de asistencia]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="45" width="65" height="20" uuid="dc870786-27f9-4f6a-8787-904f05f9702c"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[DESDE:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="420" y="45" width="54" height="20" uuid="bb0edb4e-246d-4e24-9f98-7c4f8334662c"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[HASTA: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="65" y="45" width="100" height="20" uuid="5d5a63e4-d14f-4382-a7ac-31b2602cf48b"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{beginDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="474" y="45" width="81" height="20" uuid="628f9f27-ac5b-47c4-8d21-36266feb8f5b"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{endDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="76" width="87" height="32" uuid="4be292d9-a4d4-4047-b5c3-f313a91e155e"/>
+				<textElement>
+					<font size="16" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{idIntern}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="76" width="290" height="32" uuid="36909281-2464-4237-b41d-b12fc5b8fa0b"/>
+				<textElement>
+					<font fontName="Lucida Sans Typewriter" size="18"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{nombre}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="29" splitType="Stretch">
+			<staticText>
+				<reportElement x="100" y="0" width="100" height="20" uuid="51960e83-a306-4235-8925-0d2ae4114b19"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ENTRADA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="213" y="0" width="100" height="20" uuid="8bb09167-3686-4ab7-9491-21ff9b1becc4"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SALIDA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="87" height="20" uuid="8631364c-afa5-43ae-ae34-f16796c5073c"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DÍA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="320" y="0" width="100" height="20" uuid="d9684449-6719-462f-a6ee-a35f83041181"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CANT. HORAS]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="24" splitType="Stretch">
+			<textField>
+				<reportElement x="100" y="0" width="100" height="20" uuid="283fc9f5-caac-4e97-8190-c9cf23b26d3f"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{ENTRADA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="213" y="0" width="100" height="20" uuid="74f1139e-af84-4da5-9c2c-c547dd3ae044"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{SALIDA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="87" height="20" uuid="8df30ac3-03b1-4c8f-a903-81a5f2a0f137"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{DÍA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="320" y="0" width="100" height="20" uuid="5677781c-5a5d-4365-ad88-97da5924434f"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{CANT. HORAS}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="26" splitType="Stretch">
+			<textField>
+				<reportElement x="535" y="6" width="19" height="20" uuid="e214bc3c-7222-4744-97cb-c408d2d615fe"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="493" y="6" width="42" height="20" uuid="13b963a2-02e1-467d-88ec-ad95776bb697"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Página ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="77" height="26" forecolor="#FFFFFF" backcolor="#060668" uuid="3c375345-039e-4236-91fb-e3d5a15c0027"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Gill Sans MT" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[INFOSiS]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="38" splitType="Stretch">
+			<textField>
+				<reportElement x="263" y="10" width="100" height="28" uuid="8446cfee-45b7-46b0-bbef-57114312161c"/>
+				<textElement verticalAlignment="Middle">
+					<font size="13" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{CANTIDAD_HORAS_TOTAL}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="10" width="263" height="28" uuid="4542607d-5cb9-42dc-82ca-4d1ce4da103b"/>
+				<textElement verticalAlignment="Middle">
+					<font size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOTAL DE HORAS TRABAJADAS:]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

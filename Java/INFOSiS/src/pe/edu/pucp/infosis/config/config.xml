@@ -1,0 +1,5 @@
+<pe.edu.pucp.INFOSiS.controller.config.ConnectionParameters>
+    <url>jdbc:mysql://sallka.lab.inf.pucp.edu.pe:3306/inf282g3</url>
+    <user>inf282g3</user>
+    <password>iQco2I</password>
+</pe.edu.pucp.INFOSiS.controller.config.ConnectionParameters>

@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="bfe0cf2a-9bc2-4421-ad61-b39eecef868b">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title"/>
+	<style name="SubTitle"/>
+	<style name="Column header"/>
+	<parameter name="ID_DNI" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT S.firstName,S.middleName, S.primaryLastName, S.secondLastName, S.idStudent,C.name, SR.grade, SR.state FROM Student S
+INNER JOIN StudentHistory SH ON S.idStudent = SH.idStudent 
+INNER JOIN StudentResults SR ON SH.idStudentHistory = SR.idStudentHistory
+INNER JOIN CourseHistory CH ON SH.idCourseHistory = CH.idCourseHistory
+INNER JOIN Course C ON CH.idCourse = C.idCourse
+WHERE S.idStudent = $P{ID_DNI}]]>
+	</queryString>
+	<field name="firstName" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="middleName" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="primaryLastName" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="secondLastName" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="idStudent" class="java.lang.String">
+		<fieldDescription><![CDATA[DNI - CARNET DE EXTRANJERIA]]></fieldDescription>
+	</field>
+	<field name="name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="grade" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[NOTA FINAL DEL CURSO]]></fieldDescription>
+	</field>
+	<field name="state" class="java.lang.String">
+		<fieldDescription><![CDATA[APROBADO\nDESAPROBADO\nRETIRADO]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="69" forecolor="#FFFFFF" backcolor="#060668" uuid="15256713-21ad-48de-ad16-c9e756afab3d"/>
+				<staticText>
+					<reportElement x="274" y="0" width="281" height="69" forecolor="#FFFFFF" uuid="3f9f8ee5-7244-4e28-852b-456c54318fd1"/>
+					<textElement textAlignment="Right">
+						<font fontName="Gill Sans MT" size="54"/>
+					</textElement>
+					<text><![CDATA[INFOPUC]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="73" splitType="Stretch">
+			<staticText>
+				<reportElement style="SubTitle" x="0" y="0" width="555" height="47" uuid="abed5424-7004-4036-9bed-b07279da46b9"/>
+				<textElement textAlignment="Right">
+					<font fontName="Gill Sans MT" size="30" isBold="false" isItalic="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Reporte del historial de cursos de un estudiante]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="53" width="326" height="20" uuid="c63973b4-67b0-4f61-acfb-7d5034a1dbf8"/>
+				<textElement>
+					<font fontName="Gill Sans MT" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ESTUDIANTE]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="89" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="69" width="555" height="20" forecolor="#FFFFFF" backcolor="#060668" uuid="9222e12b-f0b4-47ba-b058-95ccc4191afd"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="2" width="100" height="20" uuid="4d6aa628-4101-4eae-a2ac-7ce8db768fab"/>
+				<text><![CDATA[ID STUDENT:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="102" y="69" width="100" height="20" forecolor="#FFFFFF" uuid="1d3351e0-fe73-450e-87ed-b45ba974343f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Gill Sans MT" isBold="false"/>
+				</textElement>
+				<text><![CDATA[CURSO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="202" y="69" width="100" height="20" forecolor="#FFFFFF" uuid="ce9c840e-bf85-423f-b2a3-4af5ae1a9b2f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Gill Sans MT" isBold="false"/>
+				</textElement>
+				<text><![CDATA[NOTA FINAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="302" y="69" width="100" height="20" forecolor="#FFFFFF" uuid="9960427b-8703-41e0-b91f-c1c4d6d4674c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Gill Sans MT" isBold="false"/>
+				</textElement>
+				<text><![CDATA[RESULTADO]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="2" width="100" height="20" uuid="83b5ec87-3097-46cb-90c9-ceca2b66dd37"/>
+				<textFieldExpression><![CDATA[$F{idStudent}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="21" width="100" height="20" uuid="9416433d-0b79-4e0f-b31c-bf59bc2a76c1"/>
+				<text><![CDATA[NOMBRE:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="22" width="410" height="20" uuid="74542c5c-074e-48e7-af75-9eed3ef17fa3"/>
+				<textFieldExpression><![CDATA[$F{firstName}+" "+$F{middleName}+" "+$F{primaryLastName}+" "+$F{secondLastName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="49" width="326" height="20" uuid="7692fcae-b1bb-49bf-a1d3-a9e34a2a8624"/>
+				<textElement>
+					<font fontName="Gill Sans MT" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CURSOS LLEVADOS EN INFOPUC]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement x="102" y="0" width="100" height="20" uuid="f5314d64-e116-4361-bee4-ed4ac470620e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="202" y="0" width="100" height="20" uuid="1c041ab3-729f-4acf-a2b7-dcf37f19bd62"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{grade}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="302" y="0" width="100" height="20" uuid="a619f289-bf2c-4f85-9dd6-9cad9fa88a6d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{state}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" positionType="Float" mode="Opaque" x="10" y="10" width="111" height="34" forecolor="#FFFFFF" backcolor="#060668" uuid="25e42389-a284-41b3-ac36-a92743e13d1f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Gill Sans MT" size="20" isBold="true" pdfFontName="Helvetica"/>
+				</textElement>
+				<text><![CDATA[INFOSiS]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="530" y="24" width="19" height="20" uuid="3b04954e-9893-4365-bf07-4d4dddae68da"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="488" y="24" width="42" height="20" uuid="35e6c209-2d41-4d9b-bc14-2f5723de33e3"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Página ]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

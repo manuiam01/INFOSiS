@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="813e85fa-4d45-49f4-844a-4ec179dec7c1">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<subDataset name="PieChartDataset" uuid="b6fd1fc4-1351-41cf-888d-e26d384b5f2e"/>
+	<parameter name="ID_COURSE" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[100]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     Course.`idCourse` AS Course_idCourse,
+     Course.`name` AS Course_name,
+     CourseHistory.`idCourseHistory` AS CourseHistory_idCourseHistory,
+     CourseHistory.`idCourse` AS CourseHistory_idCourse,
+     StudentHistory.`idCourseHistory` AS StudentHistory_idCourseHistory,
+     count(*) as NumberStudents,
+     Course.`id_Course_Category` AS Course_id_Course_Category,
+DATE_FORMAT(CourseHistory.`startDate`, "%d/%m/%Y")
+      AS CourseHistory_startDate,
+DATE_FORMAT(CourseHistory.`endDate`, "%d/%m/%Y")
+      AS CourseHistory_endDate,
+     CourseHistory.`idProfessor` AS CourseHistory_idProfessor,
+     Professors.`idProfessor` AS Professors_idProfessor,
+     Professors.`firstName` AS Professors_firstName,
+     Professors.`middleName` AS Professors_middleName,
+     Professors.`secondLastName` AS Professors_secondLastName,
+     Professors.`primaryLastName` AS Professors_primaryLastName
+     
+FROM
+     `Course` Course INNER JOIN `CourseHistory` CourseHistory ON Course.`idCourse` = CourseHistory.`idCourse`
+     INNER JOIN `StudentHistory` StudentHistory ON CourseHistory.`idCourseHistory` = StudentHistory.`idCourseHistory`
+     INNER JOIN `Professors` Professors ON CourseHistory.`idProfessor` = Professors.`idProfessor`
+WHERE
+     Course.`idCourse` = $P{ID_COURSE}
+GROUP BY
+     StudentHistory.`idCourseHistory`]]>
+	</queryString>
+	<field name="Course_idCourse" class="java.lang.Integer"/>
+	<field name="Course_name" class="java.lang.String"/>
+	<field name="CourseHistory_idCourseHistory" class="java.lang.Integer"/>
+	<field name="CourseHistory_idCourse" class="java.lang.Integer"/>
+	<field name="StudentHistory_idCourseHistory" class="java.lang.Integer"/>
+	<field name="NumberStudents" class="java.lang.Long"/>
+	<field name="Course_id_Course_Category" class="java.lang.Integer"/>
+	<field name="CourseHistory_startDate" class="java.lang.String"/>
+	<field name="CourseHistory_endDate" class="java.lang.String"/>
+	<field name="CourseHistory_idProfessor" class="java.lang.String"/>
+	<field name="Professors_idProfessor" class="java.lang.String"/>
+	<field name="Professors_firstName" class="java.lang.String"/>
+	<field name="Professors_middleName" class="java.lang.String"/>
+	<field name="Professors_secondLastName" class="java.lang.String"/>
+	<field name="Professors_primaryLastName" class="java.lang.String"/>
+	<background>
+		<band height="802" splitType="Stretch">
+			<line>
+				<reportElement x="201" y="431" width="117" height="1" uuid="109bad3b-2ccc-4f22-94d4-379727947e9b">
+					<printWhenExpression><![CDATA[Boolean.FALSE]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="3.0" lineStyle="Dotted" lineColor="#996600"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="72" y="37" width="204" height="1" uuid="b95948e0-832e-4228-9c44-8930e0112956">
+					<printWhenExpression><![CDATA[Boolean.FALSE]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="3.0" lineStyle="Dotted" lineColor="#996600"/>
+				</graphicElement>
+			</line>
+		</band>
+	</background>
+	<title>
+		<band height="122" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-2" y="0" width="555" height="69" forecolor="#FFFFFF" backcolor="#060668" uuid="f2bd1285-85b1-4751-a0bb-fe648a53ef56"/>
+				<staticText>
+					<reportElement x="274" y="0" width="281" height="69" forecolor="#FFFFFF" uuid="2625d34f-3af0-4343-b4f4-f2d95a84598c"/>
+					<textElement textAlignment="Right">
+						<font fontName="Gill Sans MT" size="54"/>
+					</textElement>
+					<text><![CDATA[INFOPUC]]></text>
+				</staticText>
+			</frame>
+			<staticText>
+				<reportElement style="SubTitle" x="0" y="74" width="555" height="47" uuid="8c41e727-3c42-459f-9fef-697caac6eeb6"/>
+				<textElement textAlignment="Center">
+					<font fontName="Gill Sans MT" size="30" isBold="false" isItalic="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Reporte del historial de un curso]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="148" splitType="Stretch">
+			<frame>
+				<reportElement x="227" y="0" width="328" height="20" uuid="111f0a22-e242-4000-b53e-0af015a7af7c"/>
+			</frame>
+			<staticText>
+				<reportElement x="0" y="1" width="326" height="20" uuid="b17bd622-9bf2-4105-8bdd-7b0aa317eb6e"/>
+				<textElement>
+					<font fontName="Gill Sans MT" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CURSO:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-2" y="41" width="86" height="20" uuid="2cc235a8-b31c-4705-b83a-0a109298e4f6"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Gill Sans MT" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Nombre del curso:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="21" width="84" height="20" uuid="6e1d09d0-ea1c-4089-b5b2-fdcca26031a5"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Gill Sans MT" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Id Curso:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="84" y="21" width="134" height="20" uuid="c87d77f9-04a5-4962-a6c9-2e19e616e5ff"/>
+				<textElement verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[$F{Course_idCourse}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="84" y="41" width="265" height="20" uuid="cac6b06a-6710-44f5-bdf4-b9b7ec873e55"/>
+				<textElement verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[$F{Course_name}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="74" width="326" height="20" uuid="1813b79a-0e53-411b-b1d0-bad9f7a99e20"/>
+				<textElement>
+					<font fontName="Gill Sans MT" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[HISTORIAL DE DICTADO DEL CURSO]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="94" width="555" height="20" forecolor="#FFFFFF" backcolor="#060668" uuid="f2fe46b4-1c31-49ce-8e77-7376fcd494a0"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="84" y="94" width="100" height="20" forecolor="#FFFFFF" uuid="c3e1874d-a16f-42dd-a27a-ed14c036b81e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Gill Sans MT"/>
+				</textElement>
+				<text><![CDATA[FECHA INICIO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="184" y="94" width="100" height="20" forecolor="#FFFFFF" uuid="5b28eb16-720e-4dc1-aa7c-26096a68b6f7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Gill Sans MT"/>
+				</textElement>
+				<text><![CDATA[FECHA FIN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="284" y="94" width="149" height="20" forecolor="#FFFFFF" uuid="ff81cc8e-122c-4c4e-a2f8-f0a12ceb8be5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Gill Sans MT"/>
+				</textElement>
+				<text><![CDATA[CANTIDAD DE ALUMNOS]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="84" y="114" width="100" height="20" uuid="08402db9-dbee-41f1-9ac9-158505e12cc2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{CourseHistory_startDate}.toString()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="284" y="114" width="149" height="20" uuid="af61be89-de11-4ceb-9f91-72fe8c114c3b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{NumberStudents}.toString()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="184" y="114" width="100" height="20" uuid="1a8daffa-7e35-4e29-af78-9d7e1037ff6a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{CourseHistory_endDate}.toString()]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="128" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="163" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="a0f2abdb-192e-40cd-af95-18472738510f"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="247" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
