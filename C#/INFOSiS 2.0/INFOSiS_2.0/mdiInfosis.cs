@@ -19,9 +19,10 @@ namespace INFOSiS_2._0
 
         private void btnProfessor_Click(object sender, EventArgs e)
         {
-
-            panelMdi.Visible = true;
-            panelHeader.BringToFront();
+            //Según la gran comeña, las 2 lineas de abajo no sirven :v
+            //panelMdi.Visible = true;
+            //panelHeader.BringToFront();
+            
 
             if (!panelMdi.Controls.Contains(ProfessorControl.Instance))
             {
@@ -41,6 +42,24 @@ namespace INFOSiS_2._0
         {
             panelMdi.Controls.Remove(ProfessorControl.Instance);
             
+        }
+
+        private void BtnInterested_Click(object sender, EventArgs e)
+        {
+            panelMdi.Controls.Remove(ProfessorControl.Instance);
+            /*Agregar los remove de los que sean necesarios*/
+            if (!panelMdi.Controls.Contains(ProfessorControl.Instance))
+            {
+                panelMdi.Controls.Add(ProfessorControl.Instance);
+                ProfessorControl.Instance.Dock = DockStyle.Fill;
+                ProfessorControl.PanelnotThisProfessor = panelMdi;
+                ProfessorControl.Instance.BringToFront();
+            }
+            else
+            {
+                ProfessorControl.Instance.Visible = true;
+                ProfessorControl.Instance.BringToFront();
+            }
         }
     }
 }
