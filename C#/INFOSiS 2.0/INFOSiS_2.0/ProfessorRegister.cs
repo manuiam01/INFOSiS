@@ -13,7 +13,7 @@ namespace INFOSiS_2._0
     public partial class ProfessorRegister : UserControl
     {
         private static ProfessorRegister _instance;
-        private static Panel _panelnotThisProfessorRegister;
+        private static Panel _panelMdi;
 
         public static ProfessorRegister Instance
         {
@@ -25,21 +25,17 @@ namespace INFOSiS_2._0
             }
         }
 
-        public static Panel PanelnotThisProfessorRegister
+        public static Panel PanelMdi
         {
-            get => _panelnotThisProfessorRegister;
-            set => _panelnotThisProfessorRegister = value;
+            get => _panelMdi;
+            set => _panelMdi = value;
         }
 
         public ProfessorRegister()
         {
             InitializeComponent();
-           ///////estas presionando algo xdno
-           ///monga, estabas llamando loscomponentes fuera de los métodosajjaj.a.ja.
-           /// sisi ya me di cuenta tmrya gracias xd
-           /// igual esta mal o q haces por qué has creado un panel dentro del user control?s
         }
-        
-        
+
+
     }
 }

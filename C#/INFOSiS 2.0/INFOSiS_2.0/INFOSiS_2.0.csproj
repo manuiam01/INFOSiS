@@ -60,17 +60,23 @@
     <Compile Include="mdiInfosis.Designer.cs">
       <DependentUpon>mdiInfosis.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProfessorControl.cs">
+    <Compile Include="ProfessorButtons.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ProfessorControl.Designer.cs">
-      <DependentUpon>ProfessorControl.cs</DependentUpon>
+    <Compile Include="ProfessorButtons.Designer.cs">
+      <DependentUpon>ProfessorButtons.cs</DependentUpon>
     </Compile>
     <Compile Include="ProfessorRegister.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ProfessorRegister.Designer.cs">
       <DependentUpon>ProfessorRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProfessorReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ProfessorReport.Designer.cs">
+      <DependentUpon>ProfessorReport.cs</DependentUpon>
     </Compile>
     <Compile Include="ProfessorSearch.cs">
       <SubType>UserControl</SubType>
@@ -96,11 +102,14 @@
     <EmbeddedResource Include="mdiInfosis.resx">
       <DependentUpon>mdiInfosis.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProfessorControl.resx">
-      <DependentUpon>ProfessorControl.cs</DependentUpon>
+    <EmbeddedResource Include="ProfessorButtons.resx">
+      <DependentUpon>ProfessorButtons.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProfessorRegister.resx">
       <DependentUpon>ProfessorRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProfessorReport.resx">
+      <DependentUpon>ProfessorReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProfessorSearch.resx">
       <DependentUpon>ProfessorSearch.cs</DependentUpon>

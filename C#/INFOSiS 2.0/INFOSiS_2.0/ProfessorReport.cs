@@ -10,18 +10,17 @@ using System.Windows.Forms;
 
 namespace INFOSiS_2._0
 {
-    public partial class ProfessorSearch : UserControl
+    public partial class ProfessorReport : UserControl
     {
-
-        private static ProfessorSearch _instance;
+        private static ProfessorReport _instance;
         private static Panel _panelMdi;
 
-        public static ProfessorSearch Instance
+        public static ProfessorReport Instance
         {
             get
             {
                 if (_instance == null)
-                    _instance = new ProfessorSearch();
+                    _instance = new ProfessorReport();
                 return _instance;
             }
         }
@@ -31,17 +30,14 @@ namespace INFOSiS_2._0
             get => _panelMdi;
             set => _panelMdi = value;
         }
-
-        public ProfessorSearch()
+        public ProfessorReport()
         {
             InitializeComponent();
         }
 
-        private void btnSelect_Click(object sender, EventArgs e)
+        private void ProfessorReport_Load(object sender, EventArgs e)
         {
-            ProfessorRegister.Instance.BringToFront();
+
         }
-
-
     }
 }
