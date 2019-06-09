@@ -84,6 +84,12 @@
     <Compile Include="ProfessorSearch.Designer.cs">
       <DependentUpon>ProfessorSearch.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProfileButtons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ProfileButtons.Designer.cs">
+      <DependentUpon>ProfileButtons.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -113,6 +119,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ProfessorSearch.resx">
       <DependentUpon>ProfessorSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProfileButtons.resx">
+      <DependentUpon>ProfileButtons.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
