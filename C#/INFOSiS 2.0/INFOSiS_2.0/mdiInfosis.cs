@@ -48,18 +48,18 @@ namespace INFOSiS_2._0
         {
             panelMdi.Controls.Remove(ProfessorControl.Instance);
             /*Agregar los remove de los que sean necesarios*/
-            if (!panelMdi.Controls.Contains(ProfessorControl.Instance))
-            {
-                panelMdi.Controls.Add(ProfessorControl.Instance);
-                ProfessorControl.Instance.Dock = DockStyle.Fill;
-                ProfessorControl.PanelnotThisProfessor = panelMdi;
-                ProfessorControl.Instance.BringToFront();
-            }
-            else
-            {
-                ProfessorControl.Instance.Visible = true;
-                ProfessorControl.Instance.BringToFront();
-            }
+            //if (!panelMdi.Controls.Contains(ProfessorControl.Instance))
+            //{
+            //    panelMdi.Controls.Add(ProfessorControl.Instance);
+            //    ProfessorControl.Instance.Dock = DockStyle.Fill;
+            //    ProfessorControl.PanelnotThisProfessor = panelMdi;
+            //    ProfessorControl.Instance.BringToFront();
+            //}
+            //else
+            //{
+            //    ProfessorControl.Instance.Visible = true;
+            //    ProfessorControl.Instance.BringToFront();
+            //}
         }
     }
 }
