@@ -76,7 +76,7 @@
             // 
             this.dgvProfessors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProfessors.Location = new System.Drawing.Point(71, 264);
-            this.dgvProfessors.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvProfessors.Margin = new System.Windows.Forms.Padding(2);
             this.dgvProfessors.Name = "dgvProfessors";
             this.dgvProfessors.RowTemplate.Height = 24;
             this.dgvProfessors.Size = new System.Drawing.Size(637, 198);
@@ -192,9 +192,9 @@
             this.Controls.Add(this.lblProfessorRegister);
             this.Controls.Add(this.lblDocumentNumber);
             this.Controls.Add(this.txtProfessorID);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ProfessorSearch";
-            this.Size = new System.Drawing.Size(766, 489);
+            this.Size = new System.Drawing.Size(814, 566);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProfessors)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

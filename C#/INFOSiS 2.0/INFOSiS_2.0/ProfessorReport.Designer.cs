@@ -127,7 +127,7 @@
             this.Controls.Add(this.dtpStartDate);
             this.Controls.Add(this.lblProfessorReport);
             this.Name = "ProfessorReport";
-            this.Size = new System.Drawing.Size(766, 489);
+            this.Size = new System.Drawing.Size(814, 566);
             this.Load += new System.EventHandler(this.ProfessorReport_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
