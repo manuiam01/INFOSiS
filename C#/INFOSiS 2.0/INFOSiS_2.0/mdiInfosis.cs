@@ -19,7 +19,7 @@ namespace INFOSiS_2._0
 
         private void btnProfessor_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
+
             panelMdiInfosis.Visible = true;
             panelMdiOptions.Visible = true;
 
@@ -36,12 +36,6 @@ namespace INFOSiS_2._0
                 ProfessorRegister.Instance.Visible = true;
                 ProfessorRegister.Instance.BringToFront();
             }
-=======
-            //Según la gran comeña, las 2 lineas de abajo no sirven :v
-            //panelMdi.Visible = true;
-            //panelHeader.BringToFront();
-            
->>>>>>> 7c2773cf0e4c8468c43da6fb7950cab60e9694a1
 
             if (!panelMdiOptions.Controls.Contains(ProfessorButtons.Instance))
             {
@@ -65,20 +59,7 @@ namespace INFOSiS_2._0
 
         private void BtnInterested_Click(object sender, EventArgs e)
         {
-            panelMdi.Controls.Remove(ProfessorControl.Instance);
-            /*Agregar los remove de los que sean necesarios*/
-            //if (!panelMdi.Controls.Contains(ProfessorControl.Instance))
-            //{
-            //    panelMdi.Controls.Add(ProfessorControl.Instance);
-            //    ProfessorControl.Instance.Dock = DockStyle.Fill;
-            //    ProfessorControl.PanelnotThisProfessor = panelMdi;
-            //    ProfessorControl.Instance.BringToFront();
-            //}
-            //else
-            //{
-            //    ProfessorControl.Instance.Visible = true;
-            //    ProfessorControl.Instance.BringToFront();
-            //}
+           
         }
     }
 }
