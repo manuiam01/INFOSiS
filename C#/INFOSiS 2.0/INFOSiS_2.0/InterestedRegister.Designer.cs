@@ -61,8 +61,8 @@
             this.lblHomephone = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.gbCursos = new System.Windows.Forms.GroupBox();
-            this.dgvInterestedCourses = new System.Windows.Forms.DataGridView();
             this.btBuscarCursos = new System.Windows.Forms.Button();
+            this.dgvInterestedCourses = new System.Windows.Forms.DataGridView();
             this.cNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbxInterestedData.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -102,9 +102,9 @@
             this.gbxInterestedData.Controls.Add(this.groupBox1);
             this.gbxInterestedData.Font = new System.Drawing.Font("Gill Sans MT", 12F);
             this.gbxInterestedData.Location = new System.Drawing.Point(11, 96);
-            this.gbxInterestedData.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbxInterestedData.Margin = new System.Windows.Forms.Padding(4);
             this.gbxInterestedData.Name = "gbxInterestedData";
-            this.gbxInterestedData.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbxInterestedData.Padding = new System.Windows.Forms.Padding(4);
             this.gbxInterestedData.Size = new System.Drawing.Size(517, 484);
             this.gbxInterestedData.TabIndex = 172;
             this.gbxInterestedData.TabStop = false;
@@ -115,7 +115,7 @@
             this.dateNacimiento.CalendarFont = new System.Drawing.Font("Gill Sans MT", 10F);
             this.dateNacimiento.Font = new System.Drawing.Font("Gill Sans MT", 9.75F);
             this.dateNacimiento.Location = new System.Drawing.Point(201, 363);
-            this.dateNacimiento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateNacimiento.Margin = new System.Windows.Forms.Padding(4);
             this.dateNacimiento.Name = "dateNacimiento";
             this.dateNacimiento.Size = new System.Drawing.Size(296, 26);
             this.dateNacimiento.TabIndex = 172;
@@ -125,7 +125,7 @@
             this.rbFemale.AutoSize = true;
             this.rbFemale.Font = new System.Drawing.Font("Gill Sans MT", 9.75F);
             this.rbFemale.Location = new System.Drawing.Point(303, 327);
-            this.rbFemale.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbFemale.Margin = new System.Windows.Forms.Padding(4);
             this.rbFemale.Name = "rbFemale";
             this.rbFemale.Size = new System.Drawing.Size(74, 29);
             this.rbFemale.TabIndex = 171;
@@ -138,7 +138,7 @@
             this.rbMale.AutoSize = true;
             this.rbMale.Font = new System.Drawing.Font("Gill Sans MT", 9.75F);
             this.rbMale.Location = new System.Drawing.Point(201, 327);
-            this.rbMale.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbMale.Margin = new System.Windows.Forms.Padding(4);
             this.rbMale.Name = "rbMale";
             this.rbMale.Size = new System.Drawing.Size(91, 29);
             this.rbMale.TabIndex = 170;
@@ -149,7 +149,7 @@
             // txbApeMa
             // 
             this.txbApeMa.Location = new System.Drawing.Point(200, 288);
-            this.txbApeMa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txbApeMa.Margin = new System.Windows.Forms.Padding(4);
             this.txbApeMa.Name = "txbApeMa";
             this.txbApeMa.Size = new System.Drawing.Size(253, 31);
             this.txbApeMa.TabIndex = 169;
@@ -157,7 +157,7 @@
             // txbApePa
             // 
             this.txbApePa.Location = new System.Drawing.Point(200, 249);
-            this.txbApePa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txbApePa.Margin = new System.Windows.Forms.Padding(4);
             this.txbApePa.Name = "txbApePa";
             this.txbApePa.Size = new System.Drawing.Size(253, 31);
             this.txbApePa.TabIndex = 168;
@@ -165,7 +165,7 @@
             // txbSegundoNom
             // 
             this.txbSegundoNom.Location = new System.Drawing.Point(201, 208);
-            this.txbSegundoNom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txbSegundoNom.Margin = new System.Windows.Forms.Padding(4);
             this.txbSegundoNom.Name = "txbSegundoNom";
             this.txbSegundoNom.Size = new System.Drawing.Size(253, 31);
             this.txbSegundoNom.TabIndex = 167;
@@ -173,7 +173,7 @@
             // txbNombre
             // 
             this.txbNombre.Location = new System.Drawing.Point(200, 169);
-            this.txbNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txbNombre.Margin = new System.Windows.Forms.Padding(4);
             this.txbNombre.Name = "txbNombre";
             this.txbNombre.Size = new System.Drawing.Size(253, 31);
             this.txbNombre.TabIndex = 166;
@@ -181,7 +181,7 @@
             // txbNDocumento
             // 
             this.txbNDocumento.Location = new System.Drawing.Point(200, 128);
-            this.txbNDocumento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txbNDocumento.Margin = new System.Windows.Forms.Padding(4);
             this.txbNDocumento.Name = "txbNDocumento";
             this.txbNDocumento.Size = new System.Drawing.Size(253, 31);
             this.txbNDocumento.TabIndex = 165;
@@ -270,9 +270,9 @@
             this.groupBox1.Controls.Add(this.rbDNI);
             this.groupBox1.Font = new System.Drawing.Font("Gill Sans MT", 10F);
             this.groupBox1.Location = new System.Drawing.Point(12, 38);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(449, 76);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
@@ -283,7 +283,7 @@
             this.rbPasaporte.AutoSize = true;
             this.rbPasaporte.Font = new System.Drawing.Font("Gill Sans MT", 9.75F);
             this.rbPasaporte.Location = new System.Drawing.Point(331, 32);
-            this.rbPasaporte.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbPasaporte.Margin = new System.Windows.Forms.Padding(4);
             this.rbPasaporte.Name = "rbPasaporte";
             this.rbPasaporte.Size = new System.Drawing.Size(102, 29);
             this.rbPasaporte.TabIndex = 2;
@@ -296,7 +296,7 @@
             this.rbCarnet.AutoSize = true;
             this.rbCarnet.Font = new System.Drawing.Font("Gill Sans MT", 9.75F);
             this.rbCarnet.Location = new System.Drawing.Point(121, 32);
-            this.rbCarnet.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbCarnet.Margin = new System.Windows.Forms.Padding(4);
             this.rbCarnet.Name = "rbCarnet";
             this.rbCarnet.Size = new System.Drawing.Size(180, 29);
             this.rbCarnet.TabIndex = 1;
@@ -309,7 +309,7 @@
             this.rbDNI.AutoSize = true;
             this.rbDNI.Font = new System.Drawing.Font("Gill Sans MT", 9.75F);
             this.rbDNI.Location = new System.Drawing.Point(37, 32);
-            this.rbDNI.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbDNI.Margin = new System.Windows.Forms.Padding(4);
             this.rbDNI.Name = "rbDNI";
             this.rbDNI.Size = new System.Drawing.Size(63, 29);
             this.rbDNI.TabIndex = 0;
@@ -331,9 +331,9 @@
             this.groupBox2.Controls.Add(this.lblHomephone);
             this.groupBox2.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(549, 96);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(477, 277);
             this.groupBox2.TabIndex = 173;
             this.groupBox2.TabStop = false;
@@ -344,7 +344,7 @@
             this.cbEsInactivo.AutoSize = true;
             this.cbEsInactivo.Font = new System.Drawing.Font("Gill Sans MT", 9.75F);
             this.cbEsInactivo.Location = new System.Drawing.Point(152, 233);
-            this.cbEsInactivo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbEsInactivo.Margin = new System.Windows.Forms.Padding(4);
             this.cbEsInactivo.Name = "cbEsInactivo";
             this.cbEsInactivo.Size = new System.Drawing.Size(249, 29);
             this.cbEsInactivo.TabIndex = 181;
@@ -365,7 +365,7 @@
             // txtCellphone
             // 
             this.txtCellphone.Location = new System.Drawing.Point(152, 50);
-            this.txtCellphone.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCellphone.Margin = new System.Windows.Forms.Padding(4);
             this.txtCellphone.Name = "txtCellphone";
             this.txtCellphone.Size = new System.Drawing.Size(227, 31);
             this.txtCellphone.TabIndex = 173;
@@ -373,7 +373,7 @@
             // txtEmail
             // 
             this.txtEmail.Location = new System.Drawing.Point(152, 169);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(227, 31);
             this.txtEmail.TabIndex = 179;
@@ -403,7 +403,7 @@
             // txtHomephone
             // 
             this.txtHomephone.Location = new System.Drawing.Point(152, 90);
-            this.txtHomephone.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtHomephone.Margin = new System.Windows.Forms.Padding(4);
             this.txtHomephone.Name = "txtHomephone";
             this.txtHomephone.Size = new System.Drawing.Size(227, 31);
             this.txtHomephone.TabIndex = 175;
@@ -411,7 +411,7 @@
             // txtEmailPUCP
             // 
             this.txtEmailPUCP.Location = new System.Drawing.Point(152, 129);
-            this.txtEmailPUCP.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEmailPUCP.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmailPUCP.Name = "txtEmailPUCP";
             this.txtEmailPUCP.Size = new System.Drawing.Size(227, 31);
             this.txtEmailPUCP.TabIndex = 177;
@@ -436,7 +436,7 @@
             this.btnSave.Font = new System.Drawing.Font("Gill Sans MT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
             this.btnSave.Location = new System.Drawing.Point(404, 605);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(272, 53);
             this.btnSave.TabIndex = 174;
@@ -450,29 +450,13 @@
             this.gbCursos.Controls.Add(this.dgvInterestedCourses);
             this.gbCursos.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbCursos.Location = new System.Drawing.Point(549, 380);
-            this.gbCursos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbCursos.Margin = new System.Windows.Forms.Padding(4);
             this.gbCursos.Name = "gbCursos";
-            this.gbCursos.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbCursos.Padding = new System.Windows.Forms.Padding(4);
             this.gbCursos.Size = new System.Drawing.Size(477, 199);
             this.gbCursos.TabIndex = 175;
             this.gbCursos.TabStop = false;
             this.gbCursos.Text = "Cursos de interés";
-            // 
-            // dgvInterestedCourses
-            // 
-            this.dgvInterestedCourses.AllowUserToAddRows = false;
-            this.dgvInterestedCourses.AllowUserToDeleteRows = false;
-            this.dgvInterestedCourses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvInterestedCourses.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.cNombre});
-            this.dgvInterestedCourses.Location = new System.Drawing.Point(8, 75);
-            this.dgvInterestedCourses.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.dgvInterestedCourses.Name = "dgvInterestedCourses";
-            this.dgvInterestedCourses.ReadOnly = true;
-            this.dgvInterestedCourses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvInterestedCourses.Size = new System.Drawing.Size(461, 117);
-            this.dgvInterestedCourses.TabIndex = 0;
-            this.dgvInterestedCourses.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvInterestedCourses_CellContentClick);
             // 
             // btBuscarCursos
             // 
@@ -484,6 +468,22 @@
             this.btBuscarCursos.Text = "Escoger cursos";
             this.btBuscarCursos.UseVisualStyleBackColor = true;
             this.btBuscarCursos.Click += new System.EventHandler(this.BtBuscarCursos_Click);
+            // 
+            // dgvInterestedCourses
+            // 
+            this.dgvInterestedCourses.AllowUserToAddRows = false;
+            this.dgvInterestedCourses.AllowUserToDeleteRows = false;
+            this.dgvInterestedCourses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvInterestedCourses.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.cNombre});
+            this.dgvInterestedCourses.Location = new System.Drawing.Point(8, 75);
+            this.dgvInterestedCourses.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvInterestedCourses.Name = "dgvInterestedCourses";
+            this.dgvInterestedCourses.ReadOnly = true;
+            this.dgvInterestedCourses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvInterestedCourses.Size = new System.Drawing.Size(461, 117);
+            this.dgvInterestedCourses.TabIndex = 0;
+            this.dgvInterestedCourses.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvInterestedCourses_CellContentClick);
             // 
             // cNombre
             // 
@@ -497,7 +497,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.AliceBlue;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.Controls.Add(this.gbCursos);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.groupBox2);
