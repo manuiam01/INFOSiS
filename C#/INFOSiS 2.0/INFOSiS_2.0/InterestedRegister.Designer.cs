@@ -50,7 +50,6 @@
             this.rbCarnet = new System.Windows.Forms.RadioButton();
             this.rbDNI = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.cbEsInactivo = new System.Windows.Forms.CheckBox();
             this.lblEmail = new System.Windows.Forms.Label();
             this.txtCellphone = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
@@ -320,7 +319,6 @@
             // groupBox2
             // 
             this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.groupBox2.Controls.Add(this.cbEsInactivo);
             this.groupBox2.Controls.Add(this.lblEmail);
             this.groupBox2.Controls.Add(this.txtCellphone);
             this.groupBox2.Controls.Add(this.txtEmail);
@@ -333,12 +331,18 @@
             this.groupBox2.Location = new System.Drawing.Point(549, 96);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
+<<<<<<< HEAD
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(477, 277);
+=======
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Size = new System.Drawing.Size(477, 212);
+>>>>>>> 9762334a6cf2c12a736918e5ab07e065cd982d38
             this.groupBox2.TabIndex = 173;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos de contacto";
             // 
+<<<<<<< HEAD
             // cbEsInactivo
             // 
             this.cbEsInactivo.AutoSize = true;
@@ -351,6 +355,8 @@
             this.cbEsInactivo.Text = "No quiero recibir más correos";
             this.cbEsInactivo.UseVisualStyleBackColor = true;
             // 
+=======
+>>>>>>> 9762334a6cf2c12a736918e5ab07e065cd982d38
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
@@ -449,11 +455,19 @@
             this.gbCursos.Controls.Add(this.btBuscarCursos);
             this.gbCursos.Controls.Add(this.dgvInterestedCourses);
             this.gbCursos.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+<<<<<<< HEAD
             this.gbCursos.Location = new System.Drawing.Point(549, 380);
             this.gbCursos.Margin = new System.Windows.Forms.Padding(4);
             this.gbCursos.Name = "gbCursos";
             this.gbCursos.Padding = new System.Windows.Forms.Padding(4);
             this.gbCursos.Size = new System.Drawing.Size(477, 199);
+=======
+            this.gbCursos.Location = new System.Drawing.Point(549, 316);
+            this.gbCursos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbCursos.Name = "gbCursos";
+            this.gbCursos.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbCursos.Size = new System.Drawing.Size(477, 263);
+>>>>>>> 9762334a6cf2c12a736918e5ab07e065cd982d38
             this.gbCursos.TabIndex = 175;
             this.gbCursos.TabStop = false;
             this.gbCursos.Text = "Cursos de interés";
@@ -481,7 +495,7 @@
             this.dgvInterestedCourses.Name = "dgvInterestedCourses";
             this.dgvInterestedCourses.ReadOnly = true;
             this.dgvInterestedCourses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvInterestedCourses.Size = new System.Drawing.Size(461, 117);
+            this.dgvInterestedCourses.Size = new System.Drawing.Size(461, 180);
             this.dgvInterestedCourses.TabIndex = 0;
             this.dgvInterestedCourses.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvInterestedCourses_CellContentClick);
             // 
@@ -551,7 +565,6 @@
         private System.Windows.Forms.TextBox txtHomephone;
         private System.Windows.Forms.TextBox txtEmailPUCP;
         private System.Windows.Forms.Label lblHomephone;
-        private System.Windows.Forms.CheckBox cbEsInactivo;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.GroupBox gbCursos;
         private System.Windows.Forms.DataGridView dgvInterestedCourses;

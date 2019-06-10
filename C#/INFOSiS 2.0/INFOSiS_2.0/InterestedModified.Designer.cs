@@ -1,6 +1,6 @@
 ﻿namespace INFOSiS_2._0
 {
-    partial class InterestedSearch
+    partial class InterestedModified
     {
         /// <summary> 
         /// Variable del diseñador necesaria.
@@ -28,19 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.lblInterestedRegister = new System.Windows.Forms.Label();
             this.SuspendLayout();
+            // 
+            // lblInterestedRegister
+            // 
+            this.lblInterestedRegister.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblInterestedRegister.Font = new System.Drawing.Font("Gill Sans MT", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInterestedRegister.Location = new System.Drawing.Point(13, 26);
+            this.lblInterestedRegister.Name = "lblInterestedRegister";
+            this.lblInterestedRegister.Size = new System.Drawing.Size(477, 59);
+            this.lblInterestedRegister.TabIndex = 172;
+            this.lblInterestedRegister.Text = "Modificar interesado";
             // 
             // InterestedSearch
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.AliceBlue;
+            this.Controls.Add(this.lblInterestedRegister);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "InterestedSearch";
-            this.Size = new System.Drawing.Size(814, 566);
+            this.Size = new System.Drawing.Size(1085, 697);
             this.Load += new System.EventHandler(this.InterestedSearch_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Label lblInterestedRegister;
     }
 }

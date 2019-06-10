@@ -44,18 +44,18 @@ namespace INFOSiS_2._0
             {
                 PanelMdi.Controls.Remove(item);
             }
-            if (!PanelMdi.Controls.Contains(InterestedSearch.Instance))
+            if (!PanelMdi.Controls.Contains(InterestedModified.Instance))
             {
                 PanelMdi.Controls.Add(InterestedRegister.Instance);
                 InterestedRegister.Instance.Dock = DockStyle.Fill;
-                InterestedSearch.PanelMdi = PanelMdi;
-                InterestedSearch.Instance.Visible = true;
-                InterestedSearch.Instance.BringToFront();
+                InterestedModified.PanelMdi = PanelMdi;
+                InterestedModified.Instance.Visible = true;
+                InterestedModified.Instance.BringToFront();
             }
             else
             {
-                InterestedSearch.Instance.Visible = true;
-                InterestedSearch.Instance.BringToFront();
+                InterestedModified.Instance.Visible = true;
+                InterestedModified.Instance.BringToFront();
             }
         }
         public void actualizarBotones(Button boton)
@@ -75,18 +75,18 @@ namespace INFOSiS_2._0
                     PanelMdi.Controls.Remove(item);
                 }
 
-                if (!PanelMdi.Controls.Contains(InterestedSearch.Instance))
+                if (!PanelMdi.Controls.Contains(InterestedModified.Instance))
                 {
-                    PanelMdi.Controls.Add(InterestedSearch.Instance);
-                    InterestedSearch.Instance.Dock = DockStyle.Fill;
-                    InterestedSearch.PanelMdi = PanelMdi;
-                    InterestedSearch.Instance.Visible = true;
-                    InterestedSearch.Instance.BringToFront();
+                    PanelMdi.Controls.Add(InterestedModified.Instance);
+                    InterestedModified.Instance.Dock = DockStyle.Fill;
+                    InterestedModified.PanelMdi = PanelMdi;
+                    InterestedModified.Instance.Visible = true;
+                    InterestedModified.Instance.BringToFront();
                 }
                 else
                 {
-                    InterestedSearch.Instance.Visible = true;
-                    InterestedSearch.Instance.BringToFront();
+                    InterestedModified.Instance.Visible = true;
+                    InterestedModified.Instance.BringToFront();
                 }
 
             }
