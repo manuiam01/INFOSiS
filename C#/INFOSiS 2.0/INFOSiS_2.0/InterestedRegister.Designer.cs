@@ -68,9 +68,7 @@
             // 
             // lblInterestedRegister
             // 
-            this.lblInterestedRegister.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblInterestedRegister.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblInterestedRegister.Font = new System.Drawing.Font("Gill Sans MT", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInterestedRegister.Location = new System.Drawing.Point(10, 21);
             this.lblInterestedRegister.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -81,6 +79,7 @@
             // 
             // gbxInterestedData
             // 
+            this.gbxInterestedData.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.gbxInterestedData.Controls.Add(this.dateNacimiento);
             this.gbxInterestedData.Controls.Add(this.rbFemale);
             this.gbxInterestedData.Controls.Add(this.rbMale);
@@ -294,6 +293,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox2.Controls.Add(this.cbEsInactivo);
             this.groupBox2.Controls.Add(this.lblEmail);
             this.groupBox2.Controls.Add(this.txtCellphone);
@@ -392,9 +392,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSave.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnSave.BackColor = System.Drawing.Color.MidnightBlue;
             this.btnSave.FlatAppearance.BorderSize = 0;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -409,9 +407,7 @@
             // 
             // button1
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button1.BackColor = System.Drawing.Color.MidnightBlue;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;

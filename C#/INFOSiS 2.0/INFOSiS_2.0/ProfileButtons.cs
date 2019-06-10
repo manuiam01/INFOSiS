@@ -34,5 +34,50 @@ namespace INFOSiS_2._0
         {
             InitializeComponent();
         }
+
+        private void BtnEditProfile_Click(object sender, EventArgs e)
+        {
+            cleanWindow();
+            if (!PanelMdi.Controls.Contains(ProfileEdit.Instance))
+            {
+                PanelMdi.Controls.Add(ProfileEdit.Instance);
+                ProfileEdit.Instance.Dock = DockStyle.Fill;
+                ProfileEdit.PanelMdi = PanelMdi;
+                ProfileEdit.Instance.Visible = true;
+                ProfileEdit.Instance.BringToFront();
+            }
+            else
+            {
+                ProfileEdit.Instance.Visible = true;
+                ProfileEdit.Instance.BringToFront();
+            }
+        }
+
+        private void BtnChangePassword_Click(object sender, EventArgs e)
+        {
+            cleanWindow();
+            if (!PanelMdi.Controls.Contains(ProfileChangePassword.Instance))
+            {
+                PanelMdi.Controls.Add(ProfileChangePassword.Instance);
+                ProfileChangePassword.Instance.Dock = DockStyle.Fill;
+                ProfileChangePassword.PanelMdi = PanelMdi;
+                ProfileChangePassword.Instance.Visible = true;
+                ProfileChangePassword.Instance.BringToFront();
+            }
+            else
+            {
+                ProfileChangePassword.Instance.Visible = true;
+                ProfileChangePassword.Instance.BringToFront();
+            }
+        }
+
+        private void cleanWindow()
+        {
+            foreach (Control item in PanelMdi.Controls.OfType<Control>())
+            {
+                PanelMdi.Controls.Remove(item);
+            }
+        }
+        
     }
 }

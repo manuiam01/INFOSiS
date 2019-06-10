@@ -46,6 +46,7 @@
             this.btnChangePassword.TabIndex = 92;
             this.btnChangePassword.Text = "Cambiar contraseña";
             this.btnChangePassword.UseVisualStyleBackColor = false;
+            this.btnChangePassword.Click += new System.EventHandler(this.BtnChangePassword_Click);
             // 
             // btnEditProfile
             // 
@@ -61,6 +62,7 @@
             this.btnEditProfile.TabIndex = 93;
             this.btnEditProfile.Text = "Editar perfil";
             this.btnEditProfile.UseVisualStyleBackColor = false;
+            this.btnEditProfile.Click += new System.EventHandler(this.BtnEditProfile_Click);
             // 
             // ProfileButtons
             // 

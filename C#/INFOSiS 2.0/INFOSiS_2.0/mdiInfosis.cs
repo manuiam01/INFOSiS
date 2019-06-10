@@ -19,8 +19,22 @@ namespace INFOSiS_2._0
             panelMdiOptions.Visible = false;
         }
 
+        public void cleanWindow()
+        {
+            foreach (Control item in panelMdiInfosis.Controls.OfType<Control>())
+            {
+                panelMdiInfosis.Controls.Remove(item);
+            }
+
+            foreach (Control item in panelMdiOptions.Controls.OfType<Control>())
+            {
+                panelMdiOptions.Controls.Remove(item);
+            }
+        }
+
         private void btnProfessor_Click(object sender, EventArgs e)
         {
+            cleanWindow();
             panelMdiOptions.Visible = true;
             if (!panelMdiInfosis.Controls.Contains(ProfessorRegister.Instance))
             {
@@ -53,13 +67,13 @@ namespace INFOSiS_2._0
 
         private void btnStudent_Click(object sender, EventArgs e)
         {
-            panelMdiOptions.Visible = true;
-            
+            cleanWindow();
+                        
         }
 
         private void BtnInterested_Click(object sender, EventArgs e)
         {
-            limpiarVistas();
+            cleanWindow();
             panelMdiOptions.Visible = true;
             if (!panelMdiInfosis.Controls.Contains(InterestedRegister.Instance))
             {
@@ -91,31 +105,22 @@ namespace INFOSiS_2._0
 
         }
         
-
-        //Para limpiar o desaparecer las demás vistas, si piensan que hay mejor formar de hacer eso
-        //agreguenlo o eliminen el limpiar vistas si no lo ven necesario jeje
-        public void limpiarVistas()
-        {
-            ProfessorButtons.Instance.Visible = false;
-            ProfessorRegister.Instance.Visible = false;
-            //StudentButtons.Instance.Visible = false;
-            //InterestedButtons.Instance.Visible = false;
-        }
-
         private void BtnProfile_Click(object sender, EventArgs e)
         {
-            if (!panelMdiInfosis.Controls.Contains(ProfessorRegister.Instance))
+            cleanWindow();
+            panelMdiOptions.Visible = true;
+            if (!panelMdiInfosis.Controls.Contains(ProfileEdit.Instance))
             {
-                panelMdiInfosis.Controls.Add(ProfessorRegister.Instance);
-                ProfessorRegister.Instance.Dock = DockStyle.Fill;
-                ProfessorRegister.PanelMdi = panelMdiInfosis;
-                ProfessorRegister.Instance.Visible = true;
-                ProfessorRegister.Instance.BringToFront();
+                panelMdiInfosis.Controls.Add(ProfileEdit.Instance);
+                ProfileEdit.Instance.Dock = DockStyle.Fill;
+                ProfileEdit.PanelMdi = panelMdiInfosis;
+                ProfileEdit.Instance.Visible = true;
+                ProfileEdit.Instance.BringToFront();
             }
             else
             {
-                ProfessorRegister.Instance.Visible = true;
-                ProfessorRegister.Instance.BringToFront();
+                ProfileEdit.Instance.Visible = true;
+                ProfileEdit.Instance.BringToFront();
             }
 
             if (!panelMdiOptions.Controls.Contains(ProfileButtons.Instance))
@@ -131,6 +136,16 @@ namespace INFOSiS_2._0
                 ProfileButtons.Instance.Visible = true;
                 ProfileButtons.Instance.BringToFront();
             }
+        }
+
+        private void BtnCourse_Click(object sender, EventArgs e)
+        {
+            cleanWindow();
+        }
+
+        private void BtnInterns_Click(object sender, EventArgs e)
+        {
+            cleanWindow();
         }
     }
 }

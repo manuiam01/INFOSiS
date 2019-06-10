@@ -108,6 +108,12 @@
     <Compile Include="ProfileButtons.Designer.cs">
       <DependentUpon>ProfileButtons.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProfileChangePassword.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ProfileChangePassword.Designer.cs">
+      <DependentUpon>ProfileChangePassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProfileEdit.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -155,6 +161,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ProfileButtons.resx">
       <DependentUpon>ProfileButtons.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProfileChangePassword.resx">
+      <DependentUpon>ProfileChangePassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProfileEdit.resx">
       <DependentUpon>ProfileEdit.cs</DependentUpon>

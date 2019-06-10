@@ -61,11 +61,7 @@ namespace INFOSiS_2._0
 
         private void BtnNew_Click(object sender, EventArgs e)
         {
-            foreach (Control item in PanelMdi.Controls.OfType<Control>())
-            {
-                PanelMdi.Controls.Remove(item);
-            }
-
+            cleanWindow();
             if (!PanelMdi.Controls.Contains(ProfessorRegister.Instance))
             {
                 PanelMdi.Controls.Add(ProfessorRegister.Instance);
@@ -83,11 +79,7 @@ namespace INFOSiS_2._0
 
         private void BtnReporte_Click(object sender, EventArgs e)
         {
-            foreach (Control item in PanelMdi.Controls.OfType<Control>())
-            {
-                PanelMdi.Controls.Remove(item);
-            }
-
+            cleanWindow();
             if (!PanelMdi.Controls.Contains(ProfessorReport.Instance))
             {
                 PanelMdi.Controls.Add(ProfessorReport.Instance);
@@ -102,6 +94,14 @@ namespace INFOSiS_2._0
                 ProfessorReport.Instance.BringToFront();
             }
 
+        }
+
+        private void cleanWindow()
+        {
+            foreach (Control item in PanelMdi.Controls.OfType<Control>())
+            {
+                PanelMdi.Controls.Remove(item);
+            }
         }
     }
 }

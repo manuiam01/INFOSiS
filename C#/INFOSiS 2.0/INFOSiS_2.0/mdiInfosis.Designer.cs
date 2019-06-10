@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.panelHeader = new System.Windows.Forms.Panel();
-            this.lblInfosis = new System.Windows.Forms.Label();
-            this.panelMdiOptions = new System.Windows.Forms.Panel();
-            this.panelMdiInfosis = new System.Windows.Forms.Panel();
             this.btnProfessor = new System.Windows.Forms.Button();
             this.btnStudent = new System.Windows.Forms.Button();
             this.btnInterested = new System.Windows.Forms.Button();
             this.btnCourse = new System.Windows.Forms.Button();
             this.btnInterns = new System.Windows.Forms.Button();
             this.btnProfile = new System.Windows.Forms.Button();
+            this.lblInfosis = new System.Windows.Forms.Label();
+            this.panelMdiOptions = new System.Windows.Forms.Panel();
+            this.panelMdiInfosis = new System.Windows.Forms.Panel();
             this.panelHeader.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,36 +57,6 @@
             this.panelHeader.Name = "panelHeader";
             this.panelHeader.Size = new System.Drawing.Size(1070, 117);
             this.panelHeader.TabIndex = 0;
-            // 
-            // lblInfosis
-            // 
-            this.lblInfosis.AutoSize = true;
-            this.lblInfosis.Font = new System.Drawing.Font("Gill Sans MT", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInfosis.ForeColor = System.Drawing.Color.White;
-            this.lblInfosis.Location = new System.Drawing.Point(2, 19);
-            this.lblInfosis.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblInfosis.Name = "lblInfosis";
-            this.lblInfosis.Size = new System.Drawing.Size(272, 93);
-            this.lblInfosis.TabIndex = 0;
-            this.lblInfosis.Text = "INFOSiS";
-            // 
-            // panelMdiOptions
-            // 
-            this.panelMdiOptions.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.panelMdiOptions.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelMdiOptions.Location = new System.Drawing.Point(0, 117);
-            this.panelMdiOptions.Margin = new System.Windows.Forms.Padding(2);
-            this.panelMdiOptions.Name = "panelMdiOptions";
-            this.panelMdiOptions.Size = new System.Drawing.Size(259, 566);
-            this.panelMdiOptions.TabIndex = 92;
-            // 
-            // panelMdiInfosis
-            // 
-            this.panelMdiInfosis.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMdiInfosis.Location = new System.Drawing.Point(259, 117);
-            this.panelMdiInfosis.Name = "panelMdiInfosis";
-            this.panelMdiInfosis.Size = new System.Drawing.Size(811, 566);
-            this.panelMdiInfosis.TabIndex = 93;
             // 
             // btnProfessor
             // 
@@ -146,6 +116,7 @@
             this.btnCourse.Text = "Cursos";
             this.btnCourse.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnCourse.UseVisualStyleBackColor = true;
+            this.btnCourse.Click += new System.EventHandler(this.BtnCourse_Click);
             // 
             // btnInterns
             // 
@@ -160,6 +131,7 @@
             this.btnInterns.Text = "Personal";
             this.btnInterns.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnInterns.UseVisualStyleBackColor = true;
+            this.btnInterns.Click += new System.EventHandler(this.BtnInterns_Click);
             // 
             // btnProfile
             // 
@@ -175,6 +147,36 @@
             this.btnProfile.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnProfile.UseVisualStyleBackColor = true;
             this.btnProfile.Click += new System.EventHandler(this.BtnProfile_Click);
+            // 
+            // lblInfosis
+            // 
+            this.lblInfosis.AutoSize = true;
+            this.lblInfosis.Font = new System.Drawing.Font("Gill Sans MT", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInfosis.ForeColor = System.Drawing.Color.White;
+            this.lblInfosis.Location = new System.Drawing.Point(2, 19);
+            this.lblInfosis.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblInfosis.Name = "lblInfosis";
+            this.lblInfosis.Size = new System.Drawing.Size(272, 93);
+            this.lblInfosis.TabIndex = 0;
+            this.lblInfosis.Text = "INFOSiS";
+            // 
+            // panelMdiOptions
+            // 
+            this.panelMdiOptions.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.panelMdiOptions.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelMdiOptions.Location = new System.Drawing.Point(0, 117);
+            this.panelMdiOptions.Margin = new System.Windows.Forms.Padding(2);
+            this.panelMdiOptions.Name = "panelMdiOptions";
+            this.panelMdiOptions.Size = new System.Drawing.Size(259, 566);
+            this.panelMdiOptions.TabIndex = 92;
+            // 
+            // panelMdiInfosis
+            // 
+            this.panelMdiInfosis.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelMdiInfosis.Location = new System.Drawing.Point(259, 117);
+            this.panelMdiInfosis.Name = "panelMdiInfosis";
+            this.panelMdiInfosis.Size = new System.Drawing.Size(811, 566);
+            this.panelMdiInfosis.TabIndex = 93;
             // 
             // MdiInfosis
             // 
