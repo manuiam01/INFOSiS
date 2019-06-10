@@ -30,10 +30,14 @@
         {
             this.lblInterestedRegister = new System.Windows.Forms.Label();
             this.gbxInterestedData = new System.Windows.Forms.GroupBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.rbDNI = new System.Windows.Forms.RadioButton();
-            this.rbCarnet = new System.Windows.Forms.RadioButton();
-            this.rbPasaporte = new System.Windows.Forms.RadioButton();
+            this.dateNacimiento = new System.Windows.Forms.DateTimePicker();
+            this.rbFemale = new System.Windows.Forms.RadioButton();
+            this.rbMale = new System.Windows.Forms.RadioButton();
+            this.txbApeMa = new System.Windows.Forms.TextBox();
+            this.txbApePa = new System.Windows.Forms.TextBox();
+            this.txbSegundoNom = new System.Windows.Forms.TextBox();
+            this.txbNombre = new System.Windows.Forms.TextBox();
+            this.txbNDocumento = new System.Windows.Forms.TextBox();
             this.lblDocumentNumber = new System.Windows.Forms.Label();
             this.lblFirstName = new System.Windows.Forms.Label();
             this.lblSecondName = new System.Windows.Forms.Label();
@@ -41,24 +45,22 @@
             this.lblSecondLastName = new System.Windows.Forms.Label();
             this.lblBirthday = new System.Windows.Forms.Label();
             this.lblGender = new System.Windows.Forms.Label();
-            this.txbNDocumento = new System.Windows.Forms.TextBox();
-            this.txbNombre = new System.Windows.Forms.TextBox();
-            this.txbSegundoNom = new System.Windows.Forms.TextBox();
-            this.txbApePa = new System.Windows.Forms.TextBox();
-            this.txbApeMa = new System.Windows.Forms.TextBox();
-            this.rbMale = new System.Windows.Forms.RadioButton();
-            this.rbFemale = new System.Windows.Forms.RadioButton();
-            this.dateNacimiento = new System.Windows.Forms.DateTimePicker();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rbPasaporte = new System.Windows.Forms.RadioButton();
+            this.rbCarnet = new System.Windows.Forms.RadioButton();
+            this.rbDNI = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cbEsInactivo = new System.Windows.Forms.CheckBox();
             this.lblEmail = new System.Windows.Forms.Label();
             this.txtCellphone = new System.Windows.Forms.TextBox();
-            this.lblCellphone = new System.Windows.Forms.Label();
-            this.txtHomephone = new System.Windows.Forms.TextBox();
-            this.lblHomephone = new System.Windows.Forms.Label();
-            this.txtEmailPUCP = new System.Windows.Forms.TextBox();
-            this.lblEmailPUCP = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
-            this.cbEsInactivo = new System.Windows.Forms.CheckBox();
+            this.lblCellphone = new System.Windows.Forms.Label();
+            this.lblEmailPUCP = new System.Windows.Forms.Label();
+            this.txtHomephone = new System.Windows.Forms.TextBox();
+            this.txtEmailPUCP = new System.Windows.Forms.TextBox();
+            this.lblHomephone = new System.Windows.Forms.Label();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.gbxInterestedData.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -98,59 +100,78 @@
             this.gbxInterestedData.Font = new System.Drawing.Font("Gill Sans MT", 12F);
             this.gbxInterestedData.Location = new System.Drawing.Point(8, 85);
             this.gbxInterestedData.Name = "gbxInterestedData";
-            this.gbxInterestedData.Size = new System.Drawing.Size(388, 380);
+            this.gbxInterestedData.Size = new System.Drawing.Size(388, 341);
             this.gbxInterestedData.TabIndex = 172;
             this.gbxInterestedData.TabStop = false;
             this.gbxInterestedData.Text = "Datos Personales";
             // 
-            // groupBox1
+            // dateNacimiento
             // 
-            this.groupBox1.Controls.Add(this.rbPasaporte);
-            this.groupBox1.Controls.Add(this.rbCarnet);
-            this.groupBox1.Controls.Add(this.rbDNI);
-            this.groupBox1.Font = new System.Drawing.Font("Gill Sans MT", 10F);
-            this.groupBox1.Location = new System.Drawing.Point(9, 31);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(337, 62);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Tipo de Documento";
+            this.dateNacimiento.CalendarFont = new System.Drawing.Font("Gill Sans MT", 10F);
+            this.dateNacimiento.Font = new System.Drawing.Font("Gill Sans MT", 9.75F);
+            this.dateNacimiento.Location = new System.Drawing.Point(151, 295);
+            this.dateNacimiento.Name = "dateNacimiento";
+            this.dateNacimiento.Size = new System.Drawing.Size(223, 23);
+            this.dateNacimiento.TabIndex = 172;
             // 
-            // rbDNI
+            // rbFemale
             // 
-            this.rbDNI.AutoSize = true;
-            this.rbDNI.Font = new System.Drawing.Font("Gill Sans MT", 9.75F);
-            this.rbDNI.Location = new System.Drawing.Point(28, 26);
-            this.rbDNI.Name = "rbDNI";
-            this.rbDNI.Size = new System.Drawing.Size(49, 22);
-            this.rbDNI.TabIndex = 0;
-            this.rbDNI.TabStop = true;
-            this.rbDNI.Text = "DNI";
-            this.rbDNI.UseVisualStyleBackColor = true;
+            this.rbFemale.AutoSize = true;
+            this.rbFemale.Font = new System.Drawing.Font("Gill Sans MT", 9.75F);
+            this.rbFemale.Location = new System.Drawing.Point(227, 266);
+            this.rbFemale.Name = "rbFemale";
+            this.rbFemale.Size = new System.Drawing.Size(57, 22);
+            this.rbFemale.TabIndex = 171;
+            this.rbFemale.TabStop = true;
+            this.rbFemale.Text = "Mujer";
+            this.rbFemale.UseVisualStyleBackColor = true;
             // 
-            // rbCarnet
+            // rbMale
             // 
-            this.rbCarnet.AutoSize = true;
-            this.rbCarnet.Font = new System.Drawing.Font("Gill Sans MT", 9.75F);
-            this.rbCarnet.Location = new System.Drawing.Point(91, 26);
-            this.rbCarnet.Name = "rbCarnet";
-            this.rbCarnet.Size = new System.Drawing.Size(139, 22);
-            this.rbCarnet.TabIndex = 1;
-            this.rbCarnet.TabStop = true;
-            this.rbCarnet.Text = "Carné de Extranjería";
-            this.rbCarnet.UseVisualStyleBackColor = true;
+            this.rbMale.AutoSize = true;
+            this.rbMale.Font = new System.Drawing.Font("Gill Sans MT", 9.75F);
+            this.rbMale.Location = new System.Drawing.Point(151, 266);
+            this.rbMale.Name = "rbMale";
+            this.rbMale.Size = new System.Drawing.Size(70, 22);
+            this.rbMale.TabIndex = 170;
+            this.rbMale.TabStop = true;
+            this.rbMale.Text = "Hombre";
+            this.rbMale.UseVisualStyleBackColor = true;
             // 
-            // rbPasaporte
+            // txbApeMa
             // 
-            this.rbPasaporte.AutoSize = true;
-            this.rbPasaporte.Font = new System.Drawing.Font("Gill Sans MT", 9.75F);
-            this.rbPasaporte.Location = new System.Drawing.Point(248, 26);
-            this.rbPasaporte.Name = "rbPasaporte";
-            this.rbPasaporte.Size = new System.Drawing.Size(79, 22);
-            this.rbPasaporte.TabIndex = 2;
-            this.rbPasaporte.TabStop = true;
-            this.rbPasaporte.Text = "Pasaporte";
-            this.rbPasaporte.UseVisualStyleBackColor = true;
+            this.txbApeMa.Location = new System.Drawing.Point(150, 234);
+            this.txbApeMa.Name = "txbApeMa";
+            this.txbApeMa.Size = new System.Drawing.Size(191, 26);
+            this.txbApeMa.TabIndex = 169;
+            // 
+            // txbApePa
+            // 
+            this.txbApePa.Location = new System.Drawing.Point(150, 202);
+            this.txbApePa.Name = "txbApePa";
+            this.txbApePa.Size = new System.Drawing.Size(191, 26);
+            this.txbApePa.TabIndex = 168;
+            // 
+            // txbSegundoNom
+            // 
+            this.txbSegundoNom.Location = new System.Drawing.Point(151, 169);
+            this.txbSegundoNom.Name = "txbSegundoNom";
+            this.txbSegundoNom.Size = new System.Drawing.Size(191, 26);
+            this.txbSegundoNom.TabIndex = 167;
+            // 
+            // txbNombre
+            // 
+            this.txbNombre.Location = new System.Drawing.Point(150, 137);
+            this.txbNombre.Name = "txbNombre";
+            this.txbNombre.Size = new System.Drawing.Size(191, 26);
+            this.txbNombre.TabIndex = 166;
+            // 
+            // txbNDocumento
+            // 
+            this.txbNDocumento.Location = new System.Drawing.Point(150, 104);
+            this.txbNDocumento.Name = "txbNDocumento";
+            this.txbNDocumento.Size = new System.Drawing.Size(191, 26);
+            this.txbNDocumento.TabIndex = 165;
             // 
             // lblDocumentNumber
             // 
@@ -222,73 +243,54 @@
             this.lblGender.TabIndex = 163;
             this.lblGender.Text = "Sexo:";
             // 
-            // txbNDocumento
+            // groupBox1
             // 
-            this.txbNDocumento.Location = new System.Drawing.Point(150, 104);
-            this.txbNDocumento.Name = "txbNDocumento";
-            this.txbNDocumento.Size = new System.Drawing.Size(191, 26);
-            this.txbNDocumento.TabIndex = 165;
+            this.groupBox1.Controls.Add(this.rbPasaporte);
+            this.groupBox1.Controls.Add(this.rbCarnet);
+            this.groupBox1.Controls.Add(this.rbDNI);
+            this.groupBox1.Font = new System.Drawing.Font("Gill Sans MT", 10F);
+            this.groupBox1.Location = new System.Drawing.Point(9, 31);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(337, 62);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Tipo de Documento";
             // 
-            // txbNombre
+            // rbPasaporte
             // 
-            this.txbNombre.Location = new System.Drawing.Point(150, 137);
-            this.txbNombre.Name = "txbNombre";
-            this.txbNombre.Size = new System.Drawing.Size(191, 26);
-            this.txbNombre.TabIndex = 166;
+            this.rbPasaporte.AutoSize = true;
+            this.rbPasaporte.Font = new System.Drawing.Font("Gill Sans MT", 9.75F);
+            this.rbPasaporte.Location = new System.Drawing.Point(248, 26);
+            this.rbPasaporte.Name = "rbPasaporte";
+            this.rbPasaporte.Size = new System.Drawing.Size(79, 22);
+            this.rbPasaporte.TabIndex = 2;
+            this.rbPasaporte.TabStop = true;
+            this.rbPasaporte.Text = "Pasaporte";
+            this.rbPasaporte.UseVisualStyleBackColor = true;
             // 
-            // txbSegundoNom
+            // rbCarnet
             // 
-            this.txbSegundoNom.Location = new System.Drawing.Point(151, 169);
-            this.txbSegundoNom.Name = "txbSegundoNom";
-            this.txbSegundoNom.Size = new System.Drawing.Size(191, 26);
-            this.txbSegundoNom.TabIndex = 167;
+            this.rbCarnet.AutoSize = true;
+            this.rbCarnet.Font = new System.Drawing.Font("Gill Sans MT", 9.75F);
+            this.rbCarnet.Location = new System.Drawing.Point(91, 26);
+            this.rbCarnet.Name = "rbCarnet";
+            this.rbCarnet.Size = new System.Drawing.Size(139, 22);
+            this.rbCarnet.TabIndex = 1;
+            this.rbCarnet.TabStop = true;
+            this.rbCarnet.Text = "Carné de Extranjería";
+            this.rbCarnet.UseVisualStyleBackColor = true;
             // 
-            // txbApePa
+            // rbDNI
             // 
-            this.txbApePa.Location = new System.Drawing.Point(150, 202);
-            this.txbApePa.Name = "txbApePa";
-            this.txbApePa.Size = new System.Drawing.Size(191, 26);
-            this.txbApePa.TabIndex = 168;
-            // 
-            // txbApeMa
-            // 
-            this.txbApeMa.Location = new System.Drawing.Point(150, 234);
-            this.txbApeMa.Name = "txbApeMa";
-            this.txbApeMa.Size = new System.Drawing.Size(191, 26);
-            this.txbApeMa.TabIndex = 169;
-            // 
-            // rbMale
-            // 
-            this.rbMale.AutoSize = true;
-            this.rbMale.Font = new System.Drawing.Font("Gill Sans MT", 9.75F);
-            this.rbMale.Location = new System.Drawing.Point(151, 266);
-            this.rbMale.Name = "rbMale";
-            this.rbMale.Size = new System.Drawing.Size(70, 22);
-            this.rbMale.TabIndex = 170;
-            this.rbMale.TabStop = true;
-            this.rbMale.Text = "Hombre";
-            this.rbMale.UseVisualStyleBackColor = true;
-            // 
-            // rbFemale
-            // 
-            this.rbFemale.AutoSize = true;
-            this.rbFemale.Font = new System.Drawing.Font("Gill Sans MT", 9.75F);
-            this.rbFemale.Location = new System.Drawing.Point(227, 266);
-            this.rbFemale.Name = "rbFemale";
-            this.rbFemale.Size = new System.Drawing.Size(57, 22);
-            this.rbFemale.TabIndex = 171;
-            this.rbFemale.TabStop = true;
-            this.rbFemale.Text = "Mujer";
-            this.rbFemale.UseVisualStyleBackColor = true;
-            // 
-            // dateNacimiento
-            // 
-            this.dateNacimiento.CalendarFont = new System.Drawing.Font("Gill Sans MT", 10F);
-            this.dateNacimiento.Font = new System.Drawing.Font("Gill Sans MT", 9.75F);
-            this.dateNacimiento.Location = new System.Drawing.Point(151, 295);
-            this.dateNacimiento.Name = "dateNacimiento";
-            this.dateNacimiento.Size = new System.Drawing.Size(223, 23);
-            this.dateNacimiento.TabIndex = 172;
+            this.rbDNI.AutoSize = true;
+            this.rbDNI.Font = new System.Drawing.Font("Gill Sans MT", 9.75F);
+            this.rbDNI.Location = new System.Drawing.Point(28, 26);
+            this.rbDNI.Name = "rbDNI";
+            this.rbDNI.Size = new System.Drawing.Size(49, 22);
+            this.rbDNI.TabIndex = 0;
+            this.rbDNI.TabStop = true;
+            this.rbDNI.Text = "DNI";
+            this.rbDNI.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
@@ -304,10 +306,21 @@
             this.groupBox2.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(412, 85);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(358, 284);
+            this.groupBox2.Size = new System.Drawing.Size(358, 341);
             this.groupBox2.TabIndex = 173;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos de contacto";
+            // 
+            // cbEsInactivo
+            // 
+            this.cbEsInactivo.AutoSize = true;
+            this.cbEsInactivo.Font = new System.Drawing.Font("Gill Sans MT", 9.75F);
+            this.cbEsInactivo.Location = new System.Drawing.Point(114, 189);
+            this.cbEsInactivo.Name = "cbEsInactivo";
+            this.cbEsInactivo.Size = new System.Drawing.Size(192, 22);
+            this.cbEsInactivo.TabIndex = 181;
+            this.cbEsInactivo.Text = "No quiero recibir más correos";
+            this.cbEsInactivo.UseVisualStyleBackColor = true;
             // 
             // lblEmail
             // 
@@ -326,6 +339,13 @@
             this.txtCellphone.Size = new System.Drawing.Size(171, 26);
             this.txtCellphone.TabIndex = 173;
             // 
+            // txtEmail
+            // 
+            this.txtEmail.Location = new System.Drawing.Point(114, 137);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(171, 26);
+            this.txtEmail.TabIndex = 179;
+            // 
             // lblCellphone
             // 
             this.lblCellphone.AutoSize = true;
@@ -335,30 +355,6 @@
             this.lblCellphone.Size = new System.Drawing.Size(50, 18);
             this.lblCellphone.TabIndex = 174;
             this.lblCellphone.Text = "Celular:";
-            // 
-            // txtHomephone
-            // 
-            this.txtHomephone.Location = new System.Drawing.Point(114, 73);
-            this.txtHomephone.Name = "txtHomephone";
-            this.txtHomephone.Size = new System.Drawing.Size(171, 26);
-            this.txtHomephone.TabIndex = 175;
-            // 
-            // lblHomephone
-            // 
-            this.lblHomephone.AutoSize = true;
-            this.lblHomephone.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHomephone.Location = new System.Drawing.Point(30, 76);
-            this.lblHomephone.Name = "lblHomephone";
-            this.lblHomephone.Size = new System.Drawing.Size(78, 18);
-            this.lblHomephone.TabIndex = 176;
-            this.lblHomephone.Text = "Teléfono fijo:";
-            // 
-            // txtEmailPUCP
-            // 
-            this.txtEmailPUCP.Location = new System.Drawing.Point(114, 105);
-            this.txtEmailPUCP.Name = "txtEmailPUCP";
-            this.txtEmailPUCP.Size = new System.Drawing.Size(171, 26);
-            this.txtEmailPUCP.TabIndex = 177;
             // 
             // lblEmailPUCP
             // 
@@ -370,28 +366,70 @@
             this.lblEmailPUCP.TabIndex = 178;
             this.lblEmailPUCP.Text = "Correo PUCP:";
             // 
-            // txtEmail
+            // txtHomephone
             // 
-            this.txtEmail.Location = new System.Drawing.Point(114, 137);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(171, 26);
-            this.txtEmail.TabIndex = 179;
+            this.txtHomephone.Location = new System.Drawing.Point(114, 73);
+            this.txtHomephone.Name = "txtHomephone";
+            this.txtHomephone.Size = new System.Drawing.Size(171, 26);
+            this.txtHomephone.TabIndex = 175;
             // 
-            // cbEsInactivo
+            // txtEmailPUCP
             // 
-            this.cbEsInactivo.AutoSize = true;
-            this.cbEsInactivo.Font = new System.Drawing.Font("Gill Sans MT", 9.75F);
-            this.cbEsInactivo.Location = new System.Drawing.Point(114, 189);
-            this.cbEsInactivo.Name = "cbEsInactivo";
-            this.cbEsInactivo.Size = new System.Drawing.Size(192, 22);
-            this.cbEsInactivo.TabIndex = 181;
-            this.cbEsInactivo.Text = "No quiero recibir más correos";
-            this.cbEsInactivo.UseVisualStyleBackColor = true;
+            this.txtEmailPUCP.Location = new System.Drawing.Point(114, 105);
+            this.txtEmailPUCP.Name = "txtEmailPUCP";
+            this.txtEmailPUCP.Size = new System.Drawing.Size(171, 26);
+            this.txtEmailPUCP.TabIndex = 177;
+            // 
+            // lblHomephone
+            // 
+            this.lblHomephone.AutoSize = true;
+            this.lblHomephone.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHomephone.Location = new System.Drawing.Point(30, 76);
+            this.lblHomephone.Name = "lblHomephone";
+            this.lblHomephone.Size = new System.Drawing.Size(78, 18);
+            this.lblHomephone.TabIndex = 176;
+            this.lblHomephone.Text = "Teléfono fijo:";
+            // 
+            // btnSave
+            // 
+            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSave.BackColor = System.Drawing.Color.MidnightBlue;
+            this.btnSave.FlatAppearance.BorderSize = 0;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Gill Sans MT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.ForeColor = System.Drawing.Color.White;
+            this.btnSave.Location = new System.Drawing.Point(150, 465);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(204, 43);
+            this.btnSave.TabIndex = 174;
+            this.btnSave.Text = "Guardar";
+            this.btnSave.UseVisualStyleBackColor = false;
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.BackColor = System.Drawing.Color.MidnightBlue;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Gill Sans MT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(412, 465);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(204, 43);
+            this.button1.TabIndex = 175;
+            this.button1.Text = "Guardar";
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // InterestedRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.gbxInterestedData);
             this.Controls.Add(this.lblInterestedRegister);
@@ -441,5 +479,7 @@
         private System.Windows.Forms.TextBox txtEmailPUCP;
         private System.Windows.Forms.Label lblHomephone;
         private System.Windows.Forms.CheckBox cbEsInactivo;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button button1;
     }
 }

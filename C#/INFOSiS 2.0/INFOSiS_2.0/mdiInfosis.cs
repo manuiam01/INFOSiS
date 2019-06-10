@@ -54,12 +54,41 @@ namespace INFOSiS_2._0
         private void btnStudent_Click(object sender, EventArgs e)
         {
             panelMdiOptions.Visible = true;
+            
         }
 
         private void BtnInterested_Click(object sender, EventArgs e)
         {
             limpiarVistas();
-            
+            panelMdiOptions.Visible = true;
+            if (!panelMdiInfosis.Controls.Contains(InterestedRegister.Instance))
+            {
+                panelMdiInfosis.Controls.Add(InterestedRegister.Instance);
+                InterestedRegister.Instance.Dock = DockStyle.Fill;
+                InterestedRegister.PanelMdi = panelMdiInfosis;
+                InterestedRegister.Instance.Visible = true;
+                InterestedRegister.Instance.BringToFront();
+            }
+            else
+            {
+                InterestedRegister.Instance.Visible = true;
+                InterestedRegister.Instance.BringToFront();
+            }
+
+            if (!panelMdiOptions.Controls.Contains(InterestedButtons.Instance))
+            {
+                panelMdiOptions.Controls.Add(InterestedButtons.Instance);
+                InterestedButtons.Instance.Dock = DockStyle.Fill;
+                InterestedButtons.PanelMdi = panelMdiInfosis;
+                InterestedButtons.Instance.Visible = true;
+                InterestedButtons.Instance.BringToFront();
+            }
+            else
+            {
+                InterestedButtons.Instance.Visible = true;
+                InterestedButtons.Instance.BringToFront();
+            }
+
         }
         
 
