@@ -21,9 +21,6 @@ namespace INFOSiS_2._0
         private void btnProfessor_Click(object sender, EventArgs e)
         {
 
-            panelMdiInfosis.Visible = true;
-            panelMdiOptions.Visible = true;
-
             if (!panelMdiInfosis.Controls.Contains(ProfessorRegister.Instance))
             {
                 panelMdiInfosis.Controls.Add(ProfessorRegister.Instance);
@@ -73,6 +70,11 @@ namespace INFOSiS_2._0
             ProfessorRegister.Instance.Visible = false;
             //StudentButtons.Instance.Visible = false;
             //InterestedButtons.Instance.Visible = false;
+        }
+
+        private void BtnProfile_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

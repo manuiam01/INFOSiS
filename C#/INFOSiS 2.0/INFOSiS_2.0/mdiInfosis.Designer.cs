@@ -144,6 +144,7 @@
             this.btnProfile.Text = "Perfil";
             this.btnProfile.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnProfile.UseVisualStyleBackColor = true;
+            this.btnProfile.Click += new System.EventHandler(this.BtnProfile_Click);
             // 
             // lblInfosis
             // 
