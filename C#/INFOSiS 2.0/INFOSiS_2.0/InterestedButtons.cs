@@ -35,6 +35,8 @@ namespace INFOSiS_2._0
 
         private void BtnNewInte_Click(object sender, EventArgs e)
         {
+
+            actualizarBotones(btnNewInte);
             foreach (Control item in PanelMdi.Controls.OfType<Control>())
             {
                 PanelMdi.Controls.Remove(item);
@@ -51,6 +53,39 @@ namespace INFOSiS_2._0
             {
                 InterestedSearch.Instance.Visible = true;
                 InterestedSearch.Instance.BringToFront();
+            }
+        }
+        public void actualizarBotones(Button boton)
+        {
+            btnNewInte.BackColor = Color.LightSteelBlue;
+            btnModificarInte.BackColor = Color.LightSteelBlue;
+            boton.BackColor = Color.LightGray;
+        }
+
+        private void BtnModificarInte_Click(object sender, EventArgs e)
+        {
+            {
+                //la verdad ni idea de que hace todo el código de abajo, pero funciona así que alv, gracias comeña :3
+                actualizarBotones(btnModificarInte);
+                foreach (Control item in PanelMdi.Controls.OfType<Control>())
+                {
+                    PanelMdi.Controls.Remove(item);
+                }
+
+                if (!PanelMdi.Controls.Contains(InterestedSearch.Instance))
+                {
+                    PanelMdi.Controls.Add(InterestedSearch.Instance);
+                    InterestedSearch.Instance.Dock = DockStyle.Fill;
+                    InterestedSearch.PanelMdi = PanelMdi;
+                    InterestedSearch.Instance.Visible = true;
+                    InterestedSearch.Instance.BringToFront();
+                }
+                else
+                {
+                    InterestedSearch.Instance.Visible = true;
+                    InterestedSearch.Instance.BringToFront();
+                }
+
             }
         }
     }
