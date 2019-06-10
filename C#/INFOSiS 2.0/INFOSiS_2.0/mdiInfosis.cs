@@ -15,6 +15,7 @@ namespace INFOSiS_2._0
         public MdiInfosis()
         {
             InitializeComponent();
+            panelMdiOptions.Visible = false;
         }
 
         private void btnProfessor_Click(object sender, EventArgs e)
@@ -59,7 +60,19 @@ namespace INFOSiS_2._0
 
         private void BtnInterested_Click(object sender, EventArgs e)
         {
-           
+            limpiarVistas();
+            
+        }
+        
+
+        //Para limpiar o desaparecer las demás vistas, si piensan que hay mejor formar de hacer eso
+        //agreguenlo o eliminen el limpiar vistas si no lo ven necesario jeje
+        public void limpiarVistas()
+        {
+            ProfessorButtons.Instance.Visible = false;
+            ProfessorRegister.Instance.Visible = false;
+            //StudentButtons.Instance.Visible = false;
+            //InterestedButtons.Instance.Visible = false;
         }
     }
 }
