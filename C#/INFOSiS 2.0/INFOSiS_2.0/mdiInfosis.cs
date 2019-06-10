@@ -15,11 +15,8 @@ namespace INFOSiS_2._0
         public MdiInfosis()
         {
             InitializeComponent();
-<<<<<<< HEAD
             WindowState = FormWindowState.Maximized;
-=======
             panelMdiOptions.Visible = false;
->>>>>>> 0d7d79a84597a0c1b2919a4c9ddafb600d7611eb
         }
 
         private void btnProfessor_Click(object sender, EventArgs e)
