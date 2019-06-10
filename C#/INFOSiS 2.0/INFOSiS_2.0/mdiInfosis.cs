@@ -15,12 +15,16 @@ namespace INFOSiS_2._0
         public MdiInfosis()
         {
             InitializeComponent();
+<<<<<<< HEAD
             WindowState = FormWindowState.Maximized;
+=======
+            panelMdiOptions.Visible = false;
+>>>>>>> 0d7d79a84597a0c1b2919a4c9ddafb600d7611eb
         }
 
         private void btnProfessor_Click(object sender, EventArgs e)
         {
-
+            panelMdiOptions.Visible = true;
             if (!panelMdiInfosis.Controls.Contains(ProfessorRegister.Instance))
             {
                 panelMdiInfosis.Controls.Add(ProfessorRegister.Instance);
@@ -52,12 +56,24 @@ namespace INFOSiS_2._0
 
         private void btnStudent_Click(object sender, EventArgs e)
         {
-            
+            panelMdiOptions.Visible = true;
         }
 
         private void BtnInterested_Click(object sender, EventArgs e)
         {
-           
+            limpiarVistas();
+            
+        }
+        
+
+        //Para limpiar o desaparecer las demás vistas, si piensan que hay mejor formar de hacer eso
+        //agreguenlo o eliminen el limpiar vistas si no lo ven necesario jeje
+        public void limpiarVistas()
+        {
+            ProfessorButtons.Instance.Visible = false;
+            ProfessorRegister.Instance.Visible = false;
+            //StudentButtons.Instance.Visible = false;
+            //InterestedButtons.Instance.Visible = false;
         }
 
         private void BtnProfile_Click(object sender, EventArgs e)
