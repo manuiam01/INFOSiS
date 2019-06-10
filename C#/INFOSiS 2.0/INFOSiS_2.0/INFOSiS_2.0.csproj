@@ -54,6 +54,12 @@
     <Compile Include="InterestedButtons.Designer.cs">
       <DependentUpon>InterestedButtons.cs</DependentUpon>
     </Compile>
+    <Compile Include="InterestedCourses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InterestedCourses.Designer.cs">
+      <DependentUpon>InterestedCourses.cs</DependentUpon>
+    </Compile>
     <Compile Include="InterestedRegister.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -134,6 +140,9 @@
   <ItemGroup>
     <EmbeddedResource Include="InterestedButtons.resx">
       <DependentUpon>InterestedButtons.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterestedCourses.resx">
+      <DependentUpon>InterestedCourses.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InterestedRegister.resx">
       <DependentUpon>InterestedRegister.cs</DependentUpon>

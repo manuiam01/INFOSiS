@@ -38,5 +38,20 @@ namespace INFOSiS_2._0
         {
 
         }
+
+        private void DgvInterestedCourses_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void BtBuscarCursos_Click(object sender, EventArgs e)
+        {
+            InterestedCourses formBuscarCursosInteresado = new InterestedCourses();
+            if (formBuscarCursosInteresado.ShowDialog() == DialogResult.OK)
+            {
+                //Acá en teoría debería de devolver todo el ArrayList de cursos para ingresarlo al dgv
+                //dgvInterestedCourses.DataSource = formBuscarCursosInteresado.}
+            }
+        }
     }
 }
