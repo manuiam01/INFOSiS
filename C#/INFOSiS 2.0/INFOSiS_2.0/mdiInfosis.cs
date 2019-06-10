@@ -15,7 +15,11 @@ namespace INFOSiS_2._0
         public MdiInfosis()
         {
             InitializeComponent();
+<<<<<<< HEAD
+            WindowState = FormWindowState.Maximized;
+=======
             panelMdiOptions.Visible = false;
+>>>>>>> 0d7d79a84597a0c1b2919a4c9ddafb600d7611eb
         }
 
         private void btnProfessor_Click(object sender, EventArgs e)
@@ -103,7 +107,33 @@ namespace INFOSiS_2._0
 
         private void BtnProfile_Click(object sender, EventArgs e)
         {
+            if (!panelMdiInfosis.Controls.Contains(ProfessorRegister.Instance))
+            {
+                panelMdiInfosis.Controls.Add(ProfessorRegister.Instance);
+                ProfessorRegister.Instance.Dock = DockStyle.Fill;
+                ProfessorRegister.PanelMdi = panelMdiInfosis;
+                ProfessorRegister.Instance.Visible = true;
+                ProfessorRegister.Instance.BringToFront();
+            }
+            else
+            {
+                ProfessorRegister.Instance.Visible = true;
+                ProfessorRegister.Instance.BringToFront();
+            }
 
+            if (!panelMdiOptions.Controls.Contains(ProfileButtons.Instance))
+            {
+                panelMdiOptions.Controls.Add(ProfileButtons.Instance);
+                ProfileButtons.Instance.Dock = DockStyle.Fill;
+                ProfileButtons.PanelMdi = panelMdiInfosis;
+                ProfileButtons.Instance.Visible = true;
+                ProfileButtons.Instance.BringToFront();
+            }
+            else
+            {
+                ProfileButtons.Instance.Visible = true;
+                ProfileButtons.Instance.BringToFront();
+            }
         }
     }
 }
