@@ -31,7 +31,7 @@ namespace INFOSiS_2._0
         public InterestedButtons()
         {
             InitializeComponent();
-            btnNewInte.BackColor = Color.LightSteelBlue;
+            btnNewInte.BackColor = Color.LightGray;
             btnModificarInte.BackColor = Color.LightSteelBlue;
 
         }
