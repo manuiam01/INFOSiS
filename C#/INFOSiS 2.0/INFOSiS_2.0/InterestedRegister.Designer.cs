@@ -61,9 +61,9 @@
             this.lblHomephone = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.gbCursos = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dgvInterestedCourses = new System.Windows.Forms.DataGridView();
             this.cId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cDisponibilidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -71,7 +71,7 @@
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.gbCursos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInterestedCourses)).BeginInit();
             this.SuspendLayout();
             // 
             // lblInterestedRegister
@@ -413,27 +413,12 @@
             this.btnSave.Text = "Guardar";
             this.btnSave.UseVisualStyleBackColor = false;
             // 
-<<<<<<< HEAD
-            // button1
-            // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button1.BackColor = System.Drawing.Color.MidnightBlue;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Gill Sans MT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(412, 465);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(204, 43);
-            this.button1.TabIndex = 175;
-            this.button1.Text = "Guardar";
-            this.button1.UseVisualStyleBackColor = false;
-=======
             // gbCursos
             // 
+            this.gbCursos.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.gbCursos.Controls.Add(this.textBox1);
             this.gbCursos.Controls.Add(this.label1);
-            this.gbCursos.Controls.Add(this.dataGridView1);
+            this.gbCursos.Controls.Add(this.dgvInterestedCourses);
             this.gbCursos.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbCursos.Location = new System.Drawing.Point(412, 309);
             this.gbCursos.Name = "gbCursos";
@@ -442,19 +427,12 @@
             this.gbCursos.TabStop = false;
             this.gbCursos.Text = "Cursos de interés";
             // 
-            // dataGridView1
+            // textBox1
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.cId,
-            this.cNombre,
-            this.cDisponibilidad});
-            this.dataGridView1.Location = new System.Drawing.Point(6, 61);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(346, 95);
-            this.dataGridView1.TabIndex = 0;
+            this.textBox1.Location = new System.Drawing.Point(56, 28);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(296, 26);
+            this.textBox1.TabIndex = 182;
             // 
             // label1
             // 
@@ -466,12 +444,19 @@
             this.label1.TabIndex = 173;
             this.label1.Text = "Curso:";
             // 
-            // textBox1
+            // dgvInterestedCourses
             // 
-            this.textBox1.Location = new System.Drawing.Point(56, 28);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(296, 26);
-            this.textBox1.TabIndex = 182;
+            this.dgvInterestedCourses.AllowUserToAddRows = false;
+            this.dgvInterestedCourses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvInterestedCourses.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.cId,
+            this.cNombre,
+            this.cDisponibilidad});
+            this.dgvInterestedCourses.Location = new System.Drawing.Point(6, 61);
+            this.dgvInterestedCourses.Name = "dgvInterestedCourses";
+            this.dgvInterestedCourses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvInterestedCourses.Size = new System.Drawing.Size(346, 95);
+            this.dgvInterestedCourses.TabIndex = 0;
             // 
             // cId
             // 
@@ -493,7 +478,6 @@
             this.cDisponibilidad.Name = "cDisponibilidad";
             this.cDisponibilidad.ReadOnly = true;
             this.cDisponibilidad.Resizable = System.Windows.Forms.DataGridViewTriState.False;
->>>>>>> 51e8a3493f893c7564208ad54f75ba9a6899fa5c
             // 
             // InterestedRegister
             // 
@@ -516,7 +500,7 @@
             this.groupBox2.PerformLayout();
             this.gbCursos.ResumeLayout(false);
             this.gbCursos.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInterestedCourses)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -556,7 +540,7 @@
         private System.Windows.Forms.CheckBox cbEsInactivo;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.GroupBox gbCursos;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvInterestedCourses;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.DataGridViewTextBoxColumn cId;
