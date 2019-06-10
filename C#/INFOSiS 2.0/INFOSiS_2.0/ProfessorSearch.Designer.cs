@@ -46,6 +46,7 @@
             // 
             // lblDocumentNumber
             // 
+            this.lblDocumentNumber.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblDocumentNumber.AutoSize = true;
             this.lblDocumentNumber.Font = new System.Drawing.Font("Gill Sans MT", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDocumentNumber.Location = new System.Drawing.Point(67, 80);
@@ -56,6 +57,7 @@
             // 
             // txtProfessorID
             // 
+            this.txtProfessorID.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtProfessorID.Location = new System.Drawing.Point(256, 80);
             this.txtProfessorID.Multiline = true;
             this.txtProfessorID.Name = "txtProfessorID";
@@ -64,6 +66,7 @@
             // 
             // lblProfessorRegister
             // 
+            this.lblProfessorRegister.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblProfessorRegister.Font = new System.Drawing.Font("Gill Sans MT", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProfessorRegister.Location = new System.Drawing.Point(20, 22);
             this.lblProfessorRegister.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -74,6 +77,7 @@
             // 
             // dgvProfessors
             // 
+            this.dgvProfessors.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dgvProfessors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProfessors.Location = new System.Drawing.Point(71, 264);
             this.dgvProfessors.Margin = new System.Windows.Forms.Padding(2);
@@ -84,6 +88,7 @@
             // 
             // btnSelect
             // 
+            this.btnSelect.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnSelect.BackColor = System.Drawing.Color.MidnightBlue;
             this.btnSelect.FlatAppearance.BorderSize = 0;
             this.btnSelect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -99,6 +104,7 @@
             // 
             // btnSearch
             // 
+            this.btnSearch.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnSearch.BackColor = System.Drawing.Color.MidnightBlue;
             this.btnSearch.FlatAppearance.BorderSize = 0;
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -113,6 +119,7 @@
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Gill Sans MT", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(159, 117);
@@ -123,6 +130,7 @@
             // 
             // txtProfessorName
             // 
+            this.txtProfessorName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtProfessorName.Location = new System.Drawing.Point(256, 117);
             this.txtProfessorName.Multiline = true;
             this.txtProfessorName.Name = "txtProfessorName";
@@ -131,6 +139,7 @@
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.Font = new System.Drawing.Font("Gill Sans MT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(66, 220);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -141,6 +150,7 @@
             // 
             // label3
             // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Gill Sans MT", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(112, 151);
@@ -151,6 +161,7 @@
             // 
             // label4
             // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Gill Sans MT", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(112, 185);
@@ -161,6 +172,7 @@
             // 
             // textBox1
             // 
+            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBox1.Location = new System.Drawing.Point(256, 151);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
@@ -169,6 +181,7 @@
             // 
             // textBox2
             // 
+            this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBox2.Location = new System.Drawing.Point(256, 185);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";

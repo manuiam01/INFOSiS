@@ -10,17 +10,17 @@ using System.Windows.Forms;
 
 namespace INFOSiS_2._0
 {
-    public partial class ProfileButtons : UserControl
+    public partial class ProfileEdit : UserControl
     {
-        private static ProfileButtons _instance;
+        private static ProfileEdit _instance;
         private static Panel _panelMdi;
 
-        public static ProfileButtons Instance
+        public static ProfileEdit Instance
         {
             get
             {
                 if (_instance == null)
-                    _instance = new ProfileButtons();
+                    _instance = new ProfileEdit();
                 return _instance;
             }
         }
@@ -30,7 +30,7 @@ namespace INFOSiS_2._0
             get => _panelMdi;
             set => _panelMdi = value;
         }
-        public ProfileButtons()
+        public ProfileEdit()
         {
             InitializeComponent();
         }
