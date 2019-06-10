@@ -60,10 +60,18 @@
             this.txtEmailPUCP = new System.Windows.Forms.TextBox();
             this.lblHomephone = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.gbCursos = new System.Windows.Forms.GroupBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.cId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cDisponibilidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbxInterestedData.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.gbCursos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblInterestedRegister
@@ -75,7 +83,7 @@
             this.lblInterestedRegister.Location = new System.Drawing.Point(10, 21);
             this.lblInterestedRegister.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblInterestedRegister.Name = "lblInterestedRegister";
-            this.lblInterestedRegister.Size = new System.Drawing.Size(361, 48);
+            this.lblInterestedRegister.Size = new System.Drawing.Size(358, 48);
             this.lblInterestedRegister.TabIndex = 171;
             this.lblInterestedRegister.Text = "Registrar un interesado";
             // 
@@ -98,9 +106,9 @@
             this.gbxInterestedData.Controls.Add(this.lblGender);
             this.gbxInterestedData.Controls.Add(this.groupBox1);
             this.gbxInterestedData.Font = new System.Drawing.Font("Gill Sans MT", 12F);
-            this.gbxInterestedData.Location = new System.Drawing.Point(8, 85);
+            this.gbxInterestedData.Location = new System.Drawing.Point(8, 78);
             this.gbxInterestedData.Name = "gbxInterestedData";
-            this.gbxInterestedData.Size = new System.Drawing.Size(388, 341);
+            this.gbxInterestedData.Size = new System.Drawing.Size(388, 393);
             this.gbxInterestedData.TabIndex = 172;
             this.gbxInterestedData.TabStop = false;
             this.gbxInterestedData.Text = "Datos Personales";
@@ -304,9 +312,9 @@
             this.groupBox2.Controls.Add(this.txtEmailPUCP);
             this.groupBox2.Controls.Add(this.lblHomephone);
             this.groupBox2.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(412, 85);
+            this.groupBox2.Location = new System.Drawing.Point(412, 78);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(358, 341);
+            this.groupBox2.Size = new System.Drawing.Size(358, 225);
             this.groupBox2.TabIndex = 173;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos de contacto";
@@ -392,49 +400,96 @@
             // 
             // btnSave
             // 
-            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSave.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnSave.BackColor = System.Drawing.Color.MidnightBlue;
             this.btnSave.FlatAppearance.BorderSize = 0;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Gill Sans MT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(150, 465);
+            this.btnSave.Location = new System.Drawing.Point(303, 487);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(204, 43);
             this.btnSave.TabIndex = 174;
             this.btnSave.Text = "Guardar";
             this.btnSave.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // gbCursos
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.BackColor = System.Drawing.Color.MidnightBlue;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Gill Sans MT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(412, 465);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(204, 43);
-            this.button1.TabIndex = 175;
-            this.button1.Text = "Guardar";
-            this.button1.UseVisualStyleBackColor = false;
+            this.gbCursos.Controls.Add(this.textBox1);
+            this.gbCursos.Controls.Add(this.label1);
+            this.gbCursos.Controls.Add(this.dataGridView1);
+            this.gbCursos.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbCursos.Location = new System.Drawing.Point(412, 309);
+            this.gbCursos.Name = "gbCursos";
+            this.gbCursos.Size = new System.Drawing.Size(358, 162);
+            this.gbCursos.TabIndex = 175;
+            this.gbCursos.TabStop = false;
+            this.gbCursos.Text = "Cursos de interés";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.cId,
+            this.cNombre,
+            this.cDisponibilidad});
+            this.dataGridView1.Location = new System.Drawing.Point(6, 61);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(346, 95);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(6, 31);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(44, 18);
+            this.label1.TabIndex = 173;
+            this.label1.Text = "Curso:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(56, 28);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(296, 26);
+            this.textBox1.TabIndex = 182;
+            // 
+            // cId
+            // 
+            this.cId.HeaderText = "ID";
+            this.cId.Name = "cId";
+            this.cId.ReadOnly = true;
+            this.cId.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // cNombre
+            // 
+            this.cNombre.HeaderText = "Nombre";
+            this.cNombre.Name = "cNombre";
+            this.cNombre.ReadOnly = true;
+            this.cNombre.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // cDisponibilidad
+            // 
+            this.cDisponibilidad.HeaderText = "Se está dictando?";
+            this.cDisponibilidad.Name = "cDisponibilidad";
+            this.cDisponibilidad.ReadOnly = true;
+            this.cDisponibilidad.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // InterestedRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.gbCursos);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.gbxInterestedData);
             this.Controls.Add(this.lblInterestedRegister);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "InterestedRegister";
-            this.Size = new System.Drawing.Size(814, 566);
+            this.Size = new System.Drawing.Size(811, 566);
             this.Load += new System.EventHandler(this.InterestedRegister_Load);
             this.gbxInterestedData.ResumeLayout(false);
             this.gbxInterestedData.PerformLayout();
@@ -442,6 +497,9 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.gbCursos.ResumeLayout(false);
+            this.gbCursos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -480,6 +538,12 @@
         private System.Windows.Forms.Label lblHomephone;
         private System.Windows.Forms.CheckBox cbEsInactivo;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.GroupBox gbCursos;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cNombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cDisponibilidad;
     }
 }

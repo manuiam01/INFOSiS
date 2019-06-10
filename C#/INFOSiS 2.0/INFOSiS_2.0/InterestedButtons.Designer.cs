@@ -62,6 +62,7 @@
             this.btnModificarInte.TabIndex = 93;
             this.btnModificarInte.Text = "Modificar un Interesado";
             this.btnModificarInte.UseVisualStyleBackColor = false;
+            this.btnModificarInte.Click += new System.EventHandler(this.BtnModificarInte_Click);
             // 
             // InterestedButtons
             // 
