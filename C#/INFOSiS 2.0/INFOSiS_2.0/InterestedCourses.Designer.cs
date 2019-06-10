@@ -28,14 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvCursos = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnSeleccionar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.cId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cDisponible = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnSeleccionar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCursos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,6 +46,8 @@
             this.dgvCursos.AllowUserToDeleteRows = false;
             this.dgvCursos.AllowUserToResizeColumns = false;
             this.dgvCursos.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Gill Sans MT", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvCursos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvCursos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCursos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cId,
@@ -73,30 +76,6 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(438, 22);
             this.textBox1.TabIndex = 2;
-            // 
-            // cId
-            // 
-            this.cId.Frozen = true;
-            this.cId.HeaderText = "ID";
-            this.cId.Name = "cId";
-            this.cId.ReadOnly = true;
-            this.cId.Width = 40;
-            // 
-            // cNombre
-            // 
-            this.cNombre.Frozen = true;
-            this.cNombre.HeaderText = "Nombre";
-            this.cNombre.Name = "cNombre";
-            this.cNombre.ReadOnly = true;
-            this.cNombre.Width = 340;
-            // 
-            // cDisponible
-            // 
-            this.cDisponible.Frozen = true;
-            this.cDisponible.HeaderText = "Se está dictando?";
-            this.cDisponible.Name = "cDisponible";
-            this.cDisponible.ReadOnly = true;
-            this.cDisponible.Width = 80;
             // 
             // btnSeleccionar
             // 
@@ -132,6 +111,30 @@
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
+            // cId
+            // 
+            this.cId.Frozen = true;
+            this.cId.HeaderText = "ID";
+            this.cId.Name = "cId";
+            this.cId.ReadOnly = true;
+            this.cId.Width = 40;
+            // 
+            // cNombre
+            // 
+            this.cNombre.Frozen = true;
+            this.cNombre.HeaderText = "Nombre";
+            this.cNombre.Name = "cNombre";
+            this.cNombre.ReadOnly = true;
+            this.cNombre.Width = 240;
+            // 
+            // cDisponible
+            // 
+            this.cDisponible.Frozen = true;
+            this.cDisponible.HeaderText = "Se está dictando?";
+            this.cDisponible.Name = "cDisponible";
+            this.cDisponible.ReadOnly = true;
+            this.cDisponible.Width = 80;
+            // 
             // InterestedCourses
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -153,12 +156,12 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvCursos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cNombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cDisponible;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btnSeleccionar;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cNombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cDisponible;
     }
 }
