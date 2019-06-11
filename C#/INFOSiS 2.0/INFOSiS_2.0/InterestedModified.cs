@@ -118,7 +118,7 @@ namespace INFOSiS_2._0
         }
         private void BtnSave_Click(object sender, EventArgs e)
         {
-            if (txbNDocumento.t "")
+            if (txbNDocumento.Text == "")
             {
 
             }
