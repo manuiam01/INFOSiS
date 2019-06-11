@@ -33,12 +33,38 @@ namespace INFOSiS_2._0
         public InterestedModified()
         {
             InitializeComponent();
-        }
 
+        }
+        public void establecerEstado(Estado e)
+        {
+            switch (e)
+            {
+                case Estado.Inicial:
+
+                    break;
+            }
 
         private void InterestedSearch_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void BtBuscarCursos_Click(object sender, EventArgs e)
+        {
+            InterestedCourses formBuscarCursosInteresado = new InterestedCourses();
+            if (formBuscarCursosInteresado.ShowDialog() == DialogResult.OK)
+            {
+                //Acá en teoría debería de devolver todo el ArrayList de cursos para ingresarlo al dgv
+                //dgvInterestedCourses.DataSource = formBuscarCursosInteresado.}
+            }
+        }
+        public enum Estado
+        {
+            Inicial = 0,
+            Nuevo = 1,
+            Guardar = 2,
+            Actualizar = 3,
+            Eliminar = 4
         }
     }
 }

@@ -332,26 +332,11 @@
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Size = new System.Drawing.Size(477, 277);
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox2.Size = new System.Drawing.Size(477, 212);
             this.groupBox2.TabIndex = 173;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos de contacto";
             // 
-            // cbEsInactivo
-            // 
-            //this.cbEsInactivo.AutoSize = true;
-            //this.cbEsInactivo.Font = new System.Drawing.Font("Gill Sans MT", 9.75F);
-            //this.cbEsInactivo.Location = new System.Drawing.Point(152, 233);
-            //this.cbEsInactivo.Margin = new System.Windows.Forms.Padding(4);
-            //this.cbEsInactivo.Name = "cbEsInactivo";
-            //this.cbEsInactivo.Size = new System.Drawing.Size(249, 29);
-            //this.cbEsInactivo.TabIndex = 181;
-            //this.cbEsInactivo.Text = "No quiero recibir más correos";
-            //this.cbEsInactivo.UseVisualStyleBackColor = true;
-            //// 
-
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
@@ -450,16 +435,10 @@
             this.gbCursos.Controls.Add(this.btBuscarCursos);
             this.gbCursos.Controls.Add(this.dgvInterestedCourses);
             this.gbCursos.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbCursos.Location = new System.Drawing.Point(549, 380);
+            this.gbCursos.Location = new System.Drawing.Point(549, 316);
             this.gbCursos.Margin = new System.Windows.Forms.Padding(4);
             this.gbCursos.Name = "gbCursos";
             this.gbCursos.Padding = new System.Windows.Forms.Padding(4);
-            this.gbCursos.Size = new System.Drawing.Size(477, 199);
-
-            this.gbCursos.Location = new System.Drawing.Point(549, 316);
-            this.gbCursos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.gbCursos.Name = "gbCursos";
-            this.gbCursos.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gbCursos.Size = new System.Drawing.Size(477, 263);
             this.gbCursos.TabIndex = 175;
             this.gbCursos.TabStop = false;
@@ -467,13 +446,17 @@
             // 
             // btBuscarCursos
             // 
+            this.btBuscarCursos.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btBuscarCursos.BackColor = System.Drawing.Color.MidnightBlue;
+            this.btBuscarCursos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btBuscarCursos.Font = new System.Drawing.Font("Gill Sans MT", 11F);
+            this.btBuscarCursos.ForeColor = System.Drawing.Color.White;
             this.btBuscarCursos.Location = new System.Drawing.Point(8, 31);
             this.btBuscarCursos.Name = "btBuscarCursos";
             this.btBuscarCursos.Size = new System.Drawing.Size(154, 35);
             this.btBuscarCursos.TabIndex = 1;
             this.btBuscarCursos.Text = "Escoger cursos";
-            this.btBuscarCursos.UseVisualStyleBackColor = true;
+            this.btBuscarCursos.UseVisualStyleBackColor = false;
             this.btBuscarCursos.Click += new System.EventHandler(this.BtBuscarCursos_Click);
             // 
             // dgvInterestedCourses
@@ -504,7 +487,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackColor = System.Drawing.Color.AliceBlue;
             this.Controls.Add(this.gbCursos);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.groupBox2);
