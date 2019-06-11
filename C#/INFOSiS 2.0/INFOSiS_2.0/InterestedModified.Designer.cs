@@ -58,8 +58,8 @@
             this.rbCarnet = new System.Windows.Forms.RadioButton();
             this.rbDNI = new System.Windows.Forms.RadioButton();
             this.btnSave = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btModificar = new System.Windows.Forms.Button();
+            this.btCancelar = new System.Windows.Forms.Button();
             this.gbCursos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInterestedCourses)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -415,46 +415,47 @@
             this.btnSave.TabIndex = 175;
             this.btnSave.Text = "Buscar";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
-            // button1
+            // btModificar
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button1.BackColor = System.Drawing.Color.MidnightBlue;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Gill Sans MT", 15F);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(30, 524);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(198, 48);
-            this.button1.TabIndex = 180;
-            this.button1.Text = "Modificar";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btModificar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btModificar.BackColor = System.Drawing.Color.MidnightBlue;
+            this.btModificar.FlatAppearance.BorderSize = 0;
+            this.btModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btModificar.Font = new System.Drawing.Font("Gill Sans MT", 15F);
+            this.btModificar.ForeColor = System.Drawing.Color.White;
+            this.btModificar.Location = new System.Drawing.Point(30, 524);
+            this.btModificar.Margin = new System.Windows.Forms.Padding(4);
+            this.btModificar.Name = "btModificar";
+            this.btModificar.Size = new System.Drawing.Size(198, 48);
+            this.btModificar.TabIndex = 180;
+            this.btModificar.Text = "Modificar";
+            this.btModificar.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // btCancelar
             // 
-            this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button2.BackColor = System.Drawing.Color.MidnightBlue;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Gill Sans MT", 15F);
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(316, 524);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(198, 48);
-            this.button2.TabIndex = 181;
-            this.button2.Text = "Cancelar";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btCancelar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btCancelar.BackColor = System.Drawing.Color.MidnightBlue;
+            this.btCancelar.FlatAppearance.BorderSize = 0;
+            this.btCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btCancelar.Font = new System.Drawing.Font("Gill Sans MT", 15F);
+            this.btCancelar.ForeColor = System.Drawing.Color.White;
+            this.btCancelar.Location = new System.Drawing.Point(316, 524);
+            this.btCancelar.Margin = new System.Windows.Forms.Padding(4);
+            this.btCancelar.Name = "btCancelar";
+            this.btCancelar.Size = new System.Drawing.Size(198, 48);
+            this.btCancelar.TabIndex = 181;
+            this.btCancelar.Text = "Cancelar";
+            this.btCancelar.UseVisualStyleBackColor = false;
             // 
             // InterestedModified
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btCancelar);
+            this.Controls.Add(this.btModificar);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gbCursos);
@@ -512,7 +513,7 @@
         private System.Windows.Forms.RadioButton rbCarnet;
         private System.Windows.Forms.RadioButton rbDNI;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btModificar;
+        private System.Windows.Forms.Button btCancelar;
     }
 }

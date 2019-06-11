@@ -33,6 +33,7 @@ namespace INFOSiS_2._0
         public InterestedModified()
         {
             InitializeComponent();
+            establecerEstado(Estado.Inicial);
 
         }
         public void establecerEstado(Estado e)
@@ -40,7 +41,39 @@ namespace INFOSiS_2._0
             switch (e)
             {
                 case Estado.Inicial:
+                    txbNombre.Enabled = false;
+                    txbApePa.Enabled = false;
+                    txbSegundoNom.Enabled = false;
+                    txbApeMa.Enabled = false;
+                    txtCellphone.Enabled = false;
+                    txtEmail.Enabled = false;
+                    txtEmailPUCP.Enabled = false;
+                    txtHomephone.Enabled = false;
+                    btCancelar.Enabled = false;
+                    btModificar.Enabled = false;
+                    btBuscarCursos.Enabled = false;
+                    txbNDocumento.Enabled = true;
+                    rbCarnet.Enabled = true;
+                    rbDNI.Enabled = true;
+                    rbPasaporte.Enabled = true;
+                    break;
 
+                case Estado.Actualizar:
+                    txbNombre.Enabled = true;
+                    txbApePa.Enabled = true;
+                    txbSegundoNom.Enabled = true;
+                    txbApeMa.Enabled = true;
+                    txtCellphone.Enabled = true;
+                    txtEmail.Enabled = true;
+                    txtEmailPUCP.Enabled = true;
+                    txtHomephone.Enabled = true;
+                    btCancelar.Enabled = true;
+                    btModificar.Enabled = true;
+                    btBuscarCursos.Enabled = true;
+                    txbNDocumento.Enabled = false;
+                    rbCarnet.Enabled = false;
+                    rbDNI.Enabled = false;
+                    rbPasaporte.Enabled = false;
                     break;
             }
         }
@@ -66,6 +99,11 @@ namespace INFOSiS_2._0
             Guardar = 2,
             Actualizar = 3,
             Eliminar = 4
+        }
+
+        private void BtnSave_Click(object sender, EventArgs e)
+        {
+            establecerEstado(Estado.Actualizar);
         }
     }
 }
