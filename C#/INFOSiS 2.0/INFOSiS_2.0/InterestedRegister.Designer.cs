@@ -462,13 +462,17 @@
             // 
             // btBuscarCursos
             // 
+            this.btBuscarCursos.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btBuscarCursos.BackColor = System.Drawing.Color.MidnightBlue;
+            this.btBuscarCursos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btBuscarCursos.Font = new System.Drawing.Font("Gill Sans MT", 11F);
+            this.btBuscarCursos.ForeColor = System.Drawing.Color.White;
             this.btBuscarCursos.Location = new System.Drawing.Point(8, 31);
             this.btBuscarCursos.Name = "btBuscarCursos";
             this.btBuscarCursos.Size = new System.Drawing.Size(154, 35);
             this.btBuscarCursos.TabIndex = 1;
             this.btBuscarCursos.Text = "Escoger cursos";
-            this.btBuscarCursos.UseVisualStyleBackColor = true;
+            this.btBuscarCursos.UseVisualStyleBackColor = false;
             this.btBuscarCursos.Click += new System.EventHandler(this.BtBuscarCursos_Click);
             // 
             // cNombre

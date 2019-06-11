@@ -33,12 +33,23 @@ namespace INFOSiS_2._0
         public InterestedModified()
         {
             InitializeComponent();
+
         }
 
 
         private void InterestedSearch_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void BtBuscarCursos_Click(object sender, EventArgs e)
+        {
+            InterestedCourses formBuscarCursosInteresado = new InterestedCourses();
+            if (formBuscarCursosInteresado.ShowDialog() == DialogResult.OK)
+            {
+                //Acá en teoría debería de devolver todo el ArrayList de cursos para ingresarlo al dgv
+                //dgvInterestedCourses.DataSource = formBuscarCursosInteresado.}
+            }
         }
     }
 }
