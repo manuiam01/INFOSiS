@@ -97,5 +97,10 @@ namespace INFOSiS_2._0
             btnNewInte.BackColor = Color.LightSteelBlue;
             btnModificarInte.BackColor = Color.LightSteelBlue;
         }
+
+        private void BtnBajaInteresado_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

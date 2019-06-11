@@ -164,10 +164,11 @@ namespace INFOSiS_2._0
                 MessageBox.Show("No ingresó el apelldio paterno del interesado", "Aviso", MessageBoxButtons.OK);
             else if (txbApeMa.Text == "")
                 MessageBox.Show("No ingresó el apellido materno", "Aviso", MessageBoxButtons.OK);
-            else if (txtEmail.Text == "" || txtEmailPUCP.Text == "")
-                MessageBox.Show("No ingresó el coreo del interesado", "Aviso", MessageBoxButtons.OK);
-            else if (txtCellphone.Text == "" || txtHomephone.Text == "")
-                MessageBox.Show("No ingresó el número del interesado", "Aviso", MessageBoxButtons.OK);
+            else if (txtCellphone.Text == "" && txtHomephone.Text == "")
+                MessageBox.Show("No ingresó el número de contacto del interesado", "Aviso", MessageBoxButtons.OK);
+            else if (txtEmail.Text == "" && txtEmailPUCP.Text == "")
+                MessageBox.Show("No ingresó el correo del interesado", "Aviso", MessageBoxButtons.OK);
+            
         }
 
         private void BtCancelar_Click(object sender, EventArgs e)

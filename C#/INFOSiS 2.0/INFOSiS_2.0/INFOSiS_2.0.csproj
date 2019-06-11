@@ -60,6 +60,12 @@
     <Compile Include="InterestedCourses.Designer.cs">
       <DependentUpon>InterestedCourses.cs</DependentUpon>
     </Compile>
+    <Compile Include="InterestedDisable.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterestedDisable.Designer.cs">
+      <DependentUpon>InterestedDisable.cs</DependentUpon>
+    </Compile>
     <Compile Include="InterestedRegister.cs">
       <SubType>UserControl</SubType>
     </Compile>
