@@ -118,12 +118,13 @@ namespace INFOSiS_2._0
         }
         private void BtnSave_Click(object sender, EventArgs e)
         {
-            if (txbNDocumento.Text == "")
-                MessageBox.Show("No ingresó el N° de documento", "Aviso", MessageBoxButtons.OK);
-            else if (rbCarnet.Checked!=false && rbDNI.Checked!=false &&  rbPasaporte.Checked!=false)
+            if (rbCarnet.Checked == false && rbDNI.Checked == false && rbPasaporte.Checked == false)
             {
                 MessageBox.Show("No escogió el tipo de documento a ingresar", "Aviso", MessageBoxButtons.OK);
             }
+            else if (txbNDocumento.Text == "")
+                MessageBox.Show("No ingresó el N° de documento", "Aviso", MessageBoxButtons.OK);
+            
             else
             {
                 establecerEstado(Estado.Actualizar);
@@ -167,6 +168,16 @@ namespace INFOSiS_2._0
                 MessageBox.Show("No ingresó el coreo del interesado", "Aviso", MessageBoxButtons.OK);
             else if (txtCellphone.Text == "" || txtHomephone.Text == "")
                 MessageBox.Show("No ingresó el número del interesado", "Aviso", MessageBoxButtons.OK);
+        }
+
+        private void BtCancelar_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Está seguro de que quiere cancelar la modificación?", "Aviso", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                limpiar();
+                establecerEstado(Estado.Inicial);
+            }
         }
     }
 }
