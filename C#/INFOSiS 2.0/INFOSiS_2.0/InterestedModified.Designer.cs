@@ -58,6 +58,8 @@
             this.rbCarnet = new System.Windows.Forms.RadioButton();
             this.rbDNI = new System.Windows.Forms.RadioButton();
             this.btnSave = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.gbCursos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInterestedCourses)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -76,7 +78,6 @@
             // 
             // gbCursos
             // 
-            this.gbCursos.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.gbCursos.Controls.Add(this.btBuscarCursos);
             this.gbCursos.Controls.Add(this.dgvInterestedCourses);
             this.gbCursos.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -129,7 +130,6 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox2.Controls.Add(this.lblEmail);
             this.groupBox2.Controls.Add(this.txtCellphone);
             this.groupBox2.Controls.Add(this.txtEmail);
@@ -321,7 +321,6 @@
             // 
             // gbxInterestedData
             // 
-            this.gbxInterestedData.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.gbxInterestedData.Controls.Add(this.txbApeMa);
             this.gbxInterestedData.Controls.Add(this.txbApePa);
             this.gbxInterestedData.Controls.Add(this.txbSegundoNom);
@@ -409,11 +408,43 @@
             this.btnSave.Text = "Buscar";
             this.btnSave.UseVisualStyleBackColor = false;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.MidnightBlue;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Gill Sans MT", 15F);
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(33, 505);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(198, 48);
+            this.button1.TabIndex = 180;
+            this.button1.Text = "Modificar";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.MidnightBlue;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Gill Sans MT", 15F);
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(324, 505);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(198, 48);
+            this.button2.TabIndex = 181;
+            this.button2.Text = "Cancelar";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
             // InterestedModified
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AliceBlue;
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gbCursos);
@@ -471,5 +502,7 @@
         private System.Windows.Forms.RadioButton rbCarnet;
         private System.Windows.Forms.RadioButton rbDNI;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }
