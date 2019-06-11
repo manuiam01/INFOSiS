@@ -146,6 +146,34 @@ namespace INFOSiS_2._0
         private void BtnInterns_Click(object sender, EventArgs e)
         {
             cleanWindow();
+            panelMdiOptions.Visible = true;
+            if (!panelMdiInfosis.Controls.Contains(WorkforceRegister.Instance))
+            {
+                panelMdiInfosis.Controls.Add(WorkforceRegister.Instance);
+                WorkforceRegister.Instance.Dock = DockStyle.Fill;
+                WorkforceRegister.PanelMdi = panelMdiInfosis;
+                WorkforceRegister.Instance.Visible = true;
+                WorkforceRegister.Instance.BringToFront();
+            }
+            else
+            {
+                WorkforceRegister.Instance.Visible = true;
+                WorkforceRegister.Instance.BringToFront();
+            }
+
+            if (!panelMdiOptions.Controls.Contains(WorkforceButtons.Instance))
+            {
+                panelMdiOptions.Controls.Add(WorkforceButtons.Instance);
+                WorkforceButtons.Instance.Dock = DockStyle.Fill;
+                WorkforceButtons.PanelMdi = panelMdiInfosis;
+                WorkforceButtons.Instance.Visible = true;
+                WorkforceButtons.Instance.BringToFront();
+            }
+            else
+            {
+                WorkforceButtons.Instance.Visible = true;
+                WorkforceButtons.Instance.BringToFront();
+            }
         }
     }
 }

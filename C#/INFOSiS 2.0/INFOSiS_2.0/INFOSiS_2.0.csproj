@@ -133,6 +133,30 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="WeekAvailability.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WeekAvailability.Designer.cs">
+      <DependentUpon>WeekAvailability.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WorkforceButtons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WorkforceButtons.Designer.cs">
+      <DependentUpon>WorkforceButtons.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WorkforceModify.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WorkforceModify.Designer.cs">
+      <DependentUpon>WorkforceModify.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WorkforceRegister.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WorkforceRegister.Designer.cs">
+      <DependentUpon>WorkforceRegister.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -180,6 +204,18 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WeekAvailability.resx">
+      <DependentUpon>WeekAvailability.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkforceButtons.resx">
+      <DependentUpon>WorkforceButtons.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkforceModify.resx">
+      <DependentUpon>WorkforceModify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkforceRegister.resx">
+      <DependentUpon>WorkforceRegister.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
