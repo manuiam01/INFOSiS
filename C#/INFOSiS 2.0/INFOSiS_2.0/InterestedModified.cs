@@ -43,6 +43,7 @@ namespace INFOSiS_2._0
 
                     break;
             }
+        }
 
         private void InterestedSearch_Load(object sender, EventArgs e)
         {
