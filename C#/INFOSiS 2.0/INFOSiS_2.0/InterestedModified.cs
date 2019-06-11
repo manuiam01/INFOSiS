@@ -119,10 +119,16 @@ namespace INFOSiS_2._0
         private void BtnSave_Click(object sender, EventArgs e)
         {
             if (txbNDocumento.Text == "")
+                MessageBox.Show("No ingresó el N° de documento", "Aviso", MessageBoxButtons.OK);
+            else if (rbCarnet.Checked!=false && rbDNI.Checked!=false &&  rbPasaporte.Checked!=false)
             {
-
+                MessageBox.Show("No escogió el tipo de documento a ingresar", "Aviso", MessageBoxButtons.OK);
             }
-            establecerEstado(Estado.Actualizar);
+            else
+            {
+                establecerEstado(Estado.Actualizar);
+            }
+            
         }
 
         private void BtnSave_Leave(object sender, EventArgs e)
@@ -147,6 +153,20 @@ namespace INFOSiS_2._0
         {
             //btModificar.ForeColor = sender == false ? Color.Blue : Color.Red;
             //btModificar.BackColor = Color.AliceBlue;
+        }
+
+        private void BtModificar_Click(object sender, EventArgs e)
+        {
+            if (txbNombre.Text == "")
+                MessageBox.Show("No ingresó el nombre del interesado", "Aviso", MessageBoxButtons.OK);
+            else if (txbApePa.Text == "")
+                MessageBox.Show("No ingresó el apelldio paterno del interesado", "Aviso", MessageBoxButtons.OK);
+            else if (txbApeMa.Text == "")
+                MessageBox.Show("No ingresó el apellido materno", "Aviso", MessageBoxButtons.OK);
+            else if (txtEmail.Text == "" || txtEmailPUCP.Text == "")
+                MessageBox.Show("No ingresó el coreo del interesado", "Aviso", MessageBoxButtons.OK);
+            else if (txtCellphone.Text == "" || txtHomephone.Text == "")
+                MessageBox.Show("No ingresó el número del interesado", "Aviso", MessageBoxButtons.OK);
         }
     }
 }
