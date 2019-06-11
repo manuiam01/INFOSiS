@@ -59,6 +59,7 @@ namespace INFOSiS_2._0
                     break;
 
                 case Estado.Actualizar:
+                    btModificar.Enabled = false;
                     txbNombre.Enabled = true;
                     txbApePa.Enabled = true;
                     txbSegundoNom.Enabled = true;
@@ -100,10 +101,48 @@ namespace INFOSiS_2._0
             Actualizar = 3,
             Eliminar = 4
         }
-
+        public void limpiar()
+        {
+            txbApeMa.Text = "";
+            txbApePa.Text = "";
+            txbNDocumento.Text = "";
+            txbNombre.Text = "";
+            txbSegundoNom.Text = "";
+            txtCellphone.Text = "";
+            txtEmail.Text = "";
+            txtEmailPUCP.Text = "";
+            txtHomephone.Text = "";
+            rbCarnet.Checked = false;
+            rbDNI.Checked = false;
+            rbPasaporte.Checked = false;
+        }
         private void BtnSave_Click(object sender, EventArgs e)
         {
             establecerEstado(Estado.Actualizar);
+        }
+
+        private void BtnSave_Leave(object sender, EventArgs e)
+        {
+
+        }
+
+        private void InterestedModified_Leave(object sender, EventArgs e)
+        {
+            if (txbNDocumento.Enabled == false)
+            {
+                DialogResult result = MessageBox.Show("Está seguro de salir sin guardar los cambios?", "Aviso", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    limpiar();
+                    establecerEstado(Estado.Inicial);
+                }
+            }
+        }
+
+        private void BtModificar_EnabledChanged(object sender, EventArgs e)
+        {
+            //btModificar.ForeColor = sender == false ? Color.Blue : Color.Red;
+            //btModificar.BackColor = Color.AliceBlue;
         }
     }
 }

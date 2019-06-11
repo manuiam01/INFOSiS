@@ -38,7 +38,7 @@ namespace INFOSiS_2._0
 
         private void BtnNewInte_Click(object sender, EventArgs e)
         {
-
+            
             actualizarBotones(btnNewInte);
             foreach (Control item in PanelMdi.Controls.OfType<Control>())
             {
@@ -90,6 +90,12 @@ namespace INFOSiS_2._0
                 }
 
             }
+        }
+
+        private void InterestedButtons_Leave(object sender, EventArgs e)
+        {
+            btnNewInte.BackColor = Color.LightSteelBlue;
+            btnModificarInte.BackColor = Color.LightSteelBlue;
         }
     }
 }

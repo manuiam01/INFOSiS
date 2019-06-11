@@ -353,7 +353,7 @@
             this.txtCellphone.Location = new System.Drawing.Point(152, 50);
             this.txtCellphone.Margin = new System.Windows.Forms.Padding(4);
             this.txtCellphone.Name = "txtCellphone";
-            this.txtCellphone.Size = new System.Drawing.Size(227, 31);
+            this.txtCellphone.Size = new System.Drawing.Size(317, 31);
             this.txtCellphone.TabIndex = 173;
             // 
             // txtEmail
@@ -361,7 +361,7 @@
             this.txtEmail.Location = new System.Drawing.Point(152, 169);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(227, 31);
+            this.txtEmail.Size = new System.Drawing.Size(317, 31);
             this.txtEmail.TabIndex = 179;
             // 
             // lblCellphone
@@ -391,7 +391,7 @@
             this.txtHomephone.Location = new System.Drawing.Point(152, 90);
             this.txtHomephone.Margin = new System.Windows.Forms.Padding(4);
             this.txtHomephone.Name = "txtHomephone";
-            this.txtHomephone.Size = new System.Drawing.Size(227, 31);
+            this.txtHomephone.Size = new System.Drawing.Size(317, 31);
             this.txtHomephone.TabIndex = 175;
             // 
             // txtEmailPUCP
@@ -399,7 +399,7 @@
             this.txtEmailPUCP.Location = new System.Drawing.Point(152, 129);
             this.txtEmailPUCP.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmailPUCP.Name = "txtEmailPUCP";
-            this.txtEmailPUCP.Size = new System.Drawing.Size(227, 31);
+            this.txtEmailPUCP.Size = new System.Drawing.Size(317, 31);
             this.txtEmailPUCP.TabIndex = 177;
             // 
             // lblHomephone
@@ -487,7 +487,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.Controls.Add(this.gbCursos);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.groupBox2);
@@ -497,6 +497,7 @@
             this.Name = "InterestedRegister";
             this.Size = new System.Drawing.Size(1081, 697);
             this.Load += new System.EventHandler(this.InterestedRegister_Load);
+            this.Leave += new System.EventHandler(this.InterestedRegister_Leave);
             this.gbxInterestedData.ResumeLayout(false);
             this.gbxInterestedData.PerformLayout();
             this.groupBox1.ResumeLayout(false);

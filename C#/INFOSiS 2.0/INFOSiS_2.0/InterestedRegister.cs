@@ -53,5 +53,57 @@ namespace INFOSiS_2._0
                 //dgvInterestedCourses.DataSource = formBuscarCursosInteresado.}
             }
         }
+
+        public int verificarVacio()
+        {
+            int resultado = 0;
+            if(txbApeMa.Text == "" &&
+            txbApePa.Text == "" &&
+            txbNDocumento.Text == "" &&
+            txbNombre.Text == "" &&
+            txbSegundoNom.Text == "" &&
+            txtCellphone.Text == "" &&
+            txtEmail.Text == "" &&
+            txtEmailPUCP.Text == "" &&
+            txtHomephone.Text == ""&&
+            rbCarnet.Checked==false &&
+            rbDNI.Checked==false &&
+            rbPasaporte.Checked==false &&
+            rbMale.Checked == false &&
+            rbFemale.Checked==false &&
+            dateNacimiento.Value==DateTime.Today &&
+            dgvInterestedCourses.Rows.Count==0)
+            {
+                resultado = 1;
+            }
+            
+            return resultado;
+        }
+
+        private void InterestedRegister_Leave(object sender, EventArgs e)
+        {
+            if (verificarVacio() == 0) {
+                DialogResult result = MessageBox.Show("Está seguro de salir sin guardar los cambios?", "Aviso", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    limpiar();
+                }
+            }
+        }
+        public void limpiar()
+        {
+            txbApeMa.Text = "";
+            txbApePa.Text = "";
+            txbNDocumento.Text = "";
+            txbNombre.Text = "";
+            txbSegundoNom.Text = "";
+            txtCellphone.Text = "";
+            txtEmail.Text = "";
+            txtEmailPUCP.Text = "";
+            txtHomephone.Text = "";
+            rbCarnet.Checked = false;
+            rbDNI.Checked = false;
+            rbPasaporte.Checked = false;
+        }
     }
 }

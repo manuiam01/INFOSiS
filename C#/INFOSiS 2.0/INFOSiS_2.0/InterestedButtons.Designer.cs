@@ -42,7 +42,7 @@
             this.btnNewInte.Font = new System.Drawing.Font("Gill Sans MT", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNewInte.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.btnNewInte.Location = new System.Drawing.Point(0, 156);
-            this.btnNewInte.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnNewInte.Margin = new System.Windows.Forms.Padding(4);
             this.btnNewInte.Name = "btnNewInte";
             this.btnNewInte.Size = new System.Drawing.Size(345, 81);
             this.btnNewInte.TabIndex = 92;
@@ -59,7 +59,7 @@
             this.btnModificarInte.Font = new System.Drawing.Font("Gill Sans MT", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificarInte.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.btnModificarInte.Location = new System.Drawing.Point(3, 260);
-            this.btnModificarInte.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnModificarInte.Margin = new System.Windows.Forms.Padding(4);
             this.btnModificarInte.Name = "btnModificarInte";
             this.btnModificarInte.Size = new System.Drawing.Size(345, 81);
             this.btnModificarInte.TabIndex = 93;
@@ -91,9 +91,10 @@
             this.Controls.Add(this.btnBajaInteresado);
             this.Controls.Add(this.btnModificarInte);
             this.Controls.Add(this.btnNewInte);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "InterestedButtons";
             this.Size = new System.Drawing.Size(351, 602);
+            this.Leave += new System.EventHandler(this.InterestedButtons_Leave);
             this.ResumeLayout(false);
 
         }
