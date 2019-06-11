@@ -69,6 +69,7 @@
             // 
             // lblInterestedRegister
             // 
+            this.lblInterestedRegister.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblInterestedRegister.Font = new System.Drawing.Font("Gill Sans MT", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInterestedRegister.Location = new System.Drawing.Point(13, 26);
             this.lblInterestedRegister.Name = "lblInterestedRegister";
@@ -78,6 +79,7 @@
             // 
             // gbCursos
             // 
+            this.gbCursos.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.gbCursos.Controls.Add(this.btBuscarCursos);
             this.gbCursos.Controls.Add(this.dgvInterestedCourses);
             this.gbCursos.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -97,9 +99,9 @@
             this.btBuscarCursos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btBuscarCursos.Font = new System.Drawing.Font("Gill Sans MT", 11F);
             this.btBuscarCursos.ForeColor = System.Drawing.Color.White;
-            this.btBuscarCursos.Location = new System.Drawing.Point(8, 31);
+            this.btBuscarCursos.Location = new System.Drawing.Point(8, 28);
             this.btBuscarCursos.Name = "btBuscarCursos";
-            this.btBuscarCursos.Size = new System.Drawing.Size(154, 35);
+            this.btBuscarCursos.Size = new System.Drawing.Size(154, 38);
             this.btBuscarCursos.TabIndex = 1;
             this.btBuscarCursos.Text = "Escoger cursos";
             this.btBuscarCursos.UseVisualStyleBackColor = false;
@@ -130,6 +132,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox2.Controls.Add(this.lblEmail);
             this.groupBox2.Controls.Add(this.txtCellphone);
             this.groupBox2.Controls.Add(this.txtEmail);
@@ -270,6 +273,7 @@
             // 
             // lblDocumentNumber
             // 
+            this.lblDocumentNumber.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblDocumentNumber.AutoSize = true;
             this.lblDocumentNumber.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDocumentNumber.Location = new System.Drawing.Point(28, 173);
@@ -281,6 +285,7 @@
             // 
             // txbNDocumento
             // 
+            this.txbNDocumento.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txbNDocumento.Location = new System.Drawing.Point(224, 175);
             this.txbNDocumento.Margin = new System.Windows.Forms.Padding(4);
             this.txbNDocumento.Name = "txbNDocumento";
@@ -321,6 +326,7 @@
             // 
             // gbxInterestedData
             // 
+            this.gbxInterestedData.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.gbxInterestedData.Controls.Add(this.txbApeMa);
             this.gbxInterestedData.Controls.Add(this.txbApePa);
             this.gbxInterestedData.Controls.Add(this.txbSegundoNom);
@@ -341,6 +347,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox1.Controls.Add(this.rbPasaporte);
             this.groupBox1.Controls.Add(this.rbCarnet);
             this.groupBox1.Controls.Add(this.rbDNI);
@@ -395,6 +402,7 @@
             // 
             // btnSave
             // 
+            this.btnSave.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnSave.BackColor = System.Drawing.Color.MidnightBlue;
             this.btnSave.FlatAppearance.BorderSize = 0;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -403,19 +411,20 @@
             this.btnSave.Location = new System.Drawing.Point(33, 205);
             this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(109, 40);
+            this.btnSave.Size = new System.Drawing.Size(139, 40);
             this.btnSave.TabIndex = 175;
             this.btnSave.Text = "Buscar";
             this.btnSave.UseVisualStyleBackColor = false;
             // 
             // button1
             // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button1.BackColor = System.Drawing.Color.MidnightBlue;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Gill Sans MT", 15F);
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(33, 505);
+            this.button1.Location = new System.Drawing.Point(30, 524);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(198, 48);
@@ -425,12 +434,13 @@
             // 
             // button2
             // 
+            this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button2.BackColor = System.Drawing.Color.MidnightBlue;
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Gill Sans MT", 15F);
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(324, 505);
+            this.button2.Location = new System.Drawing.Point(316, 524);
             this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(198, 48);
