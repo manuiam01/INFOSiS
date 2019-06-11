@@ -428,6 +428,7 @@
             this.btnSave.TabIndex = 174;
             this.btnSave.Text = "Guardar";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
             // gbCursos
             // 
