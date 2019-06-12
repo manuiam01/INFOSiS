@@ -82,6 +82,7 @@
             this.btnBajaInteresado.TabIndex = 94;
             this.btnBajaInteresado.Text = "Dar de baja a Interesado";
             this.btnBajaInteresado.UseVisualStyleBackColor = false;
+            this.btnBajaInteresado.Click += new System.EventHandler(this.BtnBajaInteresado_Click);
             // 
             // InterestedButtons
             // 

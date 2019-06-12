@@ -56,25 +56,25 @@ namespace INFOSiS_2._0
 
         public int verificarVacio()
         {
-            int resultado = 0;
-            if(txbApeMa.Text == "" &&
-            txbApePa.Text == "" &&
-            txbNDocumento.Text == "" &&
-            txbNombre.Text == "" &&
-            txbSegundoNom.Text == "" &&
-            txtCellphone.Text == "" &&
-            txtEmail.Text == "" &&
-            txtEmailPUCP.Text == "" &&
-            txtHomephone.Text == ""&&
-            rbCarnet.Checked==false &&
-            rbDNI.Checked==false &&
-            rbPasaporte.Checked==false &&
-            rbMale.Checked == false &&
-            rbFemale.Checked==false &&
-            dateNacimiento.Value==DateTime.Today &&
-            dgvInterestedCourses.Rows.Count==0)
+            int resultado = 1;
+            //falta verificar el dateNacimiento.Value != DateTime.Today ||, pero no sé como hacerlo uwur
+            if (txbApeMa.Text != "" ||
+            txbApePa.Text != "" ||
+            txbNDocumento.Text != "" ||
+            txbNombre.Text != "" ||
+            txbSegundoNom.Text != "" ||
+            txtCellphone.Text != "" ||
+            txtEmail.Text != "" ||
+            txtEmailPUCP.Text != "" ||
+            txtHomephone.Text != "" ||
+            rbCarnet.Checked != false ||
+            rbDNI.Checked != false ||
+            rbPasaporte.Checked != false ||
+            rbMale.Checked != false ||
+            rbFemale.Checked != false ||
+            dgvInterestedCourses.Rows.Count != 0)
             {
-                resultado = 1;
+                resultado = 0;
             }
             
             return resultado;
@@ -104,6 +104,31 @@ namespace INFOSiS_2._0
             rbCarnet.Checked = false;
             rbDNI.Checked = false;
             rbPasaporte.Checked = false;
+            rbFemale.Checked = false;
+            rbMale.Checked = false;
+        }
+
+        private void BtnSave_Click(object sender, EventArgs e)
+        {
+            if (rbCarnet.Checked == false && rbDNI.Checked == false && rbPasaporte.Checked == false)
+                MessageBox.Show("No seleccionó el tipo de documento", "Aviso", MessageBoxButtons.OK);
+            else if (txbNDocumento.Text == "")
+                MessageBox.Show("No ingresó el número de documento", "Aviso", MessageBoxButtons.OK);
+            else if (txbNombre.Text == "")
+                MessageBox.Show("No ingresó el nombre del interesado", "Aviso", MessageBoxButtons.OK);
+            else if (txbApePa.Text == "")
+                MessageBox.Show("No ingresó el apellido paterno del interesado", "Aviso", MessageBoxButtons.OK);
+            else if (txbApeMa.Text == "")
+                MessageBox.Show("No ingresó el apellido materno del interesado", "Aviso", MessageBoxButtons.OK);
+            else if (rbMale.Checked == false && rbFemale.Checked == false)
+                MessageBox.Show("No escogió el género", "Aviso", MessageBoxButtons.OK);
+            else if (txtCellphone.Text == "" && txtHomephone.Text == "")
+                MessageBox.Show("No ingresó el número del interesado", "Aviso", MessageBoxButtons.OK);
+            else if (txtEmail.Text == "" && txtEmailPUCP.Text == "") 
+                MessageBox.Show("No ingresó el correo del interesado", "Aviso", MessageBoxButtons.OK);
+            else if (dgvInterestedCourses.Rows.Count == 0)
+                MessageBox.Show("No escogió cursos de interés", "Aviso", MessageBoxButtons.OK);
+            
         }
     }
 }
