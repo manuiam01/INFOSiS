@@ -208,7 +208,7 @@
             this.lblInterestedRegister.Name = "lblInterestedRegister";
             this.lblInterestedRegister.Size = new System.Drawing.Size(358, 48);
             this.lblInterestedRegister.TabIndex = 181;
-            this.lblInterestedRegister.Text = "Modificar interesado";
+            this.lblInterestedRegister.Text = "Busqueda avanzada";
             // 
             // InterestedAdvancedSearch
             // 
