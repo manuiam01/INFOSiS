@@ -52,6 +52,7 @@ namespace INFOSiS_2._0
                     btCancelar.Enabled = false;
                     btModificar.Enabled = false;
                     btBuscarCursos.Enabled = false;
+                    cbDesactivado.Enabled = false;
                     txbNDocumento.Enabled = true;
                     rbCarnet.Enabled = true;
                     rbDNI.Enabled = true;
@@ -71,6 +72,7 @@ namespace INFOSiS_2._0
                     btCancelar.Enabled = true;
                     btModificar.Enabled = true;
                     btBuscarCursos.Enabled = true;
+                    cbDesactivado.Enabled = true;
                     txbNDocumento.Enabled = false;
                     rbCarnet.Enabled = false;
                     rbDNI.Enabled = false;
@@ -112,6 +114,7 @@ namespace INFOSiS_2._0
             txtEmail.Text = "";
             txtEmailPUCP.Text = "";
             txtHomephone.Text = "";
+            cbDesactivado.Checked = false;
             rbCarnet.Checked = false;
             rbDNI.Checked = false;
             rbPasaporte.Checked = false;
@@ -179,6 +182,26 @@ namespace INFOSiS_2._0
                 limpiar();
                 establecerEstado(Estado.Inicial);
             }
+        }
+
+        private void LbBusquedaAvanzada_Click(object sender, EventArgs e)
+        {
+            InterestedAdvancedSearch formBuscarInteresado = new InterestedAdvancedSearch();
+            if (formBuscarInteresado.ShowDialog() == DialogResult.OK)
+            {
+                //Acá en teoría debería de devolver todo el ArrayList de cursos para ingresarlo al dgv
+                //dgvInterestedCourses.DataSource = formBuscarCursosInteresado.}
+            }
+        }
+
+        private void LbBusquedaAvanzada_MouseEnter(object sender, EventArgs e)
+        {
+            Cursor = Cursors.Hand;
+        }
+
+        private void LbBusquedaAvanzada_MouseLeave(object sender, EventArgs e)
+        {
+            Cursor = Cursors.Default;
         }
     }
 }

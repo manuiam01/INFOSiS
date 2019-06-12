@@ -33,7 +33,7 @@ namespace INFOSiS_2._0
             InitializeComponent();
             btnNewInte.BackColor = Color.LightGray;
             btnModificarInte.BackColor = Color.LightSteelBlue;
-            btnBajaInteresado.BackColor = Color.LightSteelBlue;
+            //btnBajaInteresado.BackColor = Color.LightSteelBlue;
         }
 
         private void BtnNewInte_Click(object sender, EventArgs e)
@@ -62,7 +62,7 @@ namespace INFOSiS_2._0
         {
             btnNewInte.BackColor = Color.LightSteelBlue;
             btnModificarInte.BackColor = Color.LightSteelBlue;
-            btnBajaInteresado.BackColor = Color.LightSteelBlue;
+            //btnBajaInteresado.BackColor = Color.LightSteelBlue;
             boton.BackColor = Color.LightGray;
         }
 
@@ -97,30 +97,30 @@ namespace INFOSiS_2._0
         {
             btnNewInte.BackColor = Color.LightSteelBlue;
             btnModificarInte.BackColor = Color.LightSteelBlue;
-            btnBajaInteresado.BackColor = Color.LightSteelBlue;
+            //btnBajaInteresado.BackColor = Color.LightSteelBlue;
         }
 
-        private void BtnBajaInteresado_Click(object sender, EventArgs e)
-        {
-            actualizarBotones(btnBajaInteresado);
-            foreach (Control item in PanelMdi.Controls.OfType<Control>())
-            {
-                PanelMdi.Controls.Remove(item);
-            }
+        //private void BtnBajaInteresado_Click(object sender, EventArgs e)
+        //{
+        //    actualizarBotones(btnBajaInteresado);
+        //    foreach (Control item in PanelMdi.Controls.OfType<Control>())
+        //    {
+        //        PanelMdi.Controls.Remove(item);
+        //    }
 
-            if (!PanelMdi.Controls.Contains(InterestedDisable.Instance))
-            {
-                PanelMdi.Controls.Add(InterestedDisable.Instance);
-                InterestedDisable.Instance.Dock = DockStyle.Fill;
-                InterestedDisable.PanelMdi = PanelMdi;
-                InterestedDisable.Instance.Visible = true;
-                InterestedDisable.Instance.BringToFront();
-            }
-            else
-            {
-                InterestedDisable.Instance.Visible = true;
-                InterestedDisable.Instance.BringToFront();
-            }
-        }
+        //    if (!PanelMdi.Controls.Contains(InterestedDisable.Instance))
+        //    {
+        //        PanelMdi.Controls.Add(InterestedDisable.Instance);
+        //        InterestedDisable.Instance.Dock = DockStyle.Fill;
+        //        InterestedDisable.PanelMdi = PanelMdi;
+        //        InterestedDisable.Instance.Visible = true;
+        //        InterestedDisable.Instance.BringToFront();
+        //    }
+        //    else
+        //    {
+        //        InterestedDisable.Instance.Visible = true;
+        //        InterestedDisable.Instance.BringToFront();
+        //    }
+        //}
     }
 }

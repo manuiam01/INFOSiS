@@ -48,6 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InterestedAdvancedSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InterestedAdvancedSearch.Designer.cs">
+      <DependentUpon>InterestedAdvancedSearch.cs</DependentUpon>
+    </Compile>
     <Compile Include="InterestedButtons.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -59,12 +65,6 @@
     </Compile>
     <Compile Include="InterestedCourses.Designer.cs">
       <DependentUpon>InterestedCourses.cs</DependentUpon>
-    </Compile>
-    <Compile Include="InterestedDisable.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="InterestedDisable.Designer.cs">
-      <DependentUpon>InterestedDisable.cs</DependentUpon>
     </Compile>
     <Compile Include="InterestedRegister.cs">
       <SubType>UserControl</SubType>
@@ -168,14 +168,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="InterestedAdvancedSearch.resx">
+      <DependentUpon>InterestedAdvancedSearch.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InterestedButtons.resx">
       <DependentUpon>InterestedButtons.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InterestedCourses.resx">
       <DependentUpon>InterestedCourses.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="InterestedDisable.resx">
-      <DependentUpon>InterestedDisable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InterestedRegister.resx">
       <DependentUpon>InterestedRegister.cs</DependentUpon>
