@@ -141,6 +141,34 @@ namespace INFOSiS_2._0
         private void BtnCourse_Click(object sender, EventArgs e)
         {
             cleanWindow();
+            panelMdiOptions.Visible = true;
+            if (!panelMdiInfosis.Controls.Contains(CourseRegister.Instance))
+            {
+                panelMdiInfosis.Controls.Add(CourseRegister.Instance);
+                CourseRegister.Instance.Dock = DockStyle.Fill;
+                CourseRegister.PanelMdi = panelMdiInfosis;
+                CourseRegister.Instance.Visible = true;
+                CourseRegister.Instance.BringToFront();
+            }
+            else
+            {
+                CourseRegister.Instance.Visible = true;
+                CourseRegister.Instance.BringToFront();
+            }
+
+            if (!panelMdiOptions.Controls.Contains(CourseButtons.Instance))
+            {
+                panelMdiOptions.Controls.Add(CourseButtons.Instance);
+                CourseButtons.Instance.Dock = DockStyle.Fill;
+                CourseButtons.PanelMdi = panelMdiInfosis;
+                CourseButtons.Instance.Visible = true;
+                CourseButtons.Instance.BringToFront();
+            }
+            else
+            {
+                CourseButtons.Instance.Visible = true;
+                CourseButtons.Instance.BringToFront();
+            }
         }
 
         private void BtnInterns_Click(object sender, EventArgs e)
