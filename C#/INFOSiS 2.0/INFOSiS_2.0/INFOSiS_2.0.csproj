@@ -151,6 +151,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="StudentButtons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StudentButtons.Designer.cs">
+      <DependentUpon>StudentButtons.cs</DependentUpon>
+    </Compile>
     <Compile Include="WeekAvailability.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -231,6 +237,9 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentButtons.resx">
+      <DependentUpon>StudentButtons.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WeekAvailability.resx">
       <DependentUpon>WeekAvailability.cs</DependentUpon>
