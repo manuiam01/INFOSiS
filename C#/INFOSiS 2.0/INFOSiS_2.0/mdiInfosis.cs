@@ -69,19 +69,19 @@ namespace INFOSiS_2._0
         {
             cleanWindow();
             panelMdiOptions.Visible = true;
-            /*if (!panelMdiInfosis.Controls.Contains(ProfessorRegister.Instance))
+            if (!panelMdiInfosis.Controls.Contains(StudentRegister.Instance))
             {
-                panelMdiInfosis.Controls.Add(ProfessorRegister.Instance);
-                ProfessorRegister.Instance.Dock = DockStyle.Fill;
-                ProfessorRegister.PanelMdi = panelMdiInfosis;
-                ProfessorRegister.Instance.Visible = true;
-                ProfessorRegister.Instance.BringToFront();
+                panelMdiInfosis.Controls.Add(StudentRegister.Instance);
+                StudentRegister.Instance.Dock = DockStyle.Fill;
+                StudentRegister.PanelMdi = panelMdiInfosis;
+                StudentRegister.Instance.Visible = true;
+                StudentRegister.Instance.BringToFront();
             }
             else
             {
-                ProfessorRegister.Instance.Visible = true;
-                ProfessorRegister.Instance.BringToFront();
-            }*/
+                StudentRegister.Instance.Visible = true;
+                StudentRegister.Instance.BringToFront();
+            }
 
             if (!panelMdiOptions.Controls.Contains(StudentButtons.Instance))
             {

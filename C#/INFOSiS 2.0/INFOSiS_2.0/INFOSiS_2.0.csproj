@@ -157,6 +157,12 @@
     <Compile Include="StudentButtons.Designer.cs">
       <DependentUpon>StudentButtons.cs</DependentUpon>
     </Compile>
+    <Compile Include="StudentRegister.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StudentRegister.Designer.cs">
+      <DependentUpon>StudentRegister.cs</DependentUpon>
+    </Compile>
     <Compile Include="WeekAvailability.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -240,6 +246,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="StudentButtons.resx">
       <DependentUpon>StudentButtons.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentRegister.resx">
+      <DependentUpon>StudentRegister.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WeekAvailability.resx">
       <DependentUpon>WeekAvailability.cs</DependentUpon>

@@ -55,7 +55,7 @@
             this.panelHeader.Location = new System.Drawing.Point(0, 0);
             this.panelHeader.Margin = new System.Windows.Forms.Padding(2);
             this.panelHeader.Name = "panelHeader";
-            this.panelHeader.Size = new System.Drawing.Size(1070, 117);
+            this.panelHeader.Size = new System.Drawing.Size(1211, 117);
             this.panelHeader.TabIndex = 0;
             // 
             // btnProfessor
@@ -63,7 +63,7 @@
             this.btnProfessor.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnProfessor.Font = new System.Drawing.Font("Gill Sans MT", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProfessor.Image = global::INFOSiS_2._0.Properties.Resources.profesor7;
-            this.btnProfessor.Location = new System.Drawing.Point(520, 2);
+            this.btnProfessor.Location = new System.Drawing.Point(661, 2);
             this.btnProfessor.Margin = new System.Windows.Forms.Padding(2);
             this.btnProfessor.Name = "btnProfessor";
             this.btnProfessor.Size = new System.Drawing.Size(86, 115);
@@ -78,7 +78,7 @@
             this.btnStudent.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnStudent.Font = new System.Drawing.Font("Gill Sans MT", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStudent.Image = global::INFOSiS_2._0.Properties.Resources.estudiante22;
-            this.btnStudent.Location = new System.Drawing.Point(611, 2);
+            this.btnStudent.Location = new System.Drawing.Point(752, 2);
             this.btnStudent.Margin = new System.Windows.Forms.Padding(2);
             this.btnStudent.Name = "btnStudent";
             this.btnStudent.Size = new System.Drawing.Size(84, 115);
@@ -93,7 +93,7 @@
             this.btnInterested.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnInterested.Font = new System.Drawing.Font("Gill Sans MT", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInterested.Image = global::INFOSiS_2._0.Properties.Resources.interesado3;
-            this.btnInterested.Location = new System.Drawing.Point(701, 2);
+            this.btnInterested.Location = new System.Drawing.Point(842, 2);
             this.btnInterested.Margin = new System.Windows.Forms.Padding(2);
             this.btnInterested.Name = "btnInterested";
             this.btnInterested.Size = new System.Drawing.Size(86, 115);
@@ -108,7 +108,7 @@
             this.btnCourse.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnCourse.Font = new System.Drawing.Font("Gill Sans MT", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCourse.Image = global::INFOSiS_2._0.Properties.Resources.cursos;
-            this.btnCourse.Location = new System.Drawing.Point(794, 2);
+            this.btnCourse.Location = new System.Drawing.Point(935, 2);
             this.btnCourse.Margin = new System.Windows.Forms.Padding(2);
             this.btnCourse.Name = "btnCourse";
             this.btnCourse.Size = new System.Drawing.Size(82, 115);
@@ -123,7 +123,7 @@
             this.btnInterns.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnInterns.Font = new System.Drawing.Font("Gill Sans MT", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInterns.Image = global::INFOSiS_2._0.Properties.Resources.personal1;
-            this.btnInterns.Location = new System.Drawing.Point(881, 2);
+            this.btnInterns.Location = new System.Drawing.Point(1022, 2);
             this.btnInterns.Margin = new System.Windows.Forms.Padding(2);
             this.btnInterns.Name = "btnInterns";
             this.btnInterns.Size = new System.Drawing.Size(86, 115);
@@ -138,7 +138,7 @@
             this.btnProfile.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnProfile.Font = new System.Drawing.Font("Gill Sans MT", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProfile.Image = global::INFOSiS_2._0.Properties.Resources.perfil;
-            this.btnProfile.Location = new System.Drawing.Point(971, 2);
+            this.btnProfile.Location = new System.Drawing.Point(1112, 2);
             this.btnProfile.Margin = new System.Windows.Forms.Padding(2);
             this.btnProfile.Name = "btnProfile";
             this.btnProfile.Size = new System.Drawing.Size(81, 115);
@@ -175,7 +175,7 @@
             this.panelMdiInfosis.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMdiInfosis.Location = new System.Drawing.Point(259, 117);
             this.panelMdiInfosis.Name = "panelMdiInfosis";
-            this.panelMdiInfosis.Size = new System.Drawing.Size(811, 566);
+            this.panelMdiInfosis.Size = new System.Drawing.Size(952, 566);
             this.panelMdiInfosis.TabIndex = 93;
             // 
             // MdiInfosis
@@ -183,7 +183,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1070, 683);
+            this.ClientSize = new System.Drawing.Size(1211, 683);
             this.Controls.Add(this.panelMdiInfosis);
             this.Controls.Add(this.panelMdiOptions);
             this.Controls.Add(this.panelHeader);
