@@ -48,6 +48,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CourseButtons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CourseButtons.Designer.cs">
+      <DependentUpon>CourseButtons.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CourseRegister.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CourseRegister.Designer.cs">
+      <DependentUpon>CourseRegister.cs</DependentUpon>
+    </Compile>
     <Compile Include="InterestedAdvancedSearch.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,6 +180,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="CourseButtons.resx">
+      <DependentUpon>CourseButtons.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CourseRegister.resx">
+      <DependentUpon>CourseRegister.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InterestedAdvancedSearch.resx">
       <DependentUpon>InterestedAdvancedSearch.cs</DependentUpon>
     </EmbeddedResource>
