@@ -50,15 +50,15 @@
             this.rbCarnet = new System.Windows.Forms.RadioButton();
             this.rbDNI = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lblEmail = new System.Windows.Forms.Label();
             this.txtCellphone = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
             this.lblCellphone = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.gbCursos = new System.Windows.Forms.GroupBox();
             this.btBuscarCursos = new System.Windows.Forms.Button();
             this.dgvInterestedCourses = new System.Windows.Forms.DataGridView();
             this.cNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblEmail = new System.Windows.Forms.Label();
-            this.txtEmail = new System.Windows.Forms.TextBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.gbxInterestedData.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -330,6 +330,17 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos de contacto";
             // 
+            // lblEmail
+            // 
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmail.Location = new System.Drawing.Point(76, 78);
+            this.lblEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(68, 25);
+            this.lblEmail.TabIndex = 180;
+            this.lblEmail.Text = "Correo:";
+            // 
             // txtCellphone
             // 
             this.txtCellphone.Location = new System.Drawing.Point(152, 36);
@@ -337,6 +348,14 @@
             this.txtCellphone.Name = "txtCellphone";
             this.txtCellphone.Size = new System.Drawing.Size(317, 31);
             this.txtCellphone.TabIndex = 173;
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Location = new System.Drawing.Point(152, 76);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(317, 31);
+            this.txtEmail.TabIndex = 179;
             // 
             // lblCellphone
             // 
@@ -419,25 +438,6 @@
             this.cNombre.ReadOnly = true;
             this.cNombre.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.cNombre.Width = 415;
-            // 
-            // lblEmail
-            // 
-            this.lblEmail.AutoSize = true;
-            this.lblEmail.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmail.Location = new System.Drawing.Point(76, 78);
-            this.lblEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(68, 25);
-            this.lblEmail.TabIndex = 180;
-            this.lblEmail.Text = "Correo:";
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.Location = new System.Drawing.Point(152, 76);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(317, 31);
-            this.txtEmail.TabIndex = 179;
             // 
             // btnCancel
             // 
