@@ -47,8 +47,8 @@ namespace INFOSiS_2._0
                     txbApeMa.Enabled = false;
                     txtCellphone.Enabled = false;
                     txtEmail.Enabled = false;
-                    txtEmailPUCP.Enabled = false;
-                    txtHomephone.Enabled = false;
+                    //txtEmailPUCP.Enabled = false;
+                    //txtHomephone.Enabled = false;
                     btCancelar.Enabled = false;
                     btModificar.Enabled = false;
                     btBuscarCursos.Enabled = false;
@@ -67,8 +67,8 @@ namespace INFOSiS_2._0
                     txbApeMa.Enabled = true;
                     txtCellphone.Enabled = true;
                     txtEmail.Enabled = true;
-                    txtEmailPUCP.Enabled = true;
-                    txtHomephone.Enabled = true;
+                    //txtEmailPUCP.Enabled = true;
+                    //txtHomephone.Enabled = true;
                     btCancelar.Enabled = true;
                     btModificar.Enabled = true;
                     btBuscarCursos.Enabled = true;
@@ -112,8 +112,8 @@ namespace INFOSiS_2._0
             txbSegundoNom.Text = "";
             txtCellphone.Text = "";
             txtEmail.Text = "";
-            txtEmailPUCP.Text = "";
-            txtHomephone.Text = "";
+            //txtEmailPUCP.Text = "";
+            //txtHomephone.Text = "";
             cbDesactivado.Checked = false;
             rbCarnet.Checked = false;
             rbDNI.Checked = false;
@@ -167,9 +167,9 @@ namespace INFOSiS_2._0
                 MessageBox.Show("No ingresó el apelldio paterno del interesado", "Aviso", MessageBoxButtons.OK);
             else if (txbApeMa.Text == "")
                 MessageBox.Show("No ingresó el apellido materno", "Aviso", MessageBoxButtons.OK);
-            else if (txtCellphone.Text == "" && txtHomephone.Text == "")
+            else if (txtCellphone.Text == "")
                 MessageBox.Show("No ingresó el número de contacto del interesado", "Aviso", MessageBoxButtons.OK);
-            else if (txtEmail.Text == "" && txtEmailPUCP.Text == "")
+            else if (txtEmail.Text == "")
                 MessageBox.Show("No ingresó el correo del interesado", "Aviso", MessageBoxButtons.OK);
             
         }

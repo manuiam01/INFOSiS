@@ -50,19 +50,16 @@
             this.rbCarnet = new System.Windows.Forms.RadioButton();
             this.rbDNI = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.lblEmail = new System.Windows.Forms.Label();
             this.txtCellphone = new System.Windows.Forms.TextBox();
-            this.txtEmail = new System.Windows.Forms.TextBox();
             this.lblCellphone = new System.Windows.Forms.Label();
-            this.lblEmailPUCP = new System.Windows.Forms.Label();
-            this.txtHomephone = new System.Windows.Forms.TextBox();
-            this.txtEmailPUCP = new System.Windows.Forms.TextBox();
-            this.lblHomephone = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.gbCursos = new System.Windows.Forms.GroupBox();
             this.btBuscarCursos = new System.Windows.Forms.Button();
             this.dgvInterestedCourses = new System.Windows.Forms.DataGridView();
             this.cNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblEmail = new System.Windows.Forms.Label();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.gbxInterestedData.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -104,7 +101,7 @@
             this.gbxInterestedData.Margin = new System.Windows.Forms.Padding(4);
             this.gbxInterestedData.Name = "gbxInterestedData";
             this.gbxInterestedData.Padding = new System.Windows.Forms.Padding(4);
-            this.gbxInterestedData.Size = new System.Drawing.Size(517, 484);
+            this.gbxInterestedData.Size = new System.Drawing.Size(517, 402);
             this.gbxInterestedData.TabIndex = 172;
             this.gbxInterestedData.TabStop = false;
             this.gbxInterestedData.Text = "Datos Personales";
@@ -323,95 +320,34 @@
             this.groupBox2.Controls.Add(this.txtCellphone);
             this.groupBox2.Controls.Add(this.txtEmail);
             this.groupBox2.Controls.Add(this.lblCellphone);
-            this.groupBox2.Controls.Add(this.lblEmailPUCP);
-            this.groupBox2.Controls.Add(this.txtHomephone);
-            this.groupBox2.Controls.Add(this.txtEmailPUCP);
-            this.groupBox2.Controls.Add(this.lblHomephone);
             this.groupBox2.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(549, 96);
+            this.groupBox2.Location = new System.Drawing.Point(11, 498);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Size = new System.Drawing.Size(477, 212);
+            this.groupBox2.Size = new System.Drawing.Size(517, 112);
             this.groupBox2.TabIndex = 173;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos de contacto";
             // 
-            // lblEmail
-            // 
-            this.lblEmail.AutoSize = true;
-            this.lblEmail.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmail.Location = new System.Drawing.Point(21, 175);
-            this.lblEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(123, 25);
-            this.lblEmail.TabIndex = 180;
-            this.lblEmail.Text = "Correo alterno:";
-            // 
             // txtCellphone
             // 
-            this.txtCellphone.Location = new System.Drawing.Point(152, 50);
+            this.txtCellphone.Location = new System.Drawing.Point(152, 36);
             this.txtCellphone.Margin = new System.Windows.Forms.Padding(4);
             this.txtCellphone.Name = "txtCellphone";
             this.txtCellphone.Size = new System.Drawing.Size(317, 31);
             this.txtCellphone.TabIndex = 173;
             // 
-            // txtEmail
-            // 
-            this.txtEmail.Location = new System.Drawing.Point(152, 169);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(317, 31);
-            this.txtEmail.TabIndex = 179;
-            // 
             // lblCellphone
             // 
             this.lblCellphone.AutoSize = true;
             this.lblCellphone.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCellphone.Location = new System.Drawing.Point(77, 52);
+            this.lblCellphone.Location = new System.Drawing.Point(77, 38);
             this.lblCellphone.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCellphone.Name = "lblCellphone";
             this.lblCellphone.Size = new System.Drawing.Size(67, 25);
             this.lblCellphone.TabIndex = 174;
             this.lblCellphone.Text = "Celular:";
-            // 
-            // lblEmailPUCP
-            // 
-            this.lblEmailPUCP.AutoSize = true;
-            this.lblEmailPUCP.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmailPUCP.Location = new System.Drawing.Point(29, 134);
-            this.lblEmailPUCP.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblEmailPUCP.Name = "lblEmailPUCP";
-            this.lblEmailPUCP.Size = new System.Drawing.Size(115, 25);
-            this.lblEmailPUCP.TabIndex = 178;
-            this.lblEmailPUCP.Text = "Correo PUCP:";
-            // 
-            // txtHomephone
-            // 
-            this.txtHomephone.Location = new System.Drawing.Point(152, 90);
-            this.txtHomephone.Margin = new System.Windows.Forms.Padding(4);
-            this.txtHomephone.Name = "txtHomephone";
-            this.txtHomephone.Size = new System.Drawing.Size(317, 31);
-            this.txtHomephone.TabIndex = 175;
-            // 
-            // txtEmailPUCP
-            // 
-            this.txtEmailPUCP.Location = new System.Drawing.Point(152, 129);
-            this.txtEmailPUCP.Margin = new System.Windows.Forms.Padding(4);
-            this.txtEmailPUCP.Name = "txtEmailPUCP";
-            this.txtEmailPUCP.Size = new System.Drawing.Size(317, 31);
-            this.txtEmailPUCP.TabIndex = 177;
-            // 
-            // lblHomephone
-            // 
-            this.lblHomephone.AutoSize = true;
-            this.lblHomephone.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHomephone.Location = new System.Drawing.Point(40, 94);
-            this.lblHomephone.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblHomephone.Name = "lblHomephone";
-            this.lblHomephone.Size = new System.Drawing.Size(103, 25);
-            this.lblHomephone.TabIndex = 176;
-            this.lblHomephone.Text = "Teléfono fijo:";
             // 
             // btnSave
             // 
@@ -421,10 +357,10 @@
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Gill Sans MT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(404, 605);
+            this.btnSave.Location = new System.Drawing.Point(307, 631);
             this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(272, 53);
+            this.btnSave.Size = new System.Drawing.Size(197, 48);
             this.btnSave.TabIndex = 174;
             this.btnSave.Text = "Guardar";
             this.btnSave.UseVisualStyleBackColor = false;
@@ -436,11 +372,11 @@
             this.gbCursos.Controls.Add(this.btBuscarCursos);
             this.gbCursos.Controls.Add(this.dgvInterestedCourses);
             this.gbCursos.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbCursos.Location = new System.Drawing.Point(549, 316);
+            this.gbCursos.Location = new System.Drawing.Point(557, 96);
             this.gbCursos.Margin = new System.Windows.Forms.Padding(4);
             this.gbCursos.Name = "gbCursos";
             this.gbCursos.Padding = new System.Windows.Forms.Padding(4);
-            this.gbCursos.Size = new System.Drawing.Size(477, 263);
+            this.gbCursos.Size = new System.Drawing.Size(477, 514);
             this.gbCursos.TabIndex = 175;
             this.gbCursos.TabStop = false;
             this.gbCursos.Text = "Cursos de interés";
@@ -452,7 +388,7 @@
             this.btBuscarCursos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btBuscarCursos.Font = new System.Drawing.Font("Gill Sans MT", 11F);
             this.btBuscarCursos.ForeColor = System.Drawing.Color.White;
-            this.btBuscarCursos.Location = new System.Drawing.Point(8, 31);
+            this.btBuscarCursos.Location = new System.Drawing.Point(7, 38);
             this.btBuscarCursos.Name = "btBuscarCursos";
             this.btBuscarCursos.Size = new System.Drawing.Size(154, 35);
             this.btBuscarCursos.TabIndex = 1;
@@ -472,7 +408,7 @@
             this.dgvInterestedCourses.Name = "dgvInterestedCourses";
             this.dgvInterestedCourses.ReadOnly = true;
             this.dgvInterestedCourses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvInterestedCourses.Size = new System.Drawing.Size(461, 180);
+            this.dgvInterestedCourses.Size = new System.Drawing.Size(461, 430);
             this.dgvInterestedCourses.TabIndex = 0;
             this.dgvInterestedCourses.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvInterestedCourses_CellContentClick);
             // 
@@ -484,11 +420,48 @@
             this.cNombre.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.cNombre.Width = 415;
             // 
+            // lblEmail
+            // 
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmail.Location = new System.Drawing.Point(76, 78);
+            this.lblEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(68, 25);
+            this.lblEmail.TabIndex = 180;
+            this.lblEmail.Text = "Correo:";
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Location = new System.Drawing.Point(152, 76);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(317, 31);
+            this.txtEmail.TabIndex = 179;
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnCancel.BackColor = System.Drawing.Color.MidnightBlue;
+            this.btnCancel.FlatAppearance.BorderSize = 0;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Font = new System.Drawing.Font("Gill Sans MT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.ForeColor = System.Drawing.Color.White;
+            this.btnCancel.Location = new System.Drawing.Point(565, 631);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(197, 48);
+            this.btnCancel.TabIndex = 176;
+            this.btnCancel.Text = "Cancelar";
+            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
+            // 
             // InterestedRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.gbCursos);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.groupBox2);
@@ -535,18 +508,15 @@
         private System.Windows.Forms.RadioButton rbFemale;
         private System.Windows.Forms.DateTimePicker dateNacimiento;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.TextBox txtCellphone;
-        private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label lblCellphone;
-        private System.Windows.Forms.Label lblEmailPUCP;
-        private System.Windows.Forms.TextBox txtHomephone;
-        private System.Windows.Forms.TextBox txtEmailPUCP;
-        private System.Windows.Forms.Label lblHomephone;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.GroupBox gbCursos;
         private System.Windows.Forms.DataGridView dgvInterestedCourses;
         private System.Windows.Forms.Button btBuscarCursos;
         private System.Windows.Forms.DataGridViewTextBoxColumn cNombre;
+        private System.Windows.Forms.Label lblEmail;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.Button btnCancel;
     }
 }

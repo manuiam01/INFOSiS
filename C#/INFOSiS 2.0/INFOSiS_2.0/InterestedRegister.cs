@@ -65,8 +65,8 @@ namespace INFOSiS_2._0
             txbSegundoNom.Text != "" ||
             txtCellphone.Text != "" ||
             txtEmail.Text != "" ||
-            txtEmailPUCP.Text != "" ||
-            txtHomephone.Text != "" ||
+            //txtEmailPUCP.Text != "" ||
+            //txtHomephone.Text != "" ||
             rbCarnet.Checked != false ||
             rbDNI.Checked != false ||
             rbPasaporte.Checked != false ||
@@ -99,8 +99,8 @@ namespace INFOSiS_2._0
             txbSegundoNom.Text = "";
             txtCellphone.Text = "";
             txtEmail.Text = "";
-            txtEmailPUCP.Text = "";
-            txtHomephone.Text = "";
+            //txtEmailPUCP.Text = "";
+            //txtHomephone.Text = "";
             rbCarnet.Checked = false;
             rbDNI.Checked = false;
             rbPasaporte.Checked = false;
@@ -122,13 +122,25 @@ namespace INFOSiS_2._0
                 MessageBox.Show("No ingresó el apellido materno del interesado", "Aviso", MessageBoxButtons.OK);
             else if (rbMale.Checked == false && rbFemale.Checked == false)
                 MessageBox.Show("No escogió el género", "Aviso", MessageBoxButtons.OK);
-            else if (txtCellphone.Text == "" && txtHomephone.Text == "")
+            else if (txtCellphone.Text == "" )
                 MessageBox.Show("No ingresó el número del interesado", "Aviso", MessageBoxButtons.OK);
-            else if (txtEmail.Text == "" && txtEmailPUCP.Text == "") 
+            else if (txtEmail.Text == "" ) 
                 MessageBox.Show("No ingresó el correo del interesado", "Aviso", MessageBoxButtons.OK);
             else if (dgvInterestedCourses.Rows.Count == 0)
                 MessageBox.Show("No escogió cursos de interés", "Aviso", MessageBoxButtons.OK);
             
+        }
+
+        private void BtnCancel_Click(object sender, EventArgs e)
+        {
+            if (verificarVacio() == 0)
+            {
+                DialogResult result = MessageBox.Show("Está seguro de que quiere cancelar el registro?", "Aviso", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    limpiar();
+                }
+            }
         }
     }
 }
