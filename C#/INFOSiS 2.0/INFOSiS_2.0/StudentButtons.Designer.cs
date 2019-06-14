@@ -33,26 +33,29 @@
             // 
             // button1
             // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Gill Sans MT", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.button1.Location = new System.Drawing.Point(0, 321);
+            this.button1.Location = new System.Drawing.Point(0, 213);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(263, 68);
+            this.button1.Size = new System.Drawing.Size(351, 84);
             this.button1.TabIndex = 0;
             this.button1.Text = "Registrar un Alumno";
             this.button1.UseVisualStyleBackColor = false;
             // 
             // StudentButtons
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.Controls.Add(this.button1);
             this.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "StudentButtons";
-            this.Size = new System.Drawing.Size(263, 489);
+            this.Size = new System.Drawing.Size(351, 602);
             this.ResumeLayout(false);
 
         }
