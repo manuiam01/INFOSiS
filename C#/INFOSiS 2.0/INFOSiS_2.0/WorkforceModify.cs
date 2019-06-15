@@ -35,5 +35,20 @@ namespace INFOSiS_2._0
         {
             InitializeComponent();
         }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbBusquedaAvanzada_Click(object sender, EventArgs e)
+        {
+            WorkforceAdvancedSearch formSearchIntern = new WorkforceAdvancedSearch();
+            if (formSearchIntern.ShowDialog() == DialogResult.OK)
+            {
+                //Acá en teoría debería de devolver todo el ArrayList de cursos para ingresarlo al dgv
+                //dgvInterestedCourses.DataSource = formBuscarCursosInteresado.}
+            }
+        }
     }
 }

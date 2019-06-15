@@ -119,7 +119,7 @@ namespace INFOSiS_2._0
             rbDNI.Checked = false;
             rbPasaporte.Checked = false;
         }
-        private void BtnSave_Click(object sender, EventArgs e)
+        private void BtnSearch_Click(object sender, EventArgs e)
         {
             if (rbCarnet.Checked == false && rbDNI.Checked == false && rbPasaporte.Checked == false)
             {

@@ -36,25 +36,25 @@ namespace INFOSiS_2._0
             InitializeComponent();
         }
 
-        private void BtnSearch_Click(object sender, EventArgs e)
+        private void BtnModify_Click(object sender, EventArgs e)
         {
             foreach (Control item in PanelMdi.Controls.OfType<Control>())
             {
                 PanelMdi.Controls.Remove(item);
             }
 
-            if (!PanelMdi.Controls.Contains(ProfessorSearch.Instance))
+            if (!PanelMdi.Controls.Contains(ProfessorModify.Instance))
             {
-                PanelMdi.Controls.Add(ProfessorSearch.Instance);
-                ProfessorSearch.Instance.Dock = DockStyle.Fill;
-                ProfessorSearch.PanelMdi = PanelMdi;
-                ProfessorSearch.Instance.Visible = true;
-                ProfessorSearch.Instance.BringToFront();
+                PanelMdi.Controls.Add(ProfessorModify.Instance);
+                ProfessorModify.Instance.Dock = DockStyle.Fill;
+                ProfessorModify.PanelMdi = PanelMdi;
+                ProfessorModify.Instance.Visible = true;
+                ProfessorModify.Instance.BringToFront();
             }
             else
             {
-                ProfessorSearch.Instance.Visible = true;
-                ProfessorSearch.Instance.BringToFront();
+                ProfessorModify.Instance.Visible = true;
+                ProfessorModify.Instance.BringToFront();
             }
 
         }
@@ -66,14 +66,14 @@ namespace INFOSiS_2._0
             {
                 PanelMdi.Controls.Add(ProfessorRegister.Instance);
                 ProfessorRegister.Instance.Dock = DockStyle.Fill;
-                ProfessorSearch.PanelMdi = PanelMdi;
-                ProfessorSearch.Instance.Visible = true;
-                ProfessorSearch.Instance.BringToFront();
+                ProfessorModify.PanelMdi = PanelMdi;
+                ProfessorModify.Instance.Visible = true;
+                ProfessorModify.Instance.BringToFront();
             }
             else
             {
-                ProfessorSearch.Instance.Visible = true;
-                ProfessorSearch.Instance.BringToFront();
+                ProfessorModify.Instance.Visible = true;
+                ProfessorModify.Instance.BringToFront();
             }
         }
 

@@ -53,7 +53,7 @@
             this.rbPasaporte = new System.Windows.Forms.RadioButton();
             this.rbCarnet = new System.Windows.Forms.RadioButton();
             this.rbDNI = new System.Windows.Forms.RadioButton();
-            this.btnBuscar = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.btModificar = new System.Windows.Forms.Button();
             this.btCancelar = new System.Windows.Forms.Button();
             this.cbDesactivado = new System.Windows.Forms.CheckBox();
@@ -357,23 +357,23 @@
             this.rbDNI.Text = "DNI";
             this.rbDNI.UseVisualStyleBackColor = true;
             // 
-            // btnBuscar
+            // btnSearch
             // 
-            this.btnBuscar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnBuscar.BackColor = System.Drawing.Color.MidnightBlue;
-            this.btnBuscar.FlatAppearance.BorderSize = 0;
-            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscar.Font = new System.Drawing.Font("Gill Sans MT", 12F);
-            this.btnBuscar.ForeColor = System.Drawing.Color.White;
-            this.btnBuscar.Location = new System.Drawing.Point(33, 206);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(139, 39);
-            this.btnBuscar.TabIndex = 175;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = false;
-            this.btnBuscar.Click += new System.EventHandler(this.BtnSave_Click);
-            this.btnBuscar.Leave += new System.EventHandler(this.BtnSave_Leave);
+            this.btnSearch.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnSearch.BackColor = System.Drawing.Color.MidnightBlue;
+            this.btnSearch.FlatAppearance.BorderSize = 0;
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.Font = new System.Drawing.Font("Gill Sans MT", 12F);
+            this.btnSearch.ForeColor = System.Drawing.Color.White;
+            this.btnSearch.Location = new System.Drawing.Point(33, 206);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(139, 39);
+            this.btnSearch.TabIndex = 175;
+            this.btnSearch.Text = "Buscar";
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
+            this.btnSearch.Leave += new System.EventHandler(this.BtnSave_Leave);
             // 
             // btModificar
             // 
@@ -448,7 +448,7 @@
             this.Controls.Add(this.cbDesactivado);
             this.Controls.Add(this.btCancelar);
             this.Controls.Add(this.btModificar);
-            this.Controls.Add(this.btnBuscar);
+            this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gbCursos);
             this.Controls.Add(this.groupBox2);
@@ -501,7 +501,7 @@
         private System.Windows.Forms.RadioButton rbPasaporte;
         private System.Windows.Forms.RadioButton rbCarnet;
         private System.Windows.Forms.RadioButton rbDNI;
-        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btModificar;
         private System.Windows.Forms.Button btCancelar;
         private System.Windows.Forms.CheckBox cbDesactivado;

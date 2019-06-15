@@ -96,6 +96,12 @@
     <Compile Include="InterfazCodigos.Designer.cs">
       <DependentUpon>InterfazCodigos.cs</DependentUpon>
     </Compile>
+    <Compile Include="WorkforceAdvancedSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorkforceAdvancedSearch.Designer.cs">
+      <DependentUpon>WorkforceAdvancedSearch.cs</DependentUpon>
+    </Compile>
     <Compile Include="ListaStrings.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -108,6 +114,12 @@
     </Compile>
     <Compile Include="mdiInfosis.Designer.cs">
       <DependentUpon>mdiInfosis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProfessorAdvancedSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProfessorAdvancedSearch.Designer.cs">
+      <DependentUpon>ProfessorAdvancedSearch.cs</DependentUpon>
     </Compile>
     <Compile Include="ProfessorButtons.cs">
       <SubType>UserControl</SubType>
@@ -127,11 +139,11 @@
     <Compile Include="ProfessorReport.Designer.cs">
       <DependentUpon>ProfessorReport.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProfessorSearch.cs">
+    <Compile Include="ProfessorModify.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ProfessorSearch.Designer.cs">
-      <DependentUpon>ProfessorSearch.cs</DependentUpon>
+    <Compile Include="ProfessorModify.Designer.cs">
+      <DependentUpon>ProfessorModify.cs</DependentUpon>
     </Compile>
     <Compile Include="ProfileButtons.cs">
       <SubType>UserControl</SubType>
@@ -223,11 +235,17 @@
     <EmbeddedResource Include="InterfazCodigos.resx">
       <DependentUpon>InterfazCodigos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="WorkforceAdvancedSearch.resx">
+      <DependentUpon>WorkforceAdvancedSearch.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="mdiInfosis.resx">
       <DependentUpon>mdiInfosis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProfessorAdvancedSearch.resx">
+      <DependentUpon>ProfessorAdvancedSearch.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProfessorButtons.resx">
       <DependentUpon>ProfessorButtons.cs</DependentUpon>
@@ -238,8 +256,8 @@
     <EmbeddedResource Include="ProfessorReport.resx">
       <DependentUpon>ProfessorReport.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProfessorSearch.resx">
-      <DependentUpon>ProfessorSearch.cs</DependentUpon>
+    <EmbeddedResource Include="ProfessorModify.resx">
+      <DependentUpon>ProfessorModify.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProfileButtons.resx">
       <DependentUpon>ProfileButtons.cs</DependentUpon>
