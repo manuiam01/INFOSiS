@@ -127,9 +127,18 @@ namespace INFOSiS_2._0
                 MessageBox.Show("No ingresó el número del interesado", "Aviso", MessageBoxButtons.OK);
             else if (txtEmail.Text == "" ) 
                 MessageBox.Show("No ingresó el correo del interesado", "Aviso", MessageBoxButtons.OK);
-            else if (dgvInterestedCourses.Rows.Count == 0)
-                MessageBox.Show("No escogió cursos de interés", "Aviso", MessageBoxButtons.OK);
-            
+            //else if (dgvInterestedCourses.Rows.Count == 0)
+            //   MessageBox.Show("No escogió cursos de interés", "Aviso", MessageBoxButtons.OK);
+            else
+            {
+                DialogResult result = MessageBox.Show("Está seguro de que quiere guardar el registro?", "Aviso", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    MessageBox.Show("Se registró al interesado de manera correcta", "Éxito", MessageBoxButtons.OK);
+                    limpiar();
+                }
+            }
+
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
