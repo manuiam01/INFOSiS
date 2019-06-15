@@ -32,6 +32,7 @@ namespace INFOSiS_2._0
         public InterestedRegister()
         {
             InitializeComponent();
+            limpiar();
         }
 
         private void InterestedRegister_Load(object sender, EventArgs e)
@@ -68,7 +69,7 @@ namespace INFOSiS_2._0
             //txtEmailPUCP.Text != "" ||
             //txtHomephone.Text != "" ||
             rbCarnet.Checked != false ||
-            rbDNI.Checked != false ||
+            //rbDNI.Checked != false ||
             rbPasaporte.Checked != false ||
             rbMale.Checked != false ||
             rbFemale.Checked != false ||
@@ -102,7 +103,7 @@ namespace INFOSiS_2._0
             //txtEmailPUCP.Text = "";
             //txtHomephone.Text = "";
             rbCarnet.Checked = false;
-            rbDNI.Checked = false;
+            rbDNI.Checked = true;
             rbPasaporte.Checked = false;
             rbFemale.Checked = false;
             rbMale.Checked = false;
