@@ -55,6 +55,7 @@ namespace INFOSiS_2._0
             {
                 //Acá en teoría debería de devolver todo el ArrayList de cursos para ingresarlo al dgv
                 //dgvInterestedCourses.DataSource = formBuscarCursosInteresado.}
+
             }
         }
 

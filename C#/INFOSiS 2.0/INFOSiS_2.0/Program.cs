@@ -9,6 +9,8 @@ namespace INFOSiS_2._0
 {
     class Program
     {
+
+        [STAThread]
         static void Main(string[] args)
         {
             Application.EnableVisualStyles();
