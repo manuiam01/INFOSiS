@@ -12,6 +12,9 @@ namespace INFOSiS_2._0
 {
     public partial class InterestedRegister : UserControl
     {
+        MessageBoxIcon iconoWarning = MessageBoxIcon.Warning;
+        MessageBoxIcon iconoPregunta = MessageBoxIcon.Question;
+        MessageBoxIcon iconoCorrecto = MessageBoxIcon.Asterisk;
         private static InterestedRegister _instance;
         private static Panel _panelMdi;
         public static InterestedRegister Instance
@@ -83,8 +86,9 @@ namespace INFOSiS_2._0
 
         private void InterestedRegister_Leave(object sender, EventArgs e)
         {
+
             if (verificarVacio() == 0) {
-                DialogResult result = MessageBox.Show("Está seguro de salir sin guardar los cambios?", "Aviso", MessageBoxButtons.YesNo);
+                DialogResult result = MessageBox.Show("Está seguro de salir sin guardar los cambios?", "Aviso", MessageBoxButtons.YesNo, iconoWarning);
                 if (result == DialogResult.Yes)
                 {
                     limpiar();
@@ -111,30 +115,32 @@ namespace INFOSiS_2._0
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
+            
             if (rbCarnet.Checked == false && rbDNI.Checked == false && rbPasaporte.Checked == false)
-                MessageBox.Show("No seleccionó el tipo de documento", "Aviso", MessageBoxButtons.OK);
+                MessageBox.Show("No seleccionó el tipo de documento", "Aviso", MessageBoxButtons.OK, iconoWarning);
             else if (txbNDocumento.Text == "")
-                MessageBox.Show("No ingresó el número de documento", "Aviso", MessageBoxButtons.OK);
+                MessageBox.Show("No ingresó el número de documento", "Aviso", MessageBoxButtons.OK, iconoWarning);
             else if (txbNombre.Text == "")
-                MessageBox.Show("No ingresó el nombre del interesado", "Aviso", MessageBoxButtons.OK);
+                MessageBox.Show("No ingresó el nombre del interesado", "Aviso", MessageBoxButtons.OK, iconoWarning);
             else if (txbApePa.Text == "")
-                MessageBox.Show("No ingresó el apellido paterno del interesado", "Aviso", MessageBoxButtons.OK);
+                MessageBox.Show("No ingresó el apellido paterno del interesado", "Aviso", MessageBoxButtons.OK, iconoWarning);
             else if (txbApeMa.Text == "")
-                MessageBox.Show("No ingresó el apellido materno del interesado", "Aviso", MessageBoxButtons.OK);
+                MessageBox.Show("No ingresó el apellido materno del interesado", "Aviso", MessageBoxButtons.OK, iconoWarning);
             else if (rbMale.Checked == false && rbFemale.Checked == false)
-                MessageBox.Show("No escogió el género", "Aviso", MessageBoxButtons.OK);
+                MessageBox.Show("No escogió el género", "Aviso", MessageBoxButtons.OK, iconoWarning);
             else if (txtCellphone.Text == "" )
-                MessageBox.Show("No ingresó el número del interesado", "Aviso", MessageBoxButtons.OK);
+                MessageBox.Show("No ingresó el número del interesado", "Aviso", MessageBoxButtons.OK, iconoWarning);
             else if (txtEmail.Text == "" ) 
-                MessageBox.Show("No ingresó el correo del interesado", "Aviso", MessageBoxButtons.OK);
+                MessageBox.Show("No ingresó el correo del interesado", "Aviso", MessageBoxButtons.OK, iconoWarning);
             //else if (dgvInterestedCourses.Rows.Count == 0)
             //   MessageBox.Show("No escogió cursos de interés", "Aviso", MessageBoxButtons.OK);
             else
             {
-                DialogResult result = MessageBox.Show("Está seguro de que quiere guardar el registro?", "Aviso", MessageBoxButtons.YesNo);
+                iconoPregunta = MessageBoxIcon.Question;
+                DialogResult result = MessageBox.Show("Está seguro de que quiere guardar el registro?", "Aviso", MessageBoxButtons.YesNo, iconoPregunta);
                 if (result == DialogResult.Yes)
                 {
-                    MessageBox.Show("Se registró al interesado de manera correcta", "Éxito", MessageBoxButtons.OK);
+                    MessageBox.Show("Se registró al interesado de manera correcta", "Éxito", MessageBoxButtons.OK,iconoCorrecto);
                     limpiar();
                 }
             }
@@ -145,7 +151,7 @@ namespace INFOSiS_2._0
         {
             if (verificarVacio() == 0)
             {
-                DialogResult result = MessageBox.Show("Está seguro de que quiere cancelar el registro?", "Aviso", MessageBoxButtons.YesNo);
+                DialogResult result = MessageBox.Show("Está seguro de que quiere cancelar el registro?", "Aviso", MessageBoxButtons.YesNo,iconoWarning);
                 if (result == DialogResult.Yes)
                 {
                     limpiar();
