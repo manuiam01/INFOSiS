@@ -55,9 +55,9 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnAgregarCodigos = new System.Windows.Forms.Button();
             this.dgvCodigos = new System.Windows.Forms.DataGridView();
-            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.BtnCancelar = new System.Windows.Forms.Button();
+            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -93,9 +93,9 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(56, 94);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(329, 324);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
@@ -105,7 +105,7 @@
             // 
             this.txtApellidoMaterno.Enabled = false;
             this.txtApellidoMaterno.Location = new System.Drawing.Point(152, 286);
-            this.txtApellidoMaterno.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtApellidoMaterno.Margin = new System.Windows.Forms.Padding(2);
             this.txtApellidoMaterno.Name = "txtApellidoMaterno";
             this.txtApellidoMaterno.Size = new System.Drawing.Size(167, 26);
             this.txtApellidoMaterno.TabIndex = 11;
@@ -114,7 +114,7 @@
             // 
             this.txtApellidoPaterno.Enabled = false;
             this.txtApellidoPaterno.Location = new System.Drawing.Point(152, 251);
-            this.txtApellidoPaterno.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtApellidoPaterno.Margin = new System.Windows.Forms.Padding(2);
             this.txtApellidoPaterno.Name = "txtApellidoPaterno";
             this.txtApellidoPaterno.Size = new System.Drawing.Size(167, 26);
             this.txtApellidoPaterno.TabIndex = 10;
@@ -123,7 +123,7 @@
             // 
             this.txtSegundoNombre.Enabled = false;
             this.txtSegundoNombre.Location = new System.Drawing.Point(152, 216);
-            this.txtSegundoNombre.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtSegundoNombre.Margin = new System.Windows.Forms.Padding(2);
             this.txtSegundoNombre.Name = "txtSegundoNombre";
             this.txtSegundoNombre.Size = new System.Drawing.Size(167, 26);
             this.txtSegundoNombre.TabIndex = 9;
@@ -132,7 +132,7 @@
             // 
             this.txtNombre.Enabled = false;
             this.txtNombre.Location = new System.Drawing.Point(152, 181);
-            this.txtNombre.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(2);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(167, 26);
             this.txtNombre.TabIndex = 8;
@@ -176,7 +176,7 @@
             this.btnVerificarDocumento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVerificarDocumento.ForeColor = System.Drawing.Color.White;
             this.btnVerificarDocumento.Location = new System.Drawing.Point(152, 132);
-            this.btnVerificarDocumento.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnVerificarDocumento.Margin = new System.Windows.Forms.Padding(2);
             this.btnVerificarDocumento.Name = "btnVerificarDocumento";
             this.btnVerificarDocumento.Size = new System.Drawing.Size(166, 32);
             this.btnVerificarDocumento.TabIndex = 4;
@@ -202,9 +202,9 @@
             this.groupBox2.Controls.Add(this.rbnDNI);
             this.groupBox2.Font = new System.Drawing.Font("Gill Sans MT", 10F);
             this.groupBox2.Location = new System.Drawing.Point(8, 24);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox2.Size = new System.Drawing.Size(309, 54);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
@@ -215,7 +215,7 @@
             this.rbnPasaporte.AutoSize = true;
             this.rbnPasaporte.Font = new System.Drawing.Font("Gill Sans MT", 9.75F);
             this.rbnPasaporte.Location = new System.Drawing.Point(214, 21);
-            this.rbnPasaporte.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbnPasaporte.Margin = new System.Windows.Forms.Padding(2);
             this.rbnPasaporte.Name = "rbnPasaporte";
             this.rbnPasaporte.Size = new System.Drawing.Size(79, 22);
             this.rbnPasaporte.TabIndex = 2;
@@ -228,7 +228,7 @@
             this.rbnCarneExtranjeria.AutoSize = true;
             this.rbnCarneExtranjeria.Font = new System.Drawing.Font("Gill Sans MT", 9.75F);
             this.rbnCarneExtranjeria.Location = new System.Drawing.Point(75, 21);
-            this.rbnCarneExtranjeria.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbnCarneExtranjeria.Margin = new System.Windows.Forms.Padding(2);
             this.rbnCarneExtranjeria.Name = "rbnCarneExtranjeria";
             this.rbnCarneExtranjeria.Size = new System.Drawing.Size(139, 22);
             this.rbnCarneExtranjeria.TabIndex = 1;
@@ -241,7 +241,7 @@
             this.rbnDNI.AutoSize = true;
             this.rbnDNI.Font = new System.Drawing.Font("Gill Sans MT", 9.75F);
             this.rbnDNI.Location = new System.Drawing.Point(23, 21);
-            this.rbnDNI.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbnDNI.Margin = new System.Windows.Forms.Padding(2);
             this.rbnDNI.Name = "rbnDNI";
             this.rbnDNI.Size = new System.Drawing.Size(49, 22);
             this.rbnDNI.TabIndex = 0;
@@ -253,7 +253,7 @@
             // 
             this.txtDocumento.Font = new System.Drawing.Font("Gill Sans MT", 10F);
             this.txtDocumento.Location = new System.Drawing.Point(152, 89);
-            this.txtDocumento.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtDocumento.Margin = new System.Windows.Forms.Padding(2);
             this.txtDocumento.Name = "txtDocumento";
             this.txtDocumento.Size = new System.Drawing.Size(167, 23);
             this.txtDocumento.TabIndex = 1;
@@ -303,9 +303,9 @@
             this.groupBox3.Controls.Add(this.dateNacimiento);
             this.groupBox3.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(407, 94);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox3.Size = new System.Drawing.Size(367, 134);
             this.groupBox3.TabIndex = 175;
             this.groupBox3.TabStop = false;
@@ -316,7 +316,7 @@
             this.txtTelefono.Enabled = false;
             this.txtTelefono.Font = new System.Drawing.Font("Gill Sans MT", 10F);
             this.txtTelefono.Location = new System.Drawing.Point(130, 90);
-            this.txtTelefono.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtTelefono.Margin = new System.Windows.Forms.Padding(2);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(223, 23);
             this.txtTelefono.TabIndex = 178;
@@ -337,7 +337,7 @@
             this.txtDireccion.Enabled = false;
             this.txtDireccion.Font = new System.Drawing.Font("Gill Sans MT", 10F);
             this.txtDireccion.Location = new System.Drawing.Point(130, 58);
-            this.txtDireccion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtDireccion.Margin = new System.Windows.Forms.Padding(2);
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(223, 23);
             this.txtDireccion.TabIndex = 176;
@@ -360,9 +360,9 @@
             this.groupBox4.Controls.Add(this.dgvCodigos);
             this.groupBox4.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.Location = new System.Drawing.Point(407, 243);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox4.Size = new System.Drawing.Size(367, 176);
             this.groupBox4.TabIndex = 176;
             this.groupBox4.TabStop = false;
@@ -375,12 +375,13 @@
             this.btnAgregarCodigos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregarCodigos.ForeColor = System.Drawing.Color.White;
             this.btnAgregarCodigos.Location = new System.Drawing.Point(186, 24);
-            this.btnAgregarCodigos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAgregarCodigos.Margin = new System.Windows.Forms.Padding(2);
             this.btnAgregarCodigos.Name = "btnAgregarCodigos";
             this.btnAgregarCodigos.Size = new System.Drawing.Size(166, 32);
             this.btnAgregarCodigos.TabIndex = 5;
             this.btnAgregarCodigos.Text = "Agregar Códigos";
             this.btnAgregarCodigos.UseVisualStyleBackColor = false;
+            this.btnAgregarCodigos.Click += new System.EventHandler(this.btnAgregarCodigos_Click);
             // 
             // dgvCodigos
             // 
@@ -395,22 +396,13 @@
             this.dgvCodigos.Enabled = false;
             this.dgvCodigos.GridColor = System.Drawing.SystemColors.ActiveBorder;
             this.dgvCodigos.Location = new System.Drawing.Point(9, 67);
-            this.dgvCodigos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvCodigos.Margin = new System.Windows.Forms.Padding(2);
             this.dgvCodigos.Name = "dgvCodigos";
             this.dgvCodigos.ReadOnly = true;
             this.dgvCodigos.RowTemplate.Height = 24;
             this.dgvCodigos.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvCodigos.Size = new System.Drawing.Size(343, 100);
             this.dgvCodigos.TabIndex = 0;
-            // 
-            // Codigo
-            // 
-            this.Codigo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Codigo.HeaderText = "Código PUCP";
-            this.Codigo.MaxInputLength = 20;
-            this.Codigo.Name = "Codigo";
-            this.Codigo.ReadOnly = true;
-            this.Codigo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // btnGuardar
             // 
@@ -421,12 +413,13 @@
             this.btnGuardar.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.Color.White;
             this.btnGuardar.Location = new System.Drawing.Point(407, 436);
-            this.btnGuardar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(2);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(166, 32);
             this.btnGuardar.TabIndex = 12;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // BtnCancelar
             // 
@@ -436,12 +429,23 @@
             this.BtnCancelar.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnCancelar.ForeColor = System.Drawing.Color.White;
             this.BtnCancelar.Location = new System.Drawing.Point(220, 436);
-            this.BtnCancelar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BtnCancelar.Margin = new System.Windows.Forms.Padding(2);
             this.BtnCancelar.Name = "BtnCancelar";
             this.BtnCancelar.Size = new System.Drawing.Size(166, 32);
             this.BtnCancelar.TabIndex = 177;
             this.BtnCancelar.Text = "Cancelar";
             this.BtnCancelar.UseVisualStyleBackColor = false;
+            this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
+            // 
+            // Codigo
+            // 
+            this.Codigo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Codigo.DataPropertyName = "cadena";
+            this.Codigo.HeaderText = "Código PUCP";
+            this.Codigo.MaxInputLength = 20;
+            this.Codigo.Name = "Codigo";
+            this.Codigo.ReadOnly = true;
+            this.Codigo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // StudentRegister
             // 
@@ -495,10 +499,10 @@
         private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
         private System.Windows.Forms.DataGridView dgvCodigos;
         private System.Windows.Forms.Button btnAgregarCodigos;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button BtnCancelar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
     }
 }

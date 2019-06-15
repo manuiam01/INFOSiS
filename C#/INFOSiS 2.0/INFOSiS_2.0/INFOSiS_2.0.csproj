@@ -90,6 +90,13 @@
     <Compile Include="InterestedModified.Designer.cs">
       <DependentUpon>InterestedModified.cs</DependentUpon>
     </Compile>
+    <Compile Include="InterfazCodigos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InterfazCodigos.Designer.cs">
+      <DependentUpon>InterfazCodigos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListaStrings.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -212,6 +219,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InterestedModified.resx">
       <DependentUpon>InterestedModified.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfazCodigos.resx">
+      <DependentUpon>InterfazCodigos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

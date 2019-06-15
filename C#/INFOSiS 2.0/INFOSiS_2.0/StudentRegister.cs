@@ -14,11 +14,16 @@ namespace INFOSiS_2._0
     {
         private static StudentRegister _instance;
         private static Panel _panelMdi;
+        private BindingList<ListaStrings> listaCodigos;
+
         public StudentRegister()
         {
             InitializeComponent();
             rbnDNI.Checked = true;
             dateNacimiento.MaxDate = DateTime.Today;
+            listaCodigos = new BindingList<ListaStrings>();
+            //listaCodigos.Add(new ListaStrings("20161811"));
+            dgvCodigos.DataSource = listaCodigos;
         }
 
         public static StudentRegister Instance
@@ -39,7 +44,7 @@ namespace INFOSiS_2._0
         private void btnVerificarDocumento_Click(object sender, EventArgs e)
         {
             String identificacion = txtDocumento.Text;
-            /*Aquí se debería verificar si hay un interesado con dicho documento*/
+            /*Aquí se debería verificar si hay un interesado con dicho documento en este caso será hardcodeado*/
             if (identificacion == "73222296")
             {
                 txtNombre.Text = "Manuel";
@@ -53,7 +58,6 @@ namespace INFOSiS_2._0
                 dateNacimiento.Enabled = true;
                 txtDireccion.Enabled = true;
                 txtTelefono.Enabled = true;
-                dgvCodigos.Enabled = true;
                 btnAgregarCodigos.Enabled = true;
                 btnGuardar.Enabled = true;
             }
@@ -97,7 +101,7 @@ namespace INFOSiS_2._0
             else
             {
                 if (identificacion.Length != 12) return false;
-                var validos = "abcdefghijklmnñopqrstuvwxyz1234567890";
+                var validos = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZabcdefghijklmnñopqrstuvwxyz1234567890";
                 bool valido = true;
                 foreach (char c in identificacion)
                 {
@@ -105,6 +109,112 @@ namespace INFOSiS_2._0
                     if (!valido) break;
                 }
                 return valido;
+            }
+        }
+
+        private void btnAgregarCodigos_Click(object sender, EventArgs e)
+        {
+            InterfazCodigos interfazCodigos = new InterfazCodigos(listaCodigos);
+            interfazCodigos.ShowDialog();
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            DialogResult mensajeError;
+            String mensaje;
+            String titulo;
+            MessageBoxIcon icono;
+            bool exito = false;
+            int telefono;
+            if (!(txtDireccion.Text.Length!=0 && txtDireccion.Text.Length <= 100))
+            {
+                mensaje = "ERROR: La dirección no es válida";
+                titulo = "Dirección no válida";
+                icono = MessageBoxIcon.Error;
+            }
+            else if(!(txtTelefono.Text.Length==7 && int.TryParse(txtTelefono.Text,out telefono)))
+            {
+                mensaje = "ERROR: El telefono ingresado no es válido";
+                titulo = "Teléfono no válido";
+                icono = MessageBoxIcon.Error;
+            }
+            else if (!(obtenerLenght(listaCodigos) >= 1))
+            {
+                mensaje = "ERROR: Debe ingresar al menos un código PUCP";
+                titulo = "Ingresar Código PUCP";
+                icono = MessageBoxIcon.Error;
+            }
+            else
+            {
+                /*Aquí se registrtaría en BD*/
+                mensaje = "ÉXITO: Se ha registrado al alumno";
+                titulo = "Registro completo";
+                icono = MessageBoxIcon.Information;
+                exito = true;
+            }
+            mensajeError = MessageBox.Show(mensaje, titulo, MessageBoxButtons.OK, icono);
+            if (exito)
+            {
+                txtDocumento.Enabled = true;
+                txtDocumento.Text = "";
+                rbnCarneExtranjeria.Enabled = true;
+                rbnCarneExtranjeria.Checked = false;
+                rbnDNI.Enabled = true;
+                rbnDNI.Checked = true;
+                rbnPasaporte.Enabled = true;
+                rbnPasaporte.Checked = false;
+                dateNacimiento.Enabled = false;
+                txtDireccion.Enabled = false;
+                txtDireccion.Text = "";
+                txtTelefono.Enabled = false;
+                txtTelefono.Text = "";
+                btnAgregarCodigos.Enabled = false;
+                btnGuardar.Enabled = false;
+                txtNombre.Text = "";
+                txtSegundoNombre.Text = "";
+                txtApellidoMaterno.Text = "";
+                txtApellidoPaterno.Text = "";
+                listaCodigos = new BindingList<ListaStrings>();
+                dgvCodigos.DataSource = listaCodigos;
+            }
+        }
+
+        private int obtenerLenght(BindingList<ListaStrings> listaCodigos)
+        {
+            int len = 0;
+            foreach(ListaStrings l in listaCodigos)
+            {
+                len++;
+            }
+            return len;
+        }
+
+        private void BtnCancelar_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("¿Está seguro de que quiere cancelar el registro?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                txtDocumento.Enabled = true;
+                txtDocumento.Text = "";
+                rbnCarneExtranjeria.Enabled = true;
+                rbnCarneExtranjeria.Checked = false;
+                rbnDNI.Enabled = true;
+                rbnDNI.Checked = true;
+                rbnPasaporte.Enabled = true;
+                rbnPasaporte.Checked = false;
+                dateNacimiento.Enabled = false;
+                txtDireccion.Enabled = false;
+                txtDireccion.Text = "";
+                txtTelefono.Enabled = false;
+                txtTelefono.Text = "";
+                btnAgregarCodigos.Enabled = false;
+                btnGuardar.Enabled = false;
+                txtNombre.Text = "";
+                txtSegundoNombre.Text = "";
+                txtApellidoMaterno.Text = "";
+                txtApellidoPaterno.Text = "";
+                listaCodigos = new BindingList<ListaStrings>();
+                dgvCodigos.DataSource = listaCodigos;
             }
         }
     }
