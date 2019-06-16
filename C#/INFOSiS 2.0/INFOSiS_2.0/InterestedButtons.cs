@@ -33,7 +33,7 @@ namespace INFOSiS_2._0
             InitializeComponent();
             btnNewInte.BackColor = Color.LightGray;
             btnModificarInte.BackColor = Color.LightSteelBlue;
-            //btnBajaInteresado.BackColor = Color.LightSteelBlue;
+            btnMailing.BackColor = Color.LightSteelBlue;
         }
 
         private void BtnNewInte_Click(object sender, EventArgs e)
@@ -62,7 +62,7 @@ namespace INFOSiS_2._0
         {
             btnNewInte.BackColor = Color.LightSteelBlue;
             btnModificarInte.BackColor = Color.LightSteelBlue;
-            //btnBajaInteresado.BackColor = Color.LightSteelBlue;
+            btnMailing.BackColor = Color.LightSteelBlue;
             boton.BackColor = Color.LightGray;
         }
 
@@ -97,7 +97,30 @@ namespace INFOSiS_2._0
         {
             btnNewInte.BackColor = Color.LightSteelBlue;
             btnModificarInte.BackColor = Color.LightSteelBlue;
-            //btnBajaInteresado.BackColor = Color.LightSteelBlue;
+            btnMailing.BackColor = Color.LightSteelBlue;
+        }
+
+        private void BtnMailing_Click(object sender, EventArgs e)
+        {
+            actualizarBotones(btnMailing);
+            foreach (Control item in PanelMdi.Controls.OfType<Control>())
+            {
+                PanelMdi.Controls.Remove(item);
+            }
+
+            if (!PanelMdi.Controls.Contains(InterestedPublicity.Instance))
+            {
+                PanelMdi.Controls.Add(InterestedPublicity.Instance);
+                InterestedPublicity.Instance.Dock = DockStyle.Fill;
+                InterestedPublicity.PanelMdi = PanelMdi;
+                InterestedPublicity.Instance.Visible = true;
+                InterestedPublicity.Instance.BringToFront();
+            }
+            else
+            {
+                InterestedPublicity.Instance.Visible = true;
+                InterestedPublicity.Instance.BringToFront();
+            }
         }
 
         //private void BtnBajaInteresado_Click(object sender, EventArgs e)

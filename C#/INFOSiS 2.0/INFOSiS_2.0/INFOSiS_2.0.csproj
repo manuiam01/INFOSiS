@@ -78,6 +78,12 @@
     <Compile Include="InterestedCourses.Designer.cs">
       <DependentUpon>InterestedCourses.cs</DependentUpon>
     </Compile>
+    <Compile Include="InterestedPublicity.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InterestedPublicity.Designer.cs">
+      <DependentUpon>InterestedPublicity.cs</DependentUpon>
+    </Compile>
     <Compile Include="InterestedRegister.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -225,6 +231,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InterestedCourses.resx">
       <DependentUpon>InterestedCourses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterestedPublicity.resx">
+      <DependentUpon>InterestedPublicity.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InterestedRegister.resx">
       <DependentUpon>InterestedRegister.cs</DependentUpon>
