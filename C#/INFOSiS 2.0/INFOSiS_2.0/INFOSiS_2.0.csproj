@@ -72,11 +72,23 @@
     <Compile Include="InterestedButtons.Designer.cs">
       <DependentUpon>InterestedButtons.cs</DependentUpon>
     </Compile>
+    <Compile Include="InterestedCourseMailing.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InterestedCourseMailing.Designer.cs">
+      <DependentUpon>InterestedCourseMailing.cs</DependentUpon>
+    </Compile>
     <Compile Include="InterestedCourses.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="InterestedCourses.Designer.cs">
       <DependentUpon>InterestedCourses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterestedEditMailing.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InterestedEditMailing.Designer.cs">
+      <DependentUpon>InterestedEditMailing.cs</DependentUpon>
     </Compile>
     <Compile Include="InterestedPublicity.cs">
       <SubType>UserControl</SubType>
@@ -229,8 +241,14 @@
     <EmbeddedResource Include="InterestedButtons.resx">
       <DependentUpon>InterestedButtons.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="InterestedCourseMailing.resx">
+      <DependentUpon>InterestedCourseMailing.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InterestedCourses.resx">
       <DependentUpon>InterestedCourses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterestedEditMailing.resx">
+      <DependentUpon>InterestedEditMailing.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InterestedPublicity.resx">
       <DependentUpon>InterestedPublicity.cs</DependentUpon>
