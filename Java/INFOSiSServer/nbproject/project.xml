@@ -10,10 +10,6 @@
             <minimum-ant-version>1.6.5</minimum-ant-version>
             <web-module-libraries>
                 <library dirs="200">
-                    <file>${reference.INFOSiSController.jar}</file>
-                    <path-in-war>WEB-INF/lib</path-in-war>
-                </library>
-                <library dirs="200">
                     <file>${reference.INFOSiSModel.jar}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
@@ -87,6 +83,10 @@
                 </library>
                 <library dirs="200">
                     <file>${file.reference.xstream-1.4.11.1.jar}</file>
+                    <path-in-war>WEB-INF/lib</path-in-war>
+                </library>
+                <library dirs="200">
+                    <file>${reference.INFOSiSController.jar}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
             </web-module-libraries>

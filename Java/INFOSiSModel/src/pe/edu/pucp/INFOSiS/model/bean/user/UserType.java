@@ -4,12 +4,13 @@
  * and open the template in the editor.
  */
 package pe.edu.pucp.INFOSiS.model.bean.user;
+import java.io.Serializable;
 
 /**
  *
  * @author alulab14
  */
-public class UserType {
+public class UserType implements Serializable{
     private int id;
     private String name;
 

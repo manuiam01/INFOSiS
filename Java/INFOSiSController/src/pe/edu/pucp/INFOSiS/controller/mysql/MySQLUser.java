@@ -13,6 +13,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import pe.edu.pucp.INFOSiS.controller.config.DBManager;
 import pe.edu.pucp.INFOSiS.controller.dao.DAOUser;
 import pe.edu.pucp.INFOSiS.model.bean.user.User;
@@ -66,11 +68,12 @@ public class MySQLUser implements DAOUser{
         
         ArrayList<User> users = new ArrayList<User>();
         try{
-            //DBManager dbManager = DBManager.getdbManager();
-            //Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
             
-            Connection con = DriverManager.getConnection("jdbc:mysql://sallka.lab.inf.pucp.edu.pe:3306/inf282g3?autoReconnect=true&amp;useSSL=false",
-                    "inf282g3", "iQco2I");
+            DBManager dbManager = DBManager.getdbManager();
+            Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
+            
+            /*Connection con = DriverManager.getConnection("jdbc:mysql://sallka.lab.inf.pucp.edu.pe:3306/inf282g3?autoReconnect=true&useSSL=false",
+                    "inf282g3", "iQco2I");*/
             Statement sentence = con.createStatement();
             String query = "SELECT * FROM Users";
             ResultSet rs = sentence.executeQuery(query);
