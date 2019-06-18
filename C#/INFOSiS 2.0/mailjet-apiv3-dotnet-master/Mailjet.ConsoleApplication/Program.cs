@@ -1,5 +1,6 @@
 ﻿using Mailjet.Client;
 using Mailjet.Client.Resources;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Threading.Tasks;
 
@@ -26,12 +27,37 @@ namespace Mailjet.ConsoleApplication
             //    Version = ApiVersion.V3,
             //};
 
-            IMailjetClient client = new MailjetClient(Environment.GetEnvironmentVariable("MJ_APIKEY_PUBLIC"), Environment.GetEnvironmentVariable("MJ_APIKEY_PRIVATE"));
+            //IMailjetClient client = new MailjetClient(Environment.GetEnvironmentVariable("8ffda79638ed9ac9a06cac220695616a"), Environment.GetEnvironmentVariable("5755164c54ba040563629d68c62d2005"));
 
+            //MailjetRequest request = new MailjetRequest
+            //{
+            //    Resource = Apikey.Resource,
+            //};
+            MailjetClient client = new MailjetClient(Environment.GetEnvironmentVariable("MJ_APIKEY_PUBLIC"), Environment.GetEnvironmentVariable("MJ_APIKEY_PRIVATE"))
+            {
+                Version = ApiVersion.V3_1,
+            };
             MailjetRequest request = new MailjetRequest
             {
-                Resource = Apikey.Resource,
-            };
+                Resource = Send.Resource,
+            }
+               .Property(Send.Messages, new JArray {
+                new JObject {
+                 {"From", new JObject {
+                  {"Email", "jeremi.cardenas@pucp.pe"},
+                  {"Name", "Mailjet Pilot"}
+                  }},
+                 {"To", new JArray {
+                  new JObject {
+                   {"Email", "jeremi.cardenas@pucp.pe"},
+                   {"Name", "passenger 1"}
+                   }
+                  }},
+                 {"Subject", "Your email flight plan!"},
+                 {"TextPart", "Dear passenger 1, welcome to Mailjet! May the delivery force be with you!"},
+                 {"HTMLPart", "<h3>Dear passenger 1, welcome to Mailjet!</h3><br />May the delivery force be with you!"}
+                 }
+                   });
 
             MailjetResponse response = await client.GetAsync(request);
 
