@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 package pe.edu.pucp.INFOSiS.soft;
+import java.util.ArrayList;
+import pe.edu.pucp.INFOSiS.controller.mysql.MySQLUser;
+import pe.edu.pucp.INFOSiS.model.bean.user.User;
 
 /**
  *
@@ -15,5 +18,10 @@ public class main {
         // Prints "Hello, World" to the terminal window.
         //System.out.println("Hay que trabajar UwUr");
         //System.out.println("Okey dokey uwur");
+        MySQLUser mysql = new MySQLUser();
+        ArrayList<User> lista= mysql.queryAll();
+        for(User u : lista){
+            System.out.println(u.getUsername());
+        }
     }
 }
