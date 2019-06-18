@@ -66,8 +66,11 @@ public class MySQLUser implements DAOUser{
         
         ArrayList<User> users = new ArrayList<User>();
         try{
-            DBManager dbManager = DBManager.getdbManager();
-            Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
+            //DBManager dbManager = DBManager.getdbManager();
+            //Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
+            
+            Connection con = DriverManager.getConnection("jdbc:mysql://sallka.lab.inf.pucp.edu.pe:3306/inf282g3?autoReconnect=true&amp;useSSL=false",
+                    "inf282g3", "iQco2I");
             Statement sentence = con.createStatement();
             String query = "SELECT * FROM Users";
             ResultSet rs = sentence.executeQuery(query);

@@ -16,7 +16,6 @@ import pe.edu.pucp.INFOSiS.model.bean.user.User;
 @WebService(serviceName = "Server")
 public class Server {
 
-
     @WebMethod(operationName = "hello")
     public String hello(@WebParam(name = "name") String txt) {
         return "Hello " + txt + " !";
