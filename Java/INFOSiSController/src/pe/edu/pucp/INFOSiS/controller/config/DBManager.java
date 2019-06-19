@@ -26,6 +26,7 @@ public class DBManager {
         FileReader reader;
         try{            
             reader = new FileReader(DBManager.class.getResource("/pe/edu/pucp/INFOSiS/config/config.xml").getFile());
+            //reader = new FileReader(".\\build\\web\\WEB-INF\\classes\\pe\\edu\\pucp\\INFOSiS\\config\\config.xml");
             ConnectionParameters connParam =(ConnectionParameters) xstream.fromXML(reader);
             url = connParam.getUrl();            
             password = connParam.getPassword();

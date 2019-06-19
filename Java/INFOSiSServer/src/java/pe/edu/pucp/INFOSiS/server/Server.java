@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
+import pe.edu.pucp.INFOSiS.controller.config.DBController;
 import pe.edu.pucp.INFOSiS.controller.mysql.MySQLProfessor;
 import pe.edu.pucp.INFOSiS.controller.mysql.MySQLUser;
 import pe.edu.pucp.INFOSiS.model.bean.professor.Professor;
@@ -20,8 +21,7 @@ public class Server {
    
     @WebMethod (operationName = "QueryAllUsers")
     public ArrayList<User> QueryAllUsers(){
-        MySQLUser sqlUser= new MySQLUser();
-        return sqlUser.queryAll();
+        return DBController.queryAllUsers();
     }
         
     @WebMethod (operationName = "InsertProfessor")
