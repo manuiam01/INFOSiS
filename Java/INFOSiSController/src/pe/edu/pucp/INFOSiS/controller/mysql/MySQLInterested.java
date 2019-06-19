@@ -15,6 +15,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import pe.edu.pucp.INFOSiS.controller.config.DBManager;
+import pe.edu.pucp.INFOSiS.controller.dao.DAOInterested;
 import pe.edu.pucp.INFOSiS.model.bean.HR.Intern;
 import pe.edu.pucp.INFOSiS.model.bean.course.CourseType;
 import pe.edu.pucp.INFOSiS.model.bean.interested.Interested;
@@ -23,7 +24,7 @@ import pe.edu.pucp.INFOSiS.model.bean.interested.Interested;
  *
  * @author JEREMI
  */
-public class MySQLInterested {
+public class MySQLInterested implements DAOInterested {
     
     public int insert(Interested interested){
         int result = 0;
@@ -42,15 +43,17 @@ public class MySQLInterested {
             cs.setDate(9,(Date)interested.getRegDate());
             //cs.registerOutParameter("_idInterested", java.sql.Types.INTEGER);
             result = cs.executeUpdate();
+            cs.close();
             //int id = cs.getInt("idInterested");
             //interested.setId(id);
             ArrayList<CourseType> courses = new ArrayList<CourseType>();
             courses = interested.getCourseTypes();
+            String sql = "INSERT into InterestedxCourseType(idInterested,idCourseType) values (?,?);";
             for(CourseType c : courses){
-                String sql = "INSERT into InterestedxCourseType(idInterested,idCourseType) values (?,?);";
                 PreparedStatement ps = con.prepareStatement(sql);
                 ps.setString(1,interested.getIdNumber());
                 ps.setInt(2,c.getId());
+                ps.execute();
             }
             con.close();
         }catch(Exception ex){
@@ -64,20 +67,26 @@ public class MySQLInterested {
         try{
             DBManager dbManager = DBManager.getdbManager();
             Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
-            CallableStatement cs = con.prepareCall("{call UPDATE_INTERESTED(?,?,?,?,?,?,?,?)}");
+            //Cambio sus datos del interesado
+            CallableStatement cs = con.prepareCall("{call UPDATE_INTERESTED(?,?,?,?,?,?,?)}");
             cs.setString(1,interested.getFirstName());
             cs.setString(2,interested.getPrimaryLastName());
             cs.setString(3,interested.getMiddleName());
             cs.setString(4,interested.getSecondLastName());
-            cs.setString(5,interested.getGender());
-            cs.setString(6,interested.getEmail());
-            cs.setString(7,interested.getCellPhoneNumber());
-            cs.setString(8,interested.getIdNumber());
+            cs.setString(5,interested.getEmail());
+            cs.setString(6,interested.getCellPhoneNumber());
+            cs.setString(7,interested.getIdNumber());
             result = cs.executeUpdate();
+            
+            //Borro su lista de cursos interesados antiguos
+            CallableStatement cs2 = con.prepareCall("{call DELETE_INTERESTED_COURSES(?)}");
+            cs2.setString(1,interested.getIdNumber());
+            cs2.executeUpdate();
             ArrayList<CourseType> courses = new ArrayList<CourseType>();
             courses = interested.getCourseTypes();
+            //Agrego los nuevos cursos del interesado
+            String sql = "INSERT into InterestedxCourseType(idInterested,idCourse) values (?,?);";
             for(CourseType c : courses){
-                String sql = "INSERT into InterestedxCourseType(idInterested,idCourseType) values (?,?);";
                 PreparedStatement ps = con.prepareStatement(sql);
                 ps.setString(1,interested.getIdNumber());
                 ps.setInt(2,c.getId());

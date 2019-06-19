@@ -1,12 +1,18 @@
 package pe.edu.pucp.INFOSiS.model.bean.interested;
 import java.io.Serializable;
 import java.util.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
 import pe.edu.pucp.INFOSiS.model.bean.course.CourseType;
 import pe.edu.pucp.INFOSiS.model.bean.Person;
 
 /**
  * 
  */
+
+@XmlRootElement(name="Interested")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Interested extends Person implements Serializable{
 
     /**
