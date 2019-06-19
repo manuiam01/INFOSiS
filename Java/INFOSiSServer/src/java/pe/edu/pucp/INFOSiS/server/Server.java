@@ -14,6 +14,7 @@ import pe.edu.pucp.INFOSiS.controller.mysql.MySQLProfessor;
 import pe.edu.pucp.INFOSiS.controller.mysql.MySQLUser;
 import pe.edu.pucp.INFOSiS.model.bean.professor.Professor;
 import pe.edu.pucp.INFOSiS.model.bean.user.User;
+import pe.edu.pucp.INFOSiS.model.bean.user.UserType;
 
 
 @WebService(serviceName = "Server")
@@ -31,7 +32,7 @@ public class Server {
     }
     
     @WebMethod (operationName= "VerifyUser")
-    public int VerifyUser(@WebParam(name="user")User user){
+    public UserType VerifyUser(@WebParam(name="user")User user){
         return DBController.verifyUser(user);
     }
     

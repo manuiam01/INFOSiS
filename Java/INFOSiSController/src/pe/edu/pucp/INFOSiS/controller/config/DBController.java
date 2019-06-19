@@ -7,6 +7,7 @@ package pe.edu.pucp.INFOSiS.controller.config;
 
 import java.util.ArrayList;
 import pe.edu.pucp.INFOSiS.model.bean.user.User;
+import pe.edu.pucp.INFOSiS.model.bean.user.UserType;
 
 /**
  *
@@ -19,7 +20,7 @@ public abstract class DBController {
       return daoFactory.getUserDAO().queryAll();
     }
     
-    public static int verifyUser(User user){
+    public static UserType verifyUser(User user){
         return daoFactory.getUserDAO().verifyUser(user);
     }
     

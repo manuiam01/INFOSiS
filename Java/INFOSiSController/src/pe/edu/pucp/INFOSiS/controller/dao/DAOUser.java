@@ -7,6 +7,7 @@ package pe.edu.pucp.INFOSiS.controller.dao;
 
 import java.util.ArrayList;
 import pe.edu.pucp.INFOSiS.model.bean.user.User;
+import pe.edu.pucp.INFOSiS.model.bean.user.UserType;
 
 /**
  *
@@ -16,5 +17,5 @@ public interface DAOUser {
     int insert(User user);
     int update(User user);
     ArrayList<User> queryAll();
-    public int verifyUser(User user);
+    public UserType verifyUser(User user);
 }

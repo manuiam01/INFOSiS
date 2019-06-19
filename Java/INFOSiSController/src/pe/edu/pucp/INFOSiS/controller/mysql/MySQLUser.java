@@ -93,8 +93,9 @@ public class MySQLUser implements DAOUser{
     }
 
     @Override
-    public int verifyUser(User user) {
-        int res = 0;
+    public UserType verifyUser(User user) {
+        UserType ut = new UserType();
+        ut.setId(-1);
         try{
             DBManager dbManager = DBManager.getdbManager();
             Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
@@ -102,19 +103,16 @@ public class MySQLUser implements DAOUser{
             String query =
                     "SELECT idAccess, name FROM Users, Acces_Role WHERE userName='"
                     +user.getUsername()+"' AND password=MD5('"+user.getPassword()+
-                    "' AND idAccess=idAcces_Role AND isActive=1)";
+                    "') AND idAccess=idAcces_Role AND isActive=1";
             ResultSet rs= sentencia.executeQuery(query);
             while(rs.next()){
-                res++;
-                UserType typeUser = new UserType();
-                typeUser.setId(rs.getInt("idAccess"));
-                typeUser.setName(rs.getString("name"));
-                user.setAcces(typeUser);
+                ut.setId(rs.getInt("idAccess"));
+                ut.setName(rs.getString("name"));
             }
         }
         catch(Exception ex){
             System.out.println(ex.getMessage());
         }
-        return res;  
+        return ut;  
     }
 }
