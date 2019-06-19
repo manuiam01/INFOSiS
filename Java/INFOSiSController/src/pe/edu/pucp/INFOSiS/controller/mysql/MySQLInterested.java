@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import pe.edu.pucp.INFOSiS.controller.config.DBManager;
 import pe.edu.pucp.INFOSiS.controller.dao.DAOInterested;
 import pe.edu.pucp.INFOSiS.model.bean.HR.Intern;
+import pe.edu.pucp.INFOSiS.model.bean.course.Course;
 import pe.edu.pucp.INFOSiS.model.bean.course.CourseType;
 import pe.edu.pucp.INFOSiS.model.bean.interested.Interested;
 
@@ -137,7 +138,18 @@ public class MySQLInterested implements DAOInterested {
                 inte.setCellPhoneNumber(rs.getString("cellPhoneNumber"));
                 inte.setIdNumber(rs.getString("idNumber"));
                 inte.setRegDate(rs.getDate("regDate"));
-                if (inte.isIsUnsubscribed()){
+                if (!inte.isIsUnsubscribed()){
+                    String query2 = "SELECT idCourse FROM InterestedxCourseType WHERE idInterested = ?";
+                    PreparedStatement ps = con.prepareStatement(query2);
+                    ps.setString(1,inte.getIdNumber());
+                    ResultSet rs2 = ps.executeQuery();
+                    while(rs2.next()){
+                        Course crs = new Course();
+                        crs.setId(rs2.getString("idCourse"));
+                        String query3 = "SELECT * FROM Course WHERE idCourse= ?";
+                        PreparedStatement ps2 = con.prepareStatement(query3);
+                        ps2.setString(1,crs.getId());
+                    }
                     interested.add(inte);
                 }
             }
@@ -170,7 +182,7 @@ public class MySQLInterested implements DAOInterested {
                 inte.setCellPhoneNumber(rs.getString("cellPhoneNumber"));
                 inte.setIdNumber(rs.getString("idNumber"));
                 inte.setRegDate(rs.getDate("regDate"));
-                if (inte.isIsUnsubscribed()){
+                if (!inte.isIsUnsubscribed()){
                     String query2 = "SELECT * FROM InterestedxCourseType WHERE idNumber =?;";
                     ResultSet rs2 = sentence.executeQuery(query2);
                     while(rs.next()){
