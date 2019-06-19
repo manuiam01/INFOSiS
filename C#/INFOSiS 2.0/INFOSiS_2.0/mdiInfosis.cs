@@ -240,5 +240,10 @@ namespace INFOSiS_2._0
                 WorkforceButtons.Instance.BringToFront();
             }
         }
+
+        private void MdiInfosis_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
