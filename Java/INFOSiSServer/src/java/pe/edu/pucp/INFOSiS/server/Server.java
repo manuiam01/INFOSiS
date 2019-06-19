@@ -29,4 +29,6 @@ public class Server {
         MySQLProfessor sqlProfessor = new MySQLProfessor();
         return sqlProfessor.insert(professor);
     }
+    
+
 }

@@ -1,12 +1,13 @@
 package pe.edu.pucp.INFOSiS.model.bean.HR;
 
+import java.io.Serializable;
 import java.util.Date;
 import pe.edu.pucp.INFOSiS.model.bean.user.User;
 
 /**
  * 
  */
-public class Coordinator extends Employee {
+public class Coordinator extends Employee implements Serializable{
 
     public Coordinator() {
     }

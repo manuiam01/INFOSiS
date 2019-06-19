@@ -1,4 +1,5 @@
 package pe.edu.pucp.INFOSiS.model.bean.professor;
+import java.io.Serializable;
 import pe.edu.pucp.INFOSiS.model.bean.HR.RoleHistory;
 import java.util.*;
 import pe.edu.pucp.INFOSiS.model.bean.course.Course;
@@ -7,12 +8,14 @@ import pe.edu.pucp.INFOSiS.model.bean.Person;
 /**
  * 
  */
-public class Professor extends Person {
+public class Professor extends Person implements Serializable{
 
     /**
      * Default constructor
      */
     public Professor() {
+        history = new ArrayList<>();
+        coursesCanTeach = new ArrayList<>();
     }
 
     private String idPUCP;
@@ -22,6 +25,7 @@ public class Professor extends Person {
     private boolean isActive;
     private ArrayList<RoleHistory> history;
 
+    
     public Professor(String idPUCP, String emailPUCP, Date birthDate, ArrayList<Course> coursesCanTeach, boolean isActive, ArrayList<RoleHistory> history) {
         this.idPUCP = idPUCP;
         this.emailPUCP = emailPUCP;
@@ -56,7 +60,7 @@ public class Professor extends Person {
     }
 
     public ArrayList<Course> getCoursesCanTeach() {
-        return coursesCanTeach;
+        return this.coursesCanTeach;
     }
 
     public void setCoursesCanTeach(ArrayList<Course> coursesCanTeach) {

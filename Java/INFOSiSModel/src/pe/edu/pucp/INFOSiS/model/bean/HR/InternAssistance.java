@@ -1,11 +1,12 @@
 package pe.edu.pucp.INFOSiS.model.bean.HR;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.*;
 
 /**
  * 
  */
-public class InternAssistance {
+public class InternAssistance implements Serializable{
 
     /**
      * Default constructor

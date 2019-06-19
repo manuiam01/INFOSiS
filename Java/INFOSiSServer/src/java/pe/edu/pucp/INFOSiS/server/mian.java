@@ -6,7 +6,9 @@
 package pe.edu.pucp.INFOSiS.server;
 
 import java.util.ArrayList;
+import pe.edu.pucp.INFOSiS.controller.mysql.MySQLProfessor;
 import pe.edu.pucp.INFOSiS.controller.mysql.MySQLUser;
+import pe.edu.pucp.INFOSiS.model.bean.professor.Professor;
 import pe.edu.pucp.INFOSiS.model.bean.user.User;
 
 /**
@@ -16,11 +18,10 @@ import pe.edu.pucp.INFOSiS.model.bean.user.User;
 public class mian {
     
     public static void main(String[] args) {
-        MySQLUser mysql= new MySQLUser();
-        ArrayList<User> l = mysql.queryAll();
-        for(User u : l){
-            System.out.println(u.getUsername());
-        }
+        MySQLProfessor sqlProfessor = new MySQLProfessor();
+        Professor p=new Professor();
+        p.setIdPUCP("20151811");
+        System.out.println(sqlProfessor.insert(p));
     }
     
 }

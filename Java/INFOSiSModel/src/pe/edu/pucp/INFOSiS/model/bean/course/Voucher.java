@@ -1,11 +1,17 @@
 package pe.edu.pucp.INFOSiS.model.bean.course;
+import java.io.Serializable;
 import pe.edu.pucp.INFOSiS.model.bean.student.Student;
 import java.util.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * 
  */
-public class Voucher {
+@XmlRootElement(name="Voucher")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class Voucher implements Serializable{
 
     /**
      * Default constructor
