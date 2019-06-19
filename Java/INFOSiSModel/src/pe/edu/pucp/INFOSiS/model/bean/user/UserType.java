@@ -5,11 +5,13 @@
  */
 package pe.edu.pucp.INFOSiS.model.bean.user;
 import java.io.Serializable;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
 
-/**
- *
- * @author alulab14
- */
+@XmlRootElement(name="UserType")
+@XmlAccessorType(XmlAccessType.FIELD)
+
 public class UserType implements Serializable{
     private int id;
     private String name;

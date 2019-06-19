@@ -19,4 +19,8 @@ public abstract class DBController {
       return daoFactory.getUserDAO().queryAll();
     }
     
+    public static int verifyUser(User user){
+        return daoFactory.getUserDAO().verifyUser(user);
+    }
+    
 }

@@ -18,6 +18,7 @@ import java.util.logging.Logger;
 import pe.edu.pucp.INFOSiS.controller.config.DBManager;
 import pe.edu.pucp.INFOSiS.controller.dao.DAOUser;
 import pe.edu.pucp.INFOSiS.model.bean.user.User;
+import pe.edu.pucp.INFOSiS.model.bean.user.UserType;
 
 /**
  *
@@ -26,7 +27,7 @@ import pe.edu.pucp.INFOSiS.model.bean.user.User;
 public class MySQLUser implements DAOUser{
     @Override
     public int insert(User user) {
-        int id = 0;
+        int res = 0;
         try{
             DBManager dbManager = DBManager.getdbManager();
             Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
@@ -36,13 +37,13 @@ public class MySQLUser implements DAOUser{
             cs.setString(3,user.getPassword());
             cs.setInt(4,user.getAcces().getId());
             cs.setInt(3,1); //active user
-            cs.executeUpdate();
-            id=cs.getInt("_id");
+            res=cs.executeUpdate();
+            user.setId(cs.getInt("_id"));
             con.close();
         }catch(SQLException ex){
             System.out.println(ex.getMessage());
         }
-        return id;
+        return res;
     }
 
     @Override
@@ -65,15 +66,11 @@ public class MySQLUser implements DAOUser{
 
     @Override
     public ArrayList<User> queryAll(){
-        
         ArrayList<User> users = new ArrayList<>();
         try{
             
             DBManager dbManager = DBManager.getdbManager();
             Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
-            
-            /*Connection con = DriverManager.getConnection("jdbc:mysql://sallka.lab.inf.pucp.edu.pe:3306/inf282g3?autoReconnect=true&useSSL=false",
-                    "inf282g3", "iQco2I");*/
             Statement sentence = con.createStatement();
             String query = "SELECT * FROM Users";
             ResultSet rs = sentence.executeQuery(query);
@@ -93,5 +90,31 @@ public class MySQLUser implements DAOUser{
         }
         return users;
         
+    }
+
+    @Override
+    public int verifyUser(User user) {
+        int res = 0;
+        try{
+            DBManager dbManager = DBManager.getdbManager();
+            Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
+            Statement sentencia = con.createStatement();
+            String query =
+                    "SELECT idAccess, name FROM Users, Acces_Role WHERE userName='"
+                    +user.getUsername()+"' AND password=MD5('"+user.getPassword()+
+                    "' AND idAccess=idAcces_Role AND isActive=1)";
+            ResultSet rs= sentencia.executeQuery(query);
+            while(rs.next()){
+                res++;
+                UserType typeUser = new UserType();
+                typeUser.setId(rs.getInt("idAccess"));
+                typeUser.setName(rs.getString("name"));
+                user.setAcces(typeUser);
+            }
+        }
+        catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        return res;  
     }
 }

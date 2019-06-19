@@ -30,5 +30,10 @@ public class Server {
         return sqlProfessor.insert(professor);
     }
     
+    @WebMethod (operationName= "VerifyUser")
+    public int VerifyUser(@WebParam(name="user")User user){
+        return DBController.verifyUser(user);
+    }
+    
 
 }

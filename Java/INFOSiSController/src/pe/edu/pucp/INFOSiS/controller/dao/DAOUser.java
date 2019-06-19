@@ -16,4 +16,5 @@ public interface DAOUser {
     int insert(User user);
     int update(User user);
     ArrayList<User> queryAll();
+    public int verifyUser(User user);
 }
