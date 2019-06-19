@@ -13,7 +13,18 @@ public class Interested extends Person {
      */
     public Interested() {
     }
-
+    private int id;
+    private ArrayList<CourseType> courseTypes;
+    private boolean isUnsubscribed;
+    private String emailPUCP;
+    private Date regDate;
+    
+    public Interested(ArrayList<CourseType> courseTypes, boolean isUnsubscribed, String idNumber, int idType, String firstName, String middleName, String primaryLastName, String secondLastName, String gender, String email, String cellPhoneNumber) {
+        super(idNumber, idType, firstName, middleName, primaryLastName, secondLastName, gender, email, cellPhoneNumber);
+        this.courseTypes = courseTypes;
+        this.isUnsubscribed = isUnsubscribed;
+    }
+    
     public int getId() {
         return id;
     }
@@ -21,11 +32,6 @@ public class Interested extends Person {
     public void setId(int id) {
         this.id = id;
     }
-    private int id;
-    private ArrayList<CourseType> courseTypes;
-    private boolean isUnsubscribed;
-    private String emailPUCP;
-    private Date regDate;
 
     public Date getRegDate() {
         return regDate;
@@ -41,13 +47,6 @@ public class Interested extends Person {
 
     public void setEmailPUCP(String emailPUCP) {
         this.emailPUCP = emailPUCP;
-    }
-  
-
-    public Interested(ArrayList<CourseType> courseTypes, boolean isUnsubscribed, String idNumber, int idType, String firstName, String middleName, String primaryLastName, String secondLastName, String gender, String email, String cellPhoneNumber) {
-        super(idNumber, idType, firstName, middleName, primaryLastName, secondLastName, gender, email, cellPhoneNumber);
-        this.courseTypes = courseTypes;
-        this.isUnsubscribed = isUnsubscribed;
     }
 
     public ArrayList<CourseType> getCourseTypes() {

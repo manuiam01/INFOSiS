@@ -328,3 +328,7 @@ ASALocalRun/
 
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
+/Java/INFOSiS/nbproject/private/
+/Java/INFOSiSController/nbproject/private/
+/Java/INFOSiSModel/nbproject/private/
+/Java/INFOSiSView/nbproject/private/
