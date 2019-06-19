@@ -14,14 +14,16 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import pe.edu.pucp.INFOSiS.controller.config.DBManager;
+import pe.edu.pucp.INFOSiS.controller.dao.DAOCourseType;
 import pe.edu.pucp.INFOSiS.model.bean.course.CourseType;
 
 /**
  *
  * @author JEREMI
  */
-public class MySQLCourseType {
+public class MySQLCourseType implements DAOCourseType{
     
+    @Override
     public int insert(CourseType coursetype){
         int result = 0;
         try{
@@ -40,6 +42,7 @@ public class MySQLCourseType {
         return 0;
     }
     
+    @Override
     public int update(CourseType coursetype){
         try{
             DBManager dbManager = DBManager.getdbManager();
@@ -56,7 +59,8 @@ public class MySQLCourseType {
         return 1;
     }
     
-    public ArrayList<CourseType> queryAll() throws SQLException{
+    @Override
+    public ArrayList<CourseType> queryAll() {
         
         ArrayList<CourseType> courses = new ArrayList<CourseType>();
         try{
@@ -72,7 +76,7 @@ public class MySQLCourseType {
                 courses.add(c);
             }
             con.close();
-        }catch(Exception ex){
+        }catch(SQLException ex){
             System.out.println(ex.getMessage());
         }
         return courses;

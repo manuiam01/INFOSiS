@@ -1,4 +1,5 @@
 package pe.edu.pucp.INFOSiS.model.bean.interested;
+import java.io.Serializable;
 import java.util.*;
 import pe.edu.pucp.INFOSiS.model.bean.course.CourseType;
 import pe.edu.pucp.INFOSiS.model.bean.Person;
@@ -6,7 +7,7 @@ import pe.edu.pucp.INFOSiS.model.bean.Person;
 /**
  * 
  */
-public class Interested extends Person {
+public class Interested extends Person implements Serializable{
 
     /**
      * Default constructor

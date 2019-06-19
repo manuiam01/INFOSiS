@@ -1,4 +1,5 @@
 package pe.edu.pucp.INFOSiS.model.bean.HR;
+import java.io.Serializable;
 import java.util.*;
 import pe.edu.pucp.INFOSiS.model.bean.Person;
 import pe.edu.pucp.INFOSiS.model.bean.user.User;
@@ -6,7 +7,7 @@ import pe.edu.pucp.INFOSiS.model.bean.user.User;
 /**
  * 
  */
-public abstract class Employee extends Person {
+public class Employee extends Person implements Serializable {
 
     /**
      * Default constructor

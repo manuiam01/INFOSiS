@@ -1,10 +1,11 @@
 package pe.edu.pucp.INFOSiS.model.bean.HR;
+import java.io.Serializable;
 import java.util.*;
 
 /**
  * 
  */
-public class RoleHistory extends Role {
+public class RoleHistory extends Role implements Serializable{
 
     /**
      * Default constructor

@@ -5,6 +5,7 @@
  */
 package pe.edu.pucp.INFOSiS.controller.dao;
 
+import java.util.ArrayList;
 import pe.edu.pucp.INFOSiS.model.bean.course.Course;
 
 /**
@@ -13,5 +14,7 @@ import pe.edu.pucp.INFOSiS.model.bean.course.Course;
  */
 public interface DAOCourse {
     int insert(Course course);
-    void update (Course course,int id);
+    void update (Course course);
+    void disable (Course course);
+    ArrayList<Course> queryAll();
 }

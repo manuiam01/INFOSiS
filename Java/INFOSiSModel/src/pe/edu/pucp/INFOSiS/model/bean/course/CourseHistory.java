@@ -3,12 +3,18 @@ package pe.edu.pucp.INFOSiS.model.bean.course;
 import pe.edu.pucp.INFOSiS.model.bean.student.Student;
 import pe.edu.pucp.INFOSiS.model.bean.professor.Professor;
 import java.io.File;
+import java.io.Serializable;
 import java.util.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * Curso dictado en algún momento
  */
-public class CourseHistory {
+@XmlRootElement(name="CourseHistory")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class CourseHistory implements Serializable{
 
     /**
      * Default constructor

@@ -12,11 +12,19 @@ namespace INFOSiS_2._0
 {
     public partial class MdiInfosis : Form
     {
+        DAServer.user user;
         public MdiInfosis()
         {
             InitializeComponent();
             WindowState = FormWindowState.Maximized;
             panelMdiOptions.Visible = false;
+        }
+        public MdiInfosis(DAServer.user u)
+        {
+            InitializeComponent();
+            WindowState = FormWindowState.Maximized;
+            panelMdiOptions.Visible = false;
+            this.user = u;
         }
 
         public void cleanWindow()

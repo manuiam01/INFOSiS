@@ -24,11 +24,11 @@ public class DBManager {
         XStream xstream = new XStream();
         xstream.addPermission(AnyTypePermission.ANY);
         FileReader reader;
-        try{
-            reader = new FileReader("src/pe/edu/pucp/infosis/config/config.xml");
-            ConnectionParameters connParam =
-            (ConnectionParameters) xstream.fromXML(reader);
-            url = connParam.getUrl();
+        try{            
+            reader = new FileReader(DBManager.class.getResource("/pe/edu/pucp/INFOSiS/config/config.xml").getFile());
+            //reader = new FileReader(".\\build\\web\\WEB-INF\\classes\\pe\\edu\\pucp\\INFOSiS\\config\\config.xml");
+            ConnectionParameters connParam =(ConnectionParameters) xstream.fromXML(reader);
+            url = connParam.getUrl();            
             password = connParam.getPassword();
             user = connParam.getUser();
             if(url.contains("mysql")){

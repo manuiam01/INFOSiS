@@ -1,9 +1,11 @@
 package pe.edu.pucp.INFOSiS.model.bean;
 
+import java.io.Serializable;
+
 /**
  * 
  */
-public abstract class Person {
+public class Person implements Serializable {
 
     private String idNumber;
     private int idType;

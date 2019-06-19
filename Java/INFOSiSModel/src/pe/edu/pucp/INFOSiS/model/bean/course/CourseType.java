@@ -1,10 +1,16 @@
 package pe.edu.pucp.INFOSiS.model.bean.course;
+import java.io.Serializable;
 import java.util.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * 
  */
-public class CourseType {
+@XmlRootElement(name="CourseType")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class CourseType implements Serializable{
 
     /**
      * Default constructor
@@ -40,7 +46,7 @@ public class CourseType {
     }
 
     public ArrayList<Course> getCoursesList() {
-        return coursesList;
+        return this.coursesList;
     }
 
     public void setCoursesList(ArrayList<Course> coursesList) {
