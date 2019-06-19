@@ -339,3 +339,6 @@ ASALocalRun/
 /Java/INFOSiSModel/dist/
 /Java/INFOSiSController/dist/
 /Java/INFOSiS/build/
+/Java/INFOSiSTest/nbproject/private/
+/Java/INFOSiSTest/build/
+/Java/INFOSiSTest/dist/

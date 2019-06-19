@@ -9,22 +9,25 @@ import java.util.ArrayList;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
+import pe.edu.pucp.INFOSiS.controller.mysql.MySQLProfessor;
 import pe.edu.pucp.INFOSiS.controller.mysql.MySQLUser;
+import pe.edu.pucp.INFOSiS.model.bean.professor.Professor;
 import pe.edu.pucp.INFOSiS.model.bean.user.User;
 
 
 @WebService(serviceName = "Server")
 public class Server {
 
-    @WebMethod(operationName = "hello")
-    public String hello(@WebParam(name = "name") String txt) {
-        return "Hello " + txt + " !";
-    }
-    
+   
     @WebMethod (operationName = "QueryAllUsers")
     public ArrayList<User> QueryAllUsers(){
         MySQLUser sqlUser= new MySQLUser();
         return sqlUser.queryAll();
     }
-    
+        
+    @WebMethod (operationName = "InsertProfessor")
+    public int InsertProfessor(@WebParam(name="professor") Professor professor){
+        MySQLProfessor sqlProfessor = new MySQLProfessor();
+        return sqlProfessor.insert(professor);
+    }
 }
