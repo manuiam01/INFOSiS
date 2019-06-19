@@ -8,6 +8,7 @@ package pe.edu.pucp.INFOSiS.controller.mysql;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.util.ArrayList;
 import pe.edu.pucp.INFOSiS.controller.config.DBManager;
 import pe.edu.pucp.INFOSiS.controller.dao.DAOCourse;
 import pe.edu.pucp.INFOSiS.model.bean.course.Course;
@@ -36,19 +37,24 @@ public class MySQLCourse implements DAOCourse {
         return result;
     }
     @Override
-    public void update (Course course,int id){
+    public void update (Course course){
         try{
             DBManager dbManager = DBManager.getdbManager();
             Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
-            CallableStatement cs = con.prepareCall("{call UPDATE_COURSE(?,?,?,?)}");
-            cs.setString(1,course.getName());
-            cs.setBoolean(2,course.getIsActive());
-            cs.setObject(3,course.getSyllabus());
-            cs.setInt(4,id);
-            con.close();
+            
         }catch(Exception ex){
             System.out.println(ex.getMessage());
         }
         
+    }
+
+    @Override
+    public void disable(Course course) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public ArrayList<Course> queryAll() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
