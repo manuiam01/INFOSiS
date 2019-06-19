@@ -18,7 +18,7 @@ public class Course implements Serializable{
      */
 
     public Course() {
-        contents = new ArrayList<>();
+       
     }
 
     private String id;
@@ -27,19 +27,17 @@ public class Course implements Serializable{
     private CourseType courseType;
     private String description;
     private File syllabus;
-    private ArrayList<String> contents;
-    private ArrayList<Course> requisites;
+    
     private ArrayList<Course> courseHistory;
 
-    public Course(String id, String name, boolean isActive, CourseType courseType, String description, File syllabus, ArrayList<String> contents, ArrayList<Course> requisites, ArrayList<Course> courseHistory) {
+    public Course(String id, String name, boolean isActive, CourseType courseType, String description, File syllabus, ArrayList<Course> courseHistory) {
         this.id = id;
         this.name = name;
         this.isActive = isActive;
         this.courseType = courseType;
         this.description = description;
         this.syllabus = syllabus;
-        this.contents = contents;
-        this.requisites = requisites;
+        
         this.courseHistory = courseHistory;
     }
 
@@ -91,21 +89,7 @@ public class Course implements Serializable{
         this.syllabus = syllabus;
     }
 
-    public ArrayList<String> getContents() {
-        return contents;
-    }
-
-    public void setContents(ArrayList<String> contents) {
-        this.contents = contents;
-    }
-
-    public ArrayList<Course> getRequisites() {
-        return requisites;
-    }
-
-    public void setRequisites(ArrayList<Course> requisites) {
-        this.requisites = requisites;
-    }
+    
 
     public ArrayList<Course> getCourseHistory() {
         return courseHistory;
