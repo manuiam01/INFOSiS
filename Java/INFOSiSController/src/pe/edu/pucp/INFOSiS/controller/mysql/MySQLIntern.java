@@ -17,7 +17,6 @@ import java.util.ArrayList;
 import pe.edu.pucp.INFOSiS.controller.config.DBManager;
 import pe.edu.pucp.INFOSiS.controller.dao.DAOIntern;
 import pe.edu.pucp.INFOSiS.model.bean.HR.Intern;
-import pe.edu.pucp.INFOSiS.model.bean.HR.RoleHistory;
 
 /**
  *
@@ -25,12 +24,12 @@ import pe.edu.pucp.INFOSiS.model.bean.HR.RoleHistory;
  */
 public class MySQLIntern implements DAOIntern {
     @Override
-    public int insert(Intern intern, RoleHistory roleHistory, int idUser) {        
+    public int insert(Intern intern, int idUser) {        
         int result = 0;
         try{
             DBManager dbManager = DBManager.getdbManager();
             Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
-            CallableStatement cs = con.prepareCall("{CALL INSERT_INTERN(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}");
+            CallableStatement cs = con.prepareCall("{CALL INSERT_INTERN(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}");
             cs.setString(1, intern.getIdPUCP());
             cs.setInt(2, idUser);
             cs.setInt(3, intern.getIdType());
@@ -49,7 +48,6 @@ public class MySQLIntern implements DAOIntern {
             cs.setString(16, intern.getWeekAvailability());
 //            cs.setInt(17, roleHistory.getRole().getId());
 //            cs.setFloat(18,roleHistory.getSalary());
-            cs.setInt(19, roleHistory.getHours());
             result = cs.executeUpdate();
             con.close();
         }catch(SQLException ex){

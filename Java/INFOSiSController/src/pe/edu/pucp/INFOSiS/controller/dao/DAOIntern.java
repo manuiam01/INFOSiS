@@ -7,14 +7,13 @@ package pe.edu.pucp.INFOSiS.controller.dao;
 
 import java.util.ArrayList;
 import pe.edu.pucp.INFOSiS.model.bean.HR.Intern;
-import pe.edu.pucp.INFOSiS.model.bean.HR.RoleHistory;
 
 /**
  *
  * @author tkuser
  */
 public interface DAOIntern {
-    int insert(Intern intern, RoleHistory roleHistory,int idUser);
+    int insert(Intern intern, int idUser);
     int update(Intern intern, int idUser);
     Intern queryIntern(String idIntern);
     ArrayList<Intern> queryAll();
