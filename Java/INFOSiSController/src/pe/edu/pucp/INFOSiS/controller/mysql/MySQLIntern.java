@@ -7,6 +7,7 @@ package pe.edu.pucp.INFOSiS.controller.mysql;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -77,9 +78,9 @@ public class MySQLIntern implements DAOIntern {
             ps.setString(10, intern.getEmailPUCP());
             ps.setString(11, intern.getAddress());
             ps.setString(12, intern.getHomePhone());
-    //        ps.setDate(13, intern.getBirthDate());
-            ps.setString(16, intern.getWeekAvailability());
-            ps.setInt(17, idUser);
+            ps.setDate(13, (Date)intern.getBirthDate());
+            ps.setString(14, intern.getWeekAvailability());
+            ps.setInt(15, idUser);
             result = ps.executeUpdate();
             con.close();
         }catch(SQLException ex){
@@ -99,20 +100,42 @@ public class MySQLIntern implements DAOIntern {
             ResultSet rs = sentence.executeQuery(query);
             while(rs.next()){
                 Intern intern = new Intern();
+                
                 String idIntern = rs.getString("idIntern");
-                int idUser = rs.getInt("idUser");      
+                int idUser = rs.getInt("idUser");
+                int idType = rs.getInt("idType");
                 String idNumber = rs.getString("idNumber");
                 String firstName = rs.getString("firstName");
                 String middleName = rs.getString("middleName");
                 String primaryLastName = rs.getString("primaryLastName");
                 String secondLastName = rs.getString("secondLastName");
+                String gender = rs.getString("gender");
+                String email = rs.getString("email");
+                String cellPhoneNumber = rs.getString("cellPhoneNumber");
                 String emailPUCP = rs.getString("emailPUCP");
-      //          intern.setIdIntern(idIntern);
+                String address = rs.getString("address");
+                String homePhone = rs.getString("homePhone");
+                Date birthDate = rs.getDate("birthDate");
+                String weekAvailability = rs.getString("weekAvailability");
+                String weekSchedule = rs.getString("weekSchedule");
+                
+                intern.setIdPUCP(idIntern);
+                intern.getUser().setId(idUser);
+                intern.setIdNumber(idNumber);
                 intern.setFirstName(firstName);
                 intern.setMiddleName(middleName);
                 intern.setPrimaryLastName(primaryLastName);
                 intern.setSecondLastName(secondLastName);
+                intern.setGender(gender);
+                intern.setEmail(email);
+                intern.setCellPhoneNumber(cellPhoneNumber);
                 intern.setEmailPUCP(emailPUCP);
+                intern.setAddress(address);
+                intern.setHomePhone(homePhone);
+                intern.setBirthDate(birthDate);
+                intern.setWeekAvailability(weekAvailability);
+                intern.setWeekSchedule(weekSchedule);
+                
                 interns.add(intern);
             }
             con.close();
