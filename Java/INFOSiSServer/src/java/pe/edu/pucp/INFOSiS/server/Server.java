@@ -17,7 +17,6 @@ import pe.edu.pucp.INFOSiS.model.bean.user.User;
 
 @WebService(serviceName = "Server")
 public class Server {
-
    
     @WebMethod (operationName = "QueryAllUsers")
     public ArrayList<User> QueryAllUsers(){
@@ -26,7 +25,7 @@ public class Server {
     }
         
     @WebMethod (operationName = "InsertProfessor")
-    public int InsertProfessor(@WebParam(name="professor") Professor professor){
+    public int InsertProfessor(@WebParam(name = "professor") Professor professor){
         MySQLProfessor sqlProfessor = new MySQLProfessor();
         return sqlProfessor.insert(professor);
     }

@@ -17,4 +17,7 @@ public interface DAOProfessor {
     int update(Professor professor);
     ArrayList<Professor> queryAll();
     ArrayList<Professor> queryAllActives();
+    Professor search_by_id(String id);
+    ArrayList<Professor> search_by_name(String name, String middle_name,
+            String first_last_name, String second_last_name);
 }
