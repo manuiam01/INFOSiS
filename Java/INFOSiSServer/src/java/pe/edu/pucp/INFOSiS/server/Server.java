@@ -18,6 +18,7 @@ import pe.edu.pucp.INFOSiS.model.bean.professor.Professor;
 import pe.edu.pucp.INFOSiS.model.bean.user.User;
 import pe.edu.pucp.INFOSiS.model.bean.user.UserType;
 import pe.edu.pucp.INFOSiS.model.bean.HR.Intern;
+import pe.edu.pucp.INFOSiS.model.bean.course.CourseType;
 import pe.edu.pucp.INFOSiS.model.bean.student.Student;
 
 
@@ -96,4 +97,56 @@ public class Server {
             @WebParam(name="second_last_name") String second_last_name){
         return DBController.searchProfessorByName(name,middle_name,first_last_name,second_last_name);
     }
+    
+    @WebMethod(operationName="InsertCourse")
+    public int InsertCourse(@WebParam(name="Course") Course course){
+        return DBController.insertCourse(course);
+    }
+    
+    @WebMethod(operationName="UpdateCourse")
+    public int UpdateCourse(@WebParam(name="Course") Course course){
+        return DBController.updateCourse(course);
+    }
+    
+    @WebMethod(operationName="DisableCourse")
+    public int DisableCourse(@WebParam(name="Course") Course course){
+        return DBController.disableCourse(course);
+    }
+    
+    @WebMethod(operationName="queryAllCourse")
+    public ArrayList<Course> QueryAllCourse(){
+        return DBController.queryAllCourse();
+    }
+    
+    @WebMethod(operationName="queryCourseById")
+    public Course InsertCourse(@WebParam(name="id") String id){
+        return DBController.queryCourseById(id);
+    }
+    
+    @WebMethod(operationName="InsertCourse")
+    public ArrayList<Course> QueryAllCoursesByName(@WebParam(name="name") String name){
+        return DBController.queryCourseByName(name);
+    }
+    
+    @WebMethod(operationName="InsertCourseType")
+    public int InsertCourseType(CourseType coursetype){
+        return DBController.insertCourseType(coursetype);
+    }
+    
+    @WebMethod(operationName="UpdateCourseType")
+    public int UpdateCourseType(CourseType coursetype){
+        return DBController.updateCourseType(coursetype);
+    }
+    
+    @WebMethod(operationName="queryAllCourseType")
+    public ArrayList<CourseType> QueryAllCourseType(){
+        return DBController.queryAllCourseType();
+
+    }
+    
+    @WebMethod(operationName="queryCourseTypeById")
+    public CourseType QueryCourseTypeById(int id){
+        return DBController.queryCourseTypeById(id);
+    }
+    
 }
