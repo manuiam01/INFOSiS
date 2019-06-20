@@ -155,7 +155,7 @@ namespace INFOSiS_2._0
                     i.idNumber = txbNDocumento.Text;
                     i.firstName = txbNombre.Text;
                     i.middleName = txbSegundoNom.Text;
-                    i.firstName = txbApePa.Text;
+                    i.primaryLastName = txbApePa.Text;
                     i.secondLastName = txbApeMa.Text;
                     if (rbMale.Checked == true)
                         i.gender = "M";
@@ -163,6 +163,7 @@ namespace INFOSiS_2._0
                         i.gender = "F";
                     i.cellPhoneNumber = txtCellphone.Text;
                     i.email = txtEmail.Text;
+                    i.courses = new Server.course[5];
                     servidor.InsertInterested(i);
                     
                     MessageBox.Show("Se registró al interesado de manera correcta", "Éxito", MessageBoxButtons.OK,iconoCorrecto);

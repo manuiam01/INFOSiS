@@ -22,7 +22,7 @@ namespace INFOSiS_2._0
             InitializeComponent();
             servidor = new Server.ServerClient();
             Server.course c = new Server.course();
-            //ArrayList<Courses> cursos = servidor.QueryAllCourses;
+            
             //dgvCursos.DataSource = cursos;
             //u.username = txtUser.Text;
             //u.password = txtPassword.Text;
