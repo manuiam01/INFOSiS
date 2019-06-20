@@ -64,10 +64,27 @@ namespace INFOSiS_2._0
                 String mensaje;
                 String titulo;
                 MessageBoxIcon icono;
-                mensaje = "Se ha registrado el curso";
-                titulo = "Curso registrado";
-                icono = MessageBoxIcon.Asterisk;
-                mensajeOK = MessageBox.Show(mensaje, titulo, MessageBoxButtons.OK, icono);
+
+                Server.course s = new Server.course();
+                s.id = txtID.Text;
+                s.name = txtName.Text;
+                s.description = txtDescription.Text;
+                s.courseType = (Server.courseType)cmbCourseType.SelectedItem;
+                int result = server.InsertCourse(s);
+                if (result == 1)
+                {
+                    mensaje = "Se ha registrado el curso";
+                    titulo = "Curso registrado";
+                    icono = MessageBoxIcon.Asterisk;
+                    mensajeOK = MessageBox.Show(mensaje, titulo, MessageBoxButtons.OK, icono);
+                }
+                else {
+                    mensaje = "No se pudo registrar el curso";
+                    titulo = "Curso no registrado";
+                    icono = MessageBoxIcon.Asterisk;
+                    mensajeOK = MessageBox.Show(mensaje, titulo, MessageBoxButtons.OK, icono);
+                }
+                
             }
             /*Aquí se debería verificar si hay un interesado con dicho documento en este caso será hardcodeado*/
             

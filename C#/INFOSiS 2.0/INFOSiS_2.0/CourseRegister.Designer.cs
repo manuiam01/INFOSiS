@@ -30,12 +30,13 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblNameSyllabus = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.cmbCourseType = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtDescription = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
             this.txtID = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -44,7 +45,6 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
-            this.lblNameSyllabus = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -70,8 +70,8 @@
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.cmbCourseType);
             this.groupBox1.Controls.Add(this.label11);
-            this.groupBox1.Controls.Add(this.textBox4);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.txtDescription);
+            this.groupBox1.Controls.Add(this.txtName);
             this.groupBox1.Controls.Add(this.txtID);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label4);
@@ -84,6 +84,16 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del Curso";
+            // 
+            // lblNameSyllabus
+            // 
+            this.lblNameSyllabus.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblNameSyllabus.AutoSize = true;
+            this.lblNameSyllabus.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNameSyllabus.Location = new System.Drawing.Point(222, 250);
+            this.lblNameSyllabus.Name = "lblNameSyllabus";
+            this.lblNameSyllabus.Size = new System.Drawing.Size(0, 18);
+            this.lblNameSyllabus.TabIndex = 177;
             // 
             // button3
             // 
@@ -133,22 +143,22 @@
             this.label11.TabIndex = 14;
             this.label11.Text = "Tipo de curso:";
             // 
-            // textBox4
+            // txtDescription
             // 
-            this.textBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox4.Location = new System.Drawing.Point(114, 99);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(282, 102);
-            this.textBox4.TabIndex = 8;
+            this.txtDescription.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtDescription.Location = new System.Drawing.Point(114, 99);
+            this.txtDescription.Multiline = true;
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Size = new System.Drawing.Size(282, 102);
+            this.txtDescription.TabIndex = 8;
             // 
-            // textBox2
+            // txtName
             // 
-            this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox2.Location = new System.Drawing.Point(114, 63);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(282, 26);
-            this.textBox2.TabIndex = 6;
+            this.txtName.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtName.Location = new System.Drawing.Point(114, 63);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(282, 26);
+            this.txtName.TabIndex = 6;
             // 
             // txtID
             // 
@@ -245,16 +255,6 @@
             this.button1.Text = "Agregar Conocimientos Previos:";
             this.button1.UseVisualStyleBackColor = false;
             // 
-            // lblNameSyllabus
-            // 
-            this.lblNameSyllabus.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblNameSyllabus.AutoSize = true;
-            this.lblNameSyllabus.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNameSyllabus.Location = new System.Drawing.Point(222, 250);
-            this.lblNameSyllabus.Name = "lblNameSyllabus";
-            this.lblNameSyllabus.Size = new System.Drawing.Size(0, 18);
-            this.lblNameSyllabus.TabIndex = 177;
-            // 
             // CourseRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
@@ -286,8 +286,8 @@
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.ComboBox cmbCourseType;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtDescription;
+        private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox2;
