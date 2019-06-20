@@ -12,6 +12,8 @@ import javax.jws.WebParam;
 import pe.edu.pucp.INFOSiS.controller.config.DBController;
 import pe.edu.pucp.INFOSiS.controller.mysql.MySQLProfessor;
 import pe.edu.pucp.INFOSiS.controller.mysql.MySQLUser;
+import pe.edu.pucp.INFOSiS.model.bean.course.Course;
+import pe.edu.pucp.INFOSiS.model.bean.interested.Interested;
 import pe.edu.pucp.INFOSiS.model.bean.professor.Professor;
 import pe.edu.pucp.INFOSiS.model.bean.user.User;
 import pe.edu.pucp.INFOSiS.model.bean.user.UserType;
@@ -35,5 +37,18 @@ public class Server {
         return DBController.verifyUser(user);
     }
     
-
+    @WebMethod (operationName= "InsertInterested")
+    public int InsertInterested(@WebParam(name="interested")Interested interested){
+        return DBController.insertInterested(interested);
+    }
+    
+    @WebMethod (operationName= "QueryAllInterested")
+    public ArrayList<Interested> queryAllInterested(){
+        return DBController.queryAllInterested();
+    }
+    @WebMethod (operationName= "QueryAllByCourse")
+    public ArrayList<Interested> queryAllByCourse(@WebParam(name="course")Course course){
+        return DBController.queryAllByCourse(course);
+    }
+    
 }

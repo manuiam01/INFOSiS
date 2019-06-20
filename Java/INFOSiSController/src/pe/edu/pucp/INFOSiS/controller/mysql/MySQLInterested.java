@@ -32,7 +32,7 @@ public class MySQLInterested implements DAOInterested {
         try{
             DBManager dbManager = DBManager.getdbManager();
             Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
-            CallableStatement cs = con.prepareCall("{call INSERT_INTERESTED(?,?,?,?,?,?,?,?,?,?)}");
+            CallableStatement cs = con.prepareCall("{call INSERT_INTERESTED(?,?,?,?,?,?,?,?,?)}");
             cs.setString(1,interested.getFirstName());
             cs.setString(2,interested.getPrimaryLastName());
             cs.setString(3,interested.getMiddleName());
@@ -41,8 +41,7 @@ public class MySQLInterested implements DAOInterested {
             cs.setString(6,interested.getEmail());
             cs.setString(7,interested.getCellPhoneNumber());
             cs.setString(8,interested.getIdNumber());
-            cs.setDate(9,(Date)interested.getRegDate());
-            cs.setInt(10,interested.getIdType());
+            cs.setInt(9,interested.getIdType());
             //cs.registerOutParameter("_idInterested", java.sql.Types.INTEGER);
             result = cs.executeUpdate();
             cs.close();
@@ -50,7 +49,7 @@ public class MySQLInterested implements DAOInterested {
             //interested.setId(id);
             ArrayList<Course> courses = new ArrayList<Course>();
             courses = interested.getCourses();
-            String sql = "INSERT into InterestedxCourseType(idInterested,idCourseType) values (?,?);";
+            String sql = "INSERT into InterestedxCourseType(idInterested,idCourse) values (?,?);";
             for(Course c : courses){
                 PreparedStatement ps = con.prepareStatement(sql);
                 ps.setString(1,interested.getIdNumber());
@@ -92,7 +91,7 @@ public class MySQLInterested implements DAOInterested {
                 PreparedStatement ps = con.prepareStatement(sql);
                 ps.setString(1,interested.getIdNumber());
                 ps.setString(2,c.getId());
-                ps.executeQuery();
+                ps.executeUpdate();
             }
             con.close();
         }catch(Exception ex){
@@ -118,7 +117,7 @@ public class MySQLInterested implements DAOInterested {
         return 1;
     }
     
-    public ArrayList<Interested> queryAll(){
+    public ArrayList<Interested> queryAllInterested(){
         ArrayList<Interested> interested = new ArrayList<Interested>();
         try{
             DBManager dbManager = DBManager.getdbManager();
@@ -170,9 +169,9 @@ public class MySQLInterested implements DAOInterested {
         return interested;
     }
     
-    public ArrayList<Interested> queryAllByCourseType(CourseType coursetype){
+    public ArrayList<Interested> queryAllByCourseType(Course course){
         ArrayList<Interested> interested = new ArrayList<Interested>();
-        int idcoursetype = coursetype.getId();
+        String idcourse = course.getId();
         try{
             DBManager dbManager = DBManager.getdbManager();
             Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
@@ -181,23 +180,40 @@ public class MySQLInterested implements DAOInterested {
             ResultSet rs = sentence.executeQuery(query);
             while(rs.next()){
                 Interested inte = new Interested();
-                inte.setIsUnsubscribed(rs.getBoolean("isUnsusbscribed"));
+                inte.setIsUnsubscribed(rs.getBoolean("isUnsuscribed"));
                 inte.setFirstName(rs.getString("firstName"));
                 inte.setMiddleName(rs.getString("middleName"));
                 inte.setPrimaryLastName(rs.getString("primaryLastName"));
                 inte.setSecondLastName(rs.getString("secondLastName"));
                 inte.setGender(rs.getString("gender"));
                 inte.setEmail(rs.getString("email"));
-                inte.setEmailPUCP(rs.getString("emailPUCP"));
                 inte.setCellPhoneNumber(rs.getString("cellPhoneNumber"));
                 inte.setIdNumber(rs.getString("idNumber"));
                 inte.setRegDate(rs.getDate("regDate"));
                 inte.setIdType(rs.getInt("idNumberType"));
                 if (!inte.isIsUnsubscribed()){
-                    String query2 = "SELECT * FROM InterestedxCourseType WHERE idNumber =?;";
-                    ResultSet rs2 = sentence.executeQuery(query2);
-                    while(rs.next()){
-                        if(rs2.getInt("idCourseType")==idcoursetype){
+                    String query2 = "SELECT * FROM InterestedxCourseType WHERE idInterested = ?;";
+                    PreparedStatement ps = con.prepareStatement(query2);
+                    ps.setString(1,inte.getIdNumber());
+                    ResultSet rs2 = ps.executeQuery();
+                    ArrayList<Course> courses = new ArrayList<Course>();
+                    while(rs2.next()){
+                        Course crs = new Course();
+                        crs.setId(rs2.getString("idCourse"));
+                        String query3 = "SELECT * FROM Course WHERE idCourse= ?";
+                        PreparedStatement ps2 = con.prepareStatement(query3);
+                        ps2.setString(1,crs.getId());
+                        ResultSet rs3 = ps2.executeQuery();
+                        while(rs3.next()){
+                            crs.setDescription(rs3.getString("description"));
+                            crs.setIsActive(rs3.getBoolean("isActive"));
+                            crs.setName(rs3.getString("name"));
+                            courses.add(crs);
+                        }
+                    }
+                    inte.setCourses(courses);
+                    for(Course c : courses){
+                        if(c.getId().equals(idcourse)){
                             interested.add(inte);
                             break;
                         }

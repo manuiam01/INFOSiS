@@ -21,25 +21,17 @@ public class Course implements Serializable{
        
     }
 
+    public Course(String id){
+        this.id=id;
+    }
     private String id;
     private String name;
     private boolean isActive;
     private CourseType courseType;
     private String description;
-    private File syllabus;
+    private byte[] syllabus;
     
     private ArrayList<Course> courseHistory;
-
-    public Course(String id, String name, boolean isActive, CourseType courseType, String description, File syllabus, ArrayList<Course> courseHistory) {
-        this.id = id;
-        this.name = name;
-        this.isActive = isActive;
-        this.courseType = courseType;
-        this.description = description;
-        this.syllabus = syllabus;
-        
-        this.courseHistory = courseHistory;
-    }
 
     public String getId() {
         return id;
@@ -81,14 +73,15 @@ public class Course implements Serializable{
         this.description = description;
     }
 
-    public File getSyllabus() {
+    public byte[] getSyllabus() {
         return syllabus;
     }
 
-    public void setSyllabus(File syllabus) {
+    public void setSyllabus(byte[] syllabus) {
         this.syllabus = syllabus;
     }
 
+    
     
 
     public ArrayList<Course> getCourseHistory() {

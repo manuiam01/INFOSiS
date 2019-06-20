@@ -83,7 +83,7 @@ namespace INFOSiS_2._0
                 {
                     //Detalles del servidor e email de donde sale el correo
                     SmtpClient clientDetails = new SmtpClient();
-                    clientDetails.Port = 465;
+                    clientDetails.Port = 587;
                     clientDetails.Host = "smtp.gmail.com";
                     clientDetails.EnableSsl = true;
                     clientDetails.DeliveryMethod = SmtpDeliveryMethod.Network;
