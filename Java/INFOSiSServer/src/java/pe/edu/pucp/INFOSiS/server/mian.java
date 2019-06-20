@@ -5,6 +5,9 @@
  */
 package pe.edu.pucp.INFOSiS.server;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import pe.edu.pucp.INFOSiS.controller.config.DBController;
 import pe.edu.pucp.INFOSiS.controller.mysql.MySQLUser;
@@ -18,21 +21,31 @@ import pe.edu.pucp.INFOSiS.model.bean.user.User;
  */
 public class mian {
     
-    public static void main(String[] args) {
+    public static void main(String[] args)  {
 //        ArrayList<User> users = DBController.queryAllUsers();
 //        for(User u: users){
 //            System.out.println(u.getUsername());
 //        }
+
+try{
         Course c = new Course();
-        c.setId("1022");
+        c.setId("1023");
         c.setName("Excel Super Básico");
         c.setIsActive(true);
         c.setDescription("Curso Super básico de excel");
-        c.setSyllabus(null);
+        File file = new File("C:\\Users\\Ivette\\Desktop\\2019-1\\Final\\INFOSiS\\Java\\INFOSiSTest\\Horario_Parcial.pdf");
+        
+        c.setSyllabus(Files.readAllBytes(file.toPath()));
         
         int result  = DBController.insertCourse(c);
-        
         System.out.println(result);
+        
+}
+catch(Exception ex){
+    System.out.println(ex.getMessage() + "uwur");
+}
+        
+        
     }
     
 }
