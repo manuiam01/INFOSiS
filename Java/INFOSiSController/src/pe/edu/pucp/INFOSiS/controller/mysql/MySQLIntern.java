@@ -17,6 +17,8 @@ import java.util.ArrayList;
 import pe.edu.pucp.INFOSiS.controller.config.DBManager;
 import pe.edu.pucp.INFOSiS.controller.dao.DAOIntern;
 import pe.edu.pucp.INFOSiS.model.bean.HR.Intern;
+import pe.edu.pucp.INFOSiS.model.bean.user.User;
+import pe.edu.pucp.INFOSiS.model.bean.user.UserType;
 
 /**
  *
@@ -24,14 +26,23 @@ import pe.edu.pucp.INFOSiS.model.bean.HR.Intern;
  */
 public class MySQLIntern implements DAOIntern {
     @Override
-    public int insert(Intern intern, int idUser) {        
+    public int insert(Intern intern, UserType access) {        
+        MySQLUser userC = new MySQLUser();
+
+        User user = new User();
+
+        user.setAcces(access);
+        user.setUsername(intern.getIdPUCP());
+        user.setPassword(intern.getIdNumber());
+        userC.insert(user);
+        
         int result = 0;
         try{
             DBManager dbManager = DBManager.getdbManager();
             Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
-            CallableStatement cs = con.prepareCall("{CALL INSERT_INTERN(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}");
+            CallableStatement cs = con.prepareCall("{CALL INSERT_INTERN(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}");
             cs.setString(1, intern.getIdPUCP());
-            cs.setInt(2, idUser);
+            cs.setInt(2, access.getId());
             cs.setInt(3, intern.getIdType());
             cs.setString(4, intern.getIdNumber());
             cs.setString(5, intern.getFirstName());
@@ -44,10 +55,9 @@ public class MySQLIntern implements DAOIntern {
             cs.setString(12, intern.getEmailPUCP());
             cs.setString(13, intern.getAddress());
             cs.setString(14, intern.getHomePhone());
-         //   cs.setDate(15, intern.getBirthDate());
+            cs.setDate(15, (Date)intern.getBirthDate());
             cs.setString(16, intern.getWeekAvailability());
-//            cs.setInt(17, roleHistory.getRole().getId());
-//            cs.setFloat(18,roleHistory.getSalary());
+            
             result = cs.executeUpdate();
             con.close();
         }catch(SQLException ex){
@@ -57,7 +67,7 @@ public class MySQLIntern implements DAOIntern {
     }
 
     @Override
-    public int update(Intern intern, int idUser) {
+    public int update(Intern intern, UserType access) {
         int result = 0;
         try{
             DBManager dbManager = DBManager.getdbManager();
@@ -78,7 +88,7 @@ public class MySQLIntern implements DAOIntern {
             ps.setString(12, intern.getHomePhone());
             ps.setDate(13, (Date)intern.getBirthDate());
             ps.setString(14, intern.getWeekAvailability());
-            ps.setInt(15, idUser);
+            ps.setInt(15, access.getId());
             result = ps.executeUpdate();
             con.close();
         }catch(SQLException ex){
