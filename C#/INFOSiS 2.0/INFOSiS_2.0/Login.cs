@@ -20,10 +20,23 @@ namespace INFOSiS_2._0
 
         private void Login_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void btnLogIn_Click(object sender, EventArgs e)
+        {
+            ingresar();
+        }
+
+        private void Login_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                ingresar();
+            }
+        }
+
+        private void ingresar()
         {
             if (txtUser.Text == "")
             {
@@ -45,7 +58,7 @@ namespace INFOSiS_2._0
                 DAServer.user u = new DAServer.user();
                 u.username = txtUser.Text;
                 u.password = txtPassword.Text;
-                u.acces= servidor.VerifyUser(u);
+                u.acces = servidor.VerifyUser(u);
                 if (u.acces.id != -1)
                 {
                     //String role = u.acces.name;

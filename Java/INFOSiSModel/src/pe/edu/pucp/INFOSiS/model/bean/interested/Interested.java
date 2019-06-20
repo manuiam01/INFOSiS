@@ -6,6 +6,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 import pe.edu.pucp.INFOSiS.model.bean.course.CourseType;
 import pe.edu.pucp.INFOSiS.model.bean.Person;
+import pe.edu.pucp.INFOSiS.model.bean.course.Course;
 
 /**
  * 
@@ -21,14 +22,14 @@ public class Interested extends Person implements Serializable{
     public Interested() {
     }
     private int id;
-    private ArrayList<CourseType> courseTypes;
+    private ArrayList<Course> courses;
     private boolean isUnsubscribed;
     private String emailPUCP;
     private Date regDate;
     
-    public Interested(ArrayList<CourseType> courseTypes, boolean isUnsubscribed, String idNumber, int idType, String firstName, String middleName, String primaryLastName, String secondLastName, String gender, String email, String cellPhoneNumber) {
+    public Interested(ArrayList<Course> courses, boolean isUnsubscribed, String idNumber, int idType, String firstName, String middleName, String primaryLastName, String secondLastName, String gender, String email, String cellPhoneNumber) {
         super(idNumber, idType, firstName, middleName, primaryLastName, secondLastName, gender, email, cellPhoneNumber);
-        this.courseTypes = courseTypes;
+        this.courses = courses;
         this.isUnsubscribed = isUnsubscribed;
     }
     
@@ -56,12 +57,12 @@ public class Interested extends Person implements Serializable{
         this.emailPUCP = emailPUCP;
     }
 
-    public ArrayList<CourseType> getCourseTypes() {
-        return courseTypes;
+    public ArrayList<Course> getCourses() {
+        return courses;
     }
 
-    public void setCourseTypes(ArrayList<CourseType> courseTypes) {
-        this.courseTypes = courseTypes;
+    public void setCourses(ArrayList<Course> courses) {
+        this.courses = courses;
     }
 
     public boolean isIsUnsubscribed() {
