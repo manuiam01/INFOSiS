@@ -14,6 +14,8 @@ namespace INFOSiS_2._0
     {
         private static ProfessorRegister _instance;
         private static Panel _panelMdi;
+        private DAServer.ServerClient servidor;
+        private DAServer.professor professor;
 
         public static ProfessorRegister Instance
         {
@@ -34,6 +36,7 @@ namespace INFOSiS_2._0
         public ProfessorRegister()
         {
             InitializeComponent();
+            servidor = new DAServer.ServerClient();
         }
 
         public bool verifyDocumentNumber(String id)
@@ -45,17 +48,35 @@ namespace INFOSiS_2._0
             return true;
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
+        private void btnSave_Click(object sender, EventArgs e) { 
+            
+            professor = new DAServer.professor();
             if (rbDNI.Checked)
             {
                 if (txtDocumentNumber.Text.Count() != 8 || 
                    (txtDocumentNumber.Text.Count() == 8 && !verifyDocumentNumber(txtDocumentNumber.Text)))
                 {
                     MessageBox.Show("Número de documento inválido", "Error en el registro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 }
                 else
                 {
+                    professor.idNumber = txtDocumentNumber.Text;
+                    professor.idType = 0;
+                    professor.firstName = txtFirstName.Text;
+                    professor.middleName = txtSecondName.Text;
+                    professor.primaryLastName = txtPrimaryLastName.Text;
+                    professor.secondLastName = txtSecondLastName.Text;
+                    professor.birthDate = dtpBirthday.Value;
+                    professor.cellPhoneNumber = txtCellphone.Text;
+                    professor.email = txtEmail.Text;
+                    professor.emailPUCP = txtEmailPUCP.Text;
+                    professor.idPUCP = txtPUCPCode.Text;
+                    if (rbWoman.Checked)
+                        professor.gender = "F";
+                    else if (rbMan.Checked)
+                        professor.gender = "M";
+                    int res = servidor.InsertProfessor(professor);
                     MessageBox.Show("Registro exitoso", "Registro efectuado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }

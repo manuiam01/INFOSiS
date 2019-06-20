@@ -21,6 +21,9 @@ public class Course implements Serializable{
        
     }
 
+    public Course(String id){
+        this.id=id;
+    }
     private String id;
     private String name;
     private boolean isActive;

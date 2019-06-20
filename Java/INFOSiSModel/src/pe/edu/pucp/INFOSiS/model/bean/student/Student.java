@@ -2,6 +2,7 @@ package pe.edu.pucp.INFOSiS.model.bean.student;
 import java.io.Serializable;
 import pe.edu.pucp.INFOSiS.model.bean.interested.Interested;
 import java.util.*;
+import pe.edu.pucp.INFOSiS.model.bean.course.Course;
 import pe.edu.pucp.INFOSiS.model.bean.course.CourseHistory;
 import pe.edu.pucp.INFOSiS.model.bean.course.CourseType;
 import pe.edu.pucp.INFOSiS.model.bean.course.Voucher;
@@ -27,7 +28,7 @@ public class Student extends Interested implements Serializable{
     private ArrayList<String> historyState;
     private ArrayList<Voucher> vouchers;
 
-    public Student(String homePhone, ArrayList<String> idPUCPList, Date birthDate, String address, ArrayList<CourseHistory> history, ArrayList<Float> historyGrade, ArrayList<String> historyState, ArrayList<Voucher> vouchers, ArrayList<CourseType> courseTypes, boolean isUnsubscribed, String idNumber, int idType, String firstName, String middleName, String primaryLastName, String secondLastName, String gender, String email, String cellPhoneNumber) {
+    public Student(String homePhone, ArrayList<String> idPUCPList, Date birthDate, String address, ArrayList<CourseHistory> history, ArrayList<Float> historyGrade, ArrayList<String> historyState, ArrayList<Voucher> vouchers, ArrayList<Course> courseTypes, boolean isUnsubscribed, String idNumber, int idType, String firstName, String middleName, String primaryLastName, String secondLastName, String gender, String email, String cellPhoneNumber) {
         super(courseTypes, isUnsubscribed, idNumber, idType, firstName, middleName, primaryLastName, secondLastName, gender, email, cellPhoneNumber);
         this.homePhone = homePhone;
         this.idPUCPList = idPUCPList;

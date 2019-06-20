@@ -1,10 +1,15 @@
 package pe.edu.pucp.INFOSiS.model.bean;
 
 import java.io.Serializable;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * 
  */
+@XmlRootElement(name="Person")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Person implements Serializable {
 
     private String idNumber;
