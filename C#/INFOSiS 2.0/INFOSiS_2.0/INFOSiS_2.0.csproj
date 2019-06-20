@@ -335,6 +335,9 @@
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.InsertProfessorResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.InsertStudentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.interested.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -351,6 +354,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.QueryAllUsersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.QueryInterestedByIDResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.UpdateInternResponse.datasource">

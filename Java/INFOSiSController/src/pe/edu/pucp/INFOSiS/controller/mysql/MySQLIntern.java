@@ -40,7 +40,7 @@ public class MySQLIntern implements DAOIntern {
         try{
             DBManager dbManager = DBManager.getdbManager();
             Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
-            CallableStatement cs = con.prepareCall("{CALL INSERT_INTERN(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}");
+            CallableStatement cs = con.prepareCall("{CALL INSERT_INTERN(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}");
             cs.setString(1, intern.getIdPUCP());
             cs.setInt(2, access.getId());
             cs.setInt(3, intern.getIdType());
@@ -57,7 +57,7 @@ public class MySQLIntern implements DAOIntern {
             cs.setString(14, intern.getHomePhone());
             cs.setDate(15, (Date)intern.getBirthday());
             cs.setString(16, intern.getWeekAvailability());
-            
+            cs.setString(17, intern.getWeekSchedule());
             result = cs.executeUpdate();
             con.close();
         }catch(SQLException ex){

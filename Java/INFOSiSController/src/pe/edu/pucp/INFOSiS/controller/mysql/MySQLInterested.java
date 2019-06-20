@@ -226,4 +226,46 @@ public class MySQLInterested implements DAOInterested {
         }    
         return interested;
     }
+    @Override
+    public Interested queryInterestedById(String interestedID){
+        Interested interested=new Interested();
+        interested.setIdNumber("NULL");
+//        interested.setCellPhoneNumber("NULL");
+//        interested.setEmail("NULL");
+//        interested.setFirstName("NULL");
+//        interested.setMiddleName("NULL");
+//        interested.setPrimaryLastName("NULL");
+//        interested.setSecondLastName("NULL");
+//        interested.setGender("N");
+//        interested.setIdType(-1);
+//        interested.setIsUnsubscribed(false);
+//        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+//        String dateInString = "07/06/2013";
+//        java.sql.Date sqlDate = java.sql.Date.valueOf(LocalDate.now());
+//        interested.setRegDate(sqlDate);
+        try{
+            DBManager dbManager = DBManager.getdbManager();
+            Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
+            Statement sentence = con.createStatement();
+            String query = "SELECT * FROM Interested WHERE idNumber='"+interestedID+"'";
+            ResultSet rs = sentence.executeQuery(query);
+            while(rs.next()){
+                interested.setIdNumber(rs.getString("idNumber"));
+                interested.setIdType(rs.getInt("idNumberType"));
+                interested.setFirstName(rs.getString("firstName"));
+                interested.setSecondLastName(rs.getString("secondLastName"));
+                interested.setMiddleName(rs.getString("middleName"));
+                interested.setPrimaryLastName(rs.getString("primaryLastName"));
+                interested.setIsUnsubscribed(rs.getInt("isUnsuscribed")==1);
+            }
+            con.close();
+        }
+        catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        
+        return interested;
+    }    
+    
+    
 }

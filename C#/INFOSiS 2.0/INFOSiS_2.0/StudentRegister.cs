@@ -15,7 +15,7 @@ namespace INFOSiS_2._0
         private static StudentRegister _instance;
         private static Panel _panelMdi;
         private BindingList<ListaStrings> listaCodigos;
-
+        private Server.ServerClient server;
         public StudentRegister()
         {
             InitializeComponent();
@@ -44,13 +44,14 @@ namespace INFOSiS_2._0
         private void btnVerificarDocumento_Click(object sender, EventArgs e)
         {
             String identificacion = txtDocumento.Text;
-            /*Aquí se debería verificar si hay un interesado con dicho documento en este caso será hardcodeado*/
-            if (identificacion == "73222296")
+            server = new Server.ServerClient();
+            Server.interested interested = server.QueryInterestedByID(identificacion);
+            if (interested.idNumber==identificacion)
             {
-                txtNombre.Text = "Manuel";
-                txtSegundoNombre.Text = "Alberto";
-                txtApellidoPaterno.Text = "Bezerra Brandao";
-                txtApellidoMaterno.Text = "Corrales";
+                txtNombre.Text = interested.firstName;
+                txtSegundoNombre.Text = interested.middleName;
+                txtApellidoPaterno.Text = interested.primaryLastName;
+                txtApellidoMaterno.Text = interested.secondLastName;
                 txtDocumento.Enabled = false;
                 rbnCarneExtranjeria.Enabled = false;
                 rbnDNI.Enabled = false;
@@ -147,10 +148,33 @@ namespace INFOSiS_2._0
             else
             {
                 /*Aquí se registrtaría en BD*/
-                mensaje = "ÉXITO: Se ha registrado al alumno";
-                titulo = "Registro completo";
-                icono = MessageBoxIcon.Information;
-                exito = true;
+                Server.student s = new Server.student();
+                s.idNumber = txtDocumento.Text;
+                s.homePhone = txtTelefono.Text;
+                s.address = txtDireccion.Text;
+                s.birthDate = dateNacimiento.Value.Date;
+                s.idPUCPList = new string[listaCodigos.Count];
+                BindingList<string> lstring = new BindingList<string>();
+                foreach (ListaStrings ls in listaCodigos)
+                {
+                    lstring.Add(ls.Cadena);
+                }
+                lstring.CopyTo(s.idPUCPList, 0);
+                int result = server.InsertStudent(s);
+                if (result == 1)
+                {
+                    mensaje = "ÉXITO: Se ha registrado al alumno";
+                    titulo = "Registro completo";
+                    icono = MessageBoxIcon.Information;
+                    exito = true;
+                }
+                else
+                {
+                    mensaje = "No se pudo registrar al alumno";
+                    titulo = "Error en registro";
+                    icono = MessageBoxIcon.Error;
+                    exito = false;
+                }
             }
             mensajeError = MessageBox.Show(mensaje, titulo, MessageBoxButtons.OK, icono);
             if (exito)

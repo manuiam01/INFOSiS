@@ -12,6 +12,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import pe.edu.pucp.INFOSiS.controller.config.DBManager;
 import pe.edu.pucp.INFOSiS.controller.dao.DAOStudent;
@@ -29,28 +31,23 @@ public class MySQLStudent implements DAOStudent{
         try{
             DBManager dbManager = DBManager.getdbManager();
             Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
-            CallableStatement cStmt = con.prepareCall("{call INSERT_STUDENT(?,?,?,?,?,?,?,?,?,?,?,?)}");
-            //cStmt.registerOutParameter("_idStudent", java.sql.Types.INTEGER);
-            //cStmt.setString("_idNumber", student.getIdNumber());
-            cStmt.setString("_idStudent",student.getIdNumber());
-            cStmt.setInt("_idType", student.getIdType());
-            cStmt.setString("_firstName", student.getFirstName());
-            cStmt.setString("_middleName", student.getMiddleName());
-            cStmt.setString("_primaryLastName", student.getPrimaryLastName());
-            cStmt.setString("_secondLastName", student.getSecondLastName());
-            cStmt.setString("_gender", student.getGender());
-            cStmt.setString("_email", student.getEmail());
-            cStmt.setString("_cellPhoneNuber", student.getCellPhoneNumber());
-            cStmt.setString("_homePhone", student.getHomePhone());
-            cStmt.setDate("_birthday",(Date)student.getBirthDate());
-            cStmt.setString("_address", student.getAddress());
-            cStmt.execute();
+            Statement sentencia = con.createStatement();
+            //DateFormat dateFormat = new SimpleDateFormat("mm/dd/yyyy");  
+            //String strDate = dateFormat.format(student.getBirthDate());  
+            String query="INSERT INTO Student (idStudent,homePhone,address) VALUES ("+
+                    "'"+student.getIdNumber()+"','"+student.getHomePhone()+"','"+student.getAddress()+"')";
+            result =sentencia.executeUpdate(query);
+            for(String cod : student.getIdPUCPList()){
+                sentencia=con.createStatement();
+                query="INSERT INTO StudentxIds (idStudent,codPucp) VALUES ('"+student.getIdNumber()+"','"+cod+"')";
+                sentencia.executeUpdate(query);
+            }
+            con.close();
         }
         catch(SQLException ex){
             System.out.println(ex.getMessage());
         }
         return result;
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
