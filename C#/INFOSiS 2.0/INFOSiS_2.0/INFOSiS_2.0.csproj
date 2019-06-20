@@ -326,7 +326,19 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Connected Services\DAServer\INFOSiS_2._0.DAServer.InsertInterestedResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\DAServer\INFOSiS_2._0.DAServer.InsertProfessorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DAServer\INFOSiS_2._0.DAServer.interested.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DAServer\INFOSiS_2._0.DAServer.QueryAllByCourseResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DAServer\INFOSiS_2._0.DAServer.QueryAllInterestedResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\DAServer\INFOSiS_2._0.DAServer.QueryAllUsersResponse.datasource">
@@ -341,8 +353,8 @@
     <None Include="Connected Services\DAServer\INFOSiS_2._0.DAServer.VerifyUserResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\DAServer\Server1.wsdl" />
-    <None Include="Connected Services\DAServer\Server1.xsd">
+    <None Include="Connected Services\DAServer\Server.wsdl" />
+    <None Include="Connected Services\DAServer\Server.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Resources\perfil2.png" />
