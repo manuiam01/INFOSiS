@@ -15,7 +15,7 @@ namespace INFOSiS_2._0
         private static StudentRegister _instance;
         private static Panel _panelMdi;
         private BindingList<ListaStrings> listaCodigos;
-
+        private Server.ServerClient server;
         public StudentRegister()
         {
             InitializeComponent();
@@ -44,13 +44,14 @@ namespace INFOSiS_2._0
         private void btnVerificarDocumento_Click(object sender, EventArgs e)
         {
             String identificacion = txtDocumento.Text;
-            /*Aquí se debería verificar si hay un interesado con dicho documento en este caso será hardcodeado*/
-            if (identificacion == "73222296")
+            server = new Server.ServerClient();
+            Server.interested interested = server.QueryInterestedByID(identificacion);
+            if (interested.idNumber==identificacion)
             {
-                txtNombre.Text = "Manuel";
-                txtSegundoNombre.Text = "Alberto";
-                txtApellidoPaterno.Text = "Bezerra Brandao";
-                txtApellidoMaterno.Text = "Corrales";
+                txtNombre.Text = interested.firstName;
+                txtSegundoNombre.Text = interested.middleName;
+                txtApellidoPaterno.Text = interested.primaryLastName;
+                txtApellidoMaterno.Text = interested.secondLastName;
                 txtDocumento.Enabled = false;
                 rbnCarneExtranjeria.Enabled = false;
                 rbnDNI.Enabled = false;
