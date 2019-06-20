@@ -93,6 +93,13 @@ public abstract class DBController {
     public static ArrayList<Course> queryAllCourse(){
         return daoFactory.getCourseDAO().queryAll();
     }
+    public static Course queryCourseById(String id){
+        return daoFactory.getCourseDAO().queryById(id);
+    }
+    
+    public static ArrayList<Course> queryCourseByName(String name){
+        return daoFactory.getCourseDAO().queryByName(name);
+    }
     
     //Métodos CourseType
     

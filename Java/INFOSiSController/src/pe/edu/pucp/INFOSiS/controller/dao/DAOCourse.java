@@ -16,5 +16,7 @@ public interface DAOCourse {
     int insert(Course course);
     int update (Course course);
     int disable (Course course);
+    Course queryById(String id);
+    ArrayList<Course> queryByName(String name);
     ArrayList<Course> queryAll();
 }

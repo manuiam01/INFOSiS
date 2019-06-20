@@ -64,7 +64,11 @@
             this.dtpBirthday = new System.Windows.Forms.DateTimePicker();
             this.lblBirthday = new System.Windows.Forms.Label();
             this.btCancelar = new System.Windows.Forms.Button();
+<<<<<<< HEAD
             this.btnModificar = new System.Windows.Forms.Button();
+=======
+            this.btModificar = new System.Windows.Forms.Button();
+>>>>>>> 4d75dee057d24431744143e37bc7a9553d6367a2
             this.gbxContactData.SuspendLayout();
             this.gbxCondition.SuspendLayout();
             this.gbxPersonalData.SuspendLayout();
@@ -255,6 +259,7 @@
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.Font = new System.Drawing.Font("Gill Sans MT", 12F);
             this.btnSearch.ForeColor = System.Drawing.Color.White;
+<<<<<<< HEAD
             this.btnSearch.Location = new System.Drawing.Point(41, 73);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(104, 32);
@@ -262,6 +267,15 @@
             this.btnSearch.Text = "Buscar";
             this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
+=======
+            this.btnSearch.Location = new System.Drawing.Point(60, 149);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(139, 39);
+            this.btnSearch.TabIndex = 184;
+            this.btnSearch.Text = "Buscar";
+            this.btnSearch.UseVisualStyleBackColor = false;
+>>>>>>> 4d75dee057d24431744143e37bc7a9553d6367a2
             // 
             // lbBusquedaAvanzada
             // 
@@ -269,9 +283,16 @@
             this.lbBusquedaAvanzada.AutoSize = true;
             this.lbBusquedaAvanzada.Font = new System.Drawing.Font("Gill Sans MT", 8.5F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
             this.lbBusquedaAvanzada.ForeColor = System.Drawing.Color.MediumBlue;
+<<<<<<< HEAD
             this.lbBusquedaAvanzada.Location = new System.Drawing.Point(164, 84);
             this.lbBusquedaAvanzada.Name = "lbBusquedaAvanzada";
             this.lbBusquedaAvanzada.Size = new System.Drawing.Size(115, 18);
+=======
+            this.lbBusquedaAvanzada.Location = new System.Drawing.Point(224, 167);
+            this.lbBusquedaAvanzada.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbBusquedaAvanzada.Name = "lbBusquedaAvanzada";
+            this.lbBusquedaAvanzada.Size = new System.Drawing.Size(148, 21);
+>>>>>>> 4d75dee057d24431744143e37bc7a9553d6367a2
             this.lbBusquedaAvanzada.TabIndex = 185;
             this.lbBusquedaAvanzada.Text = "Busqueda avanzada";
             this.lbBusquedaAvanzada.Click += new System.EventHandler(this.lbBusquedaAvanzada_Click);
@@ -494,6 +515,7 @@
             this.btCancelar.UseVisualStyleBackColor = false;
             this.btCancelar.Click += new System.EventHandler(this.btCancelar_Click);
             // 
+<<<<<<< HEAD
             // btnModificar
             // 
             this.btnModificar.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -509,6 +531,25 @@
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = false;
             this.btnModificar.Click += new System.EventHandler(this.btModificar_Click);
+=======
+            // btModificar
+            // 
+            this.btModificar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btModificar.BackColor = System.Drawing.Color.MidnightBlue;
+            this.btModificar.Enabled = false;
+            this.btModificar.FlatAppearance.BorderSize = 0;
+            this.btModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btModificar.Font = new System.Drawing.Font("Gill Sans MT", 15F);
+            this.btModificar.ForeColor = System.Drawing.Color.White;
+            this.btModificar.Location = new System.Drawing.Point(283, 597);
+            this.btModificar.Margin = new System.Windows.Forms.Padding(4);
+            this.btModificar.Name = "btModificar";
+            this.btModificar.Size = new System.Drawing.Size(197, 48);
+            this.btModificar.TabIndex = 182;
+            this.btModificar.Text = "Modificar";
+            this.btModificar.UseVisualStyleBackColor = false;
+            this.btModificar.Click += new System.EventHandler(this.btModificar_Click);
+>>>>>>> 4d75dee057d24431744143e37bc7a9553d6367a2
             // 
             // ProfessorModify
             // 

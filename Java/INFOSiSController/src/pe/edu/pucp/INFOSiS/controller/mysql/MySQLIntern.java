@@ -40,6 +40,26 @@ public class MySQLIntern implements DAOIntern {
         try{
             DBManager dbManager = DBManager.getdbManager();
             Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
+            
+            String sql ="SELECT * FROM Interns WHERE idIntern = ?";
+            PreparedStatement ps =  con.prepareStatement(sql);
+            ps.setString(1, intern.getIdPUCP());
+            ResultSet rs = ps.executeQuery();          
+            if(rs.next()){
+                return -1;
+            }
+            
+            if(intern.getIdPUCP().length()==0){
+                return -2;
+            }
+            sql ="SELECT * FROM Interns WHERE idNumber = ?";
+            ps =  con.prepareStatement(sql);
+            ps.setString(1, intern.getIdNumber());
+            rs = ps.executeQuery();             
+            if(rs.next()){
+                result = -3;
+            }
+            
             CallableStatement cs = con.prepareCall("{CALL INSERT_INTERN(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}");
             cs.setString(1, intern.getIdPUCP());
             cs.setInt(2, access.getId());

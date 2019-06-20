@@ -88,6 +88,13 @@ public class Course implements Serializable{
         this.courseHistory = courseHistory;
     }
 
+    @Override
+    public String toString() {
+        return "Course: "  + name ;
+    }
+    
+    
+
 
 
 }
