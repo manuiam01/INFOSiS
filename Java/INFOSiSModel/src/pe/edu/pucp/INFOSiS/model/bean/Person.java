@@ -1,6 +1,7 @@
 package pe.edu.pucp.INFOSiS.model.bean;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -21,11 +22,12 @@ public class Person implements Serializable {
     private String gender;
     private String email;
     private String cellPhoneNumber;
+    private Date birthday;
 
-    public Person() {
+     public Person() {
     }
 
-    public Person(String idNumber, int idType, String firstName, String middleName, String primaryLastName, String secondLastName, String gender, String email, String cellPhoneNumber) {
+    public Person(String idNumber, int idType, String firstName, String middleName, String primaryLastName, String secondLastName, String gender, String email, String cellPhoneNumber, Date birthday) {
         this.idNumber = idNumber;
         this.idType = idType;
         this.firstName = firstName;
@@ -35,6 +37,7 @@ public class Person implements Serializable {
         this.gender = gender;
         this.email = email;
         this.cellPhoneNumber = cellPhoneNumber;
+        this.birthday = birthday;
     }
 
     public String getIdNumber() {
@@ -109,6 +112,12 @@ public class Person implements Serializable {
         this.cellPhoneNumber = cellPhoneNumber;
     }
     
-    
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
+    }
 
 }

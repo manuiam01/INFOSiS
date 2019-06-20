@@ -182,7 +182,6 @@ namespace INFOSiS_2._0.DAServer {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
-    //[System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2612.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -384,6 +383,10 @@ namespace INFOSiS_2._0.DAServer {
         
         private string cellPhoneNumberField;
         
+        private System.DateTime birthdayField;
+        
+        private bool birthdayFieldSpecified;
+        
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
         public string idNumber {
@@ -492,6 +495,30 @@ namespace INFOSiS_2._0.DAServer {
             }
         }
         
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=9)]
+        public System.DateTime birthday {
+            get {
+                return this.birthdayField;
+            }
+            set {
+                this.birthdayField = value;
+                this.RaisePropertyChanged("birthday");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool birthdaySpecified {
+            get {
+                return this.birthdayFieldSpecified;
+            }
+            set {
+                this.birthdayFieldSpecified = value;
+                this.RaisePropertyChanged("birthdaySpecified");
+            }
+        }
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
@@ -519,8 +546,7 @@ namespace INFOSiS_2._0.DAServer {
         private bool birthDateFieldSpecified;
         
         private course[] coursesCanTeachField;
-       
-
+        
         private bool isActiveField;
         
         /// <remarks/>
@@ -571,11 +597,9 @@ namespace INFOSiS_2._0.DAServer {
             }
         }
         
-        /// <remarks/>        
-
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
-        public course[] coursesCanTeach
-        {
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("coursesCanTeach", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=3)]
+        public course[] coursesCanTeach {
             get {
                 return this.coursesCanTeachField;
             }

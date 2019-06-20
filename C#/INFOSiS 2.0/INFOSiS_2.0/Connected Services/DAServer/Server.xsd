@@ -58,11 +58,6 @@
           <xs:element minOccurs="0" name="emailPUCP" type="xs:string" />
           <xs:element minOccurs="0" name="birthDate" type="xs:dateTime" />
           <xs:element minOccurs="0" maxOccurs="unbounded" name="coursesCanTeach" nillable="true" type="tns:course" />
-<<<<<<< HEAD
-=======
-          <xs:element minOccurs="0" name="emailPUCP" type="xs:string" />
-          <xs:element minOccurs="0" name="idPUCP" type="xs:string" />
->>>>>>> 05393e78c02103f129483e387a55c7accedc3981
           <xs:element name="isActive" type="xs:boolean" />
         </xs:sequence>
       </xs:extension>
@@ -79,6 +74,7 @@
       <xs:element minOccurs="0" name="gender" type="xs:string" />
       <xs:element minOccurs="0" name="email" type="xs:string" />
       <xs:element minOccurs="0" name="cellPhoneNumber" type="xs:string" />
+      <xs:element minOccurs="0" name="birthday" type="xs:dateTime" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="course">

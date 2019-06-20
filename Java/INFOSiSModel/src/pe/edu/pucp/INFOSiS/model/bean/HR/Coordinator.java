@@ -12,21 +12,8 @@ public class Coordinator extends Employee implements Serializable{
     public Coordinator() {
     }
 
-    private String department;
-
-    public Coordinator(String department, String idPUCP, String emailPUCP, String address, String homePhone, Date birthDate, User user, String idNumber, int idType, String firstName, String middleName, String primaryLastName, String secondLastName, String gender, String email, String cellPhoneNumber) {
-        super(idPUCP, emailPUCP, address, homePhone, birthDate, user, idNumber, idType, firstName, middleName, primaryLastName, secondLastName, gender, email, cellPhoneNumber);
-        this.department = department;
+    public Coordinator(String idPUCP, String emailPUCP, String address, String homePhone, User user, String idNumber, int idType, String firstName, String middleName, String primaryLastName, String secondLastName, String gender, String email, String cellPhoneNumber, Date birthday) {
+        super(idPUCP, emailPUCP, address, homePhone, user, idNumber, idType, firstName, middleName, primaryLastName, secondLastName, gender, email, cellPhoneNumber, birthday);
     }
 
-    public String getDepartment() {
-        return department;
-    }
-
-    public void setDepartment(String department) {
-        this.department = department;
-    }
-
-    
-    
 }
