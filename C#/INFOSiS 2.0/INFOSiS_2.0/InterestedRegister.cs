@@ -12,6 +12,7 @@ namespace INFOSiS_2._0
 {
     public partial class InterestedRegister : UserControl
     {
+        private DAServer.ServerClient servidor;
         MessageBoxIcon iconoWarning = MessageBoxIcon.Warning;
         MessageBoxIcon iconoPregunta = MessageBoxIcon.Question;
         MessageBoxIcon iconoCorrecto = MessageBoxIcon.Asterisk;
@@ -116,7 +117,11 @@ namespace INFOSiS_2._0
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
-            
+            servidor = new DAServer.ServerClient();
+            DAServer.interested i = new DAServer.interested();
+            DAServer.course c1 = new DAServer.course();
+            DAServer.course c2 = new DAServer.course();
+
             if (rbCarnet.Checked == false && rbDNI.Checked == false && rbPasaporte.Checked == false)
                 MessageBox.Show("No seleccionó el tipo de documento", "Aviso", MessageBoxButtons.OK, iconoWarning);
             else if (txbNDocumento.Text == "")
@@ -141,6 +146,25 @@ namespace INFOSiS_2._0
                 DialogResult result = MessageBox.Show("Está seguro de que quiere guardar el registro?", "Aviso", MessageBoxButtons.YesNo, iconoPregunta);
                 if (result == DialogResult.Yes)
                 {
+                    if (rbDNI.Checked == true)
+                        i.idType = 0;
+                    else if (rbCarnet.Checked == true)
+                        i.idType = 1;
+                    else
+                        i.idType = 2;
+                    i.idNumber = txbNDocumento.Text;
+                    i.firstName = txbNombre.Text;
+                    i.middleName = txbSegundoNom.Text;
+                    i.firstName = txbApePa.Text;
+                    i.secondLastName = txbApeMa.Text;
+                    if (rbMale.Checked == true)
+                        i.gender = "M";
+                    else
+                        i.gender = "F";
+                    i.cellPhoneNumber = txtCellphone.Text;
+                    i.email = txtEmail.Text;
+                    servidor.InsertInterested(i);
+                    
                     MessageBox.Show("Se registró al interesado de manera correcta", "Éxito", MessageBoxButtons.OK,iconoCorrecto);
                     limpiar();
                 }

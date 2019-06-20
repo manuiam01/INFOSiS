@@ -1,6 +1,7 @@
 package pe.edu.pucp.INFOSiS.model.bean.professor;
 import java.io.Serializable;
-import java.util.*;
+import java.util.Date;
+import java.util.ArrayList;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -25,14 +26,15 @@ public class Professor extends Person implements Serializable{
         coursesCanTeach = new ArrayList<Course>();
     }
 
-//    
-//    public Professor(String idPUCP, String emailPUCP, Date birthDate, ArrayList<Course> coursesCanTeach, boolean isActive) {
-//        this.idPUCP = idPUCP;
-//        this.emailPUCP = emailPUCP;
-//        this.birthDate = birthDate;
-//        this.coursesCanTeach = coursesCanTeach;
-//        this.isActive = isActive;
-//    }
+    public Professor(String idPUCP, String emailPUCP, Date birthDate, ArrayList<Course> coursesCanTeach, boolean isActive, String idNumber, int idType, String firstName, String middleName, String primaryLastName, String secondLastName, String gender, String email, String cellPhoneNumber, Date birthday) {
+        super(idNumber, idType, firstName, middleName, primaryLastName, secondLastName, gender, email, cellPhoneNumber, birthday);
+        this.idPUCP = idPUCP;
+        this.emailPUCP = emailPUCP;
+        this.birthDate = birthDate;
+        this.coursesCanTeach = coursesCanTeach;
+        this.isActive = isActive;
+    }
+
 
     public String getIdPUCP() {
         return idPUCP;

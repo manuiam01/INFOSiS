@@ -16,10 +16,17 @@ namespace INFOSiS_2._0
         private MySQLCourses controllerCursos;
         private ArrayList<Courses> cursos;
         */
+        private DAServer.ServerClient servidor;
         public InterestedCourses()
         {
             InitializeComponent();
-            //ArrayList<Courses> cursos = new ArrayList<Courses>();
+            servidor = new DAServer.ServerClient();
+            DAServer.course c = new DAServer.course();
+            //ArrayList<Courses> cursos = servidor.QueryAllCourses;
+            //dgvCursos.DataSource = cursos;
+            //u.username = txtUser.Text;
+            //u.password = txtPassword.Text;
+            //u.acces = servidor.VerifyUser(u);
         }
 
         private void BtnSeleccionar_Click(object sender, EventArgs e)
@@ -35,6 +42,11 @@ namespace INFOSiS_2._0
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;
+        }
+
+        private void InterestedCourses_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -86,7 +86,7 @@ public class MySQLIntern implements DAOIntern {
             ps.setString(10, intern.getEmailPUCP());
             ps.setString(11, intern.getAddress());
             ps.setString(12, intern.getHomePhone());
-            ps.setDate(13, (Date)intern.getBirthDate());
+            ps.setDate(13, (Date)intern.getBirthday());
             ps.setString(14, intern.getWeekAvailability());
             ps.setInt(15, access.getId());
             result = ps.executeUpdate();
@@ -140,7 +140,7 @@ public class MySQLIntern implements DAOIntern {
                 intern.setEmailPUCP(emailPUCP);
                 intern.setAddress(address);
                 intern.setHomePhone(homePhone);
-                intern.setBirthDate(birthDate);
+                intern.setBirthday(birthDate);
                 intern.setWeekAvailability(weekAvailability);
                 intern.setWeekSchedule(weekSchedule);
                 
@@ -178,7 +178,7 @@ public class MySQLIntern implements DAOIntern {
                 intern.setEmailPUCP(rs.getString(12));
                 intern.setAddress(rs.getString(13));
                 intern.setHomePhone(rs.getString(14));
-                intern.setBirthDate(rs.getDate(15));
+                intern.setBirthday(rs.getDate(15));
                 intern.setWeekAvailability(rs.getString(16));               
             }
             con.close();

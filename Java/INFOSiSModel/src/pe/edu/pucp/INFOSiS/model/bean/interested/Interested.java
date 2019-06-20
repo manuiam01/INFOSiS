@@ -26,12 +26,17 @@ public class Interested extends Person implements Serializable{
     private boolean isUnsubscribed;
     private String emailPUCP;
     private Date regDate;
-    
-    public Interested(ArrayList<Course> courses, boolean isUnsubscribed, String idNumber, int idType, String firstName, String middleName, String primaryLastName, String secondLastName, String gender, String email, String cellPhoneNumber) {
-        super(idNumber, idType, firstName, middleName, primaryLastName, secondLastName, gender, email, cellPhoneNumber);
+
+    public Interested(int id, ArrayList<Course> courses, boolean isUnsubscribed, String emailPUCP, Date regDate, String idNumber, int idType, String firstName, String middleName, String primaryLastName, String secondLastName, String gender, String email, String cellPhoneNumber, Date birthday) {
+        super(idNumber, idType, firstName, middleName, primaryLastName, secondLastName, gender, email, cellPhoneNumber, birthday);
+        this.id = id;
         this.courses = courses;
         this.isUnsubscribed = isUnsubscribed;
+        this.emailPUCP = emailPUCP;
+        this.regDate = regDate;
     }
+    
+
     
     public int getId() {
         return id;

@@ -28,20 +28,22 @@ public class INFOSiSTest {
 //            System.out.println(u.getUsername());
 //        }
         MySQLInterested mysql1 = new MySQLInterested();
-//        ArrayList<Interested> ints = mysql1.queryAll();
-//        for(Interested i : ints){
+        Course rowor = new Course("100");
+        Course ruwur = new Course("102");
+        ArrayList<Interested> ints = mysql1.queryAllByCourseType(rowor);
+        for(Interested i : ints){
+            System.out.println(i.getFirstName());
 //            ArrayList<Course> cs = new ArrayList<Course>();
 //            cs = i.getCourses();
 //            for(Course c : cs)
 //                System.out.println(c.getName());
-//        }
-        Course rowor = new Course("100");
-        Course ruwur = new Course("102");
-        ArrayList<Course> courses = new ArrayList<Course>();
-        courses.add(rowor);
-        courses.add(ruwur);
-        Interested inte = new Interested(courses,false,"75287431",0,"Ricardo","Ricon","Milos","Segundo","M","ricardo.ricon@pucp.pe","987654321");
-        mysql1.update(inte);
+        }
+
+//        ArrayList<Course> courses = new ArrayList<Course>();
+//        courses.add(rowor);
+//        courses.add(ruwur);
+//        Interested inte = new Interested(courses,false,"75287431",0,"Ricardo","Ricon","Milos","Segundo","M","ricardo.ricon@pucp.pe","987654321");
+//        mysql1.update(inte);
     }
     
 }

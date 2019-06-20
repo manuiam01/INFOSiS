@@ -15,9 +15,6 @@ public class Student extends Interested implements Serializable{
     /**
      * Default constructor
      */
-    public Student() {
-    }
-
 
     private String homePhone;
     private ArrayList<String> idPUCPList;
@@ -28,8 +25,12 @@ public class Student extends Interested implements Serializable{
     private ArrayList<String> historyState;
     private ArrayList<Voucher> vouchers;
 
-    public Student(String homePhone, ArrayList<String> idPUCPList, Date birthDate, String address, ArrayList<CourseHistory> history, ArrayList<Float> historyGrade, ArrayList<String> historyState, ArrayList<Voucher> vouchers, ArrayList<Course> courseTypes, boolean isUnsubscribed, String idNumber, int idType, String firstName, String middleName, String primaryLastName, String secondLastName, String gender, String email, String cellPhoneNumber) {
-        super(courseTypes, isUnsubscribed, idNumber, idType, firstName, middleName, primaryLastName, secondLastName, gender, email, cellPhoneNumber);
+    public Student() {
+    }
+
+
+    public Student(String homePhone, ArrayList<String> idPUCPList, Date birthDate, String address, ArrayList<CourseHistory> history, ArrayList<Float> historyGrade, ArrayList<String> historyState, ArrayList<Voucher> vouchers, int id, ArrayList<Course> courses, boolean isUnsubscribed, String emailPUCP, Date regDate, String idNumber, int idType, String firstName, String middleName, String primaryLastName, String secondLastName, String gender, String email, String cellPhoneNumber, Date birthday) {
+        super(id, courses, isUnsubscribed, emailPUCP, regDate, idNumber, idType, firstName, middleName, primaryLastName, secondLastName, gender, email, cellPhoneNumber, birthday);
         this.homePhone = homePhone;
         this.idPUCPList = idPUCPList;
         this.birthDate = birthDate;
@@ -39,6 +40,8 @@ public class Student extends Interested implements Serializable{
         this.historyState = historyState;
         this.vouchers = vouchers;
     }
+
+    
 
    
 

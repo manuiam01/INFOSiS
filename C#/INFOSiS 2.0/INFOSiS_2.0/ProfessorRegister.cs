@@ -51,9 +51,10 @@ namespace INFOSiS_2._0
         private void btnSave_Click(object sender, EventArgs e) { 
             
             professor = new DAServer.professor();
+
             if (rbDNI.Checked)
             {
-                if (txtDocumentNumber.Text.Count() != 8 || 
+                if (txtDocumentNumber.Text.Count() != 8 ||
                    (txtDocumentNumber.Text.Count() == 8 && !verifyDocumentNumber(txtDocumentNumber.Text)))
                 {
                     MessageBox.Show("Número de documento inválido", "Error en el registro", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -61,23 +62,30 @@ namespace INFOSiS_2._0
                 }
                 else
                 {
+                    professor.idPUCP = txtPUCPCode.Text;
                     professor.idNumber = txtDocumentNumber.Text;
                     professor.idType = 0;
+                    professor.email = txtEmail.Text;
+                    professor.birthDate = dtpBirthday.Value.Date;
                     professor.firstName = txtFirstName.Text;
                     professor.middleName = txtSecondName.Text;
                     professor.primaryLastName = txtPrimaryLastName.Text;
                     professor.secondLastName = txtSecondLastName.Text;
-                    professor.birthDate = dtpBirthday.Value;
                     professor.cellPhoneNumber = txtCellphone.Text;
-                    professor.email = txtEmail.Text;
                     professor.emailPUCP = txtEmailPUCP.Text;
-                    professor.idPUCP = txtPUCPCode.Text;
                     if (rbWoman.Checked)
                         professor.gender = "F";
                     else if (rbMan.Checked)
                         professor.gender = "M";
                     int res = servidor.InsertProfessor(professor);
-                    MessageBox.Show("Registro exitoso", "Registro efectuado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (res > 0)
+                    {
+                        MessageBox.Show("Registro exitoso", "Registro efectuado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        clean();
+                    }else if (res < 0)
+                    {
+                        MessageBox.Show("Código PUCP registrado anteriormente", "Registro inválido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
                 }
             }
             else if (rbForeignCard.Checked || rbPassport.Checked)
@@ -89,7 +97,34 @@ namespace INFOSiS_2._0
                 }
                 else
                 {
-                    MessageBox.Show("Registro exitoso", "Registro efectuado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    professor.idPUCP = txtPUCPCode.Text;
+                    professor.idNumber = txtDocumentNumber.Text;
+                    if (rbForeignCard.Checked)
+                        professor.idType = 1;
+                    else if (rbPassport.Checked)
+                        professor.idType = 2;
+                    professor.email = txtEmail.Text;
+                    professor.birthDate = dtpBirthday.Value.Date;
+                    professor.firstName = txtFirstName.Text;
+                    professor.middleName = txtSecondName.Text;
+                    professor.primaryLastName = txtPrimaryLastName.Text;
+                    professor.secondLastName = txtSecondLastName.Text;
+                    professor.cellPhoneNumber = txtCellphone.Text;
+                    professor.emailPUCP = txtEmailPUCP.Text;
+                    if (rbWoman.Checked)
+                        professor.gender = "F";
+                    else if (rbMan.Checked)
+                        professor.gender = "M";
+                    int res = servidor.InsertProfessor(professor);
+                    if (res > 0)
+                    {
+                        MessageBox.Show("Registro exitoso", "Registro efectuado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        clean();
+                    }
+                    else if (res < 0)
+                    {
+                        MessageBox.Show("Código PUCP registrado anteriormente", "Registro inválido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
                 }
             }
             else
@@ -97,8 +132,32 @@ namespace INFOSiS_2._0
                 MessageBox.Show("Debe seleccionar un tipo de documento", "Error en el registro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-            
-        
-        
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            clean();
+        }
+
+        private void clean()
+        {
+            txtAddress.Clear();
+            txtCellphone.Clear();
+            txtDocumentNumber.Clear();
+            txtEmail.Clear();
+            txtEmailPUCP.Clear();
+            txtFirstName.Clear();
+            txtHomephone.Clear();
+            txtPrimaryLastName.Clear();
+            txtPUCPCode.Clear();
+            txtSecondLastName.Clear();
+            txtSecondName.Clear();
+            rbDNI.Checked = false;
+            rbForeignCard.Checked = false;
+            rbPassport.Checked = false;
+            rbInactive.Checked = false;
+            rbActive.Checked = false;
+            rbMan.Checked = false;
+            rbWoman.Checked = false;
+        }
     }
 }
