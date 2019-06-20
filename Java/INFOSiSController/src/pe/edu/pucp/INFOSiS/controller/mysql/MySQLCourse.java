@@ -105,4 +105,52 @@ public class MySQLCourse implements DAOCourse {
         }
         return courses;
     }
+
+    @Override
+    public Course queryById(String id) {
+        Course c = new Course();
+        try{
+            DBManager dbManager = DBManager.getdbManager();
+            Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
+            CallableStatement cs = con.prepareCall("{call COURSE_BY_ID(?)}");
+            cs.setString(1, id);
+            ResultSet rs = cs.executeQuery();
+            while(rs.next()){
+                c.setId(rs.getString(1));
+                c.setName(rs.getString(2));
+                c.setIsActive(rs.getBoolean(3));
+                c.setDescription(rs.getString(4));
+                c.setSyllabus(rs.getBytes(5));                            
+            }            
+            con.close();
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        return c;
+    }
+
+    @Override
+    public ArrayList<Course> queryByName(String name) {
+        ArrayList<Course> courses = new ArrayList<>();
+        try{
+            DBManager dbManager = DBManager.getdbManager();
+            Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
+            CallableStatement cs = con.prepareCall("{call COURSES_BY_NAME(?)}");
+            cs.setString(1, name);
+            ResultSet rs = cs.executeQuery();
+            while(rs.next()){
+                Course c = new Course();
+                c.setId(rs.getString(1));
+                c.setName(rs.getString(2));
+                c.setIsActive(rs.getBoolean(3));
+                c.setDescription(rs.getString(4));
+                c.setSyllabus(rs.getBytes(5));              
+                courses.add(c);
+            }            
+            con.close();
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        return courses;
+    }
 }

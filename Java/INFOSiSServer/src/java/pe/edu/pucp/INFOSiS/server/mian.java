@@ -28,14 +28,10 @@ public class mian {
 //        for(User u: users){
 //            System.out.println(u.getUsername());
 //        }
-//        Course c = new Course();
-//        c.setId("1022");
-//        c.setName("Excel Super Básico");
-//        c.setIsActive(true);
-//        c.setDescription("Curso Super básico de excel");
-//        c.setSyllabus(null);        
-//        int result  = DBController.insertCourse(c);       
-//        System.out.println(result);
+        ArrayList<Course> courses = DBController.queryCourseByName("Excel");
+        for(Course c : courses){
+            System.out.println(c);
+        }
 //        Intern intern = new Intern();
 //        intern.setIdNumber("asdf");
 //        intern.setIdPUCP("asdf");
