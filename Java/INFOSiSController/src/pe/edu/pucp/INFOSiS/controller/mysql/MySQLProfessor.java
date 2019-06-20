@@ -82,7 +82,7 @@ public class MySQLProfessor implements DAOProfessor {
             cs.setString(2,professor.getIdNumber());
             cs.setInt(3,professor.getIdType());
             cs.setString(4,professor.getEmailPUCP());
-            cs.setDate(5,new java.sql.Date(professor.getBirthDate().getTime()));
+            cs.setDate(5, (java.sql.Date) professor.getBirthday());
             cs.setString(6,professor.getFirstName());
             cs.setString(7,professor.getMiddleName());
             cs.setString(8,professor.getPrimaryLastName());
