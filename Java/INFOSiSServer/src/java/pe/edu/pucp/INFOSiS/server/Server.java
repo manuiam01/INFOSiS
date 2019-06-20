@@ -36,12 +36,8 @@ public class Server {
     @WebMethod (operationName= "VerifyUser")
     public UserType VerifyUser(@WebParam(name="user")User user){
         return DBController.verifyUser(user);
-    }
-    
-<<<<<<< HEAD
+    }  
 
-=======
->>>>>>> 7d1bca8b9bfa78871ced420ac4e4ba0b7627883f
     @WebMethod (operationName = "QueryAllInterns")
     public ArrayList<Intern> QueryAllInterns(){
         return DBController.queryAllInterns();
@@ -56,11 +52,7 @@ public class Server {
     public int UpdateIntern(@WebParam(name = "intern") Intern intern,@WebParam(name = "access") UserType access){
         return DBController.updateIntern(intern, access);
     }
-<<<<<<< HEAD
 
-=======
-    
->>>>>>> 7d1bca8b9bfa78871ced420ac4e4ba0b7627883f
     @WebMethod (operationName= "InsertInterested")
     public int InsertInterested(@WebParam(name="interested")Interested interested){
         return DBController.insertInterested(interested);
@@ -74,9 +66,5 @@ public class Server {
     public ArrayList<Interested> queryAllByCourse(@WebParam(name="course")Course course){
         return DBController.queryAllByCourse(course);
     }
-    
-<<<<<<< HEAD
-
-=======
->>>>>>> 7d1bca8b9bfa78871ced420ac4e4ba0b7627883f
+   
 }
