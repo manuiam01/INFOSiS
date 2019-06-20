@@ -9,6 +9,7 @@ import java.nio.file.Files;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import pe.edu.pucp.INFOSiS.controller.config.DBManager;
 import pe.edu.pucp.INFOSiS.controller.dao.DAOCourse;
@@ -30,7 +31,7 @@ public class MySQLCourse implements DAOCourse {
             cs.setString(2,course.getName());
             cs.setBoolean(3,course.getIsActive());
             cs.setString(4,course.getDescription());
-            cs.setBytes(5,Files.readAllBytes(course.getSyllabus().toPath()));
+            cs.setBytes(5,course.getSyllabus());
             result = cs.executeUpdate();
             con.close();
         }catch(Exception ex){
@@ -43,7 +44,14 @@ public class MySQLCourse implements DAOCourse {
         try{
             DBManager dbManager = DBManager.getdbManager();
             Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
-            
+            CallableStatement cs = con.prepareCall("{call UPDATE_COURSE(?,?,?,?,?)}");
+            cs.setString(5,course.getId());
+            cs.setString(1,course.getName());
+            cs.setBoolean(2,course.getIsActive());
+            cs.setString(3,course.getDescription());
+            cs.setBytes(4,course.getSyllabus());
+            cs.executeUpdate();
+            con.close();
         }catch(Exception ex){
             System.out.println(ex.getMessage());
         }
@@ -52,11 +60,43 @@ public class MySQLCourse implements DAOCourse {
 
     @Override
     public void disable(Course course) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+        try{
+            course.setIsActive(false);          
+            DBManager dbManager = DBManager.getdbManager();
+            Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
+            CallableStatement cs = con.prepareCall("{call UPDATE_COURSE(?,?,?,?,?)}");
+            cs.setString(5,course.getId());
+            cs.setString(1,course.getName());
+            cs.setBoolean(2,course.getIsActive());
+            cs.setString(3,course.getDescription());
+            cs.setBytes(4,course.getSyllabus());
+            cs.executeUpdate();
+            con.close();
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }}
 
     @Override
     public ArrayList<Course> queryAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ArrayList<Course> courses = new ArrayList<>();
+        try{
+            DBManager dbManager = DBManager.getdbManager();
+            Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
+            CallableStatement cs = con.prepareCall("{call LIST_COURSES()}");
+            ResultSet rs = cs.executeQuery();
+            while(rs.next()){
+                Course c = new Course();
+                c.setId(rs.getString(1));
+                c.setName(rs.getString(2));
+                c.setIsActive(rs.getBoolean(3));
+                c.setDescription(rs.getString(4));
+                c.setSyllabus(rs.getBytes(5));              
+                courses.add(c);
+            }            
+            con.close();
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        return courses;
     }
 }
