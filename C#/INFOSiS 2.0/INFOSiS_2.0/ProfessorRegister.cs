@@ -66,7 +66,7 @@ namespace INFOSiS_2._0
                     professor.idNumber = txtDocumentNumber.Text;
                     professor.idType = 0;
                     professor.email = txtEmail.Text;
-                    professor.birthDate = dtpBirthday.Value.Date;
+                    professor.birthDate = dtpBirthday.Value;
                     professor.firstName = txtFirstName.Text;
                     professor.middleName = txtSecondName.Text;
                     professor.primaryLastName = txtPrimaryLastName.Text;
@@ -148,13 +148,11 @@ namespace INFOSiS_2._0
 
         private void clean()
         {
-            txtAddress.Clear();
             txtCellphone.Clear();
             txtDocumentNumber.Clear();
             txtEmail.Clear();
             txtEmailPUCP.Clear();
             txtFirstName.Clear();
-            txtHomephone.Clear();
             txtPrimaryLastName.Clear();
             txtPUCPCode.Clear();
             txtSecondLastName.Clear();
@@ -162,10 +160,9 @@ namespace INFOSiS_2._0
             rbDNI.Checked = false;
             rbForeignCard.Checked = false;
             rbPassport.Checked = false;
-            rbInactive.Checked = false;
-            rbActive.Checked = false;
             rbMan.Checked = false;
             rbWoman.Checked = false;
         }
+
     }
 }

@@ -35,6 +35,19 @@ public abstract class DBController {
     public static int insertProfessor(Professor professor){
         return daoFactory.getProfessorDAO().insert(professor);
     }
+    
+    public static int updateProfessor(Professor professor){
+        return daoFactory.getProfessorDAO().update(professor);
+    }
+    
+    public static Professor searchProfessorById(String id){
+        return daoFactory.getProfessorDAO().search_by_id(id);
+    }
+    
+    public static ArrayList<Professor> searchProfessorByName(String name, String middle_name,
+            String first_last_name, String second_last_name){
+        return daoFactory.getProfessorDAO().search_by_name(name, middle_name, first_last_name, second_last_name);
+    }
    
     public static ArrayList<Intern> queryAllInterns(){
         return daoFactory.getDAOIntern().queryAll();

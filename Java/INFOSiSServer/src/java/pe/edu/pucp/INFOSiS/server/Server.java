@@ -34,6 +34,11 @@ public class Server {
         return DBController.insertProfessor(professor);
     }
     
+    @WebMethod (operationName = "UpdateProfessor")
+    public int UpdateProfessor(@WebParam(name = "professor") Professor professor){
+        return DBController.updateProfessor(professor);
+    }
+    
     @WebMethod (operationName= "VerifyUser")
     public UserType VerifyUser(@WebParam(name="user")User user){
         return DBController.verifyUser(user);
@@ -77,5 +82,18 @@ public class Server {
     public int insertStudent(@WebParam(name="student")Student student){
         return DBController.insertStudent(student);
     }
+
     
+    @WebMethod(operationName="SearchProfessorById")
+    public Professor SearchProfessorById(@WebParam(name="id") String id){
+        return DBController.searchProfessorById(id);
+    }
+    
+    @WebMethod(operationName="SearchProfessorByName")
+    public ArrayList<Professor> SearchProfessorByName(@WebParam(name="name") String name,
+            @WebParam(name="middle_name") String middle_name,
+            @WebParam(name="first_last_name") String first_last_name,
+            @WebParam(name="second_last_name") String second_last_name){
+        return DBController.searchProfessorByName(name,middle_name,first_last_name,second_last_name);
+    }
 }
