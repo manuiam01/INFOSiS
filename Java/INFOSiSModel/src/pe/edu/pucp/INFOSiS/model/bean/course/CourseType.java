@@ -53,5 +53,12 @@ public class CourseType implements Serializable{
         this.coursesList = coursesList;
     }
 
+    @Override
+    public String toString() {
+        return "CourseType:"  + name ;
+    }
+    
+    
+
 
 }

@@ -29,8 +29,8 @@ public class MySQLCourseType implements DAOCourseType{
         try{
             DBManager dbManager = DBManager.getdbManager();
             Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
-            CallableStatement cs = con.prepareCall("{call INSERT_COURSETYPE(?)}");
-            cs.setString(1,coursetype.getName());
+            CallableStatement cs = con.prepareCall("{call INSERT_COURSETYPE(?,?)}");
+            cs.setString(2,coursetype.getName());
             cs.registerOutParameter("_idCourseType", java.sql.Types.INTEGER);
             result = cs.executeUpdate();
             int id = cs.getInt("_idCourseType");
@@ -39,7 +39,7 @@ public class MySQLCourseType implements DAOCourseType{
         }catch(Exception ex){
             System.out.println(ex.getMessage());
         }
-        return 0;
+        return result;
     }
     
     @Override
@@ -79,5 +79,27 @@ public class MySQLCourseType implements DAOCourseType{
             System.out.println(ex.getMessage());
         }
         return courses;
+    }
+
+    @Override
+    public CourseType queryById(int id) {
+        CourseType c = new CourseType();
+        try{
+            DBManager dbManager = DBManager.getdbManager();
+            Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
+            CallableStatement cs = con.prepareCall("{call COURSETYPE_BY_ID(?)}");
+            cs.setInt(1, id);
+            ResultSet rs = cs.executeQuery();
+            while(rs.next()){
+                
+                c.setId(rs.getInt(1));
+                c.setName(rs.getString(2));                          
+                
+            }            
+            con.close();
+        }catch(SQLException ex){
+            System.out.println(ex.getMessage());
+        }
+        return c;
     }
 }

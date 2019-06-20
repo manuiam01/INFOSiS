@@ -90,7 +90,7 @@ public class Course implements Serializable{
 
     @Override
     public String toString() {
-        return "Course: "  + name ;
+        return "Course: "  + name + courseType.toString() ;
     }
     
     
