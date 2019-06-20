@@ -18,7 +18,6 @@ public class Professor extends Person implements Serializable{
 
     private String idPUCP;
     private String emailPUCP;
-    private Date birthDate;
     private ArrayList<Course> coursesCanTeach;
     private boolean isActive;
     
@@ -30,7 +29,6 @@ public class Professor extends Person implements Serializable{
         super(idNumber, idType, firstName, middleName, primaryLastName, secondLastName, gender, email, cellPhoneNumber, birthday);
         this.idPUCP = idPUCP;
         this.emailPUCP = emailPUCP;
-        this.birthDate = birthDate;
         this.coursesCanTeach = coursesCanTeach;
         this.isActive = isActive;
     }
@@ -50,14 +48,6 @@ public class Professor extends Person implements Serializable{
 
     public void setEmailPUCP(String emailPUCP) {
         this.emailPUCP = emailPUCP;
-    }
-
-    public Date getBirthDate() {
-        return birthDate;
-    }
-
-    public void setBirthDate(Date birthDate) {
-        this.birthDate = birthDate;
     }
 
     public ArrayList<Course> getCoursesCanTeach() {

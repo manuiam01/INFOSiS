@@ -55,7 +55,7 @@ public class MySQLProfessor implements DAOProfessor {
             cs.setString(2,professor.getIdNumber());
             cs.setInt(3,professor.getIdType());
             cs.setString(4,professor.getEmailPUCP());
-            cs.setDate(5, (java.sql.Date) professor.getBirthday());
+            cs.setDate(5,  new java.sql.Date(professor.getBirthday().getTime()));
             cs.setString(6,professor.getFirstName());
             cs.setString(7,professor.getMiddleName());
             cs.setString(8,professor.getPrimaryLastName());
@@ -81,8 +81,8 @@ public class MySQLProfessor implements DAOProfessor {
             cs.setString(1,professor.getIdPUCP());
             cs.setString(2,professor.getIdNumber());
             cs.setInt(3,professor.getIdType());
-            cs.setString(4,professor.getEmailPUCP());
-            cs.setDate(5, (java.sql.Date) professor.getBirthday());
+            cs.setString(4,professor.getEmailPUCP()); 
+            cs.setDate(5, new java.sql.Date(professor.getBirthday().getTime()));
             cs.setString(6,professor.getFirstName());
             cs.setString(7,professor.getMiddleName());
             cs.setString(8,professor.getPrimaryLastName());
@@ -113,7 +113,7 @@ public class MySQLProfessor implements DAOProfessor {
                 p.setIdNumber(rs.getString(2));
                 p.setIdType(rs.getInt(3));
                 p.setEmailPUCP(rs.getString(4));
-                p.setBirthDate(rs.getDate(5));
+                p.setBirthday(new java.sql.Date(rs.getDate(5).getTime()));
                 p.setFirstName(rs.getString(6));
                 p.setMiddleName(rs.getString(7));
                 p.setPrimaryLastName(rs.getString(8));
@@ -145,7 +145,7 @@ public class MySQLProfessor implements DAOProfessor {
                 p.setIdNumber(rs.getString(2));
                 p.setIdType(rs.getInt(3));
                 p.setEmailPUCP(rs.getString(4));
-                p.setBirthDate(rs.getDate(5));
+                p.setBirthday(new java.sql.Date(rs.getDate(5).getTime()));
                 p.setFirstName(rs.getString(6));
                 p.setMiddleName(rs.getString(7));
                 p.setPrimaryLastName(rs.getString(8));
@@ -176,7 +176,7 @@ public class MySQLProfessor implements DAOProfessor {
                 professor.setIdNumber(rs.getString(2));
                 professor.setIdType(rs.getInt(3));
                 professor.setEmailPUCP(rs.getString(4));
-                professor.setBirthDate(rs.getDate(5));
+                professor.setBirthday(new java.sql.Date(rs.getDate(5).getTime()));
                 professor.setFirstName(rs.getString(6));
                 professor.setMiddleName(rs.getString(7));
                 professor.setPrimaryLastName(rs.getString(8));
@@ -212,7 +212,7 @@ public class MySQLProfessor implements DAOProfessor {
                 p.setIdNumber(rs.getString(2));
                 p.setIdType(rs.getInt(3));
                 p.setEmailPUCP(rs.getString(4));
-                p.setBirthDate(rs.getDate(5));
+                p.setBirthday(new java.sql.Date(rs.getDate(5).getTime()));
                 p.setFirstName(rs.getString(6));
                 p.setMiddleName(rs.getString(7));
                 p.setPrimaryLastName(rs.getString(8));

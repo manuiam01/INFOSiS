@@ -39,6 +39,8 @@
             this.txtEmailPUCP = new System.Windows.Forms.TextBox();
             this.lblEmailPUCP = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
+            this.dtpBirthday = new System.Windows.Forms.DateTimePicker();
+            this.lblBirthday = new System.Windows.Forms.Label();
             this.txtPUCPCode = new System.Windows.Forms.TextBox();
             this.lblPUCPCode = new System.Windows.Forms.Label();
             this.gbxPersonalData = new System.Windows.Forms.GroupBox();
@@ -61,14 +63,8 @@
             this.lblSecondName = new System.Windows.Forms.Label();
             this.lblPrimaryLastName = new System.Windows.Forms.Label();
             this.lblSecondLastName = new System.Windows.Forms.Label();
-            this.dtpBirthday = new System.Windows.Forms.DateTimePicker();
-            this.lblBirthday = new System.Windows.Forms.Label();
             this.btCancelar = new System.Windows.Forms.Button();
-<<<<<<< HEAD
             this.btnModificar = new System.Windows.Forms.Button();
-=======
-            this.btModificar = new System.Windows.Forms.Button();
->>>>>>> 4d75dee057d24431744143e37bc7a9553d6367a2
             this.gbxContactData.SuspendLayout();
             this.gbxCondition.SuspendLayout();
             this.gbxPersonalData.SuspendLayout();
@@ -101,9 +97,9 @@
             this.gbxContactData.Controls.Add(this.lblBirthday);
             this.gbxContactData.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxContactData.Location = new System.Drawing.Point(416, 84);
-            this.gbxContactData.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbxContactData.Margin = new System.Windows.Forms.Padding(2);
             this.gbxContactData.Name = "gbxContactData";
-            this.gbxContactData.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbxContactData.Padding = new System.Windows.Forms.Padding(2);
             this.gbxContactData.Size = new System.Drawing.Size(386, 380);
             this.gbxContactData.TabIndex = 174;
             this.gbxContactData.TabStop = false;
@@ -203,6 +199,26 @@
             this.txtEmail.Size = new System.Drawing.Size(171, 26);
             this.txtEmail.TabIndex = 152;
             // 
+            // dtpBirthday
+            // 
+            this.dtpBirthday.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dtpBirthday.Font = new System.Drawing.Font("Gill Sans MT", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpBirthday.Location = new System.Drawing.Point(143, 66);
+            this.dtpBirthday.Name = "dtpBirthday";
+            this.dtpBirthday.Size = new System.Drawing.Size(227, 23);
+            this.dtpBirthday.TabIndex = 156;
+            // 
+            // lblBirthday
+            // 
+            this.lblBirthday.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblBirthday.AutoSize = true;
+            this.lblBirthday.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBirthday.Location = new System.Drawing.Point(9, 66);
+            this.lblBirthday.Name = "lblBirthday";
+            this.lblBirthday.Size = new System.Drawing.Size(122, 18);
+            this.lblBirthday.TabIndex = 157;
+            this.lblBirthday.Text = "Fecha de nacimiento:";
+            // 
             // txtPUCPCode
             // 
             this.txtPUCPCode.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -243,9 +259,9 @@
             this.gbxPersonalData.Controls.Add(this.lblSecondLastName);
             this.gbxPersonalData.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxPersonalData.Location = new System.Drawing.Point(28, 66);
-            this.gbxPersonalData.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbxPersonalData.Margin = new System.Windows.Forms.Padding(2);
             this.gbxPersonalData.Name = "gbxPersonalData";
-            this.gbxPersonalData.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbxPersonalData.Padding = new System.Windows.Forms.Padding(2);
             this.gbxPersonalData.Size = new System.Drawing.Size(377, 398);
             this.gbxPersonalData.TabIndex = 173;
             this.gbxPersonalData.TabStop = false;
@@ -259,23 +275,14 @@
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.Font = new System.Drawing.Font("Gill Sans MT", 12F);
             this.btnSearch.ForeColor = System.Drawing.Color.White;
-<<<<<<< HEAD
-            this.btnSearch.Location = new System.Drawing.Point(41, 73);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(104, 32);
-            this.btnSearch.TabIndex = 184;
-            this.btnSearch.Text = "Buscar";
-            this.btnSearch.UseVisualStyleBackColor = false;
-            this.btnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
-=======
-            this.btnSearch.Location = new System.Drawing.Point(60, 149);
+            this.btnSearch.Location = new System.Drawing.Point(16, 66);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(4);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(139, 39);
             this.btnSearch.TabIndex = 184;
             this.btnSearch.Text = "Buscar";
             this.btnSearch.UseVisualStyleBackColor = false;
->>>>>>> 4d75dee057d24431744143e37bc7a9553d6367a2
+            this.btnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
             // 
             // lbBusquedaAvanzada
             // 
@@ -283,16 +290,10 @@
             this.lbBusquedaAvanzada.AutoSize = true;
             this.lbBusquedaAvanzada.Font = new System.Drawing.Font("Gill Sans MT", 8.5F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
             this.lbBusquedaAvanzada.ForeColor = System.Drawing.Color.MediumBlue;
-<<<<<<< HEAD
-            this.lbBusquedaAvanzada.Location = new System.Drawing.Point(164, 84);
-            this.lbBusquedaAvanzada.Name = "lbBusquedaAvanzada";
-            this.lbBusquedaAvanzada.Size = new System.Drawing.Size(115, 18);
-=======
-            this.lbBusquedaAvanzada.Location = new System.Drawing.Point(224, 167);
+            this.lbBusquedaAvanzada.Location = new System.Drawing.Point(181, 80);
             this.lbBusquedaAvanzada.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbBusquedaAvanzada.Name = "lbBusquedaAvanzada";
-            this.lbBusquedaAvanzada.Size = new System.Drawing.Size(148, 21);
->>>>>>> 4d75dee057d24431744143e37bc7a9553d6367a2
+            this.lbBusquedaAvanzada.Size = new System.Drawing.Size(115, 18);
             this.lbBusquedaAvanzada.TabIndex = 185;
             this.lbBusquedaAvanzada.Text = "Busqueda avanzada";
             this.lbBusquedaAvanzada.Click += new System.EventHandler(this.lbBusquedaAvanzada_Click);
@@ -479,26 +480,6 @@
             this.lblSecondLastName.TabIndex = 142;
             this.lblSecondLastName.Text = "Apellido materno:";
             // 
-            // dtpBirthday
-            // 
-            this.dtpBirthday.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dtpBirthday.Font = new System.Drawing.Font("Gill Sans MT", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpBirthday.Location = new System.Drawing.Point(143, 66);
-            this.dtpBirthday.Name = "dtpBirthday";
-            this.dtpBirthday.Size = new System.Drawing.Size(227, 23);
-            this.dtpBirthday.TabIndex = 156;
-            // 
-            // lblBirthday
-            // 
-            this.lblBirthday.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblBirthday.AutoSize = true;
-            this.lblBirthday.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBirthday.Location = new System.Drawing.Point(9, 66);
-            this.lblBirthday.Name = "lblBirthday";
-            this.lblBirthday.Size = new System.Drawing.Size(122, 18);
-            this.lblBirthday.TabIndex = 157;
-            this.lblBirthday.Text = "Fecha de nacimiento:";
-            // 
             // btCancelar
             // 
             this.btCancelar.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -515,7 +496,6 @@
             this.btCancelar.UseVisualStyleBackColor = false;
             this.btCancelar.Click += new System.EventHandler(this.btCancelar_Click);
             // 
-<<<<<<< HEAD
             // btnModificar
             // 
             this.btnModificar.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -531,25 +511,6 @@
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = false;
             this.btnModificar.Click += new System.EventHandler(this.btModificar_Click);
-=======
-            // btModificar
-            // 
-            this.btModificar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btModificar.BackColor = System.Drawing.Color.MidnightBlue;
-            this.btModificar.Enabled = false;
-            this.btModificar.FlatAppearance.BorderSize = 0;
-            this.btModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btModificar.Font = new System.Drawing.Font("Gill Sans MT", 15F);
-            this.btModificar.ForeColor = System.Drawing.Color.White;
-            this.btModificar.Location = new System.Drawing.Point(283, 597);
-            this.btModificar.Margin = new System.Windows.Forms.Padding(4);
-            this.btModificar.Name = "btModificar";
-            this.btModificar.Size = new System.Drawing.Size(197, 48);
-            this.btModificar.TabIndex = 182;
-            this.btModificar.Text = "Modificar";
-            this.btModificar.UseVisualStyleBackColor = false;
-            this.btModificar.Click += new System.EventHandler(this.btModificar_Click);
->>>>>>> 4d75dee057d24431744143e37bc7a9553d6367a2
             // 
             // ProfessorModify
             // 
@@ -560,7 +521,7 @@
             this.Controls.Add(this.gbxContactData);
             this.Controls.Add(this.gbxPersonalData);
             this.Controls.Add(this.lblProfessorModify);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ProfessorModify";
             this.Size = new System.Drawing.Size(814, 566);
             this.gbxContactData.ResumeLayout(false);

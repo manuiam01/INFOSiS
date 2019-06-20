@@ -66,7 +66,8 @@ namespace INFOSiS_2._0
                     professor.idNumber = txtDocumentNumber.Text;
                     professor.idType = 0;
                     professor.email = txtEmail.Text;
-                    professor.birthDate = dtpBirthday.Value;
+                    professor.birthdaySpecified = true;
+                    professor.birthday = dtpBirthday.Value;
                     professor.firstName = txtFirstName.Text;
                     professor.middleName = txtSecondName.Text;
                     professor.primaryLastName = txtPrimaryLastName.Text;
@@ -104,7 +105,8 @@ namespace INFOSiS_2._0
                     else if (rbPassport.Checked)
                         professor.idType = 2;
                     professor.email = txtEmail.Text;
-                    professor.birthDate = dtpBirthday.Value.Date;
+                    professor.birthdaySpecified = true;
+                    professor.birthday = dtpBirthday.Value.Date;
                     professor.firstName = txtFirstName.Text;
                     professor.middleName = txtSecondName.Text;
                     professor.primaryLastName = txtPrimaryLastName.Text;

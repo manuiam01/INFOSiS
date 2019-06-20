@@ -128,7 +128,6 @@
         <xs:sequence>
           <xs:element minOccurs="0" name="idPUCP" type="xs:string" />
           <xs:element minOccurs="0" name="emailPUCP" type="xs:string" />
-          <xs:element minOccurs="0" name="birthDate" type="xs:dateTime" />
           <xs:element minOccurs="0" maxOccurs="unbounded" name="coursesCanTeach" nillable="true" type="tns:course" />
           <xs:element name="isActive" type="xs:boolean" />
         </xs:sequence>
@@ -249,7 +248,6 @@
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:professor" />
     </xs:sequence>
   </xs:complexType>
-<<<<<<< HEAD
   <xs:complexType name="QueryAllInterns">
     <xs:sequence />
   </xs:complexType>
@@ -259,9 +257,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="InsertProfessor">
-=======
-  <xs:complexType name="InsertInterested">
->>>>>>> 4d75dee057d24431744143e37bc7a9553d6367a2
     <xs:sequence>
       <xs:element minOccurs="0" name="professor" type="tns:professor" />
     </xs:sequence>
@@ -271,19 +266,7 @@
       <xs:element name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
-<<<<<<< HEAD
   <xs:complexType name="UpdateProfessor">
-=======
-  <xs:complexType name="QueryAllUsers">
-    <xs:sequence />
-  </xs:complexType>
-  <xs:complexType name="QueryAllUsersResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:user" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="QueryAllByCourse">
->>>>>>> 4d75dee057d24431744143e37bc7a9553d6367a2
     <xs:sequence>
       <xs:element minOccurs="0" name="professor" type="tns:professor" />
     </xs:sequence>

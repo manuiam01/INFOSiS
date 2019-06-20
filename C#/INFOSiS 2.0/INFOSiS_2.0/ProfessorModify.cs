@@ -129,7 +129,7 @@ namespace INFOSiS_2._0
             ProfessorAdvancedSearch formSearchProfessor = new ProfessorAdvancedSearch();
             if (formSearchProfessor.ShowDialog() == DialogResult.OK)
             {
-               
+              
             }
         }
 
@@ -146,6 +146,7 @@ namespace INFOSiS_2._0
             professor.secondLastName = txtSecondLastName.Text;
             professor.email = txtEmail.Text;
             professor.emailPUCP = txtEmailPUCP.Text;
+            professor.birthdaySpecified = true;
             professor.birthday = dtpBirthday.Value;
             if (rbMan.Checked)
                 professor.gender = "M";
