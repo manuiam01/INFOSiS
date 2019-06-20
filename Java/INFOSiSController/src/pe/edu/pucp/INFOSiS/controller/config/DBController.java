@@ -103,6 +103,10 @@ public abstract class DBController {
 
     }
     
+    public static CourseType queryCourseTypeById(int id){
+        return daoFactory.getCourseTypeDAO().queryById(id);
+    }
+    
      public static Interested queryInterestedById(String interestedID){
          return daoFactory.getInterestedDAO().queryInterestedById(interestedID);
      }

@@ -15,5 +15,6 @@ import pe.edu.pucp.INFOSiS.model.bean.course.CourseType;
 public interface DAOCourseType {
     int insert(CourseType coursetype);
     int update(CourseType coursetype);
+    CourseType queryById(int id);
     ArrayList<CourseType> queryAll();
 }

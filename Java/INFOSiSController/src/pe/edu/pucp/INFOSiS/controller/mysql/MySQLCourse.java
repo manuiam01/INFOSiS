@@ -11,6 +11,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import pe.edu.pucp.INFOSiS.controller.config.DBController;
 import pe.edu.pucp.INFOSiS.controller.config.DBManager;
 import pe.edu.pucp.INFOSiS.controller.dao.DAOCourse;
 import pe.edu.pucp.INFOSiS.model.bean.course.Course;
@@ -26,12 +27,13 @@ public class MySQLCourse implements DAOCourse {
         try{
             DBManager dbManager = DBManager.getdbManager();
             Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
-            CallableStatement cs = con.prepareCall("{call INSERT_COURSE(?,?,?,?,?)}");
+            CallableStatement cs = con.prepareCall("{call INSERT_COURSE(?,?,?,?,?,?)}");
             cs.setString(1,course.getId());
             cs.setString(2,course.getName());
             cs.setBoolean(3,course.getIsActive());
             cs.setString(4,course.getDescription());
             cs.setBytes(5,course.getSyllabus());
+            cs.setInt(6,course.getCourseType().getId());
             result = cs.executeUpdate();
             con.close();
         }catch(Exception ex){
@@ -45,12 +47,13 @@ public class MySQLCourse implements DAOCourse {
         try{
             DBManager dbManager = DBManager.getdbManager();
             Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
-            CallableStatement cs = con.prepareCall("{call UPDATE_COURSE(?,?,?,?,?)}");
-            cs.setString(5,course.getId());
+            CallableStatement cs = con.prepareCall("{call UPDATE_COURSE(?,?,?,?,?,?)}");
+            cs.setString(6,course.getId());
             cs.setString(1,course.getName());
             cs.setBoolean(2,course.getIsActive());
             cs.setString(3,course.getDescription());
             cs.setBytes(4,course.getSyllabus());
+            cs.setInt(5, course.getCourseType().getId());
             result = cs.executeUpdate();
             con.close();
         }catch(Exception ex){
@@ -68,12 +71,13 @@ public class MySQLCourse implements DAOCourse {
             course.setIsActive(false);          
             DBManager dbManager = DBManager.getdbManager();
             Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
-            CallableStatement cs = con.prepareCall("{call UPDATE_COURSE(?,?,?,?,?)}");
-            cs.setString(5,course.getId());
+            CallableStatement cs = con.prepareCall("{call UPDATE_COURSE(?,?,?,?,?,?)}");
+            cs.setString(6,course.getId());
             cs.setString(1,course.getName());
             cs.setBoolean(2,course.getIsActive());
             cs.setString(3,course.getDescription());
             cs.setBytes(4,course.getSyllabus());
+            cs.setInt(5, course.getCourseType().getId());
             result = cs.executeUpdate();
             con.close();
         }catch(Exception ex){
@@ -96,7 +100,8 @@ public class MySQLCourse implements DAOCourse {
                 c.setName(rs.getString(2));
                 c.setIsActive(rs.getBoolean(3));
                 c.setDescription(rs.getString(4));
-                c.setSyllabus(rs.getBytes(5));              
+                c.setSyllabus(rs.getBytes(5));
+                c.setCourseType(DBController.queryCourseTypeById(rs.getInt(6)));
                 courses.add(c);
             }            
             con.close();

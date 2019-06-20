@@ -13,6 +13,7 @@ import pe.edu.pucp.INFOSiS.controller.config.DBController;
 import pe.edu.pucp.INFOSiS.controller.mysql.MySQLUser;
 import pe.edu.pucp.INFOSiS.model.bean.HR.Intern;
 import pe.edu.pucp.INFOSiS.model.bean.course.Course;
+import pe.edu.pucp.INFOSiS.model.bean.course.CourseType;
 import pe.edu.pucp.INFOSiS.model.bean.professor.Professor;
 import pe.edu.pucp.INFOSiS.model.bean.user.User;
 import pe.edu.pucp.INFOSiS.model.bean.user.UserType;
@@ -28,10 +29,23 @@ public class mian {
 //        for(User u: users){
 //            System.out.println(u.getUsername());
 //        }
-        ArrayList<Course> courses = DBController.queryCourseByName("Excel");
-        for(Course c : courses){
-            System.out.println(c);
-        }
+
+//
+          CourseType coursetype = DBController.queryCourseTypeById(6);
+          Course c = new Course();
+          c.setId("123");
+          c.setName("Grafos2");
+          c.setIsActive(true);
+          c.setDescription("Búsqueda de grafos");
+          c.setSyllabus(null);
+          c.setCourseType(coursetype);
+          System.out.println(DBController.updateCourse(c));
+//            ArrayList<Course> courses = DBController.queryAllCourse();
+//            for(Course c: courses){
+//                System.out.println(c);
+//            }
+            
+        
 //        Intern intern = new Intern();
 //        intern.setIdNumber("asdf");
 //        intern.setIdPUCP("asdf");
