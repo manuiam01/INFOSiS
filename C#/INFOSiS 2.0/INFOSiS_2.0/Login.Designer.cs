@@ -48,7 +48,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "INFOSiS";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // btnLogIn
             // 
@@ -97,7 +96,7 @@
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(218, 23);
             this.txtUser.TabIndex = 4;
-            this.txtUser.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Login_KeyDown);
+           // this.txtUser.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Login_KeyDown);
             // 
             // txtPassword
             // 
@@ -109,7 +108,7 @@
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(218, 23);
             this.txtPassword.TabIndex = 5;
-            this.txtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Login_KeyDown);
+            //this.txtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Login_KeyDown);
             // 
             // Login
             // 
@@ -128,7 +127,7 @@
             this.Name = "Login";
             this.Text = "Bienvenido(a) a INFOSiS";
             this.Load += new System.EventHandler(this.Login_Load);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Login_KeyDown);
+         //   this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Login_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
