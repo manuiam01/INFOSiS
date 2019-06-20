@@ -55,7 +55,7 @@ public class MySQLIntern implements DAOIntern {
             cs.setString(12, intern.getEmailPUCP());
             cs.setString(13, intern.getAddress());
             cs.setString(14, intern.getHomePhone());
-            cs.setDate(15, (Date)intern.getBirthDate());
+            cs.setDate(15, (Date)intern.getBirthday());
             cs.setString(16, intern.getWeekAvailability());
             
             result = cs.executeUpdate();
