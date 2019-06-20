@@ -40,7 +40,8 @@ public class MySQLCourse implements DAOCourse {
         return result;
     }
     @Override
-    public void update (Course course){
+    public int update (Course course){
+        int result = 0;
         try{
             DBManager dbManager = DBManager.getdbManager();
             Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
@@ -50,16 +51,19 @@ public class MySQLCourse implements DAOCourse {
             cs.setBoolean(2,course.getIsActive());
             cs.setString(3,course.getDescription());
             cs.setBytes(4,course.getSyllabus());
-            cs.executeUpdate();
+            result = cs.executeUpdate();
             con.close();
         }catch(Exception ex){
             System.out.println(ex.getMessage());
         }
         
+        return result;
+        
     }
 
     @Override
-    public void disable(Course course) {
+    public int disable(Course course) {
+        int result = 0;
         try{
             course.setIsActive(false);          
             DBManager dbManager = DBManager.getdbManager();
@@ -70,11 +74,13 @@ public class MySQLCourse implements DAOCourse {
             cs.setBoolean(2,course.getIsActive());
             cs.setString(3,course.getDescription());
             cs.setBytes(4,course.getSyllabus());
-            cs.executeUpdate();
+            result = cs.executeUpdate();
             con.close();
         }catch(Exception ex){
             System.out.println(ex.getMessage());
-        }}
+        }
+        return result;
+    }
 
     @Override
     public ArrayList<Course> queryAll() {

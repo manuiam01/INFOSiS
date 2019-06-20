@@ -33,7 +33,7 @@ public class MySQLCourseType implements DAOCourseType{
             cs.setString(1,coursetype.getName());
             cs.registerOutParameter("_idCourseType", java.sql.Types.INTEGER);
             result = cs.executeUpdate();
-            int id = cs.getInt("idCourseType");
+            int id = cs.getInt("_idCourseType");
             coursetype.setId(id);
             con.close();
         }catch(Exception ex){
@@ -44,19 +44,19 @@ public class MySQLCourseType implements DAOCourseType{
     
     @Override
     public int update(CourseType coursetype){
+        int result = 0;
         try{
             DBManager dbManager = DBManager.getdbManager();
             Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
-            String sql = "UPDATE Course_Category set name = ? where idCourse_Category = ?;";
-            PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1,coursetype.getName());
-            ps.setInt(2,coursetype.getId());
-            ps.executeQuery();
+            CallableStatement cs = con.prepareCall("{call UPDATE_COURSETYPE(?,?)}");
+            cs.setInt(1,coursetype.getId());
+            cs.setString(2,coursetype.getName());          
+            result = cs.executeUpdate();          
             con.close();
         }catch(Exception ex){
             System.out.println(ex.getMessage());
         }
-        return 1;
+        return result;
     }
     
     @Override
@@ -66,15 +66,14 @@ public class MySQLCourseType implements DAOCourseType{
         try{
             DBManager dbManager = DBManager.getdbManager();
             Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
-            Statement sentence = con.createStatement();
-            String sql = "SELECT * FROM Course_Category;";
-            ResultSet rs = sentence.executeQuery(sql);
+            CallableStatement cs = con.prepareCall("{call LIST_COURSETYPES()}");
+            ResultSet rs = cs.executeQuery();
             while(rs.next()){
                 CourseType c = new CourseType();
-                c.setId(rs.getInt("idCourse_Category"));
-                c.setName(rs.getString("name"));
+                c.setId(rs.getInt(1));
+                c.setName(rs.getString(2));                          
                 courses.add(c);
-            }
+            }            
             con.close();
         }catch(SQLException ex){
             System.out.println(ex.getMessage());
