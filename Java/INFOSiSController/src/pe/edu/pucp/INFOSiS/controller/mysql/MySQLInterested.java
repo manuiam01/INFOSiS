@@ -117,7 +117,7 @@ public class MySQLInterested implements DAOInterested {
         return 1;
     }
     
-    public ArrayList<Interested> queryAll(){
+    public ArrayList<Interested> queryAllInterested(){
         ArrayList<Interested> interested = new ArrayList<Interested>();
         try{
             DBManager dbManager = DBManager.getdbManager();

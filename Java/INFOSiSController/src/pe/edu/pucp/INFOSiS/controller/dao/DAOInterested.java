@@ -18,6 +18,6 @@ public interface DAOInterested {
     int insert(Interested interested);
     int update(Interested interested);
     int disable(Interested interested);
-    ArrayList<Interested> queryAll();
+    ArrayList<Interested> queryAllInterested();
     ArrayList<Interested> queryAllByCourseType(Course course);
 }
