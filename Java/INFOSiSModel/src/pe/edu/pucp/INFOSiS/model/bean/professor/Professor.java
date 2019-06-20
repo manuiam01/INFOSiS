@@ -1,20 +1,19 @@
 package pe.edu.pucp.INFOSiS.model.bean.professor;
 import java.io.Serializable;
 import java.util.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
 import pe.edu.pucp.INFOSiS.model.bean.course.Course;
 import pe.edu.pucp.INFOSiS.model.bean.Person;
 
 /**
  * 
  */
-public class Professor extends Person implements Serializable{
+@XmlRootElement(name="Professor")
+@XmlAccessorType(XmlAccessType.FIELD)
 
-    /**
-     * Default constructor
-     */
-    public Professor() {
-        coursesCanTeach = new ArrayList<>();
-    }
+public class Professor extends Person implements Serializable{
 
     private String idPUCP;
     private String emailPUCP;
@@ -22,13 +21,18 @@ public class Professor extends Person implements Serializable{
     private ArrayList<Course> coursesCanTeach;
     private boolean isActive;
     
-    public Professor(String idPUCP, String emailPUCP, Date birthDate, ArrayList<Course> coursesCanTeach, boolean isActive) {
-        this.idPUCP = idPUCP;
-        this.emailPUCP = emailPUCP;
-        this.birthDate = birthDate;
-        this.coursesCanTeach = coursesCanTeach;
-        this.isActive = isActive;
+    public Professor() {
+        coursesCanTeach = new ArrayList<Course>();
     }
+
+//    
+//    public Professor(String idPUCP, String emailPUCP, Date birthDate, ArrayList<Course> coursesCanTeach, boolean isActive) {
+//        this.idPUCP = idPUCP;
+//        this.emailPUCP = emailPUCP;
+//        this.birthDate = birthDate;
+//        this.coursesCanTeach = coursesCanTeach;
+//        this.isActive = isActive;
+//    }
 
     public String getIdPUCP() {
         return idPUCP;

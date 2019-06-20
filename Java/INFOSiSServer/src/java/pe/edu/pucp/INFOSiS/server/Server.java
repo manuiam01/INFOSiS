@@ -27,8 +27,7 @@ public class Server {
         
     @WebMethod (operationName = "InsertProfessor")
     public int InsertProfessor(@WebParam(name = "professor") Professor professor){
-        MySQLProfessor sqlProfessor = new MySQLProfessor();
-        return sqlProfessor.insert(professor);
+        return DBController.insertProfessor(professor);
     }
     
     @WebMethod (operationName= "VerifyUser")
