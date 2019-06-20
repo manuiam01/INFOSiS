@@ -12,9 +12,12 @@ namespace INFOSiS_2._0
 {
     public partial class WorkforceRegister : UserControl
     {
-        private Server.ServerClient servidor;
         private static WorkforceRegister _instance;
         private static Panel _panelMdi;
+        private Server.ServerClient servidor;
+        private Server.intern intern;
+        private Server.userType access;
+
 
         public static WorkforceRegister Instance
         {
@@ -35,6 +38,7 @@ namespace INFOSiS_2._0
         public WorkforceRegister()
         {
             InitializeComponent();
+            servidor = new Server.ServerClient();
         }
 
         public bool verifyDocumentNumber(String id)
@@ -48,53 +52,102 @@ namespace INFOSiS_2._0
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            servidor = new Server.ServerClient();
-            Server.intern intern = new Server.intern();
-            Server.userType userType = new Server.userType();
-            userType.id = 0;
-            userType.name = "User";
+            intern = new Server.intern();
+            access = new Server.userType();
+            access.id = 0;
+            access.name = "USER";
 
-            intern.idPUCP = txtPUCPCode.Text;
-            intern.idType = 0;
+            if (rbDNI.Checked)
+            {
+                if (txtDocumentNumber.Text.Count() != 8 ||
+                   (txtDocumentNumber.Text.Count() == 8 && !verifyDocumentNumber(txtDocumentNumber.Text)))
+                {
+                    MessageBox.Show("Número de documento inválido", "Error en el registro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else
+                {
+                    intern.idType = 0;
+                }
+            }
+            else if (rbForeignCard.Checked || rbPassport.Checked)
+            {
+                if (txtDocumentNumber.Text.Count() != 12 ||
+                   (txtDocumentNumber.Text.Count() == 12 && !verifyDocumentNumber(txtDocumentNumber.Text)))
+                {
+                    MessageBox.Show("Número de documento inválido", "Error en el registro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else
+                {
+                    if (rbForeignCard.Checked) intern.idType = 1;
+                    else if (rbPassport.Checked) intern.idType = 2;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Escoge un tipo de documento", "Error en el registro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             intern.idNumber = txtDocumentNumber.Text;
             intern.firstName = txtFirstName.Text;
-            intern.middleName = txtSecondLastName.Text;
+            intern.middleName = txtSecondName.Text;
             intern.primaryLastName = txtPrimaryLastName.Text;
             intern.secondLastName = txtSecondLastName.Text;
-            intern.gender = "M";
-            intern.email = txtEmail.Text;
-            intern.emailPUCP = txtEmailPUCP.Text;
+            if (rbWoman.Checked) intern.gender = "F";
+            else if (rbMan.Checked) intern.gender = "M";
             intern.cellPhoneNumber = txtCellphone.Text;
+            intern.homePhone = txtHomephone.Text;
+            intern.emailPUCP = txtEmailPUCP.Text;
+            intern.email = txtEmail.Text;
+            intern.idPUCP = txtPUCPCode.Text;
+            intern.address = txtAddress.Text;
 
-            servidor.InsertIntern(intern, userType);
-            //if (rbDNI.Checked)
-            //{
-            //    if (txtDocumentNumber.Text.Count() != 8 ||
-            //       (txtDocumentNumber.Text.Count() == 8 && !verifyDocumentNumber(txtDocumentNumber.Text)))
-            //    {
-            //        MessageBox.Show("Número de documento inválido", "Error en el registro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("Registro exitoso", "Registro efectuado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //    }
-            //}
-            //else if (rbForeignCard.Checked || rbPassport.Checked)
-            //{
-            //    if (txtDocumentNumber.Text.Count() != 12 ||
-            //       (txtDocumentNumber.Text.Count() == 12 && !verifyDocumentNumber(txtDocumentNumber.Text)))
-            //    {
-            //        MessageBox.Show("Número de documento inválido", "Error en el registro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("Registro exitoso", "Registro efectuado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //    }
-            //}
-            //else
-            //{
-                
-            //}
+            int res = servidor.InsertIntern(intern, access);
+
+            if (res > 0)
+            {
+                MessageBox.Show("Registro exitoso", "Registro efectuado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                clean();
+            }
+            else if (res == -1)
+            {
+                MessageBox.Show("Código PUCP registrado anteriormente", "Registro inválido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else if (res == -2)
+            {
+                MessageBox.Show("Código PUCP es un campo obligatorio", "Registro inválido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else if (res == -3)
+            {
+                MessageBox.Show("Número de identidad registrado anteriormente", "Registro inválido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+        private void clean()
+        {
+            txtAddress.Clear();
+            txtCellphone.Clear();
+            txtDocumentNumber.Clear();
+            txtEmail.Clear();
+            txtEmailPUCP.Clear();
+            txtFirstName.Clear();
+            txtHomephone.Clear();
+            txtPrimaryLastName.Clear();
+            txtPUCPCode.Clear();
+            txtSecondLastName.Clear();
+            txtSecondName.Clear();
+            rbDNI.Checked = false;
+            rbForeignCard.Checked = false;
+            rbPassport.Checked = false;
+            rbInactive.Checked = false;
+            rbActive.Checked = false;
+            rbMan.Checked = false;
+            rbWoman.Checked = false;
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            clean();
         }
     }
 }

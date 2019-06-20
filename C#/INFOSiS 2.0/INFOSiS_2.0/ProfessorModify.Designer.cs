@@ -49,6 +49,8 @@
             this.lblAddress = new System.Windows.Forms.Label();
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.gbxPersonalData = new System.Windows.Forms.GroupBox();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.lbBusquedaAvanzada = new System.Windows.Forms.Label();
             this.gbxSex = new System.Windows.Forms.GroupBox();
             this.rbWoman = new System.Windows.Forms.RadioButton();
             this.rbMan = new System.Windows.Forms.RadioButton();
@@ -70,8 +72,6 @@
             this.lblBirthday = new System.Windows.Forms.Label();
             this.btCancelar = new System.Windows.Forms.Button();
             this.btModificar = new System.Windows.Forms.Button();
-            this.lbBusquedaAvanzada = new System.Windows.Forms.Label();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.gbxContactData.SuspendLayout();
             this.gbxCondition.SuspendLayout();
             this.gbxProfessorType.SuspendLayout();
@@ -354,6 +354,36 @@
             this.gbxPersonalData.TabStop = false;
             this.gbxPersonalData.Text = "Datos Personales";
             // 
+            // btnSearch
+            // 
+            this.btnSearch.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnSearch.BackColor = System.Drawing.Color.MidnightBlue;
+            this.btnSearch.FlatAppearance.BorderSize = 0;
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.Font = new System.Drawing.Font("Gill Sans MT", 12F);
+            this.btnSearch.ForeColor = System.Drawing.Color.White;
+            this.btnSearch.Location = new System.Drawing.Point(60, 149);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(139, 39);
+            this.btnSearch.TabIndex = 184;
+            this.btnSearch.Text = "Buscar";
+            this.btnSearch.UseVisualStyleBackColor = false;
+            // 
+            // lbBusquedaAvanzada
+            // 
+            this.lbBusquedaAvanzada.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbBusquedaAvanzada.AutoSize = true;
+            this.lbBusquedaAvanzada.Font = new System.Drawing.Font("Gill Sans MT", 8.5F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            this.lbBusquedaAvanzada.ForeColor = System.Drawing.Color.MediumBlue;
+            this.lbBusquedaAvanzada.Location = new System.Drawing.Point(224, 167);
+            this.lbBusquedaAvanzada.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbBusquedaAvanzada.Name = "lbBusquedaAvanzada";
+            this.lbBusquedaAvanzada.Size = new System.Drawing.Size(148, 21);
+            this.lbBusquedaAvanzada.TabIndex = 185;
+            this.lbBusquedaAvanzada.Text = "Busqueda avanzada";
+            this.lbBusquedaAvanzada.Click += new System.EventHandler(this.lbBusquedaAvanzada_Click);
+            // 
             // gbxSex
             // 
             this.gbxSex.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -598,6 +628,7 @@
             // 
             this.btModificar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btModificar.BackColor = System.Drawing.Color.MidnightBlue;
+            this.btModificar.Enabled = false;
             this.btModificar.FlatAppearance.BorderSize = 0;
             this.btModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btModificar.Font = new System.Drawing.Font("Gill Sans MT", 15F);
@@ -610,36 +641,6 @@
             this.btModificar.Text = "Modificar";
             this.btModificar.UseVisualStyleBackColor = false;
             this.btModificar.Click += new System.EventHandler(this.btModificar_Click);
-            // 
-            // lbBusquedaAvanzada
-            // 
-            this.lbBusquedaAvanzada.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbBusquedaAvanzada.AutoSize = true;
-            this.lbBusquedaAvanzada.Font = new System.Drawing.Font("Gill Sans MT", 8.5F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            this.lbBusquedaAvanzada.ForeColor = System.Drawing.Color.MediumBlue;
-            this.lbBusquedaAvanzada.Location = new System.Drawing.Point(224, 167);
-            this.lbBusquedaAvanzada.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbBusquedaAvanzada.Name = "lbBusquedaAvanzada";
-            this.lbBusquedaAvanzada.Size = new System.Drawing.Size(148, 21);
-            this.lbBusquedaAvanzada.TabIndex = 185;
-            this.lbBusquedaAvanzada.Text = "Busqueda avanzada";
-            this.lbBusquedaAvanzada.Click += new System.EventHandler(this.lbBusquedaAvanzada_Click);
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnSearch.BackColor = System.Drawing.Color.MidnightBlue;
-            this.btnSearch.FlatAppearance.BorderSize = 0;
-            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearch.Font = new System.Drawing.Font("Gill Sans MT", 12F);
-            this.btnSearch.ForeColor = System.Drawing.Color.White;
-            this.btnSearch.Location = new System.Drawing.Point(60, 149);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(139, 39);
-            this.btnSearch.TabIndex = 184;
-            this.btnSearch.Text = "Buscar";
-            this.btnSearch.UseVisualStyleBackColor = false;
             // 
             // ProfessorModify
             // 

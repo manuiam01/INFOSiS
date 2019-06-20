@@ -10,6 +10,7 @@
   <xs:element name="InsertProfessorResponse" type="tns:InsertProfessorResponse" />
   <xs:element name="Interested" type="tns:interested" />
   <xs:element name="Intern" type="tns:intern" />
+  <xs:element name="InternAssistance" type="tns:internAssistance" />
   <xs:element name="Person" type="tns:person" />
   <xs:element name="Professor" type="tns:professor" />
   <xs:element name="QueryAllByCourse" type="tns:QueryAllByCourse" />
@@ -75,9 +76,9 @@
   </xs:complexType>
   <xs:complexType name="internAssistance">
     <xs:sequence>
+      <xs:element name="id" type="xs:int" />
       <xs:element minOccurs="0" name="begin" type="tns:localDateTime" />
       <xs:element minOccurs="0" name="end" type="tns:localDateTime" />
-      <xs:element name="id" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="localDateTime" final="extension restriction">
@@ -160,14 +161,6 @@
       <xs:element name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="QueryAllUsers">
-    <xs:sequence />
-  </xs:complexType>
-  <xs:complexType name="QueryAllUsersResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:user" />
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="InsertInterested">
     <xs:sequence>
       <xs:element minOccurs="0" name="interested" type="tns:interested" />
@@ -176,6 +169,14 @@
   <xs:complexType name="InsertInterestedResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="QueryAllUsers">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="QueryAllUsersResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:user" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="QueryAllByCourse">
