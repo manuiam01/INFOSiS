@@ -72,4 +72,12 @@ public class Employee extends Person implements Serializable {
     public void setHomePhone(String homePhone) {
         this.homePhone = homePhone;
     }
+    
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
 }
