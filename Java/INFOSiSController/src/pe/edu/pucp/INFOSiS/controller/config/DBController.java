@@ -7,6 +7,7 @@ package pe.edu.pucp.INFOSiS.controller.config;
 
 import java.util.ArrayList;
 import pe.edu.pucp.INFOSiS.model.bean.course.Course;
+import pe.edu.pucp.INFOSiS.model.bean.course.CourseType;
 import pe.edu.pucp.INFOSiS.model.bean.interested.Interested;
 import pe.edu.pucp.INFOSiS.model.bean.professor.Professor;
 import pe.edu.pucp.INFOSiS.model.bean.user.User;
@@ -45,5 +46,36 @@ public abstract class DBController {
     
     public static ArrayList<Interested> queryAllByCourse(Course course){
         return daoFactory.getInterestedDAO().queryAllByCourseType(course);
+    }
+    
+    //Métodos Course
+    public static int insertCourse(Course course){
+        return daoFactory.getCourseDAO().insert(course);
+    }
+    
+    public static int updateCourse(Course course){
+        return daoFactory.getCourseDAO().update(course);
+    }
+    
+    public static int disableCourse(Course course){
+        return daoFactory.getCourseDAO().disable(course);
+    }
+    
+    public static ArrayList<Course> queryAllCourse(){
+        return daoFactory.getCourseDAO().queryAll();
+    }
+    
+    //Métodos CourseType
+    
+    public static int insertCourseType(CourseType coursetype){
+        return daoFactory.getCourseTypeDAO().insert(coursetype);
+    }
+    
+    public static int updateCourseType(CourseType coursetype){
+        return daoFactory.getCourseTypeDAO().update(coursetype);
+    }
+    
+    public static ArrayList<CourseType> queryAllCourseType(){
+        return daoFactory.getCourseTypeDAO().queryAll();
     }
 }
