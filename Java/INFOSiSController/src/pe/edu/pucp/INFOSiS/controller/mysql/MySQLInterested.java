@@ -180,21 +180,22 @@ public class MySQLInterested implements DAOInterested {
             ResultSet rs = sentence.executeQuery(query);
             while(rs.next()){
                 Interested inte = new Interested();
-                inte.setIsUnsubscribed(rs.getBoolean("isUnsusbscribed"));
+                inte.setIsUnsubscribed(rs.getBoolean("isUnsuscribed"));
                 inte.setFirstName(rs.getString("firstName"));
                 inte.setMiddleName(rs.getString("middleName"));
                 inte.setPrimaryLastName(rs.getString("primaryLastName"));
                 inte.setSecondLastName(rs.getString("secondLastName"));
                 inte.setGender(rs.getString("gender"));
                 inte.setEmail(rs.getString("email"));
-                inte.setEmailPUCP(rs.getString("emailPUCP"));
                 inte.setCellPhoneNumber(rs.getString("cellPhoneNumber"));
                 inte.setIdNumber(rs.getString("idNumber"));
                 inte.setRegDate(rs.getDate("regDate"));
                 inte.setIdType(rs.getInt("idNumberType"));
                 if (!inte.isIsUnsubscribed()){
-                    String query2 = "SELECT * FROM InterestedxCourseType WHERE idNumber =?;";
-                    ResultSet rs2 = sentence.executeQuery(query2);
+                    String query2 = "SELECT * FROM InterestedxCourseType WHERE idInterested = ?;";
+                    PreparedStatement ps = con.prepareStatement(query2);
+                    ps.setString(1,inte.getIdNumber());
+                    ResultSet rs2 = ps.executeQuery();
                     ArrayList<Course> courses = new ArrayList<Course>();
                     while(rs2.next()){
                         Course crs = new Course();
@@ -212,7 +213,7 @@ public class MySQLInterested implements DAOInterested {
                     }
                     inte.setCourses(courses);
                     for(Course c : courses){
-                        if(c.getId()==idcourse){
+                        if(c.getId().equals(idcourse)){
                             interested.add(inte);
                             break;
                         }

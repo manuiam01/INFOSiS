@@ -6,6 +6,8 @@
 package pe.edu.pucp.INFOSiS.controller.config;
 
 import java.util.ArrayList;
+import pe.edu.pucp.INFOSiS.model.bean.course.Course;
+import pe.edu.pucp.INFOSiS.model.bean.interested.Interested;
 import pe.edu.pucp.INFOSiS.model.bean.professor.Professor;
 import pe.edu.pucp.INFOSiS.model.bean.user.User;
 import pe.edu.pucp.INFOSiS.model.bean.user.UserType;
@@ -29,4 +31,19 @@ public abstract class DBController {
         return daoFactory.getProfessorDAO().insert(professor);
     }
     
+    public static int insertInterested(Interested interested){
+        return daoFactory.getInterestedDAO().insert(interested);
+    }
+    
+    public static int updateInterested(Interested interested){
+        return daoFactory.getInterestedDAO().update(interested);
+    }
+    
+    public static ArrayList<Interested> queryAll(){
+        return daoFactory.getInterestedDAO().queryAll();
+    }
+    
+    public static ArrayList<Interested> queryAllByCourse(Course course){
+        return daoFactory.getInterestedDAO().queryAllByCourseType(course);
+    }
 }

@@ -2,7 +2,7 @@
 <definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://server.INFOSiS.pucp.edu.pe/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="Server" targetNamespace="http://server.INFOSiS.pucp.edu.pe/" xmlns="http://schemas.xmlsoap.org/wsdl/">
   <types>
     <xsd:schema>
-      <xsd:import schemaLocation="http://localhost:8080/INFOSiSServer/Server?xsd=1" namespace="http://server.INFOSiS.pucp.edu.pe/" />
+      <xsd:import schemaLocation="http://192.168.205.126:8080/INFOSiSServer/Server?xsd=1" namespace="http://server.INFOSiS.pucp.edu.pe/" />
     </xsd:schema>
   </types>
   <message name="QueryAllUsers">
@@ -69,7 +69,7 @@
   </binding>
   <service name="Server">
     <port name="ServerPort" binding="tns:ServerPortBinding">
-      <soap:address location="http://localhost:8080/INFOSiSServer/Server" />
+      <soap:address location="http://192.168.205.126:8080/INFOSiSServer/Server" />
     </port>
   </service>
 </definitions>
