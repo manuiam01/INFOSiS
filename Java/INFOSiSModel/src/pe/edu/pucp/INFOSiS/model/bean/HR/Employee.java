@@ -1,6 +1,6 @@
 package pe.edu.pucp.INFOSiS.model.bean.HR;
 import java.io.Serializable;
-import java.util.*;
+import java.util.Date;
 import pe.edu.pucp.INFOSiS.model.bean.Person;
 import pe.edu.pucp.INFOSiS.model.bean.user.User;
 
@@ -16,7 +16,6 @@ public class Employee extends Person implements Serializable {
     private String emailPUCP;
     private String address;
     private String homePhone;
-    private Date birthDate;
     private User user;
     private Role role;
 
@@ -24,16 +23,16 @@ public class Employee extends Person implements Serializable {
         
     }            
 
-    public Employee(String idPUCP, String emailPUCP, String address, String homePhone, Date birthDate, User user, String idNumber, int idType, String firstName, String middleName, String primaryLastName, String secondLastName, String gender, String email, String cellPhoneNumber) {
-        super(idNumber, idType, firstName, middleName, primaryLastName, secondLastName, gender, email, cellPhoneNumber);
+    public Employee(String idPUCP, String emailPUCP, String address, String homePhone, User user, String idNumber, int idType, String firstName, String middleName, String primaryLastName, String secondLastName, String gender, String email, String cellPhoneNumber, Date birthday) {
+        super(idNumber, idType, firstName, middleName, primaryLastName, secondLastName, gender, email, cellPhoneNumber, birthday);
         this.idPUCP = idPUCP;
         this.emailPUCP = emailPUCP;
         this.address = address;
         this.homePhone = homePhone;
-        this.birthDate = birthDate;
-        this.user=user;
+        this.user = user;
     }
-    
+
+      
     public User getUser() {
         return user;
     }
@@ -72,6 +71,9 @@ public class Employee extends Person implements Serializable {
 
     public void setHomePhone(String homePhone) {
         this.homePhone = homePhone;
+<<<<<<< HEAD
+    }    
+=======
     }
 
     public Date getBirthDate() {
@@ -81,6 +83,7 @@ public class Employee extends Person implements Serializable {
     public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
     }
+>>>>>>> c882f51b1f4b4808cecebe2b6d83db750e41d989
 
     public Role getRole() {
         return role;

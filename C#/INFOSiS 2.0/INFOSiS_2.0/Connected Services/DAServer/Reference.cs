@@ -507,6 +507,10 @@ namespace INFOSiS_2._0.DAServer {
         
         private string cellPhoneNumberField;
         
+        private System.DateTime birthdayField;
+        
+        private bool birthdayFieldSpecified;
+        
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
         public string idNumber {
@@ -612,6 +616,30 @@ namespace INFOSiS_2._0.DAServer {
             set {
                 this.cellPhoneNumberField = value;
                 this.RaisePropertyChanged("cellPhoneNumber");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=9)]
+        public System.DateTime birthday {
+            get {
+                return this.birthdayField;
+            }
+            set {
+                this.birthdayField = value;
+                this.RaisePropertyChanged("birthday");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool birthdaySpecified {
+            get {
+                return this.birthdayFieldSpecified;
+            }
+            set {
+                this.birthdayFieldSpecified = value;
+                this.RaisePropertyChanged("birthdaySpecified");
             }
         }
         

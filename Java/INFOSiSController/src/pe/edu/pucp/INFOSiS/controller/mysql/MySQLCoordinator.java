@@ -7,6 +7,7 @@ package pe.edu.pucp.INFOSiS.controller.mysql;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.util.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -41,7 +42,7 @@ public class MySQLCoordinator implements DAOCoordinator{
             cs.setString(12, coordinator.getEmailPUCP());
             cs.setString(13, coordinator.getAddress());
             cs.setString(14, coordinator.getHomePhone());
-            cs.setDate(15, new java.sql.Date(coordinator.getBirthDate().getTime()));
+            cs.setDate(15, (java.sql.Date)(coordinator.getBirthday()));
             result = cs.executeUpdate();
             con.close();
         }catch(SQLException ex){
@@ -70,7 +71,7 @@ public class MySQLCoordinator implements DAOCoordinator{
             cs.setString(11, coordinator.getEmailPUCP());
             cs.setString(12, coordinator.getAddress());
             cs.setString(13, coordinator.getHomePhone());
-            cs.setDate(14, new java.sql.Date(coordinator.getBirthDate().getTime()));
+            cs.setDate(14, (java.sql.Date) (coordinator.getBirthday()));
             cs.setString(15, coordinator.getIdPUCP());
             result = cs.executeUpdate();
             con.close();
