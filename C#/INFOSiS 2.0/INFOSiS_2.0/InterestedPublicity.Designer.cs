@@ -90,7 +90,6 @@
             this.dgvInteresadosMailing.Location = new System.Drawing.Point(16, 207);
             this.dgvInteresadosMailing.Margin = new System.Windows.Forms.Padding(2);
             this.dgvInteresadosMailing.Name = "dgvInteresadosMailing";
-            this.dgvInteresadosMailing.ReadOnly = true;
             this.dgvInteresadosMailing.RowTemplate.Height = 24;
             this.dgvInteresadosMailing.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvInteresadosMailing.Size = new System.Drawing.Size(763, 247);
@@ -240,10 +239,9 @@
             // 
             // cEnviar
             // 
-            this.cEnviar.HeaderText = "Enviar";
+            this.cEnviar.HeaderText = "No enviar";
             this.cEnviar.MinimumWidth = 10;
             this.cEnviar.Name = "cEnviar";
-            this.cEnviar.ReadOnly = true;
             this.cEnviar.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.cEnviar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.cEnviar.Width = 60;

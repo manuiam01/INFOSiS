@@ -326,6 +326,21 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.course1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.courseType1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.DisableCourseResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.InsertCourseResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.InsertCourseTypeResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.InsertInterestedResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -350,6 +365,15 @@
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.QueryAllByCourseResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.queryAllCourseResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.queryAllCoursesByNameResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.queryAllCourseTypeResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.QueryAllInterestedResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -359,6 +383,12 @@
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.QueryAllUsersResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.queryCourseByIdResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.queryCourseTypeByIdResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.QueryInterestedByIDResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -366,6 +396,12 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.SearchProfessorByNameResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.UpdateCourseResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.UpdateCourseTypeResponse1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.UpdateInterestedResponse.datasource">
@@ -388,6 +424,10 @@
     </None>
     <None Include="Connected Services\Server\Server.wsdl" />
     <None Include="Connected Services\Server\Server.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\Server\Server1.wsdl" />
+    <None Include="Connected Services\Server\Server1.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Resources\perfil2.png" />

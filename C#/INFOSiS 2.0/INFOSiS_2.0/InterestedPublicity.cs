@@ -44,8 +44,10 @@ namespace INFOSiS_2._0
         public InterestedPublicity()
         {
             InitializeComponent();
+            servidor = new Server.ServerClient();
             dtpInicioCurso.MinDate = DateTime.Now;
             btnSearch.Enabled = false;
+            dgvInteresadosMailing.AutoGenerateColumns = false;
             dgvInteresadosMailing.DataSource = servidor.QueryAllInterested();
             //limpiar();
             
