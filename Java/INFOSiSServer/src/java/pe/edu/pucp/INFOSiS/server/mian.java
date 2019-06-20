@@ -29,13 +29,14 @@ public class mian {
 
 try{
         Course c = new Course();
-        c.setId("1023");
+        c.setId("1024");
         c.setName("Excel Super Básico");
         c.setIsActive(true);
         c.setDescription("Curso Super básico de excel");
-        File file = new File("C:\\Users\\Ivette\\Desktop\\2019-1\\Final\\INFOSiS\\Java\\INFOSiSTest\\Horario_Parcial.pdf");
-        
-        c.setSyllabus(Files.readAllBytes(file.toPath()));
+//        File file = new File("C:\\Users\\Ivette\\Desktop\\2019-1\\Final\\INFOSiS\\Java\\INFOSiSTest\\Horario_Parcial.pdf");
+//        
+//        c.setSyllabus(Files.readAllBytes(file.toPath()));
+        c.setSyllabus(null);
         
         int result  = DBController.insertCourse(c);
         System.out.println(result);
