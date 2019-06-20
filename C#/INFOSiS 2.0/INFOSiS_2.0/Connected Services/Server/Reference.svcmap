@@ -19,11 +19,11 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:33417/INFOSiSServer/Server?WSDL" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:8080/INFOSiSServer/Server?WSDL" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Server1.wsdl" MetadataType="Wsdl" ID="12867792-9320-47a4-9c4c-a217343b29b8" SourceId="1" SourceUrl="http://localhost:33417/INFOSiSServer/Server?WSDL" />
-    <MetadataFile FileName="Server1.xsd" MetadataType="Schema" ID="02921743-dbf3-4279-a736-c4ded26f6c0e" SourceId="1" SourceUrl="http://localhost:33417/INFOSiSServer/Server?xsd=1" />
+    <MetadataFile FileName="Server1.xsd" MetadataType="Schema" ID="eb58d725-a4e1-4eab-8e18-ad7980493178" SourceId="1" SourceUrl="http://localhost:8080/INFOSiSServer/Server?xsd=1" />
+    <MetadataFile FileName="Server1.wsdl" MetadataType="Wsdl" ID="e236121c-a183-4919-b1d3-53687ceae04c" SourceId="1" SourceUrl="http://localhost:8080/INFOSiSServer/Server?WSDL" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
