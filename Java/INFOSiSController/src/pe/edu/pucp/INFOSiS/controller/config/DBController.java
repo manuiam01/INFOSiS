@@ -6,6 +6,7 @@
 package pe.edu.pucp.INFOSiS.controller.config;
 
 import java.util.ArrayList;
+import pe.edu.pucp.INFOSiS.model.bean.professor.Professor;
 import pe.edu.pucp.INFOSiS.model.bean.user.User;
 import pe.edu.pucp.INFOSiS.model.bean.user.UserType;
 
@@ -22,6 +23,10 @@ public abstract class DBController {
     
     public static UserType verifyUser(User user){
         return daoFactory.getUserDAO().verifyUser(user);
+    }
+    
+    public static int insertProfessor(Professor professor){
+        return daoFactory.getProfessorDAO().insert(professor);
     }
     
 }

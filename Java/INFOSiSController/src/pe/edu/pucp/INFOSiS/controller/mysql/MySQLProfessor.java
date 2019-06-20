@@ -27,7 +27,7 @@ public class MySQLProfessor implements DAOProfessor {
         try{
             DBManager dbManager = DBManager.getdbManager();
             Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
-            CallableStatement cs = con.prepareCall("{call INSERT_PROFESSOR(?,?,?,?,?,?,?,?,?,?,?,?,?)}");
+            CallableStatement cs = con.prepareCall("{call INSERT_PROFESSOR(?,?,?,?,?,?,?,?,?,?,?,?)}");
             cs.setString(1,professor.getIdPUCP());
             cs.setString(2,professor.getIdNumber());
             cs.setInt(3,professor.getIdType());
@@ -40,7 +40,6 @@ public class MySQLProfessor implements DAOProfessor {
             cs.setString(10,professor.getGender());
             cs.setString(11,professor.getEmail());
             cs.setString(12,professor.getCellPhoneNumber());
-            cs.setInt(13,1);
             result=cs.executeUpdate();
             con.close();
         }catch(SQLException ex){

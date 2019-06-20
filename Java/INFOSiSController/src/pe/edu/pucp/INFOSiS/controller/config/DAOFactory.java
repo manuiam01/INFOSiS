@@ -6,6 +6,7 @@
 package pe.edu.pucp.INFOSiS.controller.config;
 
 import pe.edu.pucp.INFOSiS.controller.dao.DAOInterested;
+import pe.edu.pucp.INFOSiS.controller.dao.DAOProfessor;
 import pe.edu.pucp.INFOSiS.controller.dao.DAOUser;
 
 /**
@@ -25,4 +26,5 @@ public abstract class DAOFactory {
     
     public abstract DAOUser getUserDAO();
     public abstract DAOInterested getInterestedDAO();
+    public abstract DAOProfessor getProfessorDAO();
 }

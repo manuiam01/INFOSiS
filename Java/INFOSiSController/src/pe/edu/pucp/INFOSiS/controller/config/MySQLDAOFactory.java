@@ -6,8 +6,10 @@
 package pe.edu.pucp.INFOSiS.controller.config;
 
 import pe.edu.pucp.INFOSiS.controller.dao.DAOInterested;
+import pe.edu.pucp.INFOSiS.controller.dao.DAOProfessor;
 import pe.edu.pucp.INFOSiS.controller.dao.DAOUser;
 import pe.edu.pucp.INFOSiS.controller.mysql.MySQLInterested;
+import pe.edu.pucp.INFOSiS.controller.mysql.MySQLProfessor;
 import pe.edu.pucp.INFOSiS.controller.mysql.MySQLUser;
 
 /**
@@ -28,4 +30,10 @@ public class MySQLDAOFactory extends DAOFactory{
     public DAOInterested getInterestedDAO(){
         return new MySQLInterested();
     }
+
+    @Override
+    public DAOProfessor getProfessorDAO() {
+        return new MySQLProfessor();
+    }
+    
 }
