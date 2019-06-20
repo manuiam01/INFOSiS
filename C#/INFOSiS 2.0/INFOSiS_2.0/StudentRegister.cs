@@ -148,10 +148,33 @@ namespace INFOSiS_2._0
             else
             {
                 /*Aquí se registrtaría en BD*/
-                mensaje = "ÉXITO: Se ha registrado al alumno";
-                titulo = "Registro completo";
-                icono = MessageBoxIcon.Information;
-                exito = true;
+                Server.student s = new Server.student();
+                s.idNumber = txtDocumento.Text;
+                s.homePhone = txtTelefono.Text;
+                s.address = txtDireccion.Text;
+                s.birthDate = dateNacimiento.Value.Date;
+                s.idPUCPList = new string[listaCodigos.Count];
+                BindingList<string> lstring = new BindingList<string>();
+                foreach (ListaStrings ls in listaCodigos)
+                {
+                    lstring.Add(ls.Cadena);
+                }
+                lstring.CopyTo(s.idPUCPList, 0);
+                int result = server.InsertStudent(s);
+                if (result == 1)
+                {
+                    mensaje = "ÉXITO: Se ha registrado al alumno";
+                    titulo = "Registro completo";
+                    icono = MessageBoxIcon.Information;
+                    exito = true;
+                }
+                else
+                {
+                    mensaje = "No se pudo registrar al alumno";
+                    titulo = "Error en registro";
+                    icono = MessageBoxIcon.Error;
+                    exito = false;
+                }
             }
             mensajeError = MessageBox.Show(mensaje, titulo, MessageBoxButtons.OK, icono);
             if (exito)

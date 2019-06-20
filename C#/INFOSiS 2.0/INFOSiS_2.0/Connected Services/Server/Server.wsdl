@@ -5,6 +5,7 @@
       <xsd:import schemaLocation="http://localhost:8080/INFOSiSServer/Server?xsd=1" namespace="http://server.INFOSiS.pucp.edu.pe/" />
     </xsd:schema>
   </types>
+<<<<<<< HEAD
   <message name="QueryInterestedByID">
     <part name="parameters" element="tns:QueryInterestedByID" />
   </message>
@@ -16,18 +17,18 @@
   </message>
   <message name="QueryAllInterestedResponse">
     <part name="parameters" element="tns:QueryAllInterestedResponse" />
+=======
+  <message name="QueryAllUsers">
+    <part name="parameters" element="tns:QueryAllUsers" />
   </message>
-  <message name="InsertInterested">
-    <part name="parameters" element="tns:InsertInterested" />
+  <message name="QueryAllUsersResponse">
+    <part name="parameters" element="tns:QueryAllUsersResponse" />
   </message>
-  <message name="InsertInterestedResponse">
-    <part name="parameters" element="tns:InsertInterestedResponse" />
+  <message name="InsertProfessor">
+    <part name="parameters" element="tns:InsertProfessor" />
   </message>
-  <message name="InsertIntern">
-    <part name="parameters" element="tns:InsertIntern" />
-  </message>
-  <message name="InsertInternResponse">
-    <part name="parameters" element="tns:InsertInternResponse" />
+  <message name="InsertProfessorResponse">
+    <part name="parameters" element="tns:InsertProfessorResponse" />
   </message>
   <message name="VerifyUser">
     <part name="parameters" element="tns:VerifyUser" />
@@ -35,12 +36,55 @@
   <message name="VerifyUserResponse">
     <part name="parameters" element="tns:VerifyUserResponse" />
   </message>
+  <message name="QueryAllInterns">
+    <part name="parameters" element="tns:QueryAllInterns" />
+  </message>
+  <message name="QueryAllInternsResponse">
+    <part name="parameters" element="tns:QueryAllInternsResponse" />
+>>>>>>> 38ef5661619e37a35367a388cd82d63eaf55d18f
+  </message>
+  <message name="InsertInterested">
+    <part name="parameters" element="tns:InsertInterested" />
+  </message>
+  <message name="InsertInterestedResponse">
+    <part name="parameters" element="tns:InsertInterestedResponse" />
+  </message>
+<<<<<<< HEAD
+=======
   <message name="QueryAllByCourse">
     <part name="parameters" element="tns:QueryAllByCourse" />
   </message>
   <message name="QueryAllByCourseResponse">
     <part name="parameters" element="tns:QueryAllByCourseResponse" />
   </message>
+>>>>>>> 38ef5661619e37a35367a388cd82d63eaf55d18f
+  <message name="InsertIntern">
+    <part name="parameters" element="tns:InsertIntern" />
+  </message>
+  <message name="InsertInternResponse">
+    <part name="parameters" element="tns:InsertInternResponse" />
+  </message>
+<<<<<<< HEAD
+  <message name="VerifyUser">
+    <part name="parameters" element="tns:VerifyUser" />
+  </message>
+  <message name="VerifyUserResponse">
+    <part name="parameters" element="tns:VerifyUserResponse" />
+=======
+  <message name="InsertStudent">
+    <part name="parameters" element="tns:InsertStudent" />
+  </message>
+  <message name="InsertStudentResponse">
+    <part name="parameters" element="tns:InsertStudentResponse" />
+>>>>>>> 38ef5661619e37a35367a388cd82d63eaf55d18f
+  </message>
+  <message name="UpdateIntern">
+    <part name="parameters" element="tns:UpdateIntern" />
+  </message>
+  <message name="UpdateInternResponse">
+    <part name="parameters" element="tns:UpdateInternResponse" />
+  </message>
+<<<<<<< HEAD
   <message name="InsertProfessor">
     <part name="parameters" element="tns:InsertProfessor" />
   </message>
@@ -49,10 +93,15 @@
   </message>
   <message name="QueryAllInterns">
     <part name="parameters" element="tns:QueryAllInterns" />
+=======
+  <message name="QueryAllInterested">
+    <part name="parameters" element="tns:QueryAllInterested" />
+>>>>>>> 38ef5661619e37a35367a388cd82d63eaf55d18f
   </message>
-  <message name="QueryAllInternsResponse">
-    <part name="parameters" element="tns:QueryAllInternsResponse" />
+  <message name="QueryAllInterestedResponse">
+    <part name="parameters" element="tns:QueryAllInterestedResponse" />
   </message>
+<<<<<<< HEAD
   <message name="QueryAllUsers">
     <part name="parameters" element="tns:QueryAllUsers" />
   </message>
@@ -73,23 +122,61 @@
     <operation name="QueryAllInterested">
       <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/QueryAllInterestedRequest" message="tns:QueryAllInterested" />
       <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/QueryAllInterestedResponse" message="tns:QueryAllInterestedResponse" />
+=======
+  <message name="QueryInterestedByID">
+    <part name="parameters" element="tns:QueryInterestedByID" />
+  </message>
+  <message name="QueryInterestedByIDResponse">
+    <part name="parameters" element="tns:QueryInterestedByIDResponse" />
+  </message>
+  <portType name="Server">
+    <operation name="QueryAllUsers">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/QueryAllUsersRequest" message="tns:QueryAllUsers" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/QueryAllUsersResponse" message="tns:QueryAllUsersResponse" />
     </operation>
-    <operation name="InsertInterested">
-      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/InsertInterestedRequest" message="tns:InsertInterested" />
-      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/InsertInterestedResponse" message="tns:InsertInterestedResponse" />
-    </operation>
-    <operation name="InsertIntern">
-      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/InsertInternRequest" message="tns:InsertIntern" />
-      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/InsertInternResponse" message="tns:InsertInternResponse" />
+    <operation name="InsertProfessor">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/InsertProfessorRequest" message="tns:InsertProfessor" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/InsertProfessorResponse" message="tns:InsertProfessorResponse" />
     </operation>
     <operation name="VerifyUser">
       <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/VerifyUserRequest" message="tns:VerifyUser" />
       <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/VerifyUserResponse" message="tns:VerifyUserResponse" />
     </operation>
+    <operation name="QueryAllInterns">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/QueryAllInternsRequest" message="tns:QueryAllInterns" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/QueryAllInternsResponse" message="tns:QueryAllInternsResponse" />
+>>>>>>> 38ef5661619e37a35367a388cd82d63eaf55d18f
+    </operation>
+    <operation name="InsertInterested">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/InsertInterestedRequest" message="tns:InsertInterested" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/InsertInterestedResponse" message="tns:InsertInterestedResponse" />
+    </operation>
+<<<<<<< HEAD
+=======
     <operation name="QueryAllByCourse">
       <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/QueryAllByCourseRequest" message="tns:QueryAllByCourse" />
       <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/QueryAllByCourseResponse" message="tns:QueryAllByCourseResponse" />
     </operation>
+>>>>>>> 38ef5661619e37a35367a388cd82d63eaf55d18f
+    <operation name="InsertIntern">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/InsertInternRequest" message="tns:InsertIntern" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/InsertInternResponse" message="tns:InsertInternResponse" />
+    </operation>
+<<<<<<< HEAD
+    <operation name="VerifyUser">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/VerifyUserRequest" message="tns:VerifyUser" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/VerifyUserResponse" message="tns:VerifyUserResponse" />
+=======
+    <operation name="InsertStudent">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/InsertStudentRequest" message="tns:InsertStudent" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/InsertStudentResponse" message="tns:InsertStudentResponse" />
+>>>>>>> 38ef5661619e37a35367a388cd82d63eaf55d18f
+    </operation>
+    <operation name="UpdateIntern">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/UpdateInternRequest" message="tns:UpdateIntern" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/UpdateInternResponse" message="tns:UpdateInternResponse" />
+    </operation>
+<<<<<<< HEAD
     <operation name="InsertProfessor">
       <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/InsertProfessorRequest" message="tns:InsertProfessor" />
       <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/InsertProfessorResponse" message="tns:InsertProfessorResponse" />
@@ -105,11 +192,24 @@
     <operation name="UpdateIntern">
       <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/UpdateInternRequest" message="tns:UpdateIntern" />
       <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/UpdateInternResponse" message="tns:UpdateInternResponse" />
+=======
+    <operation name="QueryAllInterested">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/QueryAllInterestedRequest" message="tns:QueryAllInterested" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/QueryAllInterestedResponse" message="tns:QueryAllInterestedResponse" />
+    </operation>
+    <operation name="QueryInterestedByID">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/QueryInterestedByIDRequest" message="tns:QueryInterestedByID" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/QueryInterestedByIDResponse" message="tns:QueryInterestedByIDResponse" />
+>>>>>>> 38ef5661619e37a35367a388cd82d63eaf55d18f
     </operation>
   </portType>
   <binding name="ServerPortBinding" type="tns:Server">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+<<<<<<< HEAD
     <operation name="QueryInterestedByID">
+=======
+    <operation name="QueryAllUsers">
+>>>>>>> 38ef5661619e37a35367a388cd82d63eaf55d18f
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -118,52 +218,11 @@
         <soap:body use="literal" />
       </output>
     </operation>
+<<<<<<< HEAD
     <operation name="QueryAllInterested">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="InsertInterested">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="InsertIntern">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="VerifyUser">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="QueryAllByCourse">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
+=======
     <operation name="InsertProfessor">
+>>>>>>> 38ef5661619e37a35367a388cd82d63eaf55d18f
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -172,6 +231,22 @@
         <soap:body use="literal" />
       </output>
     </operation>
+<<<<<<< HEAD
+    <operation name="InsertInterested">
+=======
+    <operation name="VerifyUser">
+>>>>>>> 38ef5661619e37a35367a388cd82d63eaf55d18f
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+<<<<<<< HEAD
+    <operation name="InsertIntern">
+=======
     <operation name="QueryAllInterns">
       <soap:operation soapAction="" />
       <input>
@@ -181,7 +256,8 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="QueryAllUsers">
+    <operation name="InsertInterested">
+>>>>>>> 38ef5661619e37a35367a388cd82d63eaf55d18f
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -190,7 +266,76 @@
         <soap:body use="literal" />
       </output>
     </operation>
+<<<<<<< HEAD
+    <operation name="VerifyUser">
+=======
+    <operation name="QueryAllByCourse">
+>>>>>>> 38ef5661619e37a35367a388cd82d63eaf55d18f
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+<<<<<<< HEAD
+    <operation name="QueryAllByCourse">
+=======
+    <operation name="InsertIntern">
+>>>>>>> 38ef5661619e37a35367a388cd82d63eaf55d18f
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+<<<<<<< HEAD
+    <operation name="InsertProfessor">
+=======
+    <operation name="InsertStudent">
+>>>>>>> 38ef5661619e37a35367a388cd82d63eaf55d18f
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+<<<<<<< HEAD
+    <operation name="QueryAllInterns">
+=======
     <operation name="UpdateIntern">
+>>>>>>> 38ef5661619e37a35367a388cd82d63eaf55d18f
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+<<<<<<< HEAD
+    <operation name="QueryAllUsers">
+=======
+    <operation name="QueryAllInterested">
+>>>>>>> 38ef5661619e37a35367a388cd82d63eaf55d18f
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+<<<<<<< HEAD
+    <operation name="UpdateIntern">
+=======
+    <operation name="QueryInterestedByID">
+>>>>>>> 38ef5661619e37a35367a388cd82d63eaf55d18f
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

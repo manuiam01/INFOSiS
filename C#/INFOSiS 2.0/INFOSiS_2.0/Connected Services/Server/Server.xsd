@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://server.INFOSiS.pucp.edu.pe/" targetNamespace="http://server.INFOSiS.pucp.edu.pe/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:element name="Course" type="tns:course" />
+  <xs:element name="CourseHistory" type="tns:courseHistory" />
   <xs:element name="CourseType" type="tns:courseType" />
   <xs:element name="InsertInterested" type="tns:InsertInterested" />
   <xs:element name="InsertInterestedResponse" type="tns:InsertInterestedResponse" />
@@ -8,6 +9,8 @@
   <xs:element name="InsertInternResponse" type="tns:InsertInternResponse" />
   <xs:element name="InsertProfessor" type="tns:InsertProfessor" />
   <xs:element name="InsertProfessorResponse" type="tns:InsertProfessorResponse" />
+  <xs:element name="InsertStudent" type="tns:InsertStudent" />
+  <xs:element name="InsertStudentResponse" type="tns:InsertStudentResponse" />
   <xs:element name="Interested" type="tns:interested" />
   <xs:element name="Intern" type="tns:intern" />
   <xs:element name="InternAssistance" type="tns:internAssistance" />
@@ -29,6 +32,118 @@
   <xs:element name="UserType" type="tns:userType" />
   <xs:element name="VerifyUser" type="tns:VerifyUser" />
   <xs:element name="VerifyUserResponse" type="tns:VerifyUserResponse" />
+  <xs:element name="Voucher" type="tns:voucher" />
+  <xs:complexType name="InsertStudent">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="student" type="tns:student" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="student">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:interested">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="homePhone" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="idPUCPList" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="birthDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="address" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="history" nillable="true" type="tns:courseHistory" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="historyGrade" nillable="true" type="xs:float" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="historyState" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="vouchers" nillable="true" type="tns:voucher" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="interested">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:person">
+        <xs:sequence>
+          <xs:element name="id" type="xs:int" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="courses" nillable="true" type="tns:course" />
+          <xs:element name="isUnsubscribed" type="xs:boolean" />
+          <xs:element minOccurs="0" name="emailPUCP" type="xs:string" />
+          <xs:element minOccurs="0" name="regDate" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="person">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idNumber" type="xs:string" />
+      <xs:element name="idType" type="xs:int" />
+      <xs:element minOccurs="0" name="firstName" type="xs:string" />
+      <xs:element minOccurs="0" name="middleName" type="xs:string" />
+      <xs:element minOccurs="0" name="primaryLastName" type="xs:string" />
+      <xs:element minOccurs="0" name="secondLastName" type="xs:string" />
+      <xs:element minOccurs="0" name="gender" type="xs:string" />
+      <xs:element minOccurs="0" name="email" type="xs:string" />
+      <xs:element minOccurs="0" name="cellPhoneNumber" type="xs:string" />
+      <xs:element minOccurs="0" name="birthday" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="courseHistory">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="sessions" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="locations" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="hoursSession" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="course" type="tns:course" />
+      <xs:element minOccurs="0" name="professor" type="tns:professor" />
+      <xs:element minOccurs="0" name="assistant" type="tns:professor" />
+      <xs:element name="hours" type="xs:int" />
+      <xs:element minOccurs="0" name="survey" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="students" nillable="true" type="tns:student" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vouchers" nillable="true" type="tns:voucher" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="historyGrade" nillable="true" type="xs:float" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="historyState" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="course">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:string" />
+      <xs:element minOccurs="0" name="name" type="xs:string" />
+      <xs:element name="isActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="courseType" type="tns:courseType" />
+      <xs:element minOccurs="0" name="description" type="xs:string" />
+      <xs:element minOccurs="0" name="syllabus" type="xs:base64Binary" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="courseHistory" nillable="true" type="tns:course" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="courseType">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="name" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="coursesList" nillable="true" type="tns:course" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="professor">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:person">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="idPUCP" type="xs:string" />
+          <xs:element minOccurs="0" name="emailPUCP" type="xs:string" />
+          <xs:element minOccurs="0" name="birthDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="coursesCanTeach" nillable="true" type="tns:course" />
+          <xs:element name="isActive" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="voucher">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="type" type="xs:string" />
+      <xs:element name="amount" type="xs:double" />
+      <xs:element minOccurs="0" name="date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="course" type="tns:courseHistory" />
+      <xs:element minOccurs="0" name="student" type="tns:student" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="InsertStudentResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="InsertIntern">
     <xs:sequence>
       <xs:element minOccurs="0" name="intern" type="tns:intern" />
@@ -59,20 +174,6 @@
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="person">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="idNumber" type="xs:string" />
-      <xs:element name="idType" type="xs:int" />
-      <xs:element minOccurs="0" name="firstName" type="xs:string" />
-      <xs:element minOccurs="0" name="middleName" type="xs:string" />
-      <xs:element minOccurs="0" name="primaryLastName" type="xs:string" />
-      <xs:element minOccurs="0" name="secondLastName" type="xs:string" />
-      <xs:element minOccurs="0" name="gender" type="xs:string" />
-      <xs:element minOccurs="0" name="email" type="xs:string" />
-      <xs:element minOccurs="0" name="cellPhoneNumber" type="xs:string" />
-      <xs:element minOccurs="0" name="birthday" type="xs:dateTime" />
-    </xs:sequence>
   </xs:complexType>
   <xs:complexType name="internAssistance">
     <xs:sequence>
@@ -117,37 +218,6 @@
   <xs:complexType name="QueryAllInterestedResponse">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:interested" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="interested">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:person">
-        <xs:sequence>
-          <xs:element name="id" type="xs:int" />
-          <xs:element minOccurs="0" maxOccurs="unbounded" name="courses" nillable="true" type="tns:course" />
-          <xs:element name="isUnsubscribed" type="xs:boolean" />
-          <xs:element minOccurs="0" name="emailPUCP" type="xs:string" />
-          <xs:element minOccurs="0" name="regDate" type="xs:dateTime" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="course">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="id" type="xs:string" />
-      <xs:element minOccurs="0" name="name" type="xs:string" />
-      <xs:element name="isActive" type="xs:boolean" />
-      <xs:element minOccurs="0" name="courseType" type="tns:courseType" />
-      <xs:element minOccurs="0" name="description" type="xs:string" />
-      <xs:element minOccurs="0" name="syllabus" type="xs:base64Binary" />
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="courseHistory" nillable="true" type="tns:course" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="courseType">
-    <xs:sequence>
-      <xs:element name="id" type="xs:int" />
-      <xs:element minOccurs="0" name="name" type="xs:string" />
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="coursesList" nillable="true" type="tns:course" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="UpdateIntern">
@@ -211,19 +281,6 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="professor" type="tns:professor" />
     </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="professor">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:person">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="idPUCP" type="xs:string" />
-          <xs:element minOccurs="0" name="emailPUCP" type="xs:string" />
-          <xs:element minOccurs="0" name="birthDate" type="xs:dateTime" />
-          <xs:element minOccurs="0" maxOccurs="unbounded" name="coursesCanTeach" nillable="true" type="tns:course" />
-          <xs:element name="isActive" type="xs:boolean" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
   </xs:complexType>
   <xs:complexType name="InsertProfessorResponse">
     <xs:sequence>

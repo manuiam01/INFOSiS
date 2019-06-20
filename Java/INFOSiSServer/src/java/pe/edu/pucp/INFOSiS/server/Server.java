@@ -18,6 +18,7 @@ import pe.edu.pucp.INFOSiS.model.bean.professor.Professor;
 import pe.edu.pucp.INFOSiS.model.bean.user.User;
 import pe.edu.pucp.INFOSiS.model.bean.user.UserType;
 import pe.edu.pucp.INFOSiS.model.bean.HR.Intern;
+import pe.edu.pucp.INFOSiS.model.bean.student.Student;
 
 
 @WebService(serviceName = "Server")
@@ -70,6 +71,11 @@ public class Server {
     @WebMethod(operationName="QueryInterestedByID")
     public Interested queryInterestedByID(@WebParam(name="IDInterested")String idInterested){
         return DBController.queryInterestedById(idInterested);
+    }
+    
+    @WebMethod(operationName="InsertStudent")
+    public int insertStudent(@WebParam(name="student")Student student){
+        return DBController.insertStudent(student);
     }
     
 }

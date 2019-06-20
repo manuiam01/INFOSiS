@@ -27,17 +27,16 @@ public class INFOSiSTest {
 //        for(User u : l){
 //            System.out.println(u.getUsername());
 //        }
-        MySQLInterested mysql1 = new MySQLInterested();
-        Course rowor = new Course("100");
-        Course ruwur = new Course("102");
-        ArrayList<Interested> ints = mysql1.queryAllByCourseType(rowor);
-        for(Interested i : ints){
-            System.out.println(i.getFirstName());
+//        MySQLInterested mysql1 = new MySQLInterested();
+        
+//        ArrayList<Interested> ints = mysql1.queryAllByCourseType(rowor);
+//        for(Interested i : ints){
+//            System.out.println(i.getFirstName());
 //            ArrayList<Course> cs = new ArrayList<Course>();
 //            cs = i.getCourses();
 //            for(Course c : cs)
 //                System.out.println(c.getName());
-        }
+//        }
 
 //        ArrayList<Course> courses = new ArrayList<Course>();
 //        courses.add(rowor);

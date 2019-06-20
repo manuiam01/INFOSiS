@@ -5,6 +5,9 @@
  */
 package pe.edu.pucp.INFOSiS.server;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import pe.edu.pucp.INFOSiS.controller.config.DBController;
 import pe.edu.pucp.INFOSiS.controller.mysql.MySQLUser;
@@ -20,22 +23,15 @@ import pe.edu.pucp.INFOSiS.model.bean.user.UserType;
  */
 public class mian {
     
-    public static void main(String[] args) {
+    public static void main(String[] args)  {
 //        ArrayList<User> users = DBController.queryAllUsers();
 //        for(User u: users){
 //            System.out.println(u.getUsername());
 //        }
-//        Course c = new Course();
-//        c.setId("1022");
-//        c.setName("Excel Super Básico");
-//        c.setIsActive(true);
-//        c.setDescription("Curso Super básico de excel");
-//        c.setSyllabus(null);
-//        
-//        int result  = DBController.insertCourse(c);
-//        
-//        System.out.println(result);
-
+        ArrayList<Course> courses = DBController.queryCourseByName("Excel");
+        for(Course c : courses){
+            System.out.println(c);
+        }
 //        Intern intern = new Intern();
 //        intern.setIdNumber("asdf");
 //        intern.setIdPUCP("asdf");
@@ -46,13 +42,10 @@ public class mian {
 //        intern.setCellPhoneNumber("asdf");
 //        intern.setGender("F");
 //        intern.setEmail("adf");
-//        intern.setEmailPUCP("asdf");
-//        
+//        intern.setEmailPUCP("asdf");       
 //        UserType access = new UserType();
 //        access.setId(0);
-//        access.setName("adf");
-//        
+//        access.setName("adf");        
 //        DBController.insertIntern(intern, access);
-    }
-    
+    }  
 }
