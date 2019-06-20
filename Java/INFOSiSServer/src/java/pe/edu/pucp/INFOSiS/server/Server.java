@@ -17,6 +17,7 @@ import pe.edu.pucp.INFOSiS.model.bean.interested.Interested;
 import pe.edu.pucp.INFOSiS.model.bean.professor.Professor;
 import pe.edu.pucp.INFOSiS.model.bean.user.User;
 import pe.edu.pucp.INFOSiS.model.bean.user.UserType;
+import pe.edu.pucp.INFOSiS.model.bean.HR.Intern;
 
 
 @WebService(serviceName = "Server")
@@ -37,6 +38,22 @@ public class Server {
         return DBController.verifyUser(user);
     }
     
+
+    @WebMethod (operationName = "QueryAllInterns")
+    public ArrayList<Intern> QueryAllInterns(){
+        return DBController.queryAllInterns();
+    }
+    
+    @WebMethod (operationName = "InsertIntern")
+    public int InsertIntern(@WebParam(name = "intern") Intern intern,@WebParam(name = "access") UserType access){
+        return DBController.insertIntern(intern, access);
+    }
+    
+    @WebMethod (operationName = "UpdateIntern")
+    public int UpdateIntern(@WebParam(name = "intern") Intern intern,@WebParam(name = "access") UserType access){
+        return DBController.updateIntern(intern, access);
+    }
+
     @WebMethod (operationName= "InsertInterested")
     public int InsertInterested(@WebParam(name="interested")Interested interested){
         return DBController.insertInterested(interested);
@@ -51,4 +68,5 @@ public class Server {
         return DBController.queryAllByCourse(course);
     }
     
+
 }

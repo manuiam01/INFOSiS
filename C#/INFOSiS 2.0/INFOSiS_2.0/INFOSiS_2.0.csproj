@@ -326,7 +326,19 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Connected Services\DAServer\INFOSiS_2._0.DAServer.InsertInterestedResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\DAServer\INFOSiS_2._0.DAServer.InsertProfessorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DAServer\INFOSiS_2._0.DAServer.interested.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DAServer\INFOSiS_2._0.DAServer.QueryAllByCourseResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\DAServer\INFOSiS_2._0.DAServer.QueryAllInterestedResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\DAServer\INFOSiS_2._0.DAServer.QueryAllUsersResponse.datasource">

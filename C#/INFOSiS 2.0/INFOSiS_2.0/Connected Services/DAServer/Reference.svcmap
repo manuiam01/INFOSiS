@@ -22,8 +22,13 @@
     <MetadataSource Address="http://192.168.205.126:8080/INFOSiSServer/Server?WSDL" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Server1.xsd" MetadataType="Schema" ID="ae99cbfe-b3b1-43d7-a3d8-627d71b7b58e" SourceId="1" SourceUrl="http://192.168.205.126:8080/INFOSiSServer/Server?xsd=1" />
-    <MetadataFile FileName="Server1.wsdl" MetadataType="Wsdl" ID="e6575034-31c6-457b-a88c-e85d07612c79" SourceId="1" SourceUrl="http://192.168.205.126:8080/INFOSiSServer/Server?WSDL" />
+<<<<<<< HEAD
+    <MetadataFile FileName="Server1.xsd" MetadataType="Schema" ID="9f4c5114-3cba-4504-9adc-75649d180f5c" SourceId="1" SourceUrl="http://192.168.205.126:8080/INFOSiSServer/Server?xsd=1" />
+    <MetadataFile FileName="Server1.wsdl" MetadataType="Wsdl" ID="3032775d-5e91-4386-80e2-ba4191f702c1" SourceId="1" SourceUrl="http://192.168.205.126:8080/INFOSiSServer/Server?WSDL" />
+=======
+    <MetadataFile FileName="Server.xsd" MetadataType="Schema" ID="38c2fa78-1ee9-486f-9de4-45cb4c541c94" SourceId="1" SourceUrl="http://localhost:8080/INFOSiSServer/Server?xsd=1" />
+    <MetadataFile FileName="Server.wsdl" MetadataType="Wsdl" ID="a2f71ac0-34f8-4403-b84c-43170e12808a" SourceId="1" SourceUrl="http://localhost:8080/INFOSiSServer/Server?WSDL" />
+>>>>>>> 4cf4c7c7f7c9888fa37f816e986a3a0844e8c1ef
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
