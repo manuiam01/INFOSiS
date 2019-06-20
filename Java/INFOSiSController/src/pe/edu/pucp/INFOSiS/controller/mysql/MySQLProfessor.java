@@ -30,28 +30,40 @@ public class MySQLProfessor implements DAOProfessor {
         try{
             DBManager dbManager = DBManager.getdbManager();
             Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
+            
             String sql ="SELECT * FROM Professors WHERE idProfessor = ?";
             PreparedStatement ps =  con.prepareStatement(sql);
             ps.setString(1, professor.getIdPUCP());
-            ResultSet rs = ps.executeQuery();
+            ResultSet rs = ps.executeQuery();          
             if(rs.next()){
-                result=-1;
-            }else{
-                CallableStatement cs = con.prepareCall("{call INSERT_PROFESSOR(?,?,?,?,?,?,?,?,?,?,?,?)}");
-                cs.setString(1,professor.getIdPUCP());
-                cs.setString(2,professor.getIdNumber());
-                cs.setInt(3,professor.getIdType());
-                cs.setString(4,professor.getEmailPUCP());
-                cs.setDate(5, (java.sql.Date) professor.getBirthday());
-                cs.setString(6,professor.getFirstName());
-                cs.setString(7,professor.getMiddleName());
-                cs.setString(8,professor.getPrimaryLastName());
-                cs.setString(9,professor.getSecondLastName());
-                cs.setString(10,professor.getGender());
-                cs.setString(11,professor.getEmail());
-                cs.setString(12,professor.getCellPhoneNumber());
-                result=cs.executeUpdate();
+                return -1;
             }
+            
+            if(professor.getIdPUCP().length()==0){
+                return -2;
+            }
+            sql ="SELECT * FROM Professors WHERE idNumber = ?";
+            ps =  con.prepareStatement(sql);
+            ps.setString(1, professor.getIdNumber());
+            rs = ps.executeQuery();             
+            if(rs.next()){
+                result = -3;
+            }
+            
+            CallableStatement cs = con.prepareCall("{call INSERT_PROFESSOR(?,?,?,?,?,?,?,?,?,?,?,?)}");
+            cs.setString(1,professor.getIdPUCP());
+            cs.setString(2,professor.getIdNumber());
+            cs.setInt(3,professor.getIdType());
+            cs.setString(4,professor.getEmailPUCP());
+            cs.setDate(5, (java.sql.Date) professor.getBirthday());
+            cs.setString(6,professor.getFirstName());
+            cs.setString(7,professor.getMiddleName());
+            cs.setString(8,professor.getPrimaryLastName());
+            cs.setString(9,professor.getSecondLastName());
+            cs.setString(10,professor.getGender());
+            cs.setString(11,professor.getEmail());
+            cs.setString(12,professor.getCellPhoneNumber());
+            result=cs.executeUpdate();            
             con.close();
         }catch(SQLException ex){
             System.out.println(ex.getMessage());
