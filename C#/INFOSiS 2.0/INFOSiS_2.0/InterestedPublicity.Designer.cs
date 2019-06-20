@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblInterestedRegister = new System.Windows.Forms.Label();
             this.dgvInteresadosMailing = new System.Windows.Forms.DataGridView();
             this.cNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,14 +64,14 @@
             this.dgvInteresadosMailing.AllowUserToAddRows = false;
             this.dgvInteresadosMailing.AllowUserToDeleteRows = false;
             this.dgvInteresadosMailing.Anchor = System.Windows.Forms.AnchorStyles.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Gill Sans MT", 9F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvInteresadosMailing.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Gill Sans MT", 9F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvInteresadosMailing.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvInteresadosMailing.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvInteresadosMailing.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cNombre,
@@ -79,16 +79,16 @@
             this.cCorreo,
             this.cSexo,
             this.cEnviar});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Gill Sans MT", 8F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvInteresadosMailing.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Gill Sans MT", 8F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvInteresadosMailing.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvInteresadosMailing.Location = new System.Drawing.Point(16, 207);
-            this.dgvInteresadosMailing.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvInteresadosMailing.Margin = new System.Windows.Forms.Padding(2);
             this.dgvInteresadosMailing.Name = "dgvInteresadosMailing";
             this.dgvInteresadosMailing.ReadOnly = true;
             this.dgvInteresadosMailing.RowTemplate.Height = 24;
@@ -154,7 +154,7 @@
             this.dtpInicioCurso.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dtpInicioCurso.Font = new System.Drawing.Font("Gill Sans MT", 10F);
             this.dtpInicioCurso.Location = new System.Drawing.Point(167, 84);
-            this.dtpInicioCurso.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpInicioCurso.Margin = new System.Windows.Forms.Padding(2);
             this.dtpInicioCurso.Name = "dtpInicioCurso";
             this.dtpInicioCurso.Size = new System.Drawing.Size(221, 23);
             this.dtpInicioCurso.TabIndex = 175;
@@ -257,9 +257,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvInteresadosMailing);
             this.Controls.Add(this.lblInterestedRegister);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "InterestedPublicity";
             this.Size = new System.Drawing.Size(811, 566);
+            this.Load += new System.EventHandler(this.InterestedPublicity_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvInteresadosMailing)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

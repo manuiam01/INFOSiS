@@ -71,25 +71,5 @@ public class Employee extends Person implements Serializable {
 
     public void setHomePhone(String homePhone) {
         this.homePhone = homePhone;
-<<<<<<< HEAD
-    }    
-=======
-    }
-
-    public Date getBirthDate() {
-        return birthDate;
-    }
-
-    public void setBirthDate(Date birthDate) {
-        this.birthDate = birthDate;
-    }
->>>>>>> c882f51b1f4b4808cecebe2b6d83db750e41d989
-
-    public Role getRole() {
-        return role;
-    }
-
-    public void setRole(Role role) {
-        this.role = role;
     }
 }

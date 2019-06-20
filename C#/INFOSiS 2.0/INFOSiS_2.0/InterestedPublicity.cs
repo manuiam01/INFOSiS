@@ -148,5 +148,10 @@ namespace INFOSiS_2._0
             }
         
         }
+
+        private void InterestedPublicity_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
