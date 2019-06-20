@@ -66,5 +66,10 @@ public class Server {
     public ArrayList<Interested> queryAllByCourse(@WebParam(name="course")Course course){
         return DBController.queryAllByCourse(course);
     }
-   
+    
+    @WebMethod(operationName="QueryInterestedByID")
+    public Interested queryInterestedByID(@WebParam(name="IDInterested")String idInterested){
+        return DBController.queryInterestedById(idInterested);
+    }
+    
 }

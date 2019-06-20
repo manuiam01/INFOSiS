@@ -94,4 +94,8 @@ public abstract class DBController {
         return daoFactory.getCourseTypeDAO().queryAll();
 
     }
+    
+     public static Interested queryInterestedById(String interestedID){
+         return daoFactory.getInterestedDAO().queryInterestedById(interestedID);
+     }
 }

@@ -20,6 +20,8 @@
   <xs:element name="QueryAllInternsResponse" type="tns:QueryAllInternsResponse" />
   <xs:element name="QueryAllUsers" type="tns:QueryAllUsers" />
   <xs:element name="QueryAllUsersResponse" type="tns:QueryAllUsersResponse" />
+  <xs:element name="QueryInterestedByID" type="tns:QueryInterestedByID" />
+  <xs:element name="QueryInterestedByIDResponse" type="tns:QueryInterestedByIDResponse" />
   <xs:element name="UpdateIntern" type="tns:UpdateIntern" />
   <xs:element name="UpdateInternResponse" type="tns:UpdateInternResponse" />
   <xs:element name="User" type="tns:user" />
@@ -225,6 +227,16 @@
   <xs:complexType name="InsertProfessorResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="QueryInterestedByID">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IDInterested" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="QueryInterestedByIDResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:interested" />
     </xs:sequence>
   </xs:complexType>
 </xs:schema>
