@@ -6,6 +6,7 @@
 package pe.edu.pucp.INFOSiS.controller.dao;
 
 import java.util.ArrayList;
+import pe.edu.pucp.INFOSiS.model.bean.course.Course;
 import pe.edu.pucp.INFOSiS.model.bean.course.CourseType;
 import pe.edu.pucp.INFOSiS.model.bean.interested.Interested;
 
@@ -18,5 +19,5 @@ public interface DAOInterested {
     int update(Interested interested);
     int disable(Interested interested);
     ArrayList<Interested> queryAll();
-    ArrayList<Interested> queryAllByCourseType(CourseType coursetype);
+    ArrayList<Interested> queryAllByCourseType(Course course);
 }
