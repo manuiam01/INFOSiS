@@ -3,6 +3,12 @@
   <xs:element name="Course" type="tns:course" />
   <xs:element name="CourseHistory" type="tns:courseHistory" />
   <xs:element name="CourseType" type="tns:courseType" />
+  <xs:element name="DisableCourse" type="tns:DisableCourse" />
+  <xs:element name="DisableCourseResponse" type="tns:DisableCourseResponse" />
+  <xs:element name="InsertCourse" type="tns:InsertCourse" />
+  <xs:element name="InsertCourseResponse" type="tns:InsertCourseResponse" />
+  <xs:element name="InsertCourseType" type="tns:InsertCourseType" />
+  <xs:element name="InsertCourseTypeResponse" type="tns:InsertCourseTypeResponse" />
   <xs:element name="InsertInterested" type="tns:InsertInterested" />
   <xs:element name="InsertInterestedResponse" type="tns:InsertInterestedResponse" />
   <xs:element name="InsertIntern" type="tns:InsertIntern" />
@@ -30,6 +36,10 @@
   <xs:element name="SearchProfessorByIdResponse" type="tns:SearchProfessorByIdResponse" />
   <xs:element name="SearchProfessorByName" type="tns:SearchProfessorByName" />
   <xs:element name="SearchProfessorByNameResponse" type="tns:SearchProfessorByNameResponse" />
+  <xs:element name="UpdateCourse" type="tns:UpdateCourse" />
+  <xs:element name="UpdateCourseResponse" type="tns:UpdateCourseResponse" />
+  <xs:element name="UpdateCourseType" type="tns:UpdateCourseType" />
+  <xs:element name="UpdateCourseTypeResponse" type="tns:UpdateCourseTypeResponse" />
   <xs:element name="UpdateInterested" type="tns:UpdateInterested" />
   <xs:element name="UpdateInterestedResponse" type="tns:UpdateInterestedResponse" />
   <xs:element name="UpdateIntern" type="tns:UpdateIntern" />
@@ -41,6 +51,16 @@
   <xs:element name="VerifyUser" type="tns:VerifyUser" />
   <xs:element name="VerifyUserResponse" type="tns:VerifyUserResponse" />
   <xs:element name="Voucher" type="tns:voucher" />
+  <xs:element name="queryAllCourse" type="tns:queryAllCourse" />
+  <xs:element name="queryAllCourseResponse" type="tns:queryAllCourseResponse" />
+  <xs:element name="queryAllCourseType" type="tns:queryAllCourseType" />
+  <xs:element name="queryAllCourseTypeResponse" type="tns:queryAllCourseTypeResponse" />
+  <xs:element name="queryAllCoursesByName" type="tns:queryAllCoursesByName" />
+  <xs:element name="queryAllCoursesByNameResponse" type="tns:queryAllCoursesByNameResponse" />
+  <xs:element name="queryCourseById" type="tns:queryCourseById" />
+  <xs:element name="queryCourseByIdResponse" type="tns:queryCourseByIdResponse" />
+  <xs:element name="queryCourseTypeById" type="tns:queryCourseTypeById" />
+  <xs:element name="queryCourseTypeByIdResponse" type="tns:queryCourseTypeByIdResponse" />
   <xs:complexType name="InsertStudent">
     <xs:sequence>
       <xs:element minOccurs="0" name="student" type="tns:student" />
@@ -219,6 +239,16 @@
       <xs:element name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
+  <xs:complexType name="UpdateCourseType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:courseType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="UpdateCourseTypeResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="QueryAllUsers">
     <xs:sequence />
   </xs:complexType>
@@ -250,22 +280,32 @@
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:professor" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="QueryAllInterns">
-    <xs:sequence />
-  </xs:complexType>
-  <xs:complexType name="QueryAllInternsResponse">
+  <xs:complexType name="UpdateCourse">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:intern" />
+      <xs:element minOccurs="0" name="Course" type="tns:course" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="InsertProfessor">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="professor" type="tns:professor" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="InsertProfessorResponse">
+  <xs:complexType name="UpdateCourseResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="queryCourseTypeById">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="queryCourseTypeByIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:courseType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="queryAllCourse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="queryAllCourseResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:course" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="UpdateProfessor">
@@ -289,12 +329,14 @@
       <xs:element name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="QueryAllInterested">
-    <xs:sequence />
-  </xs:complexType>
-  <xs:complexType name="QueryAllInterestedResponse">
+  <xs:complexType name="InsertCourseType">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:interested" />
+      <xs:element minOccurs="0" name="arg0" type="tns:courseType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="InsertCourseTypeResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="SearchProfessorById">
@@ -305,6 +347,70 @@
   <xs:complexType name="SearchProfessorByIdResponse">
     <xs:sequence>
       <xs:element minOccurs="0" name="return" type="tns:professor" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="UpdateInterested">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="interested" type="tns:interested" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="UpdateInterestedResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DisableCourse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Course" type="tns:course" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DisableCourseResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="QueryAllInterns">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="QueryAllInternsResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:intern" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="InsertProfessor">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="professor" type="tns:professor" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="InsertProfessorResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="queryCourseById">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="queryCourseByIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:course" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="queryAllCourseType">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="queryAllCourseTypeResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:courseType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="QueryAllInterested">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="QueryAllInterestedResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:interested" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="InsertInterested">
@@ -327,6 +433,26 @@
       <xs:element minOccurs="0" name="return" type="tns:userType" />
     </xs:sequence>
   </xs:complexType>
+  <xs:complexType name="queryAllCoursesByName">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="name" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="queryAllCoursesByNameResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:course" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="InsertCourse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Course" type="tns:course" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="InsertCourseResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="QueryInterestedByID">
     <xs:sequence>
       <xs:element minOccurs="0" name="IDInterested" type="xs:string" />
@@ -335,16 +461,6 @@
   <xs:complexType name="QueryInterestedByIDResponse">
     <xs:sequence>
       <xs:element minOccurs="0" name="return" type="tns:interested" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="UpdateInterested">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="interested" type="tns:interested" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="UpdateInterestedResponse">
-    <xs:sequence>
-      <xs:element name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
 </xs:schema>

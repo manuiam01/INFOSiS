@@ -124,11 +124,11 @@ public class Server {
     }
     
     @WebMethod(operationName="queryCourseById")
-    public Course InsertCourse(@WebParam(name="id") String id){
+    public Course queryCourseById(@WebParam(name="id") String id){
         return DBController.queryCourseById(id);
     }
     
-    @WebMethod(operationName="InsertCourse")
+    @WebMethod(operationName="queryAllCoursesByName")
     public ArrayList<Course> QueryAllCoursesByName(@WebParam(name="name") String name){
         return DBController.queryCourseByName(name);
     }
