@@ -2,10 +2,15 @@ package pe.edu.pucp.INFOSiS.model.bean.HR;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * 
  */
+@XmlRootElement(name="InternAssistance")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class InternAssistance implements Serializable{
 
     /**
@@ -15,21 +20,7 @@ public class InternAssistance implements Serializable{
     }
 
     private int id;
-
-    /**
-     * //Para darle formato
-     * DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-     * 	LocalDateTime now = LocalDateTime.now();
-     * 	System.out.println(dtf.format(now)); //2016/11/16 12:08:43
-     */
     private LocalDateTime begin;
-
-    /**
-     * //Para darle forma
-     * DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-     * 	LocalDateTime now = LocalDateTime.now();
-     * 	System.out.println(dtf.format(now)); //2016/11/16 12:08:43
-     */
     private LocalDateTime end;
 
     public InternAssistance(int id, LocalDateTime begin, LocalDateTime end) {

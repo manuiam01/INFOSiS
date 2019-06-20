@@ -16,16 +16,6 @@ namespace INFOSiS_2._0.Server {
     public interface Server {
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://server.INFOSiS.pucp.edu.pe/Server/QueryAllInternsRequest", ReplyAction="http://server.INFOSiS.pucp.edu.pe/Server/QueryAllInternsResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(person))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        INFOSiS_2._0.Server.QueryAllInternsResponse QueryAllInterns(INFOSiS_2._0.Server.QueryAllInternsRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://server.INFOSiS.pucp.edu.pe/Server/QueryAllInternsRequest", ReplyAction="http://server.INFOSiS.pucp.edu.pe/Server/QueryAllInternsResponse")]
-        System.Threading.Tasks.Task<INFOSiS_2._0.Server.QueryAllInternsResponse> QueryAllInternsAsync(INFOSiS_2._0.Server.QueryAllInternsRequest request);
-        
-        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://server.INFOSiS.pucp.edu.pe/Server/QueryAllUsersRequest", ReplyAction="http://server.INFOSiS.pucp.edu.pe/Server/QueryAllUsersResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(person))]
@@ -56,16 +46,6 @@ namespace INFOSiS_2._0.Server {
         System.Threading.Tasks.Task<INFOSiS_2._0.Server.VerifyUserResponse> VerifyUserAsync(INFOSiS_2._0.Server.VerifyUserRequest request);
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://server.INFOSiS.pucp.edu.pe/Server/UpdateInternRequest", ReplyAction="http://server.INFOSiS.pucp.edu.pe/Server/UpdateInternResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(person))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        INFOSiS_2._0.Server.UpdateInternResponse UpdateIntern(INFOSiS_2._0.Server.UpdateInternRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://server.INFOSiS.pucp.edu.pe/Server/UpdateInternRequest", ReplyAction="http://server.INFOSiS.pucp.edu.pe/Server/UpdateInternResponse")]
-        System.Threading.Tasks.Task<INFOSiS_2._0.Server.UpdateInternResponse> UpdateInternAsync(INFOSiS_2._0.Server.UpdateInternRequest request);
-        
-        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://server.INFOSiS.pucp.edu.pe/Server/QueryAllByCourseRequest", ReplyAction="http://server.INFOSiS.pucp.edu.pe/Server/QueryAllByCourseResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(person))]
@@ -74,6 +54,26 @@ namespace INFOSiS_2._0.Server {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://server.INFOSiS.pucp.edu.pe/Server/QueryAllByCourseRequest", ReplyAction="http://server.INFOSiS.pucp.edu.pe/Server/QueryAllByCourseResponse")]
         System.Threading.Tasks.Task<INFOSiS_2._0.Server.QueryAllByCourseResponse> QueryAllByCourseAsync(INFOSiS_2._0.Server.QueryAllByCourseRequest request);
+        
+        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://server.INFOSiS.pucp.edu.pe/Server/InsertInterestedRequest", ReplyAction="http://server.INFOSiS.pucp.edu.pe/Server/InsertInterestedResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(person))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        INFOSiS_2._0.Server.InsertInterestedResponse InsertInterested(INFOSiS_2._0.Server.InsertInterestedRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://server.INFOSiS.pucp.edu.pe/Server/InsertInterestedRequest", ReplyAction="http://server.INFOSiS.pucp.edu.pe/Server/InsertInterestedResponse")]
+        System.Threading.Tasks.Task<INFOSiS_2._0.Server.InsertInterestedResponse> InsertInterestedAsync(INFOSiS_2._0.Server.InsertInterestedRequest request);
+        
+        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://server.INFOSiS.pucp.edu.pe/Server/UpdateInternRequest", ReplyAction="http://server.INFOSiS.pucp.edu.pe/Server/UpdateInternResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(person))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        INFOSiS_2._0.Server.UpdateInternResponse UpdateIntern(INFOSiS_2._0.Server.UpdateInternRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://server.INFOSiS.pucp.edu.pe/Server/UpdateInternRequest", ReplyAction="http://server.INFOSiS.pucp.edu.pe/Server/UpdateInternResponse")]
+        System.Threading.Tasks.Task<INFOSiS_2._0.Server.UpdateInternResponse> UpdateInternAsync(INFOSiS_2._0.Server.UpdateInternRequest request);
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://server.INFOSiS.pucp.edu.pe/Server/InsertInternRequest", ReplyAction="http://server.INFOSiS.pucp.edu.pe/Server/InsertInternResponse")]
@@ -86,14 +86,14 @@ namespace INFOSiS_2._0.Server {
         System.Threading.Tasks.Task<INFOSiS_2._0.Server.InsertInternResponse> InsertInternAsync(INFOSiS_2._0.Server.InsertInternRequest request);
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://server.INFOSiS.pucp.edu.pe/Server/InsertInterestedRequest", ReplyAction="http://server.INFOSiS.pucp.edu.pe/Server/InsertInterestedResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://server.INFOSiS.pucp.edu.pe/Server/QueryAllInternsRequest", ReplyAction="http://server.INFOSiS.pucp.edu.pe/Server/QueryAllInternsResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(person))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        INFOSiS_2._0.Server.InsertInterestedResponse InsertInterested(INFOSiS_2._0.Server.InsertInterestedRequest request);
+        INFOSiS_2._0.Server.QueryAllInternsResponse QueryAllInterns(INFOSiS_2._0.Server.QueryAllInternsRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://server.INFOSiS.pucp.edu.pe/Server/InsertInterestedRequest", ReplyAction="http://server.INFOSiS.pucp.edu.pe/Server/InsertInterestedResponse")]
-        System.Threading.Tasks.Task<INFOSiS_2._0.Server.InsertInterestedResponse> InsertInterestedAsync(INFOSiS_2._0.Server.InsertInterestedRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://server.INFOSiS.pucp.edu.pe/Server/QueryAllInternsRequest", ReplyAction="http://server.INFOSiS.pucp.edu.pe/Server/QueryAllInternsResponse")]
+        System.Threading.Tasks.Task<INFOSiS_2._0.Server.QueryAllInternsResponse> QueryAllInternsAsync(INFOSiS_2._0.Server.QueryAllInternsRequest request);
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://server.INFOSiS.pucp.edu.pe/Server/QueryAllInterestedRequest", ReplyAction="http://server.INFOSiS.pucp.edu.pe/Server/QueryAllInterestedResponse")]
@@ -112,91 +112,20 @@ namespace INFOSiS_2._0.Server {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://server.INFOSiS.pucp.edu.pe/")]
-    public partial class intern : employee {
-        
-        private internAssistance[] assistanceField;
-        
-        private string weekAvailabilityField;
-        
-        private string weekScheduleField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("assistance", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=0)]
-        public internAssistance[] assistance {
-            get {
-                return this.assistanceField;
-            }
-            set {
-                this.assistanceField = value;
-                this.RaisePropertyChanged("assistance");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public string weekAvailability {
-            get {
-                return this.weekAvailabilityField;
-            }
-            set {
-                this.weekAvailabilityField = value;
-                this.RaisePropertyChanged("weekAvailability");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-        public string weekSchedule {
-            get {
-                return this.weekScheduleField;
-            }
-            set {
-                this.weekScheduleField = value;
-                this.RaisePropertyChanged("weekSchedule");
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://server.INFOSiS.pucp.edu.pe/")]
-    public partial class internAssistance : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private localDateTime beginField;
-        
-        private localDateTime endField;
+    public partial class user : object, System.ComponentModel.INotifyPropertyChanged {
         
         private int idField;
         
+        private string usernameField;
+        
+        private string passwordField;
+        
+        private userType accesField;
+        
+        private bool isActiveField;
+        
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public localDateTime begin {
-            get {
-                return this.beginField;
-            }
-            set {
-                this.beginField = value;
-                this.RaisePropertyChanged("begin");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public localDateTime end {
-            get {
-                return this.endField;
-            }
-            set {
-                this.endField = value;
-                this.RaisePropertyChanged("end");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
         public int id {
             get {
                 return this.idField;
@@ -204,6 +133,54 @@ namespace INFOSiS_2._0.Server {
             set {
                 this.idField = value;
                 this.RaisePropertyChanged("id");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public string username {
+            get {
+                return this.usernameField;
+            }
+            set {
+                this.usernameField = value;
+                this.RaisePropertyChanged("username");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public string password {
+            get {
+                return this.passwordField;
+            }
+            set {
+                this.passwordField = value;
+                this.RaisePropertyChanged("password");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+        public userType acces {
+            get {
+                return this.accesField;
+            }
+            set {
+                this.accesField = value;
+                this.RaisePropertyChanged("acces");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+        public bool isActive {
+            get {
+                return this.isActiveField;
+            }
+            set {
+                this.isActiveField = value;
+                this.RaisePropertyChanged("isActive");
             }
         }
         
@@ -223,7 +200,35 @@ namespace INFOSiS_2._0.Server {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://server.INFOSiS.pucp.edu.pe/")]
-    public partial class localDateTime : object, System.ComponentModel.INotifyPropertyChanged {
+    public partial class userType : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private int idField;
+        
+        private string nameField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public int id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+                this.RaisePropertyChanged("id");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public string name {
+            get {
+                return this.nameField;
+            }
+            set {
+                this.nameField = value;
+                this.RaisePropertyChanged("name");
+            }
+        }
         
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
@@ -417,6 +422,84 @@ namespace INFOSiS_2._0.Server {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://server.INFOSiS.pucp.edu.pe/")]
+    public partial class localDateTime : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://server.INFOSiS.pucp.edu.pe/")]
+    public partial class internAssistance : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private localDateTime beginField;
+        
+        private localDateTime endField;
+        
+        private int idField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public localDateTime begin {
+            get {
+                return this.beginField;
+            }
+            set {
+                this.beginField = value;
+                this.RaisePropertyChanged("begin");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public localDateTime end {
+            get {
+                return this.endField;
+            }
+            set {
+                this.endField = value;
+                this.RaisePropertyChanged("end");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public int id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+                this.RaisePropertyChanged("id");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://server.INFOSiS.pucp.edu.pe/")]
     public partial class role : object, System.ComponentModel.INotifyPropertyChanged {
         
         private int idField;
@@ -458,140 +541,6 @@ namespace INFOSiS_2._0.Server {
             set {
                 this.nameField = value;
                 this.RaisePropertyChanged("name");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://server.INFOSiS.pucp.edu.pe/")]
-    public partial class userType : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private int idField;
-        
-        private string nameField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public int id {
-            get {
-                return this.idField;
-            }
-            set {
-                this.idField = value;
-                this.RaisePropertyChanged("id");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public string name {
-            get {
-                return this.nameField;
-            }
-            set {
-                this.nameField = value;
-                this.RaisePropertyChanged("name");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://server.INFOSiS.pucp.edu.pe/")]
-    public partial class user : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private int idField;
-        
-        private string usernameField;
-        
-        private string passwordField;
-        
-        private userType accesField;
-        
-        private bool isActiveField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public int id {
-            get {
-                return this.idField;
-            }
-            set {
-                this.idField = value;
-                this.RaisePropertyChanged("id");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public string username {
-            get {
-                return this.usernameField;
-            }
-            set {
-                this.usernameField = value;
-                this.RaisePropertyChanged("username");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-        public string password {
-            get {
-                return this.passwordField;
-            }
-            set {
-                this.passwordField = value;
-                this.RaisePropertyChanged("password");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
-        public userType acces {
-            get {
-                return this.accesField;
-            }
-            set {
-                this.accesField = value;
-                this.RaisePropertyChanged("acces");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
-        public bool isActive {
-            get {
-                return this.isActiveField;
-            }
-            set {
-                this.isActiveField = value;
-                this.RaisePropertyChanged("isActive");
             }
         }
         
@@ -1061,31 +1010,54 @@ namespace INFOSiS_2._0.Server {
         }
     }
     
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="QueryAllInterns", WrapperNamespace="http://server.INFOSiS.pucp.edu.pe/", IsWrapped=true)]
-    public partial class QueryAllInternsRequest {
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://server.INFOSiS.pucp.edu.pe/")]
+    public partial class intern : employee {
         
-        public QueryAllInternsRequest() {
+        private internAssistance[] assistanceField;
+        
+        private string weekAvailabilityField;
+        
+        private string weekScheduleField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("assistance", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=0)]
+        public internAssistance[] assistance {
+            get {
+                return this.assistanceField;
+            }
+            set {
+                this.assistanceField = value;
+                this.RaisePropertyChanged("assistance");
+            }
         }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="QueryAllInternsResponse", WrapperNamespace="http://server.INFOSiS.pucp.edu.pe/", IsWrapped=true)]
-    public partial class QueryAllInternsResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://server.INFOSiS.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public INFOSiS_2._0.Server.intern[] @return;
-        
-        public QueryAllInternsResponse() {
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public string weekAvailability {
+            get {
+                return this.weekAvailabilityField;
+            }
+            set {
+                this.weekAvailabilityField = value;
+                this.RaisePropertyChanged("weekAvailability");
+            }
         }
         
-        public QueryAllInternsResponse(INFOSiS_2._0.Server.intern[] @return) {
-            this.@return = @return;
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public string weekSchedule {
+            get {
+                return this.weekScheduleField;
+            }
+            set {
+                this.weekScheduleField = value;
+                this.RaisePropertyChanged("weekSchedule");
+            }
         }
     }
     
@@ -1192,6 +1164,78 @@ namespace INFOSiS_2._0.Server {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="QueryAllByCourse", WrapperNamespace="http://server.INFOSiS.pucp.edu.pe/", IsWrapped=true)]
+    public partial class QueryAllByCourseRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://server.INFOSiS.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public INFOSiS_2._0.Server.course course;
+        
+        public QueryAllByCourseRequest() {
+        }
+        
+        public QueryAllByCourseRequest(INFOSiS_2._0.Server.course course) {
+            this.course = course;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="QueryAllByCourseResponse", WrapperNamespace="http://server.INFOSiS.pucp.edu.pe/", IsWrapped=true)]
+    public partial class QueryAllByCourseResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://server.INFOSiS.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public INFOSiS_2._0.Server.interested[] @return;
+        
+        public QueryAllByCourseResponse() {
+        }
+        
+        public QueryAllByCourseResponse(INFOSiS_2._0.Server.interested[] @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="InsertInterested", WrapperNamespace="http://server.INFOSiS.pucp.edu.pe/", IsWrapped=true)]
+    public partial class InsertInterestedRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://server.INFOSiS.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public INFOSiS_2._0.Server.interested interested;
+        
+        public InsertInterestedRequest() {
+        }
+        
+        public InsertInterestedRequest(INFOSiS_2._0.Server.interested interested) {
+            this.interested = interested;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="InsertInterestedResponse", WrapperNamespace="http://server.INFOSiS.pucp.edu.pe/", IsWrapped=true)]
+    public partial class InsertInterestedResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://server.INFOSiS.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int @return;
+        
+        public InsertInterestedResponse() {
+        }
+        
+        public InsertInterestedResponse(int @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateIntern", WrapperNamespace="http://server.INFOSiS.pucp.edu.pe/", IsWrapped=true)]
     public partial class UpdateInternRequest {
         
@@ -1226,42 +1270,6 @@ namespace INFOSiS_2._0.Server {
         }
         
         public UpdateInternResponse(int @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="QueryAllByCourse", WrapperNamespace="http://server.INFOSiS.pucp.edu.pe/", IsWrapped=true)]
-    public partial class QueryAllByCourseRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://server.INFOSiS.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public INFOSiS_2._0.Server.course course;
-        
-        public QueryAllByCourseRequest() {
-        }
-        
-        public QueryAllByCourseRequest(INFOSiS_2._0.Server.course course) {
-            this.course = course;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="QueryAllByCourseResponse", WrapperNamespace="http://server.INFOSiS.pucp.edu.pe/", IsWrapped=true)]
-    public partial class QueryAllByCourseResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://server.INFOSiS.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public INFOSiS_2._0.Server.interested[] @return;
-        
-        public QueryAllByCourseResponse() {
-        }
-        
-        public QueryAllByCourseResponse(INFOSiS_2._0.Server.interested[] @return) {
             this.@return = @return;
         }
     }
@@ -1310,35 +1318,27 @@ namespace INFOSiS_2._0.Server {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="InsertInterested", WrapperNamespace="http://server.INFOSiS.pucp.edu.pe/", IsWrapped=true)]
-    public partial class InsertInterestedRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="QueryAllInterns", WrapperNamespace="http://server.INFOSiS.pucp.edu.pe/", IsWrapped=true)]
+    public partial class QueryAllInternsRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://server.INFOSiS.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public INFOSiS_2._0.Server.interested interested;
-        
-        public InsertInterestedRequest() {
-        }
-        
-        public InsertInterestedRequest(INFOSiS_2._0.Server.interested interested) {
-            this.interested = interested;
+        public QueryAllInternsRequest() {
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="InsertInterestedResponse", WrapperNamespace="http://server.INFOSiS.pucp.edu.pe/", IsWrapped=true)]
-    public partial class InsertInterestedResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="QueryAllInternsResponse", WrapperNamespace="http://server.INFOSiS.pucp.edu.pe/", IsWrapped=true)]
+    public partial class QueryAllInternsResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://server.INFOSiS.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int @return;
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public INFOSiS_2._0.Server.intern[] @return;
         
-        public InsertInterestedResponse() {
+        public QueryAllInternsResponse() {
         }
         
-        public InsertInterestedResponse(int @return) {
+        public QueryAllInternsResponse(INFOSiS_2._0.Server.intern[] @return) {
             this.@return = @return;
         }
     }
@@ -1396,27 +1396,6 @@ namespace INFOSiS_2._0.Server {
         
         public ServerClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        INFOSiS_2._0.Server.QueryAllInternsResponse INFOSiS_2._0.Server.Server.QueryAllInterns(INFOSiS_2._0.Server.QueryAllInternsRequest request) {
-            return base.Channel.QueryAllInterns(request);
-        }
-        
-        public INFOSiS_2._0.Server.intern[] QueryAllInterns() {
-            INFOSiS_2._0.Server.QueryAllInternsRequest inValue = new INFOSiS_2._0.Server.QueryAllInternsRequest();
-            INFOSiS_2._0.Server.QueryAllInternsResponse retVal = ((INFOSiS_2._0.Server.Server)(this)).QueryAllInterns(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<INFOSiS_2._0.Server.QueryAllInternsResponse> INFOSiS_2._0.Server.Server.QueryAllInternsAsync(INFOSiS_2._0.Server.QueryAllInternsRequest request) {
-            return base.Channel.QueryAllInternsAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<INFOSiS_2._0.Server.QueryAllInternsResponse> QueryAllInternsAsync() {
-            INFOSiS_2._0.Server.QueryAllInternsRequest inValue = new INFOSiS_2._0.Server.QueryAllInternsRequest();
-            return ((INFOSiS_2._0.Server.Server)(this)).QueryAllInternsAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -1487,6 +1466,52 @@ namespace INFOSiS_2._0.Server {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        INFOSiS_2._0.Server.QueryAllByCourseResponse INFOSiS_2._0.Server.Server.QueryAllByCourse(INFOSiS_2._0.Server.QueryAllByCourseRequest request) {
+            return base.Channel.QueryAllByCourse(request);
+        }
+        
+        public INFOSiS_2._0.Server.interested[] QueryAllByCourse(INFOSiS_2._0.Server.course course) {
+            INFOSiS_2._0.Server.QueryAllByCourseRequest inValue = new INFOSiS_2._0.Server.QueryAllByCourseRequest();
+            inValue.course = course;
+            INFOSiS_2._0.Server.QueryAllByCourseResponse retVal = ((INFOSiS_2._0.Server.Server)(this)).QueryAllByCourse(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<INFOSiS_2._0.Server.QueryAllByCourseResponse> INFOSiS_2._0.Server.Server.QueryAllByCourseAsync(INFOSiS_2._0.Server.QueryAllByCourseRequest request) {
+            return base.Channel.QueryAllByCourseAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<INFOSiS_2._0.Server.QueryAllByCourseResponse> QueryAllByCourseAsync(INFOSiS_2._0.Server.course course) {
+            INFOSiS_2._0.Server.QueryAllByCourseRequest inValue = new INFOSiS_2._0.Server.QueryAllByCourseRequest();
+            inValue.course = course;
+            return ((INFOSiS_2._0.Server.Server)(this)).QueryAllByCourseAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        INFOSiS_2._0.Server.InsertInterestedResponse INFOSiS_2._0.Server.Server.InsertInterested(INFOSiS_2._0.Server.InsertInterestedRequest request) {
+            return base.Channel.InsertInterested(request);
+        }
+        
+        public int InsertInterested(INFOSiS_2._0.Server.interested interested) {
+            INFOSiS_2._0.Server.InsertInterestedRequest inValue = new INFOSiS_2._0.Server.InsertInterestedRequest();
+            inValue.interested = interested;
+            INFOSiS_2._0.Server.InsertInterestedResponse retVal = ((INFOSiS_2._0.Server.Server)(this)).InsertInterested(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<INFOSiS_2._0.Server.InsertInterestedResponse> INFOSiS_2._0.Server.Server.InsertInterestedAsync(INFOSiS_2._0.Server.InsertInterestedRequest request) {
+            return base.Channel.InsertInterestedAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<INFOSiS_2._0.Server.InsertInterestedResponse> InsertInterestedAsync(INFOSiS_2._0.Server.interested interested) {
+            INFOSiS_2._0.Server.InsertInterestedRequest inValue = new INFOSiS_2._0.Server.InsertInterestedRequest();
+            inValue.interested = interested;
+            return ((INFOSiS_2._0.Server.Server)(this)).InsertInterestedAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         INFOSiS_2._0.Server.UpdateInternResponse INFOSiS_2._0.Server.Server.UpdateIntern(INFOSiS_2._0.Server.UpdateInternRequest request) {
             return base.Channel.UpdateIntern(request);
         }
@@ -1509,29 +1534,6 @@ namespace INFOSiS_2._0.Server {
             inValue.intern = intern;
             inValue.access = access;
             return ((INFOSiS_2._0.Server.Server)(this)).UpdateInternAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        INFOSiS_2._0.Server.QueryAllByCourseResponse INFOSiS_2._0.Server.Server.QueryAllByCourse(INFOSiS_2._0.Server.QueryAllByCourseRequest request) {
-            return base.Channel.QueryAllByCourse(request);
-        }
-        
-        public INFOSiS_2._0.Server.interested[] QueryAllByCourse(INFOSiS_2._0.Server.course course) {
-            INFOSiS_2._0.Server.QueryAllByCourseRequest inValue = new INFOSiS_2._0.Server.QueryAllByCourseRequest();
-            inValue.course = course;
-            INFOSiS_2._0.Server.QueryAllByCourseResponse retVal = ((INFOSiS_2._0.Server.Server)(this)).QueryAllByCourse(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<INFOSiS_2._0.Server.QueryAllByCourseResponse> INFOSiS_2._0.Server.Server.QueryAllByCourseAsync(INFOSiS_2._0.Server.QueryAllByCourseRequest request) {
-            return base.Channel.QueryAllByCourseAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<INFOSiS_2._0.Server.QueryAllByCourseResponse> QueryAllByCourseAsync(INFOSiS_2._0.Server.course course) {
-            INFOSiS_2._0.Server.QueryAllByCourseRequest inValue = new INFOSiS_2._0.Server.QueryAllByCourseRequest();
-            inValue.course = course;
-            return ((INFOSiS_2._0.Server.Server)(this)).QueryAllByCourseAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -1560,26 +1562,24 @@ namespace INFOSiS_2._0.Server {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        INFOSiS_2._0.Server.InsertInterestedResponse INFOSiS_2._0.Server.Server.InsertInterested(INFOSiS_2._0.Server.InsertInterestedRequest request) {
-            return base.Channel.InsertInterested(request);
+        INFOSiS_2._0.Server.QueryAllInternsResponse INFOSiS_2._0.Server.Server.QueryAllInterns(INFOSiS_2._0.Server.QueryAllInternsRequest request) {
+            return base.Channel.QueryAllInterns(request);
         }
         
-        public int InsertInterested(INFOSiS_2._0.Server.interested interested) {
-            INFOSiS_2._0.Server.InsertInterestedRequest inValue = new INFOSiS_2._0.Server.InsertInterestedRequest();
-            inValue.interested = interested;
-            INFOSiS_2._0.Server.InsertInterestedResponse retVal = ((INFOSiS_2._0.Server.Server)(this)).InsertInterested(inValue);
+        public INFOSiS_2._0.Server.intern[] QueryAllInterns() {
+            INFOSiS_2._0.Server.QueryAllInternsRequest inValue = new INFOSiS_2._0.Server.QueryAllInternsRequest();
+            INFOSiS_2._0.Server.QueryAllInternsResponse retVal = ((INFOSiS_2._0.Server.Server)(this)).QueryAllInterns(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<INFOSiS_2._0.Server.InsertInterestedResponse> INFOSiS_2._0.Server.Server.InsertInterestedAsync(INFOSiS_2._0.Server.InsertInterestedRequest request) {
-            return base.Channel.InsertInterestedAsync(request);
+        System.Threading.Tasks.Task<INFOSiS_2._0.Server.QueryAllInternsResponse> INFOSiS_2._0.Server.Server.QueryAllInternsAsync(INFOSiS_2._0.Server.QueryAllInternsRequest request) {
+            return base.Channel.QueryAllInternsAsync(request);
         }
         
-        public System.Threading.Tasks.Task<INFOSiS_2._0.Server.InsertInterestedResponse> InsertInterestedAsync(INFOSiS_2._0.Server.interested interested) {
-            INFOSiS_2._0.Server.InsertInterestedRequest inValue = new INFOSiS_2._0.Server.InsertInterestedRequest();
-            inValue.interested = interested;
-            return ((INFOSiS_2._0.Server.Server)(this)).InsertInterestedAsync(inValue);
+        public System.Threading.Tasks.Task<INFOSiS_2._0.Server.QueryAllInternsResponse> QueryAllInternsAsync() {
+            INFOSiS_2._0.Server.QueryAllInternsRequest inValue = new INFOSiS_2._0.Server.QueryAllInternsRequest();
+            return ((INFOSiS_2._0.Server.Server)(this)).QueryAllInternsAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]

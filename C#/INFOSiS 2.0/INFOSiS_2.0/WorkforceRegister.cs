@@ -48,34 +48,53 @@ namespace INFOSiS_2._0
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (rbDNI.Checked)
-            {
-                if (txtDocumentNumber.Text.Count() != 8 ||
-                   (txtDocumentNumber.Text.Count() == 8 && !verifyDocumentNumber(txtDocumentNumber.Text)))
-                {
-                    MessageBox.Show("Número de documento inválido", "Error en el registro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    MessageBox.Show("Registro exitoso", "Registro efectuado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-            else if (rbForeignCard.Checked || rbPassport.Checked)
-            {
-                if (txtDocumentNumber.Text.Count() != 12 ||
-                   (txtDocumentNumber.Text.Count() == 12 && !verifyDocumentNumber(txtDocumentNumber.Text)))
-                {
-                    MessageBox.Show("Número de documento inválido", "Error en el registro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    MessageBox.Show("Registro exitoso", "Registro efectuado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-            else
-            {
-                servidor = new Server.ServerClient();
-            }
+            servidor = new Server.ServerClient();
+            Server.intern intern = new Server.intern();
+            Server.userType userType = new Server.userType();
+            userType.id = 0;
+            userType.name = "User";
+
+            intern.idPUCP = txtPUCPCode.Text;
+            intern.idType = 0;
+            intern.idNumber = txtDocumentNumber.Text;
+            intern.firstName = txtFirstName.Text;
+            intern.middleName = txtSecondLastName.Text;
+            intern.primaryLastName = txtPrimaryLastName.Text;
+            intern.secondLastName = txtSecondLastName.Text;
+            intern.gender = "M";
+            intern.email = txtEmail.Text;
+            intern.emailPUCP = txtEmailPUCP.Text;
+            intern.cellPhoneNumber = txtCellphone.Text;
+
+            servidor.InsertIntern(intern, userType);
+            //if (rbDNI.Checked)
+            //{
+            //    if (txtDocumentNumber.Text.Count() != 8 ||
+            //       (txtDocumentNumber.Text.Count() == 8 && !verifyDocumentNumber(txtDocumentNumber.Text)))
+            //    {
+            //        MessageBox.Show("Número de documento inválido", "Error en el registro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show("Registro exitoso", "Registro efectuado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    }
+            //}
+            //else if (rbForeignCard.Checked || rbPassport.Checked)
+            //{
+            //    if (txtDocumentNumber.Text.Count() != 12 ||
+            //       (txtDocumentNumber.Text.Count() == 12 && !verifyDocumentNumber(txtDocumentNumber.Text)))
+            //    {
+            //        MessageBox.Show("Número de documento inválido", "Error en el registro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show("Registro exitoso", "Registro efectuado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    }
+            //}
+            //else
+            //{
+                
+            //}
         }
     }
 }
