@@ -15,6 +15,7 @@ namespace INFOSiS_2._0
         private static CourseRegister _instance;
         private static Panel _panelMdi;
         private string silabo;
+        private Server.ServerClient server;
 
         public static CourseRegister Instance
         {
@@ -35,9 +36,12 @@ namespace INFOSiS_2._0
         public CourseRegister()
         {
             InitializeComponent();
-            cmbCourseType.Items.Add("Excel");
-            cmbCourseType.Items.Add("Word");
-            cmbCourseType.Items.Add("AutoCAD");
+            server = new Server.ServerClient();
+            Server.courseType[] coursetypes = server.queryAllCourseType();
+            BindingList<Server.courseType> list_coursetypes = new BindingList<Server.courseType>(coursetypes);
+            cmbCourseType.DataSource = list_coursetypes;
+            cmbCourseType.DisplayMember = "name";
+            
         }
 
         private void btnSave_Click(object sender, EventArgs e)
