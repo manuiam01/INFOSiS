@@ -78,6 +78,11 @@ public class Server {
         return DBController.queryInterestedById(idInterested);
     }
     
+    @WebMethod(operationName="UpdateInterested")
+    public int updateInterested(@WebParam(name="interested")Interested interested){
+        return DBController.updateInterested(interested);
+    }
+    
     @WebMethod(operationName="InsertStudent")
     public int insertStudent(@WebParam(name="student")Student student){
         return DBController.insertStudent(student);

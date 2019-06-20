@@ -257,6 +257,8 @@ public class MySQLInterested implements DAOInterested {
                 interested.setMiddleName(rs.getString("middleName"));
                 interested.setPrimaryLastName(rs.getString("primaryLastName"));
                 interested.setIsUnsubscribed(rs.getInt("isUnsuscribed")==1);
+                interested.setCellPhoneNumber(rs.getString("cellPhoneNumber"));
+                interested.setEmail(rs.getString("email"));
             }
             con.close();
         }

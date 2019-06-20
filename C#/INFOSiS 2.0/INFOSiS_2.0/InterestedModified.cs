@@ -14,6 +14,8 @@ namespace INFOSiS_2._0
     {
         private static InterestedModified _instance;
         private static Panel _panelMdi;
+        private Server.ServerClient server;
+        MessageBoxIcon iconoCorrecto = MessageBoxIcon.Asterisk;
 
         public static InterestedModified Instance
         {
@@ -130,7 +132,46 @@ namespace INFOSiS_2._0
             
             else
             {
-                establecerEstado(Estado.Actualizar);
+                String identificacion = txbNDocumento.Text;
+                server = new Server.ServerClient();
+                Server.interested interested = server.QueryInterestedByID(identificacion);
+                
+                if (interested.idNumber == identificacion)
+                {
+                    establecerEstado(Estado.Actualizar);
+                    txbNombre.Text = interested.firstName;
+                    txbSegundoNom.Text = interested.middleName;
+                    txbApePa.Text = interested.primaryLastName;
+                    txbApeMa.Text = interested.secondLastName;
+                    txtCellphone.Text = interested.cellPhoneNumber;
+                    txtEmail.Text = interested.email;
+                    rbCarnet.Enabled = false;
+                    rbDNI.Enabled = false;
+                    rbPasaporte.Enabled = false;
+                    btBuscarCursos.Enabled = false;
+
+                }
+                else
+                {
+                    DialogResult mensajeError;
+                    String mensaje;
+                    String titulo;
+                    MessageBoxIcon icono;
+                    if (!ValidarIdentificacion(identificacion))
+                    {
+                        mensaje = "ERROR: El número de identificación ingresado no es válido.";
+                        titulo = "Número de identificación no válido";
+                        icono = MessageBoxIcon.Error;
+
+                    }
+                    else
+                    {
+                        mensaje = "ADVERTENCIA: El alumno ingresado aún no está registrado como interesado.";
+                        titulo = "Alumno no registrado como interesado";
+                        icono = MessageBoxIcon.Warning;
+                    }
+                    mensajeError = MessageBox.Show(mensaje, titulo, MessageBoxButtons.OK, icono);
+                }
             }
             
         }
@@ -171,6 +212,23 @@ namespace INFOSiS_2._0
                 MessageBox.Show("No ingresó el número de contacto del interesado", "Aviso", MessageBoxButtons.OK);
             else if (txtEmail.Text == "")
                 MessageBox.Show("No ingresó el correo del interesado", "Aviso", MessageBoxButtons.OK);
+            else
+            {
+                server = new Server.ServerClient();
+                Server.interested inte = new Server.interested();
+                inte.firstName = txbNombre.Text;
+                inte.idNumber = txbNDocumento.Text;
+                inte.secondLastName = txbApeMa.Text;
+                inte.primaryLastName = txbApePa.Text;
+                inte.middleName = txbSegundoNom.Text;
+                inte.cellPhoneNumber = txtCellphone.Text;
+                inte.email = txtEmail.Text;
+                inte.courses = new Server.course[5];
+                server.UpdateInterested(inte);
+                MessageBox.Show("Se modificó al interesado de manera correcta", "Éxito", MessageBoxButtons.OK, iconoCorrecto);
+                limpiar();
+                establecerEstado(Estado.Inicial);
+            }
             
         }
 
@@ -202,6 +260,33 @@ namespace INFOSiS_2._0
         private void LbBusquedaAvanzada_MouseLeave(object sender, EventArgs e)
         {
             Cursor = Cursors.Default;
+        }
+        private bool ValidarIdentificacion(string identificacion)
+        {
+            if (identificacion.Length == 0)
+            {
+                return false;
+            }
+
+            if (rbDNI.Checked)
+            {
+                if (identificacion.Length != 8) return false;
+                int dni;
+                bool resultado = int.TryParse(identificacion, out dni);
+                return resultado;
+            }
+            else
+            {
+                if (identificacion.Length != 12) return false;
+                var validos = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZabcdefghijklmnñopqrstuvwxyz1234567890";
+                bool valido = true;
+                foreach (char c in identificacion)
+                {
+                    valido = validos.IndexOf(c) != -1;
+                    if (!valido) break;
+                }
+                return valido;
+            }
         }
     }
 }

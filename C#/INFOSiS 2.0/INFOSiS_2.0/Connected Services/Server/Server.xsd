@@ -30,6 +30,8 @@
   <xs:element name="SearchProfessorByIdResponse" type="tns:SearchProfessorByIdResponse" />
   <xs:element name="SearchProfessorByName" type="tns:SearchProfessorByName" />
   <xs:element name="SearchProfessorByNameResponse" type="tns:SearchProfessorByNameResponse" />
+  <xs:element name="UpdateInterested" type="tns:UpdateInterested" />
+  <xs:element name="UpdateInterestedResponse" type="tns:UpdateInterestedResponse" />
   <xs:element name="UpdateIntern" type="tns:UpdateIntern" />
   <xs:element name="UpdateInternResponse" type="tns:UpdateInternResponse" />
   <xs:element name="UpdateProfessor" type="tns:UpdateProfessor" />
@@ -333,6 +335,16 @@
   <xs:complexType name="QueryInterestedByIDResponse">
     <xs:sequence>
       <xs:element minOccurs="0" name="return" type="tns:interested" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="UpdateInterested">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="interested" type="tns:interested" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="UpdateInterestedResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
 </xs:schema>

@@ -368,6 +368,9 @@
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.SearchProfessorByNameResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.UpdateInterestedResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.UpdateInternResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
