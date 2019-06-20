@@ -10,12 +10,14 @@ import pe.edu.pucp.INFOSiS.controller.dao.DAOCourseType;
 import pe.edu.pucp.INFOSiS.controller.dao.DAOInterested;
 import pe.edu.pucp.INFOSiS.controller.dao.DAOIntern;
 import pe.edu.pucp.INFOSiS.controller.dao.DAOProfessor;
+import pe.edu.pucp.INFOSiS.controller.dao.DAOStudent;
 import pe.edu.pucp.INFOSiS.controller.dao.DAOUser;
 import pe.edu.pucp.INFOSiS.controller.mysql.MySQLCourse;
 import pe.edu.pucp.INFOSiS.controller.mysql.MySQLCourseType;
 import pe.edu.pucp.INFOSiS.controller.mysql.MySQLInterested;
 import pe.edu.pucp.INFOSiS.controller.mysql.MySQLIntern;
 import pe.edu.pucp.INFOSiS.controller.mysql.MySQLProfessor;
+import pe.edu.pucp.INFOSiS.controller.mysql.MySQLStudent;
 import pe.edu.pucp.INFOSiS.controller.mysql.MySQLUser;
 
 /**
@@ -56,5 +58,12 @@ public class MySQLDAOFactory extends DAOFactory{
     public DAOIntern getDAOIntern() {
         return new MySQLIntern();
     }
+
+    @Override
+    public DAOStudent getStudentDAO() {
+        return new MySQLStudent();
+    }
+    
+    
     
 }
