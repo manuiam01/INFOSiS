@@ -32,11 +32,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblInterestedRegister = new System.Windows.Forms.Label();
             this.dgvInteresadosMailing = new System.Windows.Forms.DataGridView();
-            this.cNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cApePa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cCorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cSexo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cEnviar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.dtpInicioCurso = new System.Windows.Forms.DateTimePicker();
             this.btnSearch = new System.Windows.Forms.Button();
@@ -45,6 +40,11 @@
             this.lblEditarMail = new System.Windows.Forms.Label();
             this.btCancelar = new System.Windows.Forms.Button();
             this.btModificar = new System.Windows.Forms.Button();
+            this.cNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cApePa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cCorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cSexo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cEnviar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInteresadosMailing)).BeginInit();
             this.SuspendLayout();
             // 
@@ -95,47 +95,7 @@
             this.dgvInteresadosMailing.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvInteresadosMailing.Size = new System.Drawing.Size(763, 247);
             this.dgvInteresadosMailing.TabIndex = 173;
-            // 
-            // cNombre
-            // 
-            this.cNombre.FillWeight = 150F;
-            this.cNombre.HeaderText = "Nombre";
-            this.cNombre.MinimumWidth = 10;
-            this.cNombre.Name = "cNombre";
-            this.cNombre.ReadOnly = true;
-            this.cNombre.Width = 180;
-            // 
-            // cApePa
-            // 
-            this.cApePa.HeaderText = "Apellido Paterno";
-            this.cApePa.MinimumWidth = 10;
-            this.cApePa.Name = "cApePa";
-            this.cApePa.ReadOnly = true;
-            this.cApePa.Width = 180;
-            // 
-            // cCorreo
-            // 
-            this.cCorreo.HeaderText = "Correo";
-            this.cCorreo.MinimumWidth = 10;
-            this.cCorreo.Name = "cCorreo";
-            this.cCorreo.ReadOnly = true;
-            this.cCorreo.Width = 200;
-            // 
-            // cSexo
-            // 
-            this.cSexo.HeaderText = "Sexo";
-            this.cSexo.Name = "cSexo";
-            this.cSexo.ReadOnly = true;
-            // 
-            // cEnviar
-            // 
-            this.cEnviar.HeaderText = "Enviar";
-            this.cEnviar.MinimumWidth = 10;
-            this.cEnviar.Name = "cEnviar";
-            this.cEnviar.ReadOnly = true;
-            this.cEnviar.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.cEnviar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.cEnviar.Width = 60;
+            this.dgvInteresadosMailing.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInteresadosMailing_CellContentClick);
             // 
             // label1
             // 
@@ -243,6 +203,51 @@
             this.btModificar.UseVisualStyleBackColor = false;
             this.btModificar.Click += new System.EventHandler(this.btModificar_Click);
             // 
+            // cNombre
+            // 
+            this.cNombre.DataPropertyName = "firstName";
+            this.cNombre.FillWeight = 150F;
+            this.cNombre.HeaderText = "Nombre";
+            this.cNombre.MinimumWidth = 10;
+            this.cNombre.Name = "cNombre";
+            this.cNombre.ReadOnly = true;
+            this.cNombre.Width = 180;
+            // 
+            // cApePa
+            // 
+            this.cApePa.DataPropertyName = "primaryLastName";
+            this.cApePa.HeaderText = "Apellido Paterno";
+            this.cApePa.MinimumWidth = 10;
+            this.cApePa.Name = "cApePa";
+            this.cApePa.ReadOnly = true;
+            this.cApePa.Width = 180;
+            // 
+            // cCorreo
+            // 
+            this.cCorreo.DataPropertyName = "email";
+            this.cCorreo.HeaderText = "Correo";
+            this.cCorreo.MinimumWidth = 10;
+            this.cCorreo.Name = "cCorreo";
+            this.cCorreo.ReadOnly = true;
+            this.cCorreo.Width = 200;
+            // 
+            // cSexo
+            // 
+            this.cSexo.DataPropertyName = "gender";
+            this.cSexo.HeaderText = "Sexo";
+            this.cSexo.Name = "cSexo";
+            this.cSexo.ReadOnly = true;
+            // 
+            // cEnviar
+            // 
+            this.cEnviar.HeaderText = "Enviar";
+            this.cEnviar.MinimumWidth = 10;
+            this.cEnviar.Name = "cEnviar";
+            this.cEnviar.ReadOnly = true;
+            this.cEnviar.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.cEnviar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.cEnviar.Width = 60;
+            // 
             // InterestedPublicity
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -276,13 +281,13 @@
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblCursoEscogido;
+        private System.Windows.Forms.Label lblEditarMail;
+        private System.Windows.Forms.Button btCancelar;
+        private System.Windows.Forms.Button btModificar;
         private System.Windows.Forms.DataGridViewTextBoxColumn cNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn cApePa;
         private System.Windows.Forms.DataGridViewTextBoxColumn cCorreo;
         private System.Windows.Forms.DataGridViewTextBoxColumn cSexo;
         private System.Windows.Forms.DataGridViewCheckBoxColumn cEnviar;
-        private System.Windows.Forms.Label lblEditarMail;
-        private System.Windows.Forms.Button btCancelar;
-        private System.Windows.Forms.Button btModificar;
     }
 }

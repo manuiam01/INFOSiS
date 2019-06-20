@@ -15,6 +15,7 @@ namespace INFOSiS_2._0
 {
     public partial class InterestedPublicity : UserControl
     {
+
         private Server.ServerClient servidor;
         private static InterestedPublicity _instance;
         private static Panel _panelMdi;
@@ -44,6 +45,8 @@ namespace INFOSiS_2._0
         {
             InitializeComponent();
             dtpInicioCurso.MinDate = DateTime.Now;
+            btnSearch.Enabled = false;
+            dgvInteresadosMailing.DataSource = servidor.QueryAllInterested();
             //limpiar();
             
         }
@@ -99,12 +102,16 @@ namespace INFOSiS_2._0
 
                     //Detalles del Mensaje
                     //Esto debería hacerse por todo el arreglo de correos, pero por ahora probemos con uno solo
+                    foreach(DataGridView row in dgvInteresadosMailing.Rows)
+                    {
+                        
+                    }
                     MailMessage mailDetails = new MailMessage();
                     //mailDetails.From = new MailAddress(email);
                     mailDetails.From = new MailAddress("jeremi.cardenas@pucp.pe");
                     mailDetails.To.Add("jeremics97@gmail.com");
                     //mailDetails.Subject = subject;
-                    mailDetails.Subject = "Probandooo";
+                    mailDetails.Subject = "INFOPUC - Curso de Excel Avanzado - ";
                     mailDetails.IsBodyHtml = html;
                     mailDetails.Body = "Jeremixer never enemixer";
 
@@ -150,6 +157,11 @@ namespace INFOSiS_2._0
         }
 
         private void InterestedPublicity_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvInteresadosMailing_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
