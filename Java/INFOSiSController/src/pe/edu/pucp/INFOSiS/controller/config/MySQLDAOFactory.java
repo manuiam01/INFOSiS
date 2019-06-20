@@ -6,9 +6,11 @@
 package pe.edu.pucp.INFOSiS.controller.config;
 
 import pe.edu.pucp.INFOSiS.controller.dao.DAOInterested;
+import pe.edu.pucp.INFOSiS.controller.dao.DAOIntern;
 import pe.edu.pucp.INFOSiS.controller.dao.DAOProfessor;
 import pe.edu.pucp.INFOSiS.controller.dao.DAOUser;
 import pe.edu.pucp.INFOSiS.controller.mysql.MySQLInterested;
+import pe.edu.pucp.INFOSiS.controller.mysql.MySQLIntern;
 import pe.edu.pucp.INFOSiS.controller.mysql.MySQLProfessor;
 import pe.edu.pucp.INFOSiS.controller.mysql.MySQLUser;
 
@@ -34,6 +36,11 @@ public class MySQLDAOFactory extends DAOFactory{
     @Override
     public DAOProfessor getProfessorDAO() {
         return new MySQLProfessor();
+    }
+
+    @Override
+    public DAOIntern getDAOIntern() {
+        return new MySQLIntern();
     }
     
 }
