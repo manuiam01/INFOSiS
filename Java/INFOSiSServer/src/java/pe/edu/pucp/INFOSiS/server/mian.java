@@ -31,15 +31,16 @@ public class mian {
 //        }
 
 //
-          CourseType coursetype = DBController.queryCourseTypeById(6);
-          Course c = new Course();
-          c.setId("123");
-          c.setName("Grafos2");
-          c.setIsActive(true);
-          c.setDescription("Búsqueda de grafos");
-          c.setSyllabus(null);
-          c.setCourseType(coursetype);
-          System.out.println(DBController.updateCourse(c));
+//          CourseType coursetype = DBController.queryCourseTypeById(6);
+//          Course c = new Course();
+//          c.setId("123");
+//          c.setName("Grafos2");
+//          c.setIsActive(true);
+//          c.setDescription("Búsqueda de grafos");
+//          c.setSyllabus(null);
+//          c.setCourseType(coursetype);
+//          System.out.println(DBController.updateCourse(c));
+
 //            ArrayList<Course> courses = DBController.queryAllCourse();
 //            for(Course c: courses){
 //                System.out.println(c);
@@ -61,5 +62,9 @@ public class mian {
 //        access.setId(0);
 //        access.setName("adf");        
 //        DBController.insertIntern(intern, access);
+          ArrayList<Professor> p = DBController.searchProfessorByName("Freddy", "", "","");
+          for(Professor pro : p){
+            System.out.println(pro.getIdPUCP());
+          }
     }  
 }

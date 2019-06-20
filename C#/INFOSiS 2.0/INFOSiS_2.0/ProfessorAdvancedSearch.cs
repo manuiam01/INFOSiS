@@ -12,11 +12,27 @@ namespace INFOSiS_2._0
 {
     public partial class ProfessorAdvancedSearch : Form
     {
+
+        private Server.ServerClient server;
         public ProfessorAdvancedSearch()
         {
             InitializeComponent();
         }
 
-
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            server = new Server.ServerClient();
+            Server.professor[] professors = server.SearchProfessorByName(txtName.Text, txtMiddleName.Text, txtFirstLastName.Text, txtSecondLastName.Text);
+            if (professors == null)
+            {
+                MessageBox.Show("No se encontraron resultados", "Resultados no encontrados", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else
+            {
+                BindingList<Server.professor> professors_list = new BindingList<Server.professor>(professors);
+                dgvInteresados.AutoGenerateColumns = false;
+                dgvInteresados.DataSource = professors_list;
+            }
+        }
     }
 }
