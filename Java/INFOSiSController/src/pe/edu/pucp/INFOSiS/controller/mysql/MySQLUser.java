@@ -36,7 +36,7 @@ public class MySQLUser implements DAOUser{
             cs.setString(2,user.getUsername());
             cs.setString(3,user.getPassword());
             cs.setInt(4,user.getAcces().getId());
-            cs.setInt(3,1); //active user
+            cs.setInt(5,1); //active user
             res=cs.executeUpdate();
             user.setId(cs.getInt("_id"));
             con.close();

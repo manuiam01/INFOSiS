@@ -18,6 +18,7 @@ public class Employee extends Person implements Serializable {
     private String homePhone;
     private Date birthDate;
     private User user;
+    private Role role;
 
     public Employee(){
         
@@ -80,7 +81,12 @@ public class Employee extends Person implements Serializable {
     public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
     }
-    
-    
 
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
 }
