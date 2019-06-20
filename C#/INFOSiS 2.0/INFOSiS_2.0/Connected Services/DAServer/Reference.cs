@@ -181,7 +181,11 @@ namespace INFOSiS_2._0.DAServer {
     }
     
     /// <remarks/>
+<<<<<<< HEAD
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
+=======
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2612.0")]
+>>>>>>> 05393e78c02103f129483e387a55c7accedc3981
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -519,6 +523,13 @@ namespace INFOSiS_2._0.DAServer {
         
         private course[] coursesCanTeachField;
         
+<<<<<<< HEAD
+=======
+        private string emailPUCPField;
+        
+        private string idPUCPField;
+        
+>>>>>>> 05393e78c02103f129483e387a55c7accedc3981
         private bool isActiveField;
         
         /// <remarks/>
@@ -558,6 +569,7 @@ namespace INFOSiS_2._0.DAServer {
         }
         
         /// <remarks/>
+<<<<<<< HEAD
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         public bool birthDateSpecified {
             get {
@@ -572,6 +584,10 @@ namespace INFOSiS_2._0.DAServer {
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute("coursesCanTeach", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=3)]
         public course[] coursesCanTeach {
+=======
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+        public string idPUCP {
+>>>>>>> 05393e78c02103f129483e387a55c7accedc3981
             get {
                 return this.coursesCanTeachField;
             }
