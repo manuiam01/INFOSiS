@@ -43,14 +43,20 @@ namespace INFOSiS_2._0
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            //BindingList<Server.intern> interns = new BindingList<Server.intern>();
             Server.intern[] interns = new Server.intern[100];
             interns = servidor.QueryAllInterns();
+            BindingList<Server.intern> interns_cs = new BindingList<Server.intern>(interns);
+
+
+
             //ArrayList interns = new ArrayList();
             //interns = servidor.QueryAllInterns();
-
+            /*
             for (int i = 0; i < interns.Length - 1; i++)
             {
-                if (string.Compare(interns[i].idNumber, txtDocumentNumber.Text)==0){
+                if (string.Compare(interns[i].idNumber, txtDocumentNumber.Text) == 0)
+                {
                     txtDocumentNumber.Enabled = false;
                     txtFirstName.Text = interns[i].firstName;
                     txtSecondName.Text = interns[i].middleName;
@@ -66,6 +72,31 @@ namespace INFOSiS_2._0
                     txtAddress.Text = interns[i].address;
                     if (interns[i].user.isActive) rbActive.Checked = true;
                     else if (interns[i].user.isActive) rbInactive.Checked = true;
+
+                    btnModify.Enabled = true;
+                    break;
+                }
+            }*/
+
+            foreach (Server.intern i in interns)
+            {
+                if (string.Compare(i.idNumber, txtDocumentNumber.Text) == 0)
+                {
+                    txtDocumentNumber.Enabled = false;
+                    txtFirstName.Text = i.firstName;
+                    txtSecondName.Text = i.middleName;
+                    txtPrimaryLastName.Text = i.primaryLastName;
+                    txtSecondLastName.Text = i.secondLastName;
+                    if (i.gender == "F") rbWoman.Checked = true;
+                    else if (i.gender == "M") rbMan.Checked = true;
+                    txtCellphone.Text = i.cellPhoneNumber;
+                    txtHomephone.Text = i.homePhone;
+                    txtEmailPUCP.Text = i.emailPUCP;
+                    txtEmail.Text = i.email;
+                    txtPUCPCode.Text = i.idPUCP;
+                    txtAddress.Text = i.address;
+                    if (i.user.isActive) rbActive.Checked = true;
+                    else if (i.user.isActive) rbInactive.Checked = true;
 
                     btnModify.Enabled = true;
                     break;
