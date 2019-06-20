@@ -12,7 +12,7 @@ namespace INFOSiS_2._0
 {
     public partial class InterestedRegister : UserControl
     {
-        private DAServer.ServerClient servidor;
+        private Server.ServerClient servidor;
         MessageBoxIcon iconoWarning = MessageBoxIcon.Warning;
         MessageBoxIcon iconoPregunta = MessageBoxIcon.Question;
         MessageBoxIcon iconoCorrecto = MessageBoxIcon.Asterisk;
@@ -117,10 +117,10 @@ namespace INFOSiS_2._0
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
-            servidor = new DAServer.ServerClient();
-            DAServer.interested i = new DAServer.interested();
-            DAServer.course c1 = new DAServer.course();
-            DAServer.course c2 = new DAServer.course();
+            servidor = new Server.ServerClient();
+            Server.interested i = new Server.interested();
+            Server.course c1 = new Server.course();
+            Server.course c2 = new Server.course();
 
             if (rbCarnet.Checked == false && rbDNI.Checked == false && rbPasaporte.Checked == false)
                 MessageBox.Show("No seleccionó el tipo de documento", "Aviso", MessageBoxButtons.OK, iconoWarning);

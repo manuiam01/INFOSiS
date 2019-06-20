@@ -14,8 +14,8 @@ namespace INFOSiS_2._0
     {
         private static ProfessorRegister _instance;
         private static Panel _panelMdi;
-        private DAServer.ServerClient servidor;
-        private DAServer.professor professor;
+        private Server.ServerClient servidor;
+        private Server.professor professor;
 
         public static ProfessorRegister Instance
         {
@@ -36,7 +36,7 @@ namespace INFOSiS_2._0
         public ProfessorRegister()
         {
             InitializeComponent();
-            servidor = new DAServer.ServerClient();
+            servidor = new Server.ServerClient();
         }
 
         public bool verifyDocumentNumber(String id)
@@ -50,7 +50,7 @@ namespace INFOSiS_2._0
 
         private void btnSave_Click(object sender, EventArgs e) { 
             
-            professor = new DAServer.professor();
+            professor = new Server.professor();
 
             if (rbDNI.Checked)
             {

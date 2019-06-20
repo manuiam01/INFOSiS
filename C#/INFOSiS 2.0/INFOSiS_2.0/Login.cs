@@ -12,7 +12,7 @@ namespace INFOSiS_2._0
 {
     public partial class Login : Form
     {
-        private DAServer.ServerClient servidor;
+        private Server.ServerClient servidor;
         public Login()
         {
             InitializeComponent();
@@ -41,8 +41,8 @@ namespace INFOSiS_2._0
             }
             else
             {
-                servidor = new DAServer.ServerClient();
-                DAServer.user u = new DAServer.user();
+                servidor = new Server.ServerClient();
+                Server.user u = new Server.user();
                 u.username = txtUser.Text;
                 u.password = txtPassword.Text;
                 u.acces= servidor.VerifyUser(u);

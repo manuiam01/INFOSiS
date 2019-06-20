@@ -15,7 +15,7 @@ namespace INFOSiS_2._0
 {
     public partial class InterestedPublicity : UserControl
     {
-        private DAServer.ServerClient servidor;
+        private Server.ServerClient servidor;
         private static InterestedPublicity _instance;
         private static Panel _panelMdi;
         public static String port = "";

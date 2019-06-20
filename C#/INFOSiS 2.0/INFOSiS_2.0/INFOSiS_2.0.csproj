@@ -50,7 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Connected Services\DAServer\Reference.cs">
+    <Compile Include="Connected Services\Server\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -326,35 +326,47 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\DAServer\INFOSiS_2._0.DAServer.InsertInterestedResponse.datasource">
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.InsertInterestedResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\DAServer\INFOSiS_2._0.DAServer.InsertProfessorResponse.datasource">
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.InsertInternResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\DAServer\INFOSiS_2._0.DAServer.interested.datasource">
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.InsertProfessorResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\DAServer\INFOSiS_2._0.DAServer.QueryAllByCourseResponse.datasource">
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.interested.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\DAServer\INFOSiS_2._0.DAServer.QueryAllInterestedResponse.datasource">
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.intern.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\DAServer\INFOSiS_2._0.DAServer.QueryAllUsersResponse.datasource">
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.QueryAllByCourseResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\DAServer\INFOSiS_2._0.DAServer.user.datasource">
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.QueryAllInterestedResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\DAServer\INFOSiS_2._0.DAServer.userType.datasource">
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.QueryAllInternsResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\DAServer\INFOSiS_2._0.DAServer.VerifyUserResponse.datasource">
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.QueryAllUsersResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\DAServer\Server1.wsdl" />
-    <None Include="Connected Services\DAServer\Server1.xsd">
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.UpdateInternResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.user.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.userType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.VerifyUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Server\Server.wsdl" />
+    <None Include="Connected Services\Server\Server.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Resources\perfil2.png" />
@@ -444,16 +456,16 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\DAServer\" />
+    <WCFMetadataStorage Include="Connected Services\Server\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\DAServer\configuration91.svcinfo" />
+    <None Include="Connected Services\Server\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\DAServer\configuration.svcinfo" />
+    <None Include="Connected Services\Server\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\DAServer\Reference.svcmap">
+    <None Include="Connected Services\Server\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

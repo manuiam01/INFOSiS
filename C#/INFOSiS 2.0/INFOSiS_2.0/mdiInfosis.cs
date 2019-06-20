@@ -12,14 +12,14 @@ namespace INFOSiS_2._0
 {
     public partial class MdiInfosis : Form
     {
-        DAServer.user user;
+        Server.user user;
         public MdiInfosis()
         {
             InitializeComponent();
             WindowState = FormWindowState.Maximized;
             panelMdiOptions.Visible = false;
         }
-        public MdiInfosis(DAServer.user u)
+        public MdiInfosis(Server.user u)
         {
             InitializeComponent();
             WindowState = FormWindowState.Maximized;

@@ -16,12 +16,12 @@ namespace INFOSiS_2._0
         private MySQLCourses controllerCursos;
         private ArrayList<Courses> cursos;
         */
-        private DAServer.ServerClient servidor;
+        private Server.ServerClient servidor;
         public InterestedCourses()
         {
             InitializeComponent();
-            servidor = new DAServer.ServerClient();
-            DAServer.course c = new DAServer.course();
+            servidor = new Server.ServerClient();
+            Server.course c = new Server.course();
             //ArrayList<Courses> cursos = servidor.QueryAllCourses;
             //dgvCursos.DataSource = cursos;
             //u.username = txtUser.Text;

@@ -12,7 +12,7 @@ namespace INFOSiS_2._0
 {
     public partial class WorkforceRegister : UserControl
     {
-        private DAServer.ServerClient servidor;
+        private Server.ServerClient servidor;
         private static WorkforceRegister _instance;
         private static Panel _panelMdi;
 
@@ -74,7 +74,7 @@ namespace INFOSiS_2._0
             }
             else
             {
-                servidor = new DAServer.ServerClient();
+                servidor = new Server.ServerClient();
             }
         }
     }
