@@ -18,7 +18,6 @@ namespace INFOSiS_2._0.DAServer {
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://server.INFOSiS.pucp.edu.pe/Server/QueryAllUsersRequest", ReplyAction="http://server.INFOSiS.pucp.edu.pe/Server/QueryAllUsersResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(role))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(person))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         INFOSiS_2._0.DAServer.QueryAllUsersResponse QueryAllUsers(INFOSiS_2._0.DAServer.QueryAllUsersRequest request);
@@ -29,7 +28,6 @@ namespace INFOSiS_2._0.DAServer {
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://server.INFOSiS.pucp.edu.pe/Server/InsertProfessorRequest", ReplyAction="http://server.INFOSiS.pucp.edu.pe/Server/InsertProfessorResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(role))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(person))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         INFOSiS_2._0.DAServer.InsertProfessorResponse InsertProfessor(INFOSiS_2._0.DAServer.InsertProfessorRequest request);
@@ -40,7 +38,6 @@ namespace INFOSiS_2._0.DAServer {
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://server.INFOSiS.pucp.edu.pe/Server/VerifyUserRequest", ReplyAction="http://server.INFOSiS.pucp.edu.pe/Server/VerifyUserResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(role))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(person))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         INFOSiS_2._0.DAServer.VerifyUserResponse VerifyUser(INFOSiS_2._0.DAServer.VerifyUserRequest request);
@@ -184,188 +181,6 @@ namespace INFOSiS_2._0.DAServer {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(roleHistory))]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2612.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://server.INFOSiS.pucp.edu.pe/")]
-    public partial class role : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private int idField;
-        
-        private bool isActiveField;
-        
-        private double maxSalaryField;
-        
-        private double minSalaryField;
-        
-        private string nameField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public int id {
-            get {
-                return this.idField;
-            }
-            set {
-                this.idField = value;
-                this.RaisePropertyChanged("id");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public bool isActive {
-            get {
-                return this.isActiveField;
-            }
-            set {
-                this.isActiveField = value;
-                this.RaisePropertyChanged("isActive");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-        public double maxSalary {
-            get {
-                return this.maxSalaryField;
-            }
-            set {
-                this.maxSalaryField = value;
-                this.RaisePropertyChanged("maxSalary");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
-        public double minSalary {
-            get {
-                return this.minSalaryField;
-            }
-            set {
-                this.minSalaryField = value;
-                this.RaisePropertyChanged("minSalary");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
-        public string name {
-            get {
-                return this.nameField;
-            }
-            set {
-                this.nameField = value;
-                this.RaisePropertyChanged("name");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2612.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://server.INFOSiS.pucp.edu.pe/")]
-    public partial class roleHistory : role {
-        
-        private System.DateTime beginDateField;
-        
-        private bool beginDateFieldSpecified;
-        
-        private System.DateTime endDateField;
-        
-        private bool endDateFieldSpecified;
-        
-        private int hoursField;
-        
-        private bool isActualField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public System.DateTime beginDate {
-            get {
-                return this.beginDateField;
-            }
-            set {
-                this.beginDateField = value;
-                this.RaisePropertyChanged("beginDate");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool beginDateSpecified {
-            get {
-                return this.beginDateFieldSpecified;
-            }
-            set {
-                this.beginDateFieldSpecified = value;
-                this.RaisePropertyChanged("beginDateSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public System.DateTime endDate {
-            get {
-                return this.endDateField;
-            }
-            set {
-                this.endDateField = value;
-                this.RaisePropertyChanged("endDate");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool endDateSpecified {
-            get {
-                return this.endDateFieldSpecified;
-            }
-            set {
-                this.endDateFieldSpecified = value;
-                this.RaisePropertyChanged("endDateSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-        public int hours {
-            get {
-                return this.hoursField;
-            }
-            set {
-                this.hoursField = value;
-                this.RaisePropertyChanged("hours");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
-        public bool isActual {
-            get {
-                return this.isActualField;
-            }
-            set {
-                this.isActualField = value;
-                this.RaisePropertyChanged("isActual");
-            }
-        }
-    }
-    
-    /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2612.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -445,10 +260,6 @@ namespace INFOSiS_2._0.DAServer {
         
         private string syllabusField;
         
-        private string[] contentsField;
-        
-        private course[] requisitesField;
-        
         private course[] courseHistoryField;
         
         /// <remarks/>
@@ -524,31 +335,7 @@ namespace INFOSiS_2._0.DAServer {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("contents", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=6)]
-        public string[] contents {
-            get {
-                return this.contentsField;
-            }
-            set {
-                this.contentsField = value;
-                this.RaisePropertyChanged("contents");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("requisites", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=7)]
-        public course[] requisites {
-            get {
-                return this.requisitesField;
-            }
-            set {
-                this.requisitesField = value;
-                this.RaisePropertyChanged("requisites");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("courseHistory", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=8)]
+        [System.Xml.Serialization.XmlElementAttribute("courseHistory", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=6)]
         public course[] courseHistory {
             get {
                 return this.courseHistoryField;
@@ -730,8 +517,6 @@ namespace INFOSiS_2._0.DAServer {
         
         private string emailPUCPField;
         
-        private roleHistory[] historyField;
-        
         private string idPUCPField;
         
         private bool isActiveField;
@@ -785,19 +570,7 @@ namespace INFOSiS_2._0.DAServer {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("history", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=3)]
-        public roleHistory[] history {
-            get {
-                return this.historyField;
-            }
-            set {
-                this.historyField = value;
-                this.RaisePropertyChanged("history");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
         public string idPUCP {
             get {
                 return this.idPUCPField;
@@ -809,7 +582,7 @@ namespace INFOSiS_2._0.DAServer {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
         public bool isActive {
             get {
                 return this.isActiveField;
