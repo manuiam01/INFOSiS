@@ -12,7 +12,7 @@ namespace INFOSiS_2._0
 {
     public partial class InterestedCourseMailing : Form
     {
-        public InterestedCourseMailing()
+        public InterestedCourseMailing(DateTime coursedate)
         {
             InitializeComponent();
         }
@@ -25,6 +25,11 @@ namespace INFOSiS_2._0
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;
+        }
+
+        private void InterestedCourseMailing_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

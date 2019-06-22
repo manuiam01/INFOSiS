@@ -26,6 +26,9 @@ namespace INFOSiS_2._0
         public static String subject = "";
         public static Boolean ssl = false;
         public static Boolean html = false;
+        MessageBoxIcon iconoWarning = MessageBoxIcon.Warning;
+        MessageBoxIcon iconoPregunta = MessageBoxIcon.Question;
+        MessageBoxIcon iconoCorrecto = MessageBoxIcon.Asterisk;
         public static InterestedPublicity Instance
         {
             get
@@ -55,7 +58,8 @@ namespace INFOSiS_2._0
 
         private void BtnSearch_Click(object sender, EventArgs e)
         {
-            InterestedCourseMailing formBuscarCursosInteresado = new InterestedCourseMailing();
+            DateTime datecourse = dtpInicioCurso.Value;
+            InterestedCourseMailing formBuscarCursosInteresado = new InterestedCourseMailing(datecourse);
             if (formBuscarCursosInteresado.ShowDialog() == DialogResult.OK)
             {
                 //Acá en teoría debería de devolver todo el ArrayList de cursos para ingresarlo al dgv
@@ -89,36 +93,40 @@ namespace INFOSiS_2._0
                 {
                     //Detalles del servidor e email de donde sale el correo
                     SmtpClient clientDetails = new SmtpClient();
-                    clientDetails.Port = 587;
-                    clientDetails.Host = "smtp.gmail.com";
-                    clientDetails.EnableSsl = true;
-                    clientDetails.DeliveryMethod = SmtpDeliveryMethod.Network;
-                    clientDetails.UseDefaultCredentials = false;
-                    clientDetails.Credentials = new NetworkCredential("jeremi.cardenas@pucp.pe", "miamortlv11");
-                    //clientDetails.Port = Convert.ToInt32(port);
-                    //clientDetails.Host = host;
-                    //clientDetails.EnableSsl = ssl;
+                    //clientDetails.Port = 587;
+                    //clientDetails.Host = "smtp.gmail.com";
+                    //clientDetails.EnableSsl = true;
                     //clientDetails.DeliveryMethod = SmtpDeliveryMethod.Network;
                     //clientDetails.UseDefaultCredentials = false;
-                    //clientDetails.Credentials = new NetworkCredential(email,password);
-
-                    //Detalles del Mensaje
-                    //Esto debería hacerse por todo el arreglo de correos, pero por ahora probemos con uno solo
-                    foreach(DataGridView row in dgvInteresadosMailing.Rows)
+                    //clientDetails.Credentials = new NetworkCredential("jeremi.cardenas@pucp.pe", "miamortlv11");
+                    if(port=="" || host=="" || email=="" || password=="")
+                        MessageBox.Show("Falta completar los datos de envío en configuración de mailing", "Aviso", MessageBoxButtons.OK, iconoWarning);
+                    else
                     {
-                        
+                        clientDetails.Port = Convert.ToInt32(port);
+                        clientDetails.Host = host;
+                        clientDetails.EnableSsl = ssl;
+                        clientDetails.DeliveryMethod = SmtpDeliveryMethod.Network;
+                        clientDetails.UseDefaultCredentials = false;
+                        clientDetails.Credentials = new NetworkCredential(email, password);
+                        //Detalles del Mensaje
+                        //Esto debería hacerse por todo el arreglo de correos, pero por ahora probemos con uno solo
+                        String mail = "";
+                        foreach (DataGridViewRow row in dgvInteresadosMailing.Rows)
+                        {
+                            mail = row.Cells[2].ToString();
+                            MailMessage mailDetails = new MailMessage();
+                            //mailDetails.From = new MailAddress(email);
+                            mailDetails.From = new MailAddress("jeremi.cardenas@pucp.pe");
+                            mailDetails.To.Add(mail);
+                            //mailDetails.Subject = subject;
+                            mailDetails.Subject = "INFOPUC - Curso de Excel Avanzado - ";
+                            mailDetails.IsBodyHtml = html;
+                            mailDetails.Body = "Jeremixer never enemixer";
+                            clientDetails.Send(mailDetails);
+                        }
+                        MessageBox.Show("Se envió el mail Yeeeeh");
                     }
-                    MailMessage mailDetails = new MailMessage();
-                    //mailDetails.From = new MailAddress(email);
-                    mailDetails.From = new MailAddress("jeremi.cardenas@pucp.pe");
-                    mailDetails.To.Add("jeremics97@gmail.com");
-                    //mailDetails.Subject = subject;
-                    mailDetails.Subject = "INFOPUC - Curso de Excel Avanzado - ";
-                    mailDetails.IsBodyHtml = html;
-                    mailDetails.Body = "Jeremixer never enemixer";
-
-                    clientDetails.Send(mailDetails);
-                    MessageBox.Show("Se envió el mail Yeeeeh");
                 }
                 catch (SmtpFailedRecipientsException ex)
                 {

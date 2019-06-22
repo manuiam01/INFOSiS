@@ -7,7 +7,9 @@ package pe.edu.pucp.INFOSiS.controller.mysql;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
+import java.util.ArrayList;
 import pe.edu.pucp.INFOSiS.controller.config.DBManager;
 import pe.edu.pucp.INFOSiS.controller.dao.DAOCourseHistory;
 import pe.edu.pucp.INFOSiS.model.bean.course.CourseHistory;
@@ -48,5 +50,23 @@ public class MySQLCourseHistory implements DAOCourseHistory{
             System.out.println(ex.getMessage());
         }
         
+    }
+    
+    public ArrayList<CourseHistory> queryByDate(Date datecourse){
+        ArrayList<CourseHistory> courses = new ArrayList<CourseHistory>();
+        
+        try{
+            DBManager dbManager = DBManager.getdbManager();
+            Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
+            CallableStatement cs = con.prepareCall("{call UPDATE_COURSEH(?,?,?)}");
+            cs.setString(1,courseHistory.getProfessor().getIdNumber());
+            cs.setString(2,courseHistory.getAssistant().getIdNumber());
+            cs.setString(3,courseHistory.getCourse().getId());
+			con.close();
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        
+        return courses;
     }
 }

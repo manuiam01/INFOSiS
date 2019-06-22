@@ -148,6 +148,7 @@
             this.Controls.Add(this.label1);
             this.Name = "InterestedCourseMailing";
             this.Text = "InterestedCourseMailing";
+            this.Load += new System.EventHandler(this.InterestedCourseMailing_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
