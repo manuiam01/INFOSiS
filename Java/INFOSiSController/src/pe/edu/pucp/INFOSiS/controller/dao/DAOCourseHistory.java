@@ -5,7 +5,7 @@
  */
 package pe.edu.pucp.INFOSiS.controller.dao;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.ArrayList;
 import pe.edu.pucp.INFOSiS.model.bean.course.CourseHistory;
 
