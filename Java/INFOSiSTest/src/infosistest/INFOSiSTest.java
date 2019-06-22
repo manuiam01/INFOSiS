@@ -5,10 +5,15 @@
  */
 package infosistest;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import pe.edu.pucp.INFOSiS.controller.mysql.MySQLCourseHistory;
 import pe.edu.pucp.INFOSiS.controller.mysql.MySQLInterested;
 import pe.edu.pucp.INFOSiS.controller.mysql.MySQLUser;
 import pe.edu.pucp.INFOSiS.model.bean.course.Course;
+import pe.edu.pucp.INFOSiS.model.bean.course.CourseHistory;
 import pe.edu.pucp.INFOSiS.model.bean.interested.Interested;
 import pe.edu.pucp.INFOSiS.model.bean.user.User;
 
@@ -21,7 +26,7 @@ public class INFOSiSTest {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
 //        MySQLUser mysql= new MySQLUser();
 //        ArrayList<User> l = mysql.queryAll();
 //        for(User u : l){
@@ -43,6 +48,13 @@ public class INFOSiSTest {
 //        courses.add(ruwur);
 //        Interested inte = new Interested(courses,false,"75287431",0,"Ricardo","Ricon","Milos","Segundo","M","ricardo.ricon@pucp.pe","987654321");
 //        mysql1.update(inte);
+        MySQLCourseHistory mysqlch = new MySQLCourseHistory();
+        Date fechamax = new SimpleDateFormat("yyyy-MM-dd").parse("2019-07-10");
+        ArrayList<CourseHistory> courses = mysqlch.queryByDate(fechamax);
+        for(CourseHistory c : courses){
+            System.out.println(c.getCourse().getName());
+        }
+    
     }
     
 }

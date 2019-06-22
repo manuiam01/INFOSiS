@@ -5,6 +5,8 @@
  */
 package pe.edu.pucp.INFOSiS.controller.dao;
 
+import java.util.Date;
+import java.util.ArrayList;
 import pe.edu.pucp.INFOSiS.model.bean.course.CourseHistory;
 
 /**
@@ -14,4 +16,5 @@ import pe.edu.pucp.INFOSiS.model.bean.course.CourseHistory;
 public interface DAOCourseHistory {
     int insert(CourseHistory courseHistory);
     void update(CourseHistory courseHistory);
+    ArrayList<CourseHistory> queryByDate(Date datecourse);
 }
