@@ -15,7 +15,8 @@ namespace INFOSiS_2._0
         private Server.ServerClient servidor;
         private DataTable table;
         private BindingList<Server.courseHistory> courseH;
-        public InterestedCourseMailing(DateTime coursedate,Server.courseHistory course)
+
+        public InterestedCourseMailing(DateTime coursedate,int idCourse)
         {
             InitializeComponent();
             servidor = new Server.ServerClient();
