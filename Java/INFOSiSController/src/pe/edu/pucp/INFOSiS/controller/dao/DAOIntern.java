@@ -16,6 +16,6 @@ import pe.edu.pucp.INFOSiS.model.bean.user.UserType;
 public interface DAOIntern {
     int insert(Intern intern, UserType access);
     int update(Intern intern, UserType access);
-    Intern queryIntern(String idIntern);
+    Intern searchInternByIdNumber(String idIntern);
     ArrayList<Intern> queryAll();
 }

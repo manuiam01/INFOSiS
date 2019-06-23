@@ -174,18 +174,17 @@ public class MySQLIntern implements DAOIntern {
     }
 
     @Override
-    public Intern queryIntern(String idIntern) {
+    public Intern searchInternByIdNumber(String idNumber) {
         Intern intern = new Intern();
         try{
             DBManager dbManager = DBManager.getdbManager();
             Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
-            String sql="SELECT * FROM Interns WHERE idIntern = ?";
-            PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1, idIntern);
-            ResultSet rs = ps.executeQuery();
+            CallableStatement cs = con.prepareCall("{call SEARCH_INTERN_BY_IDNUMBER(?)}");
+            cs.setString(1, idNumber);
+            ResultSet rs = cs.executeQuery();
             if(rs.next()){
-           //     intern.setIdIntern(rs.getString(1));
-              //  intern.setIdUser(rs.getInt(2));
+                intern.setIdPUCP(rs.getString(1));
+                intern.getUser().setId(rs.getInt(2));
                 intern.setIdType(rs.getInt(3));
                 intern.setIdNumber(rs.getString(4));
                 intern.setFirstName(rs.getString(5));
@@ -199,7 +198,8 @@ public class MySQLIntern implements DAOIntern {
                 intern.setAddress(rs.getString(13));
                 intern.setHomePhone(rs.getString(14));
                 intern.setBirthday(rs.getDate(15));
-                intern.setWeekAvailability(rs.getString(16));               
+                intern.setWeekAvailability(rs.getString(16));
+                intern.setWeekSchedule(rs.getString(17));
             }
             con.close();
         }catch(SQLException ex){

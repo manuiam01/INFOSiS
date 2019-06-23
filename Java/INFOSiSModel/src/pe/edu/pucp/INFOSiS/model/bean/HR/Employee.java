@@ -20,7 +20,7 @@ public class Employee extends Person implements Serializable {
     private Role role;
 
     public Employee(){
-        
+        user = new User();
     }            
 
     public Employee(String idPUCP, String emailPUCP, String address, String homePhone, User user, String idNumber, int idType, String firstName, String middleName, String primaryLastName, String secondLastName, String gender, String email, String cellPhoneNumber, Date birthday) {
