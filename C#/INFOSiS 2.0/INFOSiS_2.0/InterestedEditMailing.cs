@@ -50,5 +50,10 @@ namespace INFOSiS_2._0
         {
 
         }
+
+        private void InterestedEditMailing_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

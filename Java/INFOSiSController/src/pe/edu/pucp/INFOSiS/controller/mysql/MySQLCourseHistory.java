@@ -69,7 +69,7 @@ public class MySQLCourseHistory implements DAOCourseHistory{
                 CourseHistory c = new CourseHistory();
                 c.setId(rs.getInt("idCourseHistory"));
                 dates.add(new java.sql.Date(rs.getDate("startDate").getTime()));
-                
+                dates.add(new java.sql.Date(rs.getDate("endDate").getTime()));
                 c.setSessions(dates);
                 c.setHours(rs.getInt("hours"));
                 //CursoH tiene ahora id, fecha de inicio y las horas totales

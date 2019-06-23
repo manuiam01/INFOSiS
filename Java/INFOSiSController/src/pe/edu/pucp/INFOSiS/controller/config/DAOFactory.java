@@ -6,6 +6,7 @@
 package pe.edu.pucp.INFOSiS.controller.config;
 
 import pe.edu.pucp.INFOSiS.controller.dao.DAOCourse;
+import pe.edu.pucp.INFOSiS.controller.dao.DAOCourseHistory;
 import pe.edu.pucp.INFOSiS.controller.dao.DAOCourseType;
 import pe.edu.pucp.INFOSiS.controller.dao.DAOInterested;
 import pe.edu.pucp.INFOSiS.controller.dao.DAOIntern;
@@ -35,5 +36,6 @@ public abstract class DAOFactory {
     public abstract DAOCourseType getCourseTypeDAO();
     public abstract DAOIntern getDAOIntern();
     public abstract DAOStudent getStudentDAO();
+    public abstract DAOCourseHistory getCourseHDAO();
 
 }

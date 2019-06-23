@@ -6,6 +6,7 @@
 package pe.edu.pucp.INFOSiS.controller.config;
 
 import pe.edu.pucp.INFOSiS.controller.dao.DAOCourse;
+import pe.edu.pucp.INFOSiS.controller.dao.DAOCourseHistory;
 import pe.edu.pucp.INFOSiS.controller.dao.DAOCourseType;
 import pe.edu.pucp.INFOSiS.controller.dao.DAOInterested;
 import pe.edu.pucp.INFOSiS.controller.dao.DAOIntern;
@@ -13,6 +14,7 @@ import pe.edu.pucp.INFOSiS.controller.dao.DAOProfessor;
 import pe.edu.pucp.INFOSiS.controller.dao.DAOStudent;
 import pe.edu.pucp.INFOSiS.controller.dao.DAOUser;
 import pe.edu.pucp.INFOSiS.controller.mysql.MySQLCourse;
+import pe.edu.pucp.INFOSiS.controller.mysql.MySQLCourseHistory;
 import pe.edu.pucp.INFOSiS.controller.mysql.MySQLCourseType;
 import pe.edu.pucp.INFOSiS.controller.mysql.MySQLInterested;
 import pe.edu.pucp.INFOSiS.controller.mysql.MySQLIntern;
@@ -64,6 +66,9 @@ public class MySQLDAOFactory extends DAOFactory{
         return new MySQLStudent();
     }
     
-    
+    @Override
+    public DAOCourseHistory getCourseHDAO(){
+        return new MySQLCourseHistory();
+    }
     
 }

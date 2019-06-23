@@ -18,6 +18,7 @@ namespace INFOSiS_2._0
 
         private Server.ServerClient servidor;
         private static InterestedPublicity _instance;
+        public Server.courseHistory course;
         private static Panel _panelMdi;
         public static String port = "";
         public static String host = "";
@@ -49,9 +50,8 @@ namespace INFOSiS_2._0
             InitializeComponent();
             servidor = new Server.ServerClient();
             dtpInicioCurso.MinDate = DateTime.Now;
-            btnSearch.Enabled = false;
             dgvInteresadosMailing.AutoGenerateColumns = false;
-            dgvInteresadosMailing.DataSource = servidor.QueryAllInterested();
+            //dgvInteresadosMailing.DataSource = servidor.QueryAllInterested();
             //limpiar();
             
         }
@@ -59,7 +59,8 @@ namespace INFOSiS_2._0
         private void BtnSearch_Click(object sender, EventArgs e)
         {
             DateTime datecourse = dtpInicioCurso.Value;
-            InterestedCourseMailing formBuscarCursosInteresado = new InterestedCourseMailing(datecourse);
+            course = new Server.courseHistory() ;
+            InterestedCourseMailing formBuscarCursosInteresado = new InterestedCourseMailing(datecourse,course);
             if (formBuscarCursosInteresado.ShowDialog() == DialogResult.OK)
             {
                 //Acá en teoría debería de devolver todo el ArrayList de cursos para ingresarlo al dgv

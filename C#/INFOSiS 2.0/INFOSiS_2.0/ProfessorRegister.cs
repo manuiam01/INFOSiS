@@ -166,5 +166,9 @@ namespace INFOSiS_2._0
             rbWoman.Checked = false;
         }
 
+        private void ProfessorRegister_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

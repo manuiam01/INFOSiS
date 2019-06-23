@@ -59,6 +59,8 @@
   <xs:element name="queryAllCoursesByNameResponse" type="tns:queryAllCoursesByNameResponse" />
   <xs:element name="queryCourseById" type="tns:queryCourseById" />
   <xs:element name="queryCourseByIdResponse" type="tns:queryCourseByIdResponse" />
+  <xs:element name="queryCourseHByDate" type="tns:queryCourseHByDate" />
+  <xs:element name="queryCourseHByDateResponse" type="tns:queryCourseHByDateResponse" />
   <xs:element name="queryCourseTypeById" type="tns:queryCourseTypeById" />
   <xs:element name="queryCourseTypeByIdResponse" type="tns:queryCourseTypeByIdResponse" />
   <xs:complexType name="InsertStudent">
@@ -357,6 +359,16 @@
   <xs:complexType name="UpdateInterestedResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="queryCourseHByDate">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="queryCourseHByDateResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:courseHistory" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="DisableCourse">

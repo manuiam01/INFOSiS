@@ -6,6 +6,7 @@
 package pe.edu.pucp.INFOSiS.server;
 
 import java.util.ArrayList;
+import java.util.Date;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
@@ -18,6 +19,7 @@ import pe.edu.pucp.INFOSiS.model.bean.professor.Professor;
 import pe.edu.pucp.INFOSiS.model.bean.user.User;
 import pe.edu.pucp.INFOSiS.model.bean.user.UserType;
 import pe.edu.pucp.INFOSiS.model.bean.HR.Intern;
+import pe.edu.pucp.INFOSiS.model.bean.course.CourseHistory;
 import pe.edu.pucp.INFOSiS.model.bean.course.CourseType;
 import pe.edu.pucp.INFOSiS.model.bean.student.Student;
 
@@ -154,4 +156,8 @@ public class Server {
         return DBController.queryCourseTypeById(id);
     }
     
+    @WebMethod(operationName="queryCourseHByDate")
+    public ArrayList<CourseHistory> QueryCourseHByDate(Date date){
+        return DBController.queryCourseHByDate(date);
+    }
 }

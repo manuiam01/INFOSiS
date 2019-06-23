@@ -5,11 +5,13 @@
  */
 package pe.edu.pucp.INFOSiS.controller.config;
 
+import java.util.Date;
 import java.util.ArrayList;
 
 
 import pe.edu.pucp.INFOSiS.model.bean.HR.Intern;
 import pe.edu.pucp.INFOSiS.model.bean.course.Course;
+import pe.edu.pucp.INFOSiS.model.bean.course.CourseHistory;
 import pe.edu.pucp.INFOSiS.model.bean.course.CourseType;
 import pe.edu.pucp.INFOSiS.model.bean.interested.Interested;
 import pe.edu.pucp.INFOSiS.model.bean.professor.Professor;
@@ -126,5 +128,9 @@ public abstract class DBController {
      
      public static int insertStudent(Student s){
          return daoFactory.getStudentDAO().insertStudent(s);
+     }
+     
+     public static ArrayList<CourseHistory> queryCourseHByDate(Date date){
+         return daoFactory.getCourseHDAO().queryByDate(date);
      }
 }

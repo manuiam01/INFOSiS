@@ -58,6 +58,7 @@ namespace INFOSiS_2._0
                     txbNDocumento.Enabled = true;
                     rbCarnet.Enabled = true;
                     rbDNI.Enabled = true;
+                    rbDNI.Checked = true;
                     rbPasaporte.Enabled = true;
                     break;
 

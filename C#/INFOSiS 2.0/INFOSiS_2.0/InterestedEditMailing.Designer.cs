@@ -315,6 +315,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "InterestedEditMailing";
             this.Text = "InterestedEditMailing";
+            this.Load += new System.EventHandler(this.InterestedEditMailing_Load);
             this.gbDetailSender.ResumeLayout(false);
             this.gbDetailSender.PerformLayout();
             this.groupBox1.ResumeLayout(false);
