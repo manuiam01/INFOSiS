@@ -16,8 +16,10 @@ namespace INFOSiS_2._0
         private DataTable table;
         private BindingList<Server.courseHistory> courseH;
         private String idCourse;
+        private String nombreCurso;
 
         public String IdCourse { get => idCourse; set => idCourse = value; }
+        public string NombreCurso { get => nombreCurso; set => nombreCurso = value; }
 
         public InterestedCourseMailing(DateTime coursedate,String idCourse)
         {
@@ -43,6 +45,7 @@ namespace INFOSiS_2._0
         {
             int i = dgvCourses.CurrentRow.Index;
             idCourse = courseH[i].course.id;
+            nombreCurso = courseH[i].course.name;
             this.DialogResult = DialogResult.OK;
         }
 
