@@ -11,6 +11,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @XmlRootElement(name="Person")
 @XmlAccessorType(XmlAccessType.FIELD)
+
 public class Person implements Serializable {
 
     private String idNumber;
@@ -24,7 +25,8 @@ public class Person implements Serializable {
     private String cellPhoneNumber;
     private Date birthday;
 
-     public Person() {
+    public Person() {
+        birthday=null;
     }
 
     public Person(String idNumber, int idType, String firstName, String middleName, String primaryLastName, String secondLastName, String gender, String email, String cellPhoneNumber, Date birthday) {

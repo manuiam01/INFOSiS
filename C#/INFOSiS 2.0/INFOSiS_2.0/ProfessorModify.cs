@@ -63,6 +63,8 @@ namespace INFOSiS_2._0
                     rbForeignCard.Enabled = true;
                     rbPassport.Enabled = true;
                     dtpBirthday.Enabled = true;
+                    rbDNI.Checked = true;
+                    rbActive.Checked = true;
                     break;
 
                 case Estado.Buscar:
