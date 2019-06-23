@@ -52,6 +52,11 @@ public class Server {
         return DBController.queryAllInterns();
     }
     
+    @WebMethod (operationName = "SearchInternByIdNumber")
+    public Intern SearchInternByIdNumber(@WebParam(name="id") String id){
+        return DBController.searchInternByIdNumber(id);
+    }
+    
     @WebMethod (operationName = "InsertIntern")
     public int InsertIntern(@WebParam(name = "intern") Intern intern,@WebParam(name = "access") UserType access){
         return DBController.insertIntern(intern, access);
