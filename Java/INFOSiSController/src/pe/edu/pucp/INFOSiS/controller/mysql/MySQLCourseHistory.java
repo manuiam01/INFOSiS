@@ -57,7 +57,7 @@ public class MySQLCourseHistory implements DAOCourseHistory{
     
     public ArrayList<CourseHistory> queryByDate(Date datecourse){
         ArrayList<CourseHistory> courses = new ArrayList<CourseHistory>();
-        ArrayList<Date> dates = new ArrayList<Date>();
+        
         try{
             DBManager dbManager = DBManager.getdbManager();
             Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
@@ -65,6 +65,7 @@ public class MySQLCourseHistory implements DAOCourseHistory{
             cs.setDate(1,new java.sql.Date(datecourse.getDate()));
             ResultSet rs = cs.executeQuery();
             while(rs.next()){
+                ArrayList<Date> dates = new ArrayList<Date>();
                 CourseHistory c = new CourseHistory();
                 c.setId(rs.getInt("idCourseHistory"));
                 dates.add(new java.sql.Date(rs.getDate("startDate").getTime()));
@@ -85,7 +86,7 @@ public class MySQLCourseHistory implements DAOCourseHistory{
                     c.setCourse(cr);
                 }
                 //Como no sé como comparar las fechas en mysql, lo haré acá ptmre :v
-                if(datecourse.compareTo(dates.get(1))<0){
+                if(dates.get(0).after(datecourse)){
                     courses.add(c);
                 }
             }            

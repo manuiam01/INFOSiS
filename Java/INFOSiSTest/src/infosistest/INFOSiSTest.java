@@ -48,12 +48,12 @@ public class INFOSiSTest {
 //        courses.add(ruwur);
 //        Interested inte = new Interested(courses,false,"75287431",0,"Ricardo","Ricon","Milos","Segundo","M","ricardo.ricon@pucp.pe","987654321");
 //        mysql1.update(inte);
-        MySQLCourseHistory mysqlch = new MySQLCourseHistory();
-        Date fechamax = new SimpleDateFormat("yyyy-MM-dd").parse("2019-07-10");
-        ArrayList<CourseHistory> courses = mysqlch.queryByDate(fechamax);
-        for(CourseHistory c : courses){
-            System.out.println(c.getCourse().getName());
-        }
+//        MySQLCourseHistory mysqlch = new MySQLCourseHistory();
+//        Date fechamax = new SimpleDateFormat("yyyy-MM-dd").parse("2019-07-10");
+//        ArrayList<CourseHistory> courses = mysqlch.queryByDate(fechamax);
+//        for(CourseHistory c : courses){
+//            System.out.println(c.getCourse().getName());
+//        }
     
     }
     
