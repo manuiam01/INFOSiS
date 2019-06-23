@@ -30,24 +30,23 @@ public class MySQLProfessor implements DAOProfessor {
         try{
             DBManager dbManager = DBManager.getdbManager();
             Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
-            
-            String sql ="SELECT * FROM Professors WHERE idProfessor = ?";
+          
+            String sql ="SELECT * FROM Professors WHERE idNumber = ?";
             PreparedStatement ps =  con.prepareStatement(sql);
-            ps.setString(1, professor.getIdPUCP());
+            ps.setString(1, professor.getIdNumber());
             ResultSet rs = ps.executeQuery();          
             if(rs.next()){
-                return -1;
+                System.out.println(rs.getString("idNumber"));
+                return -1; //documento de identidad repetido
             }
             
-            if(professor.getIdPUCP().length()==0){
-                return -2;
-            }
-            sql ="SELECT * FROM Professors WHERE idNumber = ?";
+            sql ="SELECT * FROM Professors WHERE idProfessor = ?";
             ps =  con.prepareStatement(sql);
-            ps.setString(1, professor.getIdNumber());
+            ps.setString(1, professor.getIdPUCP());
             rs = ps.executeQuery();             
             if(rs.next()){
-                result = -3;
+                System.out.println(rs.getString("idProfessor"));
+                return -2; //codigo pucp repetido
             }
             
             CallableStatement cs = con.prepareCall("{call INSERT_PROFESSOR(?,?,?,?,?,?,?,?,?,?,?,?)}");
@@ -55,7 +54,9 @@ public class MySQLProfessor implements DAOProfessor {
             cs.setString(2,professor.getIdNumber());
             cs.setInt(3,professor.getIdType());
             cs.setString(4,professor.getEmailPUCP());
-            cs.setDate(5,  new java.sql.Date(professor.getBirthday().getTime()));
+            if(professor.getBirthday()!=null)
+                cs.setDate(5,  new java.sql.Date(professor.getBirthday().getTime()));
+            else cs.setDate(5, null);
             cs.setString(6,professor.getFirstName());
             cs.setString(7,professor.getMiddleName());
             cs.setString(8,professor.getPrimaryLastName());
