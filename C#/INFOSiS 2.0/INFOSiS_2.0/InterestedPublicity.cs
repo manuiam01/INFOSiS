@@ -58,12 +58,15 @@ namespace INFOSiS_2._0
         private void BtnSearch_Click(object sender, EventArgs e)
         {
             DateTime datecourse = dtpInicioCurso.Value;
-            int idCourse = 0;
+            String idCourse="";
             InterestedCourseMailing formBuscarCursosInteresado = new InterestedCourseMailing(datecourse, idCourse);
             if (formBuscarCursosInteresado.ShowDialog() == DialogResult.OK)
             {
                 //Acá en teoría debería de devolver todo el ArrayList de cursos para ingresarlo al dgv
                 //dgvInteresadosMailing.DataSource = formBuscarCursosInteresado}
+                Server.course c = new Server.course();
+                c.id = idCourse;
+                dgvInteresadosMailing.DataSource = servidor.QueryAllByCourse(c);
             }
         }
 

@@ -15,8 +15,11 @@ namespace INFOSiS_2._0
         private Server.ServerClient servidor;
         private DataTable table;
         private BindingList<Server.courseHistory> courseH;
+        private String idCourse;
 
-        public InterestedCourseMailing(DateTime coursedate,int idCourse)
+        public String IdCourse { get => idCourse; set => idCourse = value; }
+
+        public InterestedCourseMailing(DateTime coursedate,String idCourse)
         {
             InitializeComponent();
             servidor = new Server.ServerClient();
@@ -39,7 +42,7 @@ namespace INFOSiS_2._0
         private void BtnSeleccionar_Click(object sender, EventArgs e)
         {
             int i = dgvCourses.CurrentRow.Index;
-            
+            idCourse = courseH[i].course.id;
             this.DialogResult = DialogResult.OK;
         }
 
