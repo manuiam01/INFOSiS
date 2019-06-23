@@ -109,6 +109,7 @@ public class MySQLUser implements DAOUser{
                 ut.setId(rs.getInt("idAccess"));
                 ut.setName(rs.getString("name"));
             }
+            con.close();
         }
         catch(Exception ex){
             System.out.println(ex.getMessage());

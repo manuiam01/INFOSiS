@@ -71,6 +71,7 @@ public class MySQLStudent implements DAOStudent{
             cStmt.setDate("_birthday",(Date)student.getBirthDate());
             cStmt.setString("_address", student.getAddress());
             cStmt.execute();
+            con.close();
         }
         catch(SQLException ex){
             System.out.println(ex.getMessage());

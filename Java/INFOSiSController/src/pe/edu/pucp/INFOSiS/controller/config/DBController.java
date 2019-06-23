@@ -55,6 +55,10 @@ public abstract class DBController {
         return daoFactory.getDAOIntern().queryAll();
     }
     
+    public static Intern searchInternByIdNumber(String id){
+        return daoFactory.getDAOIntern().searchInternByIdNumber(id);
+    }
+    
     public static int insertIntern(Intern intern, UserType access){
         return daoFactory.getDAOIntern().insert(intern, access);
     }

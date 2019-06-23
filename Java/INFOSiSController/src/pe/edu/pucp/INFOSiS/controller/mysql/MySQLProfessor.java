@@ -157,6 +157,7 @@ public class MySQLProfessor implements DAOProfessor {
                 p.setIsActive(rs.getBoolean(13));
                 professors.add(p);
             }
+            con.close();
         }catch(SQLException ex){
             System.out.println(ex.getMessage());
         }        
