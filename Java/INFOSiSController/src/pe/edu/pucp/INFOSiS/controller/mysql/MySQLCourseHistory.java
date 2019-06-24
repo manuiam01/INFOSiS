@@ -35,7 +35,13 @@ public class MySQLCourseHistory implements DAOCourseHistory{
             cs.registerOutParameter("_idCourseHistory", java.sql.Types.INTEGER);
             result = cs.executeUpdate();
             courseHistory.setId(cs.getInt("_idCourseHistory"));    
-            
+            ArrayList<Date> sessions        = courseHistory.getSessions();
+            ArrayList<String> locations     = courseHistory.getLocations();
+            ArrayList<Integer> hoursSession = courseHistory.getHoursSession();
+            int cantSessions = sessions.size();
+            for(int i = 0; i < cantSessions ;i++){
+                cs = con.prepareCall("{call INSERT_SESSION(?,?,?,?)}");
+            }
             con.close();
         }catch(Exception ex){
             System.out.println(ex.getMessage());

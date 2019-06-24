@@ -30,6 +30,10 @@ public class mian {
 //            System.out.println(u.getUsername());
 //        }
 
+        Course course = DBController.queryCourseById("1022");
+        System.out.println(course.getDescription());
+        System.out.println(course);
+
 //
 //          CourseType coursetype = DBController.queryCourseTypeById(6);
 //          Course c = new Course();
