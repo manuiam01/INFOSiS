@@ -32,11 +32,11 @@ public class CourseHistory implements Serializable{
     private int hours;
     private File survey;
     private ArrayList<Student> students;
-    private ArrayList<Voucher> vouchers;
+    private ArrayList<Integer> vouchers;
     private ArrayList<Float> historyGrade;
     private ArrayList<String> historyState;
 
-    public CourseHistory(int id, ArrayList<Date> sessions, ArrayList<String> locations, ArrayList<Integer> hoursSession, Course course, Professor professor, Professor assistant, int hours, File survey, ArrayList<Student> students, ArrayList<Voucher> vouchers, ArrayList<Float> historyGrade, ArrayList<String> historyState) {
+    public CourseHistory(int id, ArrayList<Date> sessions, ArrayList<String> locations, ArrayList<Integer> hoursSession, Course course, Professor professor, Professor assistant, int hours, File survey, ArrayList<Student> students, ArrayList<Integer> vouchers, ArrayList<Float> historyGrade, ArrayList<String> historyState) {
         this.id = id;
         this.sessions = sessions;
         this.locations = locations;
@@ -132,11 +132,11 @@ public class CourseHistory implements Serializable{
         this.students = students;
     }
 
-    public ArrayList<Voucher> getVouchers() {
+    public ArrayList<Integer> getVouchers() {
         return vouchers;
     }
 
-    public void setVouchers(ArrayList<Voucher> vouchers) {
+    public void setVouchers(ArrayList<Integer> vouchers) {
         this.vouchers = vouchers;
     }
 
