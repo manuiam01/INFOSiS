@@ -13,6 +13,7 @@ namespace INFOSiS_2._0
     public partial class InterestedModified : UserControl
     {
         private static InterestedModified _instance;
+        private BindingList<string> cursos;
         private static Panel _panelMdi;
         private Server.ServerClient server;
         MessageBoxIcon iconoCorrecto = MessageBoxIcon.Asterisk;
@@ -36,7 +37,7 @@ namespace INFOSiS_2._0
         {
             InitializeComponent();
             establecerEstado(Estado.Inicial);
-
+            cursos = new BindingList<string>();
         }
         public void establecerEstado(Estado e)
         {
@@ -91,7 +92,7 @@ namespace INFOSiS_2._0
 
         private void BtBuscarCursos_Click(object sender, EventArgs e)
         {
-            InterestedCourses formBuscarCursosInteresado = new InterestedCourses();
+            InterestedCourses formBuscarCursosInteresado = new InterestedCourses(cursos);
             if (formBuscarCursosInteresado.ShowDialog() == DialogResult.OK)
             {
 

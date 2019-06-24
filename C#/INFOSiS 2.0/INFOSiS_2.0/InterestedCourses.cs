@@ -23,7 +23,7 @@ namespace INFOSiS_2._0
 
         public BindingList<string> Cursos { get => cursos; set => cursos = value; }
 
-        public InterestedCourses()
+        public InterestedCourses(BindingList<string> idcursos)
         {
             InitializeComponent();
             servidor = new Server.ServerClient();
@@ -34,7 +34,19 @@ namespace INFOSiS_2._0
             BindingList<Server.course> courses = new BindingList<Server.course>(servidor.queryAllCourse());
             foreach(Server.course c in courses)
             {
-                table.Rows.Add(c.id, c.name);
+                bool seencuentra = false;
+                foreach(string id in idcursos)
+                {
+                    if (c.id.Equals(id))
+                    {
+                        seencuentra = true;
+                        break;
+                    }
+                        
+                }
+                if(!seencuentra)
+                    table.Rows.Add(c.id, c.name);
+
             }
             dgvCursos.DataSource = table;
             //dgvCursos.DataSource = cursos;
@@ -55,6 +67,7 @@ namespace INFOSiS_2._0
 
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
+            cursos = null;
             this.DialogResult = DialogResult.OK;
         }
 

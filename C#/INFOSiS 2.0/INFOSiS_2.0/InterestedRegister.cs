@@ -39,8 +39,11 @@ namespace INFOSiS_2._0
         {
             InitializeComponent();
             limpiar();
+            servidor = new Server.ServerClient();
             tbCursos = new DataTable();
             idcursos = new BindingList<string>();
+            tbCursos.Columns.Add("ID", typeof(string));
+            tbCursos.Columns.Add("Nombre", typeof(string));
         }
 
         private void InterestedRegister_Load(object sender, EventArgs e)
@@ -55,19 +58,22 @@ namespace INFOSiS_2._0
 
         private void BtBuscarCursos_Click(object sender, EventArgs e)
         {
-            InterestedCourses formBuscarCursosInteresado = new InterestedCourses();
+            InterestedCourses formBuscarCursosInteresado = new InterestedCourses(idcursos);
             if (formBuscarCursosInteresado.ShowDialog() == DialogResult.OK)
             {
-                
-                tbCursos.Columns.Add("ID", typeof(string));
-                tbCursos.Columns.Add("Nombre", typeof(string));
-                idcursos = formBuscarCursosInteresado.Cursos;
-                foreach(string id in idcursos)
+
+                if (formBuscarCursosInteresado.Cursos != null)
                 {
-                    Server.course c = new Server.course();
-                    c = servidor.queryCourseById(id);
-                    tbCursos.Rows.Add(c.id, c.name);
+                    idcursos = formBuscarCursosInteresado.Cursos;
+                    foreach (string id in idcursos)
+                    {
+                        Server.course c = new Server.course();
+                        c = servidor.queryCourseById(id);
+                        tbCursos.Rows.Add(c.id, c.name);
+                    }
+                    dgvInterestedCourses.DataSource = tbCursos;
                 }
+                
                 //Acá en teoría debería de devolver todo el ArrayList de cursos para ingresarlo al dgv
                 //dgvInterestedCourses.DataSource = formBuscarCursosInteresado.}
 
@@ -195,6 +201,7 @@ namespace INFOSiS_2._0
                 if (result == DialogResult.Yes)
                 {
                     limpiar();
+                    dgvInterestedCourses.DataSource = null;
                 }
             }
         }

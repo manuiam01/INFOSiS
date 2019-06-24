@@ -56,8 +56,9 @@
             this.gbCursos = new System.Windows.Forms.GroupBox();
             this.btBuscarCursos = new System.Windows.Forms.Button();
             this.dgvInterestedCourses = new System.Windows.Forms.DataGridView();
-            this.cNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.cId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbxInterestedData.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -403,6 +404,7 @@
             this.dgvInterestedCourses.AllowUserToDeleteRows = false;
             this.dgvInterestedCourses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvInterestedCourses.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.cId,
             this.cNombre});
             this.dgvInterestedCourses.Location = new System.Drawing.Point(8, 75);
             this.dgvInterestedCourses.Margin = new System.Windows.Forms.Padding(4);
@@ -412,14 +414,6 @@
             this.dgvInterestedCourses.Size = new System.Drawing.Size(461, 403);
             this.dgvInterestedCourses.TabIndex = 0;
             this.dgvInterestedCourses.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvInterestedCourses_CellContentClick);
-            // 
-            // cNombre
-            // 
-            this.cNombre.HeaderText = "Nombre";
-            this.cNombre.Name = "cNombre";
-            this.cNombre.ReadOnly = true;
-            this.cNombre.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.cNombre.Width = 415;
             // 
             // btnCancel
             // 
@@ -437,6 +431,22 @@
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
+            // 
+            // cId
+            // 
+            this.cId.DataPropertyName = "ID";
+            this.cId.HeaderText = "ID";
+            this.cId.Name = "cId";
+            this.cId.ReadOnly = true;
+            this.cId.Width = 70;
+            // 
+            // cNombre
+            // 
+            this.cNombre.DataPropertyName = "Nombre";
+            this.cNombre.HeaderText = "Nombre";
+            this.cNombre.Name = "cNombre";
+            this.cNombre.ReadOnly = true;
+            this.cNombre.Width = 233;
             // 
             // InterestedRegister
             // 
@@ -494,9 +504,10 @@
         private System.Windows.Forms.GroupBox gbCursos;
         private System.Windows.Forms.DataGridView dgvInterestedCourses;
         private System.Windows.Forms.Button btBuscarCursos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cNombre;
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cNombre;
     }
 }
