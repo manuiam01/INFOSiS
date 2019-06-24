@@ -40,8 +40,7 @@ namespace INFOSiS_2._0
             servidor = new Server.ServerClient();
             rbDNI.Checked = true;
             txtDocumentNumber.MaxLength = 8;
-
-  
+ 
         }
 
         private bool verifyDocumentNumber(String id)
@@ -199,7 +198,6 @@ namespace INFOSiS_2._0
                 if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
                 {
                     e.Handled = true;
-                   // return;
                 }
             }
             
@@ -208,6 +206,14 @@ namespace INFOSiS_2._0
         private void DtpBirthday_ValueChanged(object sender, EventArgs e)
         {
             birthdaySelected = true;
+        }
+
+        private void TxtCellphone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

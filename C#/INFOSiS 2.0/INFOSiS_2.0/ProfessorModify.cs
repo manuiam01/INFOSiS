@@ -17,6 +17,8 @@ namespace INFOSiS_2._0
         private static Panel _panelMdi;
         private Server.ServerClient server;
         private Server.professor professor;
+        private bool birthdaySelected = false;
+        private String previousId;
 
         public static ProfessorModify Instance
         {
@@ -37,36 +39,37 @@ namespace INFOSiS_2._0
         public ProfessorModify()
         {            
             InitializeComponent();
-            establecerEstado(Estado.Inicial);
+            setState(Estado.Inicial);
+            server = new Server.ServerClient();
         }
-        public void establecerEstado(Estado e)
+        public void setState(Estado e)
         {
             switch (e)
             {
                 case Estado.Inicial:
-                    txtDocumentNumber.Enabled = true;
-                    txtFirstName.Enabled = true;
-                    txtSecondName.Enabled = true;
-                    txtPrimaryLastName.Enabled = true;
-                    txtSecondLastName.Enabled = true;
-                    rbWoman.Enabled = true;
-                    rbMan.Enabled = true;
-                    btCancelar.Enabled = true;
-                    btnModificar.Enabled = true;
-                    txtCellphone.Enabled = true;
-                    txtEmailPUCP.Enabled = true;
-                    txtEmail.Enabled = true;
+                    txtDocumentNumber.Enabled = false;
+                    txtFirstName.Enabled = false;
+                    txtSecondName.Enabled = false;
+                    txtPrimaryLastName.Enabled = false;
+                    txtSecondLastName.Enabled = false;
+                    rbWoman.Enabled = false;
+                    rbMan.Enabled = false;                    
+                    txtCellphone.Enabled = false;
+                    txtEmailPUCP.Enabled = false;
+                    txtEmail.Enabled = false;
                     txtPUCPCode.Enabled = true;
-                    rbActive.Enabled = true;
-                    rbInactive.Enabled = true;
-                    rbDNI.Enabled = true;
-                    rbForeignCard.Enabled = true;
-                    rbPassport.Enabled = true;
-                    dtpBirthday.Enabled = true;
-                    rbDNI.Checked = true;
-                    rbActive.Checked = true;
+                    rbActive.Enabled = false;
+                    rbInactive.Enabled = false;
+                    rbDNI.Enabled = false;
+                    rbForeignCard.Enabled = false;
+                    rbPassport.Enabled = false;
+                    dtpBirthday.Enabled = false;
+                    btnSearch.Enabled = true;
+                    btnCancelar.Enabled = true;
+                    btnModificar.Enabled = false;
+                    btnSaveChanges.Enabled = false;
+                    lblAdvancedSearch.Enabled = true;
                     break;
-
                 case Estado.Buscar:
                     txtDocumentNumber.Enabled = false;
                     txtFirstName.Enabled = false;
@@ -75,8 +78,6 @@ namespace INFOSiS_2._0
                     txtSecondLastName.Enabled = false;
                     rbWoman.Enabled = false;
                     rbMan.Enabled = false;
-                    btCancelar.Enabled = false;
-                    btnModificar.Enabled = true;
                     txtCellphone.Enabled = false;
                     txtEmailPUCP.Enabled = false;
                     txtEmail.Enabled = false;
@@ -87,6 +88,11 @@ namespace INFOSiS_2._0
                     rbForeignCard.Enabled = false;
                     rbPassport.Enabled = false;
                     dtpBirthday.Enabled = false;
+                    btnSearch.Enabled = true;
+                    btnCancelar.Enabled = true;
+                    btnSaveChanges.Enabled = false;
+                    btnModificar.Enabled = true;
+                    lblAdvancedSearch.Enabled = true;
                     break;
                 case Estado.Actualizar:
                     txtDocumentNumber.Enabled = true;
@@ -95,9 +101,7 @@ namespace INFOSiS_2._0
                     txtPrimaryLastName.Enabled = true;
                     txtSecondLastName.Enabled = true;
                     rbWoman.Enabled = true;
-                    rbMan.Enabled = true;
-                    btCancelar.Enabled = true;
-                    btnSearch.Enabled = false;
+                    rbMan.Enabled = true;                    
                     txtCellphone.Enabled = true;
                     txtEmailPUCP.Enabled = true;
                     txtEmail.Enabled = true;
@@ -108,37 +112,79 @@ namespace INFOSiS_2._0
                     rbForeignCard.Enabled = true;
                     rbPassport.Enabled = true;
                     dtpBirthday.Enabled = true;
+                    btnCancelar.Enabled = true;
+                    btnSearch.Enabled = false;
+                    btnSaveChanges.Enabled = true;
+                    btnModificar.Enabled = false;
+                    lblAdvancedSearch.Enabled = false;
+                    break;
+                case Estado.Guardar:
+                    txtDocumentNumber.Enabled = false;
+                    txtFirstName.Enabled = false;
+                    txtSecondName.Enabled = false;
+                    txtPrimaryLastName.Enabled = false;
+                    txtSecondLastName.Enabled = false;
+                    rbWoman.Enabled = false;
+                    rbMan.Enabled = false;
+                    txtCellphone.Enabled = false;
+                    txtEmailPUCP.Enabled = false;
+                    txtEmail.Enabled = false;
+                    txtPUCPCode.Enabled = true;
+                    rbActive.Enabled = false;
+                    rbInactive.Enabled = false;
+                    rbDNI.Enabled = false;
+                    rbForeignCard.Enabled = false;
+                    rbPassport.Enabled = false;
+                    dtpBirthday.Enabled = false;
+                    btnSearch.Enabled = true;
+                    btnCancelar.Enabled = true;
+                    btnSaveChanges.Enabled = false;
+                    btnModificar.Enabled = false;
+                    lblAdvancedSearch.Enabled = true;
                     break;
             }
         }
 
         public enum Estado
         {
-            Inicial = 0,
-            Nuevo = 1,
-            Guardar = 2,
-            Buscar = 3,
-            Actualizar = 4
+            Inicial = 1,
+            Buscar = 2,
+            Actualizar = 3,
+            Guardar = 4
         }
 
-        private void btnSelect_Click(object sender, EventArgs e)
-        {
-            ProfessorRegister.Instance.BringToFront();
-        }
-
-        private void lbBusquedaAvanzada_Click(object sender, EventArgs e)
+        private void lblAdvancedSearch_Click(object sender, EventArgs e)
         {
             ProfessorAdvancedSearch formSearchProfessor = new ProfessorAdvancedSearch();
             if (formSearchProfessor.ShowDialog() == DialogResult.OK)
             {
-              
+                professor = formSearchProfessor.Professor;
+                txtPUCPCode.Text = professor.idPUCP;
+                txtDocumentNumber.Text = professor.idNumber;
+                previousId = txtDocumentNumber.Text;
+                txtFirstName.Text = professor.firstName;
+                txtSecondName.Text = professor.middleName;
+                txtPrimaryLastName.Text = professor.primaryLastName;
+                txtSecondLastName.Text = professor.secondLastName;
+                txtEmailPUCP.Text = professor.emailPUCP;
+                txtEmail.Text = professor.email;
+                txtCellphone.Text = professor.cellPhoneNumber;
+                if (professor.idType == 0) rbDNI.Checked = true;
+                else if (professor.idType == 1) rbForeignCard.Checked = true;
+                else if (professor.idType == 2) rbPassport.Checked = true;
+                if (professor.gender == "F") rbWoman.Checked = true;
+                else if (professor.gender == "M") rbMan.Checked = true;
+                if (professor.isActive) rbActive.Checked = true;
+                else if (!professor.isActive) rbInactive.Checked = true;
+                if (professor.birthday.Date < dtpBirthday.MinDate) dtpBirthday.Value = dtpBirthday.MaxDate; //fecha nula
+                else dtpBirthday.Value = professor.birthday.Date;
+                setState(Estado.Buscar);
+
             }
         }
 
-        private void btModificar_Click(object sender, EventArgs e)
-        {
-            establecerEstado(Estado.Actualizar);
-            server = new Server.ServerClient();
+        private void setProfessor()
+        {            
             professor = new Server.professor();
             professor.idPUCP = txtPUCPCode.Text;
             professor.idNumber = txtDocumentNumber.Text;
@@ -148,8 +194,11 @@ namespace INFOSiS_2._0
             professor.secondLastName = txtSecondLastName.Text;
             professor.email = txtEmail.Text;
             professor.emailPUCP = txtEmailPUCP.Text;
-            professor.birthdaySpecified = true;
-            professor.birthday = dtpBirthday.Value;
+            if (birthdaySelected)
+            {
+                professor.birthdaySpecified = true;
+                professor.birthday = dtpBirthday.Value;
+            }
             if (rbMan.Checked)
                 professor.gender = "M";
             else if (rbWoman.Checked)
@@ -165,45 +214,56 @@ namespace INFOSiS_2._0
             else if (rbPassport.Checked)
                 professor.idType = 2;
             professor.cellPhoneNumber = txtCellphone.Text;
-
-            int res = server.UpdateProfessor(professor);
-            if (res > 0)
+        }
+        private bool verifyDocumentNumber(String id)
+        {
+            for (int i = 0; i < id.Length; i++)
             {
-                MessageBox.Show("Profesor actualizado correctamente", "Profesor actualizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (!char.IsDigit(id[i])) return false;
             }
+            return true;
         }
 
-        private void btCancelar_Click(object sender, EventArgs e)
+        private void btnModificar_Click(object sender, EventArgs e)
         {
-            limpiar();
+            setState(Estado.Actualizar);        
         }
 
-        public void limpiar()
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
+            clean();
+            setState(Estado.Inicial);
+        }
+
+        public void clean()
+        {            
             txtFirstName.Clear();
             txtSecondName.Clear();
             txtPrimaryLastName.Clear();
             txtSecondLastName.Clear();
             rbWoman.Checked = false;
             rbMan.Checked = false;
-            btCancelar.Enabled = true;
-            btnModificar.Enabled = true;
+            btnCancelar.Enabled = false;
+            btnSaveChanges.Enabled = false;
+            btnModificar.Enabled = false;
             txtCellphone.Clear();
             txtEmailPUCP.Clear();
             txtEmail.Clear();
             txtPUCPCode.Clear();
             txtDocumentNumber.Clear();
+            dtpBirthday.Value = dtpBirthday.MaxDate;
         }
 
         private void BtnSearch_Click(object sender, EventArgs e)
         {
             server = new Server.ServerClient();
             professor = new Server.professor();
-            professor = server.SearchProfessorById(txtPUCPCode.Text);
+            professor = server.SearchProfessorByIdPUCP(txtPUCPCode.Text);
             if (professor.idPUCP != null)
             {
                 txtPUCPCode.Text = professor.idPUCP;
                 txtDocumentNumber.Text = professor.idNumber;
+                previousId = txtDocumentNumber.Text;
                 txtFirstName.Text = professor.firstName;
                 txtSecondName.Text = professor.middleName;
                 txtPrimaryLastName.Text = professor.primaryLastName;
@@ -218,12 +278,119 @@ namespace INFOSiS_2._0
                 else if (professor.idType == 2) rbPassport.Checked = true;
                 if (professor.isActive) rbActive.Checked = true;
                 else if (!professor.isActive) rbInactive.Checked = true;
-                establecerEstado(Estado.Buscar);
+                if (professor.birthday.Date < dtpBirthday.MinDate) dtpBirthday.Value = dtpBirthday.MaxDate; //fecha nula
+                else dtpBirthday.Value = professor.birthday.Date;
+                setState(Estado.Buscar);
             }
             else
             {
                 MessageBox.Show("Código PUCP no encontrado", "Profesor no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
+
+        private void BtnSaveChanges_Click(object sender, EventArgs e)
+        {
+            bool firstValidation = true;
+            bool secondValidation = true;
+
+            if (txtDocumentNumber.Text.Count() == 0 || txtFirstName.Text.Count() == 0 || txtPrimaryLastName.Text.Count() == 0
+               || txtSecondLastName.Text.Count() == 0 || txtEmailPUCP.Text.Count() == 0)
+            {
+                MessageBox.Show("Revisar los campos obligatorios", "Actualización inválida", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                firstValidation = false; ;
+            }
+            if (firstValidation)
+            {
+                if (rbDNI.Checked)
+                {
+                    if (txtDocumentNumber.Text.Count() != 8 ||
+                       (txtDocumentNumber.Text.Count() == 8 && !verifyDocumentNumber(txtDocumentNumber.Text)))
+                    {
+                        MessageBox.Show("Número de documento inválido", "Error en la actualización", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        secondValidation = false;
+                    }
+                }
+                if (rbForeignCard.Checked || rbPassport.Checked)
+                {
+                    if (txtDocumentNumber.Text.Count() != 12)
+                    {
+                        MessageBox.Show("Número de documento inválido", "Error en la actualización", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        secondValidation = false;
+                    }
+                }
+
+                if (!txtEmailPUCP.Text.Contains("@") || !txtEmailPUCP.Text.Contains("."))
+                {
+                    MessageBox.Show("Correo PUCP inválido", "Error en la actualización", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    secondValidation = false;
+                }
+                if (txtEmail.Text.Count() > 0 && (!txtEmail.Text.Contains("@") || !txtEmail.Text.Contains(".")))
+                {
+                    MessageBox.Show("Correo alternativo inválido", "Error en la actualización", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    secondValidation = false;
+                }
+
+                if (secondValidation)
+                {
+                    setProfessor();
+                }
+            }
+
+            if ((server.SearchProfessorById(txtDocumentNumber.Text) == 1) && (previousId != txtDocumentNumber.Text)){
+                MessageBox.Show("Documento de identidad registrado anteriormente", "Actualización inválida", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else
+            {
+                int res = server.UpdateProfessor(professor);
+                if (res > 0)
+                {
+                    MessageBox.Show("Profesor actualizado correctamente", "Profesor actualizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    clean();
+                    setState(Estado.Guardar);
+                }
+            }
+
+
+        }
+
+        private void DtpBirthday_ValueChanged(object sender, EventArgs e)
+        {
+            birthdaySelected = true;
+        }
+
+        private void RbDNI_CheckedChanged(object sender, EventArgs e)
+        {
+            txtDocumentNumber.MaxLength = 8;
+        }
+
+        private void RbForeignCard_CheckedChanged(object sender, EventArgs e)
+        {
+            txtDocumentNumber.MaxLength = 12;
+        }
+
+        private void RbPassport_CheckedChanged(object sender, EventArgs e)
+        {
+            txtDocumentNumber.MaxLength = 12;
+        }
+
+        private void TxtDocumentNumber_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (rbDNI.Checked)
+            {
+                if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+
+        private void TxtCellphone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                e.Handled = true;
+            }
+        }
+
     }
 }

@@ -177,6 +177,7 @@
             this.txtCellphone.Name = "txtCellphone";
             this.txtCellphone.Size = new System.Drawing.Size(206, 26);
             this.txtCellphone.TabIndex = 146;
+            this.txtCellphone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtCellphone_KeyPress);
             // 
             // rbMan
             // 
@@ -297,7 +298,7 @@
             // 
             this.txtDocumentNumber.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtDocumentNumber.Location = new System.Drawing.Point(178, 122);
-            this.txtDocumentNumber.MaxLength = 12;
+            this.txtDocumentNumber.MaxLength = 8;
             this.txtDocumentNumber.Name = "txtDocumentNumber";
             this.txtDocumentNumber.Size = new System.Drawing.Size(178, 26);
             this.txtDocumentNumber.TabIndex = 133;

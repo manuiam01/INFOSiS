@@ -125,7 +125,8 @@ public class MySQLCourse implements DAOCourse {
                 c.setName(rs.getString(2));
                 c.setIsActive(rs.getBoolean(3));
                 c.setDescription(rs.getString(4));
-                c.setSyllabus(rs.getBytes(5));                            
+                c.setSyllabus(rs.getBytes(5)); 
+                c.setCourseType(DBController.queryCourseTypeById(rs.getInt(6)));
             }            
             con.close();
         }catch(Exception ex){
