@@ -33,17 +33,18 @@ namespace INFOSiS_2._0
         public bool Ssl { get => ssl; set => ssl = value; }
         public string Subject { get => subject; set => subject = value; }
         public string Message { get => message; set => message = value; }
-
-        public InterestedEditMailing(string port, string host, string email, string password,string subject, Boolean ssl,Boolean html)
+        public enum Estado
+        {
+            Inicial = 0,
+            Nuevo = 1,
+            Guardar = 2,
+            Actualizar = 3,
+            Eliminar = 4
+        }
+        public InterestedEditMailing()
         {
             InitializeComponent();
-            txbAsunto.Text = subject;
-            txbMessage.Text = message;
-            txtEmail.Text = email;
-            txtPassword.Text = password;
-            txtPort.Text = port;
-            txtSmtp.Text = smtp;
-            cbSSL.Checked = ssl;
+            establecerEstado(Estado.Inicial);
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -80,31 +81,106 @@ namespace INFOSiS_2._0
 
         private void BtGuardar_Click(object sender, EventArgs e)
         {
-            if(txbAsunto.Equals(""))
-                MessageBox.Show("No ingresó el asunto", "Aviso", MessageBoxButtons.OK);
-            else if (txbMessage.Equals(""))
-                MessageBox.Show("No ingresó mensaje alguno", "Aviso", MessageBoxButtons.OK);
-            else if(txtEmail.Equals(""))
+            if (txtEmail.Text.Equals(""))
                 MessageBox.Show("No ingresó el correo de salida", "Aviso", MessageBoxButtons.OK);
-            else if (txtPassword.Equals(""))
+            else if (txtPassword.Text.Equals(""))
                 MessageBox.Show("No ingresó la contraseña", "Aviso", MessageBoxButtons.OK);
-            else if(txtPort.Equals(""))
-                MessageBox.Show("No ingresó el puerto", "Aviso", MessageBoxButtons.OK);
-            else if(txtSmtp.Equals(""))
+            else if (txtSmtp.Text.Equals(""))
                 MessageBox.Show("No ingresó el smtp", "Aviso", MessageBoxButtons.OK);
+            else if (txtPort.Text.Equals(""))
+                MessageBox.Show("No ingresó el puerto", "Aviso", MessageBoxButtons.OK);
+            else if (txbAsunto.Text.Equals(""))
+                MessageBox.Show("No ingresó el asunto", "Aviso", MessageBoxButtons.OK);
+            else if (txbMessage.Text.Equals(""))
+                MessageBox.Show("No ingresó mensaje alguno", "Aviso", MessageBoxButtons.OK);
             else
             {
-                Subject = txbAsunto.Text;
-                Password = txtPassword.Text;
-                Email = txtEmail.Text;
-                Smtp = txtSmtp.Text;
-                Port = txtPort.Text;
-                Message = txbMessage.Text;
-                Ssl = cbSSL.Checked;
-                this.DialogResult = DialogResult.OK;
+                DialogResult result = MessageBox.Show("Está seguro de que quiere realizar estos cambios?", "Aviso", MessageBoxButtons.YesNo, iconoPregunta);
+                if (result == DialogResult.Yes)
+                {
+                    Subject = txbAsunto.Text;
+                    Password = txtPassword.Text;
+                    Email = txtEmail.Text;
+                    Smtp = txtSmtp.Text;
+                    Port = txtPort.Text;
+                    Message = txbMessage.Text;
+                    Ssl = cbSSL.Checked;
+                    this.DialogResult = DialogResult.OK;
+
+                }
+                    
             }
 
 
+        }
+        public void establecerEstado(Estado e)
+        {
+            switch (e)
+            {
+                case Estado.Inicial:
+                    rbGmail.Checked = true;
+                    txtPort.Enabled = false;
+                    txtSmtp.Enabled = false;
+                    break;
+                case Estado.Nuevo:
+                    txtSmtp.Enabled = true;
+                    txtPort.Enabled = true;
+                    break;
+                case Estado.Actualizar:
+                    txtPort.Enabled = false;
+                    txtSmtp.Enabled = false;
+                    break;
+            }
+        }
+
+        private void RbGmail_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbGmail.Checked == true)
+            {
+                establecerEstado(Estado.Actualizar);
+                txtSmtp.Text = "smtp.gmail.com";
+                txtPort.Text = "587";
+            }
+            
+        }
+
+        private void RbHotmail_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbHotmail.Checked == true)
+            {
+                establecerEstado(Estado.Actualizar);
+                txtSmtp.Text = "smtp.live.com";
+                txtPort.Text = "465";
+            }
+        }
+
+        private void RbYahoo_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbYahoo.Checked == true)
+            {
+                establecerEstado(Estado.Actualizar);
+                txtSmtp.Text = "smtp.mail.yahoo.com";
+                txtPort.Text = "465";
+            }
+        }
+
+        private void RbOtro_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbOtro.Checked == true)
+            {
+                establecerEstado(Estado.Nuevo);
+                txtSmtp.Text = "";
+                txtPort.Text = "";
+            }
+        }
+
+        private void BtCancelar_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Está seguro de que quiere realizar estos cambios?", "Aviso", MessageBoxButtons.YesNo, iconoPregunta);
+            if (result == DialogResult.Yes)
+            {
+                this.DialogResult = DialogResult.OK;
+            }
         }
     }
 }

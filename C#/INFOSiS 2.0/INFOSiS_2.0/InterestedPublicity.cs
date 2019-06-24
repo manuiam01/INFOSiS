@@ -19,6 +19,7 @@ namespace INFOSiS_2._0
         private Server.ServerClient servidor;
         private static InterestedPublicity _instance;
         private static Panel _panelMdi;
+        public int cantEnvios=0;
         public static String port = "";
         public static String host = "";
         public static String email = "";
@@ -91,7 +92,13 @@ namespace INFOSiS_2._0
 
         private void btModificar_Click(object sender, EventArgs e)
         {
-            if(port.Equals("") ||
+            if(txbCourseSelected.Text.Equals(""))
+                MessageBox.Show("No ha escogido ni un curso", "Aviso", MessageBoxButtons.OK, iconoWarning);
+            else if (dgvInteresadosMailing.Rows.Count == 0)
+            {
+                MessageBox.Show("No hay interesados en este curso", "Aviso", MessageBoxButtons.OK,iconoWarning);
+            }
+            else if(port.Equals("") ||
                 host.Equals("") ||
                 email.Equals("") ||
                 password.Equals(""))
@@ -99,88 +106,119 @@ namespace INFOSiS_2._0
                 MessageBox.Show("Falta configurar las credenciales del envío de correo", "Aviso", MessageBoxButtons.OK);
 
             }
-            else
+            else 
             {
-                try
+                DialogResult result = MessageBox.Show("Está seguro de que quiere realizar el envío?", "Aviso", MessageBoxButtons.YesNo, iconoPregunta);
+                if (result == DialogResult.Yes)
                 {
-                    //Detalles del servidor e email de donde sale el correo
-                    SmtpClient clientDetails = new SmtpClient();
-                    if(port=="" || host=="" || email=="" || password=="")
-                        MessageBox.Show("Falta completar los datos de envío en configuración de mailing", "Aviso", MessageBoxButtons.OK, iconoWarning);
-                    else
+                    try
                     {
-                        
-                        //clientDetails.Port = Convert.ToInt32(port);
-                        //clientDetails.Host = host;
-                        //clientDetails.EnableSsl = ssl;
-                        //clientDetails.DeliveryMethod = SmtpDeliveryMethod.Network;
-                        //clientDetails.UseDefaultCredentials = false;
-                        //clientDetails.Credentials = new NetworkCredential(email, password);
-                        //Detalles del Mensaje
-                        //Esto debería hacerse por todo el arreglo de correos, pero por ahora probemos con uno solo
-                        String mail = "";
-                        foreach (DataGridViewRow row in dgvInteresadosMailing.Rows)
-                        {
-                            clientDetails.Port = Convert.ToInt32(port);
-                            clientDetails.Host = host;
-                            clientDetails.EnableSsl = ssl;
-                            clientDetails.DeliveryMethod = SmtpDeliveryMethod.Network;
-                            clientDetails.UseDefaultCredentials = false;
-                            clientDetails.Credentials = new NetworkCredential(email, password);
-                            mail = row.Cells[2].Value.ToString();
-                            MailMessage mailDetails = new MailMessage();
-                            //mailDetails.From = new MailAddress(email);
-                            mailDetails.From = new MailAddress(email);
-                            mailDetails.To.Add(mail);
-                            //mailDetails.Subject = subject;
-                            mailDetails.Subject = subject+ nombreCurso;
-                            mailDetails.IsBodyHtml = html;
-                            mailDetails.Body = message;
-                            clientDetails.Send(mailDetails);
-                        }
-                        MessageBox.Show("Se envió el mail Yeeeeh");
-                    }
-                }
-                catch (SmtpFailedRecipientsException ex)
-                {
-                    for (int i = 0; i < ex.InnerExceptions.Length; i++)
-                    {
-                        SmtpStatusCode status = ex.InnerExceptions[i].StatusCode;
-                        if (status == SmtpStatusCode.MailboxBusy ||
-                            status == SmtpStatusCode.MailboxUnavailable)
-                        {
-                            Console.WriteLine("Delivery failed - retrying in 5 seconds.");
-                            System.Threading.Thread.Sleep(5000);
-                            
-                        }
+                        //Detalles del servidor e email de donde sale el correo
+                        SmtpClient clientDetails = new SmtpClient();
+                        if (port == "" || host == "" || email == "" || password == "")
+                            MessageBox.Show("Falta completar los datos de envío en configuración de mailing", "Aviso", MessageBoxButtons.OK, iconoWarning);
                         else
                         {
-                            Console.WriteLine("Failed to deliver message to {0}",
-                                ex.InnerExceptions[i].FailedRecipient);
+                            String mail = "";
+                            foreach (DataGridViewRow row in dgvInteresadosMailing.Rows)
+                            {
+                                DataGridViewCheckBoxCell ck = row.Cells[4] as DataGridViewCheckBoxCell;
+                                if (Convert.ToBoolean(ck.Value) == false)
+                                {
+                                    clientDetails.Port = Convert.ToInt32(port);
+                                    clientDetails.Host = host;
+                                    clientDetails.EnableSsl = ssl;
+                                    clientDetails.DeliveryMethod = SmtpDeliveryMethod.Network;
+                                    clientDetails.UseDefaultCredentials = false;
+                                    clientDetails.Credentials = new NetworkCredential(email, password);
+                                    mail = row.Cells[2].Value.ToString();
+                                    MailMessage mailDetails = new MailMessage();
+                                    //mailDetails.From = new MailAddress(email);
+                                    mailDetails.From = new MailAddress(email);
+                                    mailDetails.To.Add(mail);
+                                    //mailDetails.Subject = subject;
+                                    mailDetails.Subject = subject + nombreCurso;
+                                    mailDetails.IsBodyHtml = html;
+                                    mailDetails.Body = message;
+                                    clientDetails.Send(mailDetails);
+                                    cantEnvios = cantEnvios + 1;
+                                }
+                            }
+                            if (cantEnvios != 0)
+                            {
+                                MessageBox.Show("Se envió el mail Yeeeeh");
+                                dgvInteresadosMailing.DataSource = null;
+                                txbCourseSelected.Text = "";
+                            }
+                                
+                            else
+                                MessageBox.Show("No se envió ningún correo :(");
+
                         }
                     }
+                    catch (SmtpFailedRecipientsException ex)
+                    {
+                        for (int i = 0; i < ex.InnerExceptions.Length; i++)
+                        {
+                            SmtpStatusCode status = ex.InnerExceptions[i].StatusCode;
+                            if (status == SmtpStatusCode.MailboxBusy ||
+                                status == SmtpStatusCode.MailboxUnavailable)
+                            {
+                                Console.WriteLine("Delivery failed - retrying in 5 seconds.");
+                                System.Threading.Thread.Sleep(5000);
+
+                            }
+                            else
+                            {
+                                Console.WriteLine("Failed to deliver message to {0}",
+                                    ex.InnerExceptions[i].FailedRecipient);
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Exception caught in RetryIfBusy(): {0}",
+                                ex.ToString());
+                    }
                 }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("Exception caught in RetryIfBusy(): {0}",
-                            ex.ToString());
-                }
+                    
             }
         }
 
 
         private void lblEditarMail_Click(object sender, EventArgs e)
         {
-            InterestedEditMailing frmEditMailing = new InterestedEditMailing(port,host,email,password,subject,ssl,html);
+            InterestedEditMailing frmEditMailing = new InterestedEditMailing();
             if (frmEditMailing.ShowDialog() == DialogResult.OK)
             {
-                port = frmEditMailing.Port;
-                host = frmEditMailing.Smtp;
-                ssl = frmEditMailing.Ssl;
-                email = frmEditMailing.Email;
-                password = frmEditMailing.Password;
-                subject = frmEditMailing.Subject;
-                message = frmEditMailing.Message;
+                if (frmEditMailing.Port != null)
+                    port = frmEditMailing.Port;
+                else
+                    port = "";
+                if (frmEditMailing.Port != null)
+                    host = frmEditMailing.Smtp;
+                else
+                    host = "";
+                if (frmEditMailing.Port != null)
+                    ssl = frmEditMailing.Ssl;
+                else
+                    ssl = false;
+                if (frmEditMailing.Port != null)
+                    email = frmEditMailing.Email;
+                else
+                    email = "";
+                if (frmEditMailing.Port != null)
+                    password = frmEditMailing.Password;
+                else
+                    password = "";
+                if (frmEditMailing.Port != null)
+                    subject = frmEditMailing.Subject;
+                else
+                    subject = "";
+                if (frmEditMailing.Port != null)
+                    message = frmEditMailing.Message;
+                else
+                    message = "";
             }
         
         }
@@ -193,6 +231,16 @@ namespace INFOSiS_2._0
         private void dgvInteresadosMailing_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void BtCancelar_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Está seguro de que quiere cancelar el envío?", "Aviso", MessageBoxButtons.YesNo, iconoPregunta);
+            if(result == DialogResult.Yes)
+            {
+                dgvInteresadosMailing.DataSource = null;
+                txbCourseSelected.Text = "";
+            }
         }
     }
 }
