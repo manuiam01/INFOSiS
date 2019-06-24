@@ -14,10 +14,12 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
+import pe.edu.pucp.INFOSiS.controller.config.DBController;
 import pe.edu.pucp.INFOSiS.controller.config.DBManager;
 import pe.edu.pucp.INFOSiS.controller.dao.DAOCourseHistory;
 import pe.edu.pucp.INFOSiS.model.bean.course.Course;
 import pe.edu.pucp.INFOSiS.model.bean.course.CourseHistory;
+import pe.edu.pucp.INFOSiS.model.bean.course.Session;
 import pe.edu.pucp.INFOSiS.model.bean.student.Student;
 
 /**
@@ -133,6 +135,46 @@ public class MySQLCourseHistory implements DAOCourseHistory{
                 //Como no sé como comparar las fechas en mysql, lo haré acá ptmre :v
                 if(dates.get(0).after(datecourse)){
                     courses.add(c);
+                }
+            }            
+            con.close();
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        
+        return courses;
+    }
+
+    @Override
+    public ArrayList<CourseHistory> queryByDate2(Date datecourse) {
+        ArrayList<CourseHistory> courses = new ArrayList<CourseHistory>();      
+        try{
+            DBManager dbManager = DBManager.getdbManager();
+            Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
+            CallableStatement cs = con.prepareCall("{call COURSEH_BY_DATE(?)}");
+            cs.setDate(1,new java.sql.Date(datecourse.getDate()));
+            ResultSet rs = cs.executeQuery();
+            while(rs.next()){
+                CourseHistory c = new CourseHistory();
+                c.setId(rs.getInt("idCourseHistory"));
+                c.setCourse(DBController.queryCourseById(rs.getString(2)));
+                c.setProfessor(DBController.searchProfessorByIdPUCP(rs.getString(3)));
+                c.setAssistant(DBController.searchProfessorByIdPUCP(rs.getString(4)));
+                c.setHours(rs.getInt(5));
+                c.setStartDate(rs.getDate(6));
+                c.setEndDate(rs.getDate(7));                
+                if(c.getStartDate().after(datecourse)){
+                    cs = con.prepareCall("{call SEARCH_SESSIONS_BY_COURSEH(?)}");
+                    cs.setInt(1, c.getId());
+                    ResultSet rs2 = cs.executeQuery();
+                    while(rs2.next()){
+                        Session s = new Session();
+                        s.setId(rs2.getInt(1));
+                        s.setSession(rs2.getDate(3));
+                        s.setHours(rs2.getInt(4));
+                        s.setLocation(rs.getString(5));
+                        
+                    }
                 }
             }            
             con.close();

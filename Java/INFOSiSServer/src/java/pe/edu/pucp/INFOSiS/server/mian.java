@@ -32,58 +32,58 @@ public class mian {
 //        for(User u: users){
 //            System.out.println(u.getUsername());
 //        }
-
-        Course course = DBController.queryCourseById("1023");
-        Professor professor = DBController.searchProfessorByIdPUCP("19693103");
-        Professor assistant = DBController.searchProfessorByIdPUCP("19794422");
-        CourseHistory c = new CourseHistory();
-        c.setCourse(course);
-        c.setAssistant(assistant);
-        c.setProfessor(professor);
-        c.setHours(10);
-        ArrayList<Date> dates = new ArrayList<>();
-        Date d = new Date();
-        dates.add(d);
-        Date d2 = new Date();
-        d2.setDate(30);
-        dates.add(d2);
-        c.setSessions(dates);
-        ArrayList<String> locations = new ArrayList<>();
-        locations.add("A101");
-        locations.add("A102");
-        c.setLocations(locations);
-        ArrayList<Integer> hoursSession = new ArrayList<>();
-        hoursSession.add(4);
-        hoursSession.add(6);
-        c.setHoursSession(hoursSession);
-        ArrayList<Student> students = new ArrayList<>();
-        Student s = new Student();
-        s.setIdNumber("11111111");
-        students.add(s);
-        Student s2 = new Student();
-        s2.setIdNumber("56485747");
-        students.add(s2);
-        c.setStudents(students);
-        ArrayList<Float> grades = new ArrayList<>();
-        grades.add(13.00f);
-        grades.add(19.00f);
-        c.setHistoryGrade(grades);
-        ArrayList<String> states = new ArrayList<>();
-        states.add("APROBADO");
-        states.add("APROBADO");
-        c.setHistoryState(states);
-        ArrayList<Integer> amountPaids = new ArrayList<>();
-        amountPaids.add(300);
-        amountPaids.add(600);
-        c.setVouchers(amountPaids);
-        
-        int result = DBController.insertCourseHistory(c);
-        System.out.println(result);
-        
-        
-        
-        
-
+//
+//        Course course = DBController.queryCourseById("1023");
+//        Professor professor = DBController.searchProfessorByIdPUCP("19693103");
+//        Professor assistant = DBController.searchProfessorByIdPUCP("19794422");
+//        CourseHistory c = new CourseHistory();
+//        c.setCourse(course);
+//        c.setAssistant(assistant);
+//        c.setProfessor(professor);
+//        c.setHours(10);
+//        ArrayList<Date> dates = new ArrayList<>();
+//        Date d = new Date();
+//        dates.add(d);
+//        Date d2 = new Date();
+//        d2.setDate(30);
+//        dates.add(d2);
+//        c.setSessions(dates);
+//        ArrayList<String> locations = new ArrayList<>();
+//        locations.add("A101");
+//        locations.add("A102");
+//        c.setLocations(locations);
+//        ArrayList<Integer> hoursSession = new ArrayList<>();
+//        hoursSession.add(4);
+//        hoursSession.add(6);
+//        c.setHoursSession(hoursSession);
+//        ArrayList<Student> students = new ArrayList<>();
+//        Student s = new Student();
+//        s.setIdNumber("11111111");
+//        students.add(s);
+//        Student s2 = new Student();
+//        s2.setIdNumber("56485747");
+//        students.add(s2);
+//        c.setStudents(students);
+//        ArrayList<Float> grades = new ArrayList<>();
+//        grades.add(13.00f);
+//        grades.add(19.00f);
+//        c.setHistoryGrade(grades);
+//        ArrayList<String> states = new ArrayList<>();
+//        states.add("APROBADO");
+//        states.add("APROBADO");
+//        c.setHistoryState(states);
+//        ArrayList<Integer> amountPaids = new ArrayList<>();
+//        amountPaids.add(300);
+//        amountPaids.add(600);
+//        c.setVouchers(amountPaids);
+//        
+//        int result = DBController.insertCourseHistory(c);
+//        System.out.println(result);
+//        
+//        
+//        
+//        
+//            ArrayList<CourseHistory> courses = DBController.queryCourseHByDate("24-07-05");
 //
 //          CourseType coursetype = DBController.queryCourseTypeById(6);
 //          Course c = new Course();
