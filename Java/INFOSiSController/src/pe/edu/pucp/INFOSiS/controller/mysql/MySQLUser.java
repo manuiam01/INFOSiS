@@ -39,6 +39,7 @@ public class MySQLUser implements DAOUser{
             cs.setInt(5,1); //active user
             res=cs.executeUpdate();
             user.setId(cs.getInt("_id"));
+            cs.close();
             con.close();
         }catch(SQLException ex){
             System.out.println(ex.getMessage());
@@ -57,6 +58,7 @@ public class MySQLUser implements DAOUser{
             ps.setString(1,user.getPassword());
             ps.setString(2, user.getUsername());
             result = ps.executeUpdate();
+            ps.close();
             con.close();   
         }catch(SQLException ex){
             System.out.println(ex.getMessage());
@@ -84,6 +86,7 @@ public class MySQLUser implements DAOUser{
                 user.setIsActive(isActive);
                 users.add(user);
             }
+            rs.close();
             con.close();
         }catch(SQLException ex){
             System.out.println(ex.getMessage());
@@ -109,6 +112,7 @@ public class MySQLUser implements DAOUser{
                 ut.setId(rs.getInt("idAccess"));
                 ut.setName(rs.getString("name"));
             }
+            rs.close();
             con.close();
         }
         catch(Exception ex){

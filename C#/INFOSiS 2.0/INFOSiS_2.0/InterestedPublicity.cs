@@ -24,9 +24,11 @@ namespace INFOSiS_2._0
         public static String email = "";
         public static String password = "";
         public static String subject = "";
+        public static String message = "";
         public static Boolean ssl = false;
         public static Boolean html = false;
         private String idCourse = "";
+        private String nombreCurso = "";
         MessageBoxIcon iconoWarning = MessageBoxIcon.Warning;
         MessageBoxIcon iconoPregunta = MessageBoxIcon.Question;
         MessageBoxIcon iconoCorrecto = MessageBoxIcon.Asterisk;
@@ -71,6 +73,7 @@ namespace INFOSiS_2._0
                 Server.course c = new Server.course();
                 idCourse = formBuscarCursosInteresado.IdCourse;
                 c.id = idCourse;
+                nombreCurso = formBuscarCursosInteresado.NombreCurso;
                 txbCourseSelected.Text = formBuscarCursosInteresado.NombreCurso;
                 dgvInteresadosMailing.DataSource = servidor.QueryAllByCourse(c);
             }
@@ -88,10 +91,10 @@ namespace INFOSiS_2._0
 
         private void btModificar_Click(object sender, EventArgs e)
         {
-            if(port != "" ||
-                host != "" ||
-                email != "" ||
-                password != "")
+            if(port.Equals("") ||
+                host.Equals("") ||
+                email.Equals("") ||
+                password.Equals(""))
             {
                 MessageBox.Show("Falta configurar las credenciales del envío de correo", "Aviso", MessageBoxButtons.OK);
 
@@ -112,26 +115,33 @@ namespace INFOSiS_2._0
                         MessageBox.Show("Falta completar los datos de envío en configuración de mailing", "Aviso", MessageBoxButtons.OK, iconoWarning);
                     else
                     {
-                        clientDetails.Port = Convert.ToInt32(port);
-                        clientDetails.Host = host;
-                        clientDetails.EnableSsl = ssl;
-                        clientDetails.DeliveryMethod = SmtpDeliveryMethod.Network;
-                        clientDetails.UseDefaultCredentials = false;
-                        clientDetails.Credentials = new NetworkCredential(email, password);
+                        
+                        //clientDetails.Port = Convert.ToInt32(port);
+                        //clientDetails.Host = host;
+                        //clientDetails.EnableSsl = ssl;
+                        //clientDetails.DeliveryMethod = SmtpDeliveryMethod.Network;
+                        //clientDetails.UseDefaultCredentials = false;
+                        //clientDetails.Credentials = new NetworkCredential(email, password);
                         //Detalles del Mensaje
                         //Esto debería hacerse por todo el arreglo de correos, pero por ahora probemos con uno solo
                         String mail = "";
                         foreach (DataGridViewRow row in dgvInteresadosMailing.Rows)
                         {
-                            mail = row.Cells[2].ToString();
+                            clientDetails.Port = Convert.ToInt32(port);
+                            clientDetails.Host = host;
+                            clientDetails.EnableSsl = ssl;
+                            clientDetails.DeliveryMethod = SmtpDeliveryMethod.Network;
+                            clientDetails.UseDefaultCredentials = false;
+                            clientDetails.Credentials = new NetworkCredential(email, password);
+                            mail = row.Cells[2].Value.ToString();
                             MailMessage mailDetails = new MailMessage();
                             //mailDetails.From = new MailAddress(email);
-                            mailDetails.From = new MailAddress("jeremi.cardenas@pucp.pe");
+                            mailDetails.From = new MailAddress(email);
                             mailDetails.To.Add(mail);
                             //mailDetails.Subject = subject;
-                            mailDetails.Subject = "INFOPUC - Curso de Excel Avanzado - ";
+                            mailDetails.Subject = subject+ nombreCurso;
                             mailDetails.IsBodyHtml = html;
-                            mailDetails.Body = "Jeremixer never enemixer";
+                            mailDetails.Body = message;
                             clientDetails.Send(mailDetails);
                         }
                         MessageBox.Show("Se envió el mail Yeeeeh");
@@ -170,7 +180,13 @@ namespace INFOSiS_2._0
             InterestedEditMailing frmEditMailing = new InterestedEditMailing(port,host,email,password,subject,ssl,html);
             if (frmEditMailing.ShowDialog() == DialogResult.OK)
             {
-
+                port = frmEditMailing.Port;
+                host = frmEditMailing.Smtp;
+                ssl = frmEditMailing.Ssl;
+                email = frmEditMailing.Email;
+                password = frmEditMailing.Password;
+                subject = frmEditMailing.Subject;
+                message = frmEditMailing.Message;
             }
         
         }
