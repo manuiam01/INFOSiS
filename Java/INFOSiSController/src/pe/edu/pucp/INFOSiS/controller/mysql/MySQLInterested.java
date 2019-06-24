@@ -27,6 +27,7 @@ import pe.edu.pucp.INFOSiS.model.bean.interested.Interested;
  */
 public class MySQLInterested implements DAOInterested {
     
+    @Override
     public int insert(Interested interested){
         int result = 0;
         try{
@@ -55,6 +56,7 @@ public class MySQLInterested implements DAOInterested {
                 ps.setString(1,interested.getIdNumber());
                 ps.setString(2,c.getId());
                 ps.execute();
+                ps.close();
             }
             con.close();
         }catch(Exception ex){
@@ -63,6 +65,7 @@ public class MySQLInterested implements DAOInterested {
         return result;
     }
     
+    @Override
     public int update(Interested interested){
         int result = 0;
         try{
@@ -78,7 +81,7 @@ public class MySQLInterested implements DAOInterested {
             cs.setString(6,interested.getCellPhoneNumber());
             cs.setString(7,interested.getIdNumber());
             result = cs.executeUpdate();
-            
+            cs.close();
             //Borro su lista de cursos interesados antiguos
             CallableStatement cs2 = con.prepareCall("{call DELETE_INTERESTED_COURSES(?)}");
             cs2.setString(1,interested.getIdNumber());
@@ -92,7 +95,9 @@ public class MySQLInterested implements DAOInterested {
                 ps.setString(1,interested.getIdNumber());
                 ps.setString(2,c.getId());
                 ps.executeUpdate();
+                ps.close();
             }
+            cs2.close();
             con.close();
         }catch(Exception ex){
             System.out.println(ex.getMessage());
@@ -100,6 +105,7 @@ public class MySQLInterested implements DAOInterested {
         return result;
     }
     
+    @Override
     public int disable(Interested interested){
         int result = 0;
         try{
@@ -110,6 +116,7 @@ public class MySQLInterested implements DAOInterested {
             ps.setInt(1,0);
             ps.setString(2,interested.getIdNumber());
             ps.executeQuery();
+            ps.close();
             con.close();
         }catch(Exception ex){
             System.out.println(ex.getMessage());
@@ -117,7 +124,63 @@ public class MySQLInterested implements DAOInterested {
         return 1;
     }
     
+    @Override
     public ArrayList<Interested> queryAllInterested(){
+        ArrayList<Interested> interested = new ArrayList<Interested>();
+        try{
+            DBManager dbManager = DBManager.getdbManager();
+            Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
+            Statement sentence = con.createStatement();
+            String query = "SELECT * FROM Interested";
+            ResultSet rs = sentence.executeQuery(query);
+            while(rs.next()){
+                Interested inte = new Interested();
+                inte.setIsUnsubscribed(rs.getBoolean("isUnsuscribed"));
+                inte.setFirstName(rs.getString("firstName"));
+                inte.setMiddleName(rs.getString("middleName"));
+                inte.setPrimaryLastName(rs.getString("primaryLastName"));
+                inte.setSecondLastName(rs.getString("secondLastName"));
+                inte.setGender(rs.getString("gender"));
+                inte.setEmail(rs.getString("email"));
+                inte.setCellPhoneNumber(rs.getString("cellPhoneNumber"));
+                inte.setIdNumber(rs.getString("idNumber"));
+                inte.setRegDate(rs.getDate("regDate"));
+                inte.setIdType(rs.getInt("idNumberType"));
+                String query2 = "SELECT idCourse FROM InterestedxCourseType WHERE idInterested = ?";
+                PreparedStatement ps = con.prepareStatement(query2);
+                ps.setString(1,inte.getIdNumber());
+                ResultSet rs2 = ps.executeQuery();
+                ArrayList<Course> courses = new ArrayList<Course>();
+                while(rs2.next()){
+                    Course crs = new Course();
+                    crs.setId(rs2.getString("idCourse"));
+                    String query3 = "SELECT * FROM Course WHERE idCourse= ?";
+                    PreparedStatement ps2 = con.prepareStatement(query3);
+                    ps2.setString(1,crs.getId());
+                    ResultSet rs3 = ps2.executeQuery();
+                    while(rs3.next()){
+                        crs.setDescription(rs3.getString("description"));
+                        crs.setIsActive(rs3.getBoolean("isActive"));
+                        crs.setName(rs3.getString("name"));
+                        courses.add(crs);
+                    }
+                    ps.close();
+                    rs3.close();
+                }
+                rs2.close();
+                inte.setCourses(courses);
+                interested.add(inte);
+            }
+            rs.close();
+            con.close();
+        }catch(SQLException ex){
+            System.out.println(ex.getMessage());
+        }    
+        return interested;
+    }
+    
+    @Override
+    public ArrayList<Interested> queryAllActiveInterested(){
         ArrayList<Interested> interested = new ArrayList<Interested>();
         try{
             DBManager dbManager = DBManager.getdbManager();
@@ -157,18 +220,22 @@ public class MySQLInterested implements DAOInterested {
                             crs.setName(rs3.getString("name"));
                             courses.add(crs);
                         }
+                        ps.close();
+                        rs3.close();
                     }
+                    rs2.close();
                     inte.setCourses(courses);
                     interested.add(inte);
                 }
             }
+            rs.close();
             con.close();
         }catch(SQLException ex){
             System.out.println(ex.getMessage());
         }    
         return interested;
     }
-    
+    @Override
     public ArrayList<Interested> queryAllByCourseType(Course course){
         ArrayList<Interested> interested = new ArrayList<Interested>();
         String idcourse = course.getId();
@@ -210,7 +277,10 @@ public class MySQLInterested implements DAOInterested {
                             crs.setName(rs3.getString("name"));
                             courses.add(crs);
                         }
+                        ps2.close();
+                        rs3.close();
                     }
+                    rs2.close();
                     inte.setCourses(courses);
                     for(Course c : courses){
                         if(c.getId().equals(idcourse)){
@@ -218,8 +288,10 @@ public class MySQLInterested implements DAOInterested {
                             break;
                         }
                     }
+                    ps.close();
                 }
             }
+            rs.close();
             con.close();
         }catch(SQLException ex){
             System.out.println(ex.getMessage());
@@ -260,6 +332,7 @@ public class MySQLInterested implements DAOInterested {
                 interested.setCellPhoneNumber(rs.getString("cellPhoneNumber"));
                 interested.setEmail(rs.getString("email"));
             }
+            rs.close();
             con.close();
         }
         catch(Exception ex){

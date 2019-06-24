@@ -15,13 +15,35 @@ namespace INFOSiS_2._0
     {
         OpenFileDialog ofdAttachment;
         String fileName = "";
+        private static string email;
+        private static string password;
+        private static string smtp;
+        private static string port;
+        private static Boolean ssl;
+        private static string subject;
+        private static string message;
         MessageBoxIcon iconoWarning = MessageBoxIcon.Warning;
         MessageBoxIcon iconoPregunta = MessageBoxIcon.Question;
         MessageBoxIcon iconoCorrecto = MessageBoxIcon.Asterisk;
 
+        public string Email { get => email; set => email = value; }
+        public string Password { get => password; set => password = value; }
+        public string Smtp { get => smtp; set => smtp = value; }
+        public string Port { get => port; set => port = value; }
+        public bool Ssl { get => ssl; set => ssl = value; }
+        public string Subject { get => subject; set => subject = value; }
+        public string Message { get => message; set => message = value; }
+
         public InterestedEditMailing(string port, string host, string email, string password,string subject, Boolean ssl,Boolean html)
         {
             InitializeComponent();
+            txbAsunto.Text = subject;
+            txbMessage.Text = message;
+            txtEmail.Text = email;
+            txtPassword.Text = password;
+            txtPort.Text = port;
+            txtSmtp.Text = smtp;
+            cbSSL.Checked = ssl;
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -53,6 +75,35 @@ namespace INFOSiS_2._0
 
         private void InterestedEditMailing_Load(object sender, EventArgs e)
         {
+
+        }
+
+        private void BtGuardar_Click(object sender, EventArgs e)
+        {
+            if(txbAsunto.Equals(""))
+                MessageBox.Show("No ingresó el asunto", "Aviso", MessageBoxButtons.OK);
+            else if (txbMessage.Equals(""))
+                MessageBox.Show("No ingresó mensaje alguno", "Aviso", MessageBoxButtons.OK);
+            else if(txtEmail.Equals(""))
+                MessageBox.Show("No ingresó el correo de salida", "Aviso", MessageBoxButtons.OK);
+            else if (txtPassword.Equals(""))
+                MessageBox.Show("No ingresó la contraseña", "Aviso", MessageBoxButtons.OK);
+            else if(txtPort.Equals(""))
+                MessageBox.Show("No ingresó el puerto", "Aviso", MessageBoxButtons.OK);
+            else if(txtSmtp.Equals(""))
+                MessageBox.Show("No ingresó el smtp", "Aviso", MessageBoxButtons.OK);
+            else
+            {
+                Subject = txbAsunto.Text;
+                Password = txtPassword.Text;
+                Email = txtEmail.Text;
+                Smtp = txtSmtp.Text;
+                Port = txtPort.Text;
+                Message = txbMessage.Text;
+                Ssl = cbSSL.Checked;
+                this.DialogResult = DialogResult.OK;
+            }
+
 
         }
     }

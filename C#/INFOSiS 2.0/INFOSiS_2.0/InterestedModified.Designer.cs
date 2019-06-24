@@ -161,6 +161,7 @@
             // 
             this.txtCellphone.Location = new System.Drawing.Point(152, 50);
             this.txtCellphone.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCellphone.MaxLength = 15;
             this.txtCellphone.Name = "txtCellphone";
             this.txtCellphone.Size = new System.Drawing.Size(317, 31);
             this.txtCellphone.TabIndex = 173;
@@ -169,6 +170,7 @@
             // 
             this.txtEmail.Location = new System.Drawing.Point(151, 89);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
+            this.txtEmail.MaxLength = 100;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(317, 31);
             this.txtEmail.TabIndex = 179;
@@ -253,6 +255,7 @@
             // 
             this.txbNombre.Location = new System.Drawing.Point(200, 38);
             this.txbNombre.Margin = new System.Windows.Forms.Padding(4);
+            this.txbNombre.MaxLength = 100;
             this.txbNombre.Name = "txbNombre";
             this.txbNombre.Size = new System.Drawing.Size(253, 31);
             this.txbNombre.TabIndex = 166;
@@ -261,6 +264,7 @@
             // 
             this.txbSegundoNom.Location = new System.Drawing.Point(201, 78);
             this.txbSegundoNom.Margin = new System.Windows.Forms.Padding(4);
+            this.txbSegundoNom.MaxLength = 100;
             this.txbSegundoNom.Name = "txbSegundoNom";
             this.txbSegundoNom.Size = new System.Drawing.Size(253, 31);
             this.txbSegundoNom.TabIndex = 167;
@@ -269,6 +273,7 @@
             // 
             this.txbApePa.Location = new System.Drawing.Point(200, 118);
             this.txbApePa.Margin = new System.Windows.Forms.Padding(4);
+            this.txbApePa.MaxLength = 100;
             this.txbApePa.Name = "txbApePa";
             this.txbApePa.Size = new System.Drawing.Size(253, 31);
             this.txbApePa.TabIndex = 168;
@@ -277,6 +282,7 @@
             // 
             this.txbApeMa.Location = new System.Drawing.Point(200, 158);
             this.txbApeMa.Margin = new System.Windows.Forms.Padding(4);
+            this.txbApeMa.MaxLength = 100;
             this.txbApeMa.Name = "txbApeMa";
             this.txbApeMa.Size = new System.Drawing.Size(253, 31);
             this.txbApeMa.TabIndex = 169;

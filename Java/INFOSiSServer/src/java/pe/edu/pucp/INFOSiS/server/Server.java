@@ -76,6 +76,12 @@ public class Server {
     public ArrayList<Interested> queryAllInterested(){
         return DBController.queryAllInterested();
     }
+    
+    @WebMethod (operationName= "QueryAllActiveInterested")
+    public ArrayList<Interested> queryAllActiveInterested(){
+        return DBController.queryAllActiveInterested();
+    }
+    
     @WebMethod (operationName= "QueryAllByCourse")
     public ArrayList<Interested> queryAllByCourse(@WebParam(name="course")Course course){
         return DBController.queryAllByCourse(course);
