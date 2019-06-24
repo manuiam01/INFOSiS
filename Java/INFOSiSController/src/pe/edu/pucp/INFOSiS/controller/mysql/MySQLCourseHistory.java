@@ -19,6 +19,7 @@ import pe.edu.pucp.INFOSiS.controller.config.DBManager;
 import pe.edu.pucp.INFOSiS.controller.dao.DAOCourseHistory;
 import pe.edu.pucp.INFOSiS.model.bean.course.Course;
 import pe.edu.pucp.INFOSiS.model.bean.course.CourseHistory;
+import pe.edu.pucp.INFOSiS.model.bean.course.Session;
 import pe.edu.pucp.INFOSiS.model.bean.student.Student;
 
 /**
@@ -154,7 +155,6 @@ public class MySQLCourseHistory implements DAOCourseHistory{
             cs.setDate(1,new java.sql.Date(datecourse.getDate()));
             ResultSet rs = cs.executeQuery();
             while(rs.next()){
-                //ArrayList<Date> dates = new ArrayList<Date>();
                 CourseHistory c = new CourseHistory();
                 c.setId(rs.getInt("idCourseHistory"));
                 c.setCourse(DBController.queryCourseById(rs.getString(2)));
@@ -162,10 +162,19 @@ public class MySQLCourseHistory implements DAOCourseHistory{
                 c.setAssistant(DBController.searchProfessorByIdPUCP(rs.getString(4)));
                 c.setHours(rs.getInt(5));
                 c.setStartDate(rs.getDate(6));
-                c.setEndDate(rs.getDate(7));                               
-                //Como no sé como comparar las fechas en mysql, lo haré acá ptmre :v
+                c.setEndDate(rs.getDate(7));                
                 if(c.getStartDate().after(datecourse)){
-                    courses.add(c);
+                    cs = con.prepareCall("{call SEARCH_SESSIONS_BY_COURSEH(?)}");
+                    cs.setInt(1, c.getId());
+                    ResultSet rs2 = cs.executeQuery();
+                    while(rs2.next()){
+                        Session s = new Session();
+                        s.setId(rs2.getInt(1));
+                        s.setSession(rs2.getDate(3));
+                        s.setHours(rs2.getInt(4));
+                        s.setLocation(rs.getString(5));
+                        
+                    }
                 }
             }            
             con.close();
