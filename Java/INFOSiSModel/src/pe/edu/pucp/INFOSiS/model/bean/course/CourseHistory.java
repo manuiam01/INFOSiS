@@ -23,6 +23,7 @@ public class CourseHistory implements Serializable{
     private ArrayList<Date> sessions;
     private ArrayList<String> locations;
     private ArrayList<Integer> hoursSession;
+    private ArrayList<Session> sessions2;
     private Course course;
     private Professor professor;
     private Professor assistant;
