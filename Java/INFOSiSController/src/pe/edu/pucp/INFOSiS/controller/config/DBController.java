@@ -42,7 +42,11 @@ public abstract class DBController {
         return daoFactory.getProfessorDAO().update(professor);
     }
     
-    public static Professor searchProfessorById(String id){
+    public static Professor searchProfessorByIdPUCP(String id){
+        return daoFactory.getProfessorDAO().search_by_idPUCP(id);
+    }
+    
+    public static int searchProfessorById(String id){
         return daoFactory.getProfessorDAO().search_by_id(id);
     }
     

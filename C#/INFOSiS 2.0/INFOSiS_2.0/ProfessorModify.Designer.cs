@@ -410,7 +410,6 @@
             this.btnSearch.TabIndex = 184;
             this.btnSearch.Text = "Buscar";
             this.btnSearch.UseVisualStyleBackColor = false;
-            this.btnSearch.EnabledChanged += new System.EventHandler(this.BtnSearch_EnabledChanged);
             this.btnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
             // 
             // lblAdvancedSearch
@@ -648,7 +647,6 @@
             this.btnModificar.TabIndex = 182;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = false;
-            this.btnModificar.EnabledChanged += new System.EventHandler(this.BtnModificar_EnabledChanged);
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnSaveChanges
@@ -665,7 +663,6 @@
             this.btnSaveChanges.TabIndex = 184;
             this.btnSaveChanges.Text = "Guardar cambios";
             this.btnSaveChanges.UseVisualStyleBackColor = false;
-            this.btnSaveChanges.EnabledChanged += new System.EventHandler(this.BtnSaveChanges_EnabledChanged);
             this.btnSaveChanges.Click += new System.EventHandler(this.BtnSaveChanges_Click);
             // 
             // ProfessorModify

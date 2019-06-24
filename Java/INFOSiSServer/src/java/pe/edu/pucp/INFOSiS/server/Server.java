@@ -103,8 +103,13 @@ public class Server {
     }
 
     
+    @WebMethod(operationName="SearchProfessorByIdPUCP")
+    public Professor SearchProfessorByIdPUCP(@WebParam(name="id") String id){
+        return DBController.searchProfessorByIdPUCP(id);
+    }
+    
     @WebMethod(operationName="SearchProfessorById")
-    public Professor SearchProfessorById(@WebParam(name="id") String id){
+    public int SearchProfessorById(@WebParam(name="id") String id){
         return DBController.searchProfessorById(id);
     }
     
