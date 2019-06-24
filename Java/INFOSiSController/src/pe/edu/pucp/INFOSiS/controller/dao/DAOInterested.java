@@ -19,6 +19,8 @@ public interface DAOInterested {
     int update(Interested interested);
     int disable(Interested interested);
     ArrayList<Interested> queryAllInterested();
+    ArrayList<Interested> queryAllActiveInterested();
     ArrayList<Interested> queryAllByCourseType(Course course);
     Interested queryInterestedById(String interestedID);
+    
 }

@@ -15,13 +15,13 @@ namespace INFOSiS_2._0
     {
         OpenFileDialog ofdAttachment;
         String fileName = "";
-        private string email;
-        private string password;
-        private string smtp;
-        private string port;
-        private Boolean ssl;
-        private string subject;
-        private string message;
+        private static string email;
+        private static string password;
+        private static string smtp;
+        private static string port;
+        private static Boolean ssl;
+        private static string subject;
+        private static string message;
         MessageBoxIcon iconoWarning = MessageBoxIcon.Warning;
         MessageBoxIcon iconoPregunta = MessageBoxIcon.Question;
         MessageBoxIcon iconoCorrecto = MessageBoxIcon.Asterisk;
@@ -37,6 +37,13 @@ namespace INFOSiS_2._0
         public InterestedEditMailing(string port, string host, string email, string password,string subject, Boolean ssl,Boolean html)
         {
             InitializeComponent();
+            txbAsunto.Text = subject;
+            txbMessage.Text = message;
+            txtEmail.Text = email;
+            txtPassword.Text = password;
+            txtPort.Text = port;
+            txtSmtp.Text = smtp;
+            cbSSL.Checked = ssl;
         }
 
         private void btnSearch_Click(object sender, EventArgs e)

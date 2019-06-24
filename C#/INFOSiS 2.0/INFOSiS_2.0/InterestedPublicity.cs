@@ -105,12 +105,6 @@ namespace INFOSiS_2._0
                 {
                     //Detalles del servidor e email de donde sale el correo
                     SmtpClient clientDetails = new SmtpClient();
-                    //clientDetails.Port = 587;
-                    //clientDetails.Host = "smtp.gmail.com";
-                    //clientDetails.EnableSsl = true;
-                    //clientDetails.DeliveryMethod = SmtpDeliveryMethod.Network;
-                    //clientDetails.UseDefaultCredentials = false;
-                    //clientDetails.Credentials = new NetworkCredential("jeremi.cardenas@pucp.pe", "miamortlv11");
                     if(port=="" || host=="" || email=="" || password=="")
                         MessageBox.Show("Falta completar los datos de envío en configuración de mailing", "Aviso", MessageBoxButtons.OK, iconoWarning);
                     else

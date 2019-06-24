@@ -79,6 +79,10 @@ public abstract class DBController {
         return daoFactory.getInterestedDAO().queryAllInterested();
     }
     
+    public static ArrayList<Interested> queryAllActiveInterested(){
+        return daoFactory.getInterestedDAO().queryAllActiveInterested();
+    }
+    
     public static ArrayList<Interested> queryAllByCourse(Course course){
         return daoFactory.getInterestedDAO().queryAllByCourseType(course);
     }
