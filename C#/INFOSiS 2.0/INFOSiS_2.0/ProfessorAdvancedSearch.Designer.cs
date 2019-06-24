@@ -29,7 +29,11 @@
         private void InitializeComponent()
         {
             this.lblInterestedRegister = new System.Windows.Forms.Label();
-            this.dgvInteresados = new System.Windows.Forms.DataGridView();
+            this.dgvProfessors = new System.Windows.Forms.DataGridView();
+            this.idNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.firstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.primaryLastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.secondLastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSelect = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtSecondLastName = new System.Windows.Forms.TextBox();
@@ -40,11 +44,7 @@
             this.lblSecondName = new System.Windows.Forms.Label();
             this.lblPrimaryLastName = new System.Windows.Forms.Label();
             this.lblSecondLastName = new System.Windows.Forms.Label();
-            this.idNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.firstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.primaryLastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.secondLastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvInteresados)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProfessors)).BeginInit();
             this.SuspendLayout();
             // 
             // lblInterestedRegister
@@ -58,21 +58,53 @@
             this.lblInterestedRegister.TabIndex = 193;
             this.lblInterestedRegister.Text = "Busqueda avanzada";
             // 
-            // dgvInteresados
+            // dgvProfessors
             // 
-            this.dgvInteresados.AllowUserToAddRows = false;
-            this.dgvInteresados.AllowUserToDeleteRows = false;
-            this.dgvInteresados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvInteresados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvProfessors.AllowUserToAddRows = false;
+            this.dgvProfessors.AllowUserToDeleteRows = false;
+            this.dgvProfessors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProfessors.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idNumber,
             this.firstName,
             this.primaryLastName,
             this.secondLastName});
-            this.dgvInteresados.Location = new System.Drawing.Point(25, 265);
-            this.dgvInteresados.Name = "dgvInteresados";
-            this.dgvInteresados.ReadOnly = true;
-            this.dgvInteresados.Size = new System.Drawing.Size(745, 227);
-            this.dgvInteresados.TabIndex = 192;
+            this.dgvProfessors.Location = new System.Drawing.Point(25, 265);
+            this.dgvProfessors.Name = "dgvProfessors";
+            this.dgvProfessors.ReadOnly = true;
+            this.dgvProfessors.Size = new System.Drawing.Size(745, 227);
+            this.dgvProfessors.TabIndex = 192;
+            // 
+            // idNumber
+            // 
+            this.idNumber.DataPropertyName = "idNumber";
+            this.idNumber.HeaderText = "N° Documento";
+            this.idNumber.Name = "idNumber";
+            this.idNumber.ReadOnly = true;
+            this.idNumber.Width = 120;
+            // 
+            // firstName
+            // 
+            this.firstName.DataPropertyName = "firstName";
+            this.firstName.HeaderText = "Nombre";
+            this.firstName.Name = "firstName";
+            this.firstName.ReadOnly = true;
+            this.firstName.Width = 180;
+            // 
+            // primaryLastName
+            // 
+            this.primaryLastName.DataPropertyName = "primaryLastName";
+            this.primaryLastName.HeaderText = "Apellido Paterno";
+            this.primaryLastName.Name = "primaryLastName";
+            this.primaryLastName.ReadOnly = true;
+            this.primaryLastName.Width = 200;
+            // 
+            // secondLastName
+            // 
+            this.secondLastName.DataPropertyName = "secondLastName";
+            this.secondLastName.HeaderText = "Apellido Materno";
+            this.secondLastName.Name = "secondLastName";
+            this.secondLastName.ReadOnly = true;
+            this.secondLastName.Width = 200;
             // 
             // btnSelect
             // 
@@ -88,6 +120,7 @@
             this.btnSelect.TabIndex = 191;
             this.btnSelect.Text = "Seleccionar";
             this.btnSelect.UseVisualStyleBackColor = false;
+            this.btnSelect.Click += new System.EventHandler(this.BtnSelect_Click);
             // 
             // btnSearch
             // 
@@ -181,45 +214,13 @@
             this.lblSecondLastName.TabIndex = 185;
             this.lblSecondLastName.Text = "Apellido materno:";
             // 
-            // idNumber
-            // 
-            this.idNumber.DataPropertyName = "idNumber";
-            this.idNumber.HeaderText = "N° Documento";
-            this.idNumber.Name = "idNumber";
-            this.idNumber.ReadOnly = true;
-            this.idNumber.Width = 120;
-            // 
-            // firstName
-            // 
-            this.firstName.DataPropertyName = "firstName";
-            this.firstName.HeaderText = "Nombre";
-            this.firstName.Name = "firstName";
-            this.firstName.ReadOnly = true;
-            this.firstName.Width = 180;
-            // 
-            // primaryLastName
-            // 
-            this.primaryLastName.DataPropertyName = "primaryLastName";
-            this.primaryLastName.HeaderText = "Apellido Paterno";
-            this.primaryLastName.Name = "primaryLastName";
-            this.primaryLastName.ReadOnly = true;
-            this.primaryLastName.Width = 200;
-            // 
-            // secondLastName
-            // 
-            this.secondLastName.DataPropertyName = "secondLastName";
-            this.secondLastName.HeaderText = "Apellido Materno";
-            this.secondLastName.Name = "secondLastName";
-            this.secondLastName.ReadOnly = true;
-            this.secondLastName.Width = 200;
-            // 
             // ProfessorAdvancedSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 528);
             this.Controls.Add(this.lblInterestedRegister);
-            this.Controls.Add(this.dgvInteresados);
+            this.Controls.Add(this.dgvProfessors);
             this.Controls.Add(this.btnSelect);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtSecondLastName);
@@ -230,10 +231,10 @@
             this.Controls.Add(this.lblSecondName);
             this.Controls.Add(this.lblPrimaryLastName);
             this.Controls.Add(this.lblSecondLastName);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ProfessorAdvancedSearch";
             this.Text = "ProfessorAdvancedSearch";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvInteresados)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProfessors)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -242,7 +243,7 @@
         #endregion
 
         private System.Windows.Forms.Label lblInterestedRegister;
-        private System.Windows.Forms.DataGridView dgvInteresados;
+        private System.Windows.Forms.DataGridView dgvProfessors;
         private System.Windows.Forms.Button btnSelect;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox txtSecondLastName;

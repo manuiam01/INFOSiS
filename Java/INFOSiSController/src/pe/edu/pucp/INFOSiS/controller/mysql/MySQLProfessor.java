@@ -36,7 +36,6 @@ public class MySQLProfessor implements DAOProfessor {
             ps.setString(1, professor.getIdNumber());
             ResultSet rs = ps.executeQuery();          
             if(rs.next()){
-                System.out.println(rs.getString("idNumber"));
                 return -1; //documento de identidad repetido
             }
             
@@ -78,12 +77,15 @@ public class MySQLProfessor implements DAOProfessor {
         try{
             DBManager dbManager = DBManager.getdbManager();
             Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
+
             CallableStatement cs = con.prepareCall("{call UPDATE_PROFESSOR(?,?,?,?,?,?,?,?,?,?,?,?,?)}");
             cs.setString(1,professor.getIdPUCP());
             cs.setString(2,professor.getIdNumber());
             cs.setInt(3,professor.getIdType());
             cs.setString(4,professor.getEmailPUCP()); 
-            cs.setDate(5, new java.sql.Date(professor.getBirthday().getTime()));
+            if(professor.getBirthday()!=null)
+                cs.setDate(5,  new java.sql.Date(professor.getBirthday().getTime()));
+            else cs.setDate(5, null);
             cs.setString(6,professor.getFirstName());
             cs.setString(7,professor.getMiddleName());
             cs.setString(8,professor.getPrimaryLastName());
@@ -109,21 +111,23 @@ public class MySQLProfessor implements DAOProfessor {
             CallableStatement cs = con.prepareCall("{call LIST_PROFESSORS()}");
             ResultSet rs = cs.executeQuery();
             while(rs.next()){
-                Professor p = new Professor();
-                p.setIdPUCP(rs.getString(1));
-                p.setIdNumber(rs.getString(2));
-                p.setIdType(rs.getInt(3));
-                p.setEmailPUCP(rs.getString(4));
-                p.setBirthday(new java.sql.Date(rs.getDate(5).getTime()));
-                p.setFirstName(rs.getString(6));
-                p.setMiddleName(rs.getString(7));
-                p.setPrimaryLastName(rs.getString(8));
-                p.setSecondLastName(rs.getString(9));
-                p.setGender(rs.getString(10));
-                p.setEmail(rs.getString(11));
-                p.setCellPhoneNumber(rs.getString(12));
-                    p.setIsActive(rs.getBoolean(13));
-                professors.add(p);
+                Professor professor = new Professor();
+                professor.setIdPUCP(rs.getString(1));
+                professor.setIdNumber(rs.getString(2));
+                professor.setIdType(rs.getInt(3));
+                professor.setEmailPUCP(rs.getString(4));
+                if(rs.getDate(5) != null)
+                    professor.setBirthday(new java.sql.Date(rs.getDate(5).getTime()));
+                else professor.setBirthday(null);
+                professor.setFirstName(rs.getString(6));
+                professor.setMiddleName(rs.getString(7));
+                professor.setPrimaryLastName(rs.getString(8));
+                professor.setSecondLastName(rs.getString(9));
+                professor.setGender(rs.getString(10));
+                professor.setEmail(rs.getString(11));
+                professor.setCellPhoneNumber(rs.getString(12));
+                professor.setIsActive(rs.getBoolean(13));
+                professors.add(professor);
             }            
             con.close();
         }catch(SQLException ex){
@@ -141,21 +145,23 @@ public class MySQLProfessor implements DAOProfessor {
             CallableStatement cs = con.prepareCall("{call LIST_ACTIVE_PROFESSORS()}");
             ResultSet rs = cs.executeQuery();
             while(rs.next()){
-                Professor p = new Professor();
-                p.setIdPUCP(rs.getString(1));
-                p.setIdNumber(rs.getString(2));
-                p.setIdType(rs.getInt(3));
-                p.setEmailPUCP(rs.getString(4));
-                p.setBirthday(new java.sql.Date(rs.getDate(5).getTime()));
-                p.setFirstName(rs.getString(6));
-                p.setMiddleName(rs.getString(7));
-                p.setPrimaryLastName(rs.getString(8));
-                p.setSecondLastName(rs.getString(9));
-                p.setGender(rs.getString(10));
-                p.setEmail(rs.getString(11));
-                p.setCellPhoneNumber(rs.getString(12));
-                p.setIsActive(rs.getBoolean(13));
-                professors.add(p);
+                Professor professor = new Professor();
+                professor.setIdPUCP(rs.getString(1));
+                professor.setIdNumber(rs.getString(2));
+                professor.setIdType(rs.getInt(3));
+                professor.setEmailPUCP(rs.getString(4));
+                if(rs.getDate(5) != null)
+                    professor.setBirthday(new java.sql.Date(rs.getDate(5).getTime()));
+                else professor.setBirthday(null);
+                professor.setFirstName(rs.getString(6));
+                professor.setMiddleName(rs.getString(7));
+                professor.setPrimaryLastName(rs.getString(8));
+                professor.setSecondLastName(rs.getString(9));
+                professor.setGender(rs.getString(10));
+                professor.setEmail(rs.getString(11));
+                professor.setCellPhoneNumber(rs.getString(12));
+                professor.setIsActive(rs.getBoolean(13));
+                professors.add(professor);
             }
             con.close();
         }catch(SQLException ex){
@@ -178,7 +184,9 @@ public class MySQLProfessor implements DAOProfessor {
                 professor.setIdNumber(rs.getString(2));
                 professor.setIdType(rs.getInt(3));
                 professor.setEmailPUCP(rs.getString(4));
-                professor.setBirthday(new java.sql.Date(rs.getDate(5).getTime()));
+                if(rs.getDate(5) != null)
+                    professor.setBirthday(new java.sql.Date(rs.getDate(5).getTime()));
+                else professor.setBirthday(null);
                 professor.setFirstName(rs.getString(6));
                 professor.setMiddleName(rs.getString(7));
                 professor.setPrimaryLastName(rs.getString(8));
@@ -209,21 +217,23 @@ public class MySQLProfessor implements DAOProfessor {
             cs.setString(4, second_last_name);
             ResultSet rs = cs.executeQuery();
             while(rs.next()){
-                Professor p = new Professor();
-                p.setIdPUCP(rs.getString(1));
-                p.setIdNumber(rs.getString(2));
-                p.setIdType(rs.getInt(3));
-                p.setEmailPUCP(rs.getString(4));
-                p.setBirthday(new java.sql.Date(rs.getDate(5).getTime()));
-                p.setFirstName(rs.getString(6));
-                p.setMiddleName(rs.getString(7));
-                p.setPrimaryLastName(rs.getString(8));
-                p.setSecondLastName(rs.getString(9));
-                p.setGender(rs.getString(10));
-                p.setEmail(rs.getString(11));
-                p.setCellPhoneNumber(rs.getString(12));
-                p.setIsActive(rs.getBoolean(13));
-                professors.add(p);
+                Professor professor = new Professor();
+                professor.setIdPUCP(rs.getString(1));
+                professor.setIdNumber(rs.getString(2));
+                professor.setIdType(rs.getInt(3));
+                professor.setEmailPUCP(rs.getString(4));
+                if(rs.getDate(5) != null)
+                    professor.setBirthday(new java.sql.Date(rs.getDate(5).getTime()));
+                else professor.setBirthday(null);
+                professor.setFirstName(rs.getString(6));
+                professor.setMiddleName(rs.getString(7));
+                professor.setPrimaryLastName(rs.getString(8));
+                professor.setSecondLastName(rs.getString(9));
+                professor.setGender(rs.getString(10));
+                professor.setEmail(rs.getString(11));
+                professor.setCellPhoneNumber(rs.getString(12));
+                professor.setIsActive(rs.getBoolean(13));
+                professors.add(professor);
             }            
             con.close();
         }catch(SQLException ex){

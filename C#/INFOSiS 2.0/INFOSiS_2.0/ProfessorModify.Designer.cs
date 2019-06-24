@@ -30,6 +30,8 @@
         {
             this.lblProfessorModify = new System.Windows.Forms.Label();
             this.gbxContactData = new System.Windows.Forms.GroupBox();
+            this.lblRequired7 = new System.Windows.Forms.Label();
+            this.lblRequired6 = new System.Windows.Forms.Label();
             this.gbxCondition = new System.Windows.Forms.GroupBox();
             this.rbActive = new System.Windows.Forms.RadioButton();
             this.rbInactive = new System.Windows.Forms.RadioButton();
@@ -44,8 +46,15 @@
             this.txtPUCPCode = new System.Windows.Forms.TextBox();
             this.lblPUCPCode = new System.Windows.Forms.Label();
             this.gbxPersonalData = new System.Windows.Forms.GroupBox();
+            this.lblRequired5 = new System.Windows.Forms.Label();
+            this.lblRequired4 = new System.Windows.Forms.Label();
+            this.lblRequired3 = new System.Windows.Forms.Label();
+            this.lblRequired2 = new System.Windows.Forms.Label();
+            this.lblRequired1 = new System.Windows.Forms.Label();
+            this.lblRequired0 = new System.Windows.Forms.Label();
+            this.lblRequiredInfo = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.lbBusquedaAvanzada = new System.Windows.Forms.Label();
+            this.lblAdvancedSearch = new System.Windows.Forms.Label();
             this.gbxSex = new System.Windows.Forms.GroupBox();
             this.rbWoman = new System.Windows.Forms.RadioButton();
             this.rbMan = new System.Windows.Forms.RadioButton();
@@ -63,17 +72,9 @@
             this.lblSecondName = new System.Windows.Forms.Label();
             this.lblPrimaryLastName = new System.Windows.Forms.Label();
             this.lblSecondLastName = new System.Windows.Forms.Label();
-            this.btCancelar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
-            this.lblRequiredInfo = new System.Windows.Forms.Label();
-            this.lblRequired0 = new System.Windows.Forms.Label();
-            this.lblRequired1 = new System.Windows.Forms.Label();
-            this.lblRequired2 = new System.Windows.Forms.Label();
-            this.lblRequired3 = new System.Windows.Forms.Label();
-            this.lblRequired4 = new System.Windows.Forms.Label();
-            this.lblRequired6 = new System.Windows.Forms.Label();
-            this.lblRequired5 = new System.Windows.Forms.Label();
-            this.lblRequired7 = new System.Windows.Forms.Label();
+            this.btnSaveChanges = new System.Windows.Forms.Button();
             this.gbxContactData.SuspendLayout();
             this.gbxCondition.SuspendLayout();
             this.gbxPersonalData.SuspendLayout();
@@ -113,6 +114,28 @@
             this.gbxContactData.TabIndex = 174;
             this.gbxContactData.TabStop = false;
             this.gbxContactData.Text = "Datos de contacto";
+            // 
+            // lblRequired7
+            // 
+            this.lblRequired7.AutoSize = true;
+            this.lblRequired7.Font = new System.Drawing.Font("Gill Sans MT", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRequired7.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.lblRequired7.Location = new System.Drawing.Point(357, 174);
+            this.lblRequired7.Name = "lblRequired7";
+            this.lblRequired7.Size = new System.Drawing.Size(17, 21);
+            this.lblRequired7.TabIndex = 185;
+            this.lblRequired7.Text = "*";
+            // 
+            // lblRequired6
+            // 
+            this.lblRequired6.AutoSize = true;
+            this.lblRequired6.Font = new System.Drawing.Font("Gill Sans MT", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRequired6.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.lblRequired6.Location = new System.Drawing.Point(357, 87);
+            this.lblRequired6.Name = "lblRequired6";
+            this.lblRequired6.Size = new System.Drawing.Size(17, 21);
+            this.lblRequired6.TabIndex = 184;
+            this.lblRequired6.Text = "*";
             // 
             // gbxCondition
             // 
@@ -166,9 +189,11 @@
             // 
             this.txtCellphone.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtCellphone.Location = new System.Drawing.Point(145, 48);
+            this.txtCellphone.MaxLength = 15;
             this.txtCellphone.Name = "txtCellphone";
             this.txtCellphone.Size = new System.Drawing.Size(206, 26);
             this.txtCellphone.TabIndex = 146;
+            this.txtCellphone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtCellphone_KeyPress);
             // 
             // lblCellphone
             // 
@@ -185,6 +210,7 @@
             // 
             this.txtEmailPUCP.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtEmailPUCP.Location = new System.Drawing.Point(145, 84);
+            this.txtEmailPUCP.MaxLength = 45;
             this.txtEmailPUCP.Name = "txtEmailPUCP";
             this.txtEmailPUCP.Size = new System.Drawing.Size(206, 26);
             this.txtEmailPUCP.TabIndex = 150;
@@ -204,6 +230,7 @@
             // 
             this.txtEmail.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtEmail.Location = new System.Drawing.Point(145, 122);
+            this.txtEmail.MaxLength = 45;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(206, 26);
             this.txtEmail.TabIndex = 152;
@@ -219,6 +246,7 @@
             this.dtpBirthday.Size = new System.Drawing.Size(224, 23);
             this.dtpBirthday.TabIndex = 156;
             this.dtpBirthday.Value = new System.DateTime(2001, 12, 31, 0, 0, 0, 0);
+            this.dtpBirthday.ValueChanged += new System.EventHandler(this.DtpBirthday_ValueChanged);
             // 
             // lblBirthday
             // 
@@ -235,6 +263,7 @@
             // 
             this.txtPUCPCode.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtPUCPCode.Location = new System.Drawing.Point(149, 48);
+            this.txtPUCPCode.MaxLength = 8;
             this.txtPUCPCode.Name = "txtPUCPCode";
             this.txtPUCPCode.Size = new System.Drawing.Size(202, 26);
             this.txtPUCPCode.TabIndex = 154;
@@ -261,7 +290,7 @@
             this.gbxPersonalData.Controls.Add(this.lblRequired0);
             this.gbxPersonalData.Controls.Add(this.lblRequiredInfo);
             this.gbxPersonalData.Controls.Add(this.btnSearch);
-            this.gbxPersonalData.Controls.Add(this.lbBusquedaAvanzada);
+            this.gbxPersonalData.Controls.Add(this.lblAdvancedSearch);
             this.gbxPersonalData.Controls.Add(this.gbxSex);
             this.gbxPersonalData.Controls.Add(this.gbxDocumentType);
             this.gbxPersonalData.Controls.Add(this.txtDocumentNumber);
@@ -288,6 +317,84 @@
             this.gbxPersonalData.TabStop = false;
             this.gbxPersonalData.Text = "Datos Personales";
             // 
+            // lblRequired5
+            // 
+            this.lblRequired5.AutoSize = true;
+            this.lblRequired5.Font = new System.Drawing.Font("Gill Sans MT", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRequired5.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.lblRequired5.Location = new System.Drawing.Point(358, 52);
+            this.lblRequired5.Name = "lblRequired5";
+            this.lblRequired5.Size = new System.Drawing.Size(17, 21);
+            this.lblRequired5.TabIndex = 184;
+            this.lblRequired5.Text = "*";
+            // 
+            // lblRequired4
+            // 
+            this.lblRequired4.AutoSize = true;
+            this.lblRequired4.Font = new System.Drawing.Font("Gill Sans MT", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRequired4.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.lblRequired4.Location = new System.Drawing.Point(358, 328);
+            this.lblRequired4.Name = "lblRequired4";
+            this.lblRequired4.Size = new System.Drawing.Size(17, 21);
+            this.lblRequired4.TabIndex = 191;
+            this.lblRequired4.Text = "*";
+            // 
+            // lblRequired3
+            // 
+            this.lblRequired3.AutoSize = true;
+            this.lblRequired3.Font = new System.Drawing.Font("Gill Sans MT", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRequired3.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.lblRequired3.Location = new System.Drawing.Point(359, 293);
+            this.lblRequired3.Name = "lblRequired3";
+            this.lblRequired3.Size = new System.Drawing.Size(17, 21);
+            this.lblRequired3.TabIndex = 190;
+            this.lblRequired3.Text = "*";
+            // 
+            // lblRequired2
+            // 
+            this.lblRequired2.AutoSize = true;
+            this.lblRequired2.Font = new System.Drawing.Font("Gill Sans MT", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRequired2.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.lblRequired2.Location = new System.Drawing.Point(359, 231);
+            this.lblRequired2.Name = "lblRequired2";
+            this.lblRequired2.Size = new System.Drawing.Size(17, 21);
+            this.lblRequired2.TabIndex = 189;
+            this.lblRequired2.Text = "*";
+            // 
+            // lblRequired1
+            // 
+            this.lblRequired1.AutoSize = true;
+            this.lblRequired1.Font = new System.Drawing.Font("Gill Sans MT", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRequired1.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.lblRequired1.Location = new System.Drawing.Point(359, 197);
+            this.lblRequired1.Name = "lblRequired1";
+            this.lblRequired1.Size = new System.Drawing.Size(17, 21);
+            this.lblRequired1.TabIndex = 188;
+            this.lblRequired1.Text = "*";
+            // 
+            // lblRequired0
+            // 
+            this.lblRequired0.AutoSize = true;
+            this.lblRequired0.Font = new System.Drawing.Font("Gill Sans MT", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRequired0.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.lblRequired0.Location = new System.Drawing.Point(359, 159);
+            this.lblRequired0.Name = "lblRequired0";
+            this.lblRequired0.Size = new System.Drawing.Size(17, 21);
+            this.lblRequired0.TabIndex = 187;
+            this.lblRequired0.Text = "*";
+            // 
+            // lblRequiredInfo
+            // 
+            this.lblRequiredInfo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblRequiredInfo.AutoSize = true;
+            this.lblRequiredInfo.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRequiredInfo.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.lblRequiredInfo.Location = new System.Drawing.Point(19, 24);
+            this.lblRequiredInfo.Name = "lblRequiredInfo";
+            this.lblRequiredInfo.Size = new System.Drawing.Size(136, 18);
+            this.lblRequiredInfo.TabIndex = 186;
+            this.lblRequiredInfo.Text = "* Campo obligatorio";
+            // 
             // btnSearch
             // 
             this.btnSearch.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -303,21 +410,22 @@
             this.btnSearch.TabIndex = 184;
             this.btnSearch.Text = "Buscar";
             this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.EnabledChanged += new System.EventHandler(this.BtnSearch_EnabledChanged);
             this.btnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
             // 
-            // lbBusquedaAvanzada
+            // lblAdvancedSearch
             // 
-            this.lbBusquedaAvanzada.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbBusquedaAvanzada.AutoSize = true;
-            this.lbBusquedaAvanzada.Font = new System.Drawing.Font("Gill Sans MT", 8.5F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            this.lbBusquedaAvanzada.ForeColor = System.Drawing.Color.MediumBlue;
-            this.lbBusquedaAvanzada.Location = new System.Drawing.Point(191, 95);
-            this.lbBusquedaAvanzada.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbBusquedaAvanzada.Name = "lbBusquedaAvanzada";
-            this.lbBusquedaAvanzada.Size = new System.Drawing.Size(115, 18);
-            this.lbBusquedaAvanzada.TabIndex = 185;
-            this.lbBusquedaAvanzada.Text = "Busqueda avanzada";
-            this.lbBusquedaAvanzada.Click += new System.EventHandler(this.lbBusquedaAvanzada_Click);
+            this.lblAdvancedSearch.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblAdvancedSearch.AutoSize = true;
+            this.lblAdvancedSearch.Font = new System.Drawing.Font("Gill Sans MT", 8.5F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            this.lblAdvancedSearch.ForeColor = System.Drawing.Color.MediumBlue;
+            this.lblAdvancedSearch.Location = new System.Drawing.Point(191, 95);
+            this.lblAdvancedSearch.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblAdvancedSearch.Name = "lblAdvancedSearch";
+            this.lblAdvancedSearch.Size = new System.Drawing.Size(115, 18);
+            this.lblAdvancedSearch.TabIndex = 185;
+            this.lblAdvancedSearch.Text = "Busqueda avanzada";
+            this.lblAdvancedSearch.Click += new System.EventHandler(this.lblAdvancedSearch_Click);
             // 
             // gbxSex
             // 
@@ -381,6 +489,7 @@
             this.rbDNI.TabStop = true;
             this.rbDNI.Text = "DNI";
             this.rbDNI.UseVisualStyleBackColor = true;
+            this.rbDNI.CheckedChanged += new System.EventHandler(this.RbDNI_CheckedChanged);
             // 
             // rbForeignCard
             // 
@@ -393,6 +502,7 @@
             this.rbForeignCard.TabStop = true;
             this.rbForeignCard.Text = "Carné de extranjería";
             this.rbForeignCard.UseVisualStyleBackColor = true;
+            this.rbForeignCard.CheckedChanged += new System.EventHandler(this.RbForeignCard_CheckedChanged);
             // 
             // rbPassport
             // 
@@ -405,14 +515,17 @@
             this.rbPassport.TabStop = true;
             this.rbPassport.Text = "Pasaporte";
             this.rbPassport.UseVisualStyleBackColor = true;
+            this.rbPassport.CheckedChanged += new System.EventHandler(this.RbPassport_CheckedChanged);
             // 
             // txtDocumentNumber
             // 
             this.txtDocumentNumber.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtDocumentNumber.Location = new System.Drawing.Point(150, 195);
+            this.txtDocumentNumber.MaxLength = 8;
             this.txtDocumentNumber.Name = "txtDocumentNumber";
             this.txtDocumentNumber.Size = new System.Drawing.Size(201, 26);
             this.txtDocumentNumber.TabIndex = 133;
+            this.txtDocumentNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtDocumentNumber_KeyPress);
             // 
             // lblDocumentNumber
             // 
@@ -440,6 +553,7 @@
             // 
             this.txtFirstName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtFirstName.Location = new System.Drawing.Point(149, 227);
+            this.txtFirstName.MaxLength = 45;
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(203, 26);
             this.txtFirstName.TabIndex = 136;
@@ -448,6 +562,7 @@
             // 
             this.txtSecondName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtSecondName.Location = new System.Drawing.Point(149, 259);
+            this.txtSecondName.MaxLength = 45;
             this.txtSecondName.Name = "txtSecondName";
             this.txtSecondName.Size = new System.Drawing.Size(203, 26);
             this.txtSecondName.TabIndex = 137;
@@ -456,6 +571,7 @@
             // 
             this.txtPrimaryLastName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtPrimaryLastName.Location = new System.Drawing.Point(149, 291);
+            this.txtPrimaryLastName.MaxLength = 45;
             this.txtPrimaryLastName.Name = "txtPrimaryLastName";
             this.txtPrimaryLastName.Size = new System.Drawing.Size(203, 26);
             this.txtPrimaryLastName.TabIndex = 138;
@@ -464,6 +580,7 @@
             // 
             this.txtSecondLastName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtSecondLastName.Location = new System.Drawing.Point(149, 323);
+            this.txtSecondLastName.MaxLength = 45;
             this.txtSecondLastName.Name = "txtSecondLastName";
             this.txtSecondLastName.Size = new System.Drawing.Size(203, 26);
             this.txtSecondLastName.TabIndex = 139;
@@ -501,21 +618,21 @@
             this.lblSecondLastName.TabIndex = 142;
             this.lblSecondLastName.Text = "Apellido materno:";
             // 
-            // btCancelar
+            // btnCancelar
             // 
-            this.btCancelar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btCancelar.BackColor = System.Drawing.Color.MidnightBlue;
-            this.btCancelar.FlatAppearance.BorderSize = 0;
-            this.btCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btCancelar.Font = new System.Drawing.Font("Gill Sans MT", 15F);
-            this.btCancelar.ForeColor = System.Drawing.Color.White;
-            this.btCancelar.Location = new System.Drawing.Point(442, 507);
-            this.btCancelar.Name = "btCancelar";
-            this.btCancelar.Size = new System.Drawing.Size(148, 39);
-            this.btCancelar.TabIndex = 183;
-            this.btCancelar.Text = "Cancelar";
-            this.btCancelar.UseVisualStyleBackColor = false;
-            this.btCancelar.Click += new System.EventHandler(this.btCancelar_Click);
+            this.btnCancelar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnCancelar.BackColor = System.Drawing.Color.MidnightBlue;
+            this.btnCancelar.FlatAppearance.BorderSize = 0;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelar.Font = new System.Drawing.Font("Gill Sans MT", 15F);
+            this.btnCancelar.ForeColor = System.Drawing.Color.White;
+            this.btnCancelar.Location = new System.Drawing.Point(563, 507);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(148, 39);
+            this.btnCancelar.TabIndex = 183;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnModificar
             // 
@@ -525,119 +642,38 @@
             this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModificar.Font = new System.Drawing.Font("Gill Sans MT", 15F);
             this.btnModificar.ForeColor = System.Drawing.Color.White;
-            this.btnModificar.Location = new System.Drawing.Point(238, 507);
+            this.btnModificar.Location = new System.Drawing.Point(120, 507);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(148, 39);
             this.btnModificar.TabIndex = 182;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = false;
-            this.btnModificar.Click += new System.EventHandler(this.btModificar_Click);
+            this.btnModificar.EnabledChanged += new System.EventHandler(this.BtnModificar_EnabledChanged);
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
-            // lblRequiredInfo
+            // btnSaveChanges
             // 
-            this.lblRequiredInfo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblRequiredInfo.AutoSize = true;
-            this.lblRequiredInfo.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRequiredInfo.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.lblRequiredInfo.Location = new System.Drawing.Point(19, 24);
-            this.lblRequiredInfo.Name = "lblRequiredInfo";
-            this.lblRequiredInfo.Size = new System.Drawing.Size(136, 18);
-            this.lblRequiredInfo.TabIndex = 186;
-            this.lblRequiredInfo.Text = "* Campo obligatorio";
-            // 
-            // lblRequired0
-            // 
-            this.lblRequired0.AutoSize = true;
-            this.lblRequired0.Font = new System.Drawing.Font("Gill Sans MT", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRequired0.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.lblRequired0.Location = new System.Drawing.Point(359, 159);
-            this.lblRequired0.Name = "lblRequired0";
-            this.lblRequired0.Size = new System.Drawing.Size(17, 21);
-            this.lblRequired0.TabIndex = 187;
-            this.lblRequired0.Text = "*";
-            // 
-            // lblRequired1
-            // 
-            this.lblRequired1.AutoSize = true;
-            this.lblRequired1.Font = new System.Drawing.Font("Gill Sans MT", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRequired1.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.lblRequired1.Location = new System.Drawing.Point(359, 197);
-            this.lblRequired1.Name = "lblRequired1";
-            this.lblRequired1.Size = new System.Drawing.Size(17, 21);
-            this.lblRequired1.TabIndex = 188;
-            this.lblRequired1.Text = "*";
-            // 
-            // lblRequired2
-            // 
-            this.lblRequired2.AutoSize = true;
-            this.lblRequired2.Font = new System.Drawing.Font("Gill Sans MT", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRequired2.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.lblRequired2.Location = new System.Drawing.Point(359, 231);
-            this.lblRequired2.Name = "lblRequired2";
-            this.lblRequired2.Size = new System.Drawing.Size(17, 21);
-            this.lblRequired2.TabIndex = 189;
-            this.lblRequired2.Text = "*";
-            // 
-            // lblRequired3
-            // 
-            this.lblRequired3.AutoSize = true;
-            this.lblRequired3.Font = new System.Drawing.Font("Gill Sans MT", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRequired3.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.lblRequired3.Location = new System.Drawing.Point(359, 293);
-            this.lblRequired3.Name = "lblRequired3";
-            this.lblRequired3.Size = new System.Drawing.Size(17, 21);
-            this.lblRequired3.TabIndex = 190;
-            this.lblRequired3.Text = "*";
-            // 
-            // lblRequired4
-            // 
-            this.lblRequired4.AutoSize = true;
-            this.lblRequired4.Font = new System.Drawing.Font("Gill Sans MT", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRequired4.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.lblRequired4.Location = new System.Drawing.Point(358, 328);
-            this.lblRequired4.Name = "lblRequired4";
-            this.lblRequired4.Size = new System.Drawing.Size(17, 21);
-            this.lblRequired4.TabIndex = 191;
-            this.lblRequired4.Text = "*";
-            // 
-            // lblRequired6
-            // 
-            this.lblRequired6.AutoSize = true;
-            this.lblRequired6.Font = new System.Drawing.Font("Gill Sans MT", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRequired6.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.lblRequired6.Location = new System.Drawing.Point(357, 87);
-            this.lblRequired6.Name = "lblRequired6";
-            this.lblRequired6.Size = new System.Drawing.Size(17, 21);
-            this.lblRequired6.TabIndex = 184;
-            this.lblRequired6.Text = "*";
-            // 
-            // lblRequired5
-            // 
-            this.lblRequired5.AutoSize = true;
-            this.lblRequired5.Font = new System.Drawing.Font("Gill Sans MT", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRequired5.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.lblRequired5.Location = new System.Drawing.Point(358, 52);
-            this.lblRequired5.Name = "lblRequired5";
-            this.lblRequired5.Size = new System.Drawing.Size(17, 21);
-            this.lblRequired5.TabIndex = 184;
-            this.lblRequired5.Text = "*";
-            // 
-            // lblRequired7
-            // 
-            this.lblRequired7.AutoSize = true;
-            this.lblRequired7.Font = new System.Drawing.Font("Gill Sans MT", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRequired7.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.lblRequired7.Location = new System.Drawing.Point(357, 174);
-            this.lblRequired7.Name = "lblRequired7";
-            this.lblRequired7.Size = new System.Drawing.Size(17, 21);
-            this.lblRequired7.TabIndex = 185;
-            this.lblRequired7.Text = "*";
+            this.btnSaveChanges.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnSaveChanges.BackColor = System.Drawing.Color.MidnightBlue;
+            this.btnSaveChanges.FlatAppearance.BorderSize = 0;
+            this.btnSaveChanges.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveChanges.Font = new System.Drawing.Font("Gill Sans MT", 15F);
+            this.btnSaveChanges.ForeColor = System.Drawing.Color.White;
+            this.btnSaveChanges.Location = new System.Drawing.Point(326, 507);
+            this.btnSaveChanges.Name = "btnSaveChanges";
+            this.btnSaveChanges.Size = new System.Drawing.Size(181, 39);
+            this.btnSaveChanges.TabIndex = 184;
+            this.btnSaveChanges.Text = "Guardar cambios";
+            this.btnSaveChanges.UseVisualStyleBackColor = false;
+            this.btnSaveChanges.EnabledChanged += new System.EventHandler(this.BtnSaveChanges_EnabledChanged);
+            this.btnSaveChanges.Click += new System.EventHandler(this.BtnSaveChanges_Click);
             // 
             // ProfessorModify
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btCancelar);
+            this.Controls.Add(this.btnSaveChanges);
+            this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.gbxContactData);
             this.Controls.Add(this.gbxPersonalData);
@@ -693,10 +729,10 @@
         private System.Windows.Forms.Label lblSecondLastName;
         private System.Windows.Forms.DateTimePicker dtpBirthday;
         private System.Windows.Forms.Label lblBirthday;
-        private System.Windows.Forms.Button btCancelar;
+        private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.Label lbBusquedaAvanzada;
+        private System.Windows.Forms.Label lblAdvancedSearch;
         private System.Windows.Forms.Label lblRequiredInfo;
         private System.Windows.Forms.Label lblRequired0;
         private System.Windows.Forms.Label lblRequired1;
@@ -706,5 +742,6 @@
         private System.Windows.Forms.Label lblRequired6;
         private System.Windows.Forms.Label lblRequired5;
         private System.Windows.Forms.Label lblRequired7;
+        private System.Windows.Forms.Button btnSaveChanges;
     }
 }

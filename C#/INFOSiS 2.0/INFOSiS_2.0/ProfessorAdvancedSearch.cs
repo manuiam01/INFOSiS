@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using INFOSiS_2._0.Server;
 
 namespace INFOSiS_2._0
 {
@@ -14,10 +15,13 @@ namespace INFOSiS_2._0
     {
 
         private Server.ServerClient server;
+        private Server.professor professor;
         public ProfessorAdvancedSearch()
         {
             InitializeComponent();
         }
+
+        public professor Professor { get => professor; set => professor = value; }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
@@ -30,9 +34,16 @@ namespace INFOSiS_2._0
             else
             {
                 BindingList<Server.professor> professors_list = new BindingList<Server.professor>(professors);
-                dgvInteresados.AutoGenerateColumns = false;
-                dgvInteresados.DataSource = professors_list;
+                dgvProfessors.AutoGenerateColumns = false;
+                dgvProfessors.DataSource = professors_list;
             }
+        }
+
+        private void BtnSelect_Click(object sender, EventArgs e)
+        {
+            professor = new Server.professor();
+            professor = (Server.professor)dgvProfessors.CurrentRow.DataBoundItem;
+            this.DialogResult = DialogResult.OK;
         }
     }
 }

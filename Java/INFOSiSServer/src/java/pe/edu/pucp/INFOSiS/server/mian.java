@@ -62,9 +62,19 @@ public class mian {
 //        access.setId(0);
 //        access.setName("adf");        
 //        DBController.insertIntern(intern, access);
-          ArrayList<Professor> p = DBController.searchProfessorByName("Freddy", "", "","");
-          for(Professor pro : p){
-            System.out.println(pro.getIdPUCP());
-          }
+//          ArrayList<Professor> p = DBController.searchProfessorByName("Freddy", "", "","");
+//          for(Professor pro : p){
+//            System.out.println(pro.getIdPUCP());
+//          }
+//          Professor p = new Professor();
+//          p.setIdPUCP("20142604");
+//          p.setIdNumber("724885998");
+//          p.setIdType(0);
+//          p.setEmailPUCP("estephany.perez@pucp.pe");
+//          p.setFirstName("Estephany");
+//          p.setPrimaryLastName("Perez");
+//          p.setSecondLastName("Cabrera");
+//          
+//          DBController.updateProfessor(p);
     }  
 }
