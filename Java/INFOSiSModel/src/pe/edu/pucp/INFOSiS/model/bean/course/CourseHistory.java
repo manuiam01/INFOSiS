@@ -15,10 +15,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name="CourseHistory")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class CourseHistory implements Serializable{
-
-    /**
-     * Default constructor
-     */
+    
     public CourseHistory() {
     }
 
@@ -31,26 +28,12 @@ public class CourseHistory implements Serializable{
     private Professor assistant;
     private int hours;
     private File survey;
+    private Date startDate;
+    private Date endDate;
     private ArrayList<Student> students;
     private ArrayList<Integer> vouchers;
     private ArrayList<Float> historyGrade;
     private ArrayList<String> historyState;
-
-    public CourseHistory(int id, ArrayList<Date> sessions, ArrayList<String> locations, ArrayList<Integer> hoursSession, Course course, Professor professor, Professor assistant, int hours, File survey, ArrayList<Student> students, ArrayList<Integer> vouchers, ArrayList<Float> historyGrade, ArrayList<String> historyState) {
-        this.id = id;
-        this.sessions = sessions;
-        this.locations = locations;
-        this.hoursSession = hoursSession;
-        this.course = course;
-        this.professor = professor;
-        this.assistant = assistant;
-        this.hours = hours;
-        this.survey = survey;
-        this.students = students;
-        this.vouchers = vouchers;
-        this.historyGrade = historyGrade;
-        this.historyState = historyState;
-    }
 
     public int getId() {
         return id;
@@ -156,9 +139,21 @@ public class CourseHistory implements Serializable{
         this.historyState = historyState;
     }
 
+    public Date getStartDate() {
+        return startDate;
+    }
 
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
 
+    public Date getEndDate() {
+        return endDate;
+    }
 
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
+    }
 
-
+    
 }
