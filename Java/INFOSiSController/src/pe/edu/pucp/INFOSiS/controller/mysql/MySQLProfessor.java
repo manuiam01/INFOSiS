@@ -171,12 +171,12 @@ public class MySQLProfessor implements DAOProfessor {
     }
 
     @Override
-    public Professor search_by_id(String id) {
+    public Professor search_by_idPUCP(String id) {
         Professor professor = new Professor();
         try{
             DBManager dbManager = DBManager.getdbManager();
             Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
-            CallableStatement cs = con.prepareCall("{call SEARCH_PROFESSOR_BY_ID(?)}");
+            CallableStatement cs = con.prepareCall("{call SEARCH_PROFESSOR_BY_IDPUCP(?)}");
             cs.setString(1, id);
             ResultSet rs = cs.executeQuery();
             while(rs.next()){          
@@ -241,4 +241,23 @@ public class MySQLProfessor implements DAOProfessor {
         }        
         return professors;
     }    
+
+    @Override
+    public int search_by_id(String id) {
+        int res = 0;
+        try{
+            DBManager dbManager = DBManager.getdbManager();
+            Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
+            CallableStatement cs = con.prepareCall("{call SEARCH_PROFESSOR_BY_ID(?)}");
+            cs.setString(1, id);
+            ResultSet rs = cs.executeQuery();
+            while(rs.next()){          
+                res = 1;
+            }            
+            con.close();
+        }catch(SQLException ex){
+            System.out.println(ex.getMessage());
+        }  
+        return res;
+    }
 }

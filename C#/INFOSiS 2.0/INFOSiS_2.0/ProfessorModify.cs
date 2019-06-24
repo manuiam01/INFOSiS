@@ -18,6 +18,7 @@ namespace INFOSiS_2._0
         private Server.ServerClient server;
         private Server.professor professor;
         private bool birthdaySelected = false;
+        private String previousId;
 
         public static ProfessorModify Instance
         {
@@ -160,6 +161,7 @@ namespace INFOSiS_2._0
                 professor = formSearchProfessor.Professor;
                 txtPUCPCode.Text = professor.idPUCP;
                 txtDocumentNumber.Text = professor.idNumber;
+                previousId = txtDocumentNumber.Text;
                 txtFirstName.Text = professor.firstName;
                 txtSecondName.Text = professor.middleName;
                 txtPrimaryLastName.Text = professor.primaryLastName;
@@ -256,11 +258,12 @@ namespace INFOSiS_2._0
         {
             server = new Server.ServerClient();
             professor = new Server.professor();
-            professor = server.SearchProfessorById(txtPUCPCode.Text);
+            professor = server.SearchProfessorByIdPUCP(txtPUCPCode.Text);
             if (professor.idPUCP != null)
             {
                 txtPUCPCode.Text = professor.idPUCP;
                 txtDocumentNumber.Text = professor.idNumber;
+                previousId = txtDocumentNumber.Text;
                 txtFirstName.Text = professor.firstName;
                 txtSecondName.Text = professor.middleName;
                 txtPrimaryLastName.Text = professor.primaryLastName;
@@ -332,18 +335,22 @@ namespace INFOSiS_2._0
                     setProfessor();
                 }
             }
-            int res = server.UpdateProfessor(professor);
-            if (res > 0)
-            {
-                MessageBox.Show("Profesor actualizado correctamente", "Profesor actualizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                clean();
-                setState(Estado.Guardar);
+
+            if ((server.SearchProfessorById(txtDocumentNumber.Text) == 1) && (previousId != txtDocumentNumber.Text)){
+                MessageBox.Show("Documento de identidad registrado anteriormente", "Actualización inválida", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-            //else if (professor.idNumber != txtDocumentNumber.Text)
-            //{
-            //    MessageBox.Show("Documento de identidad registrado anteriormente", "Actualización inválida", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            //}
-            
+            else
+            {
+                int res = server.UpdateProfessor(professor);
+                if (res > 0)
+                {
+                    MessageBox.Show("Profesor actualizado correctamente", "Profesor actualizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    clean();
+                    setState(Estado.Guardar);
+                }
+            }
+
+
         }
 
         private void DtpBirthday_ValueChanged(object sender, EventArgs e)
@@ -385,19 +392,5 @@ namespace INFOSiS_2._0
             }
         }
 
-        private void BtnModificar_EnabledChanged(object sender, EventArgs e)
-        {
-            btnModificar.ForeColor = Color.Gray;
-        }
-
-        private void BtnSaveChanges_EnabledChanged(object sender, EventArgs e)
-        {
-            btnSaveChanges.ForeColor = Color.Gray;
-        }
-
-        private void BtnSearch_EnabledChanged(object sender, EventArgs e)
-        {
-            btnSearch.ForeColor = Color.Gray;
-        }
     }
 }

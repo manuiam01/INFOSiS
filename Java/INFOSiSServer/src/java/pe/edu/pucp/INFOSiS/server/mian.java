@@ -50,7 +50,7 @@ public class mian {
 //        Intern intern = new Intern();
 //        intern.setIdNumber("asdf");
 //        intern.setIdPUCP("asdf");
-//        intern.setIdType(0);
+//        intern.setIdType(0); 
 //        intern.setFirstName("Asdf");
 //        intern.setPrimaryLastName("asdf");
 //        intern.setSecondLastName("Asdf");
@@ -76,5 +76,8 @@ public class mian {
 //          p.setSecondLastName("Cabrera");
 //          
 //          DBController.updateProfessor(p);
+
+            int r= DBController.searchProfessorById("09479586");
+            System.out.println(r);
     }  
 }
