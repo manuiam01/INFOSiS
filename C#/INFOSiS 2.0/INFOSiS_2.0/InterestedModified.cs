@@ -94,6 +94,7 @@ namespace INFOSiS_2._0
             InterestedCourses formBuscarCursosInteresado = new InterestedCourses();
             if (formBuscarCursosInteresado.ShowDialog() == DialogResult.OK)
             {
+
                 //Acá en teoría debería de devolver todo el ArrayList de cursos para ingresarlo al dgv
                 //dgvInterestedCourses.DataSource = formBuscarCursosInteresado.}
             }
