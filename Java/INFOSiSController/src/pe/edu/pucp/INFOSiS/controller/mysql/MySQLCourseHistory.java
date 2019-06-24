@@ -14,6 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
+import pe.edu.pucp.INFOSiS.controller.config.DBController;
 import pe.edu.pucp.INFOSiS.controller.config.DBManager;
 import pe.edu.pucp.INFOSiS.controller.dao.DAOCourseHistory;
 import pe.edu.pucp.INFOSiS.model.bean.course.Course;
@@ -153,28 +154,17 @@ public class MySQLCourseHistory implements DAOCourseHistory{
             cs.setDate(1,new java.sql.Date(datecourse.getDate()));
             ResultSet rs = cs.executeQuery();
             while(rs.next()){
-                ArrayList<Date> dates = new ArrayList<Date>();
+                //ArrayList<Date> dates = new ArrayList<Date>();
                 CourseHistory c = new CourseHistory();
                 c.setId(rs.getInt("idCourseHistory"));
-                dates.add(new java.sql.Date(rs.getDate("startDate").getTime()));
-                dates.add(new java.sql.Date(rs.getDate("endDate").getTime()));
-                c.setSessions(dates);
-                c.setHours(rs.getInt("hours"));
-                //CursoH tiene ahora id, fecha de inicio y las horas totales
-                //falta agregar el curso al cual pertenece 0;
-                String id = rs.getString("idCourse");
-                CallableStatement cs2 = con.prepareCall("{call COURSE_BY_ID(?)}");
-                cs2.setString(1, id);
-                ResultSet rs2 = cs2.executeQuery();
-                while(rs2.next()){
-                    Course cr = new Course();
-                    cr.setId(rs.getString("idCourse"));
-                    cr.setName(rs2.getString("name"));
-                    cr.setDescription(rs2.getString("description"));
-                    c.setCourse(cr);
-                }
+                c.setCourse(DBController.queryCourseById(rs.getString(2)));
+                c.setProfessor(DBController.searchProfessorByIdPUCP(rs.getString(3)));
+                c.setAssistant(DBController.searchProfessorByIdPUCP(rs.getString(4)));
+                c.setHours(rs.getInt(5));
+                c.setStartDate(rs.getDate(6));
+                c.setEndDate(rs.getDate(7));                               
                 //Como no sé como comparar las fechas en mysql, lo haré acá ptmre :v
-                if(dates.get(0).after(datecourse)){
+                if(c.getStartDate().after(datecourse)){
                     courses.add(c);
                 }
             }            
