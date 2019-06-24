@@ -51,7 +51,6 @@ public class MySQLCourseHistory implements DAOCourseHistory{
             int cantSessions = sessions.size();
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             for(int i = 0; i < cantSessions ;i++){
-                System.out.println("aqui");
                 cs = con.prepareCall("{call INSERT_SESSION(?,?,?,?)}");
                 cs.setInt(1, id);
                 cs.setString(2,format.format(sessions.get(i)));
@@ -60,8 +59,7 @@ public class MySQLCourseHistory implements DAOCourseHistory{
                 result = cs.executeUpdate();
             }
             ArrayList<Student> students = courseHistory.getStudents();
-            for(int i = 0; i < students.size();i++){
-                System.out.println("aqui2");
+            for(int i = 0; i < students.size();i++){                
                 cs = con.prepareCall("{call INSERT_STUDENTHISTORY(?,?,?,?,?)}");
                 cs.setString(1,students.get(i).getIdNumber());
                 cs.setInt(2, id);
@@ -82,17 +80,22 @@ public class MySQLCourseHistory implements DAOCourseHistory{
         try{
             DBManager dbManager = DBManager.getdbManager();
             Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
-            CallableStatement cs = con.prepareCall("{call UPDATE_COURSEH(?,?,?,?)}");
+            CallableStatement cs = con.prepareCall("{call UPDATE_COURSEH(?,?,?,?,?,?,?)}");
             cs.setInt(1,courseHistory.getId());
-            cs.setString(3,courseHistory.getProfessor().getIdNumber());
-            cs.setString(4,courseHistory.getAssistant().getIdNumber());
             cs.setString(2,courseHistory.getCourse().getId());
-            result = cs.executeUpdate();
+            cs.setString(3,courseHistory.getProfessor().getIdPUCP());
+            cs.setString(4,courseHistory.getAssistant().getIdPUCP());
+            cs.setInt(5, courseHistory.getHours());
+            SimpleDateFormat formatIni = new SimpleDateFormat("yyyy-MM-dd");
+            Date start = Collections.min(courseHistory.getSessions());
+            cs.setString(6, formatIni.format(courseHistory.getStartDate()));
+            Date end = Collections.max(courseHistory.getSessions());
+            cs.setString(7, formatIni.format(courseHistory.getEndDate()));        
+            result = cs.executeUpdate();               
             con.close();
         }catch(Exception ex){
             System.out.println(ex.getMessage());
         }
-        
         return result;
         
     }
