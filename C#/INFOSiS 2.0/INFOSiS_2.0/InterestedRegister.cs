@@ -18,7 +18,7 @@ namespace INFOSiS_2._0
         MessageBoxIcon iconoCorrecto = MessageBoxIcon.Asterisk;
         private static InterestedRegister _instance;
         private static Panel _panelMdi;
-        private DataTable tbCursos;
+        private DataTable tbCursos = new DataTable();
         private BindingList<string> idcursos;
         public static InterestedRegister Instance
         {
@@ -40,7 +40,6 @@ namespace INFOSiS_2._0
             InitializeComponent();
             limpiar();
             servidor = new Server.ServerClient();
-            tbCursos = new DataTable();
             idcursos = new BindingList<string>();
             tbCursos.Columns.Add("ID", typeof(string));
             tbCursos.Columns.Add("Nombre", typeof(string));
@@ -72,6 +71,12 @@ namespace INFOSiS_2._0
                         tbCursos.Rows.Add(c.id, c.name);
                     }
                     dgvInterestedCourses.DataSource = tbCursos;
+                    idcursos = new BindingList<string>();
+                    foreach(DataGridViewRow row in dgvInterestedCourses.Rows)
+                    {
+                        idcursos.Add(row.Cells[0].Value.ToString());
+                    }
+
                 }
                 
                 //Acá en teoría debería de devolver todo el ArrayList de cursos para ingresarlo al dgv
@@ -183,6 +188,7 @@ namespace INFOSiS_2._0
                         i.gender = "F";
                     i.cellPhoneNumber = txtCellphone.Text;
                     i.email = txtEmail.Text;
+                    
                     i.courses = new Server.course[5];
                     servidor.InsertInterested(i);
                     
@@ -202,6 +208,8 @@ namespace INFOSiS_2._0
                 {
                     limpiar();
                     dgvInterestedCourses.DataSource = null;
+                    tbCursos.Clear();
+                    idcursos = new BindingList<string>();
                 }
             }
         }
