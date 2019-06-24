@@ -188,8 +188,18 @@ namespace INFOSiS_2._0
                         i.gender = "F";
                     i.cellPhoneNumber = txtCellphone.Text;
                     i.email = txtEmail.Text;
-                    
-                    i.courses = new Server.course[5];
+                    int tama = 0;
+                    BindingList<Server.course> courses = new BindingList<Server.course>();
+                    foreach(DataGridViewRow row in dgvInterestedCourses.Rows)
+                    {
+                        Server.course c = new Server.course();
+                        c.id = row.Cells[0].Value.ToString();
+                        courses.Add(c);
+                        tama = tama+1;
+                    }
+                    i.courses = new Server.course[tama];
+                    //i.courses = courses;
+                    //i.courses = new Server.course[5];
                     servidor.InsertInterested(i);
                     
                     MessageBox.Show("Se registró al interesado de manera correcta", "Éxito", MessageBoxButtons.OK,iconoCorrecto);

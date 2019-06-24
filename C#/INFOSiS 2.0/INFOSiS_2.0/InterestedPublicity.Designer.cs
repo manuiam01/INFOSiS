@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblInterestedRegister = new System.Windows.Forms.Label();
             this.dgvInteresadosMailing = new System.Windows.Forms.DataGridView();
             this.cNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,14 +64,14 @@
             this.dgvInteresadosMailing.AllowUserToAddRows = false;
             this.dgvInteresadosMailing.AllowUserToDeleteRows = false;
             this.dgvInteresadosMailing.Anchor = System.Windows.Forms.AnchorStyles.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Gill Sans MT", 9F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvInteresadosMailing.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Gill Sans MT", 9F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvInteresadosMailing.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvInteresadosMailing.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvInteresadosMailing.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cNombre,
@@ -79,14 +79,14 @@
             this.cCorreo,
             this.cSexo,
             this.cEnviar});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Gill Sans MT", 8F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvInteresadosMailing.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Gill Sans MT", 8F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvInteresadosMailing.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvInteresadosMailing.Location = new System.Drawing.Point(21, 255);
             this.dgvInteresadosMailing.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvInteresadosMailing.Name = "dgvInteresadosMailing";
@@ -158,7 +158,7 @@
             this.dtpInicioCurso.Location = new System.Drawing.Point(223, 103);
             this.dtpInicioCurso.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpInicioCurso.Name = "dtpInicioCurso";
-            this.dtpInicioCurso.Size = new System.Drawing.Size(293, 27);
+            this.dtpInicioCurso.Size = new System.Drawing.Size(326, 27);
             this.dtpInicioCurso.TabIndex = 175;
             // 
             // btnSearch
@@ -169,7 +169,7 @@
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.Font = new System.Drawing.Font("Gill Sans MT", 12F);
             this.btnSearch.ForeColor = System.Drawing.Color.White;
-            this.btnSearch.Location = new System.Drawing.Point(27, 145);
+            this.btnSearch.Location = new System.Drawing.Point(598, 98);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(4);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(139, 39);
@@ -183,7 +183,7 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Gill Sans MT", 9.75F);
-            this.label2.Location = new System.Drawing.Point(21, 212);
+            this.label2.Location = new System.Drawing.Point(86, 154);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(131, 25);
             this.label2.TabIndex = 186;
@@ -204,7 +204,7 @@
             this.lblEditarMail.AutoSize = true;
             this.lblEditarMail.Font = new System.Drawing.Font("Gill Sans MT", 8.5F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
             this.lblEditarMail.ForeColor = System.Drawing.Color.MediumBlue;
-            this.lblEditarMail.Location = new System.Drawing.Point(21, 562);
+            this.lblEditarMail.Location = new System.Drawing.Point(22, 219);
             this.lblEditarMail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEditarMail.Name = "lblEditarMail";
             this.lblEditarMail.Size = new System.Drawing.Size(109, 21);
@@ -252,7 +252,7 @@
             // 
             this.txbCourseSelected.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txbCourseSelected.Font = new System.Drawing.Font("Gill Sans MT", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbCourseSelected.Location = new System.Drawing.Point(190, 145);
+            this.txbCourseSelected.Location = new System.Drawing.Point(223, 150);
             this.txbCourseSelected.Multiline = true;
             this.txbCourseSelected.Name = "txbCourseSelected";
             this.txbCourseSelected.Size = new System.Drawing.Size(326, 38);
