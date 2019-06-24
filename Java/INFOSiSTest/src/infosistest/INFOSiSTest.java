@@ -9,6 +9,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import pe.edu.pucp.INFOSiS.controller.mysql.MySQLCourse;
 import pe.edu.pucp.INFOSiS.controller.mysql.MySQLCourseHistory;
 import pe.edu.pucp.INFOSiS.controller.mysql.MySQLInterested;
 import pe.edu.pucp.INFOSiS.controller.mysql.MySQLUser;
@@ -54,7 +55,9 @@ public class INFOSiSTest {
 //        for(CourseHistory c : courses){
 //            System.out.println(c.getCourse().getName());
 //        }
-    
+//        MySQLCourse mysqlcourse = new MySQLCourse();
+//        Course course = mysqlcourse.queryById("1023");
+//        System.out.println(course.getName());
     }
     
 }

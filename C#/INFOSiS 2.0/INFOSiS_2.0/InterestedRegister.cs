@@ -18,6 +18,8 @@ namespace INFOSiS_2._0
         MessageBoxIcon iconoCorrecto = MessageBoxIcon.Asterisk;
         private static InterestedRegister _instance;
         private static Panel _panelMdi;
+        private DataTable tbCursos;
+        private BindingList<string> idcursos;
         public static InterestedRegister Instance
         {
             get
@@ -37,6 +39,8 @@ namespace INFOSiS_2._0
         {
             InitializeComponent();
             limpiar();
+            tbCursos = new DataTable();
+            idcursos = new BindingList<string>();
         }
 
         private void InterestedRegister_Load(object sender, EventArgs e)
@@ -54,6 +58,16 @@ namespace INFOSiS_2._0
             InterestedCourses formBuscarCursosInteresado = new InterestedCourses();
             if (formBuscarCursosInteresado.ShowDialog() == DialogResult.OK)
             {
+                
+                tbCursos.Columns.Add("ID", typeof(string));
+                tbCursos.Columns.Add("Nombre", typeof(string));
+                idcursos = formBuscarCursosInteresado.Cursos;
+                foreach(string id in idcursos)
+                {
+                    Server.course c = new Server.course();
+                    c = servidor.queryCourseById(id);
+                    tbCursos.Rows.Add(c.id, c.name);
+                }
                 //Acá en teoría debería de devolver todo el ArrayList de cursos para ingresarlo al dgv
                 //dgvInterestedCourses.DataSource = formBuscarCursosInteresado.}
 
