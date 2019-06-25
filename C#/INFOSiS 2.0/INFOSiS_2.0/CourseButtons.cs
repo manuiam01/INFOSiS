@@ -58,5 +58,49 @@ namespace INFOSiS_2._0
                 CoursesCalendar.Instance.BringToFront();
             }
         }
+
+        private void btnCourseRegister_Click(object sender, EventArgs e)
+        {
+            foreach (Control item in PanelMdi.Controls.OfType<Control>())
+            {
+                PanelMdi.Controls.Remove(item);
+            }
+
+            if (!PanelMdi.Controls.Contains(CourseRegister.Instance))
+            {
+                PanelMdi.Controls.Add(CourseRegister.Instance);
+                CourseRegister.Instance.Dock = DockStyle.Fill;
+                CourseRegister.PanelMdi = PanelMdi;
+                CourseRegister.Instance.Visible = true;
+                CourseRegister.Instance.BringToFront();
+            }
+            else
+            {
+                CourseRegister.Instance.Visible = true;
+                CourseRegister.Instance.BringToFront();
+            }
+        }
+
+        private void btnCourseModify_Click(object sender, EventArgs e)
+        {
+            foreach (Control item in PanelMdi.Controls.OfType<Control>())
+            {
+                PanelMdi.Controls.Remove(item);
+            }
+
+            if (!PanelMdi.Controls.Contains(CourseModify.Instance))
+            {
+                PanelMdi.Controls.Add(CourseModify.Instance);
+                CourseModify.Instance.Dock = DockStyle.Fill;
+                CourseModify.PanelMdi = PanelMdi;
+                CourseModify.Instance.Visible = true;
+                CourseModify.Instance.BringToFront();
+            }
+            else
+            {
+                CourseModify.Instance.Visible = true;
+                CourseModify.Instance.BringToFront();
+            }
+        }
     }
 }
