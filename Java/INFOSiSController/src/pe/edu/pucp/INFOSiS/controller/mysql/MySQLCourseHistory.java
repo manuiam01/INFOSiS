@@ -104,11 +104,14 @@ public class MySQLCourseHistory implements DAOCourseHistory{
     }
     @Override
     public int update (CourseHistory courseHistory){
+          
         int result = 0;
         try{
             DBManager dbManager = DBManager.getdbManager();
             Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
+            
             CallableStatement cs = con.prepareCall("{call UPDATE_COURSEH(?,?,?,?,?,?,?,?)}");
+            
             cs.setInt(1,courseHistory.getId());
             cs.setString(2,courseHistory.getCourse().getId());
             cs.setString(3,courseHistory.getProfessor().getIdPUCP());
@@ -116,20 +119,24 @@ public class MySQLCourseHistory implements DAOCourseHistory{
             cs.setInt(5, courseHistory.getHours());
             SimpleDateFormat formatIni = new SimpleDateFormat("yyyy-MM-dd");
             ArrayList<Date> dateSession = new ArrayList<>();
+            
             for(Session s: courseHistory.getSessions()){
                 dateSession.add(s.getDateSession());
             }     
             Date start = Collections.min(dateSession);
+            
             cs.setString(6, formatIni.format(start));
             Date end = Collections.max(dateSession);
             cs.setString(7,formatIni.format(end));
             cs.setBytes(8, courseHistory.getSurvey());
-            result = cs.executeUpdate();                
+            result = cs.executeUpdate();    
+          
             cs = con.prepareCall("{call DISABLE_SESSIONS_BY_COURSEH(?)}");           
             cs.setInt(1, courseHistory.getId());
             result = cs.executeUpdate();
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             ResultSet rs;
+           
             for(Session s: courseHistory.getSessions()){  
                 
                 cs = con.prepareCall("{call SESSION_BY_ID(?)}");
@@ -138,8 +145,13 @@ public class MySQLCourseHistory implements DAOCourseHistory{
                
                 if(rs.next()){
                    
-                    cs = con.prepareCall("{call ENABLE_SESSION(?)}");
-                    cs.setInt(1, s.getId());     
+                    cs = con.prepareCall("{call UPDATE_SESSION(?,?,?,?,?,?)}");
+                    cs.setInt(1, s.getId()); 
+                    cs.setInt(2,courseHistory.getId());
+                    cs.setString(3,format.format(s.getDateSession()));
+                    cs.setInt(4, s.getHours());
+                    cs.setString(5, s.getLocation());
+                    cs.setBoolean(6, true);
                     result = cs.executeUpdate();
                 }
                 else{
@@ -165,8 +177,14 @@ public class MySQLCourseHistory implements DAOCourseHistory{
                 cs.setInt(2, courseHistory.getId());
                 rs = cs.executeQuery();
                 if(rs.next()){
-                    cs = con.prepareCall("{call ENABLE_STUDENTH(?)}");
+                    cs = con.prepareCall("{call UPDATE_STUDENTH(?,?,?,?,?,?,?)}");
                     cs.setInt(1, rs.getInt(1));
+                    cs.setString(2,students.get(i).getIdNumber());
+                    cs.setInt(3, courseHistory.getId());
+                    cs.setFloat(4,courseHistory.getHistoryGrade().get(i));
+                    cs.setString(5,courseHistory.getHistoryState().get(i));
+                    cs.setFloat(6,courseHistory.getAmountPaids().get(i));
+                    cs.setBoolean(7, true);
                     result = cs.executeUpdate();
                 }
                 else{
@@ -368,7 +386,7 @@ public class MySQLCourseHistory implements DAOCourseHistory{
                 s.setHours(rs2.getInt(4));
                 s.setLocation(rs2.getString(5));
                 s.setIsActive(rs2.getBoolean(6));
-                sessions.add(s);
+                if(s.isIsActive()) sessions.add(s);
             }           
             con.close();
         }catch(Exception ex){

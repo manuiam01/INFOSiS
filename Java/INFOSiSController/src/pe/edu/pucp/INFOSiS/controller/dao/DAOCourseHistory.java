@@ -21,5 +21,5 @@ public interface DAOCourseHistory {
     ArrayList<CourseHistory> queryByIdProfessor(String idProfessor);
     byte[] generateReport(int id);
     int saveReport(int id, String route);
-    ArrayList<Session> querySessionByCourseH(int idCourseHistory);
+    ArrayList<Session> querySessionByCourseH(int idCourseHistory);  
 }

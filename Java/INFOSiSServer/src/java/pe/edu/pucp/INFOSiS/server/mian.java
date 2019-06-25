@@ -41,65 +41,65 @@ public class mian {
 //        }
 //
 
-//        Course course = DBController.queryCourseById("VBA002");
-//        Professor professor = DBController.searchProfessorByIdPUCP("20012323");
-//        Professor assistant = DBController.searchProfessorByIdPUCP("19794422");
-//        CourseHistory c = new CourseHistory();
-//        c.setId(20);
-//        c.setCourse(course);
-//        c.setAssistant(assistant);
-//        c.setProfessor(professor);
-//        c.setHours(10);
-//        ArrayList<Date> dates = new ArrayList<>();
-//        Date d = new Date();
-//        dates.add(d);
-//        Date d2 = new Date();
-//        d2.setDate(30);
-//        dates.add(d2);
-//        ArrayList<Session> sessions = new ArrayList<>();
-//        Session s = new Session();
-//        s.setDateSession(d);
-//        s.setHours(4);
-//        s.setLocation("A101");
-//        sessions.add(s);
-//        Session s2 = new Session();
-//        s2.setDateSession(d);
-//        s2.setHours(6);
-//        s2.setLocation("A102");
-//        sessions.add(s2);
-//        c.setSessions(sessions);
-//        ArrayList<Student> students = new ArrayList<>();
-//        Student stu = new Student();
-//        stu.setIdNumber("11111111");
-//        students.add(stu);
-//        Student stu2 = new Student();
-//        stu2.setIdNumber("56485747");
-//        students.add(stu2);
-//        c.setStudents(students);
-//        ArrayList<Float> grades = new ArrayList<>();
-//        grades.add(15.00f);
-//        grades.add(19.00f);
-//        c.setHistoryGrade(grades);
-//        ArrayList<String> states = new ArrayList<>();
-//        states.add("APROBADO");
-//        states.add("APROBADO");
-//        c.setHistoryState(states);
-//        ArrayList<Float> amountPaids = new ArrayList<>();
-//        amountPaids.add(300f);
-//        amountPaids.add(600f);
-//       
-//        c.setAmountPaids(amountPaids);
-//        try{
-//            File file = new File("C:\\Users\\Ivette\\Desktop\\2019-1\\finalFinal\\archivo.pdf");
-//            byte[] survey = Files.readAllBytes(file.toPath());
-//            c.setSurvey(survey);
-//        }
-//        catch(Exception ex){
-//            System.out.println(ex.getMessage());
-//        }
-//   
-//        int result = DBController.updateCourseHistory(c);
-//        System.out.println(result);
+        Course course = DBController.queryCourseById("123456");
+        Professor professor = DBController.searchProfessorByIdPUCP("20012323");
+        Professor assistant = DBController.searchProfessorByIdPUCP("19794422");
+        CourseHistory c = new CourseHistory();
+        c.setId(20);
+        c.setCourse(course);
+        c.setAssistant(assistant);
+        c.setProfessor(professor);
+        c.setHours(10);
+        ArrayList<Date> dates = new ArrayList<>();
+        Date d = new Date();
+        dates.add(d);
+        Date d2 = new Date();
+        d2.setDate(30);
+        dates.add(d2);
+        ArrayList<Session> sessions = DBController.querySessionByCourseH(c.getId());
+        for(Session s: sessions){
+            s.getDateSession().setHours(10);
+        }
+        
+        Session s = new Session();
+        s.setDateSession(d2);
+        s.setHours(0);
+        s.setLocation("B102");
+        s.setIsActive(true);
+        sessions.add(s);
+        c.setSessions(sessions);
+        ArrayList<Student> students = new ArrayList<>();
+        Student stu = new Student();
+        stu.setIdNumber("11111111");
+        students.add(stu);
+        Student stu2 = new Student();
+        stu2.setIdNumber("56485747");
+        students.add(stu2);
+        c.setStudents(students);
+        ArrayList<Float> grades = new ArrayList<>();
+        grades.add(05.00f);
+        grades.add(19.00f);
+        c.setHistoryGrade(grades);
+        ArrayList<String> states = new ArrayList<>();
+        states.add("DESAPROBADO");
+        states.add("APROBADO");
+        c.setHistoryState(states);
+        ArrayList<Float> amountPaids = new ArrayList<>();
+        amountPaids.add(300f);
+        amountPaids.add(600f);
+       
+        c.setAmountPaids(amountPaids);
+        try{
+            File file = new File("T:\\Temp\\archivo3.csv");
+            byte[] survey = Files.readAllBytes(file.toPath());
+            c.setSurvey(survey);
+        }
+        catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+   
+        int result = DBController.updateCourseHistory(c);
+        System.out.println(result);
         
 //        
            
@@ -112,11 +112,11 @@ public class mian {
 //           }
 //           
 
-            ArrayList<Session> sessions = DBController.querySessionByCourseH(12);
-            for(Session s : sessions){
-                SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                System.out.println(format.format(s.getDateSession()));
-            }
+//            ArrayList<Session> sessions = DBController.querySessionByCourseH(12);
+//            for(Session s : sessions){
+//                SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//                System.out.println(format.format(s.getDateSession()));
+//            }
 //
 //          CourseType coursetype = DBController.queryCourseTypeById(6);
 //          Course c = new Course();
