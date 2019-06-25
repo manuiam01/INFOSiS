@@ -6,7 +6,9 @@
 package pe.edu.pucp.INFOSiS.server;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Date;
@@ -79,16 +81,34 @@ public class mian {
 //        ArrayList<Float> amountPaids = new ArrayList<>();
 //        amountPaids.add(300f);
 //        amountPaids.add(600f);
+//       
 //        c.setAmountPaids(amountPaids);
-//        
+//        try{
+//            File file = new File("T:\\Temp\\archivo.csv");
+//            byte[] survey = Files.readAllBytes(file.toPath());
+//            c.setSurvey(survey);
+//        }
+//        catch(Exception ex){
+//            System.out.println(ex.getMessage());
+//        }
+//   
 //        int result = DBController.insertCourseHistory(c);
 //        System.out.println(result);
 //        
 //        
            
-           ArrayList<CourseHistory> courses = DBController.queryCourseHByIdProfessor("19693103");
+           ArrayList<CourseHistory> courses = DBController.queryCourseHByIdProfessor("20142604");
            for(CourseHistory c : courses){              
-               System.out.println(c.getCourse().getId() +" "+ c.getCourse().getName());             
+               System.out.println(c.getCourse().getId() +" "+ c.getCourse().getName()); 
+                try{
+                    File file = new File("T:\\\\Temp\\\\archivo2.csv");
+                    OutputStream os = new FileOutputStream(file);
+                    os.write(c.getSurvey());
+                    os.close();
+                }
+                catch(Exception ex){
+                    System.out.println(ex.getMessage());
+                }
            }
            
 //
