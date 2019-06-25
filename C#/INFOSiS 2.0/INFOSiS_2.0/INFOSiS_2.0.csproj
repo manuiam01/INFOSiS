@@ -395,6 +395,9 @@
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.queryCourseHByDateResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.queryCourseHistoryByIdProfessorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.queryCourseTypeByIdResponse1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

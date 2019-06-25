@@ -14,7 +14,9 @@ namespace INFOSiS_2._0
     {
         private static ProfessorReport _instance;
         private static Panel _panelMdi;
-
+        private Server.ServerClient server;
+        private Server.professor professor;
+        
         public static ProfessorReport Instance
         {
             get
@@ -34,10 +36,6 @@ namespace INFOSiS_2._0
         {
             InitializeComponent();
             btnReport.Enabled = false;
-            txtFirstName.Enabled = false;
-            txtSecondName.Enabled = false;
-            txtPrimaryLastName.Enabled = false;
-            txtSecondLastName.Enabled = false;
         }
 
         private void ProfessorReport_Load(object sender, EventArgs e)
@@ -47,12 +45,30 @@ namespace INFOSiS_2._0
 
         private void BtnSearch_Click(object sender, EventArgs e)
         {
-            if(txtFirstName.Text.Count()!=0){
-                btnReport.Enabled = true;
+            server = new Server.ServerClient();
+            professor = new Server.professor();
+            professor = server.SearchProfessorByIdPUCP(txtPUCPcode.Text);
+            if (professor.idPUCP != null)
+            {
+                dgvCoursesHistory.AutoGenerateColumns = false;
+                dgvCoursesHistory.DataSource = server.queryCourseHistoryByIdProfessor(professor.idPUCP);
             }
             else
             {
-                MessageBox.Show("No se encontraron resultados", "Profesor no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Código PUCP no encontrado", "Profesor no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void lblAdvancedSearch_Click(object sender, EventArgs e)
+        {
+            ProfessorAdvancedSearch formSearchProfessor = new ProfessorAdvancedSearch();
+            if (formSearchProfessor.ShowDialog() == DialogResult.OK)
+            {
+                professor = formSearchProfessor.Professor;
+                txtPUCPcode.Text = professor.idPUCP;
+                dgvCoursesHistory.AutoGenerateColumns = false;
+                dgvCoursesHistory.DataSource = server.queryCourseHistoryByIdProfessor(professor.idPUCP);
+
             }
         }
     }
