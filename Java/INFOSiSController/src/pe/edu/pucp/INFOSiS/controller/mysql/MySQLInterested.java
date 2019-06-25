@@ -342,5 +342,39 @@ public class MySQLInterested implements DAOInterested {
         return interested;
     }    
     
-    
+    /*@Override
+    public ArrayList<Interested> search_by_name(String name, String middle_name,
+            String first_last_name, String second_last_name) {
+        ArrayList<Interested> interesteds = new ArrayList<Interested>();
+        try{
+            DBManager dbManager = DBManager.getdbManager();
+            Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
+            CallableStatement cs = con.prepareCall("{call SEARCH_PROFESSOR_BY_NAME(?,?,?,?)}");
+            cs.setString(1, name);
+            cs.setString(2, middle_name);
+            cs.setString(3, first_last_name);
+            cs.setString(4, second_last_name);
+            ResultSet rs = cs.executeQuery();
+            while(rs.next()){
+                Interested interested = new Interested();
+                interested.set(rs.getString(1));
+                interested.setIdNumber(rs.getString(2));
+                interested.setIdType(rs.getInt(3));
+                interested.setEmailPUCP(rs.getString(4));
+                interested.setFirstName(rs.getString(6));
+                interested.setMiddleName(rs.getString(7));
+                interested.setPrimaryLastName(rs.getString(8));
+                interested.setSecondLastName(rs.getString(9));
+                interested.setGender(rs.getString(10));
+                interested.setEmail(rs.getString(11));
+                interested.setCellPhoneNumber(rs.getString(12));
+                interested.setIsActive(rs.getBoolean(13));
+                interesteds.add(interested);
+            }            
+            con.close();
+        }catch(SQLException ex){
+            System.out.println(ex.getMessage());
+        }        
+        return professors;
+    }*/
 }

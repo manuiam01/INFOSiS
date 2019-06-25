@@ -122,17 +122,17 @@ public class Server {
     }
     
     @WebMethod(operationName="InsertCourse")
-    public int InsertCourse(@WebParam(name="Course") Course course){
+    public int InsertCourse(@WebParam(name="course") Course course){
         return DBController.insertCourse(course);
     }
     
     @WebMethod(operationName="UpdateCourse")
-    public int UpdateCourse(@WebParam(name="Course") Course course){
+    public int UpdateCourse(@WebParam(name="course") Course course){
         return DBController.updateCourse(course);
     }
     
     @WebMethod(operationName="DisableCourse")
-    public int DisableCourse(@WebParam(name="Course") Course course){
+    public int DisableCourse(@WebParam(name="course") Course course){
         return DBController.disableCourse(course);
     }
     
@@ -152,12 +152,12 @@ public class Server {
     }
     
     @WebMethod(operationName="InsertCourseType")
-    public int InsertCourseType(CourseType coursetype){
+    public int InsertCourseType(@WebParam(name="courseType") CourseType coursetype){
         return DBController.insertCourseType(coursetype);
     }
     
     @WebMethod(operationName="UpdateCourseType")
-    public int UpdateCourseType(CourseType coursetype){
+    public int UpdateCourseType(@WebParam(name="courseType") CourseType coursetype){
         return DBController.updateCourseType(coursetype);
     }
     
@@ -168,12 +168,12 @@ public class Server {
     }
     
     @WebMethod(operationName="queryCourseTypeById")
-    public CourseType QueryCourseTypeById(int id){
+    public CourseType QueryCourseTypeById(@WebParam(name="id") int id){
         return DBController.queryCourseTypeById(id);
     }
     
     @WebMethod(operationName="queryCourseHByDate")
-    public ArrayList<CourseHistory> QueryCourseHByDate(Date date){
+    public ArrayList<CourseHistory> QueryCourseHByDate(@WebParam(name="date") Date date){
         return DBController.queryCourseHByDate(date);
     }
     
