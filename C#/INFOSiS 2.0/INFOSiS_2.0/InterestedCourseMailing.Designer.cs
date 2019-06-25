@@ -33,6 +33,10 @@
             this.dgvCourses = new System.Windows.Forms.DataGridView();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnSeleccionar = new System.Windows.Forms.Button();
+            this.cNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cFechaIni = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cFechaFin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cHoras = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCourses)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,6 +63,11 @@
             this.dgvCourses.AllowUserToAddRows = false;
             this.dgvCourses.AllowUserToDeleteRows = false;
             this.dgvCourses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCourses.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.cNombre,
+            this.cFechaIni,
+            this.cFechaFin,
+            this.cHoras});
             this.dgvCourses.Location = new System.Drawing.Point(17, 64);
             this.dgvCourses.MultiSelect = false;
             this.dgvCourses.Name = "dgvCourses";
@@ -103,6 +112,36 @@
             this.btnSeleccionar.UseVisualStyleBackColor = false;
             this.btnSeleccionar.Click += new System.EventHandler(this.BtnSeleccionar_Click);
             // 
+            // cNombre
+            // 
+            this.cNombre.DataPropertyName = "Nombre";
+            this.cNombre.HeaderText = "Nombre";
+            this.cNombre.Name = "cNombre";
+            this.cNombre.ReadOnly = true;
+            this.cNombre.Width = 150;
+            // 
+            // cFechaIni
+            // 
+            this.cFechaIni.DataPropertyName = "Fecha inicio";
+            this.cFechaIni.HeaderText = "Fecha Inicial";
+            this.cFechaIni.Name = "cFechaIni";
+            this.cFechaIni.ReadOnly = true;
+            // 
+            // cFechaFin
+            // 
+            this.cFechaFin.DataPropertyName = "Fecha fin";
+            this.cFechaFin.HeaderText = "Fecha Fin";
+            this.cFechaFin.Name = "cFechaFin";
+            this.cFechaFin.ReadOnly = true;
+            // 
+            // cHoras
+            // 
+            this.cHoras.DataPropertyName = "Horas totales";
+            this.cHoras.HeaderText = "Horas totales";
+            this.cHoras.Name = "cHoras";
+            this.cHoras.ReadOnly = true;
+            this.cHoras.Width = 50;
+            // 
             // InterestedCourseMailing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -129,5 +168,9 @@
         private System.Windows.Forms.DataGridView dgvCourses;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnSeleccionar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cNombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cFechaIni;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cFechaFin;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cHoras;
     }
 }
