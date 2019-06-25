@@ -75,7 +75,8 @@ public class MySQLIntern implements DAOIntern {
             cs.setString(12, intern.getEmailPUCP());
             cs.setString(13, intern.getAddress());
             cs.setString(14, intern.getHomePhone());
-            cs.setDate(15, (Date)intern.getBirthday());
+            if(rs.getDate(15) != null) intern.setBirthday(new java.sql.Date(rs.getDate(15).getTime()));
+            else intern.setBirthday(null);
             cs.setString(16, intern.getWeekAvailability());
             cs.setString(17, intern.getWeekSchedule());
             result = cs.executeUpdate();
@@ -206,5 +207,83 @@ public class MySQLIntern implements DAOIntern {
             System.out.println(ex.getMessage());
         }
         return intern;
+    }
+
+    @Override
+    public Intern searchInternByIdPUCP(String idPUCP) {
+        Intern intern = new Intern();
+        try{
+            DBManager dbManager = DBManager.getdbManager();
+            Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
+            CallableStatement cs = con.prepareCall("{call SEARCH_INTERN_BY_IDPUCP(?)}");
+            cs.setString(1, idPUCP);
+            ResultSet rs = cs.executeQuery();
+            if(rs.next()){
+                intern.setIdPUCP(rs.getString(1));
+                intern.getUser().setId(rs.getInt(2));
+                intern.setIdType(rs.getInt(3));
+                intern.setIdNumber(rs.getString(4));
+                intern.setFirstName(rs.getString(5));
+                intern.setMiddleName(rs.getString(6));
+                intern.setPrimaryLastName(rs.getString(7));
+                intern.setSecondLastName(rs.getString(8));
+                intern.setGender(rs.getString(9));
+                intern.setEmail(rs.getString(10));
+                intern.setCellPhoneNumber(rs.getString(11));
+                intern.setEmailPUCP(rs.getString(12));
+                intern.setAddress(rs.getString(13));
+                intern.setHomePhone(rs.getString(14));
+                intern.setBirthday(rs.getDate(15));
+                intern.setWeekAvailability(rs.getString(16));
+                intern.setWeekSchedule(rs.getString(17));
+            }
+            con.close();
+        }catch(SQLException ex){
+            System.out.println(ex.getMessage());
+        }
+        return intern;
+    }
+
+    @Override
+    public ArrayList<Intern> searchInternByName(String firstName, String middleName, String firstLastName, String secondLastName) {
+        ArrayList<Intern> interns = new ArrayList<Intern>();
+        try{
+            DBManager dbManager = DBManager.getdbManager();
+            Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
+            CallableStatement cs = con.prepareCall("{call SEARCH_INTERN_BY_NAME(?,?,?,?)}");
+            cs.setString(1, firstName);
+            cs.setString(2, middleName);
+            cs.setString(3, firstLastName);
+            cs.setString(4, secondLastName);
+            ResultSet rs = cs.executeQuery();
+            while(rs.next()){
+                Intern intern = new Intern();
+                
+                intern.setIdPUCP(rs.getString(1));
+                intern.getUser().setId(rs.getInt(2));
+                intern.setIdType(rs.getInt(3));
+                intern.setIdNumber(rs.getString(4));
+                intern.setFirstName(rs.getString(5));
+                intern.setMiddleName(rs.getString(6));
+                intern.setPrimaryLastName(rs.getString(7));
+                intern.setSecondLastName(rs.getString(8));
+                intern.setGender(rs.getString(9));
+                intern.setEmail(rs.getString(10));
+                intern.setCellPhoneNumber(rs.getString(11));
+                intern.setEmailPUCP(rs.getString(12));
+                intern.setAddress(rs.getString(13));
+                intern.setHomePhone(rs.getString(14));
+                if(rs.getDate(15) != null) intern.setBirthday(new java.sql.Date(rs.getDate(15).getTime()));
+                else intern.setBirthday(null);
+                intern.setWeekAvailability(rs.getString(16));
+                intern.setWeekSchedule(rs.getString(17));
+                
+                interns.add(intern);
+            }            
+            con.close();
+        }catch(SQLException ex){
+            System.out.println(ex.getMessage());
+        }        
+        return interns;
     }
 }

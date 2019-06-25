@@ -19,6 +19,11 @@ public class main {
     
     public static void main(String[] args) {
         MySQLIntern internC = new MySQLIntern();
-        System.out.println(internC.searchInternByIdNumber("76289820").getIdPUCP());
+        ArrayList<Intern> interns = internC.searchInternByName("Diego","","","");
+        
+        for(Intern i : interns){
+            System.out.println(i.getMiddleName());
+        }
+        
     }
 }

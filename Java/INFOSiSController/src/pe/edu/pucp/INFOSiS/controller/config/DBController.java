@@ -54,13 +54,21 @@ public abstract class DBController {
             String first_last_name, String second_last_name){
         return daoFactory.getProfessorDAO().search_by_name(name, middle_name, first_last_name, second_last_name);
     }
-   
+    //INTERN
     public static ArrayList<Intern> queryAllInterns(){
         return daoFactory.getDAOIntern().queryAll();
     }
     
+    public static Intern searchInternByIdPUCP(String id){
+        return daoFactory.getDAOIntern().searchInternByIdPUCP(id);
+    }
+    
     public static Intern searchInternByIdNumber(String id){
         return daoFactory.getDAOIntern().searchInternByIdNumber(id);
+    }
+    
+    public static ArrayList<Intern> searchInternByName(String firstName,String middleName,String PrimaryLastName,String SecondLastName){
+        return daoFactory.getDAOIntern().searchInternByName(firstName, middleName, PrimaryLastName, SecondLastName);
     }
     
     public static int insertIntern(Intern intern, UserType access){
@@ -70,8 +78,7 @@ public abstract class DBController {
     public static int updateIntern(Intern intern, UserType access){
         return daoFactory.getDAOIntern().update(intern, access);
     }
-    
-    //interested querys
+    //INTERESTED
     public static int insertInterested(Interested interested){
         return daoFactory.getInterestedDAO().insert(interested);
     }
