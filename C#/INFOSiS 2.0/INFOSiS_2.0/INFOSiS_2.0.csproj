@@ -404,12 +404,11 @@
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.queryStudentByIdResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-<<<<<<< HEAD
+
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.SearchInterestedByNameResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-=======
->>>>>>> b4edadd56021e0d85843986e28e54023d280a1bd
+
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.SearchInternByIdNumberResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
