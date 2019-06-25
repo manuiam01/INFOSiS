@@ -96,6 +96,12 @@
     <Compile Include="CourseRegister.Designer.cs">
       <DependentUpon>CourseRegister.cs</DependentUpon>
     </Compile>
+    <Compile Include="CourseReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CourseReport.Designer.cs">
+      <DependentUpon>CourseReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="CoursesCalendar.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -300,6 +306,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CourseRegister.resx">
       <DependentUpon>CourseRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CourseReport.resx">
+      <DependentUpon>CourseReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CoursesCalendar.resx">
       <DependentUpon>CoursesCalendar.cs</DependentUpon>
