@@ -267,7 +267,11 @@
   </xs:complexType>
   <xs:complexType name="QueryAllUsersResponse">
     <xs:sequence>
+<<<<<<< HEAD
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:user" />
+=======
+      <xs:element minOccurs="0" name="courseType" type="tns:courseType" />
+>>>>>>> b4edadd56021e0d85843986e28e54023d280a1bd
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="UpdateCourseType">
@@ -352,22 +356,26 @@
       <xs:element name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="SearchProfessorById">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="id" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="SearchProfessorByIdResponse">
-    <xs:sequence>
-      <xs:element name="return" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="InsertCourseType">
     <xs:sequence>
       <xs:element minOccurs="0" name="courseType" type="tns:courseType" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="InsertCourseTypeResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SearchProfessorById">
+    <xs:sequence>
+<<<<<<< HEAD
+      <xs:element minOccurs="0" name="courseType" type="tns:courseType" />
+=======
+      <xs:element minOccurs="0" name="id" type="xs:string" />
+>>>>>>> b4edadd56021e0d85843986e28e54023d280a1bd
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SearchProfessorByIdResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:int" />
     </xs:sequence>
@@ -467,6 +475,7 @@
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="queryStudentById">
+<<<<<<< HEAD
     <xs:sequence>
       <xs:element minOccurs="0" name="idStudent" type="xs:string" />
     </xs:sequence>
@@ -477,13 +486,15 @@
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="SearchInternByIdNumber">
+=======
+>>>>>>> b4edadd56021e0d85843986e28e54023d280a1bd
     <xs:sequence>
-      <xs:element minOccurs="0" name="id" type="xs:string" />
+      <xs:element minOccurs="0" name="idStudent" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="SearchInternByIdNumberResponse">
+  <xs:complexType name="queryStudentByIdResponse">
     <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="tns:intern" />
+      <xs:element minOccurs="0" name="return" type="tns:student" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="VerifyUser">
@@ -496,6 +507,7 @@
       <xs:element minOccurs="0" name="return" type="tns:userType" />
     </xs:sequence>
   </xs:complexType>
+<<<<<<< HEAD
   <xs:complexType name="queryAllCoursesByName">
     <xs:sequence>
       <xs:element minOccurs="0" name="name" type="xs:string" />
@@ -504,6 +516,16 @@
   <xs:complexType name="queryAllCoursesByNameResponse">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:course" />
+=======
+  <xs:complexType name="SearchInternByIdNumber">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SearchInternByIdNumberResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:intern" />
+>>>>>>> b4edadd56021e0d85843986e28e54023d280a1bd
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="QueryAllActiveInterested">
@@ -526,10 +548,14 @@
   </xs:complexType>
   <xs:complexType name="SearchInterestedByName">
     <xs:sequence>
+<<<<<<< HEAD
       <xs:element minOccurs="0" name="name" type="xs:string" />
       <xs:element minOccurs="0" name="middle_name" type="xs:string" />
       <xs:element minOccurs="0" name="first_last_name" type="xs:string" />
       <xs:element minOccurs="0" name="second_last_name" type="xs:string" />
+=======
+      <xs:element minOccurs="0" name="course" type="tns:course" />
+>>>>>>> b4edadd56021e0d85843986e28e54023d280a1bd
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="SearchInterestedByNameResponse">
