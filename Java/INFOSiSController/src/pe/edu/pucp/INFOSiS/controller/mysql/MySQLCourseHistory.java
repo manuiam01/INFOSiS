@@ -381,8 +381,8 @@ public class MySQLCourseHistory implements DAOCourseHistory{
                 s.setDateSession(rs2.getTimestamp(3));
                 s.setHours(rs2.getInt(4));
                 s.setLocation(rs2.getString(5));
-                s.setIsActive(rs2.getBoolean(6));
-                if(s.isIsActive()) sessions.add(s);
+//                s.setIsActive(rs2.getBoolean(6));
+//                if(s.isIsActive()) sessions.add(s);
             }           
             con.close();
         }catch(Exception ex){
