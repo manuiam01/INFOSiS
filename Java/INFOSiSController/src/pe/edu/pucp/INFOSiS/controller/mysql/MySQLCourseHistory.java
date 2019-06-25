@@ -117,8 +117,7 @@ public class MySQLCourseHistory implements DAOCourseHistory{
             CallableStatement cs = con.prepareCall("{call COURSEH_BY_DATE(?)}");
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             cs.setString(1,format.format(datecourse));
-            ResultSet rs = cs.executeQuery();
-            System.out.println(datecourse.toString());
+            ResultSet rs = cs.executeQuery();           
             while(rs.next()){
                 CourseHistory c = new CourseHistory();
                 c.setId(rs.getInt("idCourseHistory"));
@@ -127,9 +126,71 @@ public class MySQLCourseHistory implements DAOCourseHistory{
                 c.setAssistant(DBController.searchProfessorByIdPUCP(rs.getString(4)));
                 c.setHours(rs.getInt(5));
                 c.setStartDate(rs.getDate(6));
-                c.setEndDate(rs.getDate(7));  
-                System.out.println(c.getCourse().getId() +  " " + c.getCourse().getName());                
-                
+                c.setEndDate(rs.getDate(7));        
+                    ArrayList<Session> sessions = new ArrayList<>();
+                    cs = con.prepareCall("{call SEARCH_SESSIONS_BY_COURSEH(?)}");
+                    cs.setInt(1, c.getId());
+                    ResultSet rs2 = cs.executeQuery();
+                    while(rs2.next()){
+                        Session s = new Session();
+                        s.setId(rs2.getInt(1));
+                        s.setDateSession(rs2.getDate(3));
+                        s.setHours(rs2.getInt(4));
+                        s.setLocation(rs.getString(5));
+                        sessions.add(s);
+                    }
+                    c.setSessions(sessions);
+                    
+                    ArrayList<Student> students = new ArrayList<>();
+                    ArrayList<Float> grades = new ArrayList<>();
+                    ArrayList<String> states = new ArrayList<>();
+                    ArrayList<Float> amountPaids = new ArrayList<>();
+                    
+                    cs = con.prepareCall("{call SEARCH_STUDENTH_BY_COURSEH(?)}");
+                    cs.setInt(1, c.getId());
+                    rs2 = cs.executeQuery();
+                     while(rs2.next()){
+                        Student s = new Student();
+                        s.setId(rs2.getInt(2));
+                        students.add(s);
+                        grades.add(rs.getFloat(4));
+                        states.add(rs2.getString(5));                      
+                        amountPaids.add(rs2.getFloat(6));                       
+                    }
+                     c.setStudents(students);
+                     c.setHistoryGrade(grades);
+                     c.setHistoryState(states); 
+                     c.setAmountPaids(amountPaids);
+                     courses.add(c);
+               
+            }            
+            con.close();
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        
+        return courses;
+    }
+
+    @Override
+    public ArrayList<CourseHistory> queryByIdProfessor(String idProfessor) {
+        ArrayList<CourseHistory> courses = new ArrayList<CourseHistory>();
+        
+        try{
+            DBManager dbManager = DBManager.getdbManager();
+            Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
+            CallableStatement cs = con.prepareCall("{call COURSEH_BY_PROFESSOR(?)}");          
+            cs.setString(1,idProfessor);
+            ResultSet rs = cs.executeQuery();         
+            while(rs.next()){
+                CourseHistory c = new CourseHistory();
+                c.setId(rs.getInt("idCourseHistory"));
+                c.setCourse(DBController.queryCourseById(rs.getString(2)));
+                c.setProfessor(DBController.searchProfessorByIdPUCP(rs.getString(3)));
+                c.setAssistant(DBController.searchProfessorByIdPUCP(rs.getString(4)));
+                c.setHours(rs.getInt(5));
+                c.setStartDate(rs.getDate(6));
+                c.setEndDate(rs.getDate(7));               
                     ArrayList<Session> sessions = new ArrayList<>();
                     cs = con.prepareCall("{call SEARCH_SESSIONS_BY_COURSEH(?)}");
                     cs.setInt(1, c.getId());

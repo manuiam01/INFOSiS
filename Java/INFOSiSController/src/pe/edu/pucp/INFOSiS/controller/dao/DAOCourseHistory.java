@@ -17,4 +17,5 @@ public interface DAOCourseHistory {
     int insert(CourseHistory courseHistory);
     int update(CourseHistory courseHistory);
     ArrayList<CourseHistory> queryByDate(Date datecourse);
+    ArrayList<CourseHistory> queryByIdProfessor(String idProfessor);
 }
