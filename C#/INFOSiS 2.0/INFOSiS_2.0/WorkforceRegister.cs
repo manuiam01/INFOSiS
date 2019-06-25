@@ -17,6 +17,7 @@ namespace INFOSiS_2._0
         private Server.ServerClient servidor;
         private Server.intern intern;
         private Server.userType access;
+        private bool birthdaySelected = false;
 
 
         public static WorkforceRegister Instance
@@ -102,6 +103,12 @@ namespace INFOSiS_2._0
             intern.email = txtEmail.Text;
             intern.idPUCP = txtPUCPCode.Text;
             intern.address = txtAddress.Text;
+            if (birthdaySelected)
+            {
+                intern.birthdaySpecified = true;
+                intern.birthday = dtpBirthday.Value;
+                birthdaySelected = false;
+            }
 
             int res = servidor.InsertIntern(intern, access);
 
@@ -139,8 +146,6 @@ namespace INFOSiS_2._0
             rbDNI.Checked = false;
             rbForeignCard.Checked = false;
             rbPassport.Checked = false;
-            rbInactive.Checked = false;
-            rbActive.Checked = false;
             rbMan.Checked = false;
             rbWoman.Checked = false;
         }
@@ -148,6 +153,11 @@ namespace INFOSiS_2._0
         private void btnCancel_Click(object sender, EventArgs e)
         {
             clean();
+        }
+
+        private void dtpBirthday_ValueChanged(object sender, EventArgs e)
+        {
+            birthdaySelected = true;
         }
     }
 }

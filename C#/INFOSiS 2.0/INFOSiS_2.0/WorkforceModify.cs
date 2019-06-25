@@ -45,10 +45,11 @@ namespace INFOSiS_2._0
 
             server = new Server.ServerClient();
             intern = new Server.intern();
-            intern = server.SearchInternByIdNumber(txtDocumentNumber.Text);
+            intern = server.SearchInternByIdPUCP(txtPUCPCode.Text);
             if(intern.idNumber != null)
             {
-                txtDocumentNumber.Enabled = false;
+                txtPUCPCode.Enabled = false;
+                txtDocumentNumber.Text = intern.idNumber;
                 txtFirstName.Text = intern.firstName;
                 txtSecondName.Text = intern.middleName;
                 txtPrimaryLastName.Text = intern.primaryLastName;

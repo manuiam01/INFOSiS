@@ -46,15 +46,25 @@ public class Server {
     public UserType VerifyUser(@WebParam(name="user")User user){
         return DBController.verifyUser(user);
     }  
-
+    //INTERN
     @WebMethod (operationName = "QueryAllInterns")
     public ArrayList<Intern> QueryAllInterns(){
         return DBController.queryAllInterns();
     }
     
+    @WebMethod (operationName = "SearchInternByIdPUCP")
+    public Intern SearchInternByIdPUCP(@WebParam(name="id") String id){
+        return DBController.searchInternByIdPUCP(id);
+    }
+    
     @WebMethod (operationName = "SearchInternByIdNumber")
     public Intern SearchInternByIdNumber(@WebParam(name="id") String id){
         return DBController.searchInternByIdNumber(id);
+    }
+    
+    @WebMethod (operationName = "SearchInternByName")
+    public ArrayList<Intern> SearchInternByName(@WebParam(name="firstName") String firstName,@WebParam(name="middleName") String middleName,@WebParam(name="primaryLastName") String primaryLastName,@WebParam(name="secondLastName") String secondLastName){
+        return DBController.searchInternByName(firstName, middleName, primaryLastName, secondLastName);
     }
     
     @WebMethod (operationName = "InsertIntern")
@@ -66,7 +76,7 @@ public class Server {
     public int UpdateIntern(@WebParam(name = "intern") Intern intern,@WebParam(name = "access") UserType access){
         return DBController.updateIntern(intern, access);
     }
-
+    //INTERESTED
     @WebMethod (operationName= "InsertInterested")
     public int InsertInterested(@WebParam(name="interested")Interested interested){
         return DBController.insertInterested(interested);
