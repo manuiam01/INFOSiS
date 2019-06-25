@@ -67,7 +67,7 @@ public class MySQLCourseHistory implements DAOCourseHistory{
                 cs.setInt(2, id);
                 cs.setFloat(3, courseHistory.getHistoryGrade().get(i));
                 cs.setString(4, courseHistory.getHistoryState().get(i));
-                cs.setInt(5,courseHistory.getVouchers().get(i));
+                cs.setFloat(5,courseHistory.getAmountPaids().get(i));
                 result = cs.executeUpdate();
             }
             con.close();
@@ -164,6 +164,7 @@ public class MySQLCourseHistory implements DAOCourseHistory{
                 c.setStartDate(rs.getDate(6));
                 c.setEndDate(rs.getDate(7));                
                 if(c.getStartDate().after(datecourse)){
+                    ArrayList<Session> sessions = new ArrayList<>();
                     cs = con.prepareCall("{call SEARCH_SESSIONS_BY_COURSEH(?)}");
                     cs.setInt(1, c.getId());
                     ResultSet rs2 = cs.executeQuery();
@@ -173,8 +174,29 @@ public class MySQLCourseHistory implements DAOCourseHistory{
                         s.setSession(rs2.getDate(3));
                         s.setHours(rs2.getInt(4));
                         s.setLocation(rs.getString(5));
-                        
+                        sessions.add(s);
                     }
+                    c.setSessions2(sessions);
+                    
+                    ArrayList<Student> students = new ArrayList<>();
+                    ArrayList<Float> grades = new ArrayList<>();
+                    ArrayList<String> states = new ArrayList<>();
+                    ArrayList<Float> amountPaids = new ArrayList<>();
+                    
+                    cs = con.prepareCall("{call SEARCH_STUDENTH_BY_COURSEH(?)}");
+                    cs.setInt(1, c.getId());
+                    rs2 = cs.executeQuery();
+                     while(rs2.next()){
+                        Student s = new Student();
+                        s.setId(rs2.getInt(2));
+                        students.add(s);
+                        grades.add(rs.getFloat(4));
+                        states.add(rs2.getString(5));                      
+                        amountPaids.add(rs2.getFloat(6));                       
+                    }
+                     c.setStudents(students);
+                     c.setHistoryGrade(grades);
+                     c.setHistoryState(states);                                    
                 }
             }            
             con.close();
