@@ -61,7 +61,8 @@ public class INFOSiSTest {
        MySQLInterested mysql = new MySQLInterested();
        ArrayList<Interested> inte = mysql.queryAllInterested();
        for(Interested i : inte){
-           System.out.println(i.getFirstName());
+           if(i.isIsUnsubscribed())
+               System.out.println(i.getFirstName());
        }
 //       ArrayList<Interested> inte = mysql.search_by_name("Ga", "", "", "");
 //       for(Interested i : inte){

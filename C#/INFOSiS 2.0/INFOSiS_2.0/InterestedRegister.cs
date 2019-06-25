@@ -174,8 +174,8 @@ namespace INFOSiS_2._0
                 MessageBox.Show("No ingresó el número del interesado", "Aviso", MessageBoxButtons.OK, iconoWarning);
             else if (txtEmail.Text == "" ) 
                 MessageBox.Show("No ingresó el correo del interesado", "Aviso", MessageBoxButtons.OK, iconoWarning);
-            //else if (dgvInterestedCourses.Rows.Count == 0)
-            //   MessageBox.Show("No escogió cursos de interés", "Aviso", MessageBoxButtons.OK);
+            else if (dgvInterestedCourses.Rows.Count == 0)
+               MessageBox.Show("No escogió cursos de interés", "Aviso", MessageBoxButtons.OK);
             else
             {
                 iconoPregunta = MessageBoxIcon.Question;
