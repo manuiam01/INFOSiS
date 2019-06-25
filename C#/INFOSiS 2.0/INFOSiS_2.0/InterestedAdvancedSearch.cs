@@ -12,6 +12,7 @@ namespace INFOSiS_2._0
 {
     public partial class InterestedAdvancedSearch : Form
     {
+        private Server.ServerClient servidor;
         public InterestedAdvancedSearch()
         {
             InitializeComponent();
@@ -19,13 +20,26 @@ namespace INFOSiS_2._0
 
         private void BtnSearch_Click(object sender, EventArgs e)
         {
-            if(tbApeMa.Text==""&&
-                tbApePa.Text==""&&
-                tbNombre.Text==""&&
-                tbSNombre.Text=="")
+            if(tbApeMa.Text.Equals("") &&
+                tbApePa.Text.Equals("") &&
+                tbNombre.Text.Equals("") &&
+                tbSNombre.Text.Equals(""))
                 MessageBox.Show("No se ingresó información alguna", "Aviso", MessageBoxButtons.OK);
             else
             {
+                servidor = new Server.ServerClient();
+                Server.interested[] interesteds = servidor.SearchInterestedByName(tbNombre.Text, tbSNombre.Text, tbApePa.Text, tbApeMa.Text);
+                if (interesteds == null)
+                {
+                    MessageBox.Show("No se encontraron resultados", "Resultados no encontrados", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    dgvInteresados.DataSource = null;
+                }
+                else
+                {
+                    BindingList<Server.interested> interested_list = new BindingList<Server.interested>(interesteds);
+                    dgvInteresados.AutoGenerateColumns = false;
+                    dgvInteresados.DataSource = interested_list;
+                }
                 //se llena la data
                 //dgvInteresados.DataSource =;
                 //if(dgvInteresados.Rows.Count==0)

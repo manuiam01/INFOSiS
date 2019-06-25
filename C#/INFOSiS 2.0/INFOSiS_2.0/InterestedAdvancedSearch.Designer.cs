@@ -39,11 +39,11 @@
             this.btnSelect = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.dgvInteresados = new System.Windows.Forms.DataGridView();
+            this.lblInterestedRegister = new System.Windows.Forms.Label();
             this.cNDocu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cApePa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cApeMa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblInterestedRegister = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInteresados)).BeginInit();
             this.SuspendLayout();
             // 
@@ -171,34 +171,6 @@
             this.dgvInteresados.Size = new System.Drawing.Size(543, 199);
             this.dgvInteresados.TabIndex = 180;
             // 
-            // cNDocu
-            // 
-            this.cNDocu.HeaderText = "N° Documento";
-            this.cNDocu.Name = "cNDocu";
-            this.cNDocu.ReadOnly = true;
-            this.cNDocu.Width = 70;
-            // 
-            // cNombre
-            // 
-            this.cNombre.HeaderText = "Nombre";
-            this.cNombre.Name = "cNombre";
-            this.cNombre.ReadOnly = true;
-            this.cNombre.Width = 120;
-            // 
-            // cApePa
-            // 
-            this.cApePa.HeaderText = "Apellido Paterno";
-            this.cApePa.Name = "cApePa";
-            this.cApePa.ReadOnly = true;
-            this.cApePa.Width = 150;
-            // 
-            // cApeMa
-            // 
-            this.cApeMa.HeaderText = "Apellido Materno";
-            this.cApeMa.Name = "cApeMa";
-            this.cApeMa.ReadOnly = true;
-            this.cApeMa.Width = 150;
-            // 
             // lblInterestedRegister
             // 
             this.lblInterestedRegister.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -209,6 +181,38 @@
             this.lblInterestedRegister.Size = new System.Drawing.Size(358, 48);
             this.lblInterestedRegister.TabIndex = 181;
             this.lblInterestedRegister.Text = "Busqueda avanzada";
+            // 
+            // cNDocu
+            // 
+            this.cNDocu.DataPropertyName = "idNumber";
+            this.cNDocu.HeaderText = "N° Documento";
+            this.cNDocu.Name = "cNDocu";
+            this.cNDocu.ReadOnly = true;
+            this.cNDocu.Width = 70;
+            // 
+            // cNombre
+            // 
+            this.cNombre.DataPropertyName = "firstName";
+            this.cNombre.HeaderText = "Nombre";
+            this.cNombre.Name = "cNombre";
+            this.cNombre.ReadOnly = true;
+            this.cNombre.Width = 120;
+            // 
+            // cApePa
+            // 
+            this.cApePa.DataPropertyName = "primaryLastName";
+            this.cApePa.HeaderText = "Apellido Paterno";
+            this.cApePa.Name = "cApePa";
+            this.cApePa.ReadOnly = true;
+            this.cApePa.Width = 150;
+            // 
+            // cApeMa
+            // 
+            this.cApeMa.DataPropertyName = "secondLastName";
+            this.cApeMa.HeaderText = "Apellido Materno";
+            this.cApeMa.Name = "cApeMa";
+            this.cApeMa.ReadOnly = true;
+            this.cApeMa.Width = 150;
             // 
             // InterestedAdvancedSearch
             // 
@@ -247,10 +251,10 @@
         private System.Windows.Forms.Button btnSelect;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.DataGridView dgvInteresados;
+        private System.Windows.Forms.Label lblInterestedRegister;
         private System.Windows.Forms.DataGridViewTextBoxColumn cNDocu;
         private System.Windows.Forms.DataGridViewTextBoxColumn cNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn cApePa;
         private System.Windows.Forms.DataGridViewTextBoxColumn cApeMa;
-        private System.Windows.Forms.Label lblInterestedRegister;
     }
 }

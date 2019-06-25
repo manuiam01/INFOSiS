@@ -350,7 +350,7 @@ public class MySQLInterested implements DAOInterested {
         try{
             DBManager dbManager = DBManager.getdbManager();
             Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
-            CallableStatement cs = con.prepareCall("{call SEARCH_PROFESSOR_BY_NAME(?,?,?,?)}");
+            CallableStatement cs = con.prepareCall("{call SEARCH_INTERESTED_BY_NAME(?,?,?,?)}");
             cs.setString(1, name);
             cs.setString(2, middle_name);
             cs.setString(3, first_last_name);
