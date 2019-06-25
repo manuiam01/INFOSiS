@@ -16,7 +16,6 @@ namespace INFOSiS_2._0
         private DataTable table;
         private BindingList<string> cursos;
         private Server.ServerClient servidor;
-
         public BindingList<string> Cursos { get => cursos; set => cursos = value; }
 
         public InterestedCourses(BindingList<string> idcursos)
@@ -28,34 +27,26 @@ namespace INFOSiS_2._0
             table.Columns.Add("ID", typeof(string));
             table.Columns.Add("Nombre", typeof(string));
             BindingList<Server.course> courses = new BindingList<Server.course>(servidor.queryAllCourse());
-            int enablecourses = courses.Count();
-            int coursestaken = idcursos.Count();
             //En caso el tamaño de la lista de cursos en los que está interesado sea la misma
             //que la de los cursos disponibles en INFOPUC
-            if (enablecourses == coursestaken && enablecourses!=0)
+            foreach (Server.course c in courses)
             {
-                MessageBox.Show("Ya escogió todos los cursos de interés disponible", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else
-            {
-                foreach (Server.course c in courses)
+                bool seencuentra = false;
+                foreach (string id in idcursos)
                 {
-                    bool seencuentra = false;
-                    foreach (string id in idcursos)
+                    if (c.id.Equals(id))
                     {
-                        if (c.id.Equals(id))
-                        {
-                            seencuentra = true;
-                            break;
-                        }
-
+                        seencuentra = true;
+                        break;
                     }
-                    if (!seencuentra)
-                        table.Rows.Add(c.id, c.name);
 
                 }
-                dgvCursos.DataSource = table;
+                if (!seencuentra)
+                    table.Rows.Add(c.id, c.name);
+
             }
+            dgvCursos.DataSource = table;
+
             
         }
 
@@ -77,7 +68,6 @@ namespace INFOSiS_2._0
 
         private void InterestedCourses_Load(object sender, EventArgs e)
         {
-
         }
 
         private void DgvCursos_CellContentClick(object sender, DataGridViewCellEventArgs e)

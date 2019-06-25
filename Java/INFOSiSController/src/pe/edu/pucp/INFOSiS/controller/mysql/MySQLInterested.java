@@ -164,9 +164,9 @@ public class MySQLInterested implements DAOInterested {
                         crs.setName(rs3.getString("name"));
                         courses.add(crs);
                     }
-                    ps.close();
                     rs3.close();
                 }
+                ps.close();
                 rs2.close();
                 inte.setCourses(courses);
                 interested.add(inte);
@@ -389,9 +389,6 @@ public class MySQLInterested implements DAOInterested {
                     rs3.close();
                 }
                 interested.setCourses(courses);
-                
-                if(!interested.isIsUnsubscribed())
-                    interesteds.add(interested);
             }            
             con.close();
         }catch(SQLException ex){

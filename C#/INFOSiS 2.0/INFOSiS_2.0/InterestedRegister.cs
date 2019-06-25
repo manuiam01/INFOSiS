@@ -58,32 +58,42 @@ namespace INFOSiS_2._0
 
         private void BtBuscarCursos_Click(object sender, EventArgs e)
         {
-            InterestedCourses formBuscarCursosInteresado = new InterestedCourses(idcursos);
-            if (formBuscarCursosInteresado.ShowDialog() == DialogResult.OK)
+            //bindinglist
+            BindingList<Server.course> courses = new BindingList<Server.course>(servidor.queryAllCourse());
+            if (idcursos.Count == courses.Count)
             {
-
-                if (formBuscarCursosInteresado.Cursos != null)
+                MessageBox.Show("Ya escogió todos los cursos de interés disponible", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                InterestedCourses formBuscarCursosInteresado = new InterestedCourses(idcursos);
+                if (formBuscarCursosInteresado.ShowDialog() == DialogResult.OK)
                 {
-                    idcursos = formBuscarCursosInteresado.Cursos;
-                    foreach (string id in idcursos)
+
+                    if (formBuscarCursosInteresado.Cursos != null)
                     {
-                        Server.course c = new Server.course();
-                        c = servidor.queryCourseById(id);
-                        tbCursos.Rows.Add(c.id, c.name);
+                        idcursos = formBuscarCursosInteresado.Cursos;
+                        foreach (string id in idcursos)
+                        {
+                            Server.course c = new Server.course();
+                            c = servidor.queryCourseById(id);
+                            tbCursos.Rows.Add(c.id, c.name);
+                        }
+                        dgvInterestedCourses.DataSource = tbCursos;
+                        idcursos = new BindingList<string>();
+                        foreach (DataGridViewRow row in dgvInterestedCourses.Rows)
+                        {
+                            idcursos.Add(row.Cells[0].Value.ToString());
+                        }
+
                     }
-                    dgvInterestedCourses.DataSource = tbCursos;
-                    idcursos = new BindingList<string>();
-                    foreach(DataGridViewRow row in dgvInterestedCourses.Rows)
-                    {
-                        idcursos.Add(row.Cells[0].Value.ToString());
-                    }
+
+                    //Acá en teoría debería de devolver todo el ArrayList de cursos para ingresarlo al dgv
+                    //dgvInterestedCourses.DataSource = formBuscarCursosInteresado.}
 
                 }
-                
-                //Acá en teoría debería de devolver todo el ArrayList de cursos para ingresarlo al dgv
-                //dgvInterestedCourses.DataSource = formBuscarCursosInteresado.}
-
             }
+            
         }
 
         public int verificarVacio()
