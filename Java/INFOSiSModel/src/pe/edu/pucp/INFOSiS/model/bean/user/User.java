@@ -18,6 +18,7 @@ public class User implements Serializable{
     private boolean isActive;
 
     public User() {
+        acces = new UserType();
     }
 
     public User(int id, String username, String password, UserType acces, boolean isActive) {

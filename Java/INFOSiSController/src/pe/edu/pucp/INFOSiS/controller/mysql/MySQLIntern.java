@@ -75,8 +75,8 @@ public class MySQLIntern implements DAOIntern {
             cs.setString(12, intern.getEmailPUCP());
             cs.setString(13, intern.getAddress());
             cs.setString(14, intern.getHomePhone());
-            if(rs.getDate(15) != null) intern.setBirthday(new java.sql.Date(rs.getDate(15).getTime()));
-            else intern.setBirthday(null);
+            if(intern.getBirthday()!=null) cs.setDate(15,  new java.sql.Date(intern.getBirthday().getTime()));
+            else cs.setDate(15, null);
             cs.setString(16, intern.getWeekAvailability());
             cs.setString(17, intern.getWeekSchedule());
             result = cs.executeUpdate();
@@ -93,8 +93,9 @@ public class MySQLIntern implements DAOIntern {
         try{
             DBManager dbManager = DBManager.getdbManager();
             Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
-            String sql = "UPDATE Interns SET idType=?,idNumber=?,firstName=?,middleName=?,primaryLastName=?,secondLastName=?,gender=?,email=?,cellPhoneNumber=?,emailPUCP=?,address=?,homePhone=?,birthDate=?,weekAvailability=? WHERE idUser=?";
+            String sql = "UPDATE Interns SET idType=?,idNumber=?,firstName=?,middleName=?,primaryLastName=?,secondLastName=?,gender=?,email=?,cellPhoneNumber=?,emailPUCP=?,address=?,homePhone=?,birthDate=?,weekAvailability=? WHERE idIntern=?";
             PreparedStatement ps = con.prepareStatement(sql);
+            
             ps.setInt(1, intern.getIdType());
             ps.setString(2, intern.getIdNumber());
             ps.setString(3, intern.getFirstName());
@@ -107,9 +108,11 @@ public class MySQLIntern implements DAOIntern {
             ps.setString(10, intern.getEmailPUCP());
             ps.setString(11, intern.getAddress());
             ps.setString(12, intern.getHomePhone());
-            ps.setDate(13, (Date)intern.getBirthday());
+            if(intern.getBirthday()!=null) ps.setDate(13,  new java.sql.Date(intern.getBirthday().getTime()));
+            else ps.setDate(13, null);
             ps.setString(14, intern.getWeekAvailability());
-            ps.setInt(15, access.getId());
+            ps.setString(15, intern.getIdPUCP());
+            
             result = ps.executeUpdate();
             con.close();
         }catch(SQLException ex){

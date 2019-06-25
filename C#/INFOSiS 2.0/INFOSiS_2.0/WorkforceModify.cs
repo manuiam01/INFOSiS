@@ -187,6 +187,8 @@ namespace INFOSiS_2._0
                 txtAddress.Text = intern.address;
                 if (intern.user.isActive) rbActive.Checked = true;
                 else if (!intern.user.isActive) rbInactive.Checked = true;
+                if (intern.birthday.Date < dtpBirthday.MinDate) dtpBirthday.Value = dtpBirthday.MaxDate; //fecha nula
+                else dtpBirthday.Value = intern.birthday.Date;
                 setState(Estado.Buscar);
             }
         }
@@ -216,6 +218,8 @@ namespace INFOSiS_2._0
                 txtAddress.Text = intern.address;
                 if (intern.user.isActive) rbActive.Checked = true;
                 else if (!intern.user.isActive) rbInactive.Checked = true;
+                if (intern.birthday.Date < dtpBirthday.MinDate) dtpBirthday.Value = dtpBirthday.MaxDate; //fecha nula
+                else dtpBirthday.Value = intern.birthday.Date;
                 setState(Estado.Buscar);
             }
         }
@@ -264,10 +268,6 @@ namespace INFOSiS_2._0
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            access = new Server.userType();
-            access.id = 0;
-            access.name = "USER";
-
             intern = new Server.intern();
             access = new Server.userType();
             access.id = 0;
@@ -332,7 +332,6 @@ namespace INFOSiS_2._0
             intern.homePhone = txtHomephone.Text;
             intern.emailPUCP = txtEmailPUCP.Text;
             intern.email = txtEmail.Text;
-            //intern.idPUCP = txtPUCPCode.Text;
             intern.address = txtAddress.Text;
             if (birthdaySelected)
             {
@@ -341,7 +340,7 @@ namespace INFOSiS_2._0
                 birthdaySelected = false;
             }
 
-            int res = server.UpdateIntern(intern, access);
+            int res = server.UpdateIntern(intern,access);
 
             if (res > 0)
             {
@@ -360,6 +359,15 @@ namespace INFOSiS_2._0
             {
                 MessageBox.Show("Número de identidad registrado anteriormente", "Registro inválido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+            else
+            {
+                MessageBox.Show(res.ToString(),"ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void dtpBirthday_ValueChanged(object sender, EventArgs e)
+        {
+            birthdaySelected = true;
         }
     }
 }

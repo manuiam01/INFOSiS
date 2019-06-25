@@ -28,7 +28,7 @@ public class main {
         Intern intern = new Intern();
         UserType access = new UserType();
         
-        intern.setIdPUCP("2000000");
+        intern.setIdPUCP("20190000");
         intern.getUser().setId(90);
         intern.setIdType(1);
         intern.setIdNumber("123456789012");
@@ -38,9 +38,12 @@ public class main {
         intern.setEmail("ismith@gmail.com");
         intern.setCellPhoneNumber("9876543210");
         intern.setEmailPUCP("ismith@pucp.pe");
+        intern.setAddress("EEUU");
+        intern.setHomePhone("5556644");
+        intern.setBirthday(null);
         
         access.setId(0);
         
-        System.out.println(internC.insert(intern, access));
+        System.out.println(internC.update(intern, access));
     }
 }
