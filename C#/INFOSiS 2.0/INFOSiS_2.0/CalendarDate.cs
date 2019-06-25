@@ -20,7 +20,8 @@ namespace INFOSiS_2._0
         public CalendarDate(String date)
         {
             InitializeComponent();
-            label1.Text = date;
+            lblDia.Text = date;
+            lblDia.BringToFront();
         }
     }
 }

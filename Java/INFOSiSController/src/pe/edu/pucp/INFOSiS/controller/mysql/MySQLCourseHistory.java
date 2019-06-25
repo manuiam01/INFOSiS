@@ -20,6 +20,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -42,6 +43,7 @@ import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import pe.edu.pucp.INFOSiS.controller.config.DBController;
 import pe.edu.pucp.INFOSiS.controller.config.DBManager;
 import pe.edu.pucp.INFOSiS.controller.dao.DAOCourseHistory;
+import pe.edu.pucp.INFOSiS.model.bean.course.CalendarSession;
 import pe.edu.pucp.INFOSiS.model.bean.course.Course;
 import pe.edu.pucp.INFOSiS.model.bean.course.CourseHistory;
 import pe.edu.pucp.INFOSiS.model.bean.course.Session;
@@ -390,6 +392,7 @@ public class MySQLCourseHistory implements DAOCourseHistory{
         return sessions;
     }
 
+
     @Override
     public ArrayList<CourseHistory> queryByCourse(String idCourse) {
         ArrayList<CourseHistory> courses = new ArrayList<CourseHistory>();
@@ -438,12 +441,54 @@ public class MySQLCourseHistory implements DAOCourseHistory{
                  c.setAmountPaids(amountPaids);
                  courses.add(c);
                
-            }            
+            }   
             con.close();
         }catch(Exception ex){
             System.out.println(ex.getMessage());
         }
         
         return courses;
+
+    }
+
+    
+    @Override
+    public ArrayList<CalendarSession> queryCalendarSessionByBeginDate(String date){
+        ArrayList<CalendarSession> lSesiones = new ArrayList<>();
+        try{
+            DBManager dbManager = DBManager.getdbManager();
+            Connection con = DriverManager.getConnection(dbManager.getUrl(), 
+                    dbManager.getUser(), dbManager.getPassword());
+            Statement st = con.createStatement();
+            String query = "SELECT S.sessionDateTime AS 'Inicio', "
+                    + "DATE_ADD(S.sessionDateTime, INTERVAL S.cantHours HOUR) as 'Fin', "
+                    + "S.classroom as 'Lugar',  C.name as 'Curso', "
+                    + "CONCAT(P.primaryLastName,' ',P.secondLastName,', '"
+                    + ",P.firstName,' ',P.middleName) as 'Profesor' "
+                    + "FROM Sessions S, Professors P, CourseHistory H, "
+                    + "Course C "
+                    + "WHERE S.idCourseHistory=H.idCourseHistory "
+                    + "AND H.idCourse=C.idCourse "
+                    + "AND H.idProfessor=P.idProfessor "
+                    + "AND S.sessionDateTime>=STR_TO_DATE('"+date+" 00:00:00','%Y/%m/%d %H:%i:%s') "
+                    + "ORDER BY Inicio";
+            ResultSet rs = st.executeQuery(query);
+            CalendarSession calS;
+            while (rs.next()){
+                calS= new CalendarSession();
+                calS.setInicio(rs.getTimestamp("Inicio"));
+                calS.setFin(rs.getTimestamp("Fin"));
+                calS.setAula(rs.getString("Lugar"));
+                calS.setCourseName(rs.getString("Curso"));
+                calS.setProfessor(rs.getString("Profesor"));
+                lSesiones.add(calS);
+            }
+
+            con.close();
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+
+        return lSesiones;
     }
 }

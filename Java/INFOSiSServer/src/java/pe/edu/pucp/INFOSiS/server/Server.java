@@ -19,6 +19,7 @@ import pe.edu.pucp.INFOSiS.model.bean.professor.Professor;
 import pe.edu.pucp.INFOSiS.model.bean.user.User;
 import pe.edu.pucp.INFOSiS.model.bean.user.UserType;
 import pe.edu.pucp.INFOSiS.model.bean.HR.Intern;
+import pe.edu.pucp.INFOSiS.model.bean.course.CalendarSession;
 import pe.edu.pucp.INFOSiS.model.bean.course.CourseHistory;
 import pe.edu.pucp.INFOSiS.model.bean.course.CourseType;
 import pe.edu.pucp.INFOSiS.model.bean.student.Student;
@@ -211,9 +212,15 @@ public class Server {
         return DBController.queryCourseHByIdProfessor(idProfessor);
     }
     
+
     @WebMethod(operationName="queryCourseHistoryByCourse")
     public ArrayList<CourseHistory> queryCourseHistoryByCourse(@WebParam(name="idCourse") String idCourse){
         return DBController.queryCourseHByCourse(idCourse);
+    }
+    @WebMethod(operationName="querySessionsByDate")
+    public ArrayList<CalendarSession> queryCalendarSessionByBeginDate(@WebParam(name="date")String date){
+        return DBController.queryCalendarSessionByBeginDate(date);
+
     }
     
     @WebMethod(operationName="generateCourseHistoryReport")
