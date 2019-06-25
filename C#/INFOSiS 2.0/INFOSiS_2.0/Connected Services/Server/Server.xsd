@@ -363,7 +363,15 @@
   </xs:complexType>
   <xs:complexType name="SearchProfessorById">
     <xs:sequence>
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.xsd
       <xs:element minOccurs="0" name="id" type="xs:string" />
+=======
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.xsd
+      <xs:element minOccurs="0" name="id" type="xs:string" />
+=======
+      <xs:element minOccurs="0" name="courseType" type="tns:courseType" />
+>>>>>>> 19076494d3db46db2cdc2d8af566bd817b797815:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.xsd
+>>>>>>> 1d2ca2f5fc14af801d27b2424f1abcdfaba4d2fb:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.xsd
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="SearchProfessorByIdResponse">
@@ -485,7 +493,13 @@
       <xs:element minOccurs="0" name="return" type="tns:student" />
     </xs:sequence>
   </xs:complexType>
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.xsd
   <xs:complexType name="VerifyUser">
+=======
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.xsd
+=======
+  <xs:complexType name="SearchInternByIdNumber">
+>>>>>>> 1d2ca2f5fc14af801d27b2424f1abcdfaba4d2fb:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.xsd
     <xs:sequence>
       <xs:element minOccurs="0" name="user" type="tns:user" />
     </xs:sequence>
@@ -495,6 +509,22 @@
       <xs:element minOccurs="0" name="return" type="tns:userType" />
     </xs:sequence>
   </xs:complexType>
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.xsd
+  <xs:complexType name="SearchInternByIdNumber">
+=======
+>>>>>>> 19076494d3db46db2cdc2d8af566bd817b797815:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.xsd
+  <xs:complexType name="VerifyUser">
+>>>>>>> 1d2ca2f5fc14af801d27b2424f1abcdfaba4d2fb:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.xsd
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SearchInternByIdNumberResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:intern" />
+    </xs:sequence>
+  </xs:complexType>
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.xsd
   <xs:complexType name="SearchInternByIdNumber">
     <xs:sequence>
       <xs:element minOccurs="0" name="id" type="xs:string" />
@@ -505,6 +535,8 @@
       <xs:element minOccurs="0" name="return" type="tns:intern" />
     </xs:sequence>
   </xs:complexType>
+=======
+>>>>>>> 19076494d3db46db2cdc2d8af566bd817b797815:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.xsd
   <xs:complexType name="QueryAllActiveInterested">
     <xs:sequence />
   </xs:complexType>
@@ -526,6 +558,8 @@
   <xs:complexType name="InsertCourse">
     <xs:sequence>
       <xs:element minOccurs="0" name="course" type="tns:course" />
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.xsd
+=======
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="InsertCourseResponse">
@@ -549,6 +583,7 @@
       <xs:element minOccurs="0" name="middle_name" type="xs:string" />
       <xs:element minOccurs="0" name="first_last_name" type="xs:string" />
       <xs:element minOccurs="0" name="second_last_name" type="xs:string" />
+>>>>>>> 19076494d3db46db2cdc2d8af566bd817b797815:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.xsd
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="SearchInterestedByNameResponse">
@@ -556,4 +591,33 @@
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:interested" />
     </xs:sequence>
   </xs:complexType>
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.xsd
+=======
+  <xs:complexType name="QueryInterestedByID">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IDInterested" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="QueryInterestedByIDResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:interested" />
+    </xs:sequence>
+  </xs:complexType>
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.xsd
+  <xs:complexType name="SearchInterestedByName">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="name" type="xs:string" />
+      <xs:element minOccurs="0" name="middle_name" type="xs:string" />
+      <xs:element minOccurs="0" name="first_last_name" type="xs:string" />
+      <xs:element minOccurs="0" name="second_last_name" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SearchInterestedByNameResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:interested" />
+    </xs:sequence>
+  </xs:complexType>
+=======
+>>>>>>> 19076494d3db46db2cdc2d8af566bd817b797815:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.xsd
+>>>>>>> 1d2ca2f5fc14af801d27b2424f1abcdfaba4d2fb:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.xsd
 </xs:schema>

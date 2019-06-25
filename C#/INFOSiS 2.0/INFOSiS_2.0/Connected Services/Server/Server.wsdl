@@ -1,0 +1,1349 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://server.INFOSiS.pucp.edu.pe/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="Server" targetNamespace="http://server.INFOSiS.pucp.edu.pe/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://localhost:8080/INFOSiSServer/Server?xsd=1" namespace="http://server.INFOSiS.pucp.edu.pe/" />
+    </xsd:schema>
+  </types>
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+  <message name="QueryAllUsers">
+    <part name="parameters" element="tns:QueryAllUsers" />
+=======
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+  <message name="InsertStudent">
+    <part name="parameters" element="tns:InsertStudent" />
+  </message>
+  <message name="InsertStudentResponse">
+    <part name="parameters" element="tns:InsertStudentResponse" />
+  </message>
+  <message name="InsertProfessor">
+    <part name="parameters" element="tns:InsertProfessor" />
+  </message>
+  <message name="InsertProfessorResponse">
+    <part name="parameters" element="tns:InsertProfessorResponse" />
+=======
+  <message name="QueryAllActiveInterested">
+    <part name="parameters" element="tns:QueryAllActiveInterested" />
+  </message>
+  <message name="QueryAllActiveInterestedResponse">
+    <part name="parameters" element="tns:QueryAllActiveInterestedResponse" />
+  </message>
+  <message name="SearchProfessorById">
+    <part name="parameters" element="tns:SearchProfessorById" />
+  </message>
+  <message name="SearchProfessorByIdResponse">
+    <part name="parameters" element="tns:SearchProfessorByIdResponse" />
+  </message>
+  <message name="queryAllCourseType">
+    <part name="parameters" element="tns:queryAllCourseType" />
+  </message>
+  <message name="queryAllCourseTypeResponse">
+    <part name="parameters" element="tns:queryAllCourseTypeResponse" />
+  </message>
+  <message name="queryCourseTypeById">
+    <part name="parameters" element="tns:queryCourseTypeById" />
+  </message>
+  <message name="queryCourseTypeByIdResponse">
+    <part name="parameters" element="tns:queryCourseTypeByIdResponse" />
+  </message>
+  <message name="SearchInterestedByName">
+    <part name="parameters" element="tns:SearchInterestedByName" />
+  </message>
+  <message name="SearchInterestedByNameResponse">
+    <part name="parameters" element="tns:SearchInterestedByNameResponse" />
+  </message>
+  <message name="queryAllCoursesByName">
+    <part name="parameters" element="tns:queryAllCoursesByName" />
+  </message>
+  <message name="queryAllCoursesByNameResponse">
+    <part name="parameters" element="tns:queryAllCoursesByNameResponse" />
+  </message>
+  <message name="QueryAllInterested">
+    <part name="parameters" element="tns:QueryAllInterested" />
+>>>>>>> 1d2ca2f5fc14af801d27b2424f1abcdfaba4d2fb:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+  </message>
+  <message name="QueryAllUsersResponse">
+    <part name="parameters" element="tns:QueryAllUsersResponse" />
+  </message>
+  <message name="InsertStudent">
+    <part name="parameters" element="tns:InsertStudent" />
+  </message>
+  <message name="InsertStudentResponse">
+    <part name="parameters" element="tns:InsertStudentResponse" />
+  </message>
+  <message name="queryAllCourse">
+    <part name="parameters" element="tns:queryAllCourse" />
+  </message>
+  <message name="queryAllCourseResponse">
+    <part name="parameters" element="tns:queryAllCourseResponse" />
+  </message>
+  <message name="InsertCourse">
+    <part name="parameters" element="tns:InsertCourse" />
+  </message>
+  <message name="InsertCourseResponse">
+    <part name="parameters" element="tns:InsertCourseResponse" />
+  </message>
+  <message name="DisableCourse">
+    <part name="parameters" element="tns:DisableCourse" />
+  </message>
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+  <message name="DisableCourseResponse">
+    <part name="parameters" element="tns:DisableCourseResponse" />
+  </message>
+  <message name="InsertInterested">
+    <part name="parameters" element="tns:InsertInterested" />
+  </message>
+  <message name="InsertInterestedResponse">
+    <part name="parameters" element="tns:InsertInterestedResponse" />
+=======
+  <message name="queryCourseHByDateResponse">
+    <part name="parameters" element="tns:queryCourseHByDateResponse" />
+>>>>>>> 19076494d3db46db2cdc2d8af566bd817b797815:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+  </message>
+  <message name="UpdateInterested">
+    <part name="parameters" element="tns:UpdateInterested" />
+  </message>
+  <message name="UpdateInterestedResponse">
+    <part name="parameters" element="tns:UpdateInterestedResponse" />
+>>>>>>> 1d2ca2f5fc14af801d27b2424f1abcdfaba4d2fb:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+  </message>
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+  <message name="InsertCourse">
+    <part name="parameters" element="tns:InsertCourse" />
+  </message>
+  <message name="InsertCourseResponse">
+    <part name="parameters" element="tns:InsertCourseResponse" />
+  </message>
+  <message name="QueryAllUsers">
+    <part name="parameters" element="tns:QueryAllUsers" />
+  </message>
+  <message name="QueryAllUsersResponse">
+    <part name="parameters" element="tns:QueryAllUsersResponse" />
+  </message>
+  <message name="QueryAllInterns">
+    <part name="parameters" element="tns:QueryAllInterns" />
+=======
+  <message name="InsertProfessor">
+    <part name="parameters" element="tns:InsertProfessor" />
+  </message>
+  <message name="InsertProfessorResponse">
+    <part name="parameters" element="tns:InsertProfessorResponse" />
+  </message>
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+  <message name="queryStudentById">
+    <part name="parameters" element="tns:queryStudentById" />
+=======
+  <message name="UpdateProfessor">
+    <part name="parameters" element="tns:UpdateProfessor" />
+>>>>>>> 19076494d3db46db2cdc2d8af566bd817b797815:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+  </message>
+  <message name="QueryAllInternsResponse">
+    <part name="parameters" element="tns:QueryAllInternsResponse" />
+  </message>
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+  <message name="UpdateCourse">
+    <part name="parameters" element="tns:UpdateCourse" />
+  </message>
+  <message name="UpdateCourseResponse">
+    <part name="parameters" element="tns:UpdateCourseResponse" />
+  </message>
+  <message name="queryAllCourse">
+    <part name="parameters" element="tns:queryAllCourse" />
+  </message>
+  <message name="queryAllCourseResponse">
+    <part name="parameters" element="tns:queryAllCourseResponse" />
+  </message>
+  <message name="DisableCourse">
+    <part name="parameters" element="tns:DisableCourse" />
+  </message>
+  <message name="DisableCourseResponse">
+    <part name="parameters" element="tns:DisableCourseResponse" />
+  </message>
+  <message name="queryCourseById">
+    <part name="parameters" element="tns:queryCourseById" />
+=======
+  <message name="UpdateIntern">
+    <part name="parameters" element="tns:UpdateIntern" />
+  </message>
+  <message name="UpdateInternResponse">
+    <part name="parameters" element="tns:UpdateInternResponse" />
+>>>>>>> 19076494d3db46db2cdc2d8af566bd817b797815:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+  </message>
+  <message name="InsertInterested">
+    <part name="parameters" element="tns:InsertInterested" />
+  </message>
+  <message name="InsertInterestedResponse">
+    <part name="parameters" element="tns:InsertInterestedResponse" />
+  </message>
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+  <message name="InsertCourseType">
+    <part name="parameters" element="tns:InsertCourseType" />
+  </message>
+  <message name="InsertCourseTypeResponse">
+    <part name="parameters" element="tns:InsertCourseTypeResponse" />
+  </message>
+  <message name="UpdateProfessor">
+    <part name="parameters" element="tns:UpdateProfessor" />
+  </message>
+  <message name="UpdateProfessorResponse">
+    <part name="parameters" element="tns:UpdateProfessorResponse" />
+  </message>
+  <message name="InsertIntern">
+    <part name="parameters" element="tns:InsertIntern" />
+  </message>
+  <message name="InsertInternResponse">
+    <part name="parameters" element="tns:InsertInternResponse" />
+  </message>
+  <message name="UpdateIntern">
+    <part name="parameters" element="tns:UpdateIntern" />
+  </message>
+  <message name="UpdateInternResponse">
+    <part name="parameters" element="tns:UpdateInternResponse" />
+  </message>
+  <message name="VerifyUser">
+    <part name="parameters" element="tns:VerifyUser" />
+  </message>
+  <message name="VerifyUserResponse">
+    <part name="parameters" element="tns:VerifyUserResponse" />
+  </message>
+  <message name="InsertInterested">
+    <part name="parameters" element="tns:InsertInterested" />
+  </message>
+  <message name="InsertInterestedResponse">
+    <part name="parameters" element="tns:InsertInterestedResponse" />
+=======
+  <message name="QueryAllInterns">
+    <part name="parameters" element="tns:QueryAllInterns" />
+>>>>>>> 1d2ca2f5fc14af801d27b2424f1abcdfaba4d2fb:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+  </message>
+  <message name="queryStudentByIdResponse">
+    <part name="parameters" element="tns:queryStudentByIdResponse" />
+  </message>
+  <message name="UpdateInterested">
+    <part name="parameters" element="tns:UpdateInterested" />
+  </message>
+  <message name="UpdateInterestedResponse">
+    <part name="parameters" element="tns:UpdateInterestedResponse" />
+  </message>
+  <message name="InsertIntern">
+    <part name="parameters" element="tns:InsertIntern" />
+  </message>
+  <message name="InsertInternResponse">
+    <part name="parameters" element="tns:InsertInternResponse" />
+  </message>
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+  <message name="UpdateIntern">
+    <part name="parameters" element="tns:UpdateIntern" />
+=======
+  <message name="VerifyUser">
+    <part name="parameters" element="tns:VerifyUser" />
+  </message>
+  <message name="VerifyUserResponse">
+    <part name="parameters" element="tns:VerifyUserResponse" />
+>>>>>>> 19076494d3db46db2cdc2d8af566bd817b797815:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+  </message>
+  <message name="QueryAllByCourse">
+    <part name="parameters" element="tns:QueryAllByCourse" />
+>>>>>>> 1d2ca2f5fc14af801d27b2424f1abcdfaba4d2fb:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+  </message>
+  <message name="UpdateInternResponse">
+    <part name="parameters" element="tns:UpdateInternResponse" />
+  </message>
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+  <message name="queryCourseById">
+    <part name="parameters" element="tns:queryCourseById" />
+=======
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+  <message name="UpdateCourseType">
+    <part name="parameters" element="tns:UpdateCourseType" />
+  </message>
+  <message name="UpdateCourseTypeResponse">
+    <part name="parameters" element="tns:UpdateCourseTypeResponse" />
+  </message>
+  <message name="queryStudentById">
+    <part name="parameters" element="tns:queryStudentById" />
+  </message>
+  <message name="queryStudentByIdResponse">
+    <part name="parameters" element="tns:queryStudentByIdResponse" />
+  </message>
+  <message name="QueryInterestedByID">
+    <part name="parameters" element="tns:QueryInterestedByID" />
+  </message>
+  <message name="QueryInterestedByIDResponse">
+    <part name="parameters" element="tns:QueryInterestedByIDResponse" />
+  </message>
+  <message name="SearchProfessorByIdPUCP">
+    <part name="parameters" element="tns:SearchProfessorByIdPUCP" />
+  </message>
+  <message name="SearchProfessorByIdPUCPResponse">
+    <part name="parameters" element="tns:SearchProfessorByIdPUCPResponse" />
+  </message>
+  <message name="queryCourseHByDate">
+    <part name="parameters" element="tns:queryCourseHByDate" />
+  </message>
+  <message name="queryCourseHByDateResponse">
+    <part name="parameters" element="tns:queryCourseHByDateResponse" />
+  </message>
+  <message name="QueryAllActiveInterested">
+    <part name="parameters" element="tns:QueryAllActiveInterested" />
+  </message>
+  <message name="QueryAllActiveInterestedResponse">
+    <part name="parameters" element="tns:QueryAllActiveInterestedResponse" />
+  </message>
+  <message name="queryCourseHByDate2">
+    <part name="parameters" element="tns:queryCourseHByDate2" />
+  </message>
+  <message name="queryCourseHByDate2Response">
+    <part name="parameters" element="tns:queryCourseHByDate2Response" />
+  </message>
+  <message name="QueryAllInterested">
+    <part name="parameters" element="tns:QueryAllInterested" />
+  </message>
+  <message name="QueryAllInterestedResponse">
+    <part name="parameters" element="tns:QueryAllInterestedResponse" />
+  </message>
+  <message name="SearchProfessorByName">
+    <part name="parameters" element="tns:SearchProfessorByName" />
+=======
+  <message name="QueryAllUsers">
+    <part name="parameters" element="tns:QueryAllUsers" />
+>>>>>>> 1d2ca2f5fc14af801d27b2424f1abcdfaba4d2fb:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+  </message>
+  <message name="queryCourseByIdResponse">
+    <part name="parameters" element="tns:queryCourseByIdResponse" />
+  </message>
+  <message name="InsertCourseType">
+    <part name="parameters" element="tns:InsertCourseType" />
+  </message>
+  <message name="InsertCourseTypeResponse">
+    <part name="parameters" element="tns:InsertCourseTypeResponse" />
+  </message>
+  <message name="QueryAllInterns">
+    <part name="parameters" element="tns:QueryAllInterns" />
+  </message>
+  <message name="QueryAllInternsResponse">
+    <part name="parameters" element="tns:QueryAllInternsResponse" />
+  </message>
+  <message name="QueryAllByCourse">
+    <part name="parameters" element="tns:QueryAllByCourse" />
+  </message>
+  <message name="QueryAllByCourseResponse">
+    <part name="parameters" element="tns:QueryAllByCourseResponse" />
+  </message>
+  <message name="VerifyUser">
+    <part name="parameters" element="tns:VerifyUser" />
+  </message>
+  <message name="VerifyUserResponse">
+    <part name="parameters" element="tns:VerifyUserResponse" />
+  </message>
+  <message name="UpdateCourse">
+    <part name="parameters" element="tns:UpdateCourse" />
+  </message>
+  <message name="UpdateCourseResponse">
+    <part name="parameters" element="tns:UpdateCourseResponse" />
+  </message>
+  <message name="UpdateCourseType">
+    <part name="parameters" element="tns:UpdateCourseType" />
+  </message>
+  <message name="UpdateCourseTypeResponse">
+    <part name="parameters" element="tns:UpdateCourseTypeResponse" />
+  </message>
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+  <message name="UpdateProfessor">
+    <part name="parameters" element="tns:UpdateProfessor" />
+  </message>
+  <message name="UpdateProfessorResponse">
+    <part name="parameters" element="tns:UpdateProfessorResponse" />
+  </message>
+  <message name="SearchInternByIdNumber">
+    <part name="parameters" element="tns:SearchInternByIdNumber" />
+=======
+  <message name="queryCourseById">
+    <part name="parameters" element="tns:queryCourseById" />
+>>>>>>> 19076494d3db46db2cdc2d8af566bd817b797815:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+  </message>
+  <message name="SearchProfessorByNameResponse">
+    <part name="parameters" element="tns:SearchProfessorByNameResponse" />
+  </message>
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+  <message name="queryAllCoursesByName">
+    <part name="parameters" element="tns:queryAllCoursesByName" />
+  </message>
+  <message name="queryAllCoursesByNameResponse">
+    <part name="parameters" element="tns:queryAllCoursesByNameResponse" />
+  </message>
+  <message name="queryAllCourseType">
+    <part name="parameters" element="tns:queryAllCourseType" />
+  </message>
+  <message name="queryAllCourseTypeResponse">
+    <part name="parameters" element="tns:queryAllCourseTypeResponse" />
+  </message>
+  <message name="queryCourseTypeById">
+    <part name="parameters" element="tns:queryCourseTypeById" />
+  </message>
+  <message name="queryCourseTypeByIdResponse">
+    <part name="parameters" element="tns:queryCourseTypeByIdResponse" />
+=======
+  <message name="queryStudentById">
+    <part name="parameters" element="tns:queryStudentById" />
+>>>>>>> 1d2ca2f5fc14af801d27b2424f1abcdfaba4d2fb:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+  </message>
+  <message name="SearchInternByIdNumberResponse">
+    <part name="parameters" element="tns:SearchInternByIdNumberResponse" />
+  </message>
+  <message name="QueryAllInterested">
+    <part name="parameters" element="tns:QueryAllInterested" />
+  </message>
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+  <message name="QueryAllInterestedResponse">
+    <part name="parameters" element="tns:QueryAllInterestedResponse" />
+=======
+  <message name="queryAllCourseResponse">
+    <part name="parameters" element="tns:queryAllCourseResponse" />
+>>>>>>> 19076494d3db46db2cdc2d8af566bd817b797815:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+>>>>>>> 1d2ca2f5fc14af801d27b2424f1abcdfaba4d2fb:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+  </message>
+  <message name="QueryAllActiveInterested">
+    <part name="parameters" element="tns:QueryAllActiveInterested" />
+  </message>
+  <message name="QueryAllActiveInterestedResponse">
+    <part name="parameters" element="tns:QueryAllActiveInterestedResponse" />
+  </message>
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+  <message name="queryAllCourseType">
+    <part name="parameters" element="tns:queryAllCourseType" />
+=======
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+  <message name="SearchInternByIdNumber">
+    <part name="parameters" element="tns:SearchInternByIdNumber" />
+  </message>
+  <message name="SearchInternByIdNumberResponse">
+    <part name="parameters" element="tns:SearchInternByIdNumberResponse" />
+  </message>
+  <message name="SearchProfessorById">
+    <part name="parameters" element="tns:SearchProfessorById" />
+  </message>
+  <message name="SearchProfessorByIdResponse">
+    <part name="parameters" element="tns:SearchProfessorByIdResponse" />
+  </message>
+  <portType name="Server">
+    <operation name="InsertStudent">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/InsertStudentRequest" message="tns:InsertStudent" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/InsertStudentResponse" message="tns:InsertStudentResponse" />
+=======
+  <message name="InsertCourse">
+    <part name="parameters" element="tns:InsertCourse" />
+>>>>>>> 1d2ca2f5fc14af801d27b2424f1abcdfaba4d2fb:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+  </message>
+  <message name="queryAllCourseTypeResponse">
+    <part name="parameters" element="tns:queryAllCourseTypeResponse" />
+  </message>
+  <message name="queryCourseTypeById">
+    <part name="parameters" element="tns:queryCourseTypeById" />
+  </message>
+  <message name="queryCourseTypeByIdResponse">
+    <part name="parameters" element="tns:queryCourseTypeByIdResponse" />
+  </message>
+  <message name="QueryInterestedByID">
+    <part name="parameters" element="tns:QueryInterestedByID" />
+  </message>
+  <message name="QueryInterestedByIDResponse">
+    <part name="parameters" element="tns:QueryInterestedByIDResponse" />
+  </message>
+  <message name="SearchProfessorById">
+    <part name="parameters" element="tns:SearchProfessorById" />
+  </message>
+  <message name="SearchProfessorByIdResponse">
+    <part name="parameters" element="tns:SearchProfessorByIdResponse" />
+  </message>
+  <message name="SearchProfessorByName">
+    <part name="parameters" element="tns:SearchProfessorByName" />
+  </message>
+  <message name="SearchProfessorByNameResponse">
+    <part name="parameters" element="tns:SearchProfessorByNameResponse" />
+  </message>
+  <message name="SearchProfessorByIdPUCP">
+    <part name="parameters" element="tns:SearchProfessorByIdPUCP" />
+  </message>
+  <message name="SearchProfessorByIdPUCPResponse">
+    <part name="parameters" element="tns:SearchProfessorByIdPUCPResponse" />
+  </message>
+  <message name="SearchInterestedByName">
+    <part name="parameters" element="tns:SearchInterestedByName" />
+  </message>
+  <message name="SearchInterestedByNameResponse">
+    <part name="parameters" element="tns:SearchInterestedByNameResponse" />
+  </message>
+  <message name="queryAllCoursesByName">
+    <part name="parameters" element="tns:queryAllCoursesByName" />
+  </message>
+  <message name="queryAllCoursesByNameResponse">
+    <part name="parameters" element="tns:queryAllCoursesByNameResponse" />
+  </message>
+  <message name="queryCourseHistoryByIdProfessor">
+    <part name="parameters" element="tns:queryCourseHistoryByIdProfessor" />
+  </message>
+  <message name="queryCourseHistoryByIdProfessorResponse">
+    <part name="parameters" element="tns:queryCourseHistoryByIdProfessorResponse" />
+  </message>
+  <message name="queryCourseHByDate">
+    <part name="parameters" element="tns:queryCourseHByDate" />
+  </message>
+  <message name="queryCourseHByDateResponse">
+    <part name="parameters" element="tns:queryCourseHByDateResponse" />
+  </message>
+  <portType name="Server">
+    <operation name="QueryAllUsers">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/QueryAllUsersRequest" message="tns:QueryAllUsers" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/QueryAllUsersResponse" message="tns:QueryAllUsersResponse" />
+    </operation>
+    <operation name="InsertStudent">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/InsertStudentRequest" message="tns:InsertStudent" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/InsertStudentResponse" message="tns:InsertStudentResponse" />
+    </operation>
+    <operation name="queryAllCourse">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/queryAllCourseRequest" message="tns:queryAllCourse" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/queryAllCourseResponse" message="tns:queryAllCourseResponse" />
+    </operation>
+    <operation name="InsertCourse">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/InsertCourseRequest" message="tns:InsertCourse" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/InsertCourseResponse" message="tns:InsertCourseResponse" />
+    </operation>
+    <operation name="DisableCourse">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/DisableCourseRequest" message="tns:DisableCourse" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/DisableCourseResponse" message="tns:DisableCourseResponse" />
+    </operation>
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+    <operation name="InsertInterested">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/InsertInterestedRequest" message="tns:InsertInterested" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/InsertInterestedResponse" message="tns:InsertInterestedResponse" />
+=======
+    <operation name="SearchProfessorByName">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/SearchProfessorByNameRequest" message="tns:SearchProfessorByName" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/SearchProfessorByNameResponse" message="tns:SearchProfessorByNameResponse" />
+>>>>>>> 19076494d3db46db2cdc2d8af566bd817b797815:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+>>>>>>> 1d2ca2f5fc14af801d27b2424f1abcdfaba4d2fb:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+    </operation>
+    <operation name="InsertProfessor">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/InsertProfessorRequest" message="tns:InsertProfessor" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/InsertProfessorResponse" message="tns:InsertProfessorResponse" />
+    </operation>
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+    <operation name="queryStudentById">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/queryStudentByIdRequest" message="tns:queryStudentById" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/queryStudentByIdResponse" message="tns:queryStudentByIdResponse" />
+=======
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+=======
+    <operation name="UpdateProfessor">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/UpdateProfessorRequest" message="tns:UpdateProfessor" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/UpdateProfessorResponse" message="tns:UpdateProfessorResponse" />
+    </operation>
+    <operation name="UpdateIntern">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/UpdateInternRequest" message="tns:UpdateIntern" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/UpdateInternResponse" message="tns:UpdateInternResponse" />
+    </operation>
+    <operation name="InsertInterested">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/InsertInterestedRequest" message="tns:InsertInterested" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/InsertInterestedResponse" message="tns:InsertInterestedResponse" />
+    </operation>
+    <operation name="QueryAllInterns">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/QueryAllInternsRequest" message="tns:QueryAllInterns" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/QueryAllInternsResponse" message="tns:QueryAllInternsResponse" />
+>>>>>>> 1d2ca2f5fc14af801d27b2424f1abcdfaba4d2fb:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+    </operation>
+>>>>>>> 19076494d3db46db2cdc2d8af566bd817b797815:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+    <operation name="UpdateInterested">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/UpdateInterestedRequest" message="tns:UpdateInterested" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/UpdateInterestedResponse" message="tns:UpdateInterestedResponse" />
+    </operation>
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+    <operation name="InsertCourse">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/InsertCourseRequest" message="tns:InsertCourse" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/InsertCourseResponse" message="tns:InsertCourseResponse" />
+    </operation>
+    <operation name="QueryAllUsers">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/QueryAllUsersRequest" message="tns:QueryAllUsers" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/QueryAllUsersResponse" message="tns:QueryAllUsersResponse" />
+    </operation>
+    <operation name="QueryAllInterns">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/QueryAllInternsRequest" message="tns:QueryAllInterns" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/QueryAllInternsResponse" message="tns:QueryAllInternsResponse" />
+    </operation>
+    <operation name="UpdateCourse">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/UpdateCourseRequest" message="tns:UpdateCourse" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/UpdateCourseResponse" message="tns:UpdateCourseResponse" />
+    </operation>
+    <operation name="queryAllCourse">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/queryAllCourseRequest" message="tns:queryAllCourse" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/queryAllCourseResponse" message="tns:queryAllCourseResponse" />
+    </operation>
+    <operation name="DisableCourse">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/DisableCourseRequest" message="tns:DisableCourse" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/DisableCourseResponse" message="tns:DisableCourseResponse" />
+    </operation>
+    <operation name="queryCourseById">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/queryCourseByIdRequest" message="tns:queryCourseById" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/queryCourseByIdResponse" message="tns:queryCourseByIdResponse" />
+    </operation>
+    <operation name="InsertCourseType">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/InsertCourseTypeRequest" message="tns:InsertCourseType" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/InsertCourseTypeResponse" message="tns:InsertCourseTypeResponse" />
+    </operation>
+    <operation name="UpdateProfessor">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/UpdateProfessorRequest" message="tns:UpdateProfessor" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/UpdateProfessorResponse" message="tns:UpdateProfessorResponse" />
+    </operation>
+=======
+>>>>>>> 19076494d3db46db2cdc2d8af566bd817b797815:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+    <operation name="InsertIntern">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/InsertInternRequest" message="tns:InsertIntern" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/InsertInternResponse" message="tns:InsertInternResponse" />
+    </operation>
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+    <operation name="UpdateIntern">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/UpdateInternRequest" message="tns:UpdateIntern" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/UpdateInternResponse" message="tns:UpdateInternResponse" />
+    </operation>
+    <operation name="queryCourseById">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/queryCourseByIdRequest" message="tns:queryCourseById" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/queryCourseByIdResponse" message="tns:queryCourseByIdResponse" />
+=======
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+    <operation name="UpdateIntern">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/UpdateInternRequest" message="tns:UpdateIntern" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/UpdateInternResponse" message="tns:UpdateInternResponse" />
+    </operation>
+=======
+>>>>>>> 19076494d3db46db2cdc2d8af566bd817b797815:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+    <operation name="VerifyUser">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/VerifyUserRequest" message="tns:VerifyUser" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/VerifyUserResponse" message="tns:VerifyUserResponse" />
+    </operation>
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+    <operation name="InsertInterested">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/InsertInterestedRequest" message="tns:InsertInterested" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/InsertInterestedResponse" message="tns:InsertInterestedResponse" />
+    </operation>
+=======
+>>>>>>> 19076494d3db46db2cdc2d8af566bd817b797815:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+    <operation name="QueryAllByCourse">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/QueryAllByCourseRequest" message="tns:QueryAllByCourse" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/QueryAllByCourseResponse" message="tns:QueryAllByCourseResponse" />
+    </operation>
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+=======
+    <operation name="QueryAllUsers">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/QueryAllUsersRequest" message="tns:QueryAllUsers" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/QueryAllUsersResponse" message="tns:QueryAllUsersResponse" />
+>>>>>>> 1d2ca2f5fc14af801d27b2424f1abcdfaba4d2fb:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+    </operation>
+    <operation name="InsertCourseType">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/InsertCourseTypeRequest" message="tns:InsertCourseType" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/InsertCourseTypeResponse" message="tns:InsertCourseTypeResponse" />
+    </operation>
+    <operation name="QueryAllInterns">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/QueryAllInternsRequest" message="tns:QueryAllInterns" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/QueryAllInternsResponse" message="tns:QueryAllInternsResponse" />
+    </operation>
+    <operation name="QueryAllByCourse">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/QueryAllByCourseRequest" message="tns:QueryAllByCourse" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/QueryAllByCourseResponse" message="tns:QueryAllByCourseResponse" />
+    </operation>
+    <operation name="VerifyUser">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/VerifyUserRequest" message="tns:VerifyUser" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/VerifyUserResponse" message="tns:VerifyUserResponse" />
+    </operation>
+    <operation name="UpdateCourse">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/UpdateCourseRequest" message="tns:UpdateCourse" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/UpdateCourseResponse" message="tns:UpdateCourseResponse" />
+    </operation>
+>>>>>>> 19076494d3db46db2cdc2d8af566bd817b797815:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+    <operation name="UpdateCourseType">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/UpdateCourseTypeRequest" message="tns:UpdateCourseType" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/UpdateCourseTypeResponse" message="tns:UpdateCourseTypeResponse" />
+    </operation>
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+    <operation name="UpdateProfessor">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/UpdateProfessorRequest" message="tns:UpdateProfessor" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/UpdateProfessorResponse" message="tns:UpdateProfessorResponse" />
+=======
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+    <operation name="queryStudentById">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/queryStudentByIdRequest" message="tns:queryStudentById" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/queryStudentByIdResponse" message="tns:queryStudentByIdResponse" />
+    </operation>
+    <operation name="QueryInterestedByID">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/QueryInterestedByIDRequest" message="tns:QueryInterestedByID" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/QueryInterestedByIDResponse" message="tns:QueryInterestedByIDResponse" />
+    </operation>
+    <operation name="SearchProfessorByIdPUCP">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/SearchProfessorByIdPUCPRequest" message="tns:SearchProfessorByIdPUCP" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/SearchProfessorByIdPUCPResponse" message="tns:SearchProfessorByIdPUCPResponse" />
+    </operation>
+    <operation name="queryCourseHByDate">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/queryCourseHByDateRequest" message="tns:queryCourseHByDate" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/queryCourseHByDateResponse" message="tns:queryCourseHByDateResponse" />
+    </operation>
+    <operation name="QueryAllActiveInterested">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/QueryAllActiveInterestedRequest" message="tns:QueryAllActiveInterested" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/QueryAllActiveInterestedResponse" message="tns:QueryAllActiveInterestedResponse" />
+    </operation>
+    <operation name="queryCourseHByDate2">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/queryCourseHByDate2Request" message="tns:queryCourseHByDate2" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/queryCourseHByDate2Response" message="tns:queryCourseHByDate2Response" />
+    </operation>
+    <operation name="QueryAllInterested">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/QueryAllInterestedRequest" message="tns:QueryAllInterested" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/QueryAllInterestedResponse" message="tns:QueryAllInterestedResponse" />
+    </operation>
+    <operation name="SearchProfessorByName">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/SearchProfessorByNameRequest" message="tns:SearchProfessorByName" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/SearchProfessorByNameResponse" message="tns:SearchProfessorByNameResponse" />
+    </operation>
+    <operation name="queryAllCoursesByName">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/queryAllCoursesByNameRequest" message="tns:queryAllCoursesByName" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/queryAllCoursesByNameResponse" message="tns:queryAllCoursesByNameResponse" />
+    </operation>
+    <operation name="queryAllCourseType">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/queryAllCourseTypeRequest" message="tns:queryAllCourseType" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/queryAllCourseTypeResponse" message="tns:queryAllCourseTypeResponse" />
+    </operation>
+    <operation name="queryCourseTypeById">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/queryCourseTypeByIdRequest" message="tns:queryCourseTypeById" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/queryCourseTypeByIdResponse" message="tns:queryCourseTypeByIdResponse" />
+=======
+    <operation name="queryCourseById">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/queryCourseByIdRequest" message="tns:queryCourseById" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/queryCourseByIdResponse" message="tns:queryCourseByIdResponse" />
+>>>>>>> 1d2ca2f5fc14af801d27b2424f1abcdfaba4d2fb:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+    </operation>
+    <operation name="SearchInternByIdNumber">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/SearchInternByIdNumberRequest" message="tns:SearchInternByIdNumber" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/SearchInternByIdNumberResponse" message="tns:SearchInternByIdNumberResponse" />
+    </operation>
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+    <operation name="QueryAllInterested">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/QueryAllInterestedRequest" message="tns:QueryAllInterested" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/QueryAllInterestedResponse" message="tns:QueryAllInterestedResponse" />
+=======
+    <operation name="queryAllCourse">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/queryAllCourseRequest" message="tns:queryAllCourse" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/queryAllCourseResponse" message="tns:queryAllCourseResponse" />
+>>>>>>> 19076494d3db46db2cdc2d8af566bd817b797815:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+>>>>>>> 1d2ca2f5fc14af801d27b2424f1abcdfaba4d2fb:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+    </operation>
+    <operation name="QueryAllActiveInterested">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/QueryAllActiveInterestedRequest" message="tns:QueryAllActiveInterested" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/QueryAllActiveInterestedResponse" message="tns:QueryAllActiveInterestedResponse" />
+    </operation>
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+    <operation name="queryAllCourseType">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/queryAllCourseTypeRequest" message="tns:queryAllCourseType" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/queryAllCourseTypeResponse" message="tns:queryAllCourseTypeResponse" />
+    </operation>
+    <operation name="queryCourseTypeById">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/queryCourseTypeByIdRequest" message="tns:queryCourseTypeById" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/queryCourseTypeByIdResponse" message="tns:queryCourseTypeByIdResponse" />
+    </operation>
+    <operation name="QueryInterestedByID">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/QueryInterestedByIDRequest" message="tns:QueryInterestedByID" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/QueryInterestedByIDResponse" message="tns:QueryInterestedByIDResponse" />
+=======
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+    <operation name="SearchInternByIdNumber">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/SearchInternByIdNumberRequest" message="tns:SearchInternByIdNumber" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/SearchInternByIdNumberResponse" message="tns:SearchInternByIdNumberResponse" />
+>>>>>>> 1d2ca2f5fc14af801d27b2424f1abcdfaba4d2fb:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+    </operation>
+    <operation name="SearchProfessorById">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/SearchProfessorByIdRequest" message="tns:SearchProfessorById" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/SearchProfessorByIdResponse" message="tns:SearchProfessorByIdResponse" />
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+    </operation>
+    <operation name="SearchProfessorByName">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/SearchProfessorByNameRequest" message="tns:SearchProfessorByName" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/SearchProfessorByNameResponse" message="tns:SearchProfessorByNameResponse" />
+    </operation>
+    <operation name="SearchProfessorByIdPUCP">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/SearchProfessorByIdPUCPRequest" message="tns:SearchProfessorByIdPUCP" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/SearchProfessorByIdPUCPResponse" message="tns:SearchProfessorByIdPUCPResponse" />
+    </operation>
+    <operation name="SearchInterestedByName">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/SearchInterestedByNameRequest" message="tns:SearchInterestedByName" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/SearchInterestedByNameResponse" message="tns:SearchInterestedByNameResponse" />
+    </operation>
+    <operation name="queryAllCoursesByName">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/queryAllCoursesByNameRequest" message="tns:queryAllCoursesByName" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/queryAllCoursesByNameResponse" message="tns:queryAllCoursesByNameResponse" />
+    </operation>
+    <operation name="queryCourseHistoryByIdProfessor">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/queryCourseHistoryByIdProfessorRequest" message="tns:queryCourseHistoryByIdProfessor" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/queryCourseHistoryByIdProfessorResponse" message="tns:queryCourseHistoryByIdProfessorResponse" />
+    </operation>
+    <operation name="queryCourseHByDate">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/queryCourseHByDateRequest" message="tns:queryCourseHByDate" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/queryCourseHByDateResponse" message="tns:queryCourseHByDateResponse" />
+=======
+=======
+    <operation name="InsertCourse">
+      <input wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/InsertCourseRequest" message="tns:InsertCourse" />
+      <output wsam:Action="http://server.INFOSiS.pucp.edu.pe/Server/InsertCourseResponse" message="tns:InsertCourseResponse" />
+>>>>>>> 19076494d3db46db2cdc2d8af566bd817b797815:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+>>>>>>> 1d2ca2f5fc14af801d27b2424f1abcdfaba4d2fb:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+    </operation>
+  </portType>
+  <binding name="ServerPortBinding" type="tns:Server">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+    <operation name="QueryAllUsers">
+=======
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+    <operation name="InsertStudent">
+=======
+    <operation name="QueryAllActiveInterested">
+>>>>>>> 19076494d3db46db2cdc2d8af566bd817b797815:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+>>>>>>> 1d2ca2f5fc14af801d27b2424f1abcdfaba4d2fb:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+    <operation name="InsertStudent">
+=======
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+    <operation name="InsertProfessor">
+=======
+    <operation name="SearchProfessorById">
+>>>>>>> 19076494d3db46db2cdc2d8af566bd817b797815:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+>>>>>>> 1d2ca2f5fc14af801d27b2424f1abcdfaba4d2fb:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+    <operation name="queryAllCourse">
+=======
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+    <operation name="UpdateInterested">
+=======
+    <operation name="queryAllCourseType">
+>>>>>>> 19076494d3db46db2cdc2d8af566bd817b797815:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+>>>>>>> 1d2ca2f5fc14af801d27b2424f1abcdfaba4d2fb:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+    <operation name="InsertCourse">
+=======
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+    <operation name="InsertCourse">
+=======
+    <operation name="queryCourseTypeById">
+>>>>>>> 19076494d3db46db2cdc2d8af566bd817b797815:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+>>>>>>> 1d2ca2f5fc14af801d27b2424f1abcdfaba4d2fb:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+    <operation name="DisableCourse">
+=======
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+    <operation name="QueryAllUsers">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="QueryAllInterns">
+=======
+    <operation name="SearchInterestedByName">
+>>>>>>> 19076494d3db46db2cdc2d8af566bd817b797815:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+>>>>>>> 1d2ca2f5fc14af801d27b2424f1abcdfaba4d2fb:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+    <operation name="InsertInterested">
+=======
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+    <operation name="UpdateCourse">
+=======
+    <operation name="queryAllCoursesByName">
+>>>>>>> 19076494d3db46db2cdc2d8af566bd817b797815:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+>>>>>>> 1d2ca2f5fc14af801d27b2424f1abcdfaba4d2fb:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+    <operation name="InsertProfessor">
+=======
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+    <operation name="queryAllCourse">
+=======
+    <operation name="QueryAllInterested">
+>>>>>>> 19076494d3db46db2cdc2d8af566bd817b797815:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+>>>>>>> 1d2ca2f5fc14af801d27b2424f1abcdfaba4d2fb:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+    <operation name="queryStudentById">
+=======
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+    <operation name="DisableCourse">
+=======
+    <operation name="QueryInterestedByID">
+>>>>>>> 19076494d3db46db2cdc2d8af566bd817b797815:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+>>>>>>> 1d2ca2f5fc14af801d27b2424f1abcdfaba4d2fb:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+    <operation name="UpdateInterested">
+=======
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+    <operation name="queryCourseById">
+=======
+    <operation name="SearchProfessorByIdPUCP">
+>>>>>>> 19076494d3db46db2cdc2d8af566bd817b797815:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+>>>>>>> 1d2ca2f5fc14af801d27b2424f1abcdfaba4d2fb:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+    <operation name="InsertIntern">
+=======
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+    <operation name="InsertCourseType">
+=======
+    <operation name="SearchInternByIdNumber">
+>>>>>>> 19076494d3db46db2cdc2d8af566bd817b797815:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+>>>>>>> 1d2ca2f5fc14af801d27b2424f1abcdfaba4d2fb:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+    <operation name="UpdateIntern">
+=======
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+    <operation name="UpdateProfessor">
+=======
+    <operation name="queryCourseHByDate">
+>>>>>>> 19076494d3db46db2cdc2d8af566bd817b797815:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+>>>>>>> 1d2ca2f5fc14af801d27b2424f1abcdfaba4d2fb:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+    <operation name="queryCourseById">
+=======
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+    <operation name="InsertIntern">
+=======
+    <operation name="SearchProfessorByName">
+>>>>>>> 19076494d3db46db2cdc2d8af566bd817b797815:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+>>>>>>> 1d2ca2f5fc14af801d27b2424f1abcdfaba4d2fb:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+    <operation name="InsertCourseType">
+=======
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+    <operation name="UpdateIntern">
+=======
+    <operation name="InsertProfessor">
+>>>>>>> 19076494d3db46db2cdc2d8af566bd817b797815:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+>>>>>>> 1d2ca2f5fc14af801d27b2424f1abcdfaba4d2fb:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+    <operation name="QueryAllInterns">
+=======
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+    <operation name="VerifyUser">
+=======
+    <operation name="UpdateProfessor">
+>>>>>>> 19076494d3db46db2cdc2d8af566bd817b797815:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+>>>>>>> 1d2ca2f5fc14af801d27b2424f1abcdfaba4d2fb:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+    <operation name="QueryAllByCourse">
+=======
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+    <operation name="InsertInterested">
+=======
+    <operation name="UpdateIntern">
+>>>>>>> 19076494d3db46db2cdc2d8af566bd817b797815:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+>>>>>>> 1d2ca2f5fc14af801d27b2424f1abcdfaba4d2fb:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+    <operation name="VerifyUser">
+=======
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+    <operation name="QueryAllByCourse">
+=======
+    <operation name="InsertInterested">
+>>>>>>> 19076494d3db46db2cdc2d8af566bd817b797815:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+>>>>>>> 1d2ca2f5fc14af801d27b2424f1abcdfaba4d2fb:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+    <operation name="UpdateCourse">
+=======
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+    <operation name="UpdateCourseType">
+=======
+    <operation name="QueryAllInterns">
+>>>>>>> 19076494d3db46db2cdc2d8af566bd817b797815:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+>>>>>>> 1d2ca2f5fc14af801d27b2424f1abcdfaba4d2fb:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+    <operation name="UpdateCourseType">
+=======
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+    <operation name="queryStudentById">
+=======
+    <operation name="UpdateInterested">
+>>>>>>> 19076494d3db46db2cdc2d8af566bd817b797815:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+>>>>>>> 1d2ca2f5fc14af801d27b2424f1abcdfaba4d2fb:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+    <operation name="UpdateProfessor">
+=======
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+    <operation name="QueryInterestedByID">
+=======
+    <operation name="InsertIntern">
+>>>>>>> 19076494d3db46db2cdc2d8af566bd817b797815:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+>>>>>>> 1d2ca2f5fc14af801d27b2424f1abcdfaba4d2fb:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+    <operation name="SearchInternByIdNumber">
+=======
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+    <operation name="SearchProfessorByIdPUCP">
+=======
+    <operation name="VerifyUser">
+>>>>>>> 19076494d3db46db2cdc2d8af566bd817b797815:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+>>>>>>> 1d2ca2f5fc14af801d27b2424f1abcdfaba4d2fb:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+    <operation name="QueryAllInterested">
+=======
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+    <operation name="queryCourseHByDate">
+=======
+    <operation name="QueryAllByCourse">
+>>>>>>> 19076494d3db46db2cdc2d8af566bd817b797815:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+>>>>>>> 1d2ca2f5fc14af801d27b2424f1abcdfaba4d2fb:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+    <operation name="QueryAllActiveInterested">
+=======
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+    <operation name="QueryAllActiveInterested">
+=======
+    <operation name="QueryAllUsers">
+>>>>>>> 19076494d3db46db2cdc2d8af566bd817b797815:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+>>>>>>> 1d2ca2f5fc14af801d27b2424f1abcdfaba4d2fb:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+    <operation name="queryAllCourseType">
+=======
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+    <operation name="queryCourseHByDate2">
+=======
+    <operation name="InsertCourseType">
+>>>>>>> 19076494d3db46db2cdc2d8af566bd817b797815:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+>>>>>>> 1d2ca2f5fc14af801d27b2424f1abcdfaba4d2fb:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+    <operation name="queryCourseTypeById">
+=======
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+    <operation name="QueryAllInterested">
+=======
+    <operation name="InsertStudent">
+>>>>>>> 19076494d3db46db2cdc2d8af566bd817b797815:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+>>>>>>> 1d2ca2f5fc14af801d27b2424f1abcdfaba4d2fb:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+    <operation name="QueryInterestedByID">
+=======
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+    <operation name="SearchProfessorByName">
+=======
+    <operation name="UpdateCourse">
+>>>>>>> 19076494d3db46db2cdc2d8af566bd817b797815:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+>>>>>>> 1d2ca2f5fc14af801d27b2424f1abcdfaba4d2fb:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+    <operation name="SearchProfessorById">
+=======
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+    <operation name="queryAllCoursesByName">
+=======
+    <operation name="UpdateCourseType">
+>>>>>>> 19076494d3db46db2cdc2d8af566bd817b797815:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+>>>>>>> 1d2ca2f5fc14af801d27b2424f1abcdfaba4d2fb:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+    <operation name="SearchProfessorByName">
+=======
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+    <operation name="queryAllCourseType">
+=======
+    <operation name="queryCourseById">
+>>>>>>> 19076494d3db46db2cdc2d8af566bd817b797815:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+>>>>>>> 1d2ca2f5fc14af801d27b2424f1abcdfaba4d2fb:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+    <operation name="SearchProfessorByIdPUCP">
+=======
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+    <operation name="queryCourseTypeById">
+=======
+    <operation name="queryStudentById">
+>>>>>>> 19076494d3db46db2cdc2d8af566bd817b797815:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+>>>>>>> 1d2ca2f5fc14af801d27b2424f1abcdfaba4d2fb:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+    <operation name="SearchInterestedByName">
+=======
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+    <operation name="SearchInterestedByName">
+=======
+    <operation name="queryAllCourse">
+>>>>>>> 19076494d3db46db2cdc2d8af566bd817b797815:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+>>>>>>> 1d2ca2f5fc14af801d27b2424f1abcdfaba4d2fb:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+    <operation name="queryAllCoursesByName">
+=======
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+    <operation name="SearchInternByIdNumber">
+=======
+    <operation name="DisableCourse">
+>>>>>>> 19076494d3db46db2cdc2d8af566bd817b797815:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+>>>>>>> 1d2ca2f5fc14af801d27b2424f1abcdfaba4d2fb:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+    <operation name="queryCourseHistoryByIdProfessor">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="queryCourseHByDate">
+=======
+<<<<<<< HEAD:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+    <operation name="SearchProfessorById">
+=======
+    <operation name="InsertCourse">
+>>>>>>> 19076494d3db46db2cdc2d8af566bd817b797815:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server1.wsdl
+>>>>>>> 1d2ca2f5fc14af801d27b2424f1abcdfaba4d2fb:C#/INFOSiS 2.0/INFOSiS_2.0/Connected Services/Server/Server.wsdl
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="Server">
+    <port name="ServerPort" binding="tns:ServerPortBinding">
+      <soap:address location="http://localhost:8080/INFOSiSServer/Server" />
+    </port>
+  </service>
+</definitions>

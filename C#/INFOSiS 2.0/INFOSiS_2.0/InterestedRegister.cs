@@ -42,6 +42,7 @@ namespace INFOSiS_2._0
             servidor = new Server.ServerClient();
             idcursos = new BindingList<string>();
             tbCursos.Columns.Add("ID", typeof(string));
+
             tbCursos.Columns.Add("Nombre", typeof(string));
         }
 
