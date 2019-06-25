@@ -34,7 +34,7 @@ public class mian {
 //            System.out.println(u.getUsername());
 //        }
 //
-        Course course = DBController.queryCourseById("1023");
+        Course course = DBController.queryCourseById("VBA002");
         Professor professor = DBController.searchProfessorByIdPUCP("19693103");
         Professor assistant = DBController.searchProfessorByIdPUCP("19794422");
         CourseHistory c = new CourseHistory();
@@ -50,12 +50,12 @@ public class mian {
         dates.add(d2);
         ArrayList<Session> sessions = new ArrayList<>();
         Session s = new Session();
-        s.setSession(d);
+        s.setDateSession(d);
         s.setHours(4);
         s.setLocation("A101");
         sessions.add(s);
         Session s2 = new Session();
-        s2.setSession(d);
+        s2.setDateSession(d);
         s2.setHours(6);
         s2.setLocation("A102");
         sessions.add(s2);

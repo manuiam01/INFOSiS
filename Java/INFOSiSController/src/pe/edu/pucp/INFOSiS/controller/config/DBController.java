@@ -154,11 +154,6 @@ public abstract class DBController {
          return daoFactory.getCourseHDAO().queryByDate(date);
      }
      
-
-     public static ArrayList<CourseHistory> queryCourseHByDate2(Date date){
-         return daoFactory.getCourseHDAO().queryByDate2(date);
-     }
-     
      public static Student queryStudentByID(String idStudent){
          return daoFactory.getStudentDAO().queryStudentById(idStudent);
 
