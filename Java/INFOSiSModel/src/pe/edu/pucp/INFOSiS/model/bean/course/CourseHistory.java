@@ -32,7 +32,7 @@ public class CourseHistory implements Serializable{
     private Date startDate;
     private Date endDate;
     private ArrayList<Student> students;
-    private ArrayList<Integer> vouchers;
+    private ArrayList<Float> amountPaids;
     private ArrayList<Float> historyGrade;
     private ArrayList<String> historyState;
 
@@ -116,12 +116,12 @@ public class CourseHistory implements Serializable{
         this.students = students;
     }
 
-    public ArrayList<Integer> getVouchers() {
-        return vouchers;
+    public ArrayList<Float> getAmountPaids() {
+        return amountPaids;
     }
 
-    public void setVouchers(ArrayList<Integer> vouchers) {
-        this.vouchers = vouchers;
+    public void setAmountPaids(ArrayList<Float> amountPaids) {
+        this.amountPaids = amountPaids;
     }
 
     public ArrayList<Float> getHistoryGrade() {
@@ -156,5 +156,14 @@ public class CourseHistory implements Serializable{
         this.endDate = endDate;
     }
 
+    public ArrayList<Session> getSessions2() {
+        return sessions2;
+    }
+
+    public void setSessions2(ArrayList<Session> sessions2) {
+        this.sessions2 = sessions2;
+    }
+
+    
     
 }
