@@ -83,6 +83,7 @@
             this.btnCourseReport.TabIndex = 95;
             this.btnCourseReport.Text = "Reporte de Cursos";
             this.btnCourseReport.UseVisualStyleBackColor = false;
+            this.btnCourseReport.Click += new System.EventHandler(this.btnCourseReport_Click);
             // 
             // btnCourseHistoryRegister
             // 

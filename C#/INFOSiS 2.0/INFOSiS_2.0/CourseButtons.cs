@@ -102,5 +102,27 @@ namespace INFOSiS_2._0
                 CourseModify.Instance.BringToFront();
             }
         }
+
+        private void btnCourseReport_Click(object sender, EventArgs e)
+        {
+            foreach (Control item in PanelMdi.Controls.OfType<Control>())
+            {
+                PanelMdi.Controls.Remove(item);
+            }
+
+            if (!PanelMdi.Controls.Contains(CourseReport.Instance))
+            {
+                PanelMdi.Controls.Add(CourseReport.Instance);
+                CourseReport.Instance.Dock = DockStyle.Fill;
+                CourseReport.PanelMdi = PanelMdi;
+                CourseReport.Instance.Visible = true;
+                CourseReport.Instance.BringToFront();
+            }
+            else
+            {
+                CourseReport.Instance.Visible = true;
+                CourseReport.Instance.BringToFront();
+            }
+        }
     }
 }
