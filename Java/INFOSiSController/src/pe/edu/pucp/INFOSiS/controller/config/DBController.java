@@ -157,6 +157,10 @@ public abstract class DBController {
          return daoFactory.getCourseHDAO().insert(courseHistory);
      }
      
+     public static int updateCourseHistory(CourseHistory courseHistory){
+         return daoFactory.getCourseHDAO().update(courseHistory);
+     }
+     
      public static ArrayList<CourseHistory> queryCourseHByDate(Date date){
          return daoFactory.getCourseHDAO().queryByDate(date);
      }
