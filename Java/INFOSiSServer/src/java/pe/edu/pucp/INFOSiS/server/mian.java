@@ -34,68 +34,71 @@ public class mian {
 //            System.out.println(u.getUsername());
 //        }
 //
-//        Course course = DBController.queryCourseById("1023");
-//        Professor professor = DBController.searchProfessorByIdPUCP("19693103");
-//        Professor assistant = DBController.searchProfessorByIdPUCP("19794422");
-//        CourseHistory c = new CourseHistory();
-//        c.setCourse(course);
-//        c.setAssistant(assistant);
-//        c.setProfessor(professor);
-//        c.setHours(10);
-//        ArrayList<Date> dates = new ArrayList<>();
-//        Date d = new Date();
-//        dates.add(d);
-//        Date d2 = new Date();
-//        d2.setDate(30);
-//        dates.add(d2);
-//        c.setSessions(dates);
-//        ArrayList<String> locations = new ArrayList<>();
-//        locations.add("A101");
-//        locations.add("A102");
-//        c.setLocations(locations);
-//        ArrayList<Integer> hoursSession = new ArrayList<>();
-//        hoursSession.add(4);
-//        hoursSession.add(6);
-//        c.setHoursSession(hoursSession);
-//        ArrayList<Student> students = new ArrayList<>();
-//        Student s = new Student();
-//        s.setIdNumber("11111111");
-//        students.add(s);
-//        Student s2 = new Student();
-//        s2.setIdNumber("56485747");
-//        students.add(s2);
-//        c.setStudents(students);
-//        ArrayList<Float> grades = new ArrayList<>();
-//        grades.add(13.00f);
-//        grades.add(19.00f);
-//        c.setHistoryGrade(grades);
-//        ArrayList<String> states = new ArrayList<>();
-//        states.add("APROBADO");
-//        states.add("APROBADO");
-//        c.setHistoryState(states);
-//        ArrayList<Integer> amountPaids = new ArrayList<>();
-//        amountPaids.add(300);
-//        amountPaids.add(600);
-//        c.setVouchers(amountPaids);
+        Course course = DBController.queryCourseById("1023");
+        Professor professor = DBController.searchProfessorByIdPUCP("19693103");
+        Professor assistant = DBController.searchProfessorByIdPUCP("19794422");
+        CourseHistory c = new CourseHistory();
+        c.setCourse(course);
+        c.setAssistant(assistant);
+        c.setProfessor(professor);
+        c.setHours(10);
+        ArrayList<Date> dates = new ArrayList<>();
+        Date d = new Date();
+        dates.add(d);
+        Date d2 = new Date();
+        d2.setDate(30);
+        dates.add(d2);
+        ArrayList<Session> sessions = new ArrayList<>();
+        Session s = new Session();
+        s.setSession(d);
+        s.setHours(4);
+        s.setLocation("A101");
+        sessions.add(s);
+        Session s2 = new Session();
+        s2.setSession(d);
+        s2.setHours(6);
+        s2.setLocation("A102");
+        sessions.add(s2);
+        c.setSessions(sessions);
+        ArrayList<Student> students = new ArrayList<>();
+        Student stu = new Student();
+        stu.setIdNumber("11111111");
+        students.add(stu);
+        Student stu2 = new Student();
+        stu2.setIdNumber("56485747");
+        students.add(stu2);
+        c.setStudents(students);
+        ArrayList<Float> grades = new ArrayList<>();
+        grades.add(15.00f);
+        grades.add(19.00f);
+        c.setHistoryGrade(grades);
+        ArrayList<String> states = new ArrayList<>();
+        states.add("APROBADO");
+        states.add("APROBADO");
+        c.setHistoryState(states);
+        ArrayList<Float> amountPaids = new ArrayList<>();
+        amountPaids.add(300f);
+        amountPaids.add(600f);
+        c.setAmountPaids(amountPaids);
+        
+        int result = DBController.insertCourseHistory(c);
+        System.out.println(result);
 //        
-//        int result = DBController.insertCourseHistory(c);
-//        System.out.println(result);
 //        
-//        
-           Date d = new Date();          
-           d.setMonth(6);
-           ArrayList<CourseHistory> courses = DBController.queryCourseHByDate2(d);
-           for(CourseHistory c : courses){              
-               System.out.println(c.getCourse().getId() +" "+ c.getCourse().getName());
-               System.out.println("Lista de sesiones:");
-               for(Session s: c.getSessions2()){
-                   System.out.println(s.getSession().toString());                   
-               }
-               System.out.println("Alumnos:");
-               for(Student stu : c.getStudents()){
-                   System.out.println(stu.getFirstName() + " " + stu.getPrimaryLastName());
-               }
-           }
+//           Date d = new Date();          
+//           d.setMonth(6);
+//           ArrayList<CourseHistory> courses = DBController.queryCourseHByDate2(d);
+//           for(CourseHistory c : courses){              
+//               System.out.println(c.getCourse().getId() +" "+ c.getCourse().getName());
+//               System.out.println("Lista de sesiones:");
+//               for(Session s: c.getSessions()){
+//                   System.out.println(s.getSession().toString());                   
+//               }
+//               System.out.println("Alumnos:");
+//               for(Student stu : c.getStudents()){
+//                   System.out.println(stu.getFirstName() + " " + stu.getPrimaryLastName());
+//               }
+//           }
            
 //
 //          CourseType coursetype = DBController.queryCourseTypeById(6);
