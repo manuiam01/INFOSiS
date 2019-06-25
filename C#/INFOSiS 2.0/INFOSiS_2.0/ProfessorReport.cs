@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+//using System.Web.UI;
 
 namespace INFOSiS_2._0
 {
@@ -85,7 +87,9 @@ namespace INFOSiS_2._0
             if(dgvCoursesHistory.SelectedRows.Count != 0){
                 //si ha seleccionado un curso dictado
                 Server.courseHistory courseHistory= (Server.courseHistory)dgvCoursesHistory.CurrentRow.DataBoundItem;
+                server.generateCourseHistoryReport(courseHistory.id);
 
+  
             }
             else
             {

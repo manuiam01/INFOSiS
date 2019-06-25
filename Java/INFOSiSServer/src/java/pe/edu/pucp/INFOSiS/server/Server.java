@@ -210,4 +210,15 @@ public class Server {
     public ArrayList<CourseHistory> queryCourseHistoryByIdProfessor(@WebParam(name="idProfessor") String idProfessor){
         return DBController.queryCourseHByIdProfessor(idProfessor);
     }
+    
+    @WebMethod(operationName="generateCourseHistoryReport")
+    public byte[] generateCourseHistoryReport(@WebParam(name="idCourseHistory") int idCourseHistory){
+        return DBController.generateCourseHistoryReport(idCourseHistory);
+    }
+    
+    @WebMethod(operationName="saveCourseHistoryReport")
+    public int saveCourseHistoryReport(@WebParam(name="idCourseHistory") int idCourseHistory, 
+            @WebParam(name="route") String route){
+        return DBController.saveCourseHistoryReport(idCourseHistory,route);
+    }
 }

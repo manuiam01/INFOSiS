@@ -356,6 +356,9 @@
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.DisableCourseResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.generateCourseHistoryReportResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.InsertCourseResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

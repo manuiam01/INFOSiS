@@ -53,7 +53,9 @@ public abstract class DBController {
     public static ArrayList<Professor> searchProfessorByName(String name, String middle_name,
             String first_last_name, String second_last_name){
         return daoFactory.getProfessorDAO().search_by_name(name, middle_name, first_last_name, second_last_name);
-    }
+    }   
+    
+    
     //INTERN
     public static ArrayList<Intern> queryAllInterns(){
         return daoFactory.getDAOIntern().queryAll();
@@ -167,6 +169,14 @@ public abstract class DBController {
      }
      public static ArrayList<CourseHistory> queryCourseHByIdProfessor(String idProfessor){
          return daoFactory.getCourseHDAO().queryByIdProfessor(idProfessor);
+     }
+     
+     public static byte[] generateCourseHistoryReport(int id){
+         return daoFactory.getCourseHDAO().generateReport(id);
+     }
+     
+     public static int saveCourseHistoryReport(int id, String route){
+         return daoFactory.getCourseHDAO().saveReport(id, route);
      }
      
      public static int updateStudent(Student student, String birthday){

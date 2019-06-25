@@ -6,6 +6,13 @@
 package pe.edu.pucp.INFOSiS.controller.mysql;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -267,12 +274,10 @@ public class MySQLCourseHistory implements DAOCourseHistory{
             Logger.getLogger(MySQLCourseHistory.class.getName()).log(Level.SEVERE, null, ex);
         }
         JasperPrint print = new JasperPrint();
-        String sourceFileName = "../INFOSiS/src/pe/edu/pucp/infosis/reports/" + "CourseHistoryReport.jrxml";            
-        File theFile = new File(sourceFileName);
         JasperDesign jasperDesign = null;
         JasperReport jasperReport = null;
         try {
-            jasperDesign = JRXmlLoader.load(theFile);
+            jasperDesign = JRXmlLoader.load(DBManager.class.getResource("/pe/edu/pucp/INFOSiS/reports/CourseHistoryReport.jrxml").getFile());
         } catch (JRException ex) {
             Logger.getLogger(MySQLCourseHistory.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -296,8 +301,18 @@ public class MySQLCourseHistory implements DAOCourseHistory{
         }
         return pdfBytes;
     }
-    
-    
-    
-    
+
+    @Override
+    public int saveReport(int id, String route) {
+        int result = 0;
+        byte[] bArray = null;
+        try{
+            bArray = DBController.generateCourseHistoryReport(id);
+            Path path = Paths.get(route);
+            Files.write(path, bArray);
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }        
+        return result;
+    }  
 }

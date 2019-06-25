@@ -166,7 +166,7 @@ public class mian {
         MySQLCourseHistory msql = new MySQLCourseHistory();        
         byte[] bArray = null;
         bArray = msql.generateReport(20);
-        Path path = Paths.get("D:\\myfile.pdf");
+        Path path = Paths.get("D:\\Users\\alulab14\\Documents\\pdftest.pdf");
         Files.write(path, bArray);
     }  
 }

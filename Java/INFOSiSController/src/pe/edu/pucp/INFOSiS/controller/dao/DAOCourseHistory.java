@@ -19,4 +19,5 @@ public interface DAOCourseHistory {
     ArrayList<CourseHistory> queryByDate(Date datecourse);
     ArrayList<CourseHistory> queryByIdProfessor(String idProfessor);
     byte[] generateReport(int id);
+    int saveReport(int id, String route);
 }
