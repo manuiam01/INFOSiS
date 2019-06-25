@@ -5,7 +5,15 @@
  */
 package pe.edu.pucp.INFOSiS.controller.mysql;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -22,12 +30,15 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JRExporterParameter;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.export.JRPdfExporter;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import pe.edu.pucp.INFOSiS.controller.config.DBController;
 import pe.edu.pucp.INFOSiS.controller.config.DBManager;
@@ -99,11 +110,14 @@ public class MySQLCourseHistory implements DAOCourseHistory{
     }
     @Override
     public int update (CourseHistory courseHistory){
+          
         int result = 0;
         try{
             DBManager dbManager = DBManager.getdbManager();
             Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
+            
             CallableStatement cs = con.prepareCall("{call UPDATE_COURSEH(?,?,?,?,?,?,?,?)}");
+            
             cs.setInt(1,courseHistory.getId());
             cs.setString(2,courseHistory.getCourse().getId());
             cs.setString(3,courseHistory.getProfessor().getIdPUCP());
@@ -111,20 +125,24 @@ public class MySQLCourseHistory implements DAOCourseHistory{
             cs.setInt(5, courseHistory.getHours());
             SimpleDateFormat formatIni = new SimpleDateFormat("yyyy-MM-dd");
             ArrayList<Date> dateSession = new ArrayList<>();
+            
             for(Session s: courseHistory.getSessions()){
                 dateSession.add(s.getDateSession());
             }     
             Date start = Collections.min(dateSession);
+            
             cs.setString(6, formatIni.format(start));
             Date end = Collections.max(dateSession);
             cs.setString(7,formatIni.format(end));
             cs.setBytes(8, courseHistory.getSurvey());
-            result = cs.executeUpdate();                
+            result = cs.executeUpdate();    
+          
             cs = con.prepareCall("{call DISABLE_SESSIONS_BY_COURSEH(?)}");           
             cs.setInt(1, courseHistory.getId());
             result = cs.executeUpdate();
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             ResultSet rs;
+           
             for(Session s: courseHistory.getSessions()){  
                 
                 cs = con.prepareCall("{call SESSION_BY_ID(?)}");
@@ -133,8 +151,13 @@ public class MySQLCourseHistory implements DAOCourseHistory{
                
                 if(rs.next()){
                    
-                    cs = con.prepareCall("{call ENABLE_SESSION(?)}");
-                    cs.setInt(1, s.getId());     
+                    cs = con.prepareCall("{call UPDATE_SESSION(?,?,?,?,?,?)}");
+                    cs.setInt(1, s.getId()); 
+                    cs.setInt(2,courseHistory.getId());
+                    cs.setString(3,format.format(s.getDateSession()));
+                    cs.setInt(4, s.getHours());
+                    cs.setString(5, s.getLocation());
+                    cs.setBoolean(6, true);
                     result = cs.executeUpdate();
                 }
                 else{
@@ -160,8 +183,14 @@ public class MySQLCourseHistory implements DAOCourseHistory{
                 cs.setInt(2, courseHistory.getId());
                 rs = cs.executeQuery();
                 if(rs.next()){
-                    cs = con.prepareCall("{call ENABLE_STUDENTH(?)}");
+                    cs = con.prepareCall("{call UPDATE_STUDENTH(?,?,?,?,?,?,?)}");
                     cs.setInt(1, rs.getInt(1));
+                    cs.setString(2,students.get(i).getIdNumber());
+                    cs.setInt(3, courseHistory.getId());
+                    cs.setFloat(4,courseHistory.getHistoryGrade().get(i));
+                    cs.setString(5,courseHistory.getHistoryState().get(i));
+                    cs.setFloat(6,courseHistory.getAmountPaids().get(i));
+                    cs.setBoolean(7, true);
                     result = cs.executeUpdate();
                 }
                 else{
@@ -204,19 +233,7 @@ public class MySQLCourseHistory implements DAOCourseHistory{
                 c.setStartDate(rs.getDate(6));
                 c.setEndDate(rs.getDate(7)); 
                 c.setSurvey(rs.getBytes(8));
-                ArrayList<Session> sessions = new ArrayList<>();
-                cs = con.prepareCall("{call SEARCH_SESSIONS_BY_COURSEH(?)}");
-                cs.setInt(1, c.getId());
-                ResultSet rs2 = cs.executeQuery();
-                while(rs2.next()){
-                    Session s = new Session();
-                    s.setId(rs2.getInt(1));
-                    s.setDateSession(rs2.getTimestamp(3));
-                    s.setHours(rs2.getInt(4));
-                    s.setLocation(rs.getString(5));
-                    s.setIsActive(rs2.getBoolean(6));
-                    sessions.add(s);
-                }
+                ArrayList<Session> sessions = DBController.querySessionByCourseH(c.getId());               
                 c.setSessions(sessions);
 
                 ArrayList<Student> students = new ArrayList<>();
@@ -226,7 +243,7 @@ public class MySQLCourseHistory implements DAOCourseHistory{
 
                 cs = con.prepareCall("{call SEARCH_STUDENTH_BY_COURSEH(?)}");
                 cs.setInt(1, c.getId());
-                rs2 = cs.executeQuery();
+                ResultSet rs2 = cs.executeQuery();
                  while(rs2.next()){
                     Student s = new Student();
                     s.setId(rs2.getInt(2));
@@ -273,19 +290,7 @@ public class MySQLCourseHistory implements DAOCourseHistory{
                 c.setStartDate(rs.getDate(6));
                 c.setEndDate(rs.getDate(7)); 
                 c.setSurvey(rs.getBytes(8));
-                ArrayList<Session> sessions = new ArrayList<>();
-                cs = con.prepareCall("{call SEARCH_SESSIONS_BY_COURSEH(?)}");
-                cs.setInt(1, c.getId());
-                ResultSet rs2 = cs.executeQuery();
-                while(rs2.next()){
-                    Session s = new Session();
-                    s.setId(rs2.getInt(1));
-                    s.setDateSession(rs2.getTimestamp(3));
-                    s.setHours(rs2.getInt(4));
-                    s.setLocation(rs.getString(5));
-                    s.setIsActive(rs2.getBoolean(6));
-                    sessions.add(s);
-                }
+                ArrayList<Session> sessions = DBController.querySessionByCourseH(c.getId());               
                 c.setSessions(sessions);
 
                 ArrayList<Student> students = new ArrayList<>();
@@ -295,7 +300,7 @@ public class MySQLCourseHistory implements DAOCourseHistory{
 
                 cs = con.prepareCall("{call SEARCH_STUDENTH_BY_COURSEH(?)}");
                 cs.setInt(1, c.getId());
-                rs2 = cs.executeQuery();
+                ResultSet rs2 = cs.executeQuery();
                  while(rs2.next()){
                     Student s = new Student();
                     s.setId(rs2.getInt(2));
@@ -323,40 +328,68 @@ public class MySQLCourseHistory implements DAOCourseHistory{
     public byte[] generateReport(int id) {
         DBManager dbManager = DBManager.getdbManager();
         Connection con = null;
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         try {
             con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
         } catch (SQLException ex) {
             Logger.getLogger(MySQLCourseHistory.class.getName()).log(Level.SEVERE, null, ex);
         }
-        JasperPrint print = new JasperPrint();
-        String sourceFileName = "../INFOSiS/src/pe/edu/pucp/infosis/reports/" + "CourseHistoryReport.jrxml";            
-        File theFile = new File(sourceFileName);
-        JasperDesign jasperDesign = null;
-        JasperReport jasperReport = null;
-        try {
-            jasperDesign = JRXmlLoader.load(theFile);
-        } catch (JRException ex) {
-            Logger.getLogger(MySQLCourseHistory.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        try {
-            jasperReport = JasperCompileManager.compileReport(jasperDesign);
-        } catch (JRException ex) {
-            Logger.getLogger(MySQLCourseHistory.class.getName()).log(Level.SEVERE, null, ex);
-        }
         Map parameters = new HashMap();
         parameters.put("ID_COURSE_HISTORY",id);
+        JRPdfExporter exporter = new JRPdfExporter();
         try {
-            print = JasperFillManager.fillReport(jasperReport, parameters, con);
-        } catch (JRException ex) {
-            Logger.getLogger(MySQLCourseHistory.class.getName()).log(Level.SEVERE, null, ex);
+            String reportLocation = "/pe/edu/pucp/INFOSiS/reports/CourseHistoryReport.jrxml";
+            JasperReport jasperReport = JasperCompileManager.compileReport(reportLocation);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport,parameters,con);
+            exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);   
+            exporter.setParameter(JRExporterParameter.OUTPUT_STREAM, outputStream);
+            exporter.exportReport();
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Error in generate Report..."+e);
+        } finally {
         }
-        byte[] pdfBytes = null;
-        try {
-            pdfBytes = JasperExportManager.exportReportToPdf(print);
-        } catch (JRException ex) {
-            Logger.getLogger(MySQLCourseHistory.class.getName()).log(Level.SEVERE, null, ex);
+        return outputStream.toByteArray();
+    }
+
+    @Override
+    public int saveReport(int id, String route) {
+        int result = 0;
+        byte[] bArray = null;
+        try{
+            bArray = DBController.generateCourseHistoryReport(id);
+            Path path = Paths.get(route);
+            Files.write(path, bArray);
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }        
+        return result;
+    }  
+
+    @Override
+    public ArrayList<Session> querySessionByCourseH(int idCourseHistory) {
+        ArrayList<Session> sessions = new ArrayList<>();     
+        try{
+            DBManager dbManager = DBManager.getdbManager();
+            Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
+            CallableStatement cs = con.prepareCall("{call SEARCH_SESSIONS_BY_COURSEH(?)}");
+            cs.setInt(1, idCourseHistory);
+            ResultSet rs2 = cs.executeQuery();
+            while(rs2.next()){
+                Session s = new Session();
+                s.setId(rs2.getInt(1));
+                s.setDateSession(rs2.getTimestamp(3));
+                s.setHours(rs2.getInt(4));
+                s.setLocation(rs2.getString(5));
+                s.setIsActive(rs2.getBoolean(6));
+                if(s.isIsActive()) sessions.add(s);
+            }           
+            con.close();
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
         }
-        return pdfBytes;
+        
+        return sessions;
     }
     
     @Override
@@ -396,6 +429,4 @@ public class MySQLCourseHistory implements DAOCourseHistory{
         }
         return lSesiones;
     }
-    
-    
 }

@@ -212,8 +212,20 @@ public class Server {
         return DBController.queryCourseHByIdProfessor(idProfessor);
     }
     
+
     @WebMethod(operationName="querySessionsByDate")
     public ArrayList<CalendarSession> queryCalendarSessionByBeginDate(@WebParam(name="date")String date){
         return DBController.queryCalendarSessionByBeginDate(date);
+    }
+    
+    @WebMethod(operationName="generateCourseHistoryReport")
+    public byte[] generateCourseHistoryReport(@WebParam(name="idCourseHistory") int idCourseHistory){
+        return DBController.generateCourseHistoryReport(idCourseHistory);
+    }
+    
+    @WebMethod(operationName="saveCourseHistoryReport")
+    public int saveCourseHistoryReport(@WebParam(name="idCourseHistory") int idCourseHistory, 
+            @WebParam(name="route") String route){
+        return DBController.saveCourseHistoryReport(idCourseHistory,route);
     }
 }

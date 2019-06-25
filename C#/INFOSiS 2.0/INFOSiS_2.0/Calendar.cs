@@ -78,30 +78,16 @@ namespace INFOSiS_2._0
 
         internal void limpiar_calendario()
         {
-            foreach (Control item in this.Controls.OfType<Control>())
+            for(int i=0; i<5; i++)
             {
-                this.Controls.Remove(item);
-            }
 
-            foreach (Control item in this.Controls.OfType<Control>())
-            {
-                this.Controls.Remove(item);
-            }
+                foreach (Control item in this.Controls.OfType<Control>())
+                {
+                    this.Controls.Remove(item);
+                }
 
-            foreach (Control item in this.Controls.OfType<Control>())
-            {
-                this.Controls.Remove(item);
             }
-
-            foreach (Control item in this.Controls.OfType<Control>())
-            {
-                this.Controls.Remove(item);
-            }
-
-            foreach (Control item in this.Controls.OfType<Control>())
-            {
-                this.Controls.Remove(item);
-            }
+            
 
         }
     }

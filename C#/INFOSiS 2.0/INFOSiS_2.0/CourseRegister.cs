@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace INFOSiS_2._0
 {
@@ -70,6 +71,8 @@ namespace INFOSiS_2._0
                 s.name = txtName.Text;
                 s.description = txtDescription.Text;
                 s.courseType = (Server.courseType)cmbCourseType.SelectedItem;
+                byte[] syllabus = File.ReadAllBytes(silabo);
+                s.syllabus = syllabus;
                 int result = server.InsertCourse(s);
                 if (result == 1)
                 {

@@ -14,6 +14,7 @@ import pe.edu.pucp.INFOSiS.model.bean.course.CalendarSession;
 import pe.edu.pucp.INFOSiS.model.bean.course.Course;
 import pe.edu.pucp.INFOSiS.model.bean.course.CourseHistory;
 import pe.edu.pucp.INFOSiS.model.bean.course.CourseType;
+import pe.edu.pucp.INFOSiS.model.bean.course.Session;
 import pe.edu.pucp.INFOSiS.model.bean.interested.Interested;
 import pe.edu.pucp.INFOSiS.model.bean.professor.Professor;
 import pe.edu.pucp.INFOSiS.model.bean.student.Student;
@@ -54,7 +55,9 @@ public abstract class DBController {
     public static ArrayList<Professor> searchProfessorByName(String name, String middle_name,
             String first_last_name, String second_last_name){
         return daoFactory.getProfessorDAO().search_by_name(name, middle_name, first_last_name, second_last_name);
-    }
+    }   
+    
+    
     //INTERN
     public static ArrayList<Intern> queryAllInterns(){
         return daoFactory.getDAOIntern().queryAll();
@@ -174,6 +177,14 @@ public abstract class DBController {
          return daoFactory.getCourseHDAO().queryByIdProfessor(idProfessor);
      }
      
+     public static byte[] generateCourseHistoryReport(int id){
+         return daoFactory.getCourseHDAO().generateReport(id);
+     }
+     
+     public static int saveCourseHistoryReport(int id, String route){
+         return daoFactory.getCourseHDAO().saveReport(id, route);
+     }
+     
      public static int updateStudent(Student student, String birthday){
          return daoFactory.getStudentDAO().updateStudent(student, birthday);
      }
@@ -181,4 +192,8 @@ public abstract class DBController {
      public static ArrayList<CalendarSession> queryCalendarSessionByBeginDate(String date){
          return daoFactory.getCourseHDAO().queryCalendarSessionByBeginDate(date);
      }
+     
+     public static ArrayList<Session> querySessionByCourseH(int idCourseHistory){
+         return daoFactory.getCourseHDAO().querySessionByCourseH(idCourseHistory);
+    }
 }

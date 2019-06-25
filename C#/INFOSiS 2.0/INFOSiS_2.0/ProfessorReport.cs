@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+//using System.Web.UI;
 
 namespace INFOSiS_2._0
 {
@@ -46,7 +48,7 @@ namespace INFOSiS_2._0
             professor = server.SearchProfessorByIdPUCP(txtPUCPcode.Text);
             if (professor.idPUCP != null)
             {
-                dgvCoursesHistory.AutoGenerateColumns = false;                
+                dgvCoursesHistory.AutoGenerateColumns = false;
                 dgvCoursesHistory.DataSource = server.queryCourseHistoryByIdProfessor(professor.idPUCP);
                 btnReport.Enabled = true;
             }
@@ -85,7 +87,8 @@ namespace INFOSiS_2._0
             if(dgvCoursesHistory.SelectedRows.Count != 0){
                 //si ha seleccionado un curso dictado
                 Server.courseHistory courseHistory= (Server.courseHistory)dgvCoursesHistory.CurrentRow.DataBoundItem;
-
+                server.generateCourseHistoryReport(courseHistory.id);
+                server.saveCourseHistoryReport(courseHistory.id, "D:/Users/alulab14/Documents");  
             }
             else
             {
