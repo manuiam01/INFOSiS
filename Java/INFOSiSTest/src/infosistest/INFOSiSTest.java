@@ -58,6 +58,11 @@ public class INFOSiSTest {
 //        MySQLCourse mysqlcourse = new MySQLCourse();
 //        Course course = mysqlcourse.queryById("1023");
 //        System.out.println(course.getName());
+       MySQLInterested mysql = new MySQLInterested();
+       ArrayList<Interested> inte = mysql.search_by_name("Ga", "", "", "");
+       for(Interested i : inte){
+           System.out.println(i.getCourses().get(0).getName());
+       }
     }
     
 }
