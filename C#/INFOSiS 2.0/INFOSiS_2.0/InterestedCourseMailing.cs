@@ -37,7 +37,7 @@ namespace INFOSiS_2._0
             //{
             //    table.Rows.Add(c.course.name, c.sessions[0],c.sessions[1], c.hours);
             //}
-            courseH = new BindingList<Server.courseHistory>(servidor.queryCourseHByDate2(coursedate));
+            courseH = new BindingList<Server.courseHistory>(servidor.queryCourseHByDate(coursedate));
             foreach (Server.courseHistory c in courseH)
             {
                 table.Rows.Add(c.course.name, c.startDate, c.endDate, c.hours);

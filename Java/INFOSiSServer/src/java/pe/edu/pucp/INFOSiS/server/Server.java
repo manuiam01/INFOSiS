@@ -182,12 +182,7 @@ public class Server {
     @WebMethod(operationName="queryCourseHByDate")
     public ArrayList<CourseHistory> QueryCourseHByDate(@WebParam(name="date") Date date){
         return DBController.queryCourseHByDate(date);
-    }
-    
-    @WebMethod(operationName="queryCourseHByDate2")
-    public ArrayList<CourseHistory> QueryCourseHByDate2(@WebParam(name="date") Date date){
-        return DBController.queryCourseHByDate2(date);
-    }
+    }       
     
     @WebMethod(operationName="queryStudentById")
     public Student queryStudentById(@WebParam(name="idStudent") String idStudent){

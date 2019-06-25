@@ -392,9 +392,6 @@
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.queryCourseByIdResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\Server\INFOSiS_2._0.Server.queryCourseHByDate2Response.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.queryCourseHByDateResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
