@@ -33,7 +33,7 @@ public class MySQLCourseHistory implements DAOCourseHistory{
         try{
             DBManager dbManager = DBManager.getdbManager();
             Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
-            CallableStatement cs = con.prepareCall("{call INSERT_COURSEH(?,?,?,?,?,?,?)}");
+            CallableStatement cs = con.prepareCall("{call INSERT_COURSEH(?,?,?,?,?,?,?,?)}");
             cs.setString(2,courseHistory.getCourse().getId());
             cs.setString(3,courseHistory.getProfessor().getIdPUCP());
             cs.setString(4,courseHistory.getAssistant().getIdPUCP());   
@@ -85,7 +85,7 @@ public class MySQLCourseHistory implements DAOCourseHistory{
         try{
             DBManager dbManager = DBManager.getdbManager();
             Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
-            CallableStatement cs = con.prepareCall("{call UPDATE_COURSEH(?,?,?,?,?,?,?)}");
+            CallableStatement cs = con.prepareCall("{call UPDATE_COURSEH(?,?,?,?,?,?,?,?)}");
             cs.setInt(1,courseHistory.getId());
             cs.setString(2,courseHistory.getCourse().getId());
             cs.setString(3,courseHistory.getProfessor().getIdPUCP());
