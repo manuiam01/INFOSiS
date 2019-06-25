@@ -156,6 +156,10 @@ public abstract class DBController {
      
      public static Student queryStudentByID(String idStudent){
          return daoFactory.getStudentDAO().queryStudentById(idStudent);
+
+     }
+     public static ArrayList<CourseHistory> queryCourseHByIdProfessor(String idProfessor){
+         return daoFactory.getCourseHDAO().queryByIdProfessor(idProfessor);
      }
      
      public static int updateStudent(Student student, String birthday){

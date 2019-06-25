@@ -183,7 +183,7 @@ public class Server {
     @WebMethod(operationName="queryCourseHByDate")
     public ArrayList<CourseHistory> QueryCourseHByDate(@WebParam(name="date") Date date){
         return DBController.queryCourseHByDate(date);
-    }
+    }       
     
     @WebMethod(operationName="updateStudent")
     public int updateStudent(@WebParam(name="student") Student student, 

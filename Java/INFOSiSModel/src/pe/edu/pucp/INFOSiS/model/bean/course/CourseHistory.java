@@ -19,16 +19,13 @@ public class CourseHistory implements Serializable{
     public CourseHistory() {
     }
 
-    private int id;
-    private ArrayList<Date> sessions;
-    private ArrayList<String> locations;
-    private ArrayList<Integer> hoursSession;
-    private ArrayList<Session> sessions2;
+    private int id;    
+    private ArrayList<Session> sessions;
     private Course course;
     private Professor professor;
     private Professor assistant;
     private int hours;
-    private File survey;
+    private byte[] survey;
     private Date startDate;
     private Date endDate;
     private ArrayList<Student> students;
@@ -42,30 +39,6 @@ public class CourseHistory implements Serializable{
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public ArrayList<Date> getSessions() {
-        return sessions;
-    }
-
-    public void setSessions(ArrayList<Date> sessions) {
-        this.sessions = sessions;
-    }
-
-    public ArrayList<String> getLocations() {
-        return locations;
-    }
-
-    public void setLocations(ArrayList<String> locations) {
-        this.locations = locations;
-    }
-
-    public ArrayList<Integer> getHoursSession() {
-        return hoursSession;
-    }
-
-    public void setHoursSession(ArrayList<Integer> hoursSession) {
-        this.hoursSession = hoursSession;
     }
 
     public Course getCourse() {
@@ -100,13 +73,15 @@ public class CourseHistory implements Serializable{
         this.hours = hours;
     }
 
-    public File getSurvey() {
+    public byte[] getSurvey() {
         return survey;
     }
 
-    public void setSurvey(File survey) {
+    public void setSurvey(byte[] survey) {
         this.survey = survey;
     }
+
+    
 
     public ArrayList<Student> getStudents() {
         return students;
@@ -156,14 +131,12 @@ public class CourseHistory implements Serializable{
         this.endDate = endDate;
     }
 
-    public ArrayList<Session> getSessions2() {
-        return sessions2;
+    public ArrayList<Session> getSessions() {
+        return sessions;
     }
 
-    public void setSessions2(ArrayList<Session> sessions2) {
-        this.sessions2 = sessions2;
+    public void setSessions(ArrayList<Session> sessions) {
+        this.sessions = sessions;
     }
 
-    
-    
 }

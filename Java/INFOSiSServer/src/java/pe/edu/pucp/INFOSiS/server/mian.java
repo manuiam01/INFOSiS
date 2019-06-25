@@ -16,6 +16,7 @@ import pe.edu.pucp.INFOSiS.model.bean.HR.Intern;
 import pe.edu.pucp.INFOSiS.model.bean.course.Course;
 import pe.edu.pucp.INFOSiS.model.bean.course.CourseHistory;
 import pe.edu.pucp.INFOSiS.model.bean.course.CourseType;
+import pe.edu.pucp.INFOSiS.model.bean.course.Session;
 import pe.edu.pucp.INFOSiS.model.bean.professor.Professor;
 import pe.edu.pucp.INFOSiS.model.bean.student.Student;
 import pe.edu.pucp.INFOSiS.model.bean.user.User;
@@ -33,7 +34,7 @@ public class mian {
 //            System.out.println(u.getUsername());
 //        }
 //
-//        Course course = DBController.queryCourseById("1023");
+//        Course course = DBController.queryCourseById("VBA002");
 //        Professor professor = DBController.searchProfessorByIdPUCP("19693103");
 //        Professor assistant = DBController.searchProfessorByIdPUCP("19794422");
 //        CourseHistory c = new CourseHistory();
@@ -47,43 +48,49 @@ public class mian {
 //        Date d2 = new Date();
 //        d2.setDate(30);
 //        dates.add(d2);
-//        c.setSessions(dates);
-//        ArrayList<String> locations = new ArrayList<>();
-//        locations.add("A101");
-//        locations.add("A102");
-//        c.setLocations(locations);
-//        ArrayList<Integer> hoursSession = new ArrayList<>();
-//        hoursSession.add(4);
-//        hoursSession.add(6);
-//        c.setHoursSession(hoursSession);
+//        ArrayList<Session> sessions = new ArrayList<>();
+//        Session s = new Session();
+//        s.setDateSession(d);
+//        s.setHours(4);
+//        s.setLocation("A101");
+//        sessions.add(s);
+//        Session s2 = new Session();
+//        s2.setDateSession(d);
+//        s2.setHours(6);
+//        s2.setLocation("A102");
+//        sessions.add(s2);
+//        c.setSessions(sessions);
 //        ArrayList<Student> students = new ArrayList<>();
-//        Student s = new Student();
-//        s.setIdNumber("11111111");
-//        students.add(s);
-//        Student s2 = new Student();
-//        s2.setIdNumber("56485747");
-//        students.add(s2);
+//        Student stu = new Student();
+//        stu.setIdNumber("11111111");
+//        students.add(stu);
+//        Student stu2 = new Student();
+//        stu2.setIdNumber("56485747");
+//        students.add(stu2);
 //        c.setStudents(students);
 //        ArrayList<Float> grades = new ArrayList<>();
-//        grades.add(13.00f);
+//        grades.add(15.00f);
 //        grades.add(19.00f);
 //        c.setHistoryGrade(grades);
 //        ArrayList<String> states = new ArrayList<>();
 //        states.add("APROBADO");
 //        states.add("APROBADO");
 //        c.setHistoryState(states);
-//        ArrayList<Integer> amountPaids = new ArrayList<>();
-//        amountPaids.add(300);
-//        amountPaids.add(600);
-//        c.setVouchers(amountPaids);
+//        ArrayList<Float> amountPaids = new ArrayList<>();
+//        amountPaids.add(300f);
+//        amountPaids.add(600f);
+//        c.setAmountPaids(amountPaids);
 //        
 //        int result = DBController.insertCourseHistory(c);
 //        System.out.println(result);
 //        
 //        
-//        
-//        
-//            ArrayList<CourseHistory> courses = DBController.queryCourseHByDate("24-07-05");
+           
+           ArrayList<CourseHistory> courses = DBController.queryCourseHByIdProfessor("19693103");
+           for(CourseHistory c : courses){              
+               System.out.println(c.getCourse().getId() +" "+ c.getCourse().getName());             
+           }
+           
 //
 //          CourseType coursetype = DBController.queryCourseTypeById(6);
 //          Course c = new Course();
