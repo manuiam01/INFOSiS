@@ -152,8 +152,10 @@ public class MySQLCourseHistory implements DAOCourseHistory{
             DBManager dbManager = DBManager.getdbManager();
             Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
             CallableStatement cs = con.prepareCall("{call COURSEH_BY_DATE(?)}");
-            cs.setDate(1,new java.sql.Date(datecourse.getDate()));
+            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            cs.setString(1,format.format(datecourse));
             ResultSet rs = cs.executeQuery();
+            System.out.println(datecourse.toString());
             while(rs.next()){
                 CourseHistory c = new CourseHistory();
                 c.setId(rs.getInt("idCourseHistory"));
@@ -162,8 +164,9 @@ public class MySQLCourseHistory implements DAOCourseHistory{
                 c.setAssistant(DBController.searchProfessorByIdPUCP(rs.getString(4)));
                 c.setHours(rs.getInt(5));
                 c.setStartDate(rs.getDate(6));
-                c.setEndDate(rs.getDate(7));                
-                if(c.getStartDate().after(datecourse)){
+                c.setEndDate(rs.getDate(7));  
+                System.out.println(c.getCourse().getId() +  " " + c.getCourse().getName());                
+                
                     ArrayList<Session> sessions = new ArrayList<>();
                     cs = con.prepareCall("{call SEARCH_SESSIONS_BY_COURSEH(?)}");
                     cs.setInt(1, c.getId());
@@ -196,14 +199,15 @@ public class MySQLCourseHistory implements DAOCourseHistory{
                     }
                      c.setStudents(students);
                      c.setHistoryGrade(grades);
-                     c.setHistoryState(states);                                    
-                }
+                     c.setHistoryState(states); 
+                     c.setAmountPaids(amountPaids);
+                     courses.add(c);
+               
             }            
             con.close();
         }catch(Exception ex){
             System.out.println(ex.getMessage());
-        }
-        
+        }       
         return courses;
     }
 }
