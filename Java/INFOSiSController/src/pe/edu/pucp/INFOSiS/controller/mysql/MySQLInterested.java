@@ -357,24 +357,23 @@ public class MySQLInterested implements DAOInterested {
             ResultSet rs = cs.executeQuery();
             while(rs.next()){
                 Interested interested = new Interested();
-                interested.set(rs.getString(1));
-                interested.setIdNumber(rs.getString(2));
-                interested.setIdType(rs.getInt(3));
-                interested.setEmailPUCP(rs.getString(4));
-                interested.setFirstName(rs.getString(6));
-                interested.setMiddleName(rs.getString(7));
-                interested.setPrimaryLastName(rs.getString(8));
-                interested.setSecondLastName(rs.getString(9));
-                interested.setGender(rs.getString(10));
-                interested.setEmail(rs.getString(11));
-                interested.setCellPhoneNumber(rs.getString(12));
-                interested.setIsActive(rs.getBoolean(13));
-                interesteds.add(interested);
+                interested.setIdNumber(rs.getString("idNumber"));
+                interested.setIdType(rs.getInt("idNumberType"));
+                interested.setFirstName(rs.getString("firstName"));
+                interested.setMiddleName(rs.getString("middleName"));
+                interested.setPrimaryLastName(rs.getString("primaryLastName"));
+                interested.setSecondLastName(rs.getString("secondLastName"));
+                interested.setGender(rs.getString("gender"));
+                interested.setEmail(rs.getString("email"));
+                interested.setCellPhoneNumber(rs.getString("cellPhoneNumber"));
+                interested.setIsUnsubscribed(rs.getBoolean("isUnsuscribed"));
+                if(!interested.isIsUnsubscribed())
+                    interesteds.add(interested);
             }            
             con.close();
         }catch(SQLException ex){
             System.out.println(ex.getMessage());
         }        
-        return professors;
+        return interesteds;
     }
 }
