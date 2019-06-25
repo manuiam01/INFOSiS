@@ -72,7 +72,7 @@ public class MySQLInterested implements DAOInterested {
             DBManager dbManager = DBManager.getdbManager();
             Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
             //Cambio sus datos del interesado
-            CallableStatement cs = con.prepareCall("{call UPDATE_INTERESTED(?,?,?,?,?,?,?)}");
+            CallableStatement cs = con.prepareCall("{call UPDATE_INTERESTED(?,?,?,?,?,?,?,?)}");
             cs.setString(1,interested.getFirstName());
             cs.setString(2,interested.getPrimaryLastName());
             cs.setString(3,interested.getMiddleName());
@@ -80,6 +80,7 @@ public class MySQLInterested implements DAOInterested {
             cs.setString(5,interested.getEmail());
             cs.setString(6,interested.getCellPhoneNumber());
             cs.setString(7,interested.getIdNumber());
+            cs.setBoolean(8, interested.isIsUnsubscribed());
             result = cs.executeUpdate();
             cs.close();
             //Borro su lista de cursos interesados antiguos
@@ -164,9 +165,9 @@ public class MySQLInterested implements DAOInterested {
                         crs.setName(rs3.getString("name"));
                         courses.add(crs);
                     }
-                    ps.close();
                     rs3.close();
                 }
+                ps.close();
                 rs2.close();
                 inte.setCourses(courses);
                 interested.add(inte);
@@ -284,8 +285,10 @@ public class MySQLInterested implements DAOInterested {
                     inte.setCourses(courses);
                     for(Course c : courses){
                         if(c.getId().equals(idcourse)){
-                            interested.add(inte);
-                            break;
+                            if(!inte.isIsUnsubscribed()){
+                                interested.add(inte);
+                                break;
+                            }
                         }
                     }
                     ps.close();
@@ -389,9 +392,7 @@ public class MySQLInterested implements DAOInterested {
                     rs3.close();
                 }
                 interested.setCourses(courses);
-                
-                if(!interested.isIsUnsubscribed())
-                    interesteds.add(interested);
+                interesteds.add(interested);
             }            
             con.close();
         }catch(SQLException ex){

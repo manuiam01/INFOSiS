@@ -59,10 +59,15 @@ public class INFOSiSTest {
 //        Course course = mysqlcourse.queryById("1023");
 //        System.out.println(course.getName());
        MySQLInterested mysql = new MySQLInterested();
-       ArrayList<Interested> inte = mysql.search_by_name("Ga", "", "", "");
+       ArrayList<Interested> inte = mysql.queryAllInterested();
        for(Interested i : inte){
-           System.out.println(i.getCourses().get(0).getName());
+           if(i.isIsUnsubscribed())
+               System.out.println(i.getFirstName());
        }
+//       ArrayList<Interested> inte = mysql.search_by_name("Ga", "", "", "");
+//       for(Interested i : inte){
+//           System.out.println(i.getCourses().get(0).getName());
+//       }
     }
     
 }

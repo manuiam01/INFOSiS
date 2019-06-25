@@ -12,6 +12,7 @@ import java.io.OutputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import pe.edu.pucp.INFOSiS.controller.config.DBController;
@@ -39,10 +40,12 @@ public class mian {
 //            System.out.println(u.getUsername());
 //        }
 //
+
 //        Course course = DBController.queryCourseById("VBA002");
-//        Professor professor = DBController.searchProfessorByIdPUCP("19693103");
+//        Professor professor = DBController.searchProfessorByIdPUCP("20012323");
 //        Professor assistant = DBController.searchProfessorByIdPUCP("19794422");
 //        CourseHistory c = new CourseHistory();
+//        c.setId(20);
 //        c.setCourse(course);
 //        c.setAssistant(assistant);
 //        c.setProfessor(professor);
@@ -87,7 +90,7 @@ public class mian {
 //       
 //        c.setAmountPaids(amountPaids);
 //        try{
-//            File file = new File("T:\\Temp\\archivo.csv");
+//            File file = new File("C:\\Users\\Ivette\\Desktop\\2019-1\\finalFinal\\archivo.pdf");
 //            byte[] survey = Files.readAllBytes(file.toPath());
 //            c.setSurvey(survey);
 //        }
@@ -95,24 +98,18 @@ public class mian {
 //            System.out.println(ex.getMessage());
 //        }
 //   
-//        int result = DBController.insertCourseHistory(c);
+//        int result = DBController.updateCourseHistory(c);
 //        System.out.println(result);
-//        
+        
 //        
            
-//           ArrayList<CourseHistory> courses = DBController.queryCourseHByIdProfessor("20142604");
-//           for(CourseHistory c : courses){              
-//               System.out.println(c.getCourse().getId() +" "+ c.getCourse().getName()); 
-//                try{
-//                    File file = new File("T:\\\\Temp\\\\archivo2.csv");
-//                    OutputStream os = new FileOutputStream(file);
-//                    os.write(c.getSurvey());
-//                    os.close();
-//                }
-//                catch(Exception ex){
-//                    System.out.println(ex.getMessage());
-//                }
-//           }
+           ArrayList<CourseHistory> courses = DBController.queryCourseHByIdProfessor("20155555");
+           for(CourseHistory c : courses){              
+                for(Session s : c.getSessions()){
+                    SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                    System.out.println(format.format(s.getDateSession()));
+                }
+           }
            
 //
 //          CourseType coursetype = DBController.queryCourseTypeById(6);

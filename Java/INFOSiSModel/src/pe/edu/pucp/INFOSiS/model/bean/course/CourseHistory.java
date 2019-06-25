@@ -17,6 +17,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class CourseHistory implements Serializable{
     
     public CourseHistory() {
+        id = 0;
     }
 
     private int id;    

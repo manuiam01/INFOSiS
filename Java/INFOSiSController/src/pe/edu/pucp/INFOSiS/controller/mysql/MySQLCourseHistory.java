@@ -75,23 +75,25 @@ public class MySQLCourseHistory implements DAOCourseHistory{
             courseHistory.setId(id);  
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             for(Session s: courseHistory.getSessions()){
-                cs = con.prepareCall("{call INSERT_SESSION(?,?,?,?,?)}");
+                cs = con.prepareCall("{call INSERT_SESSION(?,?,?,?,?,?)}");
                 cs.setInt(1, id);
                 cs.setString(2,format.format(s.getDateSession()));              
                 cs.setInt(3,s.getHours());
                 cs.setString(4,s.getLocation());
-                cs.registerOutParameter(5, java.sql.Types.INTEGER);
+                cs.setBoolean(5, true);
+                cs.registerOutParameter(6, java.sql.Types.INTEGER);
                 result = cs.executeUpdate();
-                s.setId(cs.getInt(5));
+                s.setId(cs.getInt(6));
             }           
             ArrayList<Student> students = courseHistory.getStudents();
             for(int i = 0; i < students.size();i++){                
-                cs = con.prepareCall("{call INSERT_STUDENTHISTORY(?,?,?,?,?)}");
+                cs = con.prepareCall("{call INSERT_STUDENTHISTORY(?,?,?,?,?,?)}");
                 cs.setString(1,students.get(i).getIdNumber());
                 cs.setInt(2, id);
                 cs.setFloat(3, courseHistory.getHistoryGrade().get(i));
                 cs.setString(4, courseHistory.getHistoryState().get(i));
                 cs.setFloat(5,courseHistory.getAmountPaids().get(i));
+                cs.setBoolean(6,true);
                 result = cs.executeUpdate();
             }
             con.close();
@@ -122,7 +124,63 @@ public class MySQLCourseHistory implements DAOCourseHistory{
             Date end = Collections.max(dateSession);
             cs.setString(7,formatIni.format(end));
             cs.setBytes(8, courseHistory.getSurvey());
-            result = cs.executeUpdate();               
+            result = cs.executeUpdate();                
+            cs = con.prepareCall("{call DISABLE_SESSIONS_BY_COURSEH(?)}");           
+            cs.setInt(1, courseHistory.getId());
+            result = cs.executeUpdate();
+            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            ResultSet rs;
+            for(Session s: courseHistory.getSessions()){  
+                
+                cs = con.prepareCall("{call SESSION_BY_ID(?)}");
+                cs.setInt(1, s.getId());
+                rs = cs.executeQuery();
+               
+                if(rs.next()){
+                   
+                    cs = con.prepareCall("{call ENABLE_SESSION(?)}");
+                    cs.setInt(1, s.getId());     
+                    result = cs.executeUpdate();
+                }
+                else{
+                    
+                    cs = con.prepareCall("{call INSERT_SESSION(?,?,?,?,?,?)}");
+                    cs.setInt(1, courseHistory.getId());
+                    cs.setString(2,format.format(s.getDateSession()));              
+                    cs.setInt(3,s.getHours());
+                    cs.setString(4,s.getLocation());
+                    cs.setBoolean(5,true);
+                    cs.registerOutParameter(6, java.sql.Types.INTEGER);                  
+                    result = cs.executeUpdate();
+                    s.setId(cs.getInt(6));
+                }               
+            }     
+            cs = con.prepareCall("{call DISABLE_STUDENTH_BY_COURSEH(?)}");
+            cs.setInt(1, courseHistory.getId());
+            result = cs.executeUpdate();
+            ArrayList<Student> students = courseHistory.getStudents();
+            for(int i = 0; i < students.size();i++){                
+                cs = con.prepareCall("{call STUDENTH_BY_ID(?,?)}");  
+                cs.setString(1, students.get(i).getIdNumber());
+                cs.setInt(2, courseHistory.getId());
+                rs = cs.executeQuery();
+                if(rs.next()){
+                    cs = con.prepareCall("{call ENABLE_STUDENTH(?)}");
+                    cs.setInt(1, rs.getInt(1));
+                    result = cs.executeUpdate();
+                }
+                else{
+                    cs = con.prepareCall("{call INSERT_STUDENTHISTORY(?,?,?,?,?,?)}");
+                    cs.setString(1,students.get(i).getIdNumber());
+                    cs.setInt(2, courseHistory.getId());
+                    cs.setFloat(3, courseHistory.getHistoryGrade().get(i));
+                    cs.setString(4, courseHistory.getHistoryState().get(i));
+                    cs.setFloat(5,courseHistory.getAmountPaids().get(i));
+                    cs.setBoolean(6,true);
+                    result = cs.executeUpdate();
+                }
+                
+            }
             con.close();
         }catch(Exception ex){
             System.out.println(ex.getMessage());
@@ -158,9 +216,10 @@ public class MySQLCourseHistory implements DAOCourseHistory{
                 while(rs2.next()){
                     Session s = new Session();
                     s.setId(rs2.getInt(1));
-                    s.setDateSession(rs2.getDate(3));
+                    s.setDateSession(rs2.getTimestamp(3));
                     s.setHours(rs2.getInt(4));
                     s.setLocation(rs.getString(5));
+                    s.setIsActive(rs2.getBoolean(6));
                     sessions.add(s);
                 }
                 c.setSessions(sessions);
@@ -226,9 +285,10 @@ public class MySQLCourseHistory implements DAOCourseHistory{
                 while(rs2.next()){
                     Session s = new Session();
                     s.setId(rs2.getInt(1));
-                    s.setDateSession(rs2.getDate(3));
+                    s.setDateSession(rs2.getTimestamp(3));
                     s.setHours(rs2.getInt(4));
                     s.setLocation(rs.getString(5));
+                    s.setIsActive(rs2.getBoolean(6));
                     sessions.add(s);
                 }
                 c.setSessions(sessions);

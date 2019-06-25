@@ -17,21 +17,27 @@ namespace INFOSiS_2._0
         private Server.interested inte;
         public InterestedAdvancedSearch()
         {
+            servidor = new Server.ServerClient();
             InitializeComponent();
+            dgvInteresados.AutoGenerateColumns = false;
         }
 
         public interested Inte { get => inte; set => inte = value; }
 
         private void BtnSearch_Click(object sender, EventArgs e)
         {
-            if(tbApeMa.Text.Equals("") &&
+            if (tbApeMa.Text.Equals("") &&
                 tbApePa.Text.Equals("") &&
                 tbNombre.Text.Equals("") &&
                 tbSNombre.Text.Equals(""))
-                MessageBox.Show("No se ingresó información alguna", "Aviso", MessageBoxButtons.OK);
+            {
+                Server.interested[] allinte = servidor.QueryAllInterested();
+                BindingList<Server.interested> allinterested_list = new BindingList<Server.interested>(allinte);
+                dgvInteresados.DataSource = allinterested_list;
+            }  
             else
             {
-                servidor = new Server.ServerClient();
+                
                 Server.interested[] interesteds = servidor.SearchInterestedByName(tbNombre.Text, tbSNombre.Text, tbApePa.Text, tbApeMa.Text);
                 if (interesteds == null)
                 {
@@ -41,7 +47,6 @@ namespace INFOSiS_2._0
                 else
                 {
                     BindingList<Server.interested> interested_list = new BindingList<Server.interested>(interesteds);
-                    dgvInteresados.AutoGenerateColumns = false;
                     dgvInteresados.DataSource = interested_list;
                 }
 

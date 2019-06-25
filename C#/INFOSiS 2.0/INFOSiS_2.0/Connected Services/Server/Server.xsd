@@ -81,6 +81,8 @@
   <xs:element name="queryCourseTypeByIdResponse" type="tns:queryCourseTypeByIdResponse" />
   <xs:element name="queryStudentById" type="tns:queryStudentById" />
   <xs:element name="queryStudentByIdResponse" type="tns:queryStudentByIdResponse" />
+  <xs:element name="saveCourseHistoryReport" type="tns:saveCourseHistoryReport" />
+  <xs:element name="saveCourseHistoryReportResponse" type="tns:saveCourseHistoryReportResponse" />
   <xs:element name="updateStudent" type="tns:updateStudent" />
   <xs:element name="updateStudentResponse" type="tns:updateStudentResponse" />
   <xs:complexType name="InsertStudent">
@@ -155,6 +157,7 @@
       <xs:element minOccurs="0" name="dateSession" type="xs:dateTime" />
       <xs:element name="hours" type="xs:int" />
       <xs:element name="id" type="xs:int" />
+      <xs:element name="isActive" type="xs:boolean" />
       <xs:element minOccurs="0" name="location" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
@@ -478,6 +481,17 @@
   <xs:complexType name="queryCourseByIdResponse">
     <xs:sequence>
       <xs:element minOccurs="0" name="return" type="tns:course" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="saveCourseHistoryReport">
+    <xs:sequence>
+      <xs:element name="idCourseHistory" type="xs:int" />
+      <xs:element minOccurs="0" name="route" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="saveCourseHistoryReportResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="queryAllCourseType">
