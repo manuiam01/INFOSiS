@@ -85,9 +85,25 @@ namespace INFOSiS_2._0
                     else if (rbPassport.Checked) intern.idType = 2;
                 }
             }
-            else
+            else if (!rbDNI.Checked && !rbForeignCard.Checked && !rbPassport.Checked)
             {
                 MessageBox.Show("Escoge un tipo de documento", "Error en el registro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (txtPUCPCode.Text.Count() != 8)
+            {
+                MessageBox.Show("Código PUCP inválido", "Error en el registro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!txtEmailPUCP.Text.Contains("@") || !txtEmailPUCP.Text.Contains("."))
+            {
+                MessageBox.Show("Correo PUCP inválido", "Error en el registro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (txtEmail.Text.Count() > 0 && (!txtEmail.Text.Contains("@") || !txtEmail.Text.Contains(".")))
+            {
+                MessageBox.Show("Correo alternativo inválido", "Error en el registro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             intern.idNumber = txtDocumentNumber.Text;
@@ -115,7 +131,6 @@ namespace INFOSiS_2._0
             if (res > 0)
             {
                 MessageBox.Show("Registro exitoso", "Registro efectuado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                clean();
             }
             else if (res == -1)
             {
@@ -128,6 +143,10 @@ namespace INFOSiS_2._0
             else if (res == -3)
             {
                 MessageBox.Show("Número de identidad registrado anteriormente", "Registro inválido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else
+            {
+                MessageBox.Show("ERROR", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void clean()

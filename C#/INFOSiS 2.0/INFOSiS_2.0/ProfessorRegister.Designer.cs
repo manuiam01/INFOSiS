@@ -91,7 +91,7 @@
             this.dtpBirthday.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dtpBirthday.Font = new System.Drawing.Font("Gill Sans MT", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpBirthday.Location = new System.Drawing.Point(177, 438);
-            this.dtpBirthday.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpBirthday.Margin = new System.Windows.Forms.Padding(4);
             this.dtpBirthday.MaxDate = new System.DateTime(2001, 12, 31, 0, 0, 0, 0);
             this.dtpBirthday.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             this.dtpBirthday.Name = "dtpBirthday";
@@ -116,7 +116,7 @@
             // 
             this.txtPUCPCode.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtPUCPCode.Location = new System.Drawing.Point(168, 66);
-            this.txtPUCPCode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPUCPCode.Margin = new System.Windows.Forms.Padding(4);
             this.txtPUCPCode.MaxLength = 8;
             this.txtPUCPCode.Name = "txtPUCPCode";
             this.txtPUCPCode.Size = new System.Drawing.Size(271, 31);
@@ -138,7 +138,7 @@
             // 
             this.txtEmail.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtEmail.Location = new System.Drawing.Point(168, 186);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmail.MaxLength = 45;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(273, 31);
@@ -160,7 +160,7 @@
             // 
             this.txtEmailPUCP.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtEmailPUCP.Location = new System.Drawing.Point(168, 145);
-            this.txtEmailPUCP.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEmailPUCP.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmailPUCP.MaxLength = 45;
             this.txtEmailPUCP.Name = "txtEmailPUCP";
             this.txtEmailPUCP.Size = new System.Drawing.Size(273, 31);
@@ -182,7 +182,7 @@
             // 
             this.txtCellphone.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtCellphone.Location = new System.Drawing.Point(168, 105);
-            this.txtCellphone.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCellphone.Margin = new System.Windows.Forms.Padding(4);
             this.txtCellphone.MaxLength = 15;
             this.txtCellphone.Name = "txtCellphone";
             this.txtCellphone.Size = new System.Drawing.Size(273, 31);
@@ -194,7 +194,7 @@
             this.rbMan.AutoSize = true;
             this.rbMan.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbMan.Location = new System.Drawing.Point(255, 12);
-            this.rbMan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbMan.Margin = new System.Windows.Forms.Padding(4);
             this.rbMan.Name = "rbMan";
             this.rbMan.Size = new System.Drawing.Size(91, 29);
             this.rbMan.TabIndex = 145;
@@ -207,7 +207,7 @@
             this.rbWoman.AutoSize = true;
             this.rbWoman.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbWoman.Location = new System.Drawing.Point(117, 12);
-            this.rbWoman.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbWoman.Margin = new System.Windows.Forms.Padding(4);
             this.rbWoman.Name = "rbWoman";
             this.rbWoman.Size = new System.Drawing.Size(74, 29);
             this.rbWoman.TabIndex = 143;
@@ -255,7 +255,7 @@
             // 
             this.txtSecondLastName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtSecondLastName.Location = new System.Drawing.Point(237, 309);
-            this.txtSecondLastName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSecondLastName.Margin = new System.Windows.Forms.Padding(4);
             this.txtSecondLastName.MaxLength = 45;
             this.txtSecondLastName.Name = "txtSecondLastName";
             this.txtSecondLastName.Size = new System.Drawing.Size(236, 31);
@@ -265,7 +265,7 @@
             // 
             this.txtPrimaryLastName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtPrimaryLastName.Location = new System.Drawing.Point(237, 270);
-            this.txtPrimaryLastName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPrimaryLastName.Margin = new System.Windows.Forms.Padding(4);
             this.txtPrimaryLastName.MaxLength = 45;
             this.txtPrimaryLastName.Name = "txtPrimaryLastName";
             this.txtPrimaryLastName.Size = new System.Drawing.Size(236, 31);
@@ -275,7 +275,7 @@
             // 
             this.txtSecondName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtSecondName.Location = new System.Drawing.Point(237, 230);
-            this.txtSecondName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSecondName.Margin = new System.Windows.Forms.Padding(4);
             this.txtSecondName.MaxLength = 45;
             this.txtSecondName.Name = "txtSecondName";
             this.txtSecondName.Size = new System.Drawing.Size(236, 31);
@@ -285,7 +285,7 @@
             // 
             this.txtFirstName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtFirstName.Location = new System.Drawing.Point(237, 192);
-            this.txtFirstName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtFirstName.Margin = new System.Windows.Forms.Padding(4);
             this.txtFirstName.MaxLength = 45;
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(236, 31);
@@ -319,7 +319,7 @@
             // 
             this.txtDocumentNumber.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtDocumentNumber.Location = new System.Drawing.Point(237, 150);
-            this.txtDocumentNumber.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDocumentNumber.Margin = new System.Windows.Forms.Padding(4);
             this.txtDocumentNumber.MaxLength = 8;
             this.txtDocumentNumber.Name = "txtDocumentNumber";
             this.txtDocumentNumber.Size = new System.Drawing.Size(236, 31);
@@ -331,7 +331,7 @@
             this.rbPassport.AutoSize = true;
             this.rbPassport.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbPassport.Location = new System.Drawing.Point(312, 27);
-            this.rbPassport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbPassport.Margin = new System.Windows.Forms.Padding(4);
             this.rbPassport.Name = "rbPassport";
             this.rbPassport.Size = new System.Drawing.Size(102, 29);
             this.rbPassport.TabIndex = 132;
@@ -345,7 +345,7 @@
             this.rbForeignCard.AutoSize = true;
             this.rbForeignCard.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbForeignCard.Location = new System.Drawing.Point(107, 27);
-            this.rbForeignCard.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbForeignCard.Margin = new System.Windows.Forms.Padding(4);
             this.rbForeignCard.Name = "rbForeignCard";
             this.rbForeignCard.Size = new System.Drawing.Size(179, 29);
             this.rbForeignCard.TabIndex = 131;
@@ -359,7 +359,7 @@
             this.rbDNI.AutoSize = true;
             this.rbDNI.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbDNI.Location = new System.Drawing.Point(12, 27);
-            this.rbDNI.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbDNI.Margin = new System.Windows.Forms.Padding(4);
             this.rbDNI.Name = "rbDNI";
             this.rbDNI.Size = new System.Drawing.Size(63, 29);
             this.rbDNI.TabIndex = 129;
@@ -491,9 +491,9 @@
             this.gbxSex.Controls.Add(this.rbMan);
             this.gbxSex.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxSex.Location = new System.Drawing.Point(124, 366);
-            this.gbxSex.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbxSex.Margin = new System.Windows.Forms.Padding(4);
             this.gbxSex.Name = "gbxSex";
-            this.gbxSex.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbxSex.Padding = new System.Windows.Forms.Padding(4);
             this.gbxSex.Size = new System.Drawing.Size(351, 42);
             this.gbxSex.TabIndex = 159;
             this.gbxSex.TabStop = false;
@@ -507,9 +507,9 @@
             this.gbxDocumentType.Controls.Add(this.rbPassport);
             this.gbxDocumentType.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxDocumentType.Location = new System.Drawing.Point(17, 73);
-            this.gbxDocumentType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbxDocumentType.Margin = new System.Windows.Forms.Padding(4);
             this.gbxDocumentType.Name = "gbxDocumentType";
-            this.gbxDocumentType.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbxDocumentType.Padding = new System.Windows.Forms.Padding(4);
             this.gbxDocumentType.Size = new System.Drawing.Size(457, 58);
             this.gbxDocumentType.TabIndex = 158;
             this.gbxDocumentType.TabStop = false;
@@ -571,7 +571,7 @@
             this.btnSave.Font = new System.Drawing.Font("Gill Sans MT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
             this.btnSave.Location = new System.Drawing.Point(288, 603);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(197, 48);
             this.btnSave.TabIndex = 177;
@@ -588,7 +588,7 @@
             this.btnCancel.Font = new System.Drawing.Font("Gill Sans MT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.White;
             this.btnCancel.Location = new System.Drawing.Point(601, 603);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(197, 48);
             this.btnCancel.TabIndex = 179;

@@ -19,11 +19,28 @@ public class main {
     
     public static void main(String[] args) {
         MySQLIntern internC = new MySQLIntern();
-        ArrayList<Intern> interns = internC.searchInternByName("Diego","","","");
+//        ArrayList<Intern> interns = internC.searchInternByName("Diego","","","");
+//        
+//        for(Intern i : interns){
+//            System.out.println(i.getMiddleName());
+//        }
         
-        for(Intern i : interns){
-            System.out.println(i.getMiddleName());
-        }
+        Intern intern = new Intern();
+        UserType access = new UserType();
         
+        intern.setIdPUCP("2000000");
+        intern.getUser().setId(90);
+        intern.setIdType(1);
+        intern.setIdNumber("123456789012");
+        intern.setFirstName("Ian");
+        intern.setPrimaryLastName("Smith");
+        intern.setGender("M");
+        intern.setEmail("ismith@gmail.com");
+        intern.setCellPhoneNumber("9876543210");
+        intern.setEmailPUCP("ismith@pucp.pe");
+        
+        access.setId(0);
+        
+        System.out.println(internC.insert(intern, access));
     }
 }

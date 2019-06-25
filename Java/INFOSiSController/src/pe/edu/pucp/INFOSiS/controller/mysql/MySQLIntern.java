@@ -57,7 +57,7 @@ public class MySQLIntern implements DAOIntern {
             ps.setString(1, intern.getIdNumber());
             rs = ps.executeQuery();             
             if(rs.next()){
-                result = -3;
+                return -3;
             }
             
             CallableStatement cs = con.prepareCall("{CALL INSERT_INTERN(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}");
