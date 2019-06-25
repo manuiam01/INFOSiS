@@ -211,6 +211,11 @@ public class Server {
         return DBController.queryCourseHByIdProfessor(idProfessor);
     }
     
+    @WebMethod(operationName="queryCourseHistoryByCourse")
+    public ArrayList<CourseHistory> queryCourseHistoryByCourse(@WebParam(name="idCourse") String idCourse){
+        return DBController.queryCourseHByCourse(idCourse);
+    }
+    
     @WebMethod(operationName="generateCourseHistoryReport")
     public byte[] generateCourseHistoryReport(@WebParam(name="idCourseHistory") int idCourseHistory){
         return DBController.generateCourseHistoryReport(idCourseHistory);

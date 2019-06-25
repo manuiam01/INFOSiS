@@ -176,6 +176,10 @@ public abstract class DBController {
          return daoFactory.getCourseHDAO().queryByIdProfessor(idProfessor);
      }
      
+     public static ArrayList<CourseHistory> queryCourseHByCourse(String idCourse){
+         return daoFactory.getCourseHDAO().queryByCourse(idCourse);
+     }
+     
      public static byte[] generateCourseHistoryReport(int id){
          return daoFactory.getCourseHDAO().generateReport(id);
      }

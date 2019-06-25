@@ -389,4 +389,61 @@ public class MySQLCourseHistory implements DAOCourseHistory{
         
         return sessions;
     }
+
+    @Override
+    public ArrayList<CourseHistory> queryByCourse(String idCourse) {
+        ArrayList<CourseHistory> courses = new ArrayList<CourseHistory>();
+        
+        try{
+            DBManager dbManager = DBManager.getdbManager();
+            Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
+            CallableStatement cs = con.prepareCall("{call COURSEH_BY_COURSE(?)}");          
+            cs.setString(1,idCourse);
+            ResultSet rs = cs.executeQuery();         
+            while(rs.next()){
+                CourseHistory c = new CourseHistory();
+                c.setId(rs.getInt("idCourseHistory"));
+                //Course course = new Course();
+                Course course = DBController.queryCourseById(rs.getString(2));
+                c.setCourse(course);
+                c.setCourseName(course.getName());
+                c.setProfessor(DBController.searchProfessorByIdPUCP(rs.getString(3)));
+                c.setAssistant(DBController.searchProfessorByIdPUCP(rs.getString(4)));
+                c.setHours(rs.getInt(5));
+                c.setStartDate(rs.getDate(6));
+                c.setEndDate(rs.getDate(7)); 
+                c.setSurvey(rs.getBytes(8));
+                ArrayList<Session> sessions = DBController.querySessionByCourseH(c.getId());               
+                c.setSessions(sessions);
+
+                ArrayList<Student> students = new ArrayList<>();
+                ArrayList<Float> grades = new ArrayList<>();
+                ArrayList<String> states = new ArrayList<>();
+                ArrayList<Float> amountPaids = new ArrayList<>();
+
+                cs = con.prepareCall("{call SEARCH_STUDENTH_BY_COURSEH(?)}");
+                cs.setInt(1, c.getId());
+                ResultSet rs2 = cs.executeQuery();
+                 while(rs2.next()){
+                    Student s = new Student();
+                    s.setId(rs2.getInt(2));
+                    students.add(s);
+                    grades.add(rs.getFloat(4));
+                    states.add(rs2.getString(5));                      
+                    amountPaids.add(rs2.getFloat(6));                       
+                }
+                 c.setStudents(students);
+                 c.setHistoryGrade(grades);
+                 c.setHistoryState(states); 
+                 c.setAmountPaids(amountPaids);
+                 courses.add(c);
+               
+            }            
+            con.close();
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        
+        return courses;
+    }
 }
