@@ -38,13 +38,14 @@
             this.btnReport = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.dgvCoursesHistory = new System.Windows.Forms.DataGridView();
-            this.lblAdvancedSearch = new System.Windows.Forms.Label();
-            this.lblInfo = new System.Windows.Forms.Label();
-            this.btnCancelar = new System.Windows.Forms.Button();
             this.idCourseHistory = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.courseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.startDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.endDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Hours = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblAdvancedSearch = new System.Windows.Forms.Label();
+            this.lblInfo = new System.Windows.Forms.Label();
+            this.btnCancelar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCoursesHistory)).BeginInit();
             this.SuspendLayout();
             // 
@@ -132,6 +133,7 @@
             this.btnReport.TabIndex = 176;
             this.btnReport.Text = "Reporte";
             this.btnReport.UseVisualStyleBackColor = false;
+            this.btnReport.Click += new System.EventHandler(this.BtnReport_Click);
             // 
             // btnSearch
             // 
@@ -157,11 +159,45 @@
             this.idCourseHistory,
             this.courseName,
             this.startDate,
-            this.endDate});
-            this.dgvCoursesHistory.Location = new System.Drawing.Point(50, 221);
+            this.endDate,
+            this.Hours});
+            this.dgvCoursesHistory.Location = new System.Drawing.Point(57, 221);
             this.dgvCoursesHistory.Name = "dgvCoursesHistory";
             this.dgvCoursesHistory.Size = new System.Drawing.Size(703, 218);
             this.dgvCoursesHistory.TabIndex = 178;
+            // 
+            // idCourseHistory
+            // 
+            this.idCourseHistory.DataPropertyName = "id";
+            this.idCourseHistory.HeaderText = "ID Curso Dictado";
+            this.idCourseHistory.Name = "idCourseHistory";
+            this.idCourseHistory.Width = 80;
+            // 
+            // courseName
+            // 
+            this.courseName.DataPropertyName = "courseName";
+            this.courseName.HeaderText = "Nombre Curso";
+            this.courseName.Name = "courseName";
+            this.courseName.Width = 300;
+            // 
+            // startDate
+            // 
+            this.startDate.DataPropertyName = "startDate";
+            this.startDate.HeaderText = "Fecha Inicio";
+            this.startDate.Name = "startDate";
+            // 
+            // endDate
+            // 
+            this.endDate.DataPropertyName = "endDate";
+            this.endDate.HeaderText = "Fecha Fin";
+            this.endDate.Name = "endDate";
+            // 
+            // Hours
+            // 
+            this.Hours.DataPropertyName = "hours";
+            this.Hours.HeaderText = "Duración en Horas";
+            this.Hours.Name = "Hours";
+            this.Hours.Width = 80;
             // 
             // lblAdvancedSearch
             // 
@@ -169,7 +205,7 @@
             this.lblAdvancedSearch.AutoSize = true;
             this.lblAdvancedSearch.Font = new System.Drawing.Font("Gill Sans MT", 8.5F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
             this.lblAdvancedSearch.ForeColor = System.Drawing.Color.MediumBlue;
-            this.lblAdvancedSearch.Location = new System.Drawing.Point(352, 121);
+            this.lblAdvancedSearch.Location = new System.Drawing.Point(368, 116);
             this.lblAdvancedSearch.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAdvancedSearch.Name = "lblAdvancedSearch";
             this.lblAdvancedSearch.Size = new System.Drawing.Size(115, 18);
@@ -181,7 +217,7 @@
             // 
             this.lblInfo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblInfo.AutoSize = true;
-            this.lblInfo.Location = new System.Drawing.Point(47, 442);
+            this.lblInfo.Location = new System.Drawing.Point(67, 442);
             this.lblInfo.Name = "lblInfo";
             this.lblInfo.Size = new System.Drawing.Size(537, 13);
             this.lblInfo.TabIndex = 187;
@@ -202,30 +238,7 @@
             this.btnCancelar.TabIndex = 188;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
-            // 
-            // idCourseHistory
-            // 
-            this.idCourseHistory.DataPropertyName = "id";
-            this.idCourseHistory.HeaderText = "ID Curso Dictado";
-            this.idCourseHistory.Name = "idCourseHistory";
-            // 
-            // courseName
-            // 
-            this.courseName.DataPropertyName = "course";
-            this.courseName.HeaderText = "Nombre Curso";
-            this.courseName.Name = "courseName";
-            // 
-            // startDate
-            // 
-            this.startDate.DataPropertyName = "startDate";
-            this.startDate.HeaderText = "Fecha Inicio";
-            this.startDate.Name = "startDate";
-            // 
-            // endDate
-            // 
-            this.endDate.DataPropertyName = "endDate";
-            this.endDate.HeaderText = "Fecha Fin";
-            this.endDate.Name = "endDate";
+            this.btnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
             // ProfessorReport
             // 
@@ -246,7 +259,6 @@
             this.Controls.Add(this.lblProfessorReport);
             this.Name = "ProfessorReport";
             this.Size = new System.Drawing.Size(814, 566);
-            this.Load += new System.EventHandler(this.ProfessorReport_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCoursesHistory)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -272,5 +284,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn courseName;
         private System.Windows.Forms.DataGridViewTextBoxColumn startDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn endDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Hours;
     }
 }

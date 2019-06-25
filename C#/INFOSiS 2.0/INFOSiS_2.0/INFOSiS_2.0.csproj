@@ -121,6 +121,12 @@
     <Compile Include="InterfazCodigos.Designer.cs">
       <DependentUpon>InterfazCodigos.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProfessorAdvancedSearchForReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProfessorAdvancedSearchForReport.Designer.cs">
+      <DependentUpon>ProfessorAdvancedSearchForReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="StudentModify.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -274,6 +280,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InterfazCodigos.resx">
       <DependentUpon>InterfazCodigos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProfessorAdvancedSearchForReport.resx">
+      <DependentUpon>ProfessorAdvancedSearchForReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StudentModify.resx">
       <DependentUpon>StudentModify.cs</DependentUpon>

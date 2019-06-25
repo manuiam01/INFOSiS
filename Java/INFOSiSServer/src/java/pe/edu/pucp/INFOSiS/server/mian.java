@@ -10,9 +10,12 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Date;
 import pe.edu.pucp.INFOSiS.controller.config.DBController;
+import pe.edu.pucp.INFOSiS.controller.mysql.MySQLCourseHistory;
 import pe.edu.pucp.INFOSiS.controller.mysql.MySQLUser;
 import pe.edu.pucp.INFOSiS.model.bean.HR.Intern;
 import pe.edu.pucp.INFOSiS.model.bean.course.Course;
@@ -30,7 +33,7 @@ import pe.edu.pucp.INFOSiS.model.bean.user.UserType;
  */
 public class mian {
     
-    public static void main(String[] args)  {
+    public static void main(String[] args) throws IOException  {
 //        ArrayList<User> users = DBController.queryAllUsers();
 //        for(User u: users){
 //            System.out.println(u.getUsername());
@@ -97,19 +100,19 @@ public class mian {
 //        
 //        
            
-           ArrayList<CourseHistory> courses = DBController.queryCourseHByIdProfessor("20142604");
-           for(CourseHistory c : courses){              
-               System.out.println(c.getCourse().getId() +" "+ c.getCourse().getName()); 
-                try{
-                    File file = new File("T:\\\\Temp\\\\archivo2.csv");
-                    OutputStream os = new FileOutputStream(file);
-                    os.write(c.getSurvey());
-                    os.close();
-                }
-                catch(Exception ex){
-                    System.out.println(ex.getMessage());
-                }
-           }
+//           ArrayList<CourseHistory> courses = DBController.queryCourseHByIdProfessor("20142604");
+//           for(CourseHistory c : courses){              
+//               System.out.println(c.getCourse().getId() +" "+ c.getCourse().getName()); 
+//                try{
+//                    File file = new File("T:\\\\Temp\\\\archivo2.csv");
+//                    OutputStream os = new FileOutputStream(file);
+//                    os.write(c.getSurvey());
+//                    os.close();
+//                }
+//                catch(Exception ex){
+//                    System.out.println(ex.getMessage());
+//                }
+//           }
            
 //
 //          CourseType coursetype = DBController.queryCourseTypeById(6);
@@ -160,5 +163,10 @@ public class mian {
 
 //            int r= DBController.searchProfessorById("09479586");
 //            System.out.println(r);
+        MySQLCourseHistory msql = new MySQLCourseHistory();        
+        byte[] bArray = null;
+        bArray = msql.generateReport(20);
+        Path path = Paths.get("D:\\myfile.pdf");
+        Files.write(path, bArray);
     }  
 }

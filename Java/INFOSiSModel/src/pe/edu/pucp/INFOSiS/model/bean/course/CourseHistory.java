@@ -32,6 +32,7 @@ public class CourseHistory implements Serializable{
     private ArrayList<Float> amountPaids;
     private ArrayList<Float> historyGrade;
     private ArrayList<String> historyState;
+    private String courseName; 
 
     public int getId() {
         return id;
@@ -79,9 +80,7 @@ public class CourseHistory implements Serializable{
 
     public void setSurvey(byte[] survey) {
         this.survey = survey;
-    }
-
-    
+    }    
 
     public ArrayList<Student> getStudents() {
         return students;
@@ -138,5 +137,15 @@ public class CourseHistory implements Serializable{
     public void setSessions(ArrayList<Session> sessions) {
         this.sessions = sessions;
     }
+
+    public String getCourseName() {
+        return courseName;
+    }
+
+    public void setCourseName(String courseName) {
+        this.courseName = courseName;
+    }
+    
+    
 
 }

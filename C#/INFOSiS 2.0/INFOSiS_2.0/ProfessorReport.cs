@@ -38,10 +38,6 @@ namespace INFOSiS_2._0
             btnReport.Enabled = false;
         }
 
-        private void ProfessorReport_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void BtnSearch_Click(object sender, EventArgs e)
         {
@@ -50,25 +46,50 @@ namespace INFOSiS_2._0
             professor = server.SearchProfessorByIdPUCP(txtPUCPcode.Text);
             if (professor.idPUCP != null)
             {
-                dgvCoursesHistory.AutoGenerateColumns = false;
+                dgvCoursesHistory.AutoGenerateColumns = false;                
                 dgvCoursesHistory.DataSource = server.queryCourseHistoryByIdProfessor(professor.idPUCP);
+                btnReport.Enabled = true;
             }
             else
             {
                 MessageBox.Show("Código PUCP no encontrado", "Profesor no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                dgvCoursesHistory.DataSource = null;
+                btnReport.Enabled = false;
             }
         }
 
         private void lblAdvancedSearch_Click(object sender, EventArgs e)
         {
-            ProfessorAdvancedSearch formSearchProfessor = new ProfessorAdvancedSearch();
+            server = new Server.ServerClient();
+            professor = new Server.professor();
+            ProfessorAdvancedSearchForReport formSearchProfessor = new ProfessorAdvancedSearchForReport();
             if (formSearchProfessor.ShowDialog() == DialogResult.OK)
             {
                 professor = formSearchProfessor.Professor;
                 txtPUCPcode.Text = professor.idPUCP;
                 dgvCoursesHistory.AutoGenerateColumns = false;
                 dgvCoursesHistory.DataSource = server.queryCourseHistoryByIdProfessor(professor.idPUCP);
+                btnReport.Enabled = true;
+            }
+        }
 
+        private void BtnCancelar_Click(object sender, EventArgs e)
+        {
+            txtPUCPcode.Clear();
+            dgvCoursesHistory.DataSource = null;
+            btnReport.Enabled = false;
+        }
+
+        private void BtnReport_Click(object sender, EventArgs e)
+        {
+            if(dgvCoursesHistory.SelectedRows.Count != 0){
+                //si ha seleccionado un curso dictado
+                Server.courseHistory courseHistory= (Server.courseHistory)dgvCoursesHistory.CurrentRow.DataBoundItem;
+
+            }
+            else
+            {
+                //el reporte se hará sobre todos los cursos que ha dictado el profesor
             }
         }
     }

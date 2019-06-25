@@ -76,10 +76,7 @@ public class Course implements Serializable{
     public void setSyllabus(byte[] syllabus) {
         this.syllabus = syllabus;
     }
-
-    
-    
-
+     
     public ArrayList<Course> getCourseHistory() {
         return courseHistory;
     }
@@ -90,7 +87,7 @@ public class Course implements Serializable{
 
     @Override
     public String toString() {
-        return "Course: "  + name + courseType.toString() ;
+        return name;
     }
     
     

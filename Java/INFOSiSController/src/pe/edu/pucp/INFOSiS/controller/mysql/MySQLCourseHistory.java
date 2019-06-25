@@ -5,15 +5,29 @@
  */
 package pe.edu.pucp.INFOSiS.controller.mysql;
 
+import java.io.File;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperExportManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import pe.edu.pucp.INFOSiS.controller.config.DBController;
 import pe.edu.pucp.INFOSiS.controller.config.DBManager;
 import pe.edu.pucp.INFOSiS.controller.dao.DAOCourseHistory;
@@ -188,7 +202,10 @@ public class MySQLCourseHistory implements DAOCourseHistory{
             while(rs.next()){
                 CourseHistory c = new CourseHistory();
                 c.setId(rs.getInt("idCourseHistory"));
-                c.setCourse(DBController.queryCourseById(rs.getString(2)));
+                //Course course = new Course();
+                Course course = DBController.queryCourseById(rs.getString(2));
+                c.setCourse(course);
+                c.setCourseName(course.getName());
                 c.setProfessor(DBController.searchProfessorByIdPUCP(rs.getString(3)));
                 c.setAssistant(DBController.searchProfessorByIdPUCP(rs.getString(4)));
                 c.setHours(rs.getInt(5));
@@ -239,4 +256,48 @@ public class MySQLCourseHistory implements DAOCourseHistory{
         
         return courses;
     }
+
+    @Override
+    public byte[] generateReport(int id) {
+        DBManager dbManager = DBManager.getdbManager();
+        Connection con = null;
+        try {
+            con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
+        } catch (SQLException ex) {
+            Logger.getLogger(MySQLCourseHistory.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        JasperPrint print = new JasperPrint();
+        String sourceFileName = "../INFOSiS/src/pe/edu/pucp/infosis/reports/" + "CourseHistoryReport.jrxml";            
+        File theFile = new File(sourceFileName);
+        JasperDesign jasperDesign = null;
+        JasperReport jasperReport = null;
+        try {
+            jasperDesign = JRXmlLoader.load(theFile);
+        } catch (JRException ex) {
+            Logger.getLogger(MySQLCourseHistory.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            jasperReport = JasperCompileManager.compileReport(jasperDesign);
+        } catch (JRException ex) {
+            Logger.getLogger(MySQLCourseHistory.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Map parameters = new HashMap();
+        parameters.put("ID_COURSE_HISTORY",id);
+        try {
+            print = JasperFillManager.fillReport(jasperReport, parameters, con);
+        } catch (JRException ex) {
+            Logger.getLogger(MySQLCourseHistory.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        byte[] pdfBytes = null;
+        try {
+            pdfBytes = JasperExportManager.exportReportToPdf(print);
+        } catch (JRException ex) {
+            Logger.getLogger(MySQLCourseHistory.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return pdfBytes;
+    }
+    
+    
+    
+    
 }
