@@ -19,6 +19,7 @@ public interface DAOCourseHistory {
     int insert(CourseHistory courseHistory);
     int update(CourseHistory courseHistory);
     ArrayList<CourseHistory> queryByDate(Date datecourse);
+    ArrayList<CourseHistory> queryByCourse(String idCourse);
     ArrayList<CourseHistory> queryByIdProfessor(String idProfessor);
     byte[] generateReport(int id);
     ArrayList<CalendarSession> queryCalendarSessionByBeginDate(String date);

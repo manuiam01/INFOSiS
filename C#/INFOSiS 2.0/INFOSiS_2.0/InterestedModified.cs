@@ -13,9 +13,9 @@ namespace INFOSiS_2._0
     public partial class InterestedModified : UserControl
     {
         private static InterestedModified _instance;
-        private BindingList<string> cursos;
+        private Server.ServerClient servidor;
         private DataTable tbCursos = new DataTable();
-        private BindingList<string> idcursos;
+        private BindingList<string> idcursos = new BindingList<string>();
         private static Panel _panelMdi;
         private Server.ServerClient server;
         MessageBoxIcon iconoCorrecto = MessageBoxIcon.Asterisk;
@@ -39,10 +39,8 @@ namespace INFOSiS_2._0
         {
             InitializeComponent();
             establecerEstado(Estado.Inicial);
-            idcursos = new BindingList<string>();
-            cursos = new BindingList<string>();
+            servidor = new Server.ServerClient();
             tbCursos.Columns.Add("ID", typeof(string));
-
             tbCursos.Columns.Add("Nombre", typeof(string));
         }
         public void establecerEstado(Estado e)
@@ -67,7 +65,7 @@ namespace INFOSiS_2._0
                     rbDNI.Enabled = true;
                     rbDNI.Checked = true;
                     rbPasaporte.Enabled = true;
-                    dgvInterestedCourses.DataSource = null;
+                    //dgvInterestedCourses.DataSource = null;
                     break;
 
                 case Estado.Actualizar:
@@ -99,13 +97,35 @@ namespace INFOSiS_2._0
 
         private void BtBuscarCursos_Click(object sender, EventArgs e)
         {
-            InterestedCourses formBuscarCursosInteresado = new InterestedCourses(cursos);
-            if (formBuscarCursosInteresado.ShowDialog() == DialogResult.OK)
+            BindingList<Server.course> courses = new BindingList<Server.course>(servidor.queryAllCourse());
+            if (idcursos.Count == courses.Count)
             {
-
-                //Acá en teoría debería de devolver todo el ArrayList de cursos para ingresarlo al dgv
-                //dgvInterestedCourses.DataSource = formBuscarCursosInteresado.}
+                MessageBox.Show("Ya escogió todos los cursos de interés disponible", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            else
+            {
+                InterestedCourses formBuscarCursosInteresado = new InterestedCourses(idcursos);
+                if (formBuscarCursosInteresado.ShowDialog() == DialogResult.OK)
+                {
+                    if (formBuscarCursosInteresado.Cursos != null)
+                    {
+                        idcursos = formBuscarCursosInteresado.Cursos;
+                        foreach (string id in idcursos)
+                        {
+                            Server.course c = new Server.course();
+                            c = servidor.queryCourseById(id);
+                            tbCursos.Rows.Add(c.id, c.name);
+                        }
+                        dgvInterestedCourses.DataSource = tbCursos;
+                        idcursos = new BindingList<string>();
+                        foreach (DataGridViewRow row in dgvInterestedCourses.Rows)
+                        {
+                            idcursos.Add(row.Cells[0].Value.ToString());
+                        }
+                    }
+                }
+            }
+            
         }
         public enum Estado
         {
@@ -133,11 +153,7 @@ namespace INFOSiS_2._0
         }
         private void BtnSearch_Click(object sender, EventArgs e)
         {
-            if (rbCarnet.Checked == false && rbDNI.Checked == false && rbPasaporte.Checked == false)
-            {
-                MessageBox.Show("No escogió el tipo de documento a ingresar", "Aviso", MessageBoxButtons.OK);
-            }
-            else if (txbNDocumento.Text == "")
+            if (txbNDocumento.Text == "")
                 MessageBox.Show("No ingresó el N° de documento", "Aviso", MessageBoxButtons.OK);
             
             else
@@ -158,8 +174,14 @@ namespace INFOSiS_2._0
                     rbCarnet.Enabled = false;
                     rbDNI.Enabled = false;
                     rbPasaporte.Enabled = false;
-                    btBuscarCursos.Enabled = false;
-
+                    if (interested.isUnsubscribed == true)
+                        cbDesactivado.Checked = true;
+                    foreach (Server.course c in interested.courses)
+                    {
+                        tbCursos.Rows.Add(c.id, c.name);
+                        idcursos.Add(c.id);
+                    }
+                    dgvInterestedCourses.DataSource = tbCursos;
                 }
                 else
                 {
@@ -200,6 +222,7 @@ namespace INFOSiS_2._0
                 {
                     limpiar();
                     establecerEstado(Estado.Inicial);
+                    tbCursos.Clear();
                 }
             }
         }
@@ -234,11 +257,23 @@ namespace INFOSiS_2._0
                 inte.cellPhoneNumber = txtCellphone.Text;
                 inte.email = txtEmail.Text;
                 inte.isUnsubscribed = cbDesactivado.Checked;
-                inte.courses = new Server.course[5];
+                int tama = 0;
+                BindingList<Server.course> courses = new BindingList<Server.course>();
+                foreach (DataGridViewRow row in dgvInterestedCourses.Rows)
+                {
+                    Server.course c = new Server.course();
+                    c.id = row.Cells[0].Value.ToString();
+                    courses.Add(c);
+                    tama = tama + 1;
+                }
+                Server.course[] coursesList = new Server.course[tama];
+                coursesList = courses.ToArray<Server.course>();
+                inte.courses = coursesList;
                 server.UpdateInterested(inte);
                 MessageBox.Show("Se modificó al interesado de manera correcta", "Éxito", MessageBoxButtons.OK, iconoCorrecto);
                 limpiar();
                 establecerEstado(Estado.Inicial);
+                tbCursos.Clear();
             }
             
         }
@@ -250,6 +285,7 @@ namespace INFOSiS_2._0
             {
                 limpiar();
                 establecerEstado(Estado.Inicial);
+                tbCursos.Clear();
             }
         }
 
@@ -323,6 +359,15 @@ namespace INFOSiS_2._0
                     if (!valido) break;
                 }
                 return valido;
+            }
+        }
+
+        private void DgvInterestedCourses_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            idcursos = new BindingList<string>();
+            foreach (DataGridViewRow row in dgvInterestedCourses.Rows)
+            {
+                idcursos.Add(row.Cells[0].Value.ToString());
             }
         }
     }

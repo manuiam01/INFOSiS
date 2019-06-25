@@ -92,7 +92,21 @@ namespace INFOSiS_2._0
 
         private void btnAsistencia_Click(object sender, EventArgs e)
         {
-
+            cleanWindow();
+            if (!PanelMdi.Controls.Contains(ProfileAssistance.Instance))
+            {
+                PanelMdi.Controls.Add(ProfileAssistance.Instance);
+                ProfileAssistance.Instance.Dock = DockStyle.Fill;
+                ProfileAssistance.PanelMdi = PanelMdi;
+                ProfileAssistance.Instance.prepararUsuario(usuario);
+                ProfileAssistance.Instance.Visible = true;
+                ProfileAssistance.Instance.BringToFront();
+            }
+            else
+            {
+                ProfileAssistance.Instance.Visible = true;
+                ProfileAssistance.Instance.BringToFront();
+            }
         }
     }
 }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using INFOSiS_2._0.Server;
 
 namespace INFOSiS_2._0
 {
@@ -14,6 +15,7 @@ namespace INFOSiS_2._0
     {
         private static ProfileAssistance _instance;
         private static Panel _panelMdi;
+        private Server.ServerClient server;
 
         public static ProfileAssistance Instance
         {
@@ -30,10 +32,19 @@ namespace INFOSiS_2._0
             set => _panelMdi = value;
         }
 
-
         public ProfileAssistance()
         {
             InitializeComponent();
+        }
+
+        public void prepararUsuario(Server.user usuario)
+        {
+            server = new Server.ServerClient();
+            Server.intern practicante = server.SearchInternByIdPUCP(usuario.username);
+            txtName.Text = practicante.primaryLastName + " " + practicante.secondLastName + ", " + practicante.firstName + " " + practicante.middleName;
+            txtPUCPCode.Text = practicante.idPUCP;
+            Server.internAssistance ia = server.getLastRegisterIntern(usuario.username);
+            MessageBox.Show("holi");
         }
     }
 }

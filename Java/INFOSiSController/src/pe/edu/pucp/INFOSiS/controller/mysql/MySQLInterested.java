@@ -334,6 +334,27 @@ public class MySQLInterested implements DAOInterested {
                 interested.setIsUnsubscribed(rs.getInt("isUnsuscribed")==1);
                 interested.setCellPhoneNumber(rs.getString("cellPhoneNumber"));
                 interested.setEmail(rs.getString("email"));
+                String query2 = "SELECT idCourse FROM InterestedxCourseType WHERE idInterested = ?";
+                PreparedStatement ps = con.prepareStatement(query2);
+                ps.setString(1,interested.getIdNumber());
+                ResultSet rs2 = ps.executeQuery();
+                ArrayList<Course> courses = new ArrayList<Course>();
+                while(rs2.next()){
+                    Course crs = new Course();
+                    crs.setId(rs2.getString("idCourse"));
+                    String query3 = "SELECT * FROM Course WHERE idCourse= ?";
+                    PreparedStatement ps2 = con.prepareStatement(query3);
+                    ps2.setString(1,crs.getId());
+                    ResultSet rs3 = ps2.executeQuery();
+                    while(rs3.next()){
+                        crs.setDescription(rs3.getString("description"));
+                        crs.setIsActive(rs3.getBoolean("isActive"));
+                        crs.setName(rs3.getString("name"));
+                        courses.add(crs);
+                    }
+                    rs3.close();
+                }
+                interested.setCourses(courses);
             }
             rs.close();
             con.close();
