@@ -25,7 +25,7 @@ public class CourseHistory implements Serializable{
     private Professor professor;
     private Professor assistant;
     private int hours;
-    private File survey;
+    private byte[] survey;
     private Date startDate;
     private Date endDate;
     private ArrayList<Student> students;
@@ -73,13 +73,15 @@ public class CourseHistory implements Serializable{
         this.hours = hours;
     }
 
-    public File getSurvey() {
+    public byte[] getSurvey() {
         return survey;
     }
 
-    public void setSurvey(File survey) {
+    public void setSurvey(byte[] survey) {
         this.survey = survey;
     }
+
+    
 
     public ArrayList<Student> getStudents() {
         return students;

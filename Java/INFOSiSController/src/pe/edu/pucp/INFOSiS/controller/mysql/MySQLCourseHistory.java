@@ -43,10 +43,11 @@ public class MySQLCourseHistory implements DAOCourseHistory{
             for(Session s: courseHistory.getSessions()){
                 dateSession.add(s.getDateSession());
             }
-            Date end = Collections.max(dateSession);
-            cs.setString(7,formatIni.format(end));
             Date start = Collections.min(dateSession);
-            cs.setString(6, formatIni.format(start));          
+            cs.setString(6, formatIni.format(start));   
+            Date end = Collections.max(dateSession);
+            cs.setString(7,formatIni.format(end));   
+            cs.setBytes(8, courseHistory.getSurvey());
             cs.registerOutParameter("_idCourseHistory", java.sql.Types.INTEGER);
             result = cs.executeUpdate();
             int id = cs.getInt("_idCourseHistory");
@@ -99,6 +100,7 @@ public class MySQLCourseHistory implements DAOCourseHistory{
             cs.setString(6, formatIni.format(start));
             Date end = Collections.max(dateSession);
             cs.setString(7,formatIni.format(end));
+            cs.setBytes(8, courseHistory.getSurvey());
             result = cs.executeUpdate();               
             con.close();
         }catch(Exception ex){
@@ -126,42 +128,43 @@ public class MySQLCourseHistory implements DAOCourseHistory{
                 c.setAssistant(DBController.searchProfessorByIdPUCP(rs.getString(4)));
                 c.setHours(rs.getInt(5));
                 c.setStartDate(rs.getDate(6));
-                c.setEndDate(rs.getDate(7));        
-                    ArrayList<Session> sessions = new ArrayList<>();
-                    cs = con.prepareCall("{call SEARCH_SESSIONS_BY_COURSEH(?)}");
-                    cs.setInt(1, c.getId());
-                    ResultSet rs2 = cs.executeQuery();
-                    while(rs2.next()){
-                        Session s = new Session();
-                        s.setId(rs2.getInt(1));
-                        s.setDateSession(rs2.getDate(3));
-                        s.setHours(rs2.getInt(4));
-                        s.setLocation(rs.getString(5));
-                        sessions.add(s);
-                    }
-                    c.setSessions(sessions);
-                    
-                    ArrayList<Student> students = new ArrayList<>();
-                    ArrayList<Float> grades = new ArrayList<>();
-                    ArrayList<String> states = new ArrayList<>();
-                    ArrayList<Float> amountPaids = new ArrayList<>();
-                    
-                    cs = con.prepareCall("{call SEARCH_STUDENTH_BY_COURSEH(?)}");
-                    cs.setInt(1, c.getId());
-                    rs2 = cs.executeQuery();
-                     while(rs2.next()){
-                        Student s = new Student();
-                        s.setId(rs2.getInt(2));
-                        students.add(s);
-                        grades.add(rs.getFloat(4));
-                        states.add(rs2.getString(5));                      
-                        amountPaids.add(rs2.getFloat(6));                       
-                    }
-                     c.setStudents(students);
-                     c.setHistoryGrade(grades);
-                     c.setHistoryState(states); 
-                     c.setAmountPaids(amountPaids);
-                     courses.add(c);
+                c.setEndDate(rs.getDate(7)); 
+                c.setSurvey(rs.getBytes(8));
+                ArrayList<Session> sessions = new ArrayList<>();
+                cs = con.prepareCall("{call SEARCH_SESSIONS_BY_COURSEH(?)}");
+                cs.setInt(1, c.getId());
+                ResultSet rs2 = cs.executeQuery();
+                while(rs2.next()){
+                    Session s = new Session();
+                    s.setId(rs2.getInt(1));
+                    s.setDateSession(rs2.getDate(3));
+                    s.setHours(rs2.getInt(4));
+                    s.setLocation(rs.getString(5));
+                    sessions.add(s);
+                }
+                c.setSessions(sessions);
+
+                ArrayList<Student> students = new ArrayList<>();
+                ArrayList<Float> grades = new ArrayList<>();
+                ArrayList<String> states = new ArrayList<>();
+                ArrayList<Float> amountPaids = new ArrayList<>();
+
+                cs = con.prepareCall("{call SEARCH_STUDENTH_BY_COURSEH(?)}");
+                cs.setInt(1, c.getId());
+                rs2 = cs.executeQuery();
+                 while(rs2.next()){
+                    Student s = new Student();
+                    s.setId(rs2.getInt(2));
+                    students.add(s);
+                    grades.add(rs.getFloat(4));
+                    states.add(rs2.getString(5));                      
+                    amountPaids.add(rs2.getFloat(6));                       
+                }
+                 c.setStudents(students);
+                 c.setHistoryGrade(grades);
+                 c.setHistoryState(states); 
+                 c.setAmountPaids(amountPaids);
+                 courses.add(c);
                
             }            
             con.close();
@@ -190,42 +193,43 @@ public class MySQLCourseHistory implements DAOCourseHistory{
                 c.setAssistant(DBController.searchProfessorByIdPUCP(rs.getString(4)));
                 c.setHours(rs.getInt(5));
                 c.setStartDate(rs.getDate(6));
-                c.setEndDate(rs.getDate(7));               
-                    ArrayList<Session> sessions = new ArrayList<>();
-                    cs = con.prepareCall("{call SEARCH_SESSIONS_BY_COURSEH(?)}");
-                    cs.setInt(1, c.getId());
-                    ResultSet rs2 = cs.executeQuery();
-                    while(rs2.next()){
-                        Session s = new Session();
-                        s.setId(rs2.getInt(1));
-                        s.setDateSession(rs2.getDate(3));
-                        s.setHours(rs2.getInt(4));
-                        s.setLocation(rs.getString(5));
-                        sessions.add(s);
-                    }
-                    c.setSessions(sessions);
-                    
-                    ArrayList<Student> students = new ArrayList<>();
-                    ArrayList<Float> grades = new ArrayList<>();
-                    ArrayList<String> states = new ArrayList<>();
-                    ArrayList<Float> amountPaids = new ArrayList<>();
-                    
-                    cs = con.prepareCall("{call SEARCH_STUDENTH_BY_COURSEH(?)}");
-                    cs.setInt(1, c.getId());
-                    rs2 = cs.executeQuery();
-                     while(rs2.next()){
-                        Student s = new Student();
-                        s.setId(rs2.getInt(2));
-                        students.add(s);
-                        grades.add(rs.getFloat(4));
-                        states.add(rs2.getString(5));                      
-                        amountPaids.add(rs2.getFloat(6));                       
-                    }
-                     c.setStudents(students);
-                     c.setHistoryGrade(grades);
-                     c.setHistoryState(states); 
-                     c.setAmountPaids(amountPaids);
-                     courses.add(c);
+                c.setEndDate(rs.getDate(7)); 
+                c.setSurvey(rs.getBytes(8));
+                ArrayList<Session> sessions = new ArrayList<>();
+                cs = con.prepareCall("{call SEARCH_SESSIONS_BY_COURSEH(?)}");
+                cs.setInt(1, c.getId());
+                ResultSet rs2 = cs.executeQuery();
+                while(rs2.next()){
+                    Session s = new Session();
+                    s.setId(rs2.getInt(1));
+                    s.setDateSession(rs2.getDate(3));
+                    s.setHours(rs2.getInt(4));
+                    s.setLocation(rs.getString(5));
+                    sessions.add(s);
+                }
+                c.setSessions(sessions);
+
+                ArrayList<Student> students = new ArrayList<>();
+                ArrayList<Float> grades = new ArrayList<>();
+                ArrayList<String> states = new ArrayList<>();
+                ArrayList<Float> amountPaids = new ArrayList<>();
+
+                cs = con.prepareCall("{call SEARCH_STUDENTH_BY_COURSEH(?)}");
+                cs.setInt(1, c.getId());
+                rs2 = cs.executeQuery();
+                 while(rs2.next()){
+                    Student s = new Student();
+                    s.setId(rs2.getInt(2));
+                    students.add(s);
+                    grades.add(rs.getFloat(4));
+                    states.add(rs2.getString(5));                      
+                    amountPaids.add(rs2.getFloat(6));                       
+                }
+                 c.setStudents(students);
+                 c.setHistoryGrade(grades);
+                 c.setHistoryState(states); 
+                 c.setAmountPaids(amountPaids);
+                 courses.add(c);
                
             }            
             con.close();
