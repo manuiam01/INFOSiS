@@ -32,7 +32,6 @@
             this.gbCursos = new System.Windows.Forms.GroupBox();
             this.btBuscarCursos = new System.Windows.Forms.Button();
             this.dgvInterestedCourses = new System.Windows.Forms.DataGridView();
-            this.cNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lblEmail = new System.Windows.Forms.Label();
             this.txtCellphone = new System.Windows.Forms.TextBox();
@@ -98,7 +97,7 @@
             this.btBuscarCursos.Font = new System.Drawing.Font("Gill Sans MT", 11F);
             this.btBuscarCursos.ForeColor = System.Drawing.Color.White;
             this.btBuscarCursos.Location = new System.Drawing.Point(5, 25);
-            this.btBuscarCursos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btBuscarCursos.Margin = new System.Windows.Forms.Padding(2);
             this.btBuscarCursos.Name = "btBuscarCursos";
             this.btBuscarCursos.Size = new System.Drawing.Size(116, 31);
             this.btBuscarCursos.TabIndex = 1;
@@ -111,22 +110,12 @@
             this.dgvInterestedCourses.AllowUserToAddRows = false;
             this.dgvInterestedCourses.AllowUserToDeleteRows = false;
             this.dgvInterestedCourses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvInterestedCourses.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.cNombre});
             this.dgvInterestedCourses.Location = new System.Drawing.Point(6, 61);
             this.dgvInterestedCourses.Name = "dgvInterestedCourses";
             this.dgvInterestedCourses.ReadOnly = true;
             this.dgvInterestedCourses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvInterestedCourses.Size = new System.Drawing.Size(346, 299);
             this.dgvInterestedCourses.TabIndex = 0;
-            // 
-            // cNombre
-            // 
-            this.cNombre.HeaderText = "Nombre";
-            this.cNombre.Name = "cNombre";
-            this.cNombre.ReadOnly = true;
-            this.cNombre.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.cNombre.Width = 415;
             // 
             // groupBox2
             // 
@@ -446,7 +435,7 @@
             this.Controls.Add(this.txbNDocumento);
             this.Controls.Add(this.lblInterestedRegister);
             this.Controls.Add(this.lblDocumentNumber);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "InterestedModified";
             this.Size = new System.Drawing.Size(814, 566);
             this.Load += new System.EventHandler(this.InterestedSearch_Load);
@@ -470,7 +459,6 @@
         private System.Windows.Forms.GroupBox gbCursos;
         private System.Windows.Forms.Button btBuscarCursos;
         private System.Windows.Forms.DataGridView dgvInterestedCourses;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cNombre;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.TextBox txtCellphone;

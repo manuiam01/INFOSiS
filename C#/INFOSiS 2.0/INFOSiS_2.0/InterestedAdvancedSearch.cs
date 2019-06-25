@@ -7,16 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using INFOSiS_2._0.Server;
 
 namespace INFOSiS_2._0
 {
     public partial class InterestedAdvancedSearch : Form
     {
         private Server.ServerClient servidor;
+        private Server.interested inte;
         public InterestedAdvancedSearch()
         {
             InitializeComponent();
         }
+
+        public interested Inte { get => inte; set => inte = value; }
 
         private void BtnSearch_Click(object sender, EventArgs e)
         {
@@ -40,10 +44,6 @@ namespace INFOSiS_2._0
                     dgvInteresados.AutoGenerateColumns = false;
                     dgvInteresados.DataSource = interested_list;
                 }
-                //se llena la data
-                //dgvInteresados.DataSource =;
-                //if(dgvInteresados.Rows.Count==0)
-                //    MessageBox.Show("No hay interesado con esa información", "Aviso", MessageBoxButtons.OK);
 
             }
 
@@ -51,12 +51,8 @@ namespace INFOSiS_2._0
 
         private void BtnSelect_Click(object sender, EventArgs e)
         {
-            //if(dgvInteresados.SelectedRows!=null)
-            //  this.DialogResult = DialogResult.OK;
-            //else{
-            //  MessageBox.Show("Favor de escoger a algún interesado", "Aviso", MessageBoxButtons.OK);
-            //}
-            //Por ahora solo lo devolvemos y ya
+            inte = new Server.interested();
+            inte = (Server.interested)dgvInteresados.CurrentRow.DataBoundItem;
             this.DialogResult = DialogResult.OK;
         }
     }

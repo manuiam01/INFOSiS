@@ -14,6 +14,8 @@ namespace INFOSiS_2._0
     {
         private static InterestedModified _instance;
         private BindingList<string> cursos;
+        private DataTable tbCursos = new DataTable();
+        private BindingList<string> idcursos;
         private static Panel _panelMdi;
         private Server.ServerClient server;
         MessageBoxIcon iconoCorrecto = MessageBoxIcon.Asterisk;
@@ -37,7 +39,11 @@ namespace INFOSiS_2._0
         {
             InitializeComponent();
             establecerEstado(Estado.Inicial);
+            idcursos = new BindingList<string>();
             cursos = new BindingList<string>();
+            tbCursos.Columns.Add("ID", typeof(string));
+
+            tbCursos.Columns.Add("Nombre", typeof(string));
         }
         public void establecerEstado(Estado e)
         {
@@ -250,8 +256,32 @@ namespace INFOSiS_2._0
             InterestedAdvancedSearch formBuscarInteresado = new InterestedAdvancedSearch();
             if (formBuscarInteresado.ShowDialog() == DialogResult.OK)
             {
-                //Acá en teoría debería de devolver todo el ArrayList de cursos para ingresarlo al dgv
-                //dgvInterestedCourses.DataSource = formBuscarCursosInteresado.}
+                Server.interested inte = new Server.interested();
+                inte = formBuscarInteresado.Inte;
+                establecerEstado(Estado.Actualizar);
+                txbNDocumento.Text = inte.idNumber;
+                txbNombre.Text = inte.firstName;
+                txbSegundoNom.Text = inte.middleName;
+                txbApePa.Text = inte.primaryLastName;
+                txbApeMa.Text = inte.secondLastName;
+                txtCellphone.Text = inte.cellPhoneNumber;
+                txtEmail.Text = inte.email;
+                if (inte.idType == 0)
+                    rbDNI.Checked = true;
+                else if (inte.idType == 1)
+                    rbCarnet.Checked = true;
+                else
+                    rbPasaporte.Checked = true;
+                rbCarnet.Enabled = false;
+                rbDNI.Enabled = false;
+                rbPasaporte.Enabled = false;
+                btBuscarCursos.Enabled = false;
+                foreach (Server.course c in inte.courses)
+                {
+                    tbCursos.Rows.Add(c.id, c.name);
+                    idcursos.Add(c.id);
+                }
+                dgvInterestedCourses.DataSource = tbCursos;
             }
         }
 
