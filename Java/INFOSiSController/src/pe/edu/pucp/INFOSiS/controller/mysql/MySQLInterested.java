@@ -342,6 +342,7 @@ public class MySQLInterested implements DAOInterested {
         return interested;
     }    
     
+
     @Override
     public ArrayList<Interested> search_by_name(String name, String middle_name,
             String first_last_name, String second_last_name) {
@@ -376,6 +377,5 @@ public class MySQLInterested implements DAOInterested {
         }        
         return interesteds;
     }
-
 
 }

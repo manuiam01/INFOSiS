@@ -16,6 +16,7 @@ import pe.edu.pucp.INFOSiS.model.bean.HR.Intern;
 import pe.edu.pucp.INFOSiS.model.bean.course.Course;
 import pe.edu.pucp.INFOSiS.model.bean.course.CourseHistory;
 import pe.edu.pucp.INFOSiS.model.bean.course.CourseType;
+import pe.edu.pucp.INFOSiS.model.bean.course.Session;
 import pe.edu.pucp.INFOSiS.model.bean.professor.Professor;
 import pe.edu.pucp.INFOSiS.model.bean.student.Student;
 import pe.edu.pucp.INFOSiS.model.bean.user.User;
@@ -81,9 +82,21 @@ public class mian {
 //        System.out.println(result);
 //        
 //        
-//        
-//        
-//            ArrayList<CourseHistory> courses = DBController.queryCourseHByDate("24-07-05");
+           Date d = new Date();          
+           d.setMonth(6);
+           ArrayList<CourseHistory> courses = DBController.queryCourseHByDate2(d);
+           for(CourseHistory c : courses){              
+               System.out.println(c.getCourse().getId() +" "+ c.getCourse().getName());
+               System.out.println("Lista de sesiones:");
+               for(Session s: c.getSessions2()){
+                   System.out.println(s.getSession().toString());                   
+               }
+               System.out.println("Alumnos:");
+               for(Student stu : c.getStudents()){
+                   System.out.println(stu.getFirstName() + " " + stu.getPrimaryLastName());
+               }
+           }
+           
 //
 //          CourseType coursetype = DBController.queryCourseTypeById(6);
 //          Course c = new Course();
