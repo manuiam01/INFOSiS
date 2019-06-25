@@ -77,6 +77,12 @@
     <Compile Include="CourseButtons.Designer.cs">
       <DependentUpon>CourseButtons.cs</DependentUpon>
     </Compile>
+    <Compile Include="CourseModify.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CourseModify.Designer.cs">
+      <DependentUpon>CourseModify.cs</DependentUpon>
+    </Compile>
     <Compile Include="CourseRegister.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -278,6 +284,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CourseButtons.resx">
       <DependentUpon>CourseButtons.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CourseModify.resx">
+      <DependentUpon>CourseModify.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CourseRegister.resx">
       <DependentUpon>CourseRegister.cs</DependentUpon>
