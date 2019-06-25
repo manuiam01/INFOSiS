@@ -7,29 +7,43 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using INFOSiS_2._0.Server;
 
 namespace INFOSiS_2._0
 {
     public partial class InterestedAdvancedSearch : Form
     {
+        private Server.ServerClient servidor;
+        private Server.interested inte;
         public InterestedAdvancedSearch()
         {
             InitializeComponent();
         }
 
+        public interested Inte { get => inte; set => inte = value; }
+
         private void BtnSearch_Click(object sender, EventArgs e)
         {
-            if(tbApeMa.Text==""&&
-                tbApePa.Text==""&&
-                tbNombre.Text==""&&
-                tbSNombre.Text=="")
+            if(tbApeMa.Text.Equals("") &&
+                tbApePa.Text.Equals("") &&
+                tbNombre.Text.Equals("") &&
+                tbSNombre.Text.Equals(""))
                 MessageBox.Show("No se ingresó información alguna", "Aviso", MessageBoxButtons.OK);
             else
             {
-                //se llena la data
-                //dgvInteresados.DataSource =;
-                //if(dgvInteresados.Rows.Count==0)
-                //    MessageBox.Show("No hay interesado con esa información", "Aviso", MessageBoxButtons.OK);
+                servidor = new Server.ServerClient();
+                Server.interested[] interesteds = servidor.SearchInterestedByName(tbNombre.Text, tbSNombre.Text, tbApePa.Text, tbApeMa.Text);
+                if (interesteds == null)
+                {
+                    MessageBox.Show("No se encontraron resultados", "Resultados no encontrados", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    dgvInteresados.DataSource = null;
+                }
+                else
+                {
+                    BindingList<Server.interested> interested_list = new BindingList<Server.interested>(interesteds);
+                    dgvInteresados.AutoGenerateColumns = false;
+                    dgvInteresados.DataSource = interested_list;
+                }
 
             }
 
@@ -37,12 +51,8 @@ namespace INFOSiS_2._0
 
         private void BtnSelect_Click(object sender, EventArgs e)
         {
-            //if(dgvInteresados.SelectedRows!=null)
-            //  this.DialogResult = DialogResult.OK;
-            //else{
-            //  MessageBox.Show("Favor de escoger a algún interesado", "Aviso", MessageBoxButtons.OK);
-            //}
-            //Por ahora solo lo devolvemos y ya
+            inte = new Server.interested();
+            inte = (Server.interested)dgvInteresados.CurrentRow.DataBoundItem;
             this.DialogResult = DialogResult.OK;
         }
     }

@@ -42,6 +42,7 @@ namespace INFOSiS_2._0
             servidor = new Server.ServerClient();
             idcursos = new BindingList<string>();
             tbCursos.Columns.Add("ID", typeof(string));
+
             tbCursos.Columns.Add("Nombre", typeof(string));
         }
 
@@ -197,13 +198,16 @@ namespace INFOSiS_2._0
                         courses.Add(c);
                         tama = tama+1;
                     }
-                    i.courses = new Server.course[tama];
+                    Server.course[] coursesList = new Server.course[tama];
+                    coursesList =   courses.ToArray<Server.course>();
+                    i.courses = coursesList;
                     //i.courses = courses;
                     //i.courses = new Server.course[5];
                     servidor.InsertInterested(i);
                     
                     MessageBox.Show("Se registró al interesado de manera correcta", "Éxito", MessageBoxButtons.OK,iconoCorrecto);
                     limpiar();
+                    tbCursos.Clear();
                 }
             }
 

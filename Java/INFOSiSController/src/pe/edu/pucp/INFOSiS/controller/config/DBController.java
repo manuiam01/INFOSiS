@@ -98,7 +98,10 @@ public abstract class DBController {
     public static ArrayList<Interested> queryAllByCourse(Course course){
         return daoFactory.getInterestedDAO().queryAllByCourseType(course);
     }
-    
+    public static ArrayList<Interested> searchInterestedByName(String name, String middle_name,
+            String first_last_name, String second_last_name){
+        return daoFactory.getInterestedDAO().search_by_name(name, middle_name, first_last_name, second_last_name);
+    }
     //Métodos Course
     public static int insertCourse(Course course){
         return daoFactory.getCourseDAO().insert(course);
@@ -156,5 +159,13 @@ public abstract class DBController {
      
      public static ArrayList<CourseHistory> queryCourseHByDate(Date date){
          return daoFactory.getCourseHDAO().queryByDate(date);
+     }
+     
+     public static Student queryStudentByID(String idStudent){
+         return daoFactory.getStudentDAO().queryStudentById(idStudent);
+
+     }
+     public static ArrayList<CourseHistory> queryCourseHByIdProfessor(String idProfessor){
+         return daoFactory.getCourseHDAO().queryByIdProfessor(idProfessor);
      }
 }

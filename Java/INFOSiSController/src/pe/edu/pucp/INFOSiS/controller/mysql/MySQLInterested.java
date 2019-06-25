@@ -342,5 +342,62 @@ public class MySQLInterested implements DAOInterested {
         return interested;
     }    
     
-    
+
+    @Override
+    public ArrayList<Interested> search_by_name(String name, String middle_name,
+            String first_last_name, String second_last_name) {
+        ArrayList<Interested> interesteds = new ArrayList<Interested>();
+        try{
+            DBManager dbManager = DBManager.getdbManager();
+            Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
+            CallableStatement cs = con.prepareCall("{call SEARCH_INTERESTED_BY_NAME(?,?,?,?)}");
+            cs.setString(1, name);
+            cs.setString(2, middle_name);
+            cs.setString(3, first_last_name);
+            cs.setString(4, second_last_name);
+            ResultSet rs = cs.executeQuery();
+            while(rs.next()){
+                Interested interested = new Interested();
+                interested.setIdNumber(rs.getString("idNumber"));
+                interested.setIdType(rs.getInt("idNumberType"));
+                interested.setFirstName(rs.getString("firstName"));
+                interested.setMiddleName(rs.getString("middleName"));
+                interested.setPrimaryLastName(rs.getString("primaryLastName"));
+                interested.setSecondLastName(rs.getString("secondLastName"));
+                interested.setGender(rs.getString("gender"));
+                interested.setEmail(rs.getString("email"));
+                interested.setCellPhoneNumber(rs.getString("cellPhoneNumber"));
+                interested.setIsUnsubscribed(rs.getBoolean("isUnsuscribed"));
+                String query2 = "SELECT idCourse FROM InterestedxCourseType WHERE idInterested = ?";
+                PreparedStatement ps = con.prepareStatement(query2);
+                ps.setString(1,interested.getIdNumber());
+                ResultSet rs2 = ps.executeQuery();
+                ArrayList<Course> courses = new ArrayList<Course>();
+                while(rs2.next()){
+                    Course crs = new Course();
+                    crs.setId(rs2.getString("idCourse"));
+                    String query3 = "SELECT * FROM Course WHERE idCourse= ?";
+                    PreparedStatement ps2 = con.prepareStatement(query3);
+                    ps2.setString(1,crs.getId());
+                    ResultSet rs3 = ps2.executeQuery();
+                    while(rs3.next()){
+                        crs.setDescription(rs3.getString("description"));
+                        crs.setIsActive(rs3.getBoolean("isActive"));
+                        crs.setName(rs3.getString("name"));
+                        courses.add(crs);
+                    }
+                    rs3.close();
+                }
+                interested.setCourses(courses);
+                
+                if(!interested.isIsUnsubscribed())
+                    interesteds.add(interested);
+            }            
+            con.close();
+        }catch(SQLException ex){
+            System.out.println(ex.getMessage());
+        }        
+        return interesteds;
+    }
+
 }

@@ -25,6 +25,19 @@ namespace INFOSiS_2._0
 
         private void btnLogIn_Click(object sender, EventArgs e)
         {
+            iniciar_login();
+        }
+
+        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                iniciar_login();
+            }
+        }
+
+        private void iniciar_login()
+        {
             if (txtUser.Text == "")
             {
                 String mensaje = "ERROR: Debe ingresar un usuario";
@@ -45,7 +58,7 @@ namespace INFOSiS_2._0
                 Server.user u = new Server.user();
                 u.username = txtUser.Text;
                 u.password = txtPassword.Text;
-                u.acces= servidor.VerifyUser(u);
+                u.acces = servidor.VerifyUser(u);
                 if (u.acces.id != -1)
                 {
                     //String role = u.acces.name;
@@ -61,5 +74,8 @@ namespace INFOSiS_2._0
                 }
             }
         }
+
+
+
     }
 }

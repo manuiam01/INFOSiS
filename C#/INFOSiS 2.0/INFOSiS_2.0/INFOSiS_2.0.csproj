@@ -326,22 +326,22 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\Server\INFOSiS_2._0.Server.course1.datasource">
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.course.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.courseHistory.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\Server\INFOSiS_2._0.Server.courseType1.datasource">
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.courseType.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\Server\INFOSiS_2._0.Server.DisableCourseResponse1.datasource">
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.DisableCourseResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\Server\INFOSiS_2._0.Server.InsertCourseResponse1.datasource">
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.InsertCourseResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\Server\INFOSiS_2._0.Server.InsertCourseTypeResponse1.datasource">
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.InsertCourseTypeResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.InsertInterestedResponse.datasource">
@@ -371,13 +371,13 @@
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.QueryAllByCourseResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\Server\INFOSiS_2._0.Server.queryAllCourseResponse1.datasource">
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.queryAllCourseResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\Server\INFOSiS_2._0.Server.queryAllCoursesByNameResponse1.datasource">
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.queryAllCoursesByNameResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\Server\INFOSiS_2._0.Server.queryAllCourseTypeResponse1.datasource">
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.queryAllCourseTypeResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.QueryAllInterestedResponse.datasource">
@@ -389,16 +389,29 @@
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.QueryAllUsersResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\Server\INFOSiS_2._0.Server.queryCourseByIdResponse1.datasource">
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.queryCourseByIdResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.queryCourseHByDateResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+<<<<<<< HEAD
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.queryCourseHistoryByIdProfessorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.queryCourseTypeByIdResponse1.datasource">
+=======
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.queryCourseTypeByIdResponse.datasource">
+>>>>>>> 1d2ca2f5fc14af801d27b2424f1abcdfaba4d2fb
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.QueryInterestedByIDResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.queryStudentByIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.SearchInterestedByNameResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.SearchInternByIdNumberResponse.datasource">
@@ -419,10 +432,13 @@
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.SearchProfessorByNameResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\Server\INFOSiS_2._0.Server.UpdateCourseResponse1.datasource">
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.student.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\Server\INFOSiS_2._0.Server.UpdateCourseTypeResponse1.datasource">
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.UpdateCourseResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.UpdateCourseTypeResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.UpdateInterestedResponse.datasource">
@@ -445,10 +461,6 @@
     </None>
     <None Include="Connected Services\Server\Server.wsdl" />
     <None Include="Connected Services\Server\Server.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\Server\Server1.wsdl" />
-    <None Include="Connected Services\Server\Server1.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Resources\perfil2.png" />

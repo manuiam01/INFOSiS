@@ -30,8 +30,6 @@
         {
             this.lblProfessorModify = new System.Windows.Forms.Label();
             this.gbxContactData = new System.Windows.Forms.GroupBox();
-            this.lblRequired7 = new System.Windows.Forms.Label();
-            this.lblRequired6 = new System.Windows.Forms.Label();
             this.gbxCondition = new System.Windows.Forms.GroupBox();
             this.rbActive = new System.Windows.Forms.RadioButton();
             this.rbInactive = new System.Windows.Forms.RadioButton();
@@ -46,12 +44,6 @@
             this.txtPUCPCode = new System.Windows.Forms.TextBox();
             this.lblPUCPCode = new System.Windows.Forms.Label();
             this.gbxPersonalData = new System.Windows.Forms.GroupBox();
-            this.lblRequired5 = new System.Windows.Forms.Label();
-            this.lblRequired4 = new System.Windows.Forms.Label();
-            this.lblRequired3 = new System.Windows.Forms.Label();
-            this.lblRequired2 = new System.Windows.Forms.Label();
-            this.lblRequired1 = new System.Windows.Forms.Label();
-            this.lblRequired0 = new System.Windows.Forms.Label();
             this.lblRequiredInfo = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
             this.lblAdvancedSearch = new System.Windows.Forms.Label();
@@ -95,8 +87,6 @@
             // gbxContactData
             // 
             this.gbxContactData.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.gbxContactData.Controls.Add(this.lblRequired7);
-            this.gbxContactData.Controls.Add(this.lblRequired6);
             this.gbxContactData.Controls.Add(this.gbxCondition);
             this.gbxContactData.Controls.Add(this.lblEmail);
             this.gbxContactData.Controls.Add(this.txtCellphone);
@@ -114,6 +104,7 @@
             this.gbxContactData.TabStop = false;
             this.gbxContactData.Text = "Datos de contacto";
             // 
+<<<<<<< HEAD
             // lblRequired7
             // 
             this.lblRequired7.AutoSize = true;
@@ -138,6 +129,8 @@
             this.lblRequired6.TabIndex = 184;
             this.lblRequired6.Text = "*";
             // 
+=======
+>>>>>>> bcce1747289c1bcd8bd27cfcd713792a3f3d79e6
             // gbxCondition
             // 
             this.gbxCondition.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -151,7 +144,7 @@
             this.gbxCondition.Size = new System.Drawing.Size(379, 48);
             this.gbxCondition.TabIndex = 169;
             this.gbxCondition.TabStop = false;
-            this.gbxCondition.Text = "Condición:";
+            this.gbxCondition.Text = "Condición: *";
             // 
             // rbActive
             // 
@@ -232,9 +225,13 @@
             this.lblEmailPUCP.Location = new System.Drawing.Point(71, 107);
             this.lblEmailPUCP.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEmailPUCP.Name = "lblEmailPUCP";
+<<<<<<< HEAD
             this.lblEmailPUCP.Size = new System.Drawing.Size(115, 25);
+=======
+            this.lblEmailPUCP.Size = new System.Drawing.Size(95, 18);
+>>>>>>> bcce1747289c1bcd8bd27cfcd713792a3f3d79e6
             this.lblEmailPUCP.TabIndex = 151;
-            this.lblEmailPUCP.Text = "Correo PUCP:";
+            this.lblEmailPUCP.Text = "Correo PUCP: *";
             // 
             // txtEmail
             // 
@@ -290,19 +287,17 @@
             this.lblPUCPCode.Location = new System.Drawing.Point(76, 66);
             this.lblPUCPCode.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPUCPCode.Name = "lblPUCPCode";
+<<<<<<< HEAD
             this.lblPUCPCode.Size = new System.Drawing.Size(114, 25);
+=======
+            this.lblPUCPCode.Size = new System.Drawing.Size(95, 18);
+>>>>>>> bcce1747289c1bcd8bd27cfcd713792a3f3d79e6
             this.lblPUCPCode.TabIndex = 155;
-            this.lblPUCPCode.Text = "Código PUCP:";
+            this.lblPUCPCode.Text = "Código PUCP: *";
             // 
             // gbxPersonalData
             // 
             this.gbxPersonalData.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.gbxPersonalData.Controls.Add(this.lblRequired5);
-            this.gbxPersonalData.Controls.Add(this.lblRequired4);
-            this.gbxPersonalData.Controls.Add(this.lblRequired3);
-            this.gbxPersonalData.Controls.Add(this.lblRequired2);
-            this.gbxPersonalData.Controls.Add(this.lblRequired1);
-            this.gbxPersonalData.Controls.Add(this.lblRequired0);
             this.gbxPersonalData.Controls.Add(this.lblRequiredInfo);
             this.gbxPersonalData.Controls.Add(this.btnSearch);
             this.gbxPersonalData.Controls.Add(this.lblAdvancedSearch);
@@ -332,6 +327,7 @@
             this.gbxPersonalData.TabStop = false;
             this.gbxPersonalData.Text = "Datos Personales";
             // 
+<<<<<<< HEAD
             // lblRequired5
             // 
             this.lblRequired5.AutoSize = true;
@@ -404,6 +400,8 @@
             this.lblRequired0.TabIndex = 187;
             this.lblRequired0.Text = "*";
             // 
+=======
+>>>>>>> bcce1747289c1bcd8bd27cfcd713792a3f3d79e6
             // lblRequiredInfo
             // 
             this.lblRequiredInfo.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -499,11 +497,15 @@
             this.gbxDocumentType.Location = new System.Drawing.Point(21, 166);
             this.gbxDocumentType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gbxDocumentType.Name = "gbxDocumentType";
+<<<<<<< HEAD
             this.gbxDocumentType.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gbxDocumentType.Size = new System.Drawing.Size(440, 58);
+=======
+            this.gbxDocumentType.Size = new System.Drawing.Size(336, 47);
+>>>>>>> bcce1747289c1bcd8bd27cfcd713792a3f3d79e6
             this.gbxDocumentType.TabIndex = 158;
             this.gbxDocumentType.TabStop = false;
-            this.gbxDocumentType.Text = "Tipo de Documento:";
+            this.gbxDocumentType.Text = "Tipo de Documento: *";
             // 
             // rbDNI
             // 
@@ -550,11 +552,18 @@
             // txtDocumentNumber
             // 
             this.txtDocumentNumber.Anchor = System.Windows.Forms.AnchorStyles.None;
+<<<<<<< HEAD
             this.txtDocumentNumber.Location = new System.Drawing.Point(200, 240);
             this.txtDocumentNumber.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtDocumentNumber.MaxLength = 8;
             this.txtDocumentNumber.Name = "txtDocumentNumber";
             this.txtDocumentNumber.Size = new System.Drawing.Size(267, 31);
+=======
+            this.txtDocumentNumber.Location = new System.Drawing.Point(159, 195);
+            this.txtDocumentNumber.MaxLength = 8;
+            this.txtDocumentNumber.Name = "txtDocumentNumber";
+            this.txtDocumentNumber.Size = new System.Drawing.Size(192, 26);
+>>>>>>> bcce1747289c1bcd8bd27cfcd713792a3f3d79e6
             this.txtDocumentNumber.TabIndex = 133;
             this.txtDocumentNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtDocumentNumber_KeyPress);
             // 
@@ -566,9 +575,13 @@
             this.lblDocumentNumber.Location = new System.Drawing.Point(4, 245);
             this.lblDocumentNumber.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDocumentNumber.Name = "lblDocumentNumber";
+<<<<<<< HEAD
             this.lblDocumentNumber.Size = new System.Drawing.Size(185, 25);
+=======
+            this.lblDocumentNumber.Size = new System.Drawing.Size(150, 18);
+>>>>>>> bcce1747289c1bcd8bd27cfcd713792a3f3d79e6
             this.lblDocumentNumber.TabIndex = 134;
-            this.lblDocumentNumber.Text = "Número de Documento:";
+            this.lblDocumentNumber.Text = "Número de Documento: *";
             // 
             // lblFirstName
             // 
@@ -578,48 +591,80 @@
             this.lblFirstName.Location = new System.Drawing.Point(67, 283);
             this.lblFirstName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFirstName.Name = "lblFirstName";
+<<<<<<< HEAD
             this.lblFirstName.Size = new System.Drawing.Size(124, 25);
+=======
+            this.lblFirstName.Size = new System.Drawing.Size(102, 18);
+>>>>>>> bcce1747289c1bcd8bd27cfcd713792a3f3d79e6
             this.lblFirstName.TabIndex = 135;
-            this.lblFirstName.Text = "Primer nombre:";
+            this.lblFirstName.Text = "Primer nombre: *";
             // 
             // txtFirstName
             // 
             this.txtFirstName.Anchor = System.Windows.Forms.AnchorStyles.None;
+<<<<<<< HEAD
             this.txtFirstName.Location = new System.Drawing.Point(199, 279);
             this.txtFirstName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtFirstName.MaxLength = 45;
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(269, 31);
+=======
+            this.txtFirstName.Location = new System.Drawing.Point(159, 227);
+            this.txtFirstName.MaxLength = 45;
+            this.txtFirstName.Name = "txtFirstName";
+            this.txtFirstName.Size = new System.Drawing.Size(193, 26);
+>>>>>>> bcce1747289c1bcd8bd27cfcd713792a3f3d79e6
             this.txtFirstName.TabIndex = 136;
             // 
             // txtSecondName
             // 
             this.txtSecondName.Anchor = System.Windows.Forms.AnchorStyles.None;
+<<<<<<< HEAD
             this.txtSecondName.Location = new System.Drawing.Point(199, 319);
             this.txtSecondName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtSecondName.MaxLength = 45;
             this.txtSecondName.Name = "txtSecondName";
             this.txtSecondName.Size = new System.Drawing.Size(269, 31);
+=======
+            this.txtSecondName.Location = new System.Drawing.Point(159, 259);
+            this.txtSecondName.MaxLength = 45;
+            this.txtSecondName.Name = "txtSecondName";
+            this.txtSecondName.Size = new System.Drawing.Size(193, 26);
+>>>>>>> bcce1747289c1bcd8bd27cfcd713792a3f3d79e6
             this.txtSecondName.TabIndex = 137;
             // 
             // txtPrimaryLastName
             // 
             this.txtPrimaryLastName.Anchor = System.Windows.Forms.AnchorStyles.None;
+<<<<<<< HEAD
             this.txtPrimaryLastName.Location = new System.Drawing.Point(199, 358);
             this.txtPrimaryLastName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtPrimaryLastName.MaxLength = 45;
             this.txtPrimaryLastName.Name = "txtPrimaryLastName";
             this.txtPrimaryLastName.Size = new System.Drawing.Size(269, 31);
+=======
+            this.txtPrimaryLastName.Location = new System.Drawing.Point(159, 291);
+            this.txtPrimaryLastName.MaxLength = 45;
+            this.txtPrimaryLastName.Name = "txtPrimaryLastName";
+            this.txtPrimaryLastName.Size = new System.Drawing.Size(193, 26);
+>>>>>>> bcce1747289c1bcd8bd27cfcd713792a3f3d79e6
             this.txtPrimaryLastName.TabIndex = 138;
             // 
             // txtSecondLastName
             // 
             this.txtSecondLastName.Anchor = System.Windows.Forms.AnchorStyles.None;
+<<<<<<< HEAD
             this.txtSecondLastName.Location = new System.Drawing.Point(199, 398);
             this.txtSecondLastName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtSecondLastName.MaxLength = 45;
             this.txtSecondLastName.Name = "txtSecondLastName";
             this.txtSecondLastName.Size = new System.Drawing.Size(269, 31);
+=======
+            this.txtSecondLastName.Location = new System.Drawing.Point(159, 323);
+            this.txtSecondLastName.MaxLength = 45;
+            this.txtSecondLastName.Name = "txtSecondLastName";
+            this.txtSecondLastName.Size = new System.Drawing.Size(193, 26);
+>>>>>>> bcce1747289c1bcd8bd27cfcd713792a3f3d79e6
             this.txtSecondLastName.TabIndex = 139;
             // 
             // lblSecondName
@@ -642,9 +687,13 @@
             this.lblPrimaryLastName.Location = new System.Drawing.Point(55, 359);
             this.lblPrimaryLastName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPrimaryLastName.Name = "lblPrimaryLastName";
+<<<<<<< HEAD
             this.lblPrimaryLastName.Size = new System.Drawing.Size(134, 25);
+=======
+            this.lblPrimaryLastName.Size = new System.Drawing.Size(111, 18);
+>>>>>>> bcce1747289c1bcd8bd27cfcd713792a3f3d79e6
             this.lblPrimaryLastName.TabIndex = 141;
-            this.lblPrimaryLastName.Text = "Apellido paterno:";
+            this.lblPrimaryLastName.Text = "Apellido paterno: *";
             // 
             // lblSecondLastName
             // 
@@ -654,9 +703,13 @@
             this.lblSecondLastName.Location = new System.Drawing.Point(51, 398);
             this.lblSecondLastName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSecondLastName.Name = "lblSecondLastName";
+<<<<<<< HEAD
             this.lblSecondLastName.Size = new System.Drawing.Size(138, 25);
+=======
+            this.lblSecondLastName.Size = new System.Drawing.Size(114, 18);
+>>>>>>> bcce1747289c1bcd8bd27cfcd713792a3f3d79e6
             this.lblSecondLastName.TabIndex = 142;
-            this.lblSecondLastName.Text = "Apellido materno:";
+            this.lblSecondLastName.Text = "Apellido materno: *";
             // 
             // btnCancelar
             // 
@@ -775,14 +828,6 @@
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label lblAdvancedSearch;
         private System.Windows.Forms.Label lblRequiredInfo;
-        private System.Windows.Forms.Label lblRequired0;
-        private System.Windows.Forms.Label lblRequired1;
-        private System.Windows.Forms.Label lblRequired2;
-        private System.Windows.Forms.Label lblRequired3;
-        private System.Windows.Forms.Label lblRequired4;
-        private System.Windows.Forms.Label lblRequired6;
-        private System.Windows.Forms.Label lblRequired5;
-        private System.Windows.Forms.Label lblRequired7;
         private System.Windows.Forms.Button btnSaveChanges;
     }
 }

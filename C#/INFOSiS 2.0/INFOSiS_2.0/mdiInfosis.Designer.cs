@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MdiInfosis));
             this.panelHeader = new System.Windows.Forms.Panel();
             this.btnProfessor = new System.Windows.Forms.Button();
             this.btnStudent = new System.Windows.Forms.Button();
@@ -44,8 +45,8 @@
             // panelHeader
             // 
             this.panelHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(81)))), ((int)(((byte)(165)))));
-            this.panelHeader.Controls.Add(this.btnProfessor);
             this.panelHeader.Controls.Add(this.btnStudent);
+            this.panelHeader.Controls.Add(this.btnProfessor);
             this.panelHeader.Controls.Add(this.btnInterested);
             this.panelHeader.Controls.Add(this.btnCourse);
             this.panelHeader.Controls.Add(this.btnInterns);
@@ -63,7 +64,7 @@
             this.btnProfessor.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnProfessor.Font = new System.Drawing.Font("Gill Sans MT", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProfessor.Image = global::INFOSiS_2._0.Properties.Resources.profesor7;
-            this.btnProfessor.Location = new System.Drawing.Point(881, 2);
+            this.btnProfessor.Location = new System.Drawing.Point(887, 2);
             this.btnProfessor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnProfessor.Name = "btnProfessor";
             this.btnProfessor.Size = new System.Drawing.Size(115, 142);
@@ -78,7 +79,7 @@
             this.btnStudent.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnStudent.Font = new System.Drawing.Font("Gill Sans MT", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStudent.Image = global::INFOSiS_2._0.Properties.Resources.estudiante22;
-            this.btnStudent.Location = new System.Drawing.Point(1003, 2);
+            this.btnStudent.Location = new System.Drawing.Point(1129, 2);
             this.btnStudent.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnStudent.Name = "btnStudent";
             this.btnStudent.Size = new System.Drawing.Size(112, 142);
@@ -93,7 +94,7 @@
             this.btnInterested.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnInterested.Font = new System.Drawing.Font("Gill Sans MT", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInterested.Image = global::INFOSiS_2._0.Properties.Resources.interesado3;
-            this.btnInterested.Location = new System.Drawing.Point(1123, 2);
+            this.btnInterested.Location = new System.Drawing.Point(1008, 2);
             this.btnInterested.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnInterested.Name = "btnInterested";
             this.btnInterested.Size = new System.Drawing.Size(115, 142);
@@ -188,6 +189,7 @@
             this.Controls.Add(this.panelMdiOptions);
             this.Controls.Add(this.panelHeader);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MdiInfosis";
             this.Text = "mdiInfosis";

@@ -18,7 +18,7 @@ public class Session {
     
     
     private int id;
-    private Date session;
+    private Date dateSession;
     private String location;
     private int hours;
 
@@ -30,13 +30,15 @@ public class Session {
         this.id = id;
     }
 
-    public Date getSession() {
-        return session;
+    public Date getDateSession() {
+        return dateSession;
     }
 
-    public void setSession(Date session) {
-        this.session = session;
+    public void setDateSession(Date dateSession) {
+        this.dateSession = dateSession;
     }
+
+    
 
     public String getLocation() {
         return location;
