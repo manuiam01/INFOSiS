@@ -14,4 +14,5 @@ import pe.edu.pucp.INFOSiS.model.bean.student.Student;
 public interface DAOStudent {
     int insertStudent(Student student);
     int updateStudent(Student student, String id);
+    Student queryStudentById(String id);
 }

@@ -12,10 +12,6 @@ import pe.edu.pucp.INFOSiS.model.bean.course.Voucher;
  */
 public class Student extends Interested implements Serializable{
 
-    /**
-     * Default constructor
-     */
-
     private String homePhone;
     private ArrayList<String> idPUCPList;
     private Date birthDate;
@@ -26,6 +22,11 @@ public class Student extends Interested implements Serializable{
     private ArrayList<Voucher> vouchers;
 
     public Student() {
+        this.idPUCPList = new ArrayList<>();
+        this.vouchers = new ArrayList<>();
+        this.historyGrade = new ArrayList<>();
+        this.historyState = new ArrayList<>();
+        this.history = new ArrayList<>();
     }
 
 
