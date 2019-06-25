@@ -106,8 +106,9 @@ public class Server {
     }
     
     @WebMethod(operationName="InsertStudent")
-    public int insertStudent(@WebParam(name="student")Student student){
-        return DBController.insertStudent(student);
+    public int insertStudent(@WebParam(name="student")Student student,
+            @WebParam(name="birthday") String birthday){
+        return DBController.insertStudent(student, birthday);
     }
     
     @WebMethod(operationName="SearchProfessorByIdPUCP")
@@ -182,6 +183,12 @@ public class Server {
     @WebMethod(operationName="queryCourseHByDate")
     public ArrayList<CourseHistory> QueryCourseHByDate(@WebParam(name="date") Date date){
         return DBController.queryCourseHByDate(date);
+    }
+    
+    @WebMethod(operationName="updateStudent")
+    public int updateStudent(@WebParam(name="student") Student student, 
+            @WebParam(name="birthday") String birthday){
+        return DBController.updateStudent(student, birthday);
     }
     
     @WebMethod(operationName="queryStudentById")

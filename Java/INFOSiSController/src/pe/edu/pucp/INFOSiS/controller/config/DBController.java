@@ -142,8 +142,8 @@ public abstract class DBController {
          return daoFactory.getInterestedDAO().queryInterestedById(interestedID);
      }
      
-     public static int insertStudent(Student s){
-         return daoFactory.getStudentDAO().insertStudent(s);
+     public static int insertStudent(Student s, String birthday){
+         return daoFactory.getStudentDAO().insertStudent(s, birthday);
      }
      
      public static int insertCourseHistory(CourseHistory courseHistory){
@@ -156,5 +156,9 @@ public abstract class DBController {
      
      public static Student queryStudentByID(String idStudent){
          return daoFactory.getStudentDAO().queryStudentById(idStudent);
+     }
+     
+     public static int updateStudent(Student student, String birthday){
+         return daoFactory.getStudentDAO().updateStudent(student, birthday);
      }
 }

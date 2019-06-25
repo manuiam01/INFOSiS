@@ -153,6 +153,7 @@ namespace INFOSiS_2._0
                 s.homePhone = txtTelefono.Text;
                 s.address = txtDireccion.Text;
                 s.birthDate = dateNacimiento.Value.Date;
+                String birthday = dateNacimiento.Value.ToString("yyyy/MM/dd");
                 s.idPUCPList = new string[listaCodigos.Count];
                 BindingList<string> lstring = new BindingList<string>();
                 foreach (ListaStrings ls in listaCodigos)
@@ -160,7 +161,7 @@ namespace INFOSiS_2._0
                     lstring.Add(ls.Cadena);
                 }
                 lstring.CopyTo(s.idPUCPList, 0);
-                int result = server.InsertStudent(s);
+                int result = server.InsertStudent(s,birthday);
                 if (result == 1)
                 {
                     mensaje = "ÉXITO: Se ha registrado al alumno";

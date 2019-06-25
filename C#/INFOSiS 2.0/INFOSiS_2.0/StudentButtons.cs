@@ -44,5 +44,48 @@ namespace INFOSiS_2._0
             }
         }
 
+        private void btnRegStudent_Click(object sender, EventArgs e)
+        {
+            foreach (Control item in PanelMdi.Controls.OfType<Control>())
+            {
+                PanelMdi.Controls.Remove(item);
+            }
+
+            if (!PanelMdi.Controls.Contains(StudentRegister.Instance))
+            {
+                PanelMdi.Controls.Add(StudentRegister.Instance);
+                StudentRegister.Instance.Dock = DockStyle.Fill;
+                StudentRegister.PanelMdi = PanelMdi;
+                StudentRegister.Instance.Visible = true;
+                StudentRegister.Instance.BringToFront();
+            }
+            else
+            {
+                StudentRegister.Instance.Visible = true;
+                StudentRegister.Instance.BringToFront();
+            }
+        }
+
+        private void btnModifyStudent_Click(object sender, EventArgs e)
+        {
+            foreach (Control item in PanelMdi.Controls.OfType<Control>())
+            {
+                PanelMdi.Controls.Remove(item);
+            }
+
+            if (!PanelMdi.Controls.Contains(StudentModify.Instance))
+            {
+                PanelMdi.Controls.Add(StudentModify.Instance);
+                StudentModify.Instance.Dock = DockStyle.Fill;
+                StudentModify.PanelMdi = PanelMdi;
+                StudentModify.Instance.Visible = true;
+                StudentModify.Instance.BringToFront();
+            }
+            else
+            {
+                StudentModify.Instance.Visible = true;
+                StudentModify.Instance.BringToFront();
+            }
+        }
     }
 }

@@ -26,7 +26,7 @@ import pe.edu.pucp.INFOSiS.model.bean.user.User;
  */
 public class MySQLStudent implements DAOStudent{
     @Override
-    public int insertStudent(Student student) {
+    public int insertStudent(Student student, String birthday) {
         int result = 0;
         try{
             DBManager dbManager = DBManager.getdbManager();
@@ -34,8 +34,8 @@ public class MySQLStudent implements DAOStudent{
             Statement sentencia = con.createStatement();
             //DateFormat dateFormat = new SimpleDateFormat("mm/dd/yyyy");  
             //String strDate = dateFormat.format(student.getBirthDate());  
-            String query="INSERT INTO Student (idStudent,homePhone,address) VALUES ("+
-                    "'"+student.getIdNumber()+"','"+student.getHomePhone()+"','"+student.getAddress()+"')";
+            String query="INSERT INTO Student (idStudent,homePhone,address,birthday) VALUES ("+
+                    "'"+student.getIdNumber()+"','"+student.getHomePhone()+"','"+student.getAddress()+"',STR_TO_DATE('"+birthday+"', '%Y/%m/%d'))";
             result =sentencia.executeUpdate(query);
             for(String cod : student.getIdPUCPList()){
                 sentencia=con.createStatement();
@@ -51,27 +51,26 @@ public class MySQLStudent implements DAOStudent{
     }
 
     @Override
-    public int updateStudent(Student student, String id) {
-        /*POR ACTUALIZAR*/
+    public int updateStudent(Student student, String birthday) {
         int result = 0;
         try{
             DBManager dbManager = DBManager.getdbManager();
             Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
-            CallableStatement cStmt = con.prepareCall("{call UPDATE_STUDENT(?,?,?,?,?,?,?,?,?,?,?,?,?)}");
-            cStmt.setString("_idStudent", id);
-            //cStmt.setString("_idNumber", student.getIdNumber());
-            cStmt.setInt("_idType", student.getIdType());
-            cStmt.setString("_firstName", student.getFirstName());
-            cStmt.setString("_middleName", student.getMiddleName());
-            cStmt.setString("_primaryLastName", student.getPrimaryLastName());
-            cStmt.setString("_secondLastName", student.getSecondLastName());
-            cStmt.setString("_gender", student.getGender());
-            cStmt.setString("_email", student.getEmail());
-            cStmt.setString("_cellPhoneNuber", student.getCellPhoneNumber());
-            cStmt.setString("_homePhone", student.getHomePhone());
-            cStmt.setDate("_birthday",(Date)student.getBirthDate());
-            cStmt.setString("_address", student.getAddress());
-            cStmt.execute();
+            Statement sentencia = con.createStatement();
+            String query = "DELETE FROM StudentxIds WHERE idStudent='"+student.getIdNumber()+"'";
+            sentencia.executeUpdate(query);
+            for(String cod : student.getIdPUCPList()){
+                sentencia=con.createStatement();
+                query="INSERT INTO StudentxIds (idStudent,codPucp) VALUES ('"+student.getIdNumber()+"','"+cod+"')";
+                sentencia.executeUpdate(query);
+            }
+            sentencia = con.createStatement();
+            query="UPDATE Student "+
+                    "SET homePhone='"+student.getHomePhone()+
+                    "', birthday=STR_TO_DATE('"+birthday+"', '%Y/%m/%d'), "+
+                    "address='"+student.getAddress()+"' "+
+                    "WHERE idStudent='"+student.getIdNumber()+"'";
+            result=sentencia.executeUpdate(query);
             con.close();
         }
         catch(SQLException ex){

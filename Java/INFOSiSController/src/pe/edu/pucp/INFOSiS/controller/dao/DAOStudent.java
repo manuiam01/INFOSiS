@@ -12,7 +12,7 @@ import pe.edu.pucp.INFOSiS.model.bean.student.Student;
  * @author tkuser
  */
 public interface DAOStudent {
-    int insertStudent(Student student);
-    int updateStudent(Student student, String id);
+    int insertStudent(Student student, String birthDate);
+    int updateStudent(Student student, String birthDate);
     Student queryStudentById(String id);
 }
