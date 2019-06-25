@@ -7,6 +7,7 @@ package pe.edu.pucp.INFOSiS.controller.dao;
 
 import java.util.Date;
 import java.util.ArrayList;
+import pe.edu.pucp.INFOSiS.model.bean.course.CalendarSession;
 import pe.edu.pucp.INFOSiS.model.bean.course.CourseHistory;
 
 /**
@@ -19,4 +20,5 @@ public interface DAOCourseHistory {
     ArrayList<CourseHistory> queryByDate(Date datecourse);
     ArrayList<CourseHistory> queryByIdProfessor(String idProfessor);
     byte[] generateReport(int id);
+    ArrayList<CalendarSession> queryCalendarSessionByBeginDate(String date);
 }

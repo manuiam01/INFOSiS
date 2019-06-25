@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 
 import pe.edu.pucp.INFOSiS.model.bean.HR.Intern;
+import pe.edu.pucp.INFOSiS.model.bean.course.CalendarSession;
 import pe.edu.pucp.INFOSiS.model.bean.course.Course;
 import pe.edu.pucp.INFOSiS.model.bean.course.CourseHistory;
 import pe.edu.pucp.INFOSiS.model.bean.course.CourseType;
@@ -157,6 +158,10 @@ public abstract class DBController {
          return daoFactory.getCourseHDAO().insert(courseHistory);
      }
      
+     public static int updateCourseHistory(CourseHistory courseHistory){
+         return daoFactory.getCourseHDAO().update(courseHistory);
+     }
+     
      public static ArrayList<CourseHistory> queryCourseHByDate(Date date){
          return daoFactory.getCourseHDAO().queryByDate(date);
      }
@@ -171,5 +176,9 @@ public abstract class DBController {
      
      public static int updateStudent(Student student, String birthday){
          return daoFactory.getStudentDAO().updateStudent(student, birthday);
+     }
+     
+     public static ArrayList<CalendarSession> queryCalendarSessionByBeginDate(String date){
+         return daoFactory.getCourseHDAO().queryCalendarSessionByBeginDate(date);
      }
 }

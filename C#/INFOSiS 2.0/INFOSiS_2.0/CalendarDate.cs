@@ -21,6 +21,7 @@ namespace INFOSiS_2._0
         {
             InitializeComponent();
             lblDia.Text = date;
+            lblDia.BringToFront();
         }
     }
 }

@@ -37,6 +37,7 @@
             this.lblDia.AutoSize = true;
             this.lblDia.BackColor = System.Drawing.Color.Transparent;
             this.lblDia.Font = new System.Drawing.Font("Gill Sans MT", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDia.ForeColor = System.Drawing.Color.White;
             this.lblDia.Location = new System.Drawing.Point(3, 0);
             this.lblDia.Name = "lblDia";
             this.lblDia.Size = new System.Drawing.Size(101, 42);
@@ -46,21 +47,25 @@
             // lblLine
             // 
             this.lblLine.AutoSize = true;
-            this.lblLine.Location = new System.Drawing.Point(3, 42);
+            this.lblLine.BackColor = System.Drawing.Color.Transparent;
+            this.lblLine.Font = new System.Drawing.Font("Sitka Small", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLine.ForeColor = System.Drawing.Color.White;
+            this.lblLine.Location = new System.Drawing.Point(3, 27);
             this.lblLine.Name = "lblLine";
-            this.lblLine.Size = new System.Drawing.Size(433, 17);
+            this.lblLine.Size = new System.Drawing.Size(844, 28);
             this.lblLine.TabIndex = 1;
             this.lblLine.Text = "---------------------------------------------------------------------------------" +
-    "----";
+    "-----------------------";
             // 
             // CalendarDate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.lblLine);
             this.Controls.Add(this.lblDia);
             this.Name = "CalendarDate";
-            this.Size = new System.Drawing.Size(447, 65);
+            this.Size = new System.Drawing.Size(847, 65);
             this.ResumeLayout(false);
             this.PerformLayout();
 
