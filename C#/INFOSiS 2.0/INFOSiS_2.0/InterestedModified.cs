@@ -67,6 +67,7 @@ namespace INFOSiS_2._0
                     rbDNI.Enabled = true;
                     rbDNI.Checked = true;
                     rbPasaporte.Enabled = true;
+                    dgvInterestedCourses.DataSource = null;
                     break;
 
                 case Estado.Actualizar:
@@ -232,6 +233,7 @@ namespace INFOSiS_2._0
                 inte.middleName = txbSegundoNom.Text;
                 inte.cellPhoneNumber = txtCellphone.Text;
                 inte.email = txtEmail.Text;
+                inte.isUnsubscribed = cbDesactivado.Checked;
                 inte.courses = new Server.course[5];
                 server.UpdateInterested(inte);
                 MessageBox.Show("Se modificó al interesado de manera correcta", "Éxito", MessageBoxButtons.OK, iconoCorrecto);
@@ -276,6 +278,8 @@ namespace INFOSiS_2._0
                 rbDNI.Enabled = false;
                 rbPasaporte.Enabled = false;
                 btBuscarCursos.Enabled = false;
+                if (inte.isUnsubscribed == true)
+                    cbDesactivado.Checked = true;
                 foreach (Server.course c in inte.courses)
                 {
                     tbCursos.Rows.Add(c.id, c.name);

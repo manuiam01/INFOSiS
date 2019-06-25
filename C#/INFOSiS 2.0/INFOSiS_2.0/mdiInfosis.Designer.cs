@@ -30,8 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MdiInfosis));
             this.panelHeader = new System.Windows.Forms.Panel();
-            this.btnProfessor = new System.Windows.Forms.Button();
             this.btnStudent = new System.Windows.Forms.Button();
+            this.btnProfessor = new System.Windows.Forms.Button();
             this.btnInterested = new System.Windows.Forms.Button();
             this.btnCourse = new System.Windows.Forms.Button();
             this.btnInterns = new System.Windows.Forms.Button();
@@ -59,21 +59,6 @@
             this.panelHeader.Size = new System.Drawing.Size(1615, 144);
             this.panelHeader.TabIndex = 0;
             // 
-            // btnProfessor
-            // 
-            this.btnProfessor.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnProfessor.Font = new System.Drawing.Font("Gill Sans MT", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProfessor.Image = global::INFOSiS_2._0.Properties.Resources.profesor7;
-            this.btnProfessor.Location = new System.Drawing.Point(887, 2);
-            this.btnProfessor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnProfessor.Name = "btnProfessor";
-            this.btnProfessor.Size = new System.Drawing.Size(115, 142);
-            this.btnProfessor.TabIndex = 6;
-            this.btnProfessor.Text = "Profesores";
-            this.btnProfessor.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnProfessor.UseVisualStyleBackColor = true;
-            this.btnProfessor.Click += new System.EventHandler(this.btnProfessor_Click);
-            // 
             // btnStudent
             // 
             this.btnStudent.Anchor = System.Windows.Forms.AnchorStyles.Right;
@@ -88,6 +73,21 @@
             this.btnStudent.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnStudent.UseVisualStyleBackColor = true;
             this.btnStudent.Click += new System.EventHandler(this.btnStudent_Click);
+            // 
+            // btnProfessor
+            // 
+            this.btnProfessor.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnProfessor.Font = new System.Drawing.Font("Gill Sans MT", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProfessor.Image = global::INFOSiS_2._0.Properties.Resources.profesor7;
+            this.btnProfessor.Location = new System.Drawing.Point(887, 2);
+            this.btnProfessor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnProfessor.Name = "btnProfessor";
+            this.btnProfessor.Size = new System.Drawing.Size(115, 142);
+            this.btnProfessor.TabIndex = 6;
+            this.btnProfessor.Text = "Profesores";
+            this.btnProfessor.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnProfessor.UseVisualStyleBackColor = true;
+            this.btnProfessor.Click += new System.EventHandler(this.btnProfessor_Click);
             // 
             // btnInterested
             // 
