@@ -36,20 +36,36 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CalendarContainer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CalendarContainer.Designer.cs">
+      <DependentUpon>CalendarContainer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CalendarDate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CalendarDate.Designer.cs">
+      <DependentUpon>CalendarDate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\Server\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -66,6 +82,12 @@
     </Compile>
     <Compile Include="CourseRegister.Designer.cs">
       <DependentUpon>CourseRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CoursesCalendar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CoursesCalendar.Designer.cs">
+      <DependentUpon>CoursesCalendar.cs</DependentUpon>
     </Compile>
     <Compile Include="InterestedAdvancedSearch.cs">
       <SubType>Form</SubType>
@@ -248,11 +270,20 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="CalendarContainer.resx">
+      <DependentUpon>CalendarContainer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CalendarDate.resx">
+      <DependentUpon>CalendarDate.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CourseButtons.resx">
       <DependentUpon>CourseButtons.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CourseRegister.resx">
       <DependentUpon>CourseRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CoursesCalendar.resx">
+      <DependentUpon>CoursesCalendar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InterestedAdvancedSearch.resx">
       <DependentUpon>InterestedAdvancedSearch.cs</DependentUpon>
