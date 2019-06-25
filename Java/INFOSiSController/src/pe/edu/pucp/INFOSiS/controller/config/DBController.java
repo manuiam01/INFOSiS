@@ -13,6 +13,7 @@ import pe.edu.pucp.INFOSiS.model.bean.HR.Intern;
 import pe.edu.pucp.INFOSiS.model.bean.course.Course;
 import pe.edu.pucp.INFOSiS.model.bean.course.CourseHistory;
 import pe.edu.pucp.INFOSiS.model.bean.course.CourseType;
+import pe.edu.pucp.INFOSiS.model.bean.course.Session;
 import pe.edu.pucp.INFOSiS.model.bean.interested.Interested;
 import pe.edu.pucp.INFOSiS.model.bean.professor.Professor;
 import pe.edu.pucp.INFOSiS.model.bean.student.Student;
@@ -186,4 +187,8 @@ public abstract class DBController {
      public static int updateStudent(Student student, String birthday){
          return daoFactory.getStudentDAO().updateStudent(student, birthday);
      }
+     
+     public static ArrayList<Session> querySessionByCourseH(int idCourseHistory){
+         return daoFactory.getCourseHDAO().querySessionByCourseH(idCourseHistory);
+    }
 }

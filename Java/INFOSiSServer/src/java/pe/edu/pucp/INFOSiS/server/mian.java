@@ -103,14 +103,20 @@ public class mian {
         
 //        
            
-           ArrayList<CourseHistory> courses = DBController.queryCourseHByIdProfessor("20155555");
-           for(CourseHistory c : courses){              
-                for(Session s : c.getSessions()){
-                    SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                    System.out.println(format.format(s.getDateSession()));
-                }
-           }
-           
+//           ArrayList<CourseHistory> courses = DBController.queryCourseHByIdProfessor("20155555");
+//           for(CourseHistory c : courses){              
+//                for(Session s : c.getSessions()){
+//                    SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//                    System.out.println(format.format(s.getDateSession()));
+//                }
+//           }
+//           
+
+            ArrayList<Session> sessions = DBController.querySessionByCourseH(12);
+            for(Session s : sessions){
+                SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                System.out.println(format.format(s.getDateSession()));
+            }
 //
 //          CourseType coursetype = DBController.queryCourseTypeById(6);
 //          Course c = new Course();
