@@ -52,6 +52,7 @@ public class MySQLStudent implements DAOStudent{
 
     @Override
     public int updateStudent(Student student, String id) {
+        /*POR ACTUALIZAR*/
         int result = 0;
         try{
             DBManager dbManager = DBManager.getdbManager();
@@ -83,6 +84,7 @@ public class MySQLStudent implements DAOStudent{
         
         ArrayList<Student> students = new ArrayList<Student>();
         try{
+            /*POR ACTUALIZAR*/
             DBManager dbManager = DBManager.getdbManager();
             Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
             Statement sentence = con.createStatement();
@@ -126,6 +128,55 @@ public class MySQLStudent implements DAOStudent{
         }
         return students;
         
+    }
+    
+    public Student queryStudentById(String id){
+        Student s = new Student();
+        s.setIdNumber("NULL");
+        try{
+            DBManager dbManager = DBManager.getdbManager();
+            Connection con = DriverManager.getConnection(dbManager.getUrl(), 
+                    dbManager.getUser(), dbManager.getPassword());
+            Statement st = con.createStatement();
+            String query = "SELECT S.idStudent, I.idNumberType, I.firstName, "
+                    + "I.middleName, I.primaryLastName, I.secondLastName, "
+                    + "I.gender, I.cellPhoneNumber, I.email, I.regDate, S.address, "
+                    + "S.birthday, S.homePhone "
+                    + "FROM Student S, Interested I "
+                    + "WHERE S.idStudent=I.IdNumber "
+                    + "AND S.IdStudent='"+id+"'";
+            ResultSet rs = st.executeQuery(query);
+            while(rs.next()){
+                s.setIdNumber(rs.getString("idStudent"));
+                s.setIdType(rs.getInt("idNumberType"));
+                s.setFirstName(rs.getString("firstName"));
+                s.setMiddleName(rs.getString("middleName"));
+                s.setPrimaryLastName(rs.getString("primaryLastName"));
+                s.setSecondLastName(rs.getString("secondLastName"));
+                s.setGender(rs.getString("gender"));
+                s.setCellPhoneNumber(rs.getString("cellPhoneNumber"));
+                s.setEmail(rs.getString("email"));
+                s.setRegDate(rs.getDate("regDate"));
+                s.setAddress(rs.getString("address"));
+                s.setBirthDate(rs.getDate("birthday"));
+                s.setHomePhone(rs.getString("homePhone"));
+                ArrayList<String> idPucp = new ArrayList<>();
+                String queryIdPUCP= "SELECT codPucp "
+                        + "FROM StudentxIds "
+                        + "WHERE idStudent='"+id+"'";
+                Statement stID = con.createStatement();
+                ResultSet rsID = stID.executeQuery(queryIdPUCP);
+                while(rsID.next()){
+                    idPucp.add(rsID.getString("codPucp"));
+                }
+                s.setIdPUCPList(idPucp);               
+            }
+            con.close();
+        }
+        catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        return s;
     }
 
 }

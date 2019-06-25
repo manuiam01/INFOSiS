@@ -183,4 +183,9 @@ public class Server {
     public ArrayList<CourseHistory> QueryCourseHByDate(@WebParam(name="date") Date date){
         return DBController.queryCourseHByDate(date);
     }
+    
+    @WebMethod(operationName="queryStudentById")
+    public Student queryStudentById(@WebParam(name="idStudent") String idStudent){
+        return DBController.queryStudentByID(idStudent);
+    }
 }
