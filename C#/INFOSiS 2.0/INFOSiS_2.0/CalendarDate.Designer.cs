@@ -28,20 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblDia = new System.Windows.Forms.Label();
             this.lblLine = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label1
+            // lblDia
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Gill Sans MT", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(101, 42);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
+            this.lblDia.AutoSize = true;
+            this.lblDia.BackColor = System.Drawing.Color.Transparent;
+            this.lblDia.Font = new System.Drawing.Font("Gill Sans MT", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDia.Location = new System.Drawing.Point(3, 0);
+            this.lblDia.Name = "lblDia";
+            this.lblDia.Size = new System.Drawing.Size(101, 42);
+            this.lblDia.TabIndex = 0;
+            this.lblDia.Text = "label1";
             // 
             // lblLine
             // 
@@ -58,7 +58,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.lblLine);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblDia);
             this.Name = "CalendarDate";
             this.Size = new System.Drawing.Size(447, 65);
             this.ResumeLayout(false);
@@ -68,7 +68,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblDia;
         private System.Windows.Forms.Label lblLine;
     }
 }

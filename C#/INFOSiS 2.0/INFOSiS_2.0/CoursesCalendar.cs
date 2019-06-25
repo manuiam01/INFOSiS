@@ -18,6 +18,7 @@ namespace INFOSiS_2._0
         public CoursesCalendar()
         {
             InitializeComponent();
+            dtpDesde.Value = DateTime.Today;
         }
 
         public static CoursesCalendar Instance
@@ -35,6 +36,12 @@ namespace INFOSiS_2._0
         private void CoursesCalendar_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnMostrar_Click(object sender, EventArgs e)
+        {
+            DateTime dia = dtpDesde.Value;
+            calendarContainer1.actualizar_calendario(dtpDesde.Value);
         }
     }
 }

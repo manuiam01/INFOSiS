@@ -12,6 +12,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -31,6 +32,7 @@ import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import pe.edu.pucp.INFOSiS.controller.config.DBController;
 import pe.edu.pucp.INFOSiS.controller.config.DBManager;
 import pe.edu.pucp.INFOSiS.controller.dao.DAOCourseHistory;
+import pe.edu.pucp.INFOSiS.model.bean.course.CalendarSession;
 import pe.edu.pucp.INFOSiS.model.bean.course.Course;
 import pe.edu.pucp.INFOSiS.model.bean.course.CourseHistory;
 import pe.edu.pucp.INFOSiS.model.bean.course.Session;
@@ -297,7 +299,19 @@ public class MySQLCourseHistory implements DAOCourseHistory{
         return pdfBytes;
     }
     
-    
+    /*public ArrayList<CalendarSession> queryCalendarSessionByBeginDate(){
+        ArrayList<CalendarSession> lSesiones = new ArrayList<>();
+        try{
+            DBManager dbManager = DBManager.getdbManager();
+            Connection con = DriverManager.getConnection(dbManager.getUrl(), 
+                    dbManager.getUser(), dbManager.getPassword());
+            Statement st = con.createStatement();
+            String query = "SELECT ";
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        return lSesiones;
+    }*/
     
     
 }
