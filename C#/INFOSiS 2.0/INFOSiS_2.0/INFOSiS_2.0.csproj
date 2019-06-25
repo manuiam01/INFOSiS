@@ -161,6 +161,12 @@
     <Compile Include="ProfessorAdvancedSearchForReport.Designer.cs">
       <DependentUpon>ProfessorAdvancedSearchForReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProfileAssistance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ProfileAssistance.Designer.cs">
+      <DependentUpon>ProfileAssistance.cs</DependentUpon>
+    </Compile>
     <Compile Include="StudentModify.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -332,6 +338,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ProfessorAdvancedSearchForReport.resx">
       <DependentUpon>ProfessorAdvancedSearchForReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProfileAssistance.resx">
+      <DependentUpon>ProfileAssistance.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StudentModify.resx">
       <DependentUpon>StudentModify.cs</DependentUpon>
