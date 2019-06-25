@@ -83,6 +83,30 @@
     <Compile Include="CourseButtons.Designer.cs">
       <DependentUpon>CourseButtons.cs</DependentUpon>
     </Compile>
+    <Compile Include="CourseHistoryRegister.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CourseHistoryRegister.Designer.cs">
+      <DependentUpon>CourseHistoryRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CourseHSelectAssistant.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CourseHSelectAssistant.Designer.cs">
+      <DependentUpon>CourseHSelectAssistant.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CourseHSelectCourse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CourseHSelectCourse.Designer.cs">
+      <DependentUpon>CourseHSelectCourse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CourseHSelectProfessor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CourseHSelectProfessor.Designer.cs">
+      <DependentUpon>CourseHSelectProfessor.cs</DependentUpon>
+    </Compile>
     <Compile Include="CourseModify.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -300,6 +324,18 @@
     <EmbeddedResource Include="CourseButtons.resx">
       <DependentUpon>CourseButtons.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CourseHistoryRegister.resx">
+      <DependentUpon>CourseHistoryRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CourseHSelectAssistant.resx">
+      <DependentUpon>CourseHSelectAssistant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CourseHSelectCourse.resx">
+      <DependentUpon>CourseHSelectCourse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CourseHSelectProfessor.resx">
+      <DependentUpon>CourseHSelectProfessor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CourseModify.resx">
       <DependentUpon>CourseModify.cs</DependentUpon>
     </EmbeddedResource>
@@ -420,6 +456,9 @@
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.generateCourseHistoryReportResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.insertCourseHistoryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.InsertCourseResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -520,6 +559,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.student.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.updateCourseHistoryResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.UpdateCourseResponse.datasource">

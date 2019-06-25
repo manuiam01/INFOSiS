@@ -212,6 +212,11 @@ public class Server {
         return DBController.queryCourseHByIdProfessor(idProfessor);
     }
     
+    @WebMethod(operationName="queryAllProfessorsActive")
+    public ArrayList<Professor> queryAllProfessorsActive(){
+        return DBController.queryAllProfessorsActive();
+    }
+    
 
     @WebMethod(operationName="queryCourseHistoryByCourse")
     public ArrayList<CourseHistory> queryCourseHistoryByCourse(@WebParam(name="idCourse") String idCourse){
@@ -233,4 +238,15 @@ public class Server {
             @WebParam(name="route") String route){
         return DBController.saveCourseHistoryReport(idCourseHistory,route);
     }
+    
+    @WebMethod(operationName="insertCourseHistory")
+    public int insertCourseHistory(@WebParam(name="CourseHistory") CourseHistory courseHistory){
+        return DBController.insertCourseHistory(courseHistory);
+    }
+    
+    @WebMethod(operationName="updateCourseHistory")
+    public int updateCourseHistory(@WebParam(name="CourseHistory") CourseHistory courseHistory){
+        return DBController.updateCourseHistory(courseHistory);
+    }
+    
 }
