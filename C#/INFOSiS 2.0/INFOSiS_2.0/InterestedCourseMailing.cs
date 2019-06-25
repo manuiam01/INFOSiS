@@ -32,10 +32,15 @@ namespace INFOSiS_2._0
             table.Columns.Add("Fecha fin", typeof(DateTime));
             table.Columns.Add("Horas totales", typeof(int));
 
-            courseH =  new BindingList<Server.courseHistory>(servidor.queryCourseHByDate(coursedate));
-            foreach(Server.courseHistory c in courseH)
+            //courseH =  new BindingList<Server.courseHistory>(servidor.queryCourseHByDate(coursedate));
+            //foreach(Server.courseHistory c in courseH)
+            //{
+            //    table.Rows.Add(c.course.name, c.sessions[0],c.sessions[1], c.hours);
+            //}
+            courseH = new BindingList<Server.courseHistory>(servidor.queryCourseHByDate2(coursedate));
+            foreach (Server.courseHistory c in courseH)
             {
-                table.Rows.Add(c.course.name, c.sessions[0],c.sessions[1], c.hours);
+                table.Rows.Add(c.course.name, c.startDate, c.endDate, c.hours);
             }
             dgvCourses.DataSource = table;
             
