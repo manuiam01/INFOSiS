@@ -209,19 +209,7 @@ public class MySQLCourseHistory implements DAOCourseHistory{
                 c.setStartDate(rs.getDate(6));
                 c.setEndDate(rs.getDate(7)); 
                 c.setSurvey(rs.getBytes(8));
-                ArrayList<Session> sessions = new ArrayList<>();
-                cs = con.prepareCall("{call SEARCH_SESSIONS_BY_COURSEH(?)}");
-                cs.setInt(1, c.getId());
-                ResultSet rs2 = cs.executeQuery();
-                while(rs2.next()){
-                    Session s = new Session();
-                    s.setId(rs2.getInt(1));
-                    s.setDateSession(rs2.getTimestamp(3));
-                    s.setHours(rs2.getInt(4));
-                    s.setLocation(rs.getString(5));
-                    s.setIsActive(rs2.getBoolean(6));
-                    sessions.add(s);
-                }
+                ArrayList<Session> sessions = DBController.querySessionByCourseH(c.getId());               
                 c.setSessions(sessions);
 
                 ArrayList<Student> students = new ArrayList<>();
@@ -231,7 +219,7 @@ public class MySQLCourseHistory implements DAOCourseHistory{
 
                 cs = con.prepareCall("{call SEARCH_STUDENTH_BY_COURSEH(?)}");
                 cs.setInt(1, c.getId());
-                rs2 = cs.executeQuery();
+                ResultSet rs2 = cs.executeQuery();
                  while(rs2.next()){
                     Student s = new Student();
                     s.setId(rs2.getInt(2));
