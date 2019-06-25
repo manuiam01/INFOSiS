@@ -401,6 +401,12 @@
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.QueryInterestedByIDResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.queryStudentByIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.SearchInterestedByNameResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.SearchInternByIdNumberResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -411,6 +417,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.SearchProfessorByNameResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.student.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.UpdateCourseResponse1.datasource">
