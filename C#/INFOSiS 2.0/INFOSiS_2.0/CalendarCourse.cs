@@ -10,18 +10,20 @@ using System.Windows.Forms;
 
 namespace INFOSiS_2._0
 {
-    public partial class CalendarDate : UserControl
+    public partial class CalendarCourse : UserControl
     {
-        public CalendarDate()
+        public CalendarCourse()
         {
             InitializeComponent();
         }
 
-        public CalendarDate(String date)
+        public CalendarCourse(String nombreCurso, String hora, String aula, String profesor)
         {
             InitializeComponent();
-            lblDia.Text = date;
-            lblDia.BringToFront();
+            lblCurso.Text = nombreCurso;
+            lblHora.Text = hora;
+            lblLugar.Text = aula;
+            lblProfessor.Text = profesor;
         }
     }
 }

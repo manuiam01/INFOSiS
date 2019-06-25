@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace INFOSiS_2._0
 {
@@ -36,6 +37,7 @@ namespace INFOSiS_2._0
         public CourseRegister()
         {
             InitializeComponent();
+            silabo = "";
             server = new Server.ServerClient();
             Server.courseType[] coursetypes = server.queryAllCourseType();
             BindingList<Server.courseType> list_coursetypes = new BindingList<Server.courseType>(coursetypes);
@@ -47,8 +49,22 @@ namespace INFOSiS_2._0
         private void btnSave_Click(object sender, EventArgs e)
         {
             String codigo = txtID.Text;
-
-            if (!ValidarCodigo(codigo))
+            if (txtID.Text == "")
+            {
+                MessageBox.Show("No ingresó el código del curso", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (txtName.Text == "")
+            {
+                MessageBox.Show("No ingresó el nombre del curso", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (txtDescription.Text == "")
+            {
+                MessageBox.Show("No ingresó la descripción del curso", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (silabo == "") {
+                MessageBox.Show("No ingresó el sílabo del curso", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (!ValidarCodigo(codigo))
             {
                 DialogResult mensajeError;
                 String mensaje;
@@ -59,7 +75,8 @@ namespace INFOSiS_2._0
                 icono = MessageBoxIcon.Error;
                 mensajeError = MessageBox.Show(mensaje, titulo, MessageBoxButtons.OK, icono);
             }
-            else {
+            else
+            {
                 DialogResult mensajeOK;
                 String mensaje;
                 String titulo;
@@ -70,6 +87,9 @@ namespace INFOSiS_2._0
                 s.name = txtName.Text;
                 s.description = txtDescription.Text;
                 s.courseType = (Server.courseType)cmbCourseType.SelectedItem;
+                s.isActive = true;
+                byte[] syllabus = File.ReadAllBytes(silabo);
+                s.syllabus = syllabus;
                 int result = server.InsertCourse(s);
                 if (result == 1)
                 {
@@ -78,15 +98,16 @@ namespace INFOSiS_2._0
                     icono = MessageBoxIcon.Asterisk;
                     mensajeOK = MessageBox.Show(mensaje, titulo, MessageBoxButtons.OK, icono);
                 }
-                else {
+                else
+                {
                     mensaje = "No se pudo registrar el curso";
                     titulo = "Curso no registrado";
                     icono = MessageBoxIcon.Asterisk;
                     mensajeOK = MessageBox.Show(mensaje, titulo, MessageBoxButtons.OK, icono);
                 }
-                
+
             }
-            /*Aquí se debería verificar si hay un interesado con dicho documento en este caso será hardcodeado*/
+            
             
         }
 
@@ -109,7 +130,7 @@ namespace INFOSiS_2._0
             
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void btnAddSyllabus_Click(object sender, EventArgs e)
         {
             OpenFileDialog opSilabo = new OpenFileDialog();
             opSilabo.Title = "Abrir sílabo del curso";

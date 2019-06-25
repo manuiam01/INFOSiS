@@ -14,6 +14,7 @@ import java.util.Date;
 public class Session {
 
     public Session() {
+        id = 0;
     }
     
     
@@ -21,6 +22,7 @@ public class Session {
     private Date dateSession;
     private String location;
     private int hours;
+    private boolean isActive; 
 
     public int getId() {
         return id;
@@ -54,6 +56,14 @@ public class Session {
 
     public void setHours(int hours) {
         this.hours = hours;
+    }
+
+    public boolean isIsActive() {
+        return isActive;
+    }
+
+    public void setIsActive(boolean isActive) {
+        this.isActive = isActive;
     }
     
 }
