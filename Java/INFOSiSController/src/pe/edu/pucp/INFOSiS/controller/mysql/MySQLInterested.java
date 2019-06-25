@@ -342,7 +342,7 @@ public class MySQLInterested implements DAOInterested {
         return interested;
     }    
     
-    /*@Override
+    @Override
     public ArrayList<Interested> search_by_name(String name, String middle_name,
             String first_last_name, String second_last_name) {
         ArrayList<Interested> interesteds = new ArrayList<Interested>();
@@ -374,11 +374,8 @@ public class MySQLInterested implements DAOInterested {
         }catch(SQLException ex){
             System.out.println(ex.getMessage());
         }        
-<<<<<<< HEAD
         return interesteds;
     }
-=======
-        return professors;
-    }*/
->>>>>>> a0020b7abd70af99a3efb78afa33eabfbfb48e6b
+
+
 }
