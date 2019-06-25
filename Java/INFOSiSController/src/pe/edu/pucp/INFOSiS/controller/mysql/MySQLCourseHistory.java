@@ -375,4 +375,30 @@ public class MySQLCourseHistory implements DAOCourseHistory{
         }        
         return result;
     }  
+
+    @Override
+    public ArrayList<Session> querySessionByCourseH(int idCourseHistory) {
+        ArrayList<Session> sessions = new ArrayList<>();     
+        try{
+            DBManager dbManager = DBManager.getdbManager();
+            Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
+            CallableStatement cs = con.prepareCall("{call SEARCH_SESSIONS_BY_COURSEH(?)}");
+            cs.setInt(1, idCourseHistory);
+            ResultSet rs2 = cs.executeQuery();
+            while(rs2.next()){
+                Session s = new Session();
+                s.setId(rs2.getInt(1));
+                s.setDateSession(rs2.getTimestamp(3));
+                s.setHours(rs2.getInt(4));
+                s.setLocation(rs2.getString(5));
+                s.setIsActive(rs2.getBoolean(6));
+                sessions.add(s);
+            }           
+            con.close();
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        
+        return sessions;
+    }
 }
