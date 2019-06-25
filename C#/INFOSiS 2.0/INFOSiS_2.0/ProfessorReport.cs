@@ -48,7 +48,7 @@ namespace INFOSiS_2._0
             professor = server.SearchProfessorByIdPUCP(txtPUCPcode.Text);
             if (professor.idPUCP != null)
             {
-                dgvCoursesHistory.AutoGenerateColumns = false;                
+                dgvCoursesHistory.AutoGenerateColumns = false;
                 dgvCoursesHistory.DataSource = server.queryCourseHistoryByIdProfessor(professor.idPUCP);
                 btnReport.Enabled = true;
             }
@@ -88,8 +88,7 @@ namespace INFOSiS_2._0
                 //si ha seleccionado un curso dictado
                 Server.courseHistory courseHistory= (Server.courseHistory)dgvCoursesHistory.CurrentRow.DataBoundItem;
                 server.generateCourseHistoryReport(courseHistory.id);
-
-  
+                server.saveCourseHistoryReport(courseHistory.id, "D:/Users/alulab14/Documents");  
             }
             else
             {

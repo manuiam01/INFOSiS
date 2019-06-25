@@ -5,6 +5,7 @@
  */
 package pe.edu.pucp.INFOSiS.controller.mysql;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -28,12 +29,15 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JRExporterParameter;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.export.JRPdfExporter;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import pe.edu.pucp.INFOSiS.controller.config.DBController;
 import pe.edu.pucp.INFOSiS.controller.config.DBManager;
@@ -322,38 +326,28 @@ public class MySQLCourseHistory implements DAOCourseHistory{
     public byte[] generateReport(int id) {
         DBManager dbManager = DBManager.getdbManager();
         Connection con = null;
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         try {
             con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
         } catch (SQLException ex) {
             Logger.getLogger(MySQLCourseHistory.class.getName()).log(Level.SEVERE, null, ex);
         }
-        JasperPrint print = new JasperPrint();
-        JasperDesign jasperDesign = null;
-        JasperReport jasperReport = null;
-        try {
-            jasperDesign = JRXmlLoader.load(DBManager.class.getResource("/pe/edu/pucp/INFOSiS/reports/CourseHistoryReport.jrxml").getFile());
-        } catch (JRException ex) {
-            Logger.getLogger(MySQLCourseHistory.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        try {
-            jasperReport = JasperCompileManager.compileReport(jasperDesign);
-        } catch (JRException ex) {
-            Logger.getLogger(MySQLCourseHistory.class.getName()).log(Level.SEVERE, null, ex);
-        }
         Map parameters = new HashMap();
         parameters.put("ID_COURSE_HISTORY",id);
+        JRPdfExporter exporter = new JRPdfExporter();
         try {
-            print = JasperFillManager.fillReport(jasperReport, parameters, con);
-        } catch (JRException ex) {
-            Logger.getLogger(MySQLCourseHistory.class.getName()).log(Level.SEVERE, null, ex);
+            String reportLocation = "/pe/edu/pucp/INFOSiS/reports/CourseHistoryReport.jrxml";
+            JasperReport jasperReport = JasperCompileManager.compileReport(reportLocation);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport,parameters,con);
+            exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);   
+            exporter.setParameter(JRExporterParameter.OUTPUT_STREAM, outputStream);
+            exporter.exportReport();
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Error in generate Report..."+e);
+        } finally {
         }
-        byte[] pdfBytes = null;
-        try {
-            pdfBytes = JasperExportManager.exportReportToPdf(print);
-        } catch (JRException ex) {
-            Logger.getLogger(MySQLCourseHistory.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return pdfBytes;
+        return outputStream.toByteArray();
     }
 
     @Override
