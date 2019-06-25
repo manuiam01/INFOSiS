@@ -36,5 +36,27 @@ namespace INFOSiS_2._0
         {
             InitializeComponent();
         }
+
+        private void btnCalendar_Click(object sender, EventArgs e)
+        {
+            foreach (Control item in PanelMdi.Controls.OfType<Control>())
+            {
+                PanelMdi.Controls.Remove(item);
+            }
+
+            if (!PanelMdi.Controls.Contains(CoursesCalendar.Instance))
+            {
+                PanelMdi.Controls.Add(CoursesCalendar.Instance);
+                CoursesCalendar.Instance.Dock = DockStyle.Fill;
+                CoursesCalendar.PanelMdi = PanelMdi;
+                CoursesCalendar.Instance.Visible = true;
+                CoursesCalendar.Instance.BringToFront();
+            }
+            else
+            {
+                CoursesCalendar.Instance.Visible = true;
+                CoursesCalendar.Instance.BringToFront();
+            }
+        }
     }
 }
