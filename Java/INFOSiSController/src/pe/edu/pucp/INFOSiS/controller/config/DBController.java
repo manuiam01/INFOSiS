@@ -205,4 +205,12 @@ public abstract class DBController {
      public static InternAssistance getLastRegisterOfDay(String pucpId){
          return daoFactory.getDAOIntern().getLastRegisterOfDay(pucpId);
      }
+     
+     public static int updateAsisstance(String id){
+         return daoFactory.getDAOIntern().updateAsisstance(id);
+     }
+     
+     public static int insertAssistance(String idPucp){
+         return daoFactory.getDAOIntern().insertAssistance(idPucp);
+     }
 }

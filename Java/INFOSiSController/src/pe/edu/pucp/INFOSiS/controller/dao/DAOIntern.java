@@ -22,4 +22,6 @@ public interface DAOIntern {
     ArrayList<Intern> searchInternByName(String firstName,String middleName,String firstLastName,String secondLastName);
     ArrayList<Intern> queryAll();
     InternAssistance getLastRegisterOfDay(String pucpId);
+    int insertAssistance(String idPucp);
+    int updateAsisstance(String id);
 }

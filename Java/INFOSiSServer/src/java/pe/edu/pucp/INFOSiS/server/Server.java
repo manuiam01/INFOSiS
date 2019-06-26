@@ -239,4 +239,14 @@ public class Server {
     public InternAssistance getLastRegisterOfDay(@WebParam(name="pucpId") String pucpId){
         return DBController.getLastRegisterOfDay(pucpId);
     }
+    
+    @WebMethod(operationName="insertAssistance")
+    public int insertAssistance(@WebParam(name="idPucp")String idPucp){
+        return DBController.insertAssistance(idPucp);
+    }
+    
+    @WebMethod(operationName="updateAssistance")
+    public int updateAssistance(@WebParam(name="id") String id){
+        return DBController.updateAsisstance(id);
+    }
 }
