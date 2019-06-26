@@ -58,6 +58,9 @@ public abstract class DBController {
         return daoFactory.getProfessorDAO().search_by_name(name, middle_name, first_last_name, second_last_name);
     }   
     
+    public static ArrayList<Professor> queryAllProfessorsActive(){
+        return daoFactory.getProfessorDAO().queryAllActives();
+    }
     
     //INTERN
     public static ArrayList<Intern> queryAllInterns(){

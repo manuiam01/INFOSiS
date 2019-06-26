@@ -124,5 +124,27 @@ namespace INFOSiS_2._0
                 CourseReport.Instance.BringToFront();
             }
         }
+
+        private void btnCourseHistoryRegister_Click(object sender, EventArgs e)
+        {
+            foreach (Control item in PanelMdi.Controls.OfType<Control>())
+            {
+                PanelMdi.Controls.Remove(item);
+            }
+
+            if (!PanelMdi.Controls.Contains(CourseHistoryRegister.Instance))
+            {
+                PanelMdi.Controls.Add(CourseHistoryRegister.Instance);
+                CourseHistoryRegister.Instance.Dock = DockStyle.Fill;
+                CourseHistoryRegister.PanelMdi = PanelMdi;
+                CourseHistoryRegister.Instance.Visible = true;
+                CourseHistoryRegister.Instance.BringToFront();
+            }
+            else
+            {
+                CourseHistoryRegister.Instance.Visible = true;
+                CourseHistoryRegister.Instance.BringToFront();
+            }
+        }
     }
 }
