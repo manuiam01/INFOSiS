@@ -83,8 +83,12 @@ public abstract class DBController {
         return daoFactory.getDAOIntern().insert(intern, access);
     }
     
-    public static int updateIntern(Intern intern, UserType access){
-        return daoFactory.getDAOIntern().update(intern, access);
+    public static int updateIntern(Intern intern){
+        return daoFactory.getDAOIntern().update(intern);
+    }
+    
+    public static int updateWeekAvailability(String weekAvailability, String idIntern){
+        return daoFactory.getDAOIntern().updateWeekAvailability(idIntern, weekAvailability);
     }
     //INTERESTED
     public static int insertInterested(Interested interested){
@@ -207,5 +211,13 @@ public abstract class DBController {
      
      public static InternAssistance getLastRegisterOfDay(String pucpId){
          return daoFactory.getDAOIntern().getLastRegisterOfDay(pucpId);
+     }
+     
+     public static int updateAsisstance(String id){
+         return daoFactory.getDAOIntern().updateAsisstance(id);
+     }
+     
+     public static int insertAssistance(String idPucp){
+         return daoFactory.getDAOIntern().insertAssistance(idPucp);
      }
 }

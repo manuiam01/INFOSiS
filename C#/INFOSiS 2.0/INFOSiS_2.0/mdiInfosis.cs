@@ -239,6 +239,10 @@ namespace INFOSiS_2._0
                 panelMdiOptions.Controls.Add(WorkforceButtons.Instance);
                 WorkforceButtons.Instance.Dock = DockStyle.Fill;
                 WorkforceButtons.PanelMdi = panelMdiInfosis;
+                if (user.acces.id != 2)
+                {
+                    WorkforceButtons.Usuario = user;
+                }
                 WorkforceButtons.Instance.Visible = true;
                 WorkforceButtons.Instance.BringToFront();
             }

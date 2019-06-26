@@ -481,6 +481,12 @@
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.getLastRegisterInternResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.insertAssistanceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.insertCourseHistoryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.InsertCourseResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -533,6 +539,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.queryAllProfessorsActiveResponse1.datasource">
+	  <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.queryAllProfessorsActiveResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.QueryAllUsersResponse.datasource">
@@ -589,6 +598,9 @@
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.student.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.updateAssistanceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.updateCourseHistoryResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -608,6 +620,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.updateStudentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.UpdateWeekAvailabilityResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.user.datasource">

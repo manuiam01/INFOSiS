@@ -18,6 +18,7 @@ namespace INFOSiS_2._0
         private BindingList<Server.session> listSession;
 
         public session[] Sessions { get => sessions; set => sessions = value; }
+        public BindingList<session> ListSession { get => listSession; set => listSession = value; }
 
         public CourseHAddSession(Server.session[] sessions)
         {
@@ -29,20 +30,21 @@ namespace INFOSiS_2._0
 
             if (sessions != null)
             {
-                listSession = new BindingList<session>(sessions);             
+                ListSession = new BindingList<session>(sessions);             
             }
             else {
-                listSession = new BindingList<session>();
+                ListSession = new BindingList<session>();
             }
-            dgvSessions.DataSource = listSession;
+            dgvSessions.DataSource = ListSession;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            BindingList<Server.session> listAux = new BindingList<Server.session>(listSession.OrderBy(x => x.dateSession).ToList());
+            BindingList<Server.session> listAux = new BindingList<Server.session>(ListSession.OrderBy(x => x.dateSession).ToList());
             sessions = new Server.session[listAux.Count];
             listAux.CopyTo(sessions, 0);
             this.DialogResult = DialogResult.OK;
+            dgvSessions.DataSource = null;
         }
 
         private void btnSearchCourse_Click(object sender, EventArgs e)
@@ -63,16 +65,31 @@ namespace INFOSiS_2._0
                 s.hours = Int32.Parse(txtHours.Text);
                 s.location = txtLocation.Text;
                 //MessageBox.Show(s.dateSession.ToString(), "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                listSession.Add(s);
-                dgvSessions.DataSource = listSession;
-                int index = 0;
-                foreach (Server.session session in listSession)
+                try
                 {
-                    dgvSessions.Rows[index].Cells[0].Value = session.dateSession.ToString();
-                    index++;
+                    ListSession.Add(s);
+                    dgvSessions.DataSource = ListSession;
+                    int index = 0;
+                    foreach (Server.session session in ListSession)
+                    {
+                        dgvSessions.Rows[index].Cells[0].Value = session.dateSession.ToString();
+                        index++;
+                    }
                 }
+                catch (Exception ex) {
+                    MessageBox.Show("Error desconocido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                
             }
             
+        }
+
+        private void txtHours_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

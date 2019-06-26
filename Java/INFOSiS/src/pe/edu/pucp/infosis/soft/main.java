@@ -25,22 +25,23 @@ public class main {
 //            System.out.println(i.getMiddleName());
 //        }
         
-        Intern intern = new Intern();
-        UserType access = new UserType();
-        
-        intern.setIdPUCP("2000000");
-        intern.getUser().setId(90);
-        intern.setIdType(1);
-        intern.setIdNumber("123456789012");
-        intern.setFirstName("Ian");
-        intern.setPrimaryLastName("Smith");
-        intern.setGender("M");
-        intern.setEmail("ismith@gmail.com");
-        intern.setCellPhoneNumber("9876543210");
-        intern.setEmailPUCP("ismith@pucp.pe");
-        
-        access.setId(0);
-        
-        System.out.println(internC.insert(intern, access));
+//        Intern intern = new Intern();
+//        
+//        intern.setIdPUCP("20190000");
+//        intern.getUser().setId(90);
+//        intern.setIdType(1);
+//        intern.setIdNumber("222222222222");
+//        intern.setFirstName("Ian");
+//        intern.setPrimaryLastName("Smith");
+//        intern.setGender("M");
+//        intern.setEmail("ismith@gmail.com");
+//        intern.setCellPhoneNumber("9876543210");
+//        intern.setEmailPUCP("ismith@pucp.pe");
+//        intern.setAddress("EEUU");
+//        intern.setHomePhone("5556644");
+//        intern.setBirthday(null);
+//                
+//        System.out.println(internC.update(intern));
+          internC.updateWeekAvailability("20135002", "0011");
     }
 }

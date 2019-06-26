@@ -78,8 +78,8 @@ public class MySQLIntern implements DAOIntern {
             cs.setString(12, intern.getEmailPUCP());
             cs.setString(13, intern.getAddress());
             cs.setString(14, intern.getHomePhone());
-            if(rs.getDate(15) != null) intern.setBirthday(new java.sql.Date(rs.getDate(15).getTime()));
-            else intern.setBirthday(null);
+            if(intern.getBirthday()!=null) cs.setDate(15,  new java.sql.Date(intern.getBirthday().getTime()));
+            else cs.setDate(15, null);
             cs.setString(16, intern.getWeekAvailability());
             cs.setString(17, intern.getWeekSchedule());
             result = cs.executeUpdate();
@@ -91,29 +91,32 @@ public class MySQLIntern implements DAOIntern {
     }
 
     @Override
-    public int update(Intern intern, UserType access) {
+    public int update(Intern intern) {
         int result = 0;
         try{
             DBManager dbManager = DBManager.getdbManager();
             Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
-            String sql = "UPDATE Interns SET idType=?,idNumber=?,firstName=?,middleName=?,primaryLastName=?,secondLastName=?,gender=?,email=?,cellPhoneNumber=?,emailPUCP=?,address=?,homePhone=?,birthDate=?,weekAvailability=? WHERE idUser=?";
-            PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, intern.getIdType());
-            ps.setString(2, intern.getIdNumber());
-            ps.setString(3, intern.getFirstName());
-            ps.setString(4, intern.getMiddleName());
-            ps.setString(5, intern.getPrimaryLastName());
-            ps.setString(6, intern.getSecondLastName());
-            ps.setString(7, intern.getGender());
-            ps.setString(8, intern.getEmail());
-            ps.setString(9, intern.getCellPhoneNumber());
-            ps.setString(10, intern.getEmailPUCP());
-            ps.setString(11, intern.getAddress());
-            ps.setString(12, intern.getHomePhone());
-            ps.setDate(13, (Date)intern.getBirthday());
-            ps.setString(14, intern.getWeekAvailability());
-            ps.setInt(15, access.getId());
-            result = ps.executeUpdate();
+//            String sql = "UPDATE Interns SET idType=?,idNumber=?,firstName=?,middleName=?,primaryLastName=?,secondLastName=?,"
+//                    + "gender=?,email=?,cellPhoneNumber=?,emailPUCP=?,address=?,homePhone=?,birthDate=?,weekAvailability=? WHERE idIntern=?";
+//            PreparedStatement ps = con.prepareStatement(sql);
+            CallableStatement cs = con.prepareCall("{call UPDATE_INTERN(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}");
+            cs.setString(1, intern.getIdPUCP());            
+            cs.setString(2, intern.getIdNumber());
+            cs.setInt(3, intern.getIdType());
+            cs.setString(4, intern.getEmailPUCP());
+            if(intern.getBirthday()!=null) cs.setDate(5,  new java.sql.Date(intern.getBirthday().getTime()));
+            else cs.setDate(5, null);
+            cs.setString(6, intern.getFirstName());
+            cs.setString(7, intern.getMiddleName());
+            cs.setString(8, intern.getPrimaryLastName());
+            cs.setString(9, intern.getSecondLastName());
+            cs.setString(10, intern.getGender());
+            cs.setString(11, intern.getEmail());
+            cs.setString(12, intern.getCellPhoneNumber());            
+            cs.setString(13, intern.getAddress());
+            cs.setString(14, intern.getHomePhone());            
+            cs.setString(15, intern.getWeekAvailability());            
+            result = cs.executeUpdate();
             con.close();
         }catch(SQLException ex){
             System.out.println(ex.getMessage());
@@ -322,5 +325,68 @@ public class MySQLIntern implements DAOIntern {
     
     /*INSERT INTO table (id, name, age) VALUES(1, "A", 19) ON DUPLICATE KEY UPDATE    
 name="A", age=19*/
+    
+    @Override
+    public int insertAssistance(String idPucp){
+        int res=0;
+        try{
+            DBManager dbManager = DBManager.getdbManager();
+            Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
+            Statement sentencia = con.createStatement();
+            String query="INSERT INTO InternsXAssistance (idIntern, begin) VALUES "
+                    +"('"+idPucp+"', STR_TO_DATE('"
+                    +LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss"))
+                    +"', '%Y/%m/%d %H:%i:%s'))";
+            res=sentencia.executeUpdate(query);
+            con.close();
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        return res;            
+    }
+    
+    @Override
+    public int updateAsisstance(String id){
+        int res=0;
+        try{
+            DBManager dbManager = DBManager.getdbManager();
+            Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
+            Statement sentencia = con.createStatement();
+            String query="UPDATE InternsXAssistance SET "
+                    +"end=STR_TO_DATE('"
+                    +LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss"))
+                    +"', '%Y/%m/%d %H:%i:%s') "
+                    +"WHERE id='"+id+"'";
+            res=sentencia.executeUpdate(query);
+            con.close();
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        return res;   
+    }
+
+    @Override
+    public int updateWeekAvailability(String idIntern, String weekAvailability) {
+        int result = 0;
+        try{
+            DBManager dbManager = DBManager.getdbManager();
+            Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
+            String sql = "UPDATE Interns SET weekAvailability=? WHERE idIntern=?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            
+            ps.setString(1, weekAvailability);
+            ps.setString(2, idIntern);
+            
+            System.out.println(weekAvailability);
+            System.out.println(idIntern);
+            
+            result = ps.executeUpdate();
+            con.close();
+        }catch(SQLException ex){
+            System.out.println(ex.getMessage());
+        }
+        return result;
+    }
+    
     
 }

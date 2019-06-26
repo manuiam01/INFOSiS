@@ -38,12 +38,12 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtLocation = new System.Windows.Forms.TextBox();
             this.dgvSessions = new System.Windows.Forms.DataGridView();
-            this.btnSearchCourse = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.DateTimeSession = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Hours = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Location = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnSearchCourse = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSessions)).BeginInit();
             this.SuspendLayout();
@@ -53,45 +53,49 @@
             this.dtpDay.CustomFormat = "";
             this.dtpDay.Location = new System.Drawing.Point(132, 28);
             this.dtpDay.Name = "dtpDay";
-            this.dtpDay.Size = new System.Drawing.Size(217, 20);
+            this.dtpDay.Size = new System.Drawing.Size(217, 21);
             this.dtpDay.TabIndex = 0;
             this.dtpDay.Value = new System.DateTime(2019, 5, 1, 0, 0, 0, 0);
             // 
             // lblDay
             // 
             this.lblDay.AutoSize = true;
-            this.lblDay.Location = new System.Drawing.Point(98, 34);
+            this.lblDay.Font = new System.Drawing.Font("Gill Sans MT", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDay.Location = new System.Drawing.Point(90, 31);
             this.lblDay.Name = "lblDay";
-            this.lblDay.Size = new System.Drawing.Size(28, 13);
+            this.lblDay.Size = new System.Drawing.Size(36, 18);
             this.lblDay.TabIndex = 1;
-            this.lblDay.Text = "Día:";
+            this.lblDay.Text = "Día: *";
             // 
             // lblHours
             // 
             this.lblHours.AutoSize = true;
-            this.lblHours.Location = new System.Drawing.Point(30, 80);
+            this.lblHours.Font = new System.Drawing.Font("Gill Sans MT", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHours.Location = new System.Drawing.Point(22, 79);
             this.lblHours.Name = "lblHours";
-            this.lblHours.Size = new System.Drawing.Size(96, 13);
+            this.lblHours.Size = new System.Drawing.Size(109, 18);
             this.lblHours.TabIndex = 2;
-            this.lblHours.Text = "Cantidad de horas:";
+            this.lblHours.Text = "Cantidad de horas: *";
             // 
             // lblTime
             // 
             this.lblTime.AutoSize = true;
-            this.lblTime.Location = new System.Drawing.Point(93, 57);
+            this.lblTime.Font = new System.Drawing.Font("Gill Sans MT", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTime.Location = new System.Drawing.Point(85, 54);
             this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(33, 13);
+            this.lblTime.Size = new System.Drawing.Size(45, 18);
             this.lblTime.TabIndex = 3;
-            this.lblTime.Text = "Hora:";
+            this.lblTime.Text = "Hora: *";
             // 
             // lblLocation
             // 
             this.lblLocation.AutoSize = true;
-            this.lblLocation.Location = new System.Drawing.Point(93, 103);
+            this.lblLocation.Font = new System.Drawing.Font("Gill Sans MT", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLocation.Location = new System.Drawing.Point(85, 103);
             this.lblLocation.Name = "lblLocation";
-            this.lblLocation.Size = new System.Drawing.Size(31, 13);
+            this.lblLocation.Size = new System.Drawing.Size(41, 18);
             this.lblLocation.TabIndex = 4;
-            this.lblLocation.Text = "Aula:";
+            this.lblLocation.Text = "Aula: *";
             // 
             // dtpTime
             // 
@@ -99,16 +103,18 @@
             this.dtpTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dtpTime.Location = new System.Drawing.Point(132, 52);
             this.dtpTime.Name = "dtpTime";
-            this.dtpTime.Size = new System.Drawing.Size(217, 20);
+            this.dtpTime.Size = new System.Drawing.Size(217, 21);
             this.dtpTime.TabIndex = 5;
             this.dtpTime.Value = new System.DateTime(2019, 5, 1, 0, 0, 0, 0);
             // 
             // txtHours
             // 
             this.txtHours.Location = new System.Drawing.Point(132, 76);
+            this.txtHours.MaxLength = 2;
             this.txtHours.Name = "txtHours";
-            this.txtHours.Size = new System.Drawing.Size(217, 20);
+            this.txtHours.Size = new System.Drawing.Size(217, 21);
             this.txtHours.TabIndex = 6;
+            this.txtHours.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtHours_KeyPress);
             // 
             // groupBox1
             // 
@@ -120,6 +126,7 @@
             this.groupBox1.Controls.Add(this.lblHours);
             this.groupBox1.Controls.Add(this.lblLocation);
             this.groupBox1.Controls.Add(this.lblTime);
+            this.groupBox1.Font = new System.Drawing.Font("Gill Sans MT", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(380, 141);
@@ -130,8 +137,9 @@
             // txtLocation
             // 
             this.txtLocation.Location = new System.Drawing.Point(132, 100);
+            this.txtLocation.MaxLength = 4;
             this.txtLocation.Name = "txtLocation";
-            this.txtLocation.Size = new System.Drawing.Size(217, 20);
+            this.txtLocation.Size = new System.Drawing.Size(217, 21);
             this.txtLocation.TabIndex = 7;
             // 
             // dgvSessions
@@ -145,6 +153,27 @@
             this.dgvSessions.Name = "dgvSessions";
             this.dgvSessions.Size = new System.Drawing.Size(380, 178);
             this.dgvSessions.TabIndex = 8;
+            // 
+            // DateTimeSession
+            // 
+            this.DateTimeSession.DataPropertyName = "DateTimeSession";
+            this.DateTimeSession.HeaderText = "Día y hora de la sesión";
+            this.DateTimeSession.Name = "DateTimeSession";
+            this.DateTimeSession.Width = 200;
+            // 
+            // Hours
+            // 
+            this.Hours.DataPropertyName = "Hours";
+            this.Hours.HeaderText = "Horas";
+            this.Hours.Name = "Hours";
+            this.Hours.Width = 50;
+            // 
+            // Location
+            // 
+            this.Location.DataPropertyName = "Location";
+            this.Location.HeaderText = "Aula";
+            this.Location.Name = "Location";
+            this.Location.Width = 90;
             // 
             // btnSearchCourse
             // 
@@ -192,27 +221,6 @@
             this.button2.Text = "Guardar";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // DateTimeSession
-            // 
-            this.DateTimeSession.DataPropertyName = "DateTimeSession";
-            this.DateTimeSession.HeaderText = "Día y hora de la sesión";
-            this.DateTimeSession.Name = "DateTimeSession";
-            this.DateTimeSession.Width = 200;
-            // 
-            // Hours
-            // 
-            this.Hours.DataPropertyName = "Hours";
-            this.Hours.HeaderText = "Horas";
-            this.Hours.Name = "Hours";
-            this.Hours.Width = 50;
-            // 
-            // Location
-            // 
-            this.Location.DataPropertyName = "Location";
-            this.Location.HeaderText = "Aula";
-            this.Location.Name = "Location";
-            this.Location.Width = 90;
             // 
             // CourseHAddSession
             // 

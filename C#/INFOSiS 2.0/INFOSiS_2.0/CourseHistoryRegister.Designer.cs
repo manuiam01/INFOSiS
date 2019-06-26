@@ -30,6 +30,9 @@
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvSessions = new System.Windows.Forms.DataGridView();
+            this.DateTimeSession = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Hours = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Location = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAddSession = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -46,9 +49,6 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dgvStudents = new System.Windows.Forms.DataGridView();
             this.btnAddStudent = new System.Windows.Forms.Button();
-            this.DateTimeSession = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Hours = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Location = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSessions)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -82,6 +82,25 @@
             this.dgvSessions.Name = "dgvSessions";
             this.dgvSessions.Size = new System.Drawing.Size(359, 187);
             this.dgvSessions.TabIndex = 178;
+            // 
+            // DateTimeSession
+            // 
+            this.DateTimeSession.HeaderText = "Fecha de la sesión";
+            this.DateTimeSession.Name = "DateTimeSession";
+            this.DateTimeSession.Width = 150;
+            // 
+            // Hours
+            // 
+            this.Hours.DataPropertyName = "Hours";
+            this.Hours.HeaderText = "Horas";
+            this.Hours.Name = "Hours";
+            this.Hours.Width = 50;
+            // 
+            // Location
+            // 
+            this.Location.DataPropertyName = "Location";
+            this.Location.HeaderText = "Aula";
+            this.Location.Name = "Location";
             // 
             // btnAddSession
             // 
@@ -205,22 +224,22 @@
             this.lblAssistant.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblAssistant.AutoSize = true;
             this.lblAssistant.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAssistant.Location = new System.Drawing.Point(71, 105);
+            this.lblAssistant.Location = new System.Drawing.Point(65, 106);
             this.lblAssistant.Name = "lblAssistant";
-            this.lblAssistant.Size = new System.Drawing.Size(60, 18);
+            this.lblAssistant.Size = new System.Drawing.Size(69, 18);
             this.lblAssistant.TabIndex = 190;
-            this.lblAssistant.Text = "Asistente:";
+            this.lblAssistant.Text = "Asistente: *";
             // 
             // lblProfessor
             // 
             this.lblProfessor.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblProfessor.AutoSize = true;
             this.lblProfessor.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProfessor.Location = new System.Drawing.Point(71, 70);
+            this.lblProfessor.Location = new System.Drawing.Point(70, 70);
             this.lblProfessor.Name = "lblProfessor";
-            this.lblProfessor.Size = new System.Drawing.Size(56, 18);
+            this.lblProfessor.Size = new System.Drawing.Size(65, 18);
             this.lblProfessor.TabIndex = 189;
-            this.lblProfessor.Text = "Profesor:";
+            this.lblProfessor.Text = "Profesor: *";
             // 
             // txtCourse
             // 
@@ -235,11 +254,11 @@
             this.lblCourse.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCourse.AutoSize = true;
             this.lblCourse.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCourse.Location = new System.Drawing.Point(87, 34);
+            this.lblCourse.Location = new System.Drawing.Point(80, 34);
             this.lblCourse.Name = "lblCourse";
-            this.lblCourse.Size = new System.Drawing.Size(44, 18);
+            this.lblCourse.Size = new System.Drawing.Size(53, 18);
             this.lblCourse.TabIndex = 0;
-            this.lblCourse.Text = "Curso:";
+            this.lblCourse.Text = "Curso: *";
             // 
             // label1
             // 
@@ -290,25 +309,6 @@
             this.btnAddStudent.TabIndex = 177;
             this.btnAddStudent.Text = "Agregar Alumnos";
             this.btnAddStudent.UseVisualStyleBackColor = false;
-            // 
-            // DateTimeSession
-            // 
-            this.DateTimeSession.HeaderText = "Fecha de la sesión";
-            this.DateTimeSession.Name = "DateTimeSession";
-            this.DateTimeSession.Width = 150;
-            // 
-            // Hours
-            // 
-            this.Hours.DataPropertyName = "Hours";
-            this.Hours.HeaderText = "Horas";
-            this.Hours.Name = "Hours";
-            this.Hours.Width = 50;
-            // 
-            // Location
-            // 
-            this.Location.DataPropertyName = "Location";
-            this.Location.HeaderText = "Aula";
-            this.Location.Name = "Location";
             // 
             // CourseHistoryRegister
             // 

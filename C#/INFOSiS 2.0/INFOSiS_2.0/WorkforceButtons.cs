@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using INFOSiS_2._0.Server;
 
 namespace INFOSiS_2._0
 {
@@ -14,6 +15,7 @@ namespace INFOSiS_2._0
     {
         private static WorkforceButtons _instance;
         private static Panel _panelMdi;
+        private static Server.user usuario;
 
         public static WorkforceButtons Instance
         {
@@ -29,6 +31,11 @@ namespace INFOSiS_2._0
         {
             get => _panelMdi;
             set => _panelMdi = value;
+        }
+        public static user Usuario
+        {
+            get => usuario;
+            set => usuario = value;
         }
 
         public WorkforceButtons()
@@ -88,6 +95,7 @@ namespace INFOSiS_2._0
                 PanelMdi.Controls.Add(WeekAvailability.Instance);
                 WeekAvailability.Instance.Dock = DockStyle.Fill;
                 WeekAvailability.PanelMdi = PanelMdi;
+                WeekAvailability.User = Usuario;
                 WeekAvailability.Instance.Visible = true;
                 WeekAvailability.Instance.BringToFront();
             }

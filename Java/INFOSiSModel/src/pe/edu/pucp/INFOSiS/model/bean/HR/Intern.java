@@ -12,13 +12,13 @@ import pe.edu.pucp.INFOSiS.model.bean.user.User;
 @XmlRootElement(name="Intern")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Intern extends Employee implements Serializable{
-
     
     private ArrayList<InternAssistance> assistance;
     private String weekAvailability;
     private String weekSchedule;
     
     public Intern() {
+        assistance = new ArrayList<InternAssistance>();
     }
 
     public Intern(ArrayList<InternAssistance> assistance, String weekAvailability, String weekSchedule, String idPUCP, String emailPUCP, String address, String homePhone, User user, String idNumber, int idType, String firstName, String middleName, String primaryLastName, String secondLastName, String gender, String email, String cellPhoneNumber, Date birthday) {

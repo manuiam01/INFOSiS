@@ -76,9 +76,15 @@ public class Server {
     }
     
     @WebMethod (operationName = "UpdateIntern")
-    public int UpdateIntern(@WebParam(name = "intern") Intern intern,@WebParam(name = "access") UserType access){
-        return DBController.updateIntern(intern, access);
+    public int UpdateIntern(@WebParam(name = "intern") Intern intern){
+        return DBController.updateIntern(intern);
     }
+    
+    @WebMethod (operationName = "UpdateWeekAvailability")
+    public int UpdateWeekAvailability(@WebParam(name = "weekAvailability") String weekAvailability,@WebParam(name = "idIntern") String idIntern){
+        return DBController.updateWeekAvailability(weekAvailability, idIntern);
+    }
+    
     //INTERESTED
     @WebMethod (operationName= "InsertInterested")
     public int InsertInterested(@WebParam(name="interested")Interested interested){
@@ -256,5 +262,14 @@ public class Server {
     public InternAssistance getLastRegisterOfDay(@WebParam(name="pucpId") String pucpId){
         return DBController.getLastRegisterOfDay(pucpId);
     }
-
+    
+    @WebMethod(operationName="insertAssistance")
+    public int insertAssistance(@WebParam(name="idPucp")String idPucp){
+        return DBController.insertAssistance(idPucp);
+    }
+    
+    @WebMethod(operationName="updateAssistance")
+    public int updateAssistance(@WebParam(name="id") String id){
+        return DBController.updateAsisstance(id);
+    }
 }

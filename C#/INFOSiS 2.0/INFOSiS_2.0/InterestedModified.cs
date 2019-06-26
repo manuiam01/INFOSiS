@@ -245,7 +245,9 @@ namespace INFOSiS_2._0
                 MessageBox.Show("No ingresó el número de contacto del interesado", "Aviso", MessageBoxButtons.OK);
             else if (txtEmail.Text == "")
                 MessageBox.Show("No ingresó el correo del interesado", "Aviso", MessageBoxButtons.OK);
-            else
+            else if(dgvInterestedCourses.RowCount==0)
+                MessageBox.Show("No escogió curso de interés", "Aviso", MessageBoxButtons.OK);
+            else 
             {
                 server = new Server.ServerClient();
                 Server.interested inte = new Server.interested();
@@ -369,6 +371,42 @@ namespace INFOSiS_2._0
             {
                 idcursos.Add(row.Cells[0].Value.ToString());
             }
+        }
+
+        private void txtCellphone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txbNDocumento_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txbNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+        }
+
+        private void txbSegundoNom_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+        }
+
+        private void txbApePa_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+        }
+
+        private void txbApeMa_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
         }
     }
 }
