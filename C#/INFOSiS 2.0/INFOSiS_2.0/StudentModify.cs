@@ -59,6 +59,7 @@ namespace INFOSiS_2._0
                 catch(Exception ex)
                 {
                     dateNacimiento.Value = DateTime.Today;
+                    MessageBox.Show(ex.Message);
                 }
                 txtTelefono.Text = student.homePhone;
                 if (student.idPUCPList != null)

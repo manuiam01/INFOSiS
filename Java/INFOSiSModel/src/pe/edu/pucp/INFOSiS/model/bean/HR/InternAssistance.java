@@ -20,12 +20,22 @@ public class InternAssistance implements Serializable{
     }
 
     private int id;
-    private LocalDateTime begin;
-    private LocalDateTime end;
+    private Date begin;
+    private Date end;
+    
+    public Date getBegin() {
+        return begin;
+    }
 
-    public InternAssistance(int id, LocalDateTime begin, LocalDateTime end) {
-        this.id = id;
+    public void setBegin(Date begin) {
         this.begin = begin;
+    }
+
+    public Date getEnd() {
+        return end;
+    }
+
+    public void setEnd(Date end) {
         this.end = end;
     }
 
@@ -35,22 +45,6 @@ public class InternAssistance implements Serializable{
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public LocalDateTime getBegin() {
-        return begin;
-    }
-
-    public void setBegin(LocalDateTime begin) {
-        this.begin = begin;
-    }
-
-    public LocalDateTime getEnd() {
-        return end;
-    }
-
-    public void setEnd(LocalDateTime end) {
-        this.end = end;
     }
     
     

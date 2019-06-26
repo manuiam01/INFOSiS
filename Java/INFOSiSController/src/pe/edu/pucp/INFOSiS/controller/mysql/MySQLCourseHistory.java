@@ -20,6 +20,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -42,6 +43,7 @@ import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import pe.edu.pucp.INFOSiS.controller.config.DBController;
 import pe.edu.pucp.INFOSiS.controller.config.DBManager;
 import pe.edu.pucp.INFOSiS.controller.dao.DAOCourseHistory;
+import pe.edu.pucp.INFOSiS.model.bean.course.CalendarSession;
 import pe.edu.pucp.INFOSiS.model.bean.course.Course;
 import pe.edu.pucp.INFOSiS.model.bean.course.CourseHistory;
 import pe.edu.pucp.INFOSiS.model.bean.course.Session;
@@ -379,8 +381,8 @@ public class MySQLCourseHistory implements DAOCourseHistory{
                 s.setDateSession(rs2.getTimestamp(3));
                 s.setHours(rs2.getInt(4));
                 s.setLocation(rs2.getString(5));
-                s.setIsActive(rs2.getBoolean(6));
-                if(s.isIsActive()) sessions.add(s);
+//                s.setIsActive(rs2.getBoolean(6));
+//                if(s.isIsActive()) sessions.add(s);
             }           
             con.close();
         }catch(Exception ex){
@@ -388,5 +390,105 @@ public class MySQLCourseHistory implements DAOCourseHistory{
         }
         
         return sessions;
+    }
+
+
+    @Override
+    public ArrayList<CourseHistory> queryByCourse(String idCourse) {
+        ArrayList<CourseHistory> courses = new ArrayList<CourseHistory>();
+        
+        try{
+            DBManager dbManager = DBManager.getdbManager();
+            Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
+            CallableStatement cs = con.prepareCall("{call COURSEH_BY_COURSE(?)}");          
+            cs.setString(1,idCourse);
+            ResultSet rs = cs.executeQuery();         
+            while(rs.next()){
+                CourseHistory c = new CourseHistory();
+                c.setId(rs.getInt("idCourseHistory"));
+                //Course course = new Course();
+                Course course = DBController.queryCourseById(rs.getString(2));
+                c.setCourse(course);
+                c.setCourseName(course.getName());
+                c.setProfessor(DBController.searchProfessorByIdPUCP(rs.getString(3)));
+                c.setAssistant(DBController.searchProfessorByIdPUCP(rs.getString(4)));
+                c.setHours(rs.getInt(5));
+                c.setStartDate(rs.getDate(6));
+                c.setEndDate(rs.getDate(7)); 
+                c.setSurvey(rs.getBytes(8));
+                ArrayList<Session> sessions = DBController.querySessionByCourseH(c.getId());               
+                c.setSessions(sessions);
+
+                ArrayList<Student> students = new ArrayList<>();
+                ArrayList<Float> grades = new ArrayList<>();
+                ArrayList<String> states = new ArrayList<>();
+                ArrayList<Float> amountPaids = new ArrayList<>();
+
+                cs = con.prepareCall("{call SEARCH_STUDENTH_BY_COURSEH(?)}");
+                cs.setInt(1, c.getId());
+                ResultSet rs2 = cs.executeQuery();
+                 while(rs2.next()){
+                    Student s = new Student();
+                    s.setId(rs2.getInt(2));
+                    students.add(s);
+                    grades.add(rs.getFloat(4));
+                    states.add(rs2.getString(5));                      
+                    amountPaids.add(rs2.getFloat(6));                       
+                }
+                 c.setStudents(students);
+                 c.setHistoryGrade(grades);
+                 c.setHistoryState(states); 
+                 c.setAmountPaids(amountPaids);
+                 courses.add(c);
+               
+            }   
+            con.close();
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        
+        return courses;
+
+    }
+
+    
+    @Override
+    public ArrayList<CalendarSession> queryCalendarSessionByBeginDate(String date){
+        ArrayList<CalendarSession> lSesiones = new ArrayList<>();
+        try{
+            DBManager dbManager = DBManager.getdbManager();
+            Connection con = DriverManager.getConnection(dbManager.getUrl(), 
+                    dbManager.getUser(), dbManager.getPassword());
+            Statement st = con.createStatement();
+            String query = "SELECT S.sessionDateTime AS 'Inicio', "
+                    + "DATE_ADD(S.sessionDateTime, INTERVAL S.cantHours HOUR) as 'Fin', "
+                    + "S.classroom as 'Lugar',  C.name as 'Curso', "
+                    + "CONCAT(P.primaryLastName,' ',P.secondLastName,', '"
+                    + ",P.firstName,' ',P.middleName) as 'Profesor' "
+                    + "FROM Sessions S, Professors P, CourseHistory H, "
+                    + "Course C "
+                    + "WHERE S.idCourseHistory=H.idCourseHistory "
+                    + "AND H.idCourse=C.idCourse "
+                    + "AND H.idProfessor=P.idProfessor "
+                    + "AND S.sessionDateTime>=STR_TO_DATE('"+date+" 00:00:00','%Y/%m/%d %H:%i:%s') "
+                    + "ORDER BY Inicio";
+            ResultSet rs = st.executeQuery(query);
+            CalendarSession calS;
+            while (rs.next()){
+                calS= new CalendarSession();
+                calS.setInicio(rs.getTimestamp("Inicio"));
+                calS.setFin(rs.getTimestamp("Fin"));
+                calS.setAula(rs.getString("Lugar"));
+                calS.setCourseName(rs.getString("Curso"));
+                calS.setProfessor(rs.getString("Profesor"));
+                lSesiones.add(calS);
+            }
+
+            con.close();
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+
+        return lSesiones;
     }
 }

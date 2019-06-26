@@ -231,10 +231,18 @@ namespace INFOSiS_2._0
                 if (result == DialogResult.Yes)
                 {
                     limpiar();
-                    dgvInterestedCourses.DataSource = null;
                     tbCursos.Clear();
                     idcursos = new BindingList<string>();
                 }
+            }
+        }
+
+        private void DgvInterestedCourses_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            idcursos = new BindingList<string>();
+            foreach (DataGridViewRow row in dgvInterestedCourses.Rows)
+            {
+                idcursos.Add(row.Cells[0].Value.ToString());
             }
         }
     }

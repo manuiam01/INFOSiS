@@ -7,6 +7,7 @@ package pe.edu.pucp.INFOSiS.controller.dao;
 
 import java.util.ArrayList;
 import pe.edu.pucp.INFOSiS.model.bean.HR.Intern;
+import pe.edu.pucp.INFOSiS.model.bean.HR.InternAssistance;
 import pe.edu.pucp.INFOSiS.model.bean.user.UserType;
 
 /**
@@ -20,4 +21,5 @@ public interface DAOIntern {
     Intern searchInternByIdPUCP (String idPUCP);
     ArrayList<Intern> searchInternByName(String firstName,String middleName,String firstLastName,String secondLastName);
     ArrayList<Intern> queryAll();
+    InternAssistance getLastRegisterOfDay(String pucpId);
 }

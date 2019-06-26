@@ -7,12 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using INFOSiS_2._0.Server;
 
 namespace INFOSiS_2._0
 {
     public partial class MdiInfosis : Form
     {
-        Server.user user;
+        private Server.user user;
+
+        public user User { get => user; set => user = value; }
+
         public MdiInfosis()
         {
             InitializeComponent();
@@ -24,7 +28,7 @@ namespace INFOSiS_2._0
             InitializeComponent();
             WindowState = FormWindowState.Maximized;
             panelMdiOptions.Visible = false;
-            this.user = u;
+            this.User = u;
         }
 
         public void cleanWindow()
@@ -165,6 +169,10 @@ namespace INFOSiS_2._0
                 panelMdiOptions.Controls.Add(ProfileButtons.Instance);
                 ProfileButtons.Instance.Dock = DockStyle.Fill;
                 ProfileButtons.PanelMdi = panelMdiInfosis;
+                if (user.acces.id != 2)
+                {
+                    ProfileButtons.Instance.verificar_usuario(user);
+                }
                 ProfileButtons.Instance.Visible = true;
                 ProfileButtons.Instance.BringToFront();
             }

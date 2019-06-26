@@ -74,5 +74,10 @@ namespace INFOSiS_2._0
         {
 
         }
+
+        private void TextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

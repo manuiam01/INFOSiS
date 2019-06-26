@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvCursos = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnSeleccionar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.cID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCursos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -43,9 +45,12 @@
             this.dgvCursos.AllowUserToDeleteRows = false;
             this.dgvCursos.AllowUserToResizeColumns = false;
             this.dgvCursos.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Gill Sans MT", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvCursos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Gill Sans MT", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvCursos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvCursos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCursos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.cID,
+            this.cNombre});
             this.dgvCursos.Location = new System.Drawing.Point(17, 66);
             this.dgvCursos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvCursos.Name = "dgvCursos";
@@ -73,6 +78,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(439, 22);
             this.textBox1.TabIndex = 2;
+            this.textBox1.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
             // 
             // btnSeleccionar
             // 
@@ -108,6 +114,22 @@
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
+            // cID
+            // 
+            this.cID.DataPropertyName = "ID";
+            this.cID.HeaderText = "ID";
+            this.cID.Name = "cID";
+            this.cID.ReadOnly = true;
+            this.cID.Width = 70;
+            // 
+            // cNombre
+            // 
+            this.cNombre.DataPropertyName = "Nombre";
+            this.cNombre.HeaderText = "Nombre";
+            this.cNombre.Name = "cNombre";
+            this.cNombre.ReadOnly = true;
+            this.cNombre.Width = 248;
+            // 
             // InterestedCourses
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -135,5 +157,7 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btnSeleccionar;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cNombre;
     }
 }

@@ -31,7 +31,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblNameSyllabus = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnAddSyllabus = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.cmbCourseType = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -44,7 +44,7 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAddPreKnowledge = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -66,7 +66,7 @@
             // 
             this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox1.Controls.Add(this.lblNameSyllabus);
-            this.groupBox1.Controls.Add(this.button3);
+            this.groupBox1.Controls.Add(this.btnAddSyllabus);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.cmbCourseType);
             this.groupBox1.Controls.Add(this.label11);
@@ -95,21 +95,21 @@
             this.lblNameSyllabus.Size = new System.Drawing.Size(0, 18);
             this.lblNameSyllabus.TabIndex = 177;
             // 
-            // button3
+            // btnAddSyllabus
             // 
-            this.button3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button3.BackColor = System.Drawing.Color.MidnightBlue;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(114, 246);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(102, 26);
-            this.button3.TabIndex = 176;
-            this.button3.Text = "Agregar Sílabo";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnAddSyllabus.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnAddSyllabus.BackColor = System.Drawing.Color.MidnightBlue;
+            this.btnAddSyllabus.FlatAppearance.BorderSize = 0;
+            this.btnAddSyllabus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddSyllabus.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddSyllabus.ForeColor = System.Drawing.Color.White;
+            this.btnAddSyllabus.Location = new System.Drawing.Point(114, 246);
+            this.btnAddSyllabus.Name = "btnAddSyllabus";
+            this.btnAddSyllabus.Size = new System.Drawing.Size(102, 26);
+            this.btnAddSyllabus.TabIndex = 176;
+            this.btnAddSyllabus.Text = "Agregar Sílabo";
+            this.btnAddSyllabus.UseVisualStyleBackColor = false;
+            this.btnAddSyllabus.Click += new System.EventHandler(this.btnAddSyllabus_Click);
             // 
             // label5
             // 
@@ -221,7 +221,7 @@
             // 
             this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox2.Controls.Add(this.dataGridView1);
-            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Controls.Add(this.btnAddPreKnowledge);
             this.groupBox2.Location = new System.Drawing.Point(426, 66);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.groupBox2.Name = "groupBox2";
@@ -240,20 +240,20 @@
             this.dataGridView1.Size = new System.Drawing.Size(359, 187);
             this.dataGridView1.TabIndex = 178;
             // 
-            // button1
+            // btnAddPreKnowledge
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button1.BackColor = System.Drawing.Color.MidnightBlue;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(17, 28);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(213, 26);
-            this.button1.TabIndex = 177;
-            this.button1.Text = "Agregar Conocimientos Previos:";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnAddPreKnowledge.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnAddPreKnowledge.BackColor = System.Drawing.Color.MidnightBlue;
+            this.btnAddPreKnowledge.FlatAppearance.BorderSize = 0;
+            this.btnAddPreKnowledge.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddPreKnowledge.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddPreKnowledge.ForeColor = System.Drawing.Color.White;
+            this.btnAddPreKnowledge.Location = new System.Drawing.Point(17, 28);
+            this.btnAddPreKnowledge.Name = "btnAddPreKnowledge";
+            this.btnAddPreKnowledge.Size = new System.Drawing.Size(213, 26);
+            this.btnAddPreKnowledge.TabIndex = 177;
+            this.btnAddPreKnowledge.Text = "Agregar Conocimientos Previos:";
+            this.btnAddPreKnowledge.UseVisualStyleBackColor = false;
             // 
             // CourseRegister
             // 
@@ -291,9 +291,9 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnAddSyllabus;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAddPreKnowledge;
         private System.Windows.Forms.Label lblNameSyllabus;
     }
 }

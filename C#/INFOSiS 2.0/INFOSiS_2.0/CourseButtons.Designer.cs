@@ -28,110 +28,107 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnNewInte = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnCourseRegister = new System.Windows.Forms.Button();
+            this.btnCourseModify = new System.Windows.Forms.Button();
+            this.btnCourseReport = new System.Windows.Forms.Button();
+            this.btnCourseHistoryRegister = new System.Windows.Forms.Button();
+            this.btnCourseHistoryModify = new System.Windows.Forms.Button();
+            this.btnCourseHistoryReport = new System.Windows.Forms.Button();
             this.btnCalendar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // btnNewInte
+            // btnCourseRegister
             // 
-            this.btnNewInte.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btnNewInte.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.btnNewInte.FlatAppearance.BorderSize = 0;
-            this.btnNewInte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNewInte.Font = new System.Drawing.Font("Gill Sans MT", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNewInte.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btnNewInte.Location = new System.Drawing.Point(4, 139);
-            this.btnNewInte.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnNewInte.Name = "btnNewInte";
-            this.btnNewInte.Size = new System.Drawing.Size(345, 81);
-            this.btnNewInte.TabIndex = 93;
-            this.btnNewInte.Text = "Registrar un Curso";
-            this.btnNewInte.UseVisualStyleBackColor = false;
+            this.btnCourseRegister.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnCourseRegister.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnCourseRegister.FlatAppearance.BorderSize = 0;
+            this.btnCourseRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCourseRegister.Font = new System.Drawing.Font("Gill Sans MT", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCourseRegister.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnCourseRegister.Location = new System.Drawing.Point(3, 113);
+            this.btnCourseRegister.Name = "btnCourseRegister";
+            this.btnCourseRegister.Size = new System.Drawing.Size(259, 66);
+            this.btnCourseRegister.TabIndex = 93;
+            this.btnCourseRegister.Text = "Registrar un Curso";
+            this.btnCourseRegister.UseVisualStyleBackColor = false;
+            this.btnCourseRegister.Click += new System.EventHandler(this.btnCourseRegister_Click);
             // 
-            // button1
+            // btnCourseModify
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.button1.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Gill Sans MT", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.button1.Location = new System.Drawing.Point(2, 228);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(345, 81);
-            this.button1.TabIndex = 94;
-            this.button1.Text = "Modificar un Curso";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnCourseModify.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnCourseModify.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnCourseModify.FlatAppearance.BorderSize = 0;
+            this.btnCourseModify.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCourseModify.Font = new System.Drawing.Font("Gill Sans MT", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCourseModify.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnCourseModify.Location = new System.Drawing.Point(2, 185);
+            this.btnCourseModify.Name = "btnCourseModify";
+            this.btnCourseModify.Size = new System.Drawing.Size(259, 66);
+            this.btnCourseModify.TabIndex = 94;
+            this.btnCourseModify.Text = "Modificar un Curso";
+            this.btnCourseModify.UseVisualStyleBackColor = false;
+            this.btnCourseModify.Click += new System.EventHandler(this.btnCourseModify_Click);
             // 
-            // button2
+            // btnCourseReport
             // 
-            this.button2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.button2.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Gill Sans MT", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.button2.Location = new System.Drawing.Point(2, 317);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(345, 81);
-            this.button2.TabIndex = 95;
-            this.button2.Text = "Reporte de Cursos";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnCourseReport.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnCourseReport.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnCourseReport.FlatAppearance.BorderSize = 0;
+            this.btnCourseReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCourseReport.Font = new System.Drawing.Font("Gill Sans MT", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCourseReport.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnCourseReport.Location = new System.Drawing.Point(2, 258);
+            this.btnCourseReport.Name = "btnCourseReport";
+            this.btnCourseReport.Size = new System.Drawing.Size(259, 66);
+            this.btnCourseReport.TabIndex = 95;
+            this.btnCourseReport.Text = "Reporte de Cursos";
+            this.btnCourseReport.UseVisualStyleBackColor = false;
+            this.btnCourseReport.Click += new System.EventHandler(this.btnCourseReport_Click);
             // 
-            // button3
+            // btnCourseHistoryRegister
             // 
-            this.button3.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.button3.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Gill Sans MT", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.button3.Location = new System.Drawing.Point(2, 406);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(345, 81);
-            this.button3.TabIndex = 96;
-            this.button3.Text = "Registrar un Curso Dictado";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnCourseHistoryRegister.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnCourseHistoryRegister.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnCourseHistoryRegister.FlatAppearance.BorderSize = 0;
+            this.btnCourseHistoryRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCourseHistoryRegister.Font = new System.Drawing.Font("Gill Sans MT", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCourseHistoryRegister.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnCourseHistoryRegister.Location = new System.Drawing.Point(2, 330);
+            this.btnCourseHistoryRegister.Name = "btnCourseHistoryRegister";
+            this.btnCourseHistoryRegister.Size = new System.Drawing.Size(259, 66);
+            this.btnCourseHistoryRegister.TabIndex = 96;
+            this.btnCourseHistoryRegister.Text = "Registrar un Curso Dictado";
+            this.btnCourseHistoryRegister.UseVisualStyleBackColor = false;
             // 
-            // button4
+            // btnCourseHistoryModify
             // 
-            this.button4.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.button4.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Gill Sans MT", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.button4.Location = new System.Drawing.Point(4, 495);
-            this.button4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(345, 81);
-            this.button4.TabIndex = 97;
-            this.button4.Text = "Modificar un Curso Dictado";
-            this.button4.UseVisualStyleBackColor = false;
+            this.btnCourseHistoryModify.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnCourseHistoryModify.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnCourseHistoryModify.FlatAppearance.BorderSize = 0;
+            this.btnCourseHistoryModify.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCourseHistoryModify.Font = new System.Drawing.Font("Gill Sans MT", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCourseHistoryModify.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnCourseHistoryModify.Location = new System.Drawing.Point(3, 402);
+            this.btnCourseHistoryModify.Name = "btnCourseHistoryModify";
+            this.btnCourseHistoryModify.Size = new System.Drawing.Size(259, 66);
+            this.btnCourseHistoryModify.TabIndex = 97;
+            this.btnCourseHistoryModify.Text = "Modificar un Curso Dictado";
+            this.btnCourseHistoryModify.UseVisualStyleBackColor = false;
             // 
-            // button5
+            // btnCourseHistoryReport
             // 
-            this.button5.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.button5.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Gill Sans MT", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.button5.Location = new System.Drawing.Point(4, 584);
-            this.button5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(345, 81);
-            this.button5.TabIndex = 98;
-            this.button5.Text = "Reporte de Cursos Dictados";
-            this.button5.UseVisualStyleBackColor = false;
+            this.btnCourseHistoryReport.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnCourseHistoryReport.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnCourseHistoryReport.FlatAppearance.BorderSize = 0;
+            this.btnCourseHistoryReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCourseHistoryReport.Font = new System.Drawing.Font("Gill Sans MT", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCourseHistoryReport.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnCourseHistoryReport.Location = new System.Drawing.Point(3, 474);
+            this.btnCourseHistoryReport.Name = "btnCourseHistoryReport";
+            this.btnCourseHistoryReport.Size = new System.Drawing.Size(259, 66);
+            this.btnCourseHistoryReport.TabIndex = 98;
+            this.btnCourseHistoryReport.Text = "Reporte de Cursos Dictados";
+            this.btnCourseHistoryReport.UseVisualStyleBackColor = false;
             // 
             // btnCalendar
             // 
@@ -141,10 +138,9 @@
             this.btnCalendar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCalendar.Font = new System.Drawing.Font("Gill Sans MT", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCalendar.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btnCalendar.Location = new System.Drawing.Point(4, 50);
-            this.btnCalendar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCalendar.Location = new System.Drawing.Point(3, 41);
             this.btnCalendar.Name = "btnCalendar";
-            this.btnCalendar.Size = new System.Drawing.Size(345, 81);
+            this.btnCalendar.Size = new System.Drawing.Size(259, 66);
             this.btnCalendar.TabIndex = 99;
             this.btnCalendar.Text = "Calendario";
             this.btnCalendar.UseVisualStyleBackColor = false;
@@ -152,31 +148,30 @@
             // 
             // CourseButtons
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.Controls.Add(this.btnCalendar);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.btnNewInte);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Controls.Add(this.btnCourseHistoryReport);
+            this.Controls.Add(this.btnCourseHistoryModify);
+            this.Controls.Add(this.btnCourseHistoryRegister);
+            this.Controls.Add(this.btnCourseReport);
+            this.Controls.Add(this.btnCourseModify);
+            this.Controls.Add(this.btnCourseRegister);
             this.Name = "CourseButtons";
-            this.Size = new System.Drawing.Size(351, 687);
+            this.Size = new System.Drawing.Size(263, 558);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button btnNewInte;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnCourseRegister;
+        private System.Windows.Forms.Button btnCourseModify;
+        private System.Windows.Forms.Button btnCourseReport;
+        private System.Windows.Forms.Button btnCourseHistoryRegister;
+        private System.Windows.Forms.Button btnCourseHistoryModify;
+        private System.Windows.Forms.Button btnCourseHistoryReport;
         private System.Windows.Forms.Button btnCalendar;
     }
 }

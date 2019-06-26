@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using INFOSiS_2._0.Server;
 
 namespace INFOSiS_2._0
 {
@@ -14,6 +15,7 @@ namespace INFOSiS_2._0
     {
         private static ProfileButtons _instance;
         private static Panel _panelMdi;
+        private Server.user usuario;
 
         public static ProfileButtons Instance
         {
@@ -30,6 +32,8 @@ namespace INFOSiS_2._0
             get => _panelMdi;
             set => _panelMdi = value;
         }
+        public user Usuario { get => usuario; set => usuario = value; }
+
         public ProfileButtons()
         {
             InitializeComponent();
@@ -78,6 +82,31 @@ namespace INFOSiS_2._0
                 PanelMdi.Controls.Remove(item);
             }
         }
-        
+
+        public void verificar_usuario(Server.user u)
+        {
+            //Si llega, encontes sí es practicante
+            btnAsistencia.Enabled = true;
+            this.usuario = u;
+        }
+
+        private void btnAsistencia_Click(object sender, EventArgs e)
+        {
+            cleanWindow();
+            if (!PanelMdi.Controls.Contains(ProfileAssistance.Instance))
+            {
+                PanelMdi.Controls.Add(ProfileAssistance.Instance);
+                ProfileAssistance.Instance.Dock = DockStyle.Fill;
+                ProfileAssistance.PanelMdi = PanelMdi;
+                ProfileAssistance.Instance.prepararUsuario(usuario);
+                ProfileAssistance.Instance.Visible = true;
+                ProfileAssistance.Instance.BringToFront();
+            }
+            else
+            {
+                ProfileAssistance.Instance.Visible = true;
+                ProfileAssistance.Instance.BringToFront();
+            }
+        }
     }
 }
