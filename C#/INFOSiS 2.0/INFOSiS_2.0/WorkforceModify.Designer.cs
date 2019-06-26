@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.gbxContactData = new System.Windows.Forms.GroupBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.gbxCondition = new System.Windows.Forms.GroupBox();
             this.rbActive = new System.Windows.Forms.RadioButton();
             this.rbInactive = new System.Windows.Forms.RadioButton();
@@ -49,13 +48,6 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnModify = new System.Windows.Forms.Button();
             this.gbxPersonalData = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblRequired5 = new System.Windows.Forms.Label();
             this.lblRequiredInfo = new System.Windows.Forms.Label();
             this.lbAdvancedSearch = new System.Windows.Forms.Label();
             this.gbxSex = new System.Windows.Forms.GroupBox();
@@ -89,7 +81,6 @@
             // gbxContactData
             // 
             this.gbxContactData.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.gbxContactData.Controls.Add(this.label7);
             this.gbxContactData.Controls.Add(this.gbxCondition);
             this.gbxContactData.Controls.Add(this.lblEmail);
             this.gbxContactData.Controls.Add(this.txtCellphone);
@@ -110,17 +101,6 @@
             this.gbxContactData.TabIndex = 182;
             this.gbxContactData.TabStop = false;
             this.gbxContactData.Text = "Datos de contacto";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Gill Sans MT", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.label7.Location = new System.Drawing.Point(306, 98);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(17, 21);
-            this.label7.TabIndex = 195;
-            this.label7.Text = "*";
             // 
             // gbxCondition
             // 
@@ -184,11 +164,11 @@
             this.lblCellphone.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCellphone.AutoSize = true;
             this.lblCellphone.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCellphone.Location = new System.Drawing.Point(74, 31);
+            this.lblCellphone.Location = new System.Drawing.Point(65, 32);
             this.lblCellphone.Name = "lblCellphone";
-            this.lblCellphone.Size = new System.Drawing.Size(50, 18);
+            this.lblCellphone.Size = new System.Drawing.Size(59, 18);
             this.lblCellphone.TabIndex = 147;
-            this.lblCellphone.Text = "Celular:";
+            this.lblCellphone.Text = "Celular: *";
             // 
             // txtHomephone
             // 
@@ -203,7 +183,7 @@
             this.lblHomephone.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblHomephone.AutoSize = true;
             this.lblHomephone.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHomephone.Location = new System.Drawing.Point(46, 65);
+            this.lblHomephone.Location = new System.Drawing.Point(37, 66);
             this.lblHomephone.Name = "lblHomephone";
             this.lblHomephone.Size = new System.Drawing.Size(78, 18);
             this.lblHomephone.TabIndex = 149;
@@ -225,8 +205,11 @@
             this.lblEmailPUCP.Location = new System.Drawing.Point(38, 98);
             this.lblEmailPUCP.Name = "lblEmailPUCP";
             this.lblEmailPUCP.Size = new System.Drawing.Size(86, 18);
+            this.lblEmailPUCP.Location = new System.Drawing.Point(29, 99);
+            this.lblEmailPUCP.Name = "lblEmailPUCP";
+            this.lblEmailPUCP.Size = new System.Drawing.Size(95, 18);
             this.lblEmailPUCP.TabIndex = 151;
-            this.lblEmailPUCP.Text = "Correo PUCP:";
+            this.lblEmailPUCP.Text = "Correo PUCP: *";
             // 
             // txtEmail
             // 
@@ -241,7 +224,7 @@
             this.lblAddress.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblAddress.AutoSize = true;
             this.lblAddress.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddress.Location = new System.Drawing.Point(60, 164);
+            this.lblAddress.Location = new System.Drawing.Point(51, 165);
             this.lblAddress.Name = "lblAddress";
             this.lblAddress.Size = new System.Drawing.Size(64, 18);
             this.lblAddress.TabIndex = 159;
@@ -258,7 +241,7 @@
             // txtPUCPCode
             // 
             this.txtPUCPCode.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtPUCPCode.Location = new System.Drawing.Point(159, 52);
+            this.txtPUCPCode.Location = new System.Drawing.Point(159, 43);
             this.txtPUCPCode.Name = "txtPUCPCode";
             this.txtPUCPCode.Size = new System.Drawing.Size(198, 26);
             this.txtPUCPCode.TabIndex = 154;
@@ -268,11 +251,11 @@
             this.lblPUCPCode.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblPUCPCode.AutoSize = true;
             this.lblPUCPCode.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPUCPCode.Location = new System.Drawing.Point(52, 54);
+            this.lblPUCPCode.Location = new System.Drawing.Point(52, 45);
             this.lblPUCPCode.Name = "lblPUCPCode";
-            this.lblPUCPCode.Size = new System.Drawing.Size(86, 18);
+            this.lblPUCPCode.Size = new System.Drawing.Size(95, 18);
             this.lblPUCPCode.TabIndex = 155;
-            this.lblPUCPCode.Text = "Código PUCP:";
+            this.lblPUCPCode.Text = "Código PUCP: *";
             // 
             // lblInternModify
             // 
@@ -320,13 +303,6 @@
             // gbxPersonalData
             // 
             this.gbxPersonalData.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.gbxPersonalData.Controls.Add(this.label6);
-            this.gbxPersonalData.Controls.Add(this.label4);
-            this.gbxPersonalData.Controls.Add(this.label5);
-            this.gbxPersonalData.Controls.Add(this.label3);
-            this.gbxPersonalData.Controls.Add(this.label2);
-            this.gbxPersonalData.Controls.Add(this.label1);
-            this.gbxPersonalData.Controls.Add(this.lblRequired5);
             this.gbxPersonalData.Controls.Add(this.lblRequiredInfo);
             this.gbxPersonalData.Controls.Add(this.lbAdvancedSearch);
             this.gbxPersonalData.Controls.Add(this.gbxSex);
@@ -351,95 +327,17 @@
             this.gbxPersonalData.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.gbxPersonalData.Name = "gbxPersonalData";
             this.gbxPersonalData.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.gbxPersonalData.Size = new System.Drawing.Size(391, 422);
-            this.gbxPersonalData.TabIndex = 181;
+            this.gbxPersonalData.Size = new System.Drawing.Size(391, 404);            this.gbxPersonalData.TabIndex = 181;
             this.gbxPersonalData.TabStop = false;
             this.gbxPersonalData.Text = "Datos Personales";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Gill Sans MT", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.label6.Location = new System.Drawing.Point(362, 306);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(17, 21);
-            this.label6.TabIndex = 194;
-            this.label6.Text = "*";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Gill Sans MT", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.label4.Location = new System.Drawing.Point(362, 274);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(17, 21);
-            this.label4.TabIndex = 193;
-            this.label4.Text = "*";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Gill Sans MT", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.label5.Location = new System.Drawing.Point(362, 243);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(17, 21);
-            this.label5.TabIndex = 192;
-            this.label5.Text = "*";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Gill Sans MT", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.label3.Location = new System.Drawing.Point(362, 212);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(17, 21);
-            this.label3.TabIndex = 191;
-            this.label3.Text = "*";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Gill Sans MT", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.label2.Location = new System.Drawing.Point(362, 181);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(17, 21);
-            this.label2.TabIndex = 190;
-            this.label2.Text = "*";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Gill Sans MT", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.label1.Location = new System.Drawing.Point(362, 154);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(17, 21);
-            this.label1.TabIndex = 189;
-            this.label1.Text = "*";
-            // 
-            // lblRequired5
-            // 
-            this.lblRequired5.AutoSize = true;
-            this.lblRequired5.Font = new System.Drawing.Font("Gill Sans MT", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRequired5.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.lblRequired5.Location = new System.Drawing.Point(362, 55);
-            this.lblRequired5.Name = "lblRequired5";
-            this.lblRequired5.Size = new System.Drawing.Size(17, 21);
-            this.lblRequired5.TabIndex = 188;
-            this.lblRequired5.Text = "*";
-            // 
+           
             // lblRequiredInfo
             // 
             this.lblRequiredInfo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblRequiredInfo.AutoSize = true;
             this.lblRequiredInfo.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRequiredInfo.ForeColor = System.Drawing.Color.MidnightBlue;
             this.lblRequiredInfo.Location = new System.Drawing.Point(18, 31);
+            this.lblRequiredInfo.Location = new System.Drawing.Point(18, 22);
             this.lblRequiredInfo.Name = "lblRequiredInfo";
             this.lblRequiredInfo.Size = new System.Drawing.Size(136, 18);
             this.lblRequiredInfo.TabIndex = 187;
@@ -451,7 +349,7 @@
             this.lbAdvancedSearch.AutoSize = true;
             this.lbAdvancedSearch.Font = new System.Drawing.Font("Gill Sans MT", 8.5F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
             this.lbAdvancedSearch.ForeColor = System.Drawing.Color.MediumBlue;
-            this.lbAdvancedSearch.Location = new System.Drawing.Point(156, 99);
+            this.lbAdvancedSearch.Location = new System.Drawing.Point(133, 97);
             this.lbAdvancedSearch.Name = "lbAdvancedSearch";
             this.lbAdvancedSearch.Size = new System.Drawing.Size(115, 18);
             this.lbAdvancedSearch.TabIndex = 185;
@@ -464,7 +362,7 @@
             this.gbxSex.Controls.Add(this.rbWoman);
             this.gbxSex.Controls.Add(this.rbMan);
             this.gbxSex.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxSex.Location = new System.Drawing.Point(52, 332);
+            this.gbxSex.Location = new System.Drawing.Point(52, 323);
             this.gbxSex.Name = "gbxSex";
             this.gbxSex.Size = new System.Drawing.Size(304, 36);
             this.gbxSex.TabIndex = 159;
@@ -502,12 +400,12 @@
             this.gbxDocumentType.Controls.Add(this.rbForeignCard);
             this.gbxDocumentType.Controls.Add(this.rbPassport);
             this.gbxDocumentType.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxDocumentType.Location = new System.Drawing.Point(26, 127);
+            this.gbxDocumentType.Location = new System.Drawing.Point(26, 118);
             this.gbxDocumentType.Name = "gbxDocumentType";
             this.gbxDocumentType.Size = new System.Drawing.Size(330, 47);
             this.gbxDocumentType.TabIndex = 158;
             this.gbxDocumentType.TabStop = false;
-            this.gbxDocumentType.Text = "Tipo de Documento:";
+            this.gbxDocumentType.Text = "Tipo de Documento: *";
             // 
             // rbDNI
             // 
@@ -549,7 +447,7 @@
             // txtDocumentNumber
             // 
             this.txtDocumentNumber.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtDocumentNumber.Location = new System.Drawing.Point(159, 178);
+            this.txtDocumentNumber.Location = new System.Drawing.Point(159, 169);
             this.txtDocumentNumber.Name = "txtDocumentNumber";
             this.txtDocumentNumber.Size = new System.Drawing.Size(198, 26);
             this.txtDocumentNumber.TabIndex = 133;
@@ -563,7 +461,7 @@
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.Font = new System.Drawing.Font("Gill Sans MT", 12F);
             this.btnSearch.ForeColor = System.Drawing.Color.White;
-            this.btnSearch.Location = new System.Drawing.Point(34, 88);
+            this.btnSearch.Location = new System.Drawing.Point(22, 79);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(104, 32);
             this.btnSearch.TabIndex = 184;
@@ -576,27 +474,27 @@
             this.lblDocumentNumber.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblDocumentNumber.AutoSize = true;
             this.lblDocumentNumber.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDocumentNumber.Location = new System.Drawing.Point(10, 183);
+            this.lblDocumentNumber.Location = new System.Drawing.Point(4, 178);
             this.lblDocumentNumber.Name = "lblDocumentNumber";
-            this.lblDocumentNumber.Size = new System.Drawing.Size(141, 18);
+            this.lblDocumentNumber.Size = new System.Drawing.Size(150, 18);
             this.lblDocumentNumber.TabIndex = 134;
-            this.lblDocumentNumber.Text = "Número de Documento:";
+            this.lblDocumentNumber.Text = "Número de Documento: *";
             // 
             // lblFirstName
             // 
             this.lblFirstName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblFirstName.AutoSize = true;
             this.lblFirstName.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFirstName.Location = new System.Drawing.Point(58, 214);
+            this.lblFirstName.Location = new System.Drawing.Point(52, 209);
             this.lblFirstName.Name = "lblFirstName";
-            this.lblFirstName.Size = new System.Drawing.Size(93, 18);
+            this.lblFirstName.Size = new System.Drawing.Size(102, 18);
             this.lblFirstName.TabIndex = 135;
-            this.lblFirstName.Text = "Primer nombre:";
+            this.lblFirstName.Text = "Primer nombre: *";
             // 
             // txtFirstName
             // 
             this.txtFirstName.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtFirstName.Location = new System.Drawing.Point(159, 211);
+            this.txtFirstName.Location = new System.Drawing.Point(159, 202);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(198, 26);
             this.txtFirstName.TabIndex = 136;
@@ -604,7 +502,7 @@
             // txtSecondName
             // 
             this.txtSecondName.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtSecondName.Location = new System.Drawing.Point(159, 243);
+            this.txtSecondName.Location = new System.Drawing.Point(159, 234);
             this.txtSecondName.Name = "txtSecondName";
             this.txtSecondName.Size = new System.Drawing.Size(198, 26);
             this.txtSecondName.TabIndex = 137;
@@ -612,7 +510,7 @@
             // txtPrimaryLastName
             // 
             this.txtPrimaryLastName.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtPrimaryLastName.Location = new System.Drawing.Point(159, 275);
+            this.txtPrimaryLastName.Location = new System.Drawing.Point(159, 266);
             this.txtPrimaryLastName.Name = "txtPrimaryLastName";
             this.txtPrimaryLastName.Size = new System.Drawing.Size(198, 26);
             this.txtPrimaryLastName.TabIndex = 138;
@@ -620,7 +518,7 @@
             // txtSecondLastName
             // 
             this.txtSecondLastName.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtSecondLastName.Location = new System.Drawing.Point(159, 306);
+            this.txtSecondLastName.Location = new System.Drawing.Point(159, 297);
             this.txtSecondLastName.Name = "txtSecondLastName";
             this.txtSecondLastName.Size = new System.Drawing.Size(198, 26);
             this.txtSecondLastName.TabIndex = 139;
@@ -630,7 +528,7 @@
             this.lblSecondName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblSecondName.AutoSize = true;
             this.lblSecondName.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSecondName.Location = new System.Drawing.Point(48, 245);
+            this.lblSecondName.Location = new System.Drawing.Point(42, 240);
             this.lblSecondName.Name = "lblSecondName";
             this.lblSecondName.Size = new System.Drawing.Size(103, 18);
             this.lblSecondName.TabIndex = 140;
@@ -641,18 +539,18 @@
             this.lblPrimaryLastName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblPrimaryLastName.AutoSize = true;
             this.lblPrimaryLastName.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrimaryLastName.Location = new System.Drawing.Point(49, 275);
+            this.lblPrimaryLastName.Location = new System.Drawing.Point(43, 270);
             this.lblPrimaryLastName.Name = "lblPrimaryLastName";
-            this.lblPrimaryLastName.Size = new System.Drawing.Size(102, 18);
+            this.lblPrimaryLastName.Size = new System.Drawing.Size(111, 18);
             this.lblPrimaryLastName.TabIndex = 141;
-            this.lblPrimaryLastName.Text = "Apellido paterno:";
+            this.lblPrimaryLastName.Text = "Apellido paterno: *";
             // 
             // lblSecondLastName
             // 
             this.lblSecondLastName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblSecondLastName.AutoSize = true;
             this.lblSecondLastName.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSecondLastName.Location = new System.Drawing.Point(46, 306);
+            this.lblSecondLastName.Location = new System.Drawing.Point(40, 301);
             this.lblSecondLastName.Name = "lblSecondLastName";
             this.lblSecondLastName.Size = new System.Drawing.Size(105, 18);
             this.lblSecondLastName.TabIndex = 142;
@@ -662,11 +560,13 @@
             // 
             this.dtpBirthday.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dtpBirthday.Font = new System.Drawing.Font("Gill Sans MT", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
             this.dtpBirthday.Location = new System.Drawing.Point(146, 374);
             this.dtpBirthday.MaxDate = new System.DateTime(2001, 12, 31, 0, 0, 0, 0);
             this.dtpBirthday.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             this.dtpBirthday.Name = "dtpBirthday";
             this.dtpBirthday.Size = new System.Drawing.Size(221, 23);
+
             this.dtpBirthday.TabIndex = 156;
             this.dtpBirthday.Value = new System.DateTime(2001, 12, 31, 0, 0, 0, 0);
             this.dtpBirthday.ValueChanged += new System.EventHandler(this.dtpBirthday_ValueChanged);
@@ -676,7 +576,8 @@
             this.lblBirthday.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblBirthday.AutoSize = true;
             this.lblBirthday.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBirthday.Location = new System.Drawing.Point(19, 378);
+
+            this.lblBirthday.Location = new System.Drawing.Point(19, 369);
             this.lblBirthday.Name = "lblBirthday";
             this.lblBirthday.Size = new System.Drawing.Size(122, 18);
             this.lblBirthday.TabIndex = 157;
@@ -769,14 +670,6 @@
         private System.Windows.Forms.Label lbAdvancedSearch;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label lblRequiredInfo;
-        private System.Windows.Forms.Label lblRequired5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnCancel;
     }
 }

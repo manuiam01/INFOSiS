@@ -14,6 +14,7 @@ namespace INFOSiS_2._0
     {
         private static WeekAvailability _instance;
         private static Panel _panelMdi;
+        private Server.ServerClient server;
 
         private int[,] schedule = new int[11,7];
 
@@ -556,6 +557,8 @@ namespace INFOSiS_2._0
 
                 c.Text = schedule[row, 0].ToString();
             }
+
+            
         }
     }
 }

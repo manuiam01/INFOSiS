@@ -364,6 +364,26 @@ name="A", age=19*/
         }
         return res;   
     }
+
+    @Override
+    public int updateWeekAvailability(String idIntern, String weekAvailability) {
+        int result = 0;
+        try{
+            DBManager dbManager = DBManager.getdbManager();
+            Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
+            String sql = "UPDATE Interns SET weekAvailability=? WHERE idIntern=?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            
+            ps.setString(1, weekAvailability);
+            ps.setString(2, idIntern);
+            
+            result = ps.executeUpdate();
+            con.close();
+        }catch(SQLException ex){
+            System.out.println(ex.getMessage());
+        }
+        return result;
+    }
     
     
 }
