@@ -126,10 +126,9 @@ public class IntersReportForm extends javax.swing.JFrame {
         // TODO add your handling code here:
         try{
             DBManager dbManager = DBManager.getdbManager();
-            Connection con = DriverManager.getConnection(dbManager.getUrl(),
-                    dbManager.getUser(), dbManager.getPassword());
+            Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
             //JasperReport reporte = (JasperReport) JRLoader.loadObjectFromFile(IntersReportForm.class.getResource("\\pe\\edu\\pucp\\infosis\\reports\\InternsReport.jasper").getFile());
-            JasperReport reporte = (JasperReport) JRLoader.loadObjectFromFile(".\\src\\pe\\edu\\pucp\\infosis\\reports\\internsReport.jasper");
+            JasperReport reporte = (JasperReport) JRLoader.loadObjectFromFile(".\\src\\pe\\edu\\pucp\\INFOSiS\\reports\\internsReport.jasper");
             HashMap hm = new HashMap();
             hm.put("idIntern",txtIdIntern.getText());
             hm.put("nombre",txtNameIntern.getText());
