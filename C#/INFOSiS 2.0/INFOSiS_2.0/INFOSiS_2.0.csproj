@@ -466,13 +466,13 @@
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.generateCourseHistoryReportResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\Server\INFOSiS_2._0.Server.insertCourseHistoryResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.getLastRegisterInternResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.insertAssistanceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.insertCourseHistoryResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.InsertCourseResponse.datasource">
@@ -526,7 +526,7 @@
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.QueryAllInternsResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\Server\INFOSiS_2._0.Server.queryAllProfessorsActiveResponse2.datasource">
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.queryAllProfessorsActiveResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.QueryAllUsersResponse.datasource">

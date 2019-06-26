@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="cf07ad70-44eb-474e-af93-e17bfba0ffd6" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="99bb7cd1-2c11-4edf-ad02-76ec63a9a21a" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,8 +22,8 @@
     <MetadataSource Address="http://localhost:8080/INFOSiSServer/Server?WSDL" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Server.xsd" MetadataType="Schema" ID="6b8d913a-df9c-49a8-b445-01fd205e9dfd" SourceId="1" SourceUrl="http://localhost:8080/INFOSiSServer/Server?xsd=1" />
-    <MetadataFile FileName="Server.wsdl" MetadataType="Wsdl" ID="5ab55e7c-c9af-4fd4-8d25-79372811b33c" SourceId="1" SourceUrl="http://localhost:8080/INFOSiSServer/Server?WSDL" />
+    <MetadataFile FileName="Server.xsd" MetadataType="Schema" ID="710e1e32-6c7c-49d0-9a90-c0fad96cf7e5" SourceId="1" SourceUrl="http://localhost:8080/INFOSiSServer/Server?xsd=1" />
+    <MetadataFile FileName="Server.wsdl" MetadataType="Wsdl" ID="830ad9fb-cc70-4b6c-adf3-fc0ba5785271" SourceId="1" SourceUrl="http://localhost:8080/INFOSiSServer/Server?WSDL" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
