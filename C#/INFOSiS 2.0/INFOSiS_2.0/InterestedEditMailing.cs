@@ -14,7 +14,6 @@ namespace INFOSiS_2._0
     public partial class InterestedEditMailing : Form
     {
         OpenFileDialog ofdAttachment;
-        String fileName = "";
         private static string email;
         private static string password;
         private static string smtp;
@@ -22,6 +21,7 @@ namespace INFOSiS_2._0
         private static Boolean ssl;
         private static string subject;
         private static string message;
+        private static string fileName="";
         MessageBoxIcon iconoWarning = MessageBoxIcon.Warning;
         MessageBoxIcon iconoPregunta = MessageBoxIcon.Question;
         MessageBoxIcon iconoCorrecto = MessageBoxIcon.Asterisk;
@@ -33,6 +33,8 @@ namespace INFOSiS_2._0
         public bool Ssl { get => ssl; set => ssl = value; }
         public string Subject { get => subject; set => subject = value; }
         public string Message { get => message; set => message = value; }
+        public string FileName { get => fileName; set => fileName = value; }
+
         public enum Estado
         {
             Inicial = 0,
@@ -55,7 +57,7 @@ namespace INFOSiS_2._0
                 ofdAttachment.Filter = "Images(.jpg,.jpge,.png)|*.png;*jpge;*jpg;|Pdf files|*pdf";
                 if (ofdAttachment.ShowDialog() == DialogResult.OK)
                 {
-                    fileName = ofdAttachment.FileName;
+                    fileName = ofdAttachment.FileName.ToString();
                 }
 
             }catch (Exception ex)

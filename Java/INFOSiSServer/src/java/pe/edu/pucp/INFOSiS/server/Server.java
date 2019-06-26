@@ -213,6 +213,11 @@ public class Server {
         return DBController.queryCourseHByIdProfessor(idProfessor);
     }
     
+    @WebMethod(operationName="queryAllProfessorsActive")
+    public ArrayList<Professor> queryAllProfessorsActive(){
+        return DBController.queryAllProfessorsActive();
+    }
+    
 
     @WebMethod(operationName="queryCourseHistoryByCourse")
     public ArrayList<CourseHistory> queryCourseHistoryByCourse(@WebParam(name="idCourse") String idCourse){
@@ -235,8 +240,29 @@ public class Server {
         return DBController.saveCourseHistoryReport(idCourseHistory,route);
     }
     
+    @WebMethod(operationName="insertCourseHistory")
+    public int insertCourseHistory(@WebParam(name="CourseHistory") CourseHistory courseHistory){
+        return DBController.insertCourseHistory(courseHistory);
+    }
+    
+    @WebMethod(operationName="updateCourseHistory")
+    public int updateCourseHistory(@WebParam(name="CourseHistory") CourseHistory courseHistory){
+        return DBController.updateCourseHistory(courseHistory);
+    }
+    
+
     @WebMethod(operationName="getLastRegisterIntern")
     public InternAssistance getLastRegisterOfDay(@WebParam(name="pucpId") String pucpId){
         return DBController.getLastRegisterOfDay(pucpId);
+    }
+    
+    @WebMethod(operationName="insertAssistance")
+    public int insertAssistance(@WebParam(name="idPucp")String idPucp){
+        return DBController.insertAssistance(idPucp);
+    }
+    
+    @WebMethod(operationName="updateAssistance")
+    public int updateAssistance(@WebParam(name="id") String id){
+        return DBController.updateAsisstance(id);
     }
 }

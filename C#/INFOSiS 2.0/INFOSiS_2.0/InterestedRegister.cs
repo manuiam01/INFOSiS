@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.ComponentModel.DataAnnotations;
 
 namespace INFOSiS_2._0
 {
@@ -162,6 +163,8 @@ namespace INFOSiS_2._0
                 MessageBox.Show("No seleccionó el tipo de documento", "Aviso", MessageBoxButtons.OK, iconoWarning);
             else if (txbNDocumento.Text == "")
                 MessageBox.Show("No ingresó el número de documento", "Aviso", MessageBoxButtons.OK, iconoWarning);
+            else if (!ValidarIdentificacion(txbNDocumento.Text))
+                MessageBox.Show("El documento ingresado es inválido", "Aviso", MessageBoxButtons.OK, iconoWarning);
             else if (txbNombre.Text == "")
                 MessageBox.Show("No ingresó el nombre del interesado", "Aviso", MessageBoxButtons.OK, iconoWarning);
             else if (txbApePa.Text == "")
@@ -170,57 +173,69 @@ namespace INFOSiS_2._0
                 MessageBox.Show("No ingresó el apellido materno del interesado", "Aviso", MessageBoxButtons.OK, iconoWarning);
             else if (rbMale.Checked == false && rbFemale.Checked == false)
                 MessageBox.Show("No escogió el género", "Aviso", MessageBoxButtons.OK, iconoWarning);
-            else if (txtCellphone.Text == "" )
+            else if (txtCellphone.Text == "")
                 MessageBox.Show("No ingresó el número del interesado", "Aviso", MessageBoxButtons.OK, iconoWarning);
-            else if (txtEmail.Text == "" ) 
+            else if (txtEmail.Text == "")
                 MessageBox.Show("No ingresó el correo del interesado", "Aviso", MessageBoxButtons.OK, iconoWarning);
             else if (dgvInterestedCourses.Rows.Count == 0)
-               MessageBox.Show("No escogió cursos de interés", "Aviso", MessageBoxButtons.OK);
+                MessageBox.Show("No escogió cursos de interés", "Aviso", MessageBoxButtons.OK);
             else
             {
-                iconoPregunta = MessageBoxIcon.Question;
-                DialogResult result = MessageBox.Show("Está seguro de que quiere guardar el registro?", "Aviso", MessageBoxButtons.YesNo, iconoPregunta);
-                if (result == DialogResult.Yes)
+                bool isValid = new EmailAddressAttribute().IsValid(txtEmail.Text);
+                if (!isValid)
+                    MessageBox.Show("El correo ingresado no es válido", "Aviso", MessageBoxButtons.OK);
+                else
                 {
-                    if (rbDNI.Checked == true)
-                        i.idType = 0;
-                    else if (rbCarnet.Checked == true)
-                        i.idType = 1;
+                    Server.interested inte = new Server.interested();
+                    inte = servidor.QueryInterestedByID(txbNDocumento.Text);
+                    if (inte.firstName != null)
+                        MessageBox.Show("El documento ingresado ya se encuentra en la base de datos", "Aviso", MessageBoxButtons.OK);
                     else
-                        i.idType = 2;
-                    i.idNumber = txbNDocumento.Text;
-                    i.firstName = txbNombre.Text;
-                    i.middleName = txbSegundoNom.Text;
-                    i.primaryLastName = txbApePa.Text;
-                    i.secondLastName = txbApeMa.Text;
-                    if (rbMale.Checked == true)
-                        i.gender = "M";
-                    else
-                        i.gender = "F";
-                    i.cellPhoneNumber = txtCellphone.Text;
-                    i.email = txtEmail.Text;
-                    int tama = 0;
-                    BindingList<Server.course> courses = new BindingList<Server.course>();
-                    foreach(DataGridViewRow row in dgvInterestedCourses.Rows)
                     {
-                        Server.course c = new Server.course();
-                        c.id = row.Cells[0].Value.ToString();
-                        courses.Add(c);
-                        tama = tama+1;
+                        iconoPregunta = MessageBoxIcon.Question;
+                        DialogResult result = MessageBox.Show("Está seguro de que quiere guardar el registro?", "Aviso", MessageBoxButtons.YesNo, iconoPregunta);
+                        if (result == DialogResult.Yes)
+                        {
+                            if (rbDNI.Checked == true)
+                                i.idType = 0;
+                            else if (rbCarnet.Checked == true)
+                                i.idType = 1;
+                            else
+                                i.idType = 2;
+                            i.idNumber = txbNDocumento.Text;
+                            i.firstName = txbNombre.Text;
+                            i.middleName = txbSegundoNom.Text;
+                            i.primaryLastName = txbApePa.Text;
+                            i.secondLastName = txbApeMa.Text;
+                            if (rbMale.Checked == true)
+                                i.gender = "M";
+                            else
+                                i.gender = "F";
+                            i.cellPhoneNumber = txtCellphone.Text;
+                            i.email = txtEmail.Text;
+                            int tama = 0;
+                            BindingList<Server.course> courses = new BindingList<Server.course>();
+                            foreach (DataGridViewRow row in dgvInterestedCourses.Rows)
+                            {
+                                Server.course c = new Server.course();
+                                c.id = row.Cells[0].Value.ToString();
+                                courses.Add(c);
+                                tama = tama + 1;
+                            }
+                            Server.course[] coursesList = new Server.course[tama];
+                            coursesList = courses.ToArray<Server.course>();
+                            i.courses = coursesList;
+                            //i.courses = courses;
+                            //i.courses = new Server.course[5];
+                            servidor.InsertInterested(i);
+
+                            MessageBox.Show("Se registró al interesado de manera correcta", "Éxito", MessageBoxButtons.OK, iconoCorrecto);
+                            limpiar();
+                            tbCursos.Clear();
+                        }
                     }
-                    Server.course[] coursesList = new Server.course[tama];
-                    coursesList =   courses.ToArray<Server.course>();
-                    i.courses = coursesList;
-                    //i.courses = courses;
-                    //i.courses = new Server.course[5];
-                    servidor.InsertInterested(i);
-                    
-                    MessageBox.Show("Se registró al interesado de manera correcta", "Éxito", MessageBoxButtons.OK,iconoCorrecto);
-                    limpiar();
-                    tbCursos.Clear();
                 }
             }
-
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
@@ -244,6 +259,69 @@ namespace INFOSiS_2._0
             {
                 idcursos.Add(row.Cells[0].Value.ToString());
             }
+        }
+        private bool ValidarIdentificacion(string identificacion)
+        {
+            if (identificacion.Length == 0)
+            {
+                return false;
+            }
+
+            if (rbDNI.Checked)
+            {
+                if (identificacion.Length != 8) return false;
+                int dni;
+                bool resultado = int.TryParse(identificacion, out dni);
+                return resultado;
+            }
+            else
+            {
+                if (identificacion.Length != 12) return false;
+                var validos = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZabcdefghijklmnñopqrstuvwxyz1234567890";
+                bool valido = true;
+                foreach (char c in identificacion)
+                {
+                    valido = validos.IndexOf(c) != -1;
+                    if (!valido) break;
+                }
+                return valido;
+            }
+        }
+
+        private void txbNDocumento_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtCellphone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txbNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+        }
+
+        private void txbSegundoNom_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+        }
+
+        private void txbApePa_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+        }
+
+        private void txbApeMa_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
         }
     }
 }

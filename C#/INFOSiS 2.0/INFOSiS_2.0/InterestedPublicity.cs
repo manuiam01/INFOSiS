@@ -28,6 +28,7 @@ namespace INFOSiS_2._0
         public static String message = "";
         public static Boolean ssl = false;
         public static Boolean html = false;
+        public static String fileName = "";
         private String idCourse = "";
         private String nombreCurso = "";
         MessageBoxIcon iconoWarning = MessageBoxIcon.Warning;
@@ -136,6 +137,8 @@ namespace INFOSiS_2._0
                                     //mailDetails.From = new MailAddress(email);
                                     mailDetails.From = new MailAddress(email);
                                     mailDetails.To.Add(mail);
+                                    if (!fileName.Equals(""))
+                                        mailDetails.Attachments.Add(new Attachment(fileName));
                                     //mailDetails.Subject = subject;
                                     mailDetails.Subject = subject + nombreCurso;
                                     mailDetails.IsBodyHtml = html;
@@ -219,6 +222,10 @@ namespace INFOSiS_2._0
                     message = frmEditMailing.Message;
                 else
                     message = "";
+                if (frmEditMailing.FileName != null)
+                    fileName = frmEditMailing.FileName;
+                else
+                    fileName = "";
             }
         
         }

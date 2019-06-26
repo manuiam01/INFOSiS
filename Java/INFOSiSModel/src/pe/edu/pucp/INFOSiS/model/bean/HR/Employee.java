@@ -21,6 +21,7 @@ public class Employee extends Person implements Serializable {
 
     public Employee(){
         user = new User();
+        role = new Role();
     }            
 
     public Employee(String idPUCP, String emailPUCP, String address, String homePhone, User user, String idNumber, int idType, String firstName, String middleName, String primaryLastName, String secondLastName, String gender, String email, String cellPhoneNumber, Date birthday) {

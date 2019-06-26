@@ -710,7 +710,7 @@
             this.dtpBirthday.Location = new System.Drawing.Point(195, 460);
             this.dtpBirthday.Margin = new System.Windows.Forms.Padding(4);
             this.dtpBirthday.Name = "dtpBirthday";
-            this.dtpBirthday.Size = new System.Drawing.Size(279, 27);
+            this.dtpBirthday.Size = new System.Drawing.Size(284, 27);
             this.dtpBirthday.TabIndex = 156;
             this.dtpBirthday.ValueChanged += new System.EventHandler(this.dtpBirthday_ValueChanged);
             // 

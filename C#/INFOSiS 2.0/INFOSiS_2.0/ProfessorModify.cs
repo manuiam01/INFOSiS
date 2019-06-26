@@ -198,6 +198,7 @@ namespace INFOSiS_2._0
             {
                 professor.birthdaySpecified = true;
                 professor.birthday = dtpBirthday.Value;
+                birthdaySelected = false;
             }
             if (rbMan.Checked)
                 professor.gender = "M";
@@ -285,6 +286,7 @@ namespace INFOSiS_2._0
             else
             {
                 MessageBox.Show("Código PUCP no encontrado", "Profesor no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtPUCPCode.Clear();
             }
         }
 

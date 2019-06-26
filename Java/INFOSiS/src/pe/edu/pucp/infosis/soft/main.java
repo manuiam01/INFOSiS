@@ -31,7 +31,7 @@ public class main {
         intern.setIdPUCP("20190000");
         intern.getUser().setId(90);
         intern.setIdType(1);
-        intern.setIdNumber("123456789012");
+        intern.setIdNumber("111111111111");
         intern.setFirstName("Ian");
         intern.setPrimaryLastName("Smith");
         intern.setGender("M");

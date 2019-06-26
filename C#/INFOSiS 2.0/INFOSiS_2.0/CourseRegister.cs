@@ -46,6 +46,15 @@ namespace INFOSiS_2._0
             
         }
 
+        public void limpiar()
+        {
+            txtID.Text = "";
+            txtName.Text = "";
+            txtDescription.Text = "";
+            lblNameSyllabus.Text = "";
+            silabo = "";
+        }
+
         private void btnSave_Click(object sender, EventArgs e)
         {
             String codigo = txtID.Text;
@@ -97,6 +106,7 @@ namespace INFOSiS_2._0
                     titulo = "Curso registrado";
                     icono = MessageBoxIcon.Asterisk;
                     mensajeOK = MessageBox.Show(mensaje, titulo, MessageBoxButtons.OK, icono);
+                    limpiar();
                 }
                 else
                 {

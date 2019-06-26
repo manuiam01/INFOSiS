@@ -99,6 +99,7 @@
             this.btnCourseHistoryRegister.TabIndex = 96;
             this.btnCourseHistoryRegister.Text = "Registrar un Curso Dictado";
             this.btnCourseHistoryRegister.UseVisualStyleBackColor = false;
+            this.btnCourseHistoryRegister.Click += new System.EventHandler(this.btnCourseHistoryRegister_Click);
             // 
             // btnCourseHistoryModify
             // 

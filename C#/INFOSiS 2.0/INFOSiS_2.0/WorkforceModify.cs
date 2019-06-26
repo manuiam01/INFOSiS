@@ -347,21 +347,21 @@ namespace INFOSiS_2._0
                 MessageBox.Show("Registro exitoso", "Registro efectuado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 clean();
             }
-            else if (res == -1)
-            {
-                MessageBox.Show("Código PUCP registrado anteriormente", "Registro inválido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-            else if (res == -2)
-            {
-                MessageBox.Show("Código PUCP es un campo obligatorio", "Registro inválido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-            else if (res == -3)
-            {
-                MessageBox.Show("Número de identidad registrado anteriormente", "Registro inválido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
+            //else if (res == -1)
+            //{
+            //    MessageBox.Show("Código PUCP registrado anteriormente", "Registro inválido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            //}
+            //else if (res == -2)
+            //{
+            //    MessageBox.Show("Código PUCP es un campo obligatorio", "Registro inválido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            //}
+            //else if (res == -3)
+            //{
+            //    MessageBox.Show("Número de identidad registrado anteriormente", "Registro inválido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            //}
             else
             {
-                MessageBox.Show(res.ToString(),"ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(res.ToString(), "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
