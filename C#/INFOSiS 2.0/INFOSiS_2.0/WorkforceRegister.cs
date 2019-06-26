@@ -40,6 +40,7 @@ namespace INFOSiS_2._0
         {
             InitializeComponent();
             servidor = new Server.ServerClient();
+            rbDNI.Checked = true;
         }
 
         public bool verifyDocumentNumber(String id)

@@ -29,6 +29,7 @@ namespace INFOSiS_2._0
             WindowState = FormWindowState.Maximized;
             panelMdiOptions.Visible = false;
             this.User = u;
+            this.Text = this.Text + " " + user.username + " " + user.acces.name;
         }
 
         public void cleanWindow()

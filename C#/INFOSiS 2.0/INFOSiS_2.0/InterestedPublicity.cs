@@ -175,6 +175,7 @@ namespace INFOSiS_2._0
                             {
                                 Console.WriteLine("Failed to deliver message to {0}",
                                     ex.InnerExceptions[i].FailedRecipient);
+                                MessageBox.Show("Error con datos del correo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                         }
                     }
@@ -182,6 +183,7 @@ namespace INFOSiS_2._0
                     {
                         Console.WriteLine("Exception caught in RetryIfBusy(): {0}",
                                 ex.ToString());
+                        MessageBox.Show("Error con datos del correo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                     

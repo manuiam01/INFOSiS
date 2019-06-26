@@ -109,7 +109,7 @@ namespace INFOSiS_2._0
         {
             if (txtID.Text == "")
             {
-                MessageBox.Show("No ingresó el N° de documento", "Aviso", MessageBoxButtons.OK);
+                MessageBox.Show("No ingresó el código de curso", "Aviso", MessageBoxButtons.OK);
             }
             else {
                 String idCourse = txtID.Text;
@@ -194,7 +194,7 @@ namespace INFOSiS_2._0
                 }
                 course.syllabus = syllabus;
                 server.UpdateCourse(course);             
-                MessageBox.Show("Se modificó al interesado de manera correcta", "Éxito", MessageBoxButtons.OK, iconoCorrecto);
+                MessageBox.Show("Se modificó el curso de manera correcta", "Éxito", MessageBoxButtons.OK, iconoCorrecto);
                 limpiar();
                 establecerEstado(Estado.Inicial);
             }
