@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 namespace INFOSiS_2._0
 {
     
@@ -95,19 +95,27 @@ namespace INFOSiS_2._0
                 MessageBox.Show("No ingresó mensaje alguno", "Aviso", MessageBoxButtons.OK);
             else
             {
-                DialogResult result = MessageBox.Show("Está seguro de que quiere realizar estos cambios?", "Aviso", MessageBoxButtons.YesNo, iconoPregunta);
-                if (result == DialogResult.Yes)
-                {
-                    Subject = txbAsunto.Text;
-                    Password = txtPassword.Text;
-                    Email = txtEmail.Text;
-                    Smtp = txtSmtp.Text;
-                    Port = txtPort.Text;
-                    Message = txbMessage.Text;
-                    Ssl = cbSSL.Checked;
-                    this.DialogResult = DialogResult.OK;
 
+                bool isValid  = new EmailAddressAttribute().IsValid(txtEmail.Text);
+                if(!isValid)
+                    MessageBox.Show("El correo ingresado no es válido", "Aviso", MessageBoxButtons.OK);
+                else
+                {
+                    DialogResult result = MessageBox.Show("Está seguro de que quiere realizar estos cambios?", "Aviso", MessageBoxButtons.YesNo, iconoPregunta);
+                    if (result == DialogResult.Yes)
+                    {
+                        Subject = txbAsunto.Text;
+                        Password = txtPassword.Text;
+                        Email = txtEmail.Text;
+                        Smtp = txtSmtp.Text;
+                        Port = txtPort.Text;
+                        Message = txbMessage.Text;
+                        Ssl = cbSSL.Checked;
+                        this.DialogResult = DialogResult.OK;
+
+                    }
                 }
+                
                     
             }
 

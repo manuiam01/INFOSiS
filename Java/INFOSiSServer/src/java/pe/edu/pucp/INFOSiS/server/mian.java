@@ -65,7 +65,7 @@ public class mian {
         s.setDateSession(d2);
         s.setHours(0);
         s.setLocation("B102");
-        s.setIsActive(true);
+//        s.setIsActive(true);
         sessions.add(s);
         c.setSessions(sessions);
         ArrayList<Student> students = new ArrayList<>();

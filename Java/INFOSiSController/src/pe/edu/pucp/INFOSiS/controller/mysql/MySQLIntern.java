@@ -13,10 +13,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import pe.edu.pucp.INFOSiS.controller.config.DBManager;
 import pe.edu.pucp.INFOSiS.controller.dao.DAOIntern;
 import pe.edu.pucp.INFOSiS.model.bean.HR.Intern;
+import pe.edu.pucp.INFOSiS.model.bean.HR.InternAssistance;
 import pe.edu.pucp.INFOSiS.model.bean.user.User;
 import pe.edu.pucp.INFOSiS.model.bean.user.UserType;
 
@@ -286,4 +289,38 @@ public class MySQLIntern implements DAOIntern {
         }        
         return interns;
     }
+    
+    @Override
+    public InternAssistance getLastRegisterOfDay(String pucpId){
+        InternAssistance ia= new InternAssistance();
+        ia.setId(-1);
+        try{
+            DBManager dbManager = DBManager.getdbManager();
+            Connection con = DriverManager.getConnection(dbManager.getUrl(), 
+                    dbManager.getUser(), dbManager.getPassword());
+            Statement st = con.createStatement();
+            String query = "SELECT id, begin, end "
+                    + "FROM InternsXAssistance "
+                    + "WHERE idIntern='"+pucpId+"' "
+                    + "AND begin>=STR_TO_DATE('"
+                    +LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy/MM/dd"))
+                    +" 00:00:00','%Y/%m/%d %H:%i:%s') "
+                    +"ORDER BY begin DESC "
+                    +"LIMIT 1";
+            ResultSet rs = st.executeQuery(query);
+            while(rs.next()){
+                ia.setBegin(rs.getTimestamp("begin"));
+                ia.setEnd(rs.getTimestamp("end"));
+                ia.setId(rs.getInt("id"));
+            }
+            con.close();            
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        return ia;
+    }
+    
+    /*INSERT INTO table (id, name, age) VALUES(1, "A", 19) ON DUPLICATE KEY UPDATE    
+name="A", age=19*/
+    
 }

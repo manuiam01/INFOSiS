@@ -19,6 +19,7 @@ import pe.edu.pucp.INFOSiS.model.bean.professor.Professor;
 import pe.edu.pucp.INFOSiS.model.bean.user.User;
 import pe.edu.pucp.INFOSiS.model.bean.user.UserType;
 import pe.edu.pucp.INFOSiS.model.bean.HR.Intern;
+import pe.edu.pucp.INFOSiS.model.bean.HR.InternAssistance;
 import pe.edu.pucp.INFOSiS.model.bean.course.CalendarSession;
 import pe.edu.pucp.INFOSiS.model.bean.course.CourseHistory;
 import pe.edu.pucp.INFOSiS.model.bean.course.CourseType;
@@ -249,4 +250,10 @@ public class Server {
         return DBController.updateCourseHistory(courseHistory);
     }
     
+
+    @WebMethod(operationName="getLastRegisterIntern")
+    public InternAssistance getLastRegisterOfDay(@WebParam(name="pucpId") String pucpId){
+        return DBController.getLastRegisterOfDay(pucpId);
+    }
+
 }

@@ -39,6 +39,7 @@
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
@@ -190,6 +191,12 @@
     </Compile>
     <Compile Include="ProfessorAdvancedSearchForReport.Designer.cs">
       <DependentUpon>ProfessorAdvancedSearchForReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProfileAssistance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ProfileAssistance.Designer.cs">
+      <DependentUpon>ProfileAssistance.cs</DependentUpon>
     </Compile>
     <Compile Include="StudentModify.cs">
       <SubType>UserControl</SubType>
@@ -378,6 +385,9 @@
     <EmbeddedResource Include="ProfessorAdvancedSearchForReport.resx">
       <DependentUpon>ProfessorAdvancedSearchForReport.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ProfileAssistance.resx">
+      <DependentUpon>ProfileAssistance.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="StudentModify.resx">
       <DependentUpon>StudentModify.cs</DependentUpon>
     </EmbeddedResource>
@@ -457,6 +467,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.insertCourseHistoryResponse.datasource">
+		<DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.getLastRegisterInternResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.InsertCourseResponse.datasource">
@@ -481,6 +494,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.intern.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.internAssistance.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.professor.datasource">
