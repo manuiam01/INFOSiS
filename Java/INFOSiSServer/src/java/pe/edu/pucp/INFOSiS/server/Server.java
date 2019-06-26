@@ -78,6 +78,12 @@ public class Server {
     public int UpdateIntern(@WebParam(name = "intern") Intern intern,@WebParam(name = "access") UserType access){
         return DBController.updateIntern(intern, access);
     }
+    
+    @WebMethod (operationName = "UpdateWeekAvailability")
+    public int UpdateWeekAvailability(@WebParam(name = "weekAvailability") String weekAvailability,@WebParam(name = "idIntern") String idIntern){
+        return DBController.updateWeekAvailability(weekAvailability, idIntern);
+    }
+    
     //INTERESTED
     @WebMethod (operationName= "InsertInterested")
     public int InsertInterested(@WebParam(name="interested")Interested interested){

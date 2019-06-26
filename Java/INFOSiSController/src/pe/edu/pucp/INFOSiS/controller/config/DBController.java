@@ -86,6 +86,10 @@ public abstract class DBController {
     public static int updateIntern(Intern intern, UserType access){
         return daoFactory.getDAOIntern().update(intern, access);
     }
+    
+    public static int updateWeekAvailability(String weekAvailability, String idIntern){
+        return daoFactory.getDAOIntern().updateWeekAvailability(idIntern, weekAvailability);
+    }
     //INTERESTED
     public static int insertInterested(Interested interested){
         return daoFactory.getInterestedDAO().insert(interested);
