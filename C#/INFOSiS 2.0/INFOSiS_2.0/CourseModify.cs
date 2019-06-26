@@ -81,7 +81,8 @@ namespace INFOSiS_2._0
             txtID.Text = "";
             txtName.Text = "";
             txtDescription.Text = "";
-            lblNameSyllabus.Text = "";                             
+            lblNameSyllabus.Text = "";
+            silabo = "";
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

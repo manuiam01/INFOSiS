@@ -58,6 +58,9 @@ public abstract class DBController {
         return daoFactory.getProfessorDAO().search_by_name(name, middle_name, first_last_name, second_last_name);
     }   
     
+    public static ArrayList<Professor> queryAllProfessorsActive(){
+        return daoFactory.getProfessorDAO().queryAllActives();
+    }
     
     //INTERN
     public static ArrayList<Intern> queryAllInterns(){
@@ -204,5 +207,13 @@ public abstract class DBController {
      
      public static InternAssistance getLastRegisterOfDay(String pucpId){
          return daoFactory.getDAOIntern().getLastRegisterOfDay(pucpId);
+     }
+     
+     public static int updateAsisstance(String id){
+         return daoFactory.getDAOIntern().updateAsisstance(id);
+     }
+     
+     public static int insertAssistance(String idPucp){
+         return daoFactory.getDAOIntern().insertAssistance(idPucp);
      }
 }

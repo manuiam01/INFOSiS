@@ -34,18 +34,27 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtEntrada = new System.Windows.Forms.TextBox();
+            this.txtSalida = new System.Windows.Forms.TextBox();
+            this.btnEntrada = new System.Windows.Forms.Button();
+            this.btnSalida = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblRegAsistencia
             // 
             this.lblRegAsistencia.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblRegAsistencia.Font = new System.Drawing.Font("Gill Sans MT", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRegAsistencia.Location = new System.Drawing.Point(3, 22);
+            this.lblRegAsistencia.Location = new System.Drawing.Point(15, 16);
             this.lblRegAsistencia.Name = "lblRegAsistencia";
-            this.lblRegAsistencia.Size = new System.Drawing.Size(309, 52);
+            this.lblRegAsistencia.Size = new System.Drawing.Size(544, 62);
             this.lblRegAsistencia.TabIndex = 177;
             this.lblRegAsistencia.Text = "Registrar Asistencia";
+            this.lblRegAsistencia.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblPUCPCode
             // 
@@ -101,23 +110,123 @@
             this.groupBox1.Controls.Add(this.txtPUCPCode);
             this.groupBox1.Controls.Add(this.lblPUCPCode);
             this.groupBox1.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(11, 100);
+            this.groupBox1.Location = new System.Drawing.Point(11, 81);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(690, 124);
             this.groupBox1.TabIndex = 178;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Personales";
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBox2.Controls.Add(this.txtSalida);
+            this.groupBox2.Controls.Add(this.txtEntrada);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Font = new System.Drawing.Font("Gill Sans MT", 12F);
+            this.groupBox2.Location = new System.Drawing.Point(11, 227);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(690, 117);
+            this.groupBox2.TabIndex = 179;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Registro de Asistencia";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(7, 38);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(75, 25);
+            this.label2.TabIndex = 183;
+            this.label2.Text = "Entrada: ";
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(7, 73);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(60, 25);
+            this.label3.TabIndex = 184;
+            this.label3.Text = "Salida: ";
+            // 
+            // txtEntrada
+            // 
+            this.txtEntrada.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtEntrada.Enabled = false;
+            this.txtEntrada.Location = new System.Drawing.Point(134, 38);
+            this.txtEntrada.Margin = new System.Windows.Forms.Padding(4);
+            this.txtEntrada.MaxLength = 8;
+            this.txtEntrada.Name = "txtEntrada";
+            this.txtEntrada.Size = new System.Drawing.Size(217, 31);
+            this.txtEntrada.TabIndex = 183;
+            // 
+            // txtSalida
+            // 
+            this.txtSalida.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtSalida.Enabled = false;
+            this.txtSalida.Location = new System.Drawing.Point(134, 73);
+            this.txtSalida.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSalida.MaxLength = 8;
+            this.txtSalida.Name = "txtSalida";
+            this.txtSalida.Size = new System.Drawing.Size(217, 31);
+            this.txtSalida.TabIndex = 185;
+            // 
+            // btnEntrada
+            // 
+            this.btnEntrada.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnEntrada.BackColor = System.Drawing.Color.MidnightBlue;
+            this.btnEntrada.Enabled = false;
+            this.btnEntrada.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEntrada.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEntrada.ForeColor = System.Drawing.Color.White;
+            this.btnEntrada.Location = new System.Drawing.Point(91, 382);
+            this.btnEntrada.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnEntrada.Name = "btnEntrada";
+            this.btnEntrada.Size = new System.Drawing.Size(221, 39);
+            this.btnEntrada.TabIndex = 186;
+            this.btnEntrada.Text = "Registrar Entrada";
+            this.btnEntrada.UseVisualStyleBackColor = false;
+            this.btnEntrada.Click += new System.EventHandler(this.btnEntrada_Click);
+            // 
+            // btnSalida
+            // 
+            this.btnSalida.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnSalida.BackColor = System.Drawing.Color.MidnightBlue;
+            this.btnSalida.Enabled = false;
+            this.btnSalida.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalida.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalida.ForeColor = System.Drawing.Color.White;
+            this.btnSalida.Location = new System.Drawing.Point(389, 382);
+            this.btnSalida.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSalida.Name = "btnSalida";
+            this.btnSalida.Size = new System.Drawing.Size(221, 39);
+            this.btnSalida.TabIndex = 187;
+            this.btnSalida.Text = "Registrar Salida";
+            this.btnSalida.UseVisualStyleBackColor = false;
+            this.btnSalida.Click += new System.EventHandler(this.btnSalida_Click);
+            // 
             // ProfileAssistance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnSalida);
+            this.Controls.Add(this.btnEntrada);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblRegAsistencia);
             this.Name = "ProfileAssistance";
-            this.Size = new System.Drawing.Size(721, 559);
+            this.Size = new System.Drawing.Size(721, 484);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -130,5 +239,12 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.TextBox txtSalida;
+        private System.Windows.Forms.TextBox txtEntrada;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnEntrada;
+        private System.Windows.Forms.Button btnSalida;
     }
 }

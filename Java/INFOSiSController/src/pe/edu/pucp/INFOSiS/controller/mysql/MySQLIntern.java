@@ -323,4 +323,44 @@ public class MySQLIntern implements DAOIntern {
     /*INSERT INTO table (id, name, age) VALUES(1, "A", 19) ON DUPLICATE KEY UPDATE    
 name="A", age=19*/
     
+    @Override
+    public int insertAssistance(String idPucp){
+        int res=0;
+        try{
+            DBManager dbManager = DBManager.getdbManager();
+            Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
+            Statement sentencia = con.createStatement();
+            String query="INSERT INTO InternsXAssistance (idIntern, begin) VALUES "
+                    +"('"+idPucp+"', STR_TO_DATE('"
+                    +LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss"))
+                    +"', '%Y/%m/%d %H:%i:%s'))";
+            res=sentencia.executeUpdate(query);
+            con.close();
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        return res;            
+    }
+    
+    @Override
+    public int updateAsisstance(String id){
+        int res=0;
+        try{
+            DBManager dbManager = DBManager.getdbManager();
+            Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
+            Statement sentencia = con.createStatement();
+            String query="UPDATE InternsXAssistance SET "
+                    +"end=STR_TO_DATE('"
+                    +LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss"))
+                    +"', '%Y/%m/%d %H:%i:%s') "
+                    +"WHERE id='"+id+"'";
+            res=sentencia.executeUpdate(query);
+            con.close();
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        return res;   
+    }
+    
+    
 }
