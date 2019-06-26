@@ -22,6 +22,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
@@ -71,8 +75,9 @@ public class MySQLCourseHistory implements DAOCourseHistory{
             System.out.println("entra24");
             cs.setInt(5, courseHistory.getHours());
             System.out.println("entra2");
-            SimpleDateFormat formatIni = new SimpleDateFormat("yyyy-MM-dd");           
-            ArrayList<Date> dateSession = new ArrayList<>();
+            //SimpleDateFormat formatIni = new SimpleDateFormat("yyyy-MM-dd");           
+            DateTimeFormatter formatIni = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            ArrayList<LocalDateTime> dateSession = new ArrayList<>();
             System.out.println("entra3");
             for(Session s: courseHistory.getSessions()){               
                 if(s.getDateSession() == null) System.out.println(s.getHours());
@@ -80,23 +85,24 @@ public class MySQLCourseHistory implements DAOCourseHistory{
                     dateSession.add(s.getDateSession());
             }
             System.out.println("entra4");
-            Date start = Collections.min(dateSession);
-            cs.setString(6, formatIni.format(start)); 
+            LocalDateTime start = Collections.min(dateSession);
+            cs.setString(6, start.format(formatIni)); 
             System.out.println("entra5");
-            Date end = Collections.max(dateSession);
-            cs.setString(7,formatIni.format(end));   
+            LocalDateTime end = Collections.max(dateSession);
+            cs.setString(7,end.format(formatIni));   
             System.out.println("entra6");
             cs.setBytes(8, courseHistory.getSurvey());
             cs.registerOutParameter("_idCourseHistory", java.sql.Types.INTEGER);
             result = cs.executeUpdate();
             int id = cs.getInt("_idCourseHistory");
             courseHistory.setId(id);  
-            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            //SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
             if(courseHistory.getSessions() != null){
                 for(Session s: courseHistory.getSessions()){
                     cs = con.prepareCall("{call INSERT_SESSION(?,?,?,?,?,?)}");
                     cs.setInt(1, id);
-                    cs.setString(2,format.format(s.getDateSession()));              
+                    cs.setString(2,s.getDateSession().format(format));              
                     cs.setInt(3,s.getHours());
                     cs.setString(4,s.getLocation());
                     cs.setBoolean(5, true);
@@ -140,24 +146,26 @@ public class MySQLCourseHistory implements DAOCourseHistory{
             cs.setString(3,courseHistory.getProfessor().getIdPUCP());
             cs.setString(4,courseHistory.getAssistant().getIdPUCP());
             cs.setInt(5, courseHistory.getHours());
-            SimpleDateFormat formatIni = new SimpleDateFormat("yyyy-MM-dd");
-            ArrayList<Date> dateSession = new ArrayList<>();
+            //SimpleDateFormat formatIni = new SimpleDateFormat("yyyy-MM-dd");
+            DateTimeFormatter formatIni = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            ArrayList<LocalDateTime> dateSession = new ArrayList<>();
             
             for(Session s: courseHistory.getSessions()){
                 dateSession.add(s.getDateSession());
             }     
-            Date start = Collections.min(dateSession);
+            LocalDateTime start = Collections.min(dateSession);
             
-            cs.setString(6, formatIni.format(start));
-            Date end = Collections.max(dateSession);
-            cs.setString(7,formatIni.format(end));
+            cs.setString(6,start.format(formatIni));
+            LocalDateTime end = Collections.max(dateSession);
+            cs.setString(7,end.format(formatIni));
             cs.setBytes(8, courseHistory.getSurvey());
             result = cs.executeUpdate();    
           
             cs = con.prepareCall("{call DISABLE_SESSIONS_BY_COURSEH(?)}");           
             cs.setInt(1, courseHistory.getId());
             result = cs.executeUpdate();
-            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            //SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
             ResultSet rs;
            
             for(Session s: courseHistory.getSessions()){  
@@ -171,7 +179,8 @@ public class MySQLCourseHistory implements DAOCourseHistory{
                     cs = con.prepareCall("{call UPDATE_SESSION(?,?,?,?,?,?)}");
                     cs.setInt(1, s.getId()); 
                     cs.setInt(2,courseHistory.getId());
-                    cs.setString(3,format.format(s.getDateSession()));
+                    cs.setString(3,s.getDateSession().format(format));
+                    
                     cs.setInt(4, s.getHours());
                     cs.setString(5, s.getLocation());
                     cs.setBoolean(6, true);
@@ -181,7 +190,7 @@ public class MySQLCourseHistory implements DAOCourseHistory{
                     
                     cs = con.prepareCall("{call INSERT_SESSION(?,?,?,?,?,?)}");
                     cs.setInt(1, courseHistory.getId());
-                    cs.setString(2,format.format(s.getDateSession()));              
+                    cs.setString(2,s.getDateSession().format(format));              
                     cs.setInt(3,s.getHours());
                     cs.setString(4,s.getLocation());
                     cs.setBoolean(5,true);
@@ -395,7 +404,7 @@ public class MySQLCourseHistory implements DAOCourseHistory{
             while(rs2.next()){
                 Session s = new Session();
                 s.setId(rs2.getInt(1));
-                s.setDateSession(rs2.getTimestamp(3));
+                s.setDateSession(rs2.getDate(3).toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime());
                 s.setHours(rs2.getInt(4));
                 s.setLocation(rs2.getString(5));
 //                s.setIsActive(rs2.getBoolean(6));

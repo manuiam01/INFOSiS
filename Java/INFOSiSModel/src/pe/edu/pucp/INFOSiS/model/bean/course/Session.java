@@ -6,7 +6,9 @@
 package pe.edu.pucp.INFOSiS.model.bean.course;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -25,7 +27,7 @@ public class Session implements Serializable{
     
     
     private int id;
-    private Date dateSession;
+    private LocalDateTime dateSession;
     private String location;
     private int hours;
     private boolean isActive; 
@@ -38,16 +40,16 @@ public class Session implements Serializable{
         this.id = id;
     }
 
-    public Date getDateSession() {
+    public LocalDateTime getDateSession() {
         return dateSession;
     }
 
-    public void setDateSession(Date dateSession) {      
+    public void setDateSession(LocalDateTime dateSession) {
         this.dateSession = dateSession;
     }
 
     
-
+    
     public String getLocation() {
         return location;
     }

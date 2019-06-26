@@ -13,6 +13,9 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import static java.time.LocalDate.now;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import pe.edu.pucp.INFOSiS.controller.config.DBController;
@@ -44,36 +47,36 @@ public class mian {
         Course course = DBController.queryCourseById("123456");
         Professor professor = DBController.searchProfessorByIdPUCP("20012323");
         Professor assistant = DBController.searchProfessorByIdPUCP("19794422");
-        CourseHistory c = new CourseHistory();
-        c.setId(20);
+        CourseHistory c = new CourseHistory();       
         c.setCourse(course);
         c.setAssistant(assistant);
         c.setProfessor(professor);
         c.setHours(10);
-        ArrayList<Date> dates = new ArrayList<>();
-        Date d = new Date();
-        dates.add(d);
-        Date d2 = new Date();
-        d2.setDate(30);
-        dates.add(d2);
-        ArrayList<Session> sessions = DBController.querySessionByCourseH(c.getId());
-        for(Session s: sessions){
-            s.getDateSession().setHours(10);
-        }
         
+        LocalDateTime d = LocalDateTime.now();  
+        d.withYear(2020);
+        LocalDateTime d2 = LocalDateTime.now();
+        d2.withMonth(6);               
+        ArrayList<Session> sessions = new ArrayList<>();
         Session s = new Session();
-        s.setDateSession(d2);
+        s.setDateSession(d);
         s.setHours(0);
         s.setLocation("B102");
-//        s.setIsActive(true);
+        s.setIsActive(true);
         sessions.add(s);
+        Session s2 = new Session();
+        s2.setDateSession(d2);
+        s2.setHours(10);
+        s2.setLocation("B102");
+        s2.setIsActive(true);
+        sessions.add(s2);
         c.setSessions(sessions);
         ArrayList<Student> students = new ArrayList<>();
         Student stu = new Student();
         stu.setIdNumber("11111111");
         students.add(stu);
         Student stu2 = new Student();
-        stu2.setIdNumber("56485747");
+        stu2.setIdNumber("70707070");
         students.add(stu2);
         c.setStudents(students);
         ArrayList<Float> grades = new ArrayList<>();
@@ -98,7 +101,7 @@ public class mian {
             System.out.println(ex.getMessage());
         }
    
-        int result = DBController.updateCourseHistory(c);
+        int result = DBController.insertCourseHistory(c);
         System.out.println(result);
         
 //        
@@ -166,10 +169,10 @@ public class mian {
 
 //            int r= DBController.searchProfessorById("09479586");
 //            System.out.println(r);
-        MySQLCourseHistory msql = new MySQLCourseHistory();        
-        byte[] bArray = null;
-        bArray = msql.generateReport(20);
-        Path path = Paths.get("D:\\Users\\alulab14\\Documents\\pdftest.pdf");
-        Files.write(path, bArray);
+//        MySQLCourseHistory msql = new MySQLCourseHistory();        
+//        byte[] bArray = null;
+//        bArray = msql.generateReport(20);
+//        Path path = Paths.get("D:\\Users\\alulab14\\Documents\\pdftest.pdf");
+//        Files.write(path, bArray);
     }  
 }
