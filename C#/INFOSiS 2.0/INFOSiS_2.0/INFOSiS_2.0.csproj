@@ -84,6 +84,12 @@
     <Compile Include="CourseButtons.Designer.cs">
       <DependentUpon>CourseButtons.cs</DependentUpon>
     </Compile>
+    <Compile Include="CourseHAddSession.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CourseHAddSession.Designer.cs">
+      <DependentUpon>CourseHAddSession.cs</DependentUpon>
+    </Compile>
     <Compile Include="CourseHistoryRegister.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -331,6 +337,9 @@
     <EmbeddedResource Include="CourseButtons.resx">
       <DependentUpon>CourseButtons.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CourseHAddSession.resx">
+      <DependentUpon>CourseHAddSession.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CourseHistoryRegister.resx">
       <DependentUpon>CourseHistoryRegister.cs</DependentUpon>
     </EmbeddedResource>
@@ -467,7 +476,7 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.insertCourseHistoryResponse.datasource">
-		<DependentUpon>Reference.svcmap</DependentUpon>
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.getLastRegisterInternResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -521,6 +530,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.QueryAllInternsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.queryAllProfessorsActiveResponse1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.QueryAllUsersResponse.datasource">
@@ -711,6 +723,12 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\perfil4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\perfil5.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

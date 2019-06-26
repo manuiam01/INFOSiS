@@ -41,9 +41,11 @@ namespace INFOSiS_2._0
 
         private void BtnSelect_Click(object sender, EventArgs e)
         {
-            professor = new Server.professor();
-            professor = (Server.professor)dgvProfessors.CurrentRow.DataBoundItem;
-            this.DialogResult = DialogResult.OK;
+            if (dgvProfessors.CurrentRow != null) { 
+                professor = new Server.professor();
+                professor = (Server.professor)dgvProfessors.CurrentRow.DataBoundItem;
+                this.DialogResult = DialogResult.OK;
+            }
         }
     }
 }

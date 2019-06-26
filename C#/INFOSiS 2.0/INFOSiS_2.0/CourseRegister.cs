@@ -128,7 +128,7 @@ namespace INFOSiS_2._0
                 return false;
             }
 
-            if (codigo.Length != 6) return false;
+            if (codigo.Length != 7) return false;
             var validos = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZabcdefghijklmnñopqrstuvwxyz1234567890";
             bool valido = true;
             foreach (char c in codigo)

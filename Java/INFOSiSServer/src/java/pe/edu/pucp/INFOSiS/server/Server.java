@@ -24,6 +24,7 @@ import pe.edu.pucp.INFOSiS.model.bean.course.CalendarSession;
 import pe.edu.pucp.INFOSiS.model.bean.course.CourseHistory;
 import pe.edu.pucp.INFOSiS.model.bean.course.CourseType;
 import pe.edu.pucp.INFOSiS.model.bean.student.Student;
+import pe.edu.pucp.INFOSiS.model.bean.course.Session;
 
 
 @WebService(serviceName = "Server")

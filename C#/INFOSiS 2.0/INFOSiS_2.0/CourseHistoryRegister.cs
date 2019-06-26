@@ -60,10 +60,10 @@ namespace INFOSiS_2._0
             {
                 MessageBox.Show("No ingresó el profesor del cursp", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if (sessions.Length == 0)
-            {
-                MessageBox.Show("No ingresó sesiones al curso", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            //else if (sessions == null || sessions.Length == 0)
+            //{
+            //    MessageBox.Show("No ingresó sesiones al curso", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
             else {
                 DialogResult mensajeOK;
                 String mensaje;
@@ -72,7 +72,9 @@ namespace INFOSiS_2._0
                 Server.courseHistory courseH = new Server.courseHistory();
                 courseH.course = course;
                 courseH.professor = professor;
-                courseH.assistant = assistant;
+                courseH.assistant = assistant;              
+                courseH.sessions = sessions;
+                courseH.hours = 24;
                 int result = server.insertCourseHistory(courseH);              
                 if (result == 1)
                 {
@@ -109,7 +111,52 @@ namespace INFOSiS_2._0
 
         private void btnSearchProfessor_Click(object sender, EventArgs e)
         {
+            server = new Server.ServerClient();
+            CourseHSelectProfessor formCourseHSelectCourse = new CourseHSelectProfessor();
+            if (formCourseHSelectCourse.ShowDialog() == DialogResult.OK)
+            {
 
+                if (formCourseHSelectCourse.IdAssistant != null)
+                {
+                    professor = server.SearchProfessorByIdPUCP(formCourseHSelectCourse.IdAssistant);
+                    txtProfessor.Text = formCourseHSelectCourse.Fullname;
+                }
+
+            }
+        }
+
+        private void btnSearchAssistant_Click(object sender, EventArgs e)
+        {
+            server = new Server.ServerClient();
+            CourseHSelectProfessor formCourseHSelectCourse = new CourseHSelectProfessor();
+            if (formCourseHSelectCourse.ShowDialog() == DialogResult.OK)
+            {
+                if (formCourseHSelectCourse.IdAssistant != null)
+                {
+                    assistant = server.SearchProfessorByIdPUCP(formCourseHSelectCourse.IdAssistant);
+                    txtAssistant.Text = formCourseHSelectCourse.Fullname;
+                }
+
+            }
+        }
+
+        private void btnAddSession_Click(object sender, EventArgs e)
+        {
+            CourseHAddSession formAddSession = new CourseHAddSession(sessions);
+            if (formAddSession.ShowDialog() == DialogResult.OK) {
+                if (formAddSession.Sessions != null) {
+                    dgvSessions.AutoGenerateColumns = false;
+                    sessions = formAddSession.Sessions;
+                    BindingList<Server.session> listSession = new BindingList<Server.session>(sessions);
+                    dgvSessions.DataSource = listSession;
+                    int index = 0;
+                    foreach (Server.session session in listSession)
+                    {
+                        dgvSessions.Rows[index].Cells[0].Value = session.dateSession.ToString();
+                        index++;
+                    }
+                }
+            }
         }
     }
 }

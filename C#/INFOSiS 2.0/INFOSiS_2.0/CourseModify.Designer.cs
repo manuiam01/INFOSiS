@@ -195,9 +195,9 @@
             this.label5.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(65, 321);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(43, 18);
+            this.label5.Size = new System.Drawing.Size(52, 18);
             this.label5.TabIndex = 17;
-            this.label5.Text = "Sílabo:";
+            this.label5.Text = "Sílabo: *";
             // 
             // cmbCourseType
             // 
@@ -214,16 +214,17 @@
             this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(21, 285);
+            this.label11.Location = new System.Drawing.Point(21, 280);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(87, 18);
+            this.label11.Size = new System.Drawing.Size(96, 18);
             this.label11.TabIndex = 14;
-            this.label11.Text = "Tipo de curso:";
+            this.label11.Text = "Tipo de curso: *";
             // 
             // txtDescription
             // 
             this.txtDescription.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtDescription.Location = new System.Drawing.Point(114, 170);
+            this.txtDescription.MaxLength = 100;
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(282, 102);
@@ -233,6 +234,7 @@
             // 
             this.txtName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtName.Location = new System.Drawing.Point(114, 134);
+            this.txtName.MaxLength = 45;
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(282, 20);
             this.txtName.TabIndex = 6;
@@ -241,6 +243,7 @@
             // 
             this.txtID.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtID.Location = new System.Drawing.Point(114, 40);
+            this.txtID.MaxLength = 7;
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(282, 20);
             this.txtID.TabIndex = 5;
@@ -250,33 +253,33 @@
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(52, 141);
+            this.label6.Location = new System.Drawing.Point(52, 135);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(56, 18);
+            this.label6.Size = new System.Drawing.Size(65, 18);
             this.label6.TabIndex = 4;
-            this.label6.Text = "Nombre:";
+            this.label6.Text = "Nombre: *";
             // 
             // label4
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(32, 177);
+            this.label4.Location = new System.Drawing.Point(32, 174);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(76, 18);
+            this.label4.Size = new System.Drawing.Size(85, 18);
             this.label4.TabIndex = 2;
-            this.label4.Text = "Descripción:";
+            this.label4.Text = "Descripción: *";
             // 
             // label2
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(58, 47);
+            this.label2.Location = new System.Drawing.Point(58, 41);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(50, 18);
+            this.label2.Size = new System.Drawing.Size(59, 18);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Código:";
+            this.label2.Text = "Código: *";
             // 
             // label1
             // 

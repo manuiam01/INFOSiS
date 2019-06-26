@@ -5,13 +5,19 @@
  */
 package pe.edu.pucp.INFOSiS.model.bean.course;
 
+import java.io.Serializable;
 import java.util.Date;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author alulab14
  */
-public class Session {
+@XmlRootElement(name="Session")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class Session implements Serializable{
 
     public Session() {
         id = 0;
@@ -36,7 +42,7 @@ public class Session {
         return dateSession;
     }
 
-    public void setDateSession(Date dateSession) {
+    public void setDateSession(Date dateSession) {      
         this.dateSession = dateSession;
     }
 
@@ -55,6 +61,7 @@ public class Session {
     }
 
     public void setHours(int hours) {
+        
         this.hours = hours;
     }
 

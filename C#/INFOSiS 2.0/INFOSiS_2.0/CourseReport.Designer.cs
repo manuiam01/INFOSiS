@@ -31,6 +31,11 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.lblAdvancedSearch = new System.Windows.Forms.Label();
             this.dgvCoursesHistory = new System.Windows.Forms.DataGridView();
+            this.idCourseHistory = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.courseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.startDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.endDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Hours = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnReport = new System.Windows.Forms.Button();
             this.lblPUCPcode = new System.Windows.Forms.Label();
@@ -40,11 +45,6 @@
             this.dtpEndDate = new System.Windows.Forms.DateTimePicker();
             this.dtpStartDate = new System.Windows.Forms.DateTimePicker();
             this.lblProfessorReport = new System.Windows.Forms.Label();
-            this.idCourseHistory = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.courseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.startDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.endDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Hours = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCoursesHistory)).BeginInit();
             this.SuspendLayout();
             // 
@@ -90,6 +90,38 @@
             this.dgvCoursesHistory.Name = "dgvCoursesHistory";
             this.dgvCoursesHistory.Size = new System.Drawing.Size(703, 218);
             this.dgvCoursesHistory.TabIndex = 198;
+            // 
+            // idCourseHistory
+            // 
+            this.idCourseHistory.DataPropertyName = "id";
+            this.idCourseHistory.HeaderText = "ID Curso Dictado";
+            this.idCourseHistory.Name = "idCourseHistory";
+            this.idCourseHistory.Width = 80;
+            // 
+            // courseName
+            // 
+            this.courseName.HeaderText = "Nombre Profesor";
+            this.courseName.Name = "courseName";
+            this.courseName.Width = 300;
+            // 
+            // startDate
+            // 
+            this.startDate.DataPropertyName = "startDate";
+            this.startDate.HeaderText = "Fecha Inicio";
+            this.startDate.Name = "startDate";
+            // 
+            // endDate
+            // 
+            this.endDate.DataPropertyName = "endDate";
+            this.endDate.HeaderText = "Fecha Fin";
+            this.endDate.Name = "endDate";
+            // 
+            // Hours
+            // 
+            this.Hours.DataPropertyName = "hours";
+            this.Hours.HeaderText = "Duración en Horas";
+            this.Hours.Name = "Hours";
+            this.Hours.Width = 80;
             // 
             // btnSearch
             // 
@@ -138,6 +170,7 @@
             // 
             this.txtIdCourse.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtIdCourse.Location = new System.Drawing.Point(342, 80);
+            this.txtIdCourse.MaxLength = 7;
             this.txtIdCourse.Multiline = true;
             this.txtIdCourse.Name = "txtIdCourse";
             this.txtIdCourse.Size = new System.Drawing.Size(200, 21);
@@ -191,38 +224,6 @@
             this.lblProfessorReport.Size = new System.Drawing.Size(256, 38);
             this.lblProfessorReport.TabIndex = 189;
             this.lblProfessorReport.Text = "Reporte de un Curso";
-            // 
-            // idCourseHistory
-            // 
-            this.idCourseHistory.DataPropertyName = "id";
-            this.idCourseHistory.HeaderText = "ID Curso Dictado";
-            this.idCourseHistory.Name = "idCourseHistory";
-            this.idCourseHistory.Width = 80;
-            // 
-            // courseName
-            // 
-            this.courseName.HeaderText = "Nombre Profesor";
-            this.courseName.Name = "courseName";
-            this.courseName.Width = 300;
-            // 
-            // startDate
-            // 
-            this.startDate.DataPropertyName = "startDate";
-            this.startDate.HeaderText = "Fecha Inicio";
-            this.startDate.Name = "startDate";
-            // 
-            // endDate
-            // 
-            this.endDate.DataPropertyName = "endDate";
-            this.endDate.HeaderText = "Fecha Fin";
-            this.endDate.Name = "endDate";
-            // 
-            // Hours
-            // 
-            this.Hours.DataPropertyName = "hours";
-            this.Hours.HeaderText = "Duración en Horas";
-            this.Hours.Name = "Hours";
-            this.Hours.Width = 80;
             // 
             // CourseReport
             // 

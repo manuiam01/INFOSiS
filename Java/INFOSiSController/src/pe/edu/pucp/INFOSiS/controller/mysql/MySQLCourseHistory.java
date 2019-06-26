@@ -56,52 +56,69 @@ import pe.edu.pucp.INFOSiS.model.bean.student.Student;
 public class MySQLCourseHistory implements DAOCourseHistory{
     @Override
     public int insert(CourseHistory courseHistory){
+        System.out.println("entra");
         int result = 0;
         try{
             DBManager dbManager = DBManager.getdbManager();
             Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
             CallableStatement cs = con.prepareCall("{call INSERT_COURSEH(?,?,?,?,?,?,?,?)}");
+            System.out.println("entra21");
             cs.setString(2,courseHistory.getCourse().getId());
+            System.out.println("entra22");
             cs.setString(3,courseHistory.getProfessor().getIdPUCP());
-            cs.setString(4,courseHistory.getAssistant().getIdPUCP());   
+            System.out.println("entra23");
+            cs.setString(4,courseHistory.getAssistant().getIdPUCP());  
+            System.out.println("entra24");
             cs.setInt(5, courseHistory.getHours());
-            SimpleDateFormat formatIni = new SimpleDateFormat("yyyy-MM-dd");
+            System.out.println("entra2");
+            SimpleDateFormat formatIni = new SimpleDateFormat("yyyy-MM-dd");           
             ArrayList<Date> dateSession = new ArrayList<>();
-            for(Session s: courseHistory.getSessions()){
-                dateSession.add(s.getDateSession());
+            System.out.println("entra3");
+            for(Session s: courseHistory.getSessions()){               
+                if(s.getDateSession() == null) System.out.println(s.getHours());
+                else
+                    dateSession.add(s.getDateSession());
             }
+            System.out.println("entra4");
             Date start = Collections.min(dateSession);
-            cs.setString(6, formatIni.format(start));   
+            cs.setString(6, formatIni.format(start)); 
+            System.out.println("entra5");
             Date end = Collections.max(dateSession);
             cs.setString(7,formatIni.format(end));   
+            System.out.println("entra6");
             cs.setBytes(8, courseHistory.getSurvey());
             cs.registerOutParameter("_idCourseHistory", java.sql.Types.INTEGER);
             result = cs.executeUpdate();
             int id = cs.getInt("_idCourseHistory");
             courseHistory.setId(id);  
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            for(Session s: courseHistory.getSessions()){
-                cs = con.prepareCall("{call INSERT_SESSION(?,?,?,?,?,?)}");
-                cs.setInt(1, id);
-                cs.setString(2,format.format(s.getDateSession()));              
-                cs.setInt(3,s.getHours());
-                cs.setString(4,s.getLocation());
-                cs.setBoolean(5, true);
-                cs.registerOutParameter(6, java.sql.Types.INTEGER);
-                result = cs.executeUpdate();
-                s.setId(cs.getInt(6));
-            }           
-            ArrayList<Student> students = courseHistory.getStudents();
-            for(int i = 0; i < students.size();i++){                
-                cs = con.prepareCall("{call INSERT_STUDENTHISTORY(?,?,?,?,?,?)}");
-                cs.setString(1,students.get(i).getIdNumber());
-                cs.setInt(2, id);
-                cs.setFloat(3, courseHistory.getHistoryGrade().get(i));
-                cs.setString(4, courseHistory.getHistoryState().get(i));
-                cs.setFloat(5,courseHistory.getAmountPaids().get(i));
-                cs.setBoolean(6,true);
-                result = cs.executeUpdate();
+            if(courseHistory.getSessions() != null){
+                for(Session s: courseHistory.getSessions()){
+                    cs = con.prepareCall("{call INSERT_SESSION(?,?,?,?,?,?)}");
+                    cs.setInt(1, id);
+                    cs.setString(2,format.format(s.getDateSession()));              
+                    cs.setInt(3,s.getHours());
+                    cs.setString(4,s.getLocation());
+                    cs.setBoolean(5, true);
+                    cs.registerOutParameter(6, java.sql.Types.INTEGER);
+                    result = cs.executeUpdate();
+                    s.setId(cs.getInt(6));
+                } 
             }
+            ArrayList<Student> students = courseHistory.getStudents();
+            if(students != null){
+                for(int i = 0; i < students.size();i++){                
+                    cs = con.prepareCall("{call INSERT_STUDENTHISTORY(?,?,?,?,?,?)}");
+                    cs.setString(1,students.get(i).getIdNumber());
+                    cs.setInt(2, id);
+                    cs.setFloat(3, courseHistory.getHistoryGrade().get(i));
+                    cs.setString(4, courseHistory.getHistoryState().get(i));
+                    cs.setFloat(5,courseHistory.getAmountPaids().get(i));
+                    cs.setBoolean(6,true);
+                    result = cs.executeUpdate();
+                }
+            }
+            
             con.close();
         }catch(Exception ex){
             System.out.println(ex.getMessage());

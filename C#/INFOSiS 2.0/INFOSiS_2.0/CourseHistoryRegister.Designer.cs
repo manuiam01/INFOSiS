@@ -33,19 +33,22 @@
             this.btnAddSession = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnSearchProfessor = new System.Windows.Forms.Button();
+            this.btnSearchAssistant = new System.Windows.Forms.Button();
+            this.btnSearchCourse = new System.Windows.Forms.Button();
+            this.txtAssistant = new System.Windows.Forms.TextBox();
+            this.txtProfessor = new System.Windows.Forms.TextBox();
+            this.lblAssistant = new System.Windows.Forms.Label();
+            this.lblProfessor = new System.Windows.Forms.Label();
             this.txtCourse = new System.Windows.Forms.TextBox();
             this.lblCourse = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.lblProfessor = new System.Windows.Forms.Label();
-            this.lblAssistant = new System.Windows.Forms.Label();
-            this.txtProfessor = new System.Windows.Forms.TextBox();
-            this.txtAssistant = new System.Windows.Forms.TextBox();
-            this.btnSearchCourse = new System.Windows.Forms.Button();
-            this.btnSearchAssistant = new System.Windows.Forms.Button();
-            this.btnSearchProfessor = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dgvStudents = new System.Windows.Forms.DataGridView();
             this.btnAddStudent = new System.Windows.Forms.Button();
+            this.DateTimeSession = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Hours = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Location = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSessions)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -71,6 +74,10 @@
             // 
             this.dgvSessions.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dgvSessions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSessions.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DateTimeSession,
+            this.Hours,
+            this.Location});
             this.dgvSessions.Location = new System.Drawing.Point(13, 69);
             this.dgvSessions.Name = "dgvSessions";
             this.dgvSessions.Size = new System.Drawing.Size(359, 187);
@@ -88,8 +95,9 @@
             this.btnAddSession.Name = "btnAddSession";
             this.btnAddSession.Size = new System.Drawing.Size(213, 26);
             this.btnAddSession.TabIndex = 177;
-            this.btnAddSession.Text = "Agregar Sesiones:";
+            this.btnAddSession.Text = "Agregar Sesiones";
             this.btnAddSession.UseVisualStyleBackColor = false;
+            this.btnAddSession.Click += new System.EventHandler(this.btnAddSession_Click);
             // 
             // btnSave
             // 
@@ -128,6 +136,92 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del Curso";
             // 
+            // btnSearchProfessor
+            // 
+            this.btnSearchProfessor.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnSearchProfessor.BackColor = System.Drawing.Color.MidnightBlue;
+            this.btnSearchProfessor.FlatAppearance.BorderSize = 0;
+            this.btnSearchProfessor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearchProfessor.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearchProfessor.ForeColor = System.Drawing.Color.White;
+            this.btnSearchProfessor.Location = new System.Drawing.Point(430, 66);
+            this.btnSearchProfessor.Name = "btnSearchProfessor";
+            this.btnSearchProfessor.Size = new System.Drawing.Size(155, 26);
+            this.btnSearchProfessor.TabIndex = 194;
+            this.btnSearchProfessor.Text = "Buscar Profesor";
+            this.btnSearchProfessor.UseVisualStyleBackColor = false;
+            this.btnSearchProfessor.Click += new System.EventHandler(this.btnSearchProfessor_Click);
+            // 
+            // btnSearchAssistant
+            // 
+            this.btnSearchAssistant.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnSearchAssistant.BackColor = System.Drawing.Color.MidnightBlue;
+            this.btnSearchAssistant.FlatAppearance.BorderSize = 0;
+            this.btnSearchAssistant.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearchAssistant.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearchAssistant.ForeColor = System.Drawing.Color.White;
+            this.btnSearchAssistant.Location = new System.Drawing.Point(430, 101);
+            this.btnSearchAssistant.Name = "btnSearchAssistant";
+            this.btnSearchAssistant.Size = new System.Drawing.Size(155, 26);
+            this.btnSearchAssistant.TabIndex = 193;
+            this.btnSearchAssistant.Text = "Buscar Asistente";
+            this.btnSearchAssistant.UseVisualStyleBackColor = false;
+            this.btnSearchAssistant.Click += new System.EventHandler(this.btnSearchAssistant_Click);
+            // 
+            // btnSearchCourse
+            // 
+            this.btnSearchCourse.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnSearchCourse.BackColor = System.Drawing.Color.MidnightBlue;
+            this.btnSearchCourse.FlatAppearance.BorderSize = 0;
+            this.btnSearchCourse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearchCourse.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearchCourse.ForeColor = System.Drawing.Color.White;
+            this.btnSearchCourse.Location = new System.Drawing.Point(430, 30);
+            this.btnSearchCourse.Name = "btnSearchCourse";
+            this.btnSearchCourse.Size = new System.Drawing.Size(155, 26);
+            this.btnSearchCourse.TabIndex = 179;
+            this.btnSearchCourse.Text = "Buscar Curso";
+            this.btnSearchCourse.UseVisualStyleBackColor = false;
+            this.btnSearchCourse.Click += new System.EventHandler(this.btnSearchCourse_Click);
+            // 
+            // txtAssistant
+            // 
+            this.txtAssistant.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtAssistant.Location = new System.Drawing.Point(133, 105);
+            this.txtAssistant.Name = "txtAssistant";
+            this.txtAssistant.Size = new System.Drawing.Size(282, 20);
+            this.txtAssistant.TabIndex = 192;
+            // 
+            // txtProfessor
+            // 
+            this.txtProfessor.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtProfessor.Location = new System.Drawing.Point(133, 70);
+            this.txtProfessor.Name = "txtProfessor";
+            this.txtProfessor.Size = new System.Drawing.Size(282, 20);
+            this.txtProfessor.TabIndex = 191;
+            // 
+            // lblAssistant
+            // 
+            this.lblAssistant.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblAssistant.AutoSize = true;
+            this.lblAssistant.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAssistant.Location = new System.Drawing.Point(71, 105);
+            this.lblAssistant.Name = "lblAssistant";
+            this.lblAssistant.Size = new System.Drawing.Size(60, 18);
+            this.lblAssistant.TabIndex = 190;
+            this.lblAssistant.Text = "Asistente:";
+            // 
+            // lblProfessor
+            // 
+            this.lblProfessor.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblProfessor.AutoSize = true;
+            this.lblProfessor.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProfessor.Location = new System.Drawing.Point(71, 70);
+            this.lblProfessor.Name = "lblProfessor";
+            this.lblProfessor.Size = new System.Drawing.Size(56, 18);
+            this.lblProfessor.TabIndex = 189;
+            this.lblProfessor.Text = "Profesor:";
+            // 
             // txtCourse
             // 
             this.txtCourse.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -158,91 +252,6 @@
             this.label1.Size = new System.Drawing.Size(313, 38);
             this.label1.TabIndex = 176;
             this.label1.Text = "Registrar un curso dictado";
-            // 
-            // lblProfessor
-            // 
-            this.lblProfessor.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblProfessor.AutoSize = true;
-            this.lblProfessor.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProfessor.Location = new System.Drawing.Point(71, 70);
-            this.lblProfessor.Name = "lblProfessor";
-            this.lblProfessor.Size = new System.Drawing.Size(56, 18);
-            this.lblProfessor.TabIndex = 189;
-            this.lblProfessor.Text = "Profesor:";
-            // 
-            // lblAssistant
-            // 
-            this.lblAssistant.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblAssistant.AutoSize = true;
-            this.lblAssistant.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAssistant.Location = new System.Drawing.Point(71, 105);
-            this.lblAssistant.Name = "lblAssistant";
-            this.lblAssistant.Size = new System.Drawing.Size(60, 18);
-            this.lblAssistant.TabIndex = 190;
-            this.lblAssistant.Text = "Asistente:";
-            // 
-            // txtProfessor
-            // 
-            this.txtProfessor.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtProfessor.Location = new System.Drawing.Point(133, 70);
-            this.txtProfessor.Name = "txtProfessor";
-            this.txtProfessor.Size = new System.Drawing.Size(282, 20);
-            this.txtProfessor.TabIndex = 191;
-            // 
-            // txtAssistant
-            // 
-            this.txtAssistant.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtAssistant.Location = new System.Drawing.Point(133, 105);
-            this.txtAssistant.Name = "txtAssistant";
-            this.txtAssistant.Size = new System.Drawing.Size(282, 20);
-            this.txtAssistant.TabIndex = 192;
-            // 
-            // btnSearchCourse
-            // 
-            this.btnSearchCourse.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnSearchCourse.BackColor = System.Drawing.Color.MidnightBlue;
-            this.btnSearchCourse.FlatAppearance.BorderSize = 0;
-            this.btnSearchCourse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearchCourse.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearchCourse.ForeColor = System.Drawing.Color.White;
-            this.btnSearchCourse.Location = new System.Drawing.Point(430, 30);
-            this.btnSearchCourse.Name = "btnSearchCourse";
-            this.btnSearchCourse.Size = new System.Drawing.Size(155, 26);
-            this.btnSearchCourse.TabIndex = 179;
-            this.btnSearchCourse.Text = "Buscar Curso";
-            this.btnSearchCourse.UseVisualStyleBackColor = false;
-            this.btnSearchCourse.Click += new System.EventHandler(this.btnSearchCourse_Click);
-            // 
-            // btnSearchAssistant
-            // 
-            this.btnSearchAssistant.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnSearchAssistant.BackColor = System.Drawing.Color.MidnightBlue;
-            this.btnSearchAssistant.FlatAppearance.BorderSize = 0;
-            this.btnSearchAssistant.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearchAssistant.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearchAssistant.ForeColor = System.Drawing.Color.White;
-            this.btnSearchAssistant.Location = new System.Drawing.Point(430, 101);
-            this.btnSearchAssistant.Name = "btnSearchAssistant";
-            this.btnSearchAssistant.Size = new System.Drawing.Size(155, 26);
-            this.btnSearchAssistant.TabIndex = 193;
-            this.btnSearchAssistant.Text = "Buscar Asistente";
-            this.btnSearchAssistant.UseVisualStyleBackColor = false;
-            // 
-            // btnSearchProfessor
-            // 
-            this.btnSearchProfessor.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnSearchProfessor.BackColor = System.Drawing.Color.MidnightBlue;
-            this.btnSearchProfessor.FlatAppearance.BorderSize = 0;
-            this.btnSearchProfessor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearchProfessor.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearchProfessor.ForeColor = System.Drawing.Color.White;
-            this.btnSearchProfessor.Location = new System.Drawing.Point(430, 66);
-            this.btnSearchProfessor.Name = "btnSearchProfessor";
-            this.btnSearchProfessor.Size = new System.Drawing.Size(155, 26);
-            this.btnSearchProfessor.TabIndex = 194;
-            this.btnSearchProfessor.Text = "Buscar Profesor";
-            this.btnSearchProfessor.UseVisualStyleBackColor = false;
-            this.btnSearchProfessor.Click += new System.EventHandler(this.btnSearchProfessor_Click);
             // 
             // groupBox3
             // 
@@ -279,8 +288,27 @@
             this.btnAddStudent.Name = "btnAddStudent";
             this.btnAddStudent.Size = new System.Drawing.Size(213, 26);
             this.btnAddStudent.TabIndex = 177;
-            this.btnAddStudent.Text = "Agregar Alumnos:";
+            this.btnAddStudent.Text = "Agregar Alumnos";
             this.btnAddStudent.UseVisualStyleBackColor = false;
+            // 
+            // DateTimeSession
+            // 
+            this.DateTimeSession.HeaderText = "Fecha de la sesión";
+            this.DateTimeSession.Name = "DateTimeSession";
+            this.DateTimeSession.Width = 150;
+            // 
+            // Hours
+            // 
+            this.Hours.DataPropertyName = "Hours";
+            this.Hours.HeaderText = "Horas";
+            this.Hours.Name = "Hours";
+            this.Hours.Width = 50;
+            // 
+            // Location
+            // 
+            this.Location.DataPropertyName = "Location";
+            this.Location.HeaderText = "Aula";
+            this.Location.Name = "Location";
             // 
             // CourseHistoryRegister
             // 
@@ -324,5 +352,8 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridView dgvStudents;
         private System.Windows.Forms.Button btnAddStudent;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DateTimeSession;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Hours;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Location;
     }
 }
