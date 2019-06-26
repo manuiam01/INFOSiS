@@ -26,12 +26,11 @@ public class main {
 //        }
         
         Intern intern = new Intern();
-        UserType access = new UserType();
         
         intern.setIdPUCP("20190000");
         intern.getUser().setId(90);
         intern.setIdType(1);
-        intern.setIdNumber("111111111111");
+        intern.setIdNumber("222222222222");
         intern.setFirstName("Ian");
         intern.setPrimaryLastName("Smith");
         intern.setGender("M");
@@ -41,9 +40,7 @@ public class main {
         intern.setAddress("EEUU");
         intern.setHomePhone("5556644");
         intern.setBirthday(null);
-        
-        access.setId(0);
-        
-        System.out.println(internC.update(intern, access));
+                
+        System.out.println(internC.update(intern));
     }
 }

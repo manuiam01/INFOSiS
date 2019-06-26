@@ -75,8 +75,8 @@ public class Server {
     }
     
     @WebMethod (operationName = "UpdateIntern")
-    public int UpdateIntern(@WebParam(name = "intern") Intern intern,@WebParam(name = "access") UserType access){
-        return DBController.updateIntern(intern, access);
+    public int UpdateIntern(@WebParam(name = "intern") Intern intern){
+        return DBController.updateIntern(intern);
     }
     //INTERESTED
     @WebMethod (operationName= "InsertInterested")

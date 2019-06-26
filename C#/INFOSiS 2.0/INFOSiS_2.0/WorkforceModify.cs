@@ -17,7 +17,6 @@ namespace INFOSiS_2._0
         private static Panel _panelMdi;
         private Server.ServerClient server;
         private Server.intern intern;
-        private Server.userType access;
         private bool birthdaySelected = false;
 
         public static WorkforceModify Instance
@@ -269,9 +268,6 @@ namespace INFOSiS_2._0
         private void btnSave_Click(object sender, EventArgs e)
         {
             intern = new Server.intern();
-            access = new Server.userType();
-            access.id = 0;
-            access.name = "USER";
 
             if (rbDNI.Checked)
             {
@@ -333,6 +329,7 @@ namespace INFOSiS_2._0
             intern.emailPUCP = txtEmailPUCP.Text;
             intern.email = txtEmail.Text;
             intern.address = txtAddress.Text;
+            intern.weekAvailability = "";
             if (birthdaySelected)
             {
                 intern.birthdaySpecified = true;
@@ -340,34 +337,61 @@ namespace INFOSiS_2._0
                 birthdaySelected = false;
             }
 
-            int res = server.UpdateIntern(intern,access);
+            int res = server.UpdateIntern(intern);
 
             if (res > 0)
             {
-                MessageBox.Show("Registro exitoso", "Registro efectuado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Actualización exitosa", "Actualización efectuada", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 clean();
-            }
-            //else if (res == -1)
-            //{
-            //    MessageBox.Show("Código PUCP registrado anteriormente", "Registro inválido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            //}
-            //else if (res == -2)
-            //{
-            //    MessageBox.Show("Código PUCP es un campo obligatorio", "Registro inválido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            //}
-            //else if (res == -3)
-            //{
-            //    MessageBox.Show("Número de identidad registrado anteriormente", "Registro inválido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            //}
+            }            
             else
             {
                 MessageBox.Show(res.ToString(), "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
+        private void DtpBirthday_ValueChanged(object sender, EventArgs e)
+        {
+            birthdaySelected = true;
+        }
+
+        private void RbDNI_CheckedChanged(object sender, EventArgs e)
+        {
+            txtDocumentNumber.MaxLength = 8;
+        }
+
+        private void RbForeignCard_CheckedChanged(object sender, EventArgs e)
+        {
+            txtDocumentNumber.MaxLength = 12;
+        }
+
+        private void RbPassport_CheckedChanged(object sender, EventArgs e)
+        {
+            txtDocumentNumber.MaxLength = 12;
+        }
+
         private void dtpBirthday_ValueChanged(object sender, EventArgs e)
         {
             birthdaySelected = true;
+        }
+
+        private void txtCellphone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtDocumentNumber_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (rbDNI.Checked)
+            {
+                if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+                {
+                    e.Handled = true;
+                }
+            }
         }
     }
 }

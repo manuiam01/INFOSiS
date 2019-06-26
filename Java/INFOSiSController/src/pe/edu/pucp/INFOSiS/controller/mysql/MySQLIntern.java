@@ -91,32 +91,32 @@ public class MySQLIntern implements DAOIntern {
     }
 
     @Override
-    public int update(Intern intern, UserType access) {
+    public int update(Intern intern) {
         int result = 0;
         try{
             DBManager dbManager = DBManager.getdbManager();
             Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
-            String sql = "UPDATE Interns SET idType=?,idNumber=?,firstName=?,middleName=?,primaryLastName=?,secondLastName=?,gender=?,email=?,cellPhoneNumber=?,emailPUCP=?,address=?,homePhone=?,birthDate=?,weekAvailability=? WHERE idIntern=?";
-            PreparedStatement ps = con.prepareStatement(sql);
-            
-            ps.setInt(1, intern.getIdType());
-            ps.setString(2, intern.getIdNumber());
-            ps.setString(3, intern.getFirstName());
-            ps.setString(4, intern.getMiddleName());
-            ps.setString(5, intern.getPrimaryLastName());
-            ps.setString(6, intern.getSecondLastName());
-            ps.setString(7, intern.getGender());
-            ps.setString(8, intern.getEmail());
-            ps.setString(9, intern.getCellPhoneNumber());
-            ps.setString(10, intern.getEmailPUCP());
-            ps.setString(11, intern.getAddress());
-            ps.setString(12, intern.getHomePhone());
-            if(intern.getBirthday()!=null) ps.setDate(13,  new java.sql.Date(intern.getBirthday().getTime()));
-            else ps.setDate(13, null);
-            ps.setString(14, intern.getWeekAvailability());
-            ps.setString(15, intern.getIdPUCP());
-            
-            result = ps.executeUpdate();
+//            String sql = "UPDATE Interns SET idType=?,idNumber=?,firstName=?,middleName=?,primaryLastName=?,secondLastName=?,"
+//                    + "gender=?,email=?,cellPhoneNumber=?,emailPUCP=?,address=?,homePhone=?,birthDate=?,weekAvailability=? WHERE idIntern=?";
+//            PreparedStatement ps = con.prepareStatement(sql);
+            CallableStatement cs = con.prepareCall("{call UPDATE_INTERN(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}");
+            cs.setString(1, intern.getIdPUCP());            
+            cs.setString(2, intern.getIdNumber());
+            cs.setInt(3, intern.getIdType());
+            cs.setString(4, intern.getEmailPUCP());
+            if(intern.getBirthday()!=null) cs.setDate(5,  new java.sql.Date(intern.getBirthday().getTime()));
+            else cs.setDate(5, null);
+            cs.setString(6, intern.getFirstName());
+            cs.setString(7, intern.getMiddleName());
+            cs.setString(8, intern.getPrimaryLastName());
+            cs.setString(9, intern.getSecondLastName());
+            cs.setString(10, intern.getGender());
+            cs.setString(11, intern.getEmail());
+            cs.setString(12, intern.getCellPhoneNumber());            
+            cs.setString(13, intern.getAddress());
+            cs.setString(14, intern.getHomePhone());            
+            cs.setString(15, intern.getWeekAvailability());            
+            result = cs.executeUpdate();
             con.close();
         }catch(SQLException ex){
             System.out.println(ex.getMessage());
