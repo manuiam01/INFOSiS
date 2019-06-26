@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using INFOSiS_2._0.Server;
 
 namespace INFOSiS_2._0
 {
@@ -15,6 +16,7 @@ namespace INFOSiS_2._0
         private static WeekAvailability _instance;
         private static Panel _panelMdi;
         private Server.ServerClient server;
+        private static Server.user user;
 
         private int[,] schedule = new int[11,7];
 
@@ -28,11 +30,14 @@ namespace INFOSiS_2._0
             }
         }
 
+
+
         public static Panel PanelMdi
         {
             get => _panelMdi;
             set => _panelMdi = value;
         }
+        public static user User { get => user; set => user = value; }
 
         public WeekAvailability()
         {
@@ -486,11 +491,11 @@ namespace INFOSiS_2._0
                 row = Int32.Parse(rowS) - 8;
                 if (c.BackColor == Color.SteelBlue)
                 {
-                    schedule[row, 0] = 1;
+                    schedule[row, 1] = 1;
                 }
-                else schedule[row, 0] = 0;
+                else schedule[row, 1] = 0;
 
-                c.Text = schedule[row, 0].ToString();
+                c.Text = schedule[row, 1].ToString();
             }
             //MIÉRCOLES
             foreach (Control c in gbWed.Controls)
@@ -499,11 +504,11 @@ namespace INFOSiS_2._0
                 row = Int32.Parse(rowS) - 8;
                 if (c.BackColor == Color.SteelBlue)
                 {
-                    schedule[row, 0] = 1;
+                    schedule[row, 2] = 1;
                 }
-                else schedule[row, 0] = 0;
+                else schedule[row, 2] = 0;
 
-                c.Text = schedule[row, 0].ToString();
+                c.Text = schedule[row, 2].ToString();
             }
             //JUEVES
             foreach (Control c in gbThu.Controls)
@@ -512,11 +517,11 @@ namespace INFOSiS_2._0
                 row = Int32.Parse(rowS) - 8;
                 if (c.BackColor == Color.SteelBlue)
                 {
-                    schedule[row, 0] = 1;
+                    schedule[row, 3] = 1;
                 }
-                else schedule[row, 0] = 0;
+                else schedule[row, 3] = 0;
 
-                c.Text = schedule[row, 0].ToString();
+                c.Text = schedule[row, 3].ToString();
             }
             //VIERNES
             foreach (Control c in gbFri.Controls)
@@ -525,11 +530,11 @@ namespace INFOSiS_2._0
                 row = Int32.Parse(rowS) - 8;
                 if (c.BackColor == Color.SteelBlue)
                 {
-                    schedule[row, 0] = 1;
+                    schedule[row, 4] = 1;
                 }
-                else schedule[row, 0] = 0;
+                else schedule[row, 4] = 0;
 
-                c.Text = schedule[row, 0].ToString();
+                c.Text = schedule[row, 4].ToString();
             }
             //SÁBADO
             foreach (Control c in gbSat.Controls)
@@ -538,11 +543,11 @@ namespace INFOSiS_2._0
                 row = Int32.Parse(rowS) - 8;
                 if (c.BackColor == Color.SteelBlue)
                 {
-                    schedule[row, 0] = 1;
+                    schedule[row, 5] = 1;
                 }
-                else schedule[row, 0] = 0;
+                else schedule[row, 5] = 0;
 
-                c.Text = schedule[row, 0].ToString();
+                c.Text = schedule[row, 5].ToString();
             }
             //DOMINGO
             foreach (Control c in gbSun.Controls)
@@ -551,14 +556,25 @@ namespace INFOSiS_2._0
                 row = Int32.Parse(rowS) - 8;
                 if (c.BackColor == Color.SteelBlue)
                 {
-                    schedule[row, 0] = 1;
+                    schedule[row, 6] = 1;
                 }
-                else schedule[row, 0] = 0;
+                else schedule[row, 6] = 0;
 
-                c.Text = schedule[row, 0].ToString();
+                c.Text = schedule[row, 6].ToString();
             }
 
-            
+            string weekAvailability = "";
+            for(int j = 0; j < 7; j++)
+            {
+                for(int i = 0;i < 11; i++)
+                {
+                    weekAvailability = weekAvailability + schedule[i, j].ToString();
+                }
+            }
+
+            //server.UpdateWeekAvailability(weekAvailability, user.username);
+
+            //label1.Text = user.username;
         }
     }
 }

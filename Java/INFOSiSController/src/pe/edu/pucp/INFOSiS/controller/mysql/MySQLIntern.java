@@ -377,6 +377,9 @@ name="A", age=19*/
             ps.setString(1, weekAvailability);
             ps.setString(2, idIntern);
             
+            System.out.println(weekAvailability);
+            System.out.println(idIntern);
+            
             result = ps.executeUpdate();
             con.close();
         }catch(SQLException ex){

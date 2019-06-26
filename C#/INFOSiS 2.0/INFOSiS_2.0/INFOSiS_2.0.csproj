@@ -607,6 +607,9 @@
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.updateStudentResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.UpdateWeekAvailabilityResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.user.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
