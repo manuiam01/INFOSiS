@@ -79,6 +79,10 @@ public abstract class DBController {
         return daoFactory.getDAOIntern().searchInternByName(firstName, middleName, PrimaryLastName, SecondLastName);
     }
     
+    public static String getWeekAvailability(String idIntern){
+        return daoFactory.getDAOIntern().getWeekAvailability(idIntern);
+    }
+    
     public static int insertIntern(Intern intern, UserType access){
         return daoFactory.getDAOIntern().insert(intern, access);
     }

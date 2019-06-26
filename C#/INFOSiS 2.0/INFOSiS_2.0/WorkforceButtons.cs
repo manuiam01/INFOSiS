@@ -90,17 +90,19 @@ namespace INFOSiS_2._0
         private void btnWeekAvailability_Click(object sender, EventArgs e)
         {
             cleanWindow();
+            WeekAvailability.User = Usuario;
             if (!PanelMdi.Controls.Contains(WeekAvailability.Instance))
             {
                 PanelMdi.Controls.Add(WeekAvailability.Instance);
                 WeekAvailability.Instance.Dock = DockStyle.Fill;
                 WeekAvailability.PanelMdi = PanelMdi;
-                WeekAvailability.User = Usuario;
+                
                 WeekAvailability.Instance.Visible = true;
                 WeekAvailability.Instance.BringToFront();
             }
             else
             {
+                WeekAvailability.User = Usuario;
                 WeekAvailability.Instance.Visible = true;
                 WeekAvailability.Instance.BringToFront();
             }

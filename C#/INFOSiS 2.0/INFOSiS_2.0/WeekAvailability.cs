@@ -17,6 +17,7 @@ namespace INFOSiS_2._0
         private static Panel _panelMdi;
         private Server.ServerClient server;
         private static Server.user user;
+        private string weekAvailability;
 
         private int[,] schedule = new int[11,7];
 
@@ -42,7 +43,34 @@ namespace INFOSiS_2._0
         public WeekAvailability()
         {
             InitializeComponent();
+            server = new Server.ServerClient();
+            SetWeekAvailability();
         }
+
+        public void SetWeekAvailability()
+        {
+            weekAvailability = server.GetWeekAvailability(user.username);
+            label1.Text = weekAvailability;
+
+            if (weekAvailability.Length == 77)
+            {
+                int j = -1;
+                for (int i = 0; i < 77; i++)
+                {
+                    if (i % 11 == 0) j++;
+                    schedule[i - 11 * j, j] = (int)weekAvailability[i] - 48;
+                }
+            }
+            label2.Text = "";
+            for (int j = 0; j < 7; j++)
+            {
+                for (int i = 0; i < 11; i++)
+                {
+                    label2.Text = label2.Text + schedule[i, j].ToString();
+                }
+            }
+        }
+
         //LUNES
         private void btnMon8_Click(object sender, EventArgs e)
         {
@@ -563,7 +591,7 @@ namespace INFOSiS_2._0
                 c.Text = schedule[row, 6].ToString();
             }
 
-            string weekAvailability = "";
+            weekAvailability = "";
             for(int j = 0; j < 7; j++)
             {
                 for(int i = 0;i < 11; i++)
@@ -572,9 +600,9 @@ namespace INFOSiS_2._0
                 }
             }
 
-            //server.UpdateWeekAvailability(weekAvailability, user.username);
+            server.UpdateWeekAvailability(weekAvailability, user.username);
 
-            //label1.Text = user.username;
+            label1.Text = user.username;
         }
     }
 }

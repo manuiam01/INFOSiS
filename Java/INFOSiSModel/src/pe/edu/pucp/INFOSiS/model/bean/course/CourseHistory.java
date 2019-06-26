@@ -33,7 +33,7 @@ public class CourseHistory implements Serializable{
     private ArrayList<Float> amountPaids;
     private ArrayList<Float> historyGrade;
     private ArrayList<String> historyState;
-    private String courseName; 
+    private String courseName;
 
     public int getId() {
         return id;

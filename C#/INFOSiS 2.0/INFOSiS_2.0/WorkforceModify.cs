@@ -317,6 +317,7 @@ namespace INFOSiS_2._0
                 MessageBox.Show("Correo alternativo inválido", "Error en el registro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            intern.idPUCP = txtPUCPCode.Text;
             intern.idNumber = txtDocumentNumber.Text;
             intern.firstName = txtFirstName.Text;
             intern.middleName = txtSecondName.Text;

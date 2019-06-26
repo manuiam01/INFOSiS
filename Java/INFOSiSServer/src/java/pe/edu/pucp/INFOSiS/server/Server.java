@@ -85,6 +85,11 @@ public class Server {
         return DBController.updateWeekAvailability(weekAvailability, idIntern);
     }
     
+    @WebMethod (operationName = "GetWeekAvailability")
+    public String GetWeekAvailability(@WebParam(name = "idIntern") String idIntern){
+        return DBController.getWeekAvailability(idIntern);
+    }
+    
     //INTERESTED
     @WebMethod (operationName= "InsertInterested")
     public int InsertInterested(@WebParam(name="interested")Interested interested){

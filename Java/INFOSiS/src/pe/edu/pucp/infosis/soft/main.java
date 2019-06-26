@@ -42,6 +42,7 @@ public class main {
 //        intern.setBirthday(null);
 //                
 //        System.out.println(internC.update(intern));
-          internC.updateWeekAvailability("20135002", "0011");
+          //internC.updateWeekAvailability("20135002", "0011");
+          System.out.println(internC.getWeekAvailability("20135002"));
     }
 }

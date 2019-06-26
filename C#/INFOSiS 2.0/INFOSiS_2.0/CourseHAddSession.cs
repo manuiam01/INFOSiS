@@ -61,7 +61,10 @@ namespace INFOSiS_2._0
             else {
                 Server.session s = new Server.session();
                 DateTime d = dtpDay.Value.Date.Add(dtpTime.Value.TimeOfDay);
-                s.dateSession = d;
+                //en realida debería ser así como está abajo :v así dijo el profe
+                //DateTime d = dtpDay.Value;
+                //d.Add(dtpTime.Value.TimeOfDay);
+                //s.dateSession = d;
                 s.hours = Int32.Parse(txtHours.Text);
                 s.location = txtLocation.Text;
                 //MessageBox.Show(s.dateSession.ToString(), "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);

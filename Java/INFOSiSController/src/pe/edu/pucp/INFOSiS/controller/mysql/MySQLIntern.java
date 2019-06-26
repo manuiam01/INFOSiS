@@ -377,8 +377,8 @@ name="A", age=19*/
             ps.setString(1, weekAvailability);
             ps.setString(2, idIntern);
             
-            System.out.println(weekAvailability);
-            System.out.println(idIntern);
+            //System.out.println(weekAvailability);
+            //System.out.println(idIntern);
             
             result = ps.executeUpdate();
             con.close();
@@ -386,6 +386,24 @@ name="A", age=19*/
             System.out.println(ex.getMessage());
         }
         return result;
+    }
+
+    @Override
+    public String getWeekAvailability(String idIntern) {
+        String weekAvailability = "";
+        try{
+            DBManager dbManager = DBManager.getdbManager();
+            Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
+            Statement sentence = con.createStatement();
+            String query = "SELECT weekAvailability FROM Interns WHERE idIntern = ";
+            query = query + idIntern;
+            ResultSet rs = sentence.executeQuery(query);
+            if(rs.next()) weekAvailability = rs.getString("weekAvailability");
+            con.close();
+        }catch(SQLException ex){
+            System.out.println(ex.getMessage());
+        }        
+        return weekAvailability;
     }
     
     

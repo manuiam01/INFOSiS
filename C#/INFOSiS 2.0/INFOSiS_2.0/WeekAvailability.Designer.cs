@@ -119,6 +119,7 @@
             this.gbSat = new System.Windows.Forms.GroupBox();
             this.gbSun = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.gbMon.SuspendLayout();
             this.gbTue.SuspendLayout();
             this.gbWed.SuspendLayout();
@@ -1197,10 +1198,22 @@
             this.label1.TabIndex = 272;
             this.label1.Text = "08:00 - 09:00";
             // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(48, 98);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(93, 17);
+            this.label2.TabIndex = 273;
+            this.label2.Text = "08:00 - 09:00";
+            // 
             // WeekAvailability
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.gbSun);
             this.Controls.Add(this.gbSat);
@@ -1329,5 +1342,6 @@
         private System.Windows.Forms.GroupBox gbSat;
         private System.Windows.Forms.GroupBox gbSun;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
