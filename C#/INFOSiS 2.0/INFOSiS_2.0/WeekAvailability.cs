@@ -61,6 +61,7 @@ namespace INFOSiS_2._0
                     schedule[i - 11 * j, j] = (int)weekAvailability[i] - 48;
                 }
             }
+            //PRUEBA
             label2.Text = "";
             for (int j = 0; j < 7; j++)
             {
@@ -69,7 +70,7 @@ namespace INFOSiS_2._0
                     label2.Text = label2.Text + schedule[i, j].ToString();
                 }
             }
-
+            //FIN DE PRUEBA :v
             string rowS;
             int row;
             //LUNES

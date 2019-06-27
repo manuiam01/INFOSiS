@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3cb199c7-6e2a-4569-be89-fe44cf821f65">
 	<property name="ireport.zoom" value="1.9487171000000014"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="116"/>
+	<property name="ireport.y" value="114"/>
 	<parameter name="idIntern" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -12,12 +12,10 @@
 	<parameter name="endDate" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
-	<parameter name="nombre" class="java.lang.String">
-		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
-	</parameter>
 	<queryString>
-		<![CDATA[SELECT DATE_FORMAT(begin, '%d/%m/%Y') As "DÍA", DATE_FORMAT(begin, '%H:%i') As "ENTRADA", DATE_FORMAT(end, '%H:%i') As "SALIDA", FORMAT(TIMESTAMPDIFF(MINUTE,begin,end)/60.0,2) As "CANT. HORAS" FROM InternsXAssistance WHERE idIntern=$P{idIntern} AND begin>=STR_TO_DATE(CONCAT($P{beginDate},' 00:00:00'), '%d/%m/%Y %H:%i:%s') AND end<=STR_TO_DATE(CONCAT($P{endDate}," 23:59:59"), '%d/%m/%Y %H:%i:%s')]]>
+		<![CDATA[SELECT CONCAT(I.primaryLastName," ",I.secondLastName,", ",I.firstName,' ',I.middleName) As "NOMBRE", DATE_FORMAT(A.begin, '%d/%m/%Y') As "DÍA", DATE_FORMAT(A.begin, '%H:%i') As "ENTRADA", DATE_FORMAT(A.end, '%H:%i') As "SALIDA", FORMAT(TIMESTAMPDIFF(MINUTE,A.begin,A.end)/60.0,2) As "CANT. HORAS" FROM InternsXAssistance A, Interns I WHERE A.idIntern=$P{idIntern} AND A.begin>=STR_TO_DATE(CONCAT($P{beginDate},' 00:00:00'), '%d/%m/%Y %H:%i:%s') AND A.end<=STR_TO_DATE(CONCAT($P{endDate}," 23:59:59"), '%d/%m/%Y %H:%i:%s') AND $P{idIntern}=I.idIntern]]>
 	</queryString>
+	<field name="NOMBRE" class="java.lang.String"/>
 	<field name="DÍA" class="java.lang.String"/>
 	<field name="ENTRADA" class="java.lang.String"/>
 	<field name="SALIDA" class="java.lang.String"/>
@@ -85,11 +83,11 @@
 				<textFieldExpression><![CDATA[$P{idIntern}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="100" y="76" width="290" height="32" uuid="36909281-2464-4237-b41d-b12fc5b8fa0b"/>
+				<reportElement x="87" y="76" width="341" height="32" uuid="043a229f-4829-43d3-a1b6-f6830396143d"/>
 				<textElement>
-					<font fontName="Lucida Sans Typewriter" size="18"/>
+					<font size="16"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{nombre}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{NOMBRE}]]></textFieldExpression>
 			</textField>
 		</band>
 	</pageHeader>

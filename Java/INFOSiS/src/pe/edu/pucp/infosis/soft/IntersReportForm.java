@@ -39,11 +39,9 @@ public class IntersReportForm extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         txtIdIntern = new javax.swing.JTextField();
-        txtNameIntern = new javax.swing.JTextField();
         txtBeginDate = new javax.swing.JTextField();
         txtEndDate = new javax.swing.JTextField();
         btnGenerate = new javax.swing.JButton();
@@ -52,15 +50,11 @@ public class IntersReportForm extends javax.swing.JFrame {
 
         jLabel1.setText("ID Intern:");
 
-        jLabel2.setText("Name Intern: ");
-
         jLabel3.setText("Start Date: ");
 
         jLabel4.setText("End Date:");
 
         txtIdIntern.setText("20161317");
-
-        txtNameIntern.setText("Diego Ademir Carreño Ruiz");
 
         txtBeginDate.setText("20/05/2019");
 
@@ -78,34 +72,28 @@ public class IntersReportForm extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnGenerate)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
                             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtIdIntern)
-                            .addComponent(txtNameIntern, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
                             .addComponent(txtBeginDate)
-                            .addComponent(txtEndDate))))
-                .addContainerGap(24, Short.MAX_VALUE))
+                            .addComponent(txtEndDate, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(txtIdIntern, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtNameIntern, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtIdIntern, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -131,7 +119,6 @@ public class IntersReportForm extends javax.swing.JFrame {
             JasperReport reporte = (JasperReport) JRLoader.loadObjectFromFile(".\\src\\pe\\edu\\pucp\\INFOSiS\\reports\\internsReport.jasper");
             HashMap hm = new HashMap();
             hm.put("idIntern",txtIdIntern.getText());
-            hm.put("nombre",txtNameIntern.getText());
             hm.put("beginDate", txtBeginDate.getText());
             hm.put("endDate", txtEndDate.getText());
             JasperPrint impresion = JasperFillManager.fillReport(reporte, hm, con);
@@ -182,12 +169,10 @@ public class IntersReportForm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGenerate;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JTextField txtBeginDate;
     private javax.swing.JTextField txtEndDate;
     private javax.swing.JTextField txtIdIntern;
-    private javax.swing.JTextField txtNameIntern;
     // End of variables declaration//GEN-END:variables
 }

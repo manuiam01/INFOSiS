@@ -216,6 +216,12 @@
     <Compile Include="StudentModify.Designer.cs">
       <DependentUpon>StudentModify.cs</DependentUpon>
     </Compile>
+    <Compile Include="WeekView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WeekView.Designer.cs">
+      <DependentUpon>WeekView.cs</DependentUpon>
+    </Compile>
     <Compile Include="WorkforceAdvancedSearch.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -408,6 +414,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="StudentModify.resx">
       <DependentUpon>StudentModify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WeekView.resx">
+      <DependentUpon>WeekView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WorkforceAdvancedSearch.resx">
       <DependentUpon>WorkforceAdvancedSearch.cs</DependentUpon>
