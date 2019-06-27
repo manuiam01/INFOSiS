@@ -35,6 +35,7 @@
             this.lblPassword = new System.Windows.Forms.Label();
             this.txtUser = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
+            this.lblEye = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -102,10 +103,19 @@
             this.txtPassword.Location = new System.Drawing.Point(68, 338);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.PasswordChar = '*';
+            this.txtPassword.PasswordChar = '●';
             this.txtPassword.Size = new System.Drawing.Size(289, 27);
             this.txtPassword.TabIndex = 5;
             this.txtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPassword_KeyDown);
+            // 
+            // lblEye
+            // 
+            this.lblEye.Image = global::INFOSiS_2._0.Properties.Resources.infosisEye;
+            this.lblEye.Location = new System.Drawing.Point(358, 333);
+            this.lblEye.Name = "lblEye";
+            this.lblEye.Size = new System.Drawing.Size(70, 41);
+            this.lblEye.TabIndex = 6;
+            this.lblEye.Click += new System.EventHandler(this.lblEye_Click);
             // 
             // Login
             // 
@@ -113,6 +123,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(81)))), ((int)(((byte)(165)))));
             this.ClientSize = new System.Drawing.Size(432, 512);
+            this.Controls.Add(this.lblEye);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUser);
             this.Controls.Add(this.lblPassword);
@@ -138,5 +149,6 @@
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.TextBox txtUser;
         private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.Label lblEye;
     }
 }
