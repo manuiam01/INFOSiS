@@ -30,6 +30,11 @@
         {
             this.lblInterestedRegister = new System.Windows.Forms.Label();
             this.dgvProfessors = new System.Windows.Forms.DataGridView();
+            this.idNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PUCPcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.firstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.primaryLastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.secondLastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSelect = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtSecondLastName = new System.Windows.Forms.TextBox();
@@ -40,11 +45,6 @@
             this.lblSecondName = new System.Windows.Forms.Label();
             this.lblPrimaryLastName = new System.Windows.Forms.Label();
             this.lblSecondLastName = new System.Windows.Forms.Label();
-            this.idNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PUCPcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.firstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.primaryLastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.secondLastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProfessors)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,8 +73,49 @@
             this.dgvProfessors.Location = new System.Drawing.Point(25, 265);
             this.dgvProfessors.Name = "dgvProfessors";
             this.dgvProfessors.ReadOnly = true;
+            this.dgvProfessors.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProfessors.Size = new System.Drawing.Size(745, 227);
             this.dgvProfessors.TabIndex = 192;
+            // 
+            // idNumber
+            // 
+            this.idNumber.DataPropertyName = "idNumber";
+            this.idNumber.HeaderText = "N° Documento";
+            this.idNumber.Name = "idNumber";
+            this.idNumber.ReadOnly = true;
+            this.idNumber.Width = 130;
+            // 
+            // PUCPcode
+            // 
+            this.PUCPcode.DataPropertyName = "idPUCP";
+            this.PUCPcode.HeaderText = "Código PUCP ";
+            this.PUCPcode.Name = "PUCPcode";
+            this.PUCPcode.ReadOnly = true;
+            this.PUCPcode.Width = 120;
+            // 
+            // firstName
+            // 
+            this.firstName.DataPropertyName = "firstName";
+            this.firstName.HeaderText = "Nombre";
+            this.firstName.Name = "firstName";
+            this.firstName.ReadOnly = true;
+            this.firstName.Width = 150;
+            // 
+            // primaryLastName
+            // 
+            this.primaryLastName.DataPropertyName = "primaryLastName";
+            this.primaryLastName.HeaderText = "Apellido Paterno";
+            this.primaryLastName.Name = "primaryLastName";
+            this.primaryLastName.ReadOnly = true;
+            this.primaryLastName.Width = 150;
+            // 
+            // secondLastName
+            // 
+            this.secondLastName.DataPropertyName = "secondLastName";
+            this.secondLastName.HeaderText = "Apellido Materno";
+            this.secondLastName.Name = "secondLastName";
+            this.secondLastName.ReadOnly = true;
+            this.secondLastName.Width = 150;
             // 
             // btnSelect
             // 
@@ -183,46 +224,6 @@
             this.lblSecondLastName.Size = new System.Drawing.Size(129, 23);
             this.lblSecondLastName.TabIndex = 185;
             this.lblSecondLastName.Text = "Apellido materno:";
-            // 
-            // idNumber
-            // 
-            this.idNumber.DataPropertyName = "idNumber";
-            this.idNumber.HeaderText = "N° Documento";
-            this.idNumber.Name = "idNumber";
-            this.idNumber.ReadOnly = true;
-            this.idNumber.Width = 130;
-            // 
-            // PUCPcode
-            // 
-            this.PUCPcode.DataPropertyName = "idPUCP";
-            this.PUCPcode.HeaderText = "Código PUCP ";
-            this.PUCPcode.Name = "PUCPcode";
-            this.PUCPcode.ReadOnly = true;
-            this.PUCPcode.Width = 120;
-            // 
-            // firstName
-            // 
-            this.firstName.DataPropertyName = "firstName";
-            this.firstName.HeaderText = "Nombre";
-            this.firstName.Name = "firstName";
-            this.firstName.ReadOnly = true;
-            this.firstName.Width = 150;
-            // 
-            // primaryLastName
-            // 
-            this.primaryLastName.DataPropertyName = "primaryLastName";
-            this.primaryLastName.HeaderText = "Apellido Paterno";
-            this.primaryLastName.Name = "primaryLastName";
-            this.primaryLastName.ReadOnly = true;
-            this.primaryLastName.Width = 150;
-            // 
-            // secondLastName
-            // 
-            this.secondLastName.DataPropertyName = "secondLastName";
-            this.secondLastName.HeaderText = "Apellido Materno";
-            this.secondLastName.Name = "secondLastName";
-            this.secondLastName.ReadOnly = true;
-            this.secondLastName.Width = 150;
             // 
             // ProfessorAdvancedSearch
             // 
