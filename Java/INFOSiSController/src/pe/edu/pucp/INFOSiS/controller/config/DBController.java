@@ -190,6 +190,7 @@ public abstract class DBController {
      public static ArrayList<Student> queryAllStudent(){
          return daoFactory.getStudentDAO().queryAll();
      }
+     
      public static ArrayList<CourseHistory> queryCourseHByIdProfessor(String idProfessor){
          return daoFactory.getCourseHDAO().queryByIdProfessor(idProfessor);
      }
@@ -236,5 +237,9 @@ public abstract class DBController {
      
      public static Coordinator  queryCoordById(String idPucp){
          return daoFactory.getCoordinatorDAO().queryCoordById(idPucp);
+     }
+     
+     public static int updateCoordinator(Coordinator c){
+         return daoFactory.getCoordinatorDAO().update(c);
      }
 }

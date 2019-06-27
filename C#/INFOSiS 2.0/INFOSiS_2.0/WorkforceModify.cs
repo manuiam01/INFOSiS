@@ -344,6 +344,7 @@ namespace INFOSiS_2._0
             {
                 MessageBox.Show("Actualización exitosa", "Actualización efectuada", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 clean();
+                setState(Estado.Inicial);
             }            
             else
             {

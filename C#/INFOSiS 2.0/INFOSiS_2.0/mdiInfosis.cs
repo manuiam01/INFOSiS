@@ -157,6 +157,7 @@ namespace INFOSiS_2._0
                 ProfileEdit.Instance.Dock = DockStyle.Fill;
                 ProfileEdit.PanelMdi = panelMdiInfosis;
                 ProfileEdit.Instance.Visible = true;
+                ProfileEdit.Instance.poner_datos(user);
                 ProfileEdit.Instance.BringToFront();
             }
             else
