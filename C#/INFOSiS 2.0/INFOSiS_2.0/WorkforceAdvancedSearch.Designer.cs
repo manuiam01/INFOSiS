@@ -30,6 +30,10 @@
         {
             this.lblInterestedRegister = new System.Windows.Forms.Label();
             this.dgvInterns = new System.Windows.Forms.DataGridView();
+            this.cNDocu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cApePa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cApeMa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSelect = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtSecondLastName = new System.Windows.Forms.TextBox();
@@ -40,10 +44,6 @@
             this.lblSecondName = new System.Windows.Forms.Label();
             this.lblPrimaryLastName = new System.Windows.Forms.Label();
             this.lblSecondLastName = new System.Windows.Forms.Label();
-            this.cNDocu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cApePa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cApeMa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInterns)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,8 +71,41 @@
             this.dgvInterns.Location = new System.Drawing.Point(39, 273);
             this.dgvInterns.Name = "dgvInterns";
             this.dgvInterns.ReadOnly = true;
+            this.dgvInterns.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvInterns.Size = new System.Drawing.Size(715, 199);
             this.dgvInterns.TabIndex = 192;
+            // 
+            // cNDocu
+            // 
+            this.cNDocu.DataPropertyName = "idNumber";
+            this.cNDocu.HeaderText = "N° Documento";
+            this.cNDocu.Name = "cNDocu";
+            this.cNDocu.ReadOnly = true;
+            this.cNDocu.Width = 120;
+            // 
+            // cNombre
+            // 
+            this.cNombre.DataPropertyName = "firstName";
+            this.cNombre.HeaderText = "Nombre";
+            this.cNombre.Name = "cNombre";
+            this.cNombre.ReadOnly = true;
+            this.cNombre.Width = 180;
+            // 
+            // cApePa
+            // 
+            this.cApePa.DataPropertyName = "primaryLastName";
+            this.cApePa.HeaderText = "Apellido Paterno";
+            this.cApePa.Name = "cApePa";
+            this.cApePa.ReadOnly = true;
+            this.cApePa.Width = 200;
+            // 
+            // cApeMa
+            // 
+            this.cApeMa.DataPropertyName = "secondLastName";
+            this.cApeMa.HeaderText = "Apellido Materno";
+            this.cApeMa.Name = "cApeMa";
+            this.cApeMa.ReadOnly = true;
+            this.cApeMa.Width = 200;
             // 
             // btnSelect
             // 
@@ -182,38 +215,6 @@
             this.lblSecondLastName.TabIndex = 185;
             this.lblSecondLastName.Text = "Apellido materno:";
             // 
-            // cNDocu
-            // 
-            this.cNDocu.DataPropertyName = "idNumber";
-            this.cNDocu.HeaderText = "N° Documento";
-            this.cNDocu.Name = "cNDocu";
-            this.cNDocu.ReadOnly = true;
-            this.cNDocu.Width = 120;
-            // 
-            // cNombre
-            // 
-            this.cNombre.DataPropertyName = "firstName";
-            this.cNombre.HeaderText = "Nombre";
-            this.cNombre.Name = "cNombre";
-            this.cNombre.ReadOnly = true;
-            this.cNombre.Width = 180;
-            // 
-            // cApePa
-            // 
-            this.cApePa.DataPropertyName = "primaryLastName";
-            this.cApePa.HeaderText = "Apellido Paterno";
-            this.cApePa.Name = "cApePa";
-            this.cApePa.ReadOnly = true;
-            this.cApePa.Width = 200;
-            // 
-            // cApeMa
-            // 
-            this.cApeMa.DataPropertyName = "secondLastName";
-            this.cApeMa.HeaderText = "Apellido Materno";
-            this.cApeMa.Name = "cApeMa";
-            this.cApeMa.ReadOnly = true;
-            this.cApeMa.Width = 200;
-            // 
             // WorkforceAdvancedSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -231,7 +232,7 @@
             this.Controls.Add(this.lblSecondName);
             this.Controls.Add(this.lblPrimaryLastName);
             this.Controls.Add(this.lblSecondLastName);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "WorkforceAdvancedSearch";
             this.Text = "InternAdvanceSearch";
             ((System.ComponentModel.ISupportInitialize)(this.dgvInterns)).EndInit();

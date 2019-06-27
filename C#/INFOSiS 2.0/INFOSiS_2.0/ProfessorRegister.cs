@@ -46,6 +46,7 @@ namespace INFOSiS_2._0
             txtSecondName.CharacterCasing = CharacterCasing.Upper;
             txtPrimaryLastName.CharacterCasing = CharacterCasing.Upper;
             txtSecondLastName.CharacterCasing = CharacterCasing.Upper;
+            txtPUCPCode.CharacterCasing = CharacterCasing.Upper;
 
         }
 
