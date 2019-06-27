@@ -41,7 +41,12 @@ namespace INFOSiS_2._0
             servidor = new Server.ServerClient();
             rbDNI.Checked = true;
             txtDocumentNumber.MaxLength = 8;
- 
+            txtDocumentNumber.CharacterCasing = CharacterCasing.Upper;
+            txtFirstName.CharacterCasing = CharacterCasing.Upper;
+            txtSecondName.CharacterCasing = CharacterCasing.Upper;
+            txtPrimaryLastName.CharacterCasing = CharacterCasing.Upper;
+            txtSecondLastName.CharacterCasing = CharacterCasing.Upper;
+
         }
 
         private bool verifyDocumentNumber(String id)
@@ -142,16 +147,45 @@ namespace INFOSiS_2._0
                 }
                 else
                 {
-                    registerProfessor();
+                    DialogResult result = MessageBox.Show("Está seguro de que quiere guardar el registro?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if(result == DialogResult.Yes)
+                        registerProfessor();
                 }
             }        
 
         }
-    
 
+        public int verificarVacio()
+        {
+            int resultado = 1;
+            //falta verificar el dateNacimiento.Value != DateTime.Today ||, pero no sé como hacerlo uwur
+            if (txtSecondName.Text != "" ||
+            txtPrimaryLastName.Text != "" ||
+            txtDocumentNumber.Text != "" ||
+            txtFirstName.Text != "" ||
+            txtSecondLastName.Text != "" ||
+            txtCellphone.Text != "" ||
+            txtEmail.Text != "" ||
+            txtEmailPUCP.Text != "" ||
+            txtPUCPCode.Text != "" 
+            )
+            {
+                resultado = 0;
+            }
+
+            return resultado;
+        }
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            clean();
+            if (verificarVacio()==0)
+            {
+                DialogResult result = MessageBox.Show("Está seguro de cancelar el registro?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    clean();
+                }
+            }
+            
         }
 
         private void clean()
@@ -176,16 +210,19 @@ namespace INFOSiS_2._0
         private void RbDNI_CheckedChanged(object sender, EventArgs e)
         {
             txtDocumentNumber.MaxLength = 8;
+            txtDocumentNumber.Text = "";
         }
 
         private void RbForeignCard_CheckedChanged(object sender, EventArgs e)
         {
             txtDocumentNumber.MaxLength = 12;
+            txtDocumentNumber.Text = "";
         }
 
         private void RbPassport_CheckedChanged(object sender, EventArgs e)
         {
             txtDocumentNumber.MaxLength = 12;
+            txtDocumentNumber.Text = "";
         }
 
         private void TxtDocumentNumber_KeyPress(object sender, KeyPressEventArgs e)

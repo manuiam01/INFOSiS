@@ -223,8 +223,6 @@ namespace INFOSiS_2._0
                             Server.course[] coursesList = new Server.course[tama];
                             coursesList = courses.ToArray<Server.course>();
                             i.courses = coursesList;
-                            //i.courses = courses;
-                            //i.courses = new Server.course[5];
                             servidor.InsertInterested(i);
 
                             MessageBox.Show("Se registró al interesado de manera correcta", "Éxito", MessageBoxButtons.OK, iconoCorrecto);

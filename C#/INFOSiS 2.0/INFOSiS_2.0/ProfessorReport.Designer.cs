@@ -65,7 +65,7 @@
             // 
             this.dtpStartDate.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dtpStartDate.Location = new System.Drawing.Point(208, 217);
-            this.dtpStartDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpStartDate.Margin = new System.Windows.Forms.Padding(4);
             this.dtpStartDate.Name = "dtpStartDate";
             this.dtpStartDate.Size = new System.Drawing.Size(265, 22);
             this.dtpStartDate.TabIndex = 1;
@@ -74,7 +74,7 @@
             // 
             this.dtpEndDate.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dtpEndDate.Location = new System.Drawing.Point(648, 217);
-            this.dtpEndDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpEndDate.Margin = new System.Windows.Forms.Padding(4);
             this.dtpEndDate.Name = "dtpEndDate";
             this.dtpEndDate.Size = new System.Drawing.Size(265, 22);
             this.dtpEndDate.TabIndex = 2;
@@ -120,7 +120,8 @@
             // 
             this.txtPUCPcode.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtPUCPcode.Location = new System.Drawing.Point(431, 96);
-            this.txtPUCPcode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPUCPcode.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPUCPcode.MaxLength = 8;
             this.txtPUCPcode.Multiline = true;
             this.txtPUCPcode.Name = "txtPUCPcode";
             this.txtPUCPcode.Size = new System.Drawing.Size(265, 25);
@@ -135,7 +136,7 @@
             this.btnReport.Font = new System.Drawing.Font("Gill Sans MT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReport.ForeColor = System.Drawing.Color.White;
             this.btnReport.Location = new System.Drawing.Point(281, 615);
-            this.btnReport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnReport.Margin = new System.Windows.Forms.Padding(4);
             this.btnReport.Name = "btnReport";
             this.btnReport.Size = new System.Drawing.Size(208, 46);
             this.btnReport.TabIndex = 176;
@@ -152,7 +153,7 @@
             this.btnSearch.Font = new System.Drawing.Font("Gill Sans MT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.ForeColor = System.Drawing.Color.White;
             this.btnSearch.Location = new System.Drawing.Point(220, 132);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(4);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(208, 46);
             this.btnSearch.TabIndex = 177;
@@ -173,7 +174,7 @@
             this.endDate,
             this.Hours});
             this.dgvCoursesHistory.Location = new System.Drawing.Point(76, 272);
-            this.dgvCoursesHistory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvCoursesHistory.Margin = new System.Windows.Forms.Padding(4);
             this.dgvCoursesHistory.Name = "dgvCoursesHistory";
             this.dgvCoursesHistory.ReadOnly = true;
             this.dgvCoursesHistory.Size = new System.Drawing.Size(937, 268);
@@ -252,7 +253,7 @@
             this.btnCancelar.Font = new System.Drawing.Font("Gill Sans MT", 15F);
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
             this.btnCancelar.Location = new System.Drawing.Point(597, 613);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(197, 48);
             this.btnCancelar.TabIndex = 188;
@@ -277,7 +278,7 @@
             this.Controls.Add(this.dtpEndDate);
             this.Controls.Add(this.dtpStartDate);
             this.Controls.Add(this.lblProfessorReport);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ProfessorReport";
             this.Size = new System.Drawing.Size(1085, 697);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCoursesHistory)).EndInit();
