@@ -20,31 +20,34 @@ namespace INFOSiS_2._0
         public session[] Sessions { get => sessions; set => sessions = value; }
         public BindingList<session> ListSession { get => listSession; set => listSession = value; }
 
-        public CourseHAddSession(Server.session[] sessions)
+        public CourseHAddSession(BindingList<Server.session> sessions)
         {
-            InitializeComponent();
-            table = new DataTable();
-            table.Columns.Add("DateTimeSession", typeof(DateTime));
-            table.Columns.Add("Hours", typeof(int));
-            table.Columns.Add("Location", typeof(String));           
-
+            InitializeComponent();          
+            dgvSessions.AutoGenerateColumns = false;
+            listSession = new BindingList<session>();
             if (sessions != null)
             {
-                ListSession = new BindingList<session>(sessions);             
+                foreach (Server.session s in sessions)
+                    listSession.Add(s);// = sessions;             
             }
-            else {
-                ListSession = new BindingList<session>();
-            }
-            dgvSessions.DataSource = ListSession;
+            dgvSessions.Columns[0].DefaultCellStyle.Format = "MM/dd/yyyy HH:mm:ss";
+            dgvSessions.DataSource = listSession;
+            //int index = 0;
+            //foreach (Server.session session in listSession)
+            //{
+               
+            //    dgvSessions.Rows[index].Cells[0].Value = session.dateSession.ToString();
+            //    MessageBox.Show(session.dateSession.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    index++;
+            //}
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             BindingList<Server.session> listAux = new BindingList<Server.session>(ListSession.OrderBy(x => x.dateSession).ToList());
-            sessions = new Server.session[listAux.Count];
-            listAux.CopyTo(sessions, 0);
-            this.DialogResult = DialogResult.OK;
+            listSession = listAux;
             dgvSessions.DataSource = null;
+            this.DialogResult = DialogResult.OK;
         }
 
         private void btnSearchCourse_Click(object sender, EventArgs e)
@@ -64,27 +67,29 @@ namespace INFOSiS_2._0
                 //en realida debería ser así como está abajo :v así dijo el profe
                 //DateTime d = dtpDay.Value;
                 //d.Add(dtpTime.Value.TimeOfDay);
-                //s.dateSession = d;
+                s.dateSession = d;
                 s.hours = Int32.Parse(txtHours.Text);
                 s.location = txtLocation.Text;
                 //MessageBox.Show(s.dateSession.ToString(), "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                try
-                {
-                    ListSession.Add(s);
-                    dgvSessions.DataSource = ListSession;
-                    int index = 0;
-                    foreach (Server.session session in ListSession)
-                    {
-                        dgvSessions.Rows[index].Cells[0].Value = session.dateSession.ToString();
-                        index++;
-                    }
-                }
-                catch (Exception ex) {
-                    MessageBox.Show("Error desconocido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                
+                //try
+                //{
+                    listSession.Add(s);
+                    dgvSessions.DataSource = listSession;
+                    //int index = 0;
+                    //foreach (Server.session session in listSession)
+                    //{
+                    //    dgvSessions.Rows[index].Cells[0].Value = session.dateSession.ToString();
+                    //    index++;
+                    //}
+                //}
+                //catch (Exception ex)
+                //{
+                //    MessageBox.Show("Error desconocido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //}
+
             }
-            
+
+
         }
 
         private void txtHours_KeyPress(object sender, KeyPressEventArgs e)

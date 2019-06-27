@@ -53,56 +53,59 @@ public class mian {
         c.setProfessor(professor);
         c.setHours(10);
         
-        LocalDateTime d = LocalDateTime.now();  
-        d.withYear(2020);
-        LocalDateTime d2 = LocalDateTime.now();
-        d2.withMonth(6);               
-        ArrayList<Session> sessions = new ArrayList<>();
-        Session s = new Session();
-        s.setDateSession(d);
-        s.setHours(0);
-        s.setLocation("B102");
-        s.setIsActive(true);
-        sessions.add(s);
-        Session s2 = new Session();
-        s2.setDateSession(d2);
-        s2.setHours(10);
-        s2.setLocation("B102");
-        s2.setIsActive(true);
-        sessions.add(s2);
-        c.setSessions(sessions);
-        ArrayList<Student> students = new ArrayList<>();
-        Student stu = new Student();
-        stu.setIdNumber("11111111");
-        students.add(stu);
-        Student stu2 = new Student();
-        stu2.setIdNumber("70707070");
-        students.add(stu2);
-        c.setStudents(students);
-        ArrayList<Float> grades = new ArrayList<>();
-        grades.add(05.00f);
-        grades.add(19.00f);
-        c.setHistoryGrade(grades);
-        ArrayList<String> states = new ArrayList<>();
-        states.add("DESAPROBADO");
-        states.add("APROBADO");
-        c.setHistoryState(states);
-        ArrayList<Float> amountPaids = new ArrayList<>();
-        amountPaids.add(300f);
-        amountPaids.add(600f);
-       
-        c.setAmountPaids(amountPaids);
-        try{
-            File file = new File("T:\\Temp\\archivo3.csv");
-            byte[] survey = Files.readAllBytes(file.toPath());
-            c.setSurvey(survey);
-        }
-        catch(Exception ex){
-            System.out.println(ex.getMessage());
-        }
-   
-        int result = DBController.insertCourseHistory(c);
-        System.out.println(result);
+//        LocalDateTime d = LocalDateTime.now();  
+//        d.withYear(2020);
+//        LocalDateTime d2 = LocalDateTime.now();
+//        d2.withMonth(6);  
+//        Date d = new Date();      
+//        Date d2 = new Date();
+//        d2.setDate(30);       
+//        ArrayList<Session> sessions = new ArrayList<>();
+//        Session s = new Session();
+//        s.setDateSession(d);
+//        s.setHours(0);
+//        s.setLocation("B102");
+//        s.setIsActive(true);
+//        sessions.add(s);
+//        Session s2 = new Session();
+//        s2.setDateSession(d2);
+//        s2.setHours(10);
+//        s2.setLocation("B102");
+//        s2.setIsActive(true);
+//        sessions.add(s2);
+//        c.setSessions(sessions);
+//        ArrayList<Student> students = new ArrayList<>();
+//        Student stu = new Student();
+//        stu.setIdNumber("11111111");
+//        students.add(stu);
+//        Student stu2 = new Student();
+//        stu2.setIdNumber("70707070");
+//        students.add(stu2);
+//        c.setStudents(students);
+//        ArrayList<Float> grades = new ArrayList<>();
+//        grades.add(05.00f);
+//        grades.add(19.00f);
+//        c.setHistoryGrade(grades);
+//        ArrayList<String> states = new ArrayList<>();
+//        states.add("DESAPROBADO");
+//        states.add("APROBADO");
+//        c.setHistoryState(states);
+//        ArrayList<Float> amountPaids = new ArrayList<>();
+//        amountPaids.add(300f);
+//        amountPaids.add(600f);
+//       
+//        c.setAmountPaids(amountPaids);
+//        try{
+//            File file = new File("T:\\Temp\\archivo3.csv");
+//            byte[] survey = Files.readAllBytes(file.toPath());
+//            c.setSurvey(survey);
+//        }
+//        catch(Exception ex){
+//            System.out.println(ex.getMessage());
+//        }
+//   
+//        int result = DBController.insertCourseHistory(c);
+//        System.out.println(result);
         
 //        
            
