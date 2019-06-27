@@ -1191,23 +1191,23 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(48, 81);
+            this.label1.Location = new System.Drawing.Point(287, 81);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(93, 17);
+            this.label1.Size = new System.Drawing.Size(16, 17);
             this.label1.TabIndex = 272;
-            this.label1.Text = "08:00 - 09:00";
+            this.label1.Text = "0";
             // 
             // label2
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(48, 98);
+            this.label2.Location = new System.Drawing.Point(135, 81);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(93, 17);
+            this.label2.Size = new System.Drawing.Size(144, 17);
             this.label2.TabIndex = 273;
-            this.label2.Text = "08:00 - 09:00";
+            this.label2.Text = "Horas seleccionadas:";
             // 
             // WeekAvailability
             // 
