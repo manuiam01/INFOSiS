@@ -253,8 +253,9 @@ public class Server {
     }
     
     @WebMethod(operationName="insertCourseHistory")
-    public int insertCourseHistory(@WebParam(name="CourseHistory") CourseHistory courseHistory){
-        return DBController.insertCourseHistory(courseHistory);
+    public int insertCourseHistory(@WebParam(name="CourseHistory") CourseHistory courseHistory,
+                                   @WebParam(name="dias") ArrayList<Long> dias  ){
+        return DBController.insertCourseHistory(courseHistory, dias);
     }
     
     @WebMethod(operationName="updateCourseHistory")
@@ -276,5 +277,10 @@ public class Server {
     @WebMethod(operationName="updateAssistance")
     public int updateAssistance(@WebParam(name="id") String id){
         return DBController.updateAsisstance(id);
+    }
+    
+    @WebMethod(operationName="queryAllStudent")
+    public ArrayList<Student> queryAllStudent(){
+        return DBController.queryAllStudent();
     }
 }
