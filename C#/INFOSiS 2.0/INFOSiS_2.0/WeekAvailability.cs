@@ -69,6 +69,103 @@ namespace INFOSiS_2._0
                     label2.Text = label2.Text + schedule[i, j].ToString();
                 }
             }
+
+            string rowS;
+            int row;
+            //LUNES
+            foreach (Control c in gbMon.Controls)
+            {
+                if (c is Button)
+                {
+                    rowS = c.Name.Substring(6);
+                    row = Int32.Parse(rowS) - 8;
+                    if (schedule[row, 0] == 1)
+                    {
+                        c.BackColor = Color.SteelBlue;
+                    }
+                    else c.BackColor = Color.Silver;
+
+                    c.Text = schedule[row, 0].ToString();
+                }
+            }
+            //MARTES
+            foreach (Control c in gbTue.Controls)
+            {
+                rowS = c.Name.Substring(6);
+                row = Int32.Parse(rowS) - 8;
+                if (schedule[row, 1] == 1)
+                {
+                    c.BackColor = Color.SteelBlue;
+                }
+                else c.BackColor = Color.Silver;
+
+                c.Text = schedule[row, 1].ToString();
+            }
+            //MIÉRCOLES
+            foreach (Control c in gbWed.Controls)
+            {
+                rowS = c.Name.Substring(6);
+                row = Int32.Parse(rowS) - 8;
+                if (schedule[row, 2] == 1)
+                {
+                    c.BackColor = Color.SteelBlue;
+                }
+                else c.BackColor = Color.Silver;
+
+                c.Text = schedule[row, 2].ToString();
+            }
+            //JUEVES
+            foreach (Control c in gbThu.Controls)
+            {
+                rowS = c.Name.Substring(6);
+                row = Int32.Parse(rowS) - 8;
+                if (schedule[row, 3] == 1)
+                {
+                    c.BackColor = Color.SteelBlue;
+                }
+                else c.BackColor = Color.Silver;
+
+                c.Text = schedule[row, 3].ToString();
+            }
+            //VIERNES
+            foreach (Control c in gbFri.Controls)
+            {
+                rowS = c.Name.Substring(6);
+                row = Int32.Parse(rowS) - 8;
+                if (schedule[row, 4] == 1)
+                {
+                    c.BackColor = Color.SteelBlue;
+                }
+                else c.BackColor = Color.Silver;
+
+                c.Text = schedule[row, 4].ToString();
+            }
+            //SÁBADO
+            foreach (Control c in gbSat.Controls)
+            {
+                rowS = c.Name.Substring(6);
+                row = Int32.Parse(rowS) - 8;
+                if (schedule[row, 5] == 1)
+                {
+                    c.BackColor = Color.SteelBlue;
+                }
+                else c.BackColor = Color.Silver;
+
+                c.Text = schedule[row, 5].ToString();
+            }
+            //DOMINGO
+            foreach (Control c in gbSun.Controls)
+            {
+                rowS = c.Name.Substring(6);
+                row = Int32.Parse(rowS) - 8;
+                if (schedule[row, 6] == 1)
+                {
+                    c.BackColor = Color.SteelBlue;
+                }
+                else c.BackColor = Color.Silver;
+
+                c.Text = schedule[row, 6].ToString();
+            }
         }
 
         //LUNES

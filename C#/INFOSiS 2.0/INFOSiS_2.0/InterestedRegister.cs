@@ -113,8 +113,6 @@ namespace INFOSiS_2._0
             rbCarnet.Checked != false ||
             //rbDNI.Checked != false ||
             rbPasaporte.Checked != false ||
-            rbMale.Checked != false ||
-            rbFemale.Checked != false ||
             dgvInterestedCourses.Rows.Count != 0)
             {
                 resultado = 0;

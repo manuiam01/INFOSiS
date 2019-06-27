@@ -20,13 +20,13 @@ namespace INFOSiS_2._0
         public MdiInfosis()
         {
             InitializeComponent();
-            WindowState = FormWindowState.Maximized;
+            WindowState = FormWindowState.Normal;
             panelMdiOptions.Visible = false;
         }
         public MdiInfosis(Server.user u)
         {
             InitializeComponent();
-            WindowState = FormWindowState.Maximized;
+            WindowState = FormWindowState.Normal;
             panelMdiOptions.Visible = false;
             this.User = u;
             this.Text = this.Text + " " + user.username + " " + user.acces.name;

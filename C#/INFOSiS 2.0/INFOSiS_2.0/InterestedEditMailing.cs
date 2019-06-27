@@ -5,6 +5,8 @@ using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -83,6 +85,7 @@ namespace INFOSiS_2._0
 
         private void BtGuardar_Click(object sender, EventArgs e)
         {
+            bool escorrecto = true;
             if (txtEmail.Text.Equals(""))
                 MessageBox.Show("No ingresó el correo de salida", "Aviso", MessageBoxButtons.OK);
             else if (txtPassword.Text.Equals(""))
@@ -100,21 +103,52 @@ namespace INFOSiS_2._0
 
                 bool isValid  = new EmailAddressAttribute().IsValid(txtEmail.Text);
                 if(!isValid)
-                    MessageBox.Show("El correo ingresado no es válido", "Aviso", MessageBoxButtons.OK);
+                    MessageBox.Show("El correo ingresado no es válido", "Aviso", MessageBoxButtons.OK, iconoWarning);
                 else
                 {
-                    DialogResult result = MessageBox.Show("Está seguro de que quiere realizar estos cambios?", "Aviso", MessageBoxButtons.YesNo, iconoPregunta);
-                    if (result == DialogResult.Yes)
+                    //Esta prueba se hace para ver si es que el correo y la contraseña ingresada son correctas
+                    try
                     {
-                        Subject = txbAsunto.Text;
-                        Password = txtPassword.Text;
-                        Email = txtEmail.Text;
-                        Smtp = txtSmtp.Text;
-                        Port = txtPort.Text;
-                        Message = txbMessage.Text;
-                        Ssl = cbSSL.Checked;
-                        this.DialogResult = DialogResult.OK;
 
+                        SmtpClient clientDetails = new SmtpClient();
+                        clientDetails.Port = Convert.ToInt32(txtPort.Text);
+                        clientDetails.Host = txtSmtp.Text;
+                        clientDetails.EnableSsl = cbSSL.Checked;
+                        clientDetails.DeliveryMethod = SmtpDeliveryMethod.Network;
+                        clientDetails.UseDefaultCredentials = false;
+                        clientDetails.Credentials = new NetworkCredential(txtEmail.Text, txtPassword.Text);
+                        MailMessage mailDetails = new MailMessage();
+                        //mailDetails.From = new MailAddress(email);
+                        mailDetails.From = new MailAddress("somewhere@gmail.com");
+                        mailDetails.To.Add(txtEmail.Text);
+                        if (!fileName.Equals(""))
+                            mailDetails.Attachments.Add(new Attachment(fileName));
+                        //mailDetails.Subject = subject;
+                        mailDetails.Subject = txbAsunto.Text;
+                        mailDetails.IsBodyHtml = cbHTML.Checked;
+                        mailDetails.Body = txbMessage.Text;
+                        clientDetails.Send(mailDetails);
+                    }
+                    catch(Exception ex)
+                    {
+                        MessageBox.Show("El correo/contraseña no es válido", "Aviso", MessageBoxButtons.OK, iconoWarning);
+                        escorrecto = false;
+                    }
+                    if (escorrecto)
+                    {
+                        DialogResult result = MessageBox.Show("Está seguro de que quiere realizar estos cambios?", "Aviso", MessageBoxButtons.YesNo, iconoPregunta);
+                        if (result == DialogResult.Yes)
+                        {
+                            Subject = txbAsunto.Text;
+                            Password = txtPassword.Text;
+                            Email = txtEmail.Text;
+                            Smtp = txtSmtp.Text;
+                            Port = txtPort.Text;
+                            Message = txbMessage.Text;
+                            Ssl = cbSSL.Checked;
+                            this.DialogResult = DialogResult.OK;
+
+                        }
                     }
                 }
                 

@@ -88,9 +88,9 @@
             this.gbxContactData.Controls.Add(this.txtAddress);
             this.gbxContactData.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxContactData.Location = new System.Drawing.Point(442, 128);
-            this.gbxContactData.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbxContactData.Margin = new System.Windows.Forms.Padding(2);
             this.gbxContactData.Name = "gbxContactData";
-            this.gbxContactData.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbxContactData.Padding = new System.Windows.Forms.Padding(2);
             this.gbxContactData.Size = new System.Drawing.Size(355, 256);
             this.gbxContactData.TabIndex = 177;
             this.gbxContactData.TabStop = false;
@@ -115,6 +115,7 @@
             this.txtCellphone.Name = "txtCellphone";
             this.txtCellphone.Size = new System.Drawing.Size(171, 26);
             this.txtCellphone.TabIndex = 146;
+            this.txtCellphone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCellphone_KeyPress);
             // 
             // lblCellphone
             // 
@@ -135,6 +136,7 @@
             this.txtHomephone.Name = "txtHomephone";
             this.txtHomephone.Size = new System.Drawing.Size(171, 26);
             this.txtHomephone.TabIndex = 148;
+            this.txtHomephone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtHomephone_KeyPress);
             // 
             // lblHomephone
             // 
@@ -247,9 +249,9 @@
             this.gbxPersonalData.Controls.Add(this.lblBirthday);
             this.gbxPersonalData.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxPersonalData.Location = new System.Drawing.Point(26, 76);
-            this.gbxPersonalData.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbxPersonalData.Margin = new System.Windows.Forms.Padding(2);
             this.gbxPersonalData.Name = "gbxPersonalData";
-            this.gbxPersonalData.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbxPersonalData.Padding = new System.Windows.Forms.Padding(2);
             this.gbxPersonalData.Size = new System.Drawing.Size(391, 367);
             this.gbxPersonalData.TabIndex = 176;
             this.gbxPersonalData.TabStop = false;
@@ -329,6 +331,7 @@
             this.rbDNI.TabStop = true;
             this.rbDNI.Text = "DNI";
             this.rbDNI.UseVisualStyleBackColor = true;
+            this.rbDNI.CheckedChanged += new System.EventHandler(this.rbDNI_CheckedChanged);
             // 
             // rbForeignCard
             // 
@@ -341,6 +344,7 @@
             this.rbForeignCard.TabStop = true;
             this.rbForeignCard.Text = "Carné de extranjería";
             this.rbForeignCard.UseVisualStyleBackColor = true;
+            this.rbForeignCard.CheckedChanged += new System.EventHandler(this.rbForeignCard_CheckedChanged);
             // 
             // rbPassport
             // 
@@ -353,6 +357,7 @@
             this.rbPassport.TabStop = true;
             this.rbPassport.Text = "Pasaporte";
             this.rbPassport.UseVisualStyleBackColor = true;
+            this.rbPassport.CheckedChanged += new System.EventHandler(this.rbPassport_CheckedChanged);
             // 
             // txtDocumentNumber
             // 
@@ -362,6 +367,7 @@
             this.txtDocumentNumber.Name = "txtDocumentNumber";
             this.txtDocumentNumber.Size = new System.Drawing.Size(206, 26);
             this.txtDocumentNumber.TabIndex = 133;
+            this.txtDocumentNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDocumentNumber_KeyPress);
             // 
             // lblDocumentNumber
             // 
@@ -393,6 +399,7 @@
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(206, 26);
             this.txtFirstName.TabIndex = 136;
+            this.txtFirstName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFirstName_KeyPress);
             // 
             // txtSecondName
             // 
@@ -402,6 +409,7 @@
             this.txtSecondName.Name = "txtSecondName";
             this.txtSecondName.Size = new System.Drawing.Size(206, 26);
             this.txtSecondName.TabIndex = 137;
+            this.txtSecondName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSecondName_KeyPress);
             // 
             // txtPrimaryLastName
             // 
@@ -411,6 +419,7 @@
             this.txtPrimaryLastName.Name = "txtPrimaryLastName";
             this.txtPrimaryLastName.Size = new System.Drawing.Size(206, 26);
             this.txtPrimaryLastName.TabIndex = 138;
+            this.txtPrimaryLastName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrimaryLastName_KeyPress);
             // 
             // txtSecondLastName
             // 
@@ -420,6 +429,7 @@
             this.txtSecondLastName.Name = "txtSecondLastName";
             this.txtSecondLastName.Size = new System.Drawing.Size(206, 26);
             this.txtSecondLastName.TabIndex = 139;
+            this.txtSecondLastName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSecondLastName_KeyPress);
             // 
             // lblSecondName
             // 
@@ -519,7 +529,7 @@
             this.Controls.Add(this.gbxContactData);
             this.Controls.Add(this.lblInternRegister);
             this.Controls.Add(this.gbxPersonalData);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "WorkforceRegister";
             this.Size = new System.Drawing.Size(811, 566);
             this.gbxContactData.ResumeLayout(false);

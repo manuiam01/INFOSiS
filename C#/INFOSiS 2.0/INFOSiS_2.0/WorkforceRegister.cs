@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.ComponentModel.DataAnnotations;
 
 namespace INFOSiS_2._0
 {
@@ -41,15 +42,7 @@ namespace INFOSiS_2._0
             InitializeComponent();
             servidor = new Server.ServerClient();
             rbDNI.Checked = true;
-        }
-
-        public bool verifyDocumentNumber(String id)
-        {
-            for (int i = 0; i < id.Length; i++)
-            {
-                if (!char.IsDigit(id[i])) return false;
-            }
-            return true;
+            txtDocumentNumber.MaxLength= 8;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -61,8 +54,7 @@ namespace INFOSiS_2._0
 
             if (rbDNI.Checked)
             {
-                if (txtDocumentNumber.Text.Count() != 8 ||
-                   (txtDocumentNumber.Text.Count() == 8 && !verifyDocumentNumber(txtDocumentNumber.Text)))
+                if (txtDocumentNumber.Text.Count() != 8)
                 {
                     MessageBox.Show("Número de documento inválido", "Error en el registro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -74,8 +66,7 @@ namespace INFOSiS_2._0
             }
             else if (rbForeignCard.Checked || rbPassport.Checked)
             {
-                if (txtDocumentNumber.Text.Count() != 12 ||
-                   (txtDocumentNumber.Text.Count() == 12 && !verifyDocumentNumber(txtDocumentNumber.Text)))
+                if (txtDocumentNumber.Text.Count() != 12)
                 {
                     MessageBox.Show("Número de documento inválido", "Error en el registro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -86,23 +77,19 @@ namespace INFOSiS_2._0
                     else if (rbPassport.Checked) intern.idType = 2;
                 }
             }
-            else if (!rbDNI.Checked && !rbForeignCard.Checked && !rbPassport.Checked)
-            {
-                MessageBox.Show("Escoge un tipo de documento", "Error en el registro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+
             if (txtPUCPCode.Text.Count() != 8)
             {
                 MessageBox.Show("Código PUCP inválido", "Error en el registro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            if (!txtEmailPUCP.Text.Contains("@") || !txtEmailPUCP.Text.Contains("."))
+            if (!(new EmailAddressAttribute().IsValid(txtEmailPUCP.Text)))
             {
                 MessageBox.Show("Correo PUCP inválido", "Error en el registro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (txtEmail.Text.Count() > 0 && (!txtEmail.Text.Contains("@") || !txtEmail.Text.Contains(".")))
+            if (txtEmail.Text.Count() > 0 && (!(new EmailAddressAttribute().IsValid(txtEmail.Text))))
             {
                 MessageBox.Show("Correo alternativo inválido", "Error en el registro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -163,21 +150,113 @@ namespace INFOSiS_2._0
             txtPUCPCode.Clear();
             txtSecondLastName.Clear();
             txtSecondName.Clear();
-            rbDNI.Checked = false;
+            txtDocumentNumber.MaxLength=8;
+            rbDNI.Checked = true;
             rbForeignCard.Checked = false;
             rbPassport.Checked = false;
             rbMan.Checked = false;
             rbWoman.Checked = false;
         }
+        public int verificarVacio()
+        {
+            int resultado = 1;
+            //falta verificar el dateNacimiento.Value != DateTime.Today ||, pero no sé como hacerlo uwur
+            if (txtSecondName.Text != "" ||
+            txtPrimaryLastName.Text != "" ||
+            txtDocumentNumber.Text != "" ||
+            txtFirstName.Text != "" ||
+            txtSecondLastName.Text != "" ||
+            txtCellphone.Text != "" ||
+            txtEmail.Text != "" ||
+            txtEmailPUCP.Text != "" ||
+            txtHomephone.Text != "" ||
+            txtPUCPCode.Text!= "" ||
+            txtAddress.Text!= ""
+            )
+            {
+                resultado = 0;
+            }
 
+            return resultado;
+        }
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            clean();
+            if (verificarVacio() == 0)
+            {
+                DialogResult result = MessageBox.Show("Está seguro de salir sin guardar los cambios?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    clean();
+                }
+            }
         }
 
         private void dtpBirthday_ValueChanged(object sender, EventArgs e)
         {
             birthdaySelected = true;
+        }
+
+        private void txtFirstName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+        }
+
+        private void txtSecondName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+        }
+
+        private void txtPrimaryLastName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+        }
+
+        private void txtSecondLastName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+        }
+
+        private void txtDocumentNumber_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(rbDNI.Checked==true)
+                if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+                {
+                    e.Handled = true;
+                }
+        }
+
+        private void txtCellphone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtHomephone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void rbDNI_CheckedChanged(object sender, EventArgs e)
+        {
+            txtDocumentNumber.Text = "";
+            txtDocumentNumber.MaxLength=8;
+        }
+
+        private void rbForeignCard_CheckedChanged(object sender, EventArgs e)
+        {
+            txtDocumentNumber.Text = "";
+            txtDocumentNumber.MaxLength=12;
+        }
+
+        private void rbPassport_CheckedChanged(object sender, EventArgs e)
+        {
+            txtDocumentNumber.Text = "";
+            txtDocumentNumber.MaxLength = 12; 
         }
     }
 }
