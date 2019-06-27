@@ -39,12 +39,18 @@
             this.lblInfosis = new System.Windows.Forms.Label();
             this.panelMdiOptions = new System.Windows.Forms.Panel();
             this.panelMdiInfosis = new System.Windows.Forms.Panel();
+            this.lblWellcome = new System.Windows.Forms.Label();
+            this.lblName = new System.Windows.Forms.Label();
+            this.lblRol = new System.Windows.Forms.Label();
             this.panelHeader.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelHeader
             // 
             this.panelHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(81)))), ((int)(((byte)(165)))));
+            this.panelHeader.Controls.Add(this.lblRol);
+            this.panelHeader.Controls.Add(this.lblName);
+            this.panelHeader.Controls.Add(this.lblWellcome);
             this.panelHeader.Controls.Add(this.btnStudent);
             this.panelHeader.Controls.Add(this.btnProfessor);
             this.panelHeader.Controls.Add(this.btnInterested);
@@ -152,11 +158,11 @@
             // lblInfosis
             // 
             this.lblInfosis.AutoSize = true;
-            this.lblInfosis.Font = new System.Drawing.Font("Gill Sans MT", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInfosis.Font = new System.Drawing.Font("Gill Sans MT", 49.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInfosis.ForeColor = System.Drawing.Color.White;
             this.lblInfosis.Location = new System.Drawing.Point(12, 9);
             this.lblInfosis.Name = "lblInfosis";
-            this.lblInfosis.Size = new System.Drawing.Size(338, 115);
+            this.lblInfosis.Size = new System.Drawing.Size(398, 115);
             this.lblInfosis.TabIndex = 0;
             this.lblInfosis.Text = "INFOSiS";
             // 
@@ -178,6 +184,39 @@
             this.panelMdiInfosis.Name = "panelMdiInfosis";
             this.panelMdiInfosis.Size = new System.Drawing.Size(1316, 911);
             this.panelMdiInfosis.TabIndex = 93;
+            // 
+            // lblWellcome
+            // 
+            this.lblWellcome.AutoSize = true;
+            this.lblWellcome.Font = new System.Drawing.Font("Gill Sans MT", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWellcome.ForeColor = System.Drawing.Color.White;
+            this.lblWellcome.Location = new System.Drawing.Point(416, 9);
+            this.lblWellcome.Name = "lblWellcome";
+            this.lblWellcome.Size = new System.Drawing.Size(184, 42);
+            this.lblWellcome.TabIndex = 7;
+            this.lblWellcome.Text = "<Bienvenida>";
+            // 
+            // lblName
+            // 
+            this.lblName.AutoSize = true;
+            this.lblName.Font = new System.Drawing.Font("Gill Sans MT", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblName.ForeColor = System.Drawing.Color.White;
+            this.lblName.Location = new System.Drawing.Point(416, 51);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(161, 39);
+            this.lblName.TabIndex = 8;
+            this.lblName.Text = "<Nombre>";
+            // 
+            // lblRol
+            // 
+            this.lblRol.AutoSize = true;
+            this.lblRol.Font = new System.Drawing.Font("Gill Sans MT", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRol.ForeColor = System.Drawing.Color.White;
+            this.lblRol.Location = new System.Drawing.Point(417, 90);
+            this.lblRol.Name = "lblRol";
+            this.lblRol.Size = new System.Drawing.Size(166, 34);
+            this.lblRol.TabIndex = 9;
+            this.lblRol.Text = "<Rol de canela>";
             // 
             // MdiInfosis
             // 
@@ -212,5 +251,8 @@
         private System.Windows.Forms.Button btnProfile;
         private System.Windows.Forms.Panel panelMdiOptions;
         private System.Windows.Forms.Panel panelMdiInfosis;
+        private System.Windows.Forms.Label lblRol;
+        private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Label lblWellcome;
     }
 }

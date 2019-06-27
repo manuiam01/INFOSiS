@@ -14,7 +14,7 @@ namespace INFOSiS_2._0
     public partial class MdiInfosis : Form
     {
         private Server.user user;
-
+        private Server.ServerClient server = new Server.ServerClient();
         public user User { get => user; set => user = value; }
 
         public MdiInfosis()
@@ -29,7 +29,56 @@ namespace INFOSiS_2._0
             WindowState = FormWindowState.Normal;
             panelMdiOptions.Visible = false;
             this.User = u;
-            this.Text = this.Text + " " + user.username + " " + user.acces.name;
+            switch (u.acces.id)
+            {
+                case 0:
+                    //Usuario
+                    Server.intern c0 = server.SearchInternByIdPUCP(u.username);
+                    switch (c0.gender)
+                    {
+                        case "M":
+                            lblWellcome.Text = "Bienvenido,";
+                            break;
+                        case "F":
+                            lblWellcome.Text = "Bienvenida,";
+                            break;
+                    }
+                    lblName.Text = c0.firstName + " " + c0.primaryLastName;
+                    lblRol.Text = "Practicante";
+                    break;
+                case 1:
+                    //Administrador
+                    Server.intern c1 = server.SearchInternByIdPUCP(u.username);
+                    switch (c1.gender)
+                    {
+                        case "M":
+                            lblWellcome.Text = "Bienvenido,";
+                            lblRol.Text = "Administrador";
+                            break;
+                        case "F":
+                            lblWellcome.Text = "Bienvenida,";
+                            lblRol.Text = "Administradora";
+                            break;
+                    }
+                    lblName.Text = c1.firstName + " " + c1.primaryLastName;
+                    break;
+                case 2:
+                    //Coordinador
+                    Server.coordinator c2 = server.queryCoordByID(u.username);
+                    switch (c2.gender)
+                    {
+                        case "M":
+                            lblWellcome.Text = "Bienvenido,";
+                            lblRol.Text = "Coordinador";
+                            break;
+                        case "F":
+                            lblWellcome.Text = "Bienvenida,";
+                            lblRol.Text = "Coordinadora";
+                            break;
+                    }
+                    lblName.Text = c2.firstName + " " + c2.primaryLastName;
+                    break;
+            }
         }
 
         public void cleanWindow()
