@@ -36,6 +36,8 @@
             this.txtOldPassword = new System.Windows.Forms.TextBox();
             this.txtRepeatPassword = new System.Windows.Forms.TextBox();
             this.txtNewPassword = new System.Windows.Forms.TextBox();
+            this.lblNombre = new System.Windows.Forms.Label();
+            this.lblRol = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnChangePassword
@@ -46,21 +48,22 @@
             this.btnChangePassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChangePassword.Font = new System.Drawing.Font("Gill Sans MT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChangePassword.ForeColor = System.Drawing.Color.White;
-            this.btnChangePassword.Location = new System.Drawing.Point(327, 337);
+            this.btnChangePassword.Location = new System.Drawing.Point(331, 346);
+            this.btnChangePassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnChangePassword.Name = "btnChangePassword";
-            this.btnChangePassword.Size = new System.Drawing.Size(156, 37);
+            this.btnChangePassword.Size = new System.Drawing.Size(208, 46);
             this.btnChangePassword.TabIndex = 177;
             this.btnChangePassword.Text = "Cambiar";
             this.btnChangePassword.UseVisualStyleBackColor = false;
+            this.btnChangePassword.Click += new System.EventHandler(this.btnChangePassword_Click);
             // 
             // lblChangePassword
             // 
             this.lblChangePassword.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblChangePassword.Font = new System.Drawing.Font("Gill Sans MT", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblChangePassword.Location = new System.Drawing.Point(20, 22);
-            this.lblChangePassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblChangePassword.Location = new System.Drawing.Point(20, 12);
             this.lblChangePassword.Name = "lblChangePassword";
-            this.lblChangePassword.Size = new System.Drawing.Size(308, 42);
+            this.lblChangePassword.Size = new System.Drawing.Size(411, 52);
             this.lblChangePassword.TabIndex = 176;
             this.lblChangePassword.Text = "Cambiar contraseña";
             // 
@@ -69,9 +72,10 @@
             this.lblOldPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblOldPassword.AutoSize = true;
             this.lblOldPassword.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOldPassword.Location = new System.Drawing.Point(170, 132);
+            this.lblOldPassword.Location = new System.Drawing.Point(54, 182);
+            this.lblOldPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblOldPassword.Name = "lblOldPassword";
-            this.lblOldPassword.Size = new System.Drawing.Size(131, 23);
+            this.lblOldPassword.Size = new System.Drawing.Size(167, 29);
             this.lblOldPassword.TabIndex = 178;
             this.lblOldPassword.Text = "Contraseña actual:";
             // 
@@ -80,9 +84,10 @@
             this.lblNewPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblNewPassword.AutoSize = true;
             this.lblNewPassword.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNewPassword.Location = new System.Drawing.Point(169, 183);
+            this.lblNewPassword.Location = new System.Drawing.Point(53, 230);
+            this.lblNewPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNewPassword.Name = "lblNewPassword";
-            this.lblNewPassword.Size = new System.Drawing.Size(132, 23);
+            this.lblNewPassword.Size = new System.Drawing.Size(168, 29);
             this.lblNewPassword.TabIndex = 179;
             this.lblNewPassword.Text = "Nueva contraseña:";
             // 
@@ -91,43 +96,73 @@
             this.lblRepeatPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblRepeatPassword.AutoSize = true;
             this.lblRepeatPassword.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRepeatPassword.Location = new System.Drawing.Point(163, 234);
+            this.lblRepeatPassword.Location = new System.Drawing.Point(23, 278);
+            this.lblRepeatPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblRepeatPassword.Name = "lblRepeatPassword";
-            this.lblRepeatPassword.Size = new System.Drawing.Size(138, 23);
+            this.lblRepeatPassword.Size = new System.Drawing.Size(198, 29);
             this.lblRepeatPassword.TabIndex = 180;
-            this.lblRepeatPassword.Text = "Repetir contraseña:";
+            this.lblRepeatPassword.Text = "Confirmar contraseña:";
             // 
             // txtOldPassword
             // 
             this.txtOldPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtOldPassword.Location = new System.Drawing.Point(352, 132);
-            this.txtOldPassword.Multiline = true;
+            this.txtOldPassword.Location = new System.Drawing.Point(244, 188);
+            this.txtOldPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtOldPassword.Name = "txtOldPassword";
-            this.txtOldPassword.Size = new System.Drawing.Size(222, 26);
+            this.txtOldPassword.PasswordChar = '*';
+            this.txtOldPassword.Size = new System.Drawing.Size(295, 22);
             this.txtOldPassword.TabIndex = 181;
             // 
             // txtRepeatPassword
             // 
             this.txtRepeatPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtRepeatPassword.Location = new System.Drawing.Point(352, 238);
-            this.txtRepeatPassword.Multiline = true;
+            this.txtRepeatPassword.Location = new System.Drawing.Point(244, 284);
+            this.txtRepeatPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtRepeatPassword.Name = "txtRepeatPassword";
-            this.txtRepeatPassword.Size = new System.Drawing.Size(222, 26);
+            this.txtRepeatPassword.PasswordChar = '*';
+            this.txtRepeatPassword.Size = new System.Drawing.Size(295, 22);
             this.txtRepeatPassword.TabIndex = 182;
             // 
             // txtNewPassword
             // 
             this.txtNewPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtNewPassword.Location = new System.Drawing.Point(352, 186);
-            this.txtNewPassword.Multiline = true;
+            this.txtNewPassword.Location = new System.Drawing.Point(244, 236);
+            this.txtNewPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtNewPassword.Name = "txtNewPassword";
-            this.txtNewPassword.Size = new System.Drawing.Size(222, 26);
+            this.txtNewPassword.PasswordChar = '*';
+            this.txtNewPassword.Size = new System.Drawing.Size(295, 22);
             this.txtNewPassword.TabIndex = 183;
+            // 
+            // lblNombre
+            // 
+            this.lblNombre.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombre.Location = new System.Drawing.Point(42, 84);
+            this.lblNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(107, 29);
+            this.lblNombre.TabIndex = 184;
+            this.lblNombre.Text = "<Nombre>";
+            // 
+            // lblRol
+            // 
+            this.lblRol.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblRol.AutoSize = true;
+            this.lblRol.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRol.Location = new System.Drawing.Point(42, 113);
+            this.lblRol.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblRol.Name = "lblRol";
+            this.lblRol.Size = new System.Drawing.Size(61, 29);
+            this.lblRol.TabIndex = 185;
+            this.lblRol.Text = "<Rol>";
             // 
             // ProfileChangePassword
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lblRol);
+            this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.txtNewPassword);
             this.Controls.Add(this.txtRepeatPassword);
             this.Controls.Add(this.txtOldPassword);
@@ -136,8 +171,9 @@
             this.Controls.Add(this.lblOldPassword);
             this.Controls.Add(this.btnChangePassword);
             this.Controls.Add(this.lblChangePassword);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ProfileChangePassword";
-            this.Size = new System.Drawing.Size(824, 566);
+            this.Size = new System.Drawing.Size(580, 437);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -153,5 +189,7 @@
         private System.Windows.Forms.TextBox txtOldPassword;
         private System.Windows.Forms.TextBox txtRepeatPassword;
         private System.Windows.Forms.TextBox txtNewPassword;
+        private System.Windows.Forms.Label lblNombre;
+        private System.Windows.Forms.Label lblRol;
     }
 }

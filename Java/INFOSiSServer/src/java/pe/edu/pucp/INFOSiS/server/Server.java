@@ -13,6 +13,7 @@ import javax.jws.WebParam;
 import pe.edu.pucp.INFOSiS.controller.config.DBController;
 import pe.edu.pucp.INFOSiS.controller.mysql.MySQLProfessor;
 import pe.edu.pucp.INFOSiS.controller.mysql.MySQLUser;
+import pe.edu.pucp.INFOSiS.model.bean.HR.Coordinator;
 import pe.edu.pucp.INFOSiS.model.bean.course.Course;
 import pe.edu.pucp.INFOSiS.model.bean.interested.Interested;
 import pe.edu.pucp.INFOSiS.model.bean.professor.Professor;
@@ -253,8 +254,9 @@ public class Server {
     }
     
     @WebMethod(operationName="insertCourseHistory")
-    public int insertCourseHistory(@WebParam(name="CourseHistory") CourseHistory courseHistory){
-        return DBController.insertCourseHistory(courseHistory);
+    public int insertCourseHistory(@WebParam(name="CourseHistory") CourseHistory courseHistory,
+                                   @WebParam(name="dias") ArrayList<Long> dias  ){
+        return DBController.insertCourseHistory(courseHistory, dias);
     }
     
     @WebMethod(operationName="updateCourseHistory")
@@ -276,5 +278,19 @@ public class Server {
     @WebMethod(operationName="updateAssistance")
     public int updateAssistance(@WebParam(name="id") String id){
         return DBController.updateAsisstance(id);
+    }
+    
+    public int updateUser(@WebParam(name="user") User u){
+        return DBController.updateUser(u);
+    }
+    
+    @WebMethod(operationName="queryCoordByID")
+    public Coordinator queryCoordById(@WebParam(name="idPucp") String id){
+        return DBController.queryCoordById(id);
+    }
+    
+    @WebMethod(operationName="queryAllStudent")
+    public ArrayList<Student> queryAllStudent(){
+        return DBController.queryAllStudent();
     }
 }

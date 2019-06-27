@@ -90,6 +90,12 @@
     <Compile Include="CourseHAddSession.Designer.cs">
       <DependentUpon>CourseHAddSession.cs</DependentUpon>
     </Compile>
+    <Compile Include="CourseHAddStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CourseHAddStudent.Designer.cs">
+      <DependentUpon>CourseHAddStudent.cs</DependentUpon>
+    </Compile>
     <Compile Include="CourseHistoryRegister.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -209,6 +215,12 @@
     </Compile>
     <Compile Include="StudentModify.Designer.cs">
       <DependentUpon>StudentModify.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WeekView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WeekView.Designer.cs">
+      <DependentUpon>WeekView.cs</DependentUpon>
     </Compile>
     <Compile Include="WorkforceAdvancedSearch.cs">
       <SubType>Form</SubType>
@@ -340,6 +352,9 @@
     <EmbeddedResource Include="CourseHAddSession.resx">
       <DependentUpon>CourseHAddSession.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CourseHAddStudent.resx">
+      <DependentUpon>CourseHAddStudent.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CourseHistoryRegister.resx">
       <DependentUpon>CourseHistoryRegister.cs</DependentUpon>
     </EmbeddedResource>
@@ -399,6 +414,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="StudentModify.resx">
       <DependentUpon>StudentModify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WeekView.resx">
+      <DependentUpon>WeekView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WorkforceAdvancedSearch.resx">
       <DependentUpon>WorkforceAdvancedSearch.cs</DependentUpon>
@@ -460,6 +478,12 @@
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.calendarSession.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+<<<<<<< HEAD
+=======
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.coordinator.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+>>>>>>> effc95cf521bcb7f54c7c26bd975150952c08526
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.course.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -544,6 +568,18 @@
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.QueryAllUsersResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+<<<<<<< HEAD
+=======
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.queryCoordByIDResponse.datasource">
+		<DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.queryAllStudentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.QueryAllUsersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+>>>>>>> effc95cf521bcb7f54c7c26bd975150952c08526
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.queryCourseByIdResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -619,6 +655,12 @@
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.updateStudentResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+<<<<<<< HEAD
+=======
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.updateUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+>>>>>>> effc95cf521bcb7f54c7c26bd975150952c08526
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.UpdateWeekAvailabilityResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

@@ -85,41 +85,43 @@ public class MySQLStudent implements DAOStudent{
         try{
             /*POR ACTUALIZAR*/
             DBManager dbManager = DBManager.getdbManager();
-            Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
-            Statement sentence = con.createStatement();
-            String query = "SELECT * FROM Users";
-            ResultSet rs = sentence.executeQuery(query);
+            Connection con = DriverManager.getConnection(dbManager.getUrl(), 
+                    dbManager.getUser(), dbManager.getPassword());
+            Statement st = con.createStatement();
+            String query = "SELECT S.idStudent, I.idNumberType, I.firstName, "
+                    + "I.middleName, I.primaryLastName, I.secondLastName, "
+                    + "I.gender, I.cellPhoneNumber, I.email, I.regDate, S.address, "
+                    + "S.birthday, S.homePhone "
+                    + "FROM Student S, Interested I "
+                    + "WHERE S.idStudent=I.IdNumber ";
+                    
+            ResultSet rs = st.executeQuery(query);
             while(rs.next()){
-                Student student = new Student();
-                
-                String id = rs.getString("idStudent");
-                int idType = rs.getInt("idType");
-                String firstName = rs.getString("firstName");
-                String middleName = rs.getString("middleName");
-                String primaryLastName = rs.getString("primaryLastName");
-                String secondLastName = rs.getString("secondLastName");
-                String gender = rs.getString("gender");
-                String emailPUCP = rs.getString("emailPUCP");
-                String cellPhoneNumber = rs.getString("cellPhoneNumber");
-                String homePhone = rs.getString("homePhone");
-                Date birthday = rs.getDate("birthday");
-                String address = rs.getString("address");
-                String email = rs.getString("email");
-                                
-                student.setIdNumber(id);
-                student.setIdType(idType);
-                student.setFirstName(firstName);
-                student.setPrimaryLastName(primaryLastName);
-                student.setMiddleName(middleName);
-                student.setSecondLastName(secondLastName);
-                student.setGender(gender);
-                student.setEmailPUCP(emailPUCP);
-                student.setCellPhoneNumber(cellPhoneNumber);
-                student.setHomePhone(homePhone);
-                student.setBirthDate(birthday);
-                student.setAddress(address);
-                student.setEmail(email);
-                students.add(student);
+                Student s = new Student();
+                s.setIdNumber(rs.getString("idStudent"));
+                s.setIdType(rs.getInt("idNumberType"));
+                s.setFirstName(rs.getString("firstName"));
+                s.setMiddleName(rs.getString("middleName"));
+                s.setPrimaryLastName(rs.getString("primaryLastName"));
+                s.setSecondLastName(rs.getString("secondLastName"));
+                s.setGender(rs.getString("gender"));
+                s.setCellPhoneNumber(rs.getString("cellPhoneNumber"));
+                s.setEmail(rs.getString("email"));
+                s.setRegDate(rs.getDate("regDate"));
+                s.setAddress(rs.getString("address"));
+                s.setBirthDate(rs.getDate("birthday"));
+                s.setHomePhone(rs.getString("homePhone"));
+                ArrayList<String> idPucp = new ArrayList<>();
+                String queryIdPUCP= "SELECT codPucp "
+                        + "FROM StudentxIds "
+                        + "WHERE idStudent='"+s.getIdNumber()+"'";
+                Statement stID = con.createStatement();
+                ResultSet rsID = stID.executeQuery(queryIdPUCP);
+                while(rsID.next()){
+                    idPucp.add(rsID.getString("codPucp"));
+                }
+                s.setIdPUCPList(idPucp);  
+                students.add(s);
             }
             con.close();
         }catch(SQLException ex){

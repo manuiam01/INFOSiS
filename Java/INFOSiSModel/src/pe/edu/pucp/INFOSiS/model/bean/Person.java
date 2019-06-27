@@ -20,6 +20,7 @@ public class Person implements Serializable {
     private String middleName;
     private String primaryLastName;
     private String secondLastName;
+    private String completeName;
     private String gender;
     private String email;
     private String cellPhoneNumber;
@@ -36,6 +37,7 @@ public class Person implements Serializable {
         this.middleName = middleName;
         this.primaryLastName = primaryLastName;
         this.secondLastName = secondLastName;
+        this.completeName = this.firstName + " " + this.middleName + " " + this.primaryLastName + " " + this.secondLastName;
         this.gender = gender;
         this.email = email;
         this.cellPhoneNumber = cellPhoneNumber;
@@ -121,5 +123,12 @@ public class Person implements Serializable {
     public void setBirthday(Date birthday) {
         this.birthday = birthday;
     }
-
+    
+    public String getCompleteName(){
+        return firstName + middleName + primaryLastName + secondLastName;
+    }
+    
+    public void setCompleteName(){
+        this.completeName = this.firstName + " " + this.middleName + " " + this.primaryLastName + " " + this.secondLastName;
+    }
 }

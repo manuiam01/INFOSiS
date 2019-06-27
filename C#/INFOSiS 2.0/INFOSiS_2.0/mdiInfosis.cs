@@ -170,10 +170,7 @@ namespace INFOSiS_2._0
                 panelMdiOptions.Controls.Add(ProfileButtons.Instance);
                 ProfileButtons.Instance.Dock = DockStyle.Fill;
                 ProfileButtons.PanelMdi = panelMdiInfosis;
-                if (user.acces.id != 2)
-                {
-                    ProfileButtons.Instance.verificar_usuario(user);
-                }
+                ProfileButtons.Instance.verificar_usuario(user);
                 ProfileButtons.Instance.Visible = true;
                 ProfileButtons.Instance.BringToFront();
             }
@@ -221,11 +218,12 @@ namespace INFOSiS_2._0
         {
             cleanWindow();
             panelMdiOptions.Visible = true;
+            WorkforceButtons.Usuario = user;
             if (!panelMdiInfosis.Controls.Contains(WorkforceRegister.Instance))
             {
                 panelMdiInfosis.Controls.Add(WorkforceRegister.Instance);
                 WorkforceRegister.Instance.Dock = DockStyle.Fill;
-                WorkforceRegister.PanelMdi = panelMdiInfosis;
+                WorkforceRegister.PanelMdi = panelMdiInfosis;                
                 WorkforceRegister.Instance.Visible = true;
                 WorkforceRegister.Instance.BringToFront();
             }

@@ -7,6 +7,7 @@ package pe.edu.pucp.INFOSiS.controller.config;
 
 import java.util.Date;
 import java.util.ArrayList;
+import pe.edu.pucp.INFOSiS.model.bean.HR.Coordinator;
 
 
 import pe.edu.pucp.INFOSiS.model.bean.HR.Intern;
@@ -169,8 +170,8 @@ public abstract class DBController {
          return daoFactory.getStudentDAO().insertStudent(s, birthday);
      }
      
-     public static int insertCourseHistory(CourseHistory courseHistory){
-         return daoFactory.getCourseHDAO().insert(courseHistory);
+     public static int insertCourseHistory(CourseHistory courseHistory, ArrayList<Long> dias){
+         return daoFactory.getCourseHDAO().insert(courseHistory, dias);
      }
      
      public static int updateCourseHistory(CourseHistory courseHistory){
@@ -184,6 +185,10 @@ public abstract class DBController {
      public static Student queryStudentByID(String idStudent){
          return daoFactory.getStudentDAO().queryStudentById(idStudent);
 
+     }
+     
+     public static ArrayList<Student> queryAllStudent(){
+         return daoFactory.getStudentDAO().queryAll();
      }
      public static ArrayList<CourseHistory> queryCourseHByIdProfessor(String idProfessor){
          return daoFactory.getCourseHDAO().queryByIdProfessor(idProfessor);
@@ -223,5 +228,13 @@ public abstract class DBController {
      
      public static int insertAssistance(String idPucp){
          return daoFactory.getDAOIntern().insertAssistance(idPucp);
+     }
+     
+     public static int updateUser(User u){
+         return daoFactory.getUserDAO().update(u);
+     }
+     
+     public static Coordinator  queryCoordById(String idPucp){
+         return daoFactory.getCoordinatorDAO().queryCoordById(idPucp);
      }
 }
