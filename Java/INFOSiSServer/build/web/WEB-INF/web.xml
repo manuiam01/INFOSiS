@@ -9,9 +9,17 @@
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
+    <servlet>
+        <servlet-name>CourseHistoryReport</servlet-name>
+        <servlet-class>pe.edu.pucp.INFOSiS.servlets.CourseHistoryReport</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>/faces/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CourseHistoryReport</servlet-name>
+        <url-pattern>/CourseHistoryReport</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
