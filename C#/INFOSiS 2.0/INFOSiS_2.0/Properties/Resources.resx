@@ -118,6 +118,12 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="calendarinfosis" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\calendarinfosis.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Libro_infosis" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Libro_infosis.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="perfil4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\perfil4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -139,8 +145,11 @@
   <data name="perfil" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\perfil.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="estudiante21" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\estudiante21.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Libro_infosis2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Libro_infosis2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="profesor3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\profesor3.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="personal21" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\personal21.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -157,14 +166,14 @@
   <data name="estudiante1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\estudiante1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="infosisProfesor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\infosisProfesor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="profesor7" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\profesor7.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="cursos" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cursos.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="estudiante" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\estudiante.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="profesor" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\profesor.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -172,11 +181,11 @@
   <data name="profesor6" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\profesor6.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="personal1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\personal1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="perfil3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\perfil3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="personal3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\personal3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="estudiante11" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\estudiante11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -184,11 +193,20 @@
   <data name="profesor51" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\profesor51.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="profesor3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\profesor3.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="infosisclock" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\infosisclock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="estudiante" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\estudiante.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="estudiante22" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\estudiante22.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="infosislocation" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\infosislocation.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="estudiante21" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\estudiante21.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="profesor2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\profesor2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -199,13 +217,16 @@
   <data name="personal31" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\personal31.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="personal3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\personal3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="perfil5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\perfil5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="personal1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\personal1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="personal" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\personal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="perfil5" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\perfil5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="infosisEye" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\infosisEye.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

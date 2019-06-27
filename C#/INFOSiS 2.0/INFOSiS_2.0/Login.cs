@@ -13,6 +13,7 @@ namespace INFOSiS_2._0
     public partial class Login : Form
     {
         private Server.ServerClient servidor;
+        private bool eyeNotClick = true;
         public Login()
         {
             InitializeComponent();
@@ -75,7 +76,18 @@ namespace INFOSiS_2._0
             }
         }
 
-
-
+        private void lblEye_Click(object sender, EventArgs e)
+        {
+            if (eyeNotClick)
+            {
+                txtPassword.PasswordChar = '\0';
+                eyeNotClick = false;
+            }
+            else
+            {
+                txtPassword.PasswordChar = '●';
+                eyeNotClick = true;
+            }
+        }
     }
 }

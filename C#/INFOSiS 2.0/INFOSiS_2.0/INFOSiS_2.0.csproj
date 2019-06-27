@@ -775,5 +775,26 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Libro_infosis.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Libro_infosis2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calendarinfosis.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\infosisProfesor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\infosisclock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\infosislocation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\infosisEye.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

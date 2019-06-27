@@ -30,6 +30,7 @@
         {
             this.lblDia = new System.Windows.Forms.Label();
             this.lblLine = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblDia
@@ -38,7 +39,7 @@
             this.lblDia.BackColor = System.Drawing.Color.Transparent;
             this.lblDia.Font = new System.Drawing.Font("Gill Sans MT", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDia.ForeColor = System.Drawing.Color.White;
-            this.lblDia.Location = new System.Drawing.Point(3, 0);
+            this.lblDia.Location = new System.Drawing.Point(52, 7);
             this.lblDia.Name = "lblDia";
             this.lblDia.Size = new System.Drawing.Size(101, 42);
             this.lblDia.TabIndex = 0;
@@ -46,26 +47,34 @@
             // 
             // lblLine
             // 
-            this.lblLine.AutoSize = true;
             this.lblLine.BackColor = System.Drawing.Color.Transparent;
             this.lblLine.Font = new System.Drawing.Font("Sitka Small", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLine.ForeColor = System.Drawing.Color.White;
-            this.lblLine.Location = new System.Drawing.Point(3, 27);
+            this.lblLine.Location = new System.Drawing.Point(5, 42);
             this.lblLine.Name = "lblLine";
-            this.lblLine.Size = new System.Drawing.Size(844, 28);
+            this.lblLine.Size = new System.Drawing.Size(844, 23);
             this.lblLine.TabIndex = 1;
             this.lblLine.Text = "---------------------------------------------------------------------------------" +
     "-----------------------";
+            // 
+            // label1
+            // 
+            this.label1.Image = global::INFOSiS_2._0.Properties.Resources.calendarinfosis;
+            this.label1.Location = new System.Drawing.Point(12, 11);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(43, 37);
+            this.label1.TabIndex = 2;
             // 
             // CalendarDate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.lblLine);
             this.Controls.Add(this.lblDia);
             this.Name = "CalendarDate";
-            this.Size = new System.Drawing.Size(847, 65);
+            this.Size = new System.Drawing.Size(847, 61);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -75,5 +84,6 @@
 
         private System.Windows.Forms.Label lblDia;
         private System.Windows.Forms.Label lblLine;
+        private System.Windows.Forms.Label label1;
     }
 }
