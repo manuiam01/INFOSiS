@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rptInterested" language="groovy" pageWidth="555" pageHeight="802" columnWidth="535" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="caf34657-c106-45be-bd26-fb9bf73f9d14">
+	<property name="ireport.zoom" value="1.2100000000000006"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="PieChartDataset" uuid="a9eb99ab-c693-4470-a8c4-239538a1271c"/>
+	<subDataset name="Interesados" uuid="378e941b-6ce1-4958-acab-9cc815aafc8e">
+		<queryString>
+			<![CDATA[SELECT * FROM inf282g3.Interested;]]>
+		</queryString>
+		<field name="idNumber" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="firstName" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="primaryLastName" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="middleName" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="secondLastName" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="gender" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="email" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="cellPhoneNumber" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="isUnsuscribed" class="java.lang.Integer">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="regDate" class="java.sql.Date">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+	</subDataset>
+	<parameter name="FirstName" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT idNumber, firstName, middleName, primaryLastName, secondLastName, email
+FROM Interested]]>
+	</queryString>
+	<field name="idNumber" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="firstName" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="middleName" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="primaryLastName" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="secondLastName" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="email" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="cantInteresados" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{idNumber}]]></variableExpression>
+	</variable>
+	<title>
+		<band height="127" splitType="Stretch">
+			<staticText>
+				<reportElement style="SubTitle" x="336" y="65" width="217" height="29" uuid="92daf6b3-59ae-4e47-a98f-4ebd2586d085"/>
+				<textElement textAlignment="Right">
+					<font size="22" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Reporte de Interesados]]></text>
+			</staticText>
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="65" forecolor="#006699" backcolor="#006699" uuid="ea18920e-ab09-49f6-82ef-e00924f55377"/>
+				<staticText>
+					<reportElement style="Title" x="231" y="0" width="324" height="65" uuid="48b63714-e293-423b-81b8-bddf2c3832c0"/>
+					<textElement textAlignment="Right">
+						<font fontName="Gill Sans MT" size="54" isBold="false"/>
+					</textElement>
+					<text><![CDATA[INFOPUC]]></text>
+				</staticText>
+			</frame>
+			<textField>
+				<reportElement x="181" y="74" width="100" height="20" uuid="3380f6f1-bd9b-41c4-9f96-87db541acd65"/>
+				<textFieldExpression><![CDATA[$V{cantInteresados}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="4" y="74" width="156" height="20" forecolor="#000000" uuid="b68b1ddd-92ad-4190-ad46-baac7cfbd1ce"/>
+				<textElement>
+					<font fontName="Arial" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<text><![CDATA[Cantidad de interesados]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="67" splitType="Stretch">
+			<frame>
+				<reportElement x="227" y="0" width="328" height="20" uuid="0641ea8e-357b-42cd-b6c4-4ac14225c18b"/>
+				<staticText>
+					<reportElement style="Column header" positionType="Float" x="33" y="0" width="76" height="20" forecolor="#000000" uuid="d0a6dfde-e84a-4b4a-a485-7a6e9e686227"/>
+					<textElement>
+						<font fontName="Arial" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<text><![CDATA[Apellidos]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" positionType="Float" x="206" y="0" width="54" height="20" forecolor="#000000" uuid="ae370045-5298-4358-86b0-13bfbd799f71"/>
+					<textElement>
+						<font fontName="Arial" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<text><![CDATA[email]]></text>
+				</staticText>
+			</frame>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="4" y="0" width="54" height="20" forecolor="#000000" uuid="9b4d9b01-2d80-4d45-aad8-b7cc35c35601"/>
+				<textElement>
+					<font fontName="Arial" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<text><![CDATA[DNI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="93" y="0" width="67" height="20" forecolor="#000000" uuid="9a59c5f6-abff-4e81-ad28-f69a2ebd6649"/>
+				<textElement>
+					<font fontName="Arial" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<text><![CDATA[Nombres]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="65" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="4" y="2" width="73" height="18" uuid="e1bbbf5c-9bc9-403f-ac76-03cd34f41b4a"/>
+				<textElement>
+					<font fontName="Arial" size="11" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{idNumber}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="93" y="4" width="54" height="18" uuid="ae78ca4c-c9c4-4bf5-8709-4dcb6c78e6b9"/>
+				<textElement>
+					<font fontName="Arial" size="11" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{firstName}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="173" y="4" width="54" height="18" uuid="1b908c5d-bfec-479e-9afc-de0f79c40b5d"/>
+				<textElement>
+					<font fontName="Arial" size="11" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{middleName}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="260" y="4" width="54" height="18" uuid="9a3415ee-712d-4d05-8691-45118bec4eb4"/>
+				<textElement>
+					<font fontName="Arial" size="11" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{primaryLastName}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="433" y="4" width="110" height="18" uuid="0e07bd30-5f71-4c1c-8e70-78ab5adb21b3"/>
+				<textElement>
+					<font fontName="Arial" size="11" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="336" y="4" width="73" height="18" uuid="f14f4c2e-2697-49b7-9e42-4a1c39231b4b"/>
+				<textElement>
+					<font fontName="Arial" size="11" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{secondLastName}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="59" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="58" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="29" width="555" height="13" forecolor="#D0B48E" backcolor="#006699" uuid="697a8753-bd40-4243-9834-9e9886dcc995"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="503" y="0" width="40" height="13" forecolor="#FFFFFF" uuid="9c4dbfb7-481f-448f-9321-20ee65a13624"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="2" y="0" width="197" height="13" forecolor="#FFFFFF" uuid="f3999b51-5227-46fb-93ab-96201ad910a5"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="407" y="0" width="80" height="13" forecolor="#FFFFFF" uuid="443e01f3-9b1c-473e-838b-a85b55f1fe54"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
