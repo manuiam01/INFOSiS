@@ -478,12 +478,9 @@
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.calendarSession.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-<<<<<<< HEAD
-=======
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.coordinator.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
->>>>>>> effc95cf521bcb7f54c7c26bd975150952c08526
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.course.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -568,8 +565,6 @@
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.QueryAllUsersResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-<<<<<<< HEAD
-=======
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.queryCoordByIDResponse.datasource">
 		<DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -579,7 +574,6 @@
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.QueryAllUsersResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
->>>>>>> effc95cf521bcb7f54c7c26bd975150952c08526
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.queryCourseByIdResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -655,12 +649,9 @@
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.updateStudentResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-<<<<<<< HEAD
-=======
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.updateUserResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
->>>>>>> effc95cf521bcb7f54c7c26bd975150952c08526
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.UpdateWeekAvailabilityResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
