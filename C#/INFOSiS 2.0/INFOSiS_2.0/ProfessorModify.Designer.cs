@@ -455,6 +455,7 @@
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(204, 26);
             this.txtFirstName.TabIndex = 136;
+            this.txtFirstName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFirstName_KeyPress);
             // 
             // txtSecondName
             // 
@@ -465,6 +466,7 @@
             this.txtSecondName.Name = "txtSecondName";
             this.txtSecondName.Size = new System.Drawing.Size(203, 26);
             this.txtSecondName.TabIndex = 137;
+            this.txtSecondName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSecondName_KeyPress);
             // 
             // txtPrimaryLastName
             // 
@@ -475,6 +477,7 @@
             this.txtPrimaryLastName.Name = "txtPrimaryLastName";
             this.txtPrimaryLastName.Size = new System.Drawing.Size(203, 26);
             this.txtPrimaryLastName.TabIndex = 138;
+            this.txtPrimaryLastName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrimaryLastName_KeyPress);
             // 
             // txtSecondLastName
             // 
@@ -484,6 +487,7 @@
             this.txtSecondLastName.Name = "txtSecondLastName";
             this.txtSecondLastName.Size = new System.Drawing.Size(203, 26);
             this.txtSecondLastName.TabIndex = 139;
+            this.txtSecondLastName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSecondLastName_KeyPress);
             // 
             // lblSecondName
             // 

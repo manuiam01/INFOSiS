@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.ComponentModel.DataAnnotations;
 
 namespace INFOSiS_2._0
 {
@@ -98,12 +99,11 @@ namespace INFOSiS_2._0
         private void btnSave_Click(object sender, EventArgs e) {
             bool firstValidation = true;
             bool secondValidation = true;
-
             if(txtDocumentNumber.Text.Count() == 0 ||  txtFirstName.Text.Count() == 0 || txtPrimaryLastName.Text.Count() == 0 
                || txtSecondLastName.Text.Count() == 0 || txtPUCPCode.Text.Count() == 0 || txtEmailPUCP.Text.Count() == 0)
             {
                 MessageBox.Show("Revisar los campos obligatorios", "Registro inválido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                firstValidation = false; ;
+                firstValidation = false; 
             }
             if (firstValidation)
             {
@@ -116,7 +116,7 @@ namespace INFOSiS_2._0
                         secondValidation = false;
                     }
                 }
-                if (rbForeignCard.Checked || rbPassport.Checked)
+                else if (rbForeignCard.Checked || rbPassport.Checked)
                 {
                     if (txtDocumentNumber.Text.Count() != 12)
                     {
@@ -128,22 +128,19 @@ namespace INFOSiS_2._0
                 if (txtPUCPCode.Text.Count() != 8)
                 {
                     MessageBox.Show("Código PUCP inválido", "Error en el registro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    secondValidation = false;
+                    //secondValidation = false;
                 }
-
-                if (!txtEmailPUCP.Text.Contains("@") || !txtEmailPUCP.Text.Contains("."))
+                else if (!(new EmailAddressAttribute().IsValid(txtEmailPUCP.Text)))
                 {
                     MessageBox.Show("Correo PUCP inválido", "Error en el registro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    secondValidation = false;
+                    //secondValidation = false;
                 }
-                if (txtEmail.Text.Count() > 0 && (!txtEmail.Text.Contains("@") || !txtEmail.Text.Contains(".")))
+                else if (txtEmail.Text.Count() > 0 && (!(new EmailAddressAttribute().IsValid(txtEmail.Text))))
                 {
                         MessageBox.Show("Correo alternativo inválido", "Error en el registro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        secondValidation = false;
+                        //secondValidation = false;
                 }
-                
-                    
-                if (secondValidation)
+                else
                 {
                     registerProfessor();
                 }
@@ -214,6 +211,26 @@ namespace INFOSiS_2._0
             {
                 e.Handled = true;
             }
+        }
+
+        private void txtFirstName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+        }
+
+        private void txtSecondName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+        }
+
+        private void txtPrimaryLastName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+        }
+
+        private void txtSecondLastName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
         }
     }
 }

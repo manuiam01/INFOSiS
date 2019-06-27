@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.ComponentModel.DataAnnotations;
 
 namespace INFOSiS_2._0
 {
@@ -312,7 +313,7 @@ namespace INFOSiS_2._0
                         secondValidation = false;
                     }
                 }
-                if (rbForeignCard.Checked || rbPassport.Checked)
+                else
                 {
                     if (txtDocumentNumber.Text.Count() != 12)
                     {
@@ -321,18 +322,18 @@ namespace INFOSiS_2._0
                     }
                 }
 
-                if (!txtEmailPUCP.Text.Contains("@") || !txtEmailPUCP.Text.Contains("."))
+                if (!(new EmailAddressAttribute().IsValid(txtEmailPUCP.Text)))
                 {
                     MessageBox.Show("Correo PUCP inválido", "Error en la actualización", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    secondValidation = false;
+                    //secondValidation = false;
                 }
-                if (txtEmail.Text.Count() > 0 && (!txtEmail.Text.Contains("@") || !txtEmail.Text.Contains(".")))
+                else if (txtEmail.Text.Count() > 0 && (!(new EmailAddressAttribute().IsValid(txtEmail.Text))))
                 {
                     MessageBox.Show("Correo alternativo inválido", "Error en la actualización", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    secondValidation = false;
+                    //secondValidation = false;
                 }
 
-                if (secondValidation)
+                else if(secondValidation)
                 {
                     setProfessor();
                 }
@@ -394,5 +395,24 @@ namespace INFOSiS_2._0
             }
         }
 
+        private void txtFirstName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+        }
+
+        private void txtSecondName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+        }
+
+        private void txtPrimaryLastName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+        }
+
+        private void txtSecondLastName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+        }
     }
 }

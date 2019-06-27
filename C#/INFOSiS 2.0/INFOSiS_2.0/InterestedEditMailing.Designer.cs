@@ -45,7 +45,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.cbHTML = new System.Windows.Forms.CheckBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.txbAsunto = new System.Windows.Forms.TextBox();
@@ -100,9 +100,9 @@
             this.groupBox3.Controls.Add(this.rbHotmail);
             this.groupBox3.Controls.Add(this.rbGmail);
             this.groupBox3.Location = new System.Drawing.Point(12, 159);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox3.Size = new System.Drawing.Size(306, 47);
             this.groupBox3.TabIndex = 185;
             this.groupBox3.TabStop = false;
@@ -112,7 +112,7 @@
             // 
             this.rbOtro.AutoSize = true;
             this.rbOtro.Location = new System.Drawing.Point(216, 20);
-            this.rbOtro.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbOtro.Margin = new System.Windows.Forms.Padding(2);
             this.rbOtro.Name = "rbOtro";
             this.rbOtro.Size = new System.Drawing.Size(59, 25);
             this.rbOtro.TabIndex = 3;
@@ -125,7 +125,7 @@
             // 
             this.rbYahoo.AutoSize = true;
             this.rbYahoo.Location = new System.Drawing.Point(151, 20);
-            this.rbYahoo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbYahoo.Margin = new System.Windows.Forms.Padding(2);
             this.rbYahoo.Name = "rbYahoo";
             this.rbYahoo.Size = new System.Drawing.Size(65, 25);
             this.rbYahoo.TabIndex = 2;
@@ -138,7 +138,7 @@
             // 
             this.rbHotmail.AutoSize = true;
             this.rbHotmail.Location = new System.Drawing.Point(82, 20);
-            this.rbHotmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbHotmail.Margin = new System.Windows.Forms.Padding(2);
             this.rbHotmail.Name = "rbHotmail";
             this.rbHotmail.Size = new System.Drawing.Size(74, 25);
             this.rbHotmail.TabIndex = 1;
@@ -151,7 +151,7 @@
             // 
             this.rbGmail.AutoSize = true;
             this.rbGmail.Location = new System.Drawing.Point(26, 20);
-            this.rbGmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbGmail.Margin = new System.Windows.Forms.Padding(2);
             this.rbGmail.Name = "rbGmail";
             this.rbGmail.Size = new System.Drawing.Size(61, 25);
             this.rbGmail.TabIndex = 0;
@@ -165,7 +165,7 @@
             this.txtPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.Location = new System.Drawing.Point(94, 64);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(2);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(226, 23);
@@ -242,7 +242,7 @@
             // groupBox1
             // 
             this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.groupBox1.Controls.Add(this.checkBox2);
+            this.groupBox1.Controls.Add(this.cbHTML);
             this.groupBox1.Controls.Add(this.btnSearch);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.txbAsunto);
@@ -255,15 +255,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Detalle del email a enviar";
             // 
-            // checkBox2
+            // cbHTML
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(107, 95);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(69, 25);
-            this.checkBox2.TabIndex = 187;
-            this.checkBox2.Text = "HTML ";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.cbHTML.AutoSize = true;
+            this.cbHTML.Location = new System.Drawing.Point(107, 95);
+            this.cbHTML.Name = "cbHTML";
+            this.cbHTML.Size = new System.Drawing.Size(69, 25);
+            this.cbHTML.TabIndex = 187;
+            this.cbHTML.Text = "HTML ";
+            this.cbHTML.UseVisualStyleBackColor = true;
             // 
             // btnSearch
             // 
@@ -370,7 +370,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gbDetailSender);
             this.Controls.Add(this.lblInterestedRegister);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "InterestedEditMailing";
             this.Text = "InterestedEditMailing";
             this.Load += new System.EventHandler(this.InterestedEditMailing_Load);
@@ -403,7 +403,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox cbHTML;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox txbMessage;
         private System.Windows.Forms.Button btCancelar;
