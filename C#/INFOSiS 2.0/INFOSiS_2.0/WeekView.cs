@@ -36,7 +36,7 @@ namespace INFOSiS_2._0
             BindingList<Server.intern> interns = new BindingList<Server.intern>(server.QueryAllInterns());
 
             cbInterns.DataSource = interns;
-            cbInterns.DisplayMember = "primaryLastName";// + " " + "middleName" + " " + "primaryLastName" + " " + "secondLastName";
+            cbInterns.DisplayMember = "completeName";
         }
 
         private void cbInterns_SelectedIndexChanged(object sender, EventArgs e)

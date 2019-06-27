@@ -171,6 +171,8 @@ public class MySQLIntern implements DAOIntern {
                 intern.setWeekAvailability(weekAvailability);
                 intern.setWeekSchedule(weekSchedule);
                 
+                intern.setCompleteName();
+                
                 interns.add(intern);
             }
             con.close();
@@ -207,6 +209,8 @@ public class MySQLIntern implements DAOIntern {
                 intern.setBirthday(rs.getDate(15));
                 intern.setWeekAvailability(rs.getString(16));
                 intern.setWeekSchedule(rs.getString(17));
+                
+                intern.setCompleteName();
             }
             con.close();
         }catch(SQLException ex){
@@ -242,6 +246,8 @@ public class MySQLIntern implements DAOIntern {
                 intern.setBirthday(rs.getDate(15));
                 intern.setWeekAvailability(rs.getString(16));
                 intern.setWeekSchedule(rs.getString(17));
+                
+                intern.setCompleteName();
             }
             con.close();
         }catch(SQLException ex){
@@ -283,6 +289,8 @@ public class MySQLIntern implements DAOIntern {
                 else intern.setBirthday(null);
                 intern.setWeekAvailability(rs.getString(16));
                 intern.setWeekSchedule(rs.getString(17));
+                
+                intern.setCompleteName();
                 
                 interns.add(intern);
             }            
