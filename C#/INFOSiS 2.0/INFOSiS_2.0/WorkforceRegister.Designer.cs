@@ -132,7 +132,7 @@
             // 
             this.txtHomephone.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtHomephone.Location = new System.Drawing.Point(126, 79);
-            this.txtHomephone.MaxLength = 12;
+            this.txtHomephone.MaxLength = 10;
             this.txtHomephone.Name = "txtHomephone";
             this.txtHomephone.Size = new System.Drawing.Size(171, 26);
             this.txtHomephone.TabIndex = 148;

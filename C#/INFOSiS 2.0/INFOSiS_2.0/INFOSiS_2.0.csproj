@@ -562,16 +562,13 @@
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.queryAllProfessorsActiveResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\Server\INFOSiS_2._0.Server.QueryAllUsersResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\Server\INFOSiS_2._0.Server.queryCoordByIDResponse.datasource">
-		<DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.queryAllStudentResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.QueryAllUsersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.queryCoordByIDResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.queryCourseByIdResponse.datasource">
@@ -626,6 +623,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.updateAssistanceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.updateCoordinatorResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.updateCourseHistoryResponse.datasource">
@@ -774,6 +774,27 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Libro_infosis.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Libro_infosis2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calendarinfosis.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\infosisProfesor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\infosisclock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\infosislocation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\infosisEye.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

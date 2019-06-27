@@ -42,8 +42,16 @@ namespace INFOSiS_2._0
         private void btnSelect_Click(object sender, EventArgs e)
         {
             intern = new Server.intern();
-            intern = (Server.intern)dgvInterns.CurrentRow.DataBoundItem;
-            this.DialogResult = DialogResult.OK;
+            if (dgvInterns.Rows.Count == 0)
+            {
+                MessageBox.Show("No escogió algún practicante", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else
+            {
+                intern = (Server.intern)dgvInterns.CurrentRow.DataBoundItem;
+                this.DialogResult = DialogResult.OK;
+            }
+            
         }
     }
 }

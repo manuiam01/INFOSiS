@@ -43,6 +43,12 @@ namespace INFOSiS_2._0
             servidor = new Server.ServerClient();
             rbDNI.Checked = true;
             txtDocumentNumber.MaxLength= 8;
+            txtFirstName.CharacterCasing = CharacterCasing.Upper;
+            txtSecondName.CharacterCasing = CharacterCasing.Upper;
+            txtPrimaryLastName.CharacterCasing = CharacterCasing.Upper;
+            txtSecondLastName.CharacterCasing = CharacterCasing.Upper;
+            txtPUCPCode.CharacterCasing = CharacterCasing.Upper;
+            txtDocumentNumber.CharacterCasing = CharacterCasing.Upper;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -52,6 +58,13 @@ namespace INFOSiS_2._0
             access.id = 0;
             access.name = "USER";
 
+            if (txtDocumentNumber.Text.Equals("") || txtFirstName.Text.Equals("") ||
+                txtPrimaryLastName.Text.Equals("") || txtDocumentNumber.Text.Equals("") ||
+                txtEmailPUCP.Text.Equals("") )
+            {
+                MessageBox.Show("Revisar los campos obligatorios", "Registro inválido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
             if (rbDNI.Checked)
             {
                 if (txtDocumentNumber.Text.Count() != 8)
@@ -94,6 +107,12 @@ namespace INFOSiS_2._0
                 MessageBox.Show("Correo alternativo inválido", "Error en el registro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            if(rbMan.Checked == false && rbWoman.Checked == false)
+            {
+                MessageBox.Show("No eligió el sexo", "Error en el registro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            
             intern.idNumber = txtDocumentNumber.Text;
             intern.firstName = txtFirstName.Text;
             intern.middleName = txtSecondName.Text;
@@ -113,12 +132,19 @@ namespace INFOSiS_2._0
                 intern.birthday = dtpBirthday.Value;
                 birthdaySelected = false;
             }
-
-            int res = servidor.InsertIntern(intern, access);
+            int res = 0;
+            DialogResult result = MessageBox.Show("Está seguro de que quiere guardar este registro?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
+            {
+                res = servidor.InsertIntern(intern, access);
+            }
+            
 
             if (res > 0)
             {
                 MessageBox.Show("Registro exitoso", "Registro efectuado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                clean();
+
             }
             else if (res == -1)
             {
@@ -131,10 +157,6 @@ namespace INFOSiS_2._0
             else if (res == -3)
             {
                 MessageBox.Show("Número de identidad registrado anteriormente", "Registro inválido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-            else
-            {
-                MessageBox.Show("ERROR", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void clean()

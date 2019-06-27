@@ -331,9 +331,7 @@ ASALocalRun/
 /Java/INFOSiS/nbproject/private/
 /Java/INFOSiSController/nbproject/private/
 /Java/INFOSiSModel/nbproject/private/
-<<<<<<< HEAD
 /Java/INFOSiSView/nbproject/private/
-=======
 /Java/INFOSiSView/nbproject/private/
 /Java/INFOSiSServer/nbproject/private/
 /Java/INFOSiSServer/dist/
@@ -345,6 +343,5 @@ ASALocalRun/
 /Java/INFOSiSTest/nbproject/private/
 /Java/INFOSiSTest/build/
 /Java/INFOSiSTest/dist/
->>>>>>> ec40cf415f214cbc902598163768403d1a7ecee7
 /Java/INFOSiSServer/build/
 /Java/INFOSiS/dist/

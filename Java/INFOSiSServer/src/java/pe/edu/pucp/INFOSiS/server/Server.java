@@ -293,4 +293,9 @@ public class Server {
     public ArrayList<Student> queryAllStudent(){
         return DBController.queryAllStudent();
     }
+    
+    @WebMethod(operationName="updateCoordinator")
+    public int updateCoordinator(@WebParam(name="coordinator") Coordinator c){
+        return DBController.updateCoordinator(c);
+    }
 }

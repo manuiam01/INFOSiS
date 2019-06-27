@@ -42,6 +42,12 @@ namespace INFOSiS_2._0
             InitializeComponent();
             setState(Estado.Inicial);
             server = new Server.ServerClient();
+            txtDocumentNumber.CharacterCasing = CharacterCasing.Upper;
+            txtFirstName.CharacterCasing = CharacterCasing.Upper;
+            txtSecondName.CharacterCasing = CharacterCasing.Upper;
+            txtPrimaryLastName.CharacterCasing = CharacterCasing.Upper;
+            txtSecondLastName.CharacterCasing = CharacterCasing.Upper;
+            txtPUCPCode.CharacterCasing = CharacterCasing.Upper;
         }
         public void setState(Estado e)
         {
@@ -306,8 +312,7 @@ namespace INFOSiS_2._0
             {
                 if (rbDNI.Checked)
                 {
-                    if (txtDocumentNumber.Text.Count() != 8 ||
-                       (txtDocumentNumber.Text.Count() == 8 && !verifyDocumentNumber(txtDocumentNumber.Text)))
+                    if (txtDocumentNumber.Text.Count() != 8 )
                     {
                         MessageBox.Show("Número de documento inválido", "Error en la actualización", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         secondValidation = false;
@@ -325,12 +330,12 @@ namespace INFOSiS_2._0
                 if (!(new EmailAddressAttribute().IsValid(txtEmailPUCP.Text)))
                 {
                     MessageBox.Show("Correo PUCP inválido", "Error en la actualización", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    //secondValidation = false;
+                    secondValidation = false;
                 }
                 else if (txtEmail.Text.Count() > 0 && (!(new EmailAddressAttribute().IsValid(txtEmail.Text))))
                 {
                     MessageBox.Show("Correo alternativo inválido", "Error en la actualización", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    //secondValidation = false;
+                    secondValidation = false;
                 }
 
                 else if(secondValidation)
@@ -342,7 +347,7 @@ namespace INFOSiS_2._0
             if ((server.SearchProfessorById(txtDocumentNumber.Text) == 1) && (previousId != txtDocumentNumber.Text)){
                 MessageBox.Show("Documento de identidad registrado anteriormente", "Actualización inválida", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-            else
+            else if (firstValidation==true && secondValidation==true)
             {
                 int res = server.UpdateProfessor(professor);
                 if (res > 0)

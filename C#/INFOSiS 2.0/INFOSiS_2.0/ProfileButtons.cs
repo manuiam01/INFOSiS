@@ -49,6 +49,7 @@ namespace INFOSiS_2._0
                 ProfileEdit.PanelMdi = PanelMdi;
                 ProfileEdit.Instance.Visible = true;
                 ProfileEdit.Instance.BringToFront();
+                ProfileEdit.Instance.poner_datos(usuario);
             }
             else
             {
