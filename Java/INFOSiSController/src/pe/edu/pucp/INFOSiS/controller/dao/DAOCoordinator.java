@@ -14,4 +14,5 @@ import pe.edu.pucp.INFOSiS.model.bean.HR.Coordinator;
 public interface DAOCoordinator{
     int insert(Coordinator coordinator);
     int update(Coordinator coordinator);
+    Coordinator queryCoordById(String idPucp);
 }

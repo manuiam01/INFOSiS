@@ -53,12 +53,11 @@ public class MySQLUser implements DAOUser{
         try{
             DBManager dbManager = DBManager.getdbManager();
             Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
-            String sql = "UPDATE Users SET password=? WHERE userName = ?"; 
-            PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1,user.getPassword());
-            ps.setString(2, user.getUsername());
-            result = ps.executeUpdate();
-            ps.close();
+            Statement sentencia = con.createStatement();
+            String query ="UPDATE Users "
+                    + "SET password=MD5('"+user.getPassword()+"') "
+                    + "WHERE username='"+user.getUsername()+"'";
+            result = sentencia.executeUpdate(query);
             con.close();   
         }catch(SQLException ex){
             System.out.println(ex.getMessage());

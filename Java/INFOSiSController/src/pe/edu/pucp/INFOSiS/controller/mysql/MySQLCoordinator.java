@@ -10,7 +10,9 @@ import java.sql.Connection;
 import java.util.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import pe.edu.pucp.INFOSiS.controller.config.DBManager;
 import pe.edu.pucp.INFOSiS.controller.dao.DAOCoordinator;
 import pe.edu.pucp.INFOSiS.model.bean.HR.Coordinator;
@@ -79,6 +81,44 @@ public class MySQLCoordinator implements DAOCoordinator{
             System.out.println(ex.getMessage());
         }
         return result;
+    }
+    
+    @Override
+    public Coordinator queryCoordById(String idPucp){
+        Coordinator c= new Coordinator();
+        c.setIdPUCP("-1");
+        try{
+            DBManager dbManager = DBManager.getdbManager();
+            Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
+            Statement sentencia = con.createStatement();
+            String query ="SELECT idType, idNumber, "
+                    + "firstName, middleName, primaryLastName, "
+                    + "secondLastName, gender, email, cellPhoneNumber, "
+                    + "emailPUCP, address, homePhone, birthDate "
+                    + "FROM Coordinator "
+                    + "WHERE idCoordinator='"+idPucp+"'";
+            ResultSet rs= sentencia.executeQuery(query);
+            while(rs.next()){
+               c.setIdPUCP(idPucp);
+               c.setAddress(rs.getString("address"));
+               c.setBirthday(rs.getDate("birthDate"));
+               c.setCellPhoneNumber(rs.getString("cellPhoneNumber"));
+               c.setEmail(rs.getString("email"));
+               c.setEmailPUCP(rs.getString("emailPUCP"));
+               c.setFirstName(rs.getString("firstName"));
+               c.setGender(rs.getString("gender"));
+               c.setHomePhone(rs.getString("homePhone"));
+               c.setIdNumber(rs.getString("idNumber"));
+               c.setIdType(rs.getInt("idType"));
+               c.setMiddleName(rs.getString("middleName"));
+               c.setPrimaryLastName(rs.getString("primaryLastName"));
+               c.setSecondLastName(rs.getString("secondLastName"));
+            }
+            con.close();
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        return c;
     }
     
 }

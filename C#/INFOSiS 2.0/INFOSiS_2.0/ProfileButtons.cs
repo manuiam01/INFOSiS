@@ -65,6 +65,7 @@ namespace INFOSiS_2._0
                 PanelMdi.Controls.Add(ProfileChangePassword.Instance);
                 ProfileChangePassword.Instance.Dock = DockStyle.Fill;
                 ProfileChangePassword.PanelMdi = PanelMdi;
+                ProfileChangePassword.Instance.poner_datos(usuario);
                 ProfileChangePassword.Instance.Visible = true;
                 ProfileChangePassword.Instance.BringToFront();
             }
@@ -86,7 +87,10 @@ namespace INFOSiS_2._0
         public void verificar_usuario(Server.user u)
         {
             //Si llega, encontes sí es practicante
-            btnAsistencia.Enabled = true;
+            if (u.acces.id != 2)
+            {
+                btnAsistencia.Enabled = true;
+            }
             this.usuario = u;
         }
 

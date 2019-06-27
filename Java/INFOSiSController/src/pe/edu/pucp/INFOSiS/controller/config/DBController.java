@@ -7,6 +7,7 @@ package pe.edu.pucp.INFOSiS.controller.config;
 
 import java.util.Date;
 import java.util.ArrayList;
+import pe.edu.pucp.INFOSiS.model.bean.HR.Coordinator;
 
 
 import pe.edu.pucp.INFOSiS.model.bean.HR.Intern;
@@ -223,5 +224,13 @@ public abstract class DBController {
      
      public static int insertAssistance(String idPucp){
          return daoFactory.getDAOIntern().insertAssistance(idPucp);
+     }
+     
+     public static int updateUser(User u){
+         return daoFactory.getUserDAO().update(u);
+     }
+     
+     public static Coordinator  queryCoordById(String idPucp){
+         return daoFactory.getCoordinatorDAO().queryCoordById(idPucp);
      }
 }
