@@ -170,8 +170,8 @@ public abstract class DBController {
          return daoFactory.getStudentDAO().insertStudent(s, birthday);
      }
      
-     public static int insertCourseHistory(CourseHistory courseHistory){
-         return daoFactory.getCourseHDAO().insert(courseHistory);
+     public static int insertCourseHistory(CourseHistory courseHistory, ArrayList<Long> dias){
+         return daoFactory.getCourseHDAO().insert(courseHistory, dias);
      }
      
      public static int updateCourseHistory(CourseHistory courseHistory){
@@ -185,6 +185,10 @@ public abstract class DBController {
      public static Student queryStudentByID(String idStudent){
          return daoFactory.getStudentDAO().queryStudentById(idStudent);
 
+     }
+     
+     public static ArrayList<Student> queryAllStudent(){
+         return daoFactory.getStudentDAO().queryAll();
      }
      public static ArrayList<CourseHistory> queryCourseHByIdProfessor(String idProfessor){
          return daoFactory.getCourseHDAO().queryByIdProfessor(idProfessor);

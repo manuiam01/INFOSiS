@@ -38,12 +38,12 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtLocation = new System.Windows.Forms.TextBox();
             this.dgvSessions = new System.Windows.Forms.DataGridView();
-            this.DateTimeSession = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Hours = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Location = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSearchCourse = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.DateTimeSession = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Hours = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Location = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSessions)).BeginInit();
             this.SuspendLayout();
@@ -154,27 +154,6 @@
             this.dgvSessions.Size = new System.Drawing.Size(380, 178);
             this.dgvSessions.TabIndex = 8;
             // 
-            // DateTimeSession
-            // 
-            this.DateTimeSession.DataPropertyName = "DateTimeSession";
-            this.DateTimeSession.HeaderText = "Día y hora de la sesión";
-            this.DateTimeSession.Name = "DateTimeSession";
-            this.DateTimeSession.Width = 200;
-            // 
-            // Hours
-            // 
-            this.Hours.DataPropertyName = "Hours";
-            this.Hours.HeaderText = "Horas";
-            this.Hours.Name = "Hours";
-            this.Hours.Width = 50;
-            // 
-            // Location
-            // 
-            this.Location.DataPropertyName = "Location";
-            this.Location.HeaderText = "Aula";
-            this.Location.Name = "Location";
-            this.Location.Width = 90;
-            // 
             // btnSearchCourse
             // 
             this.btnSearchCourse.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -221,6 +200,27 @@
             this.button2.Text = "Guardar";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // DateTimeSession
+            // 
+            this.DateTimeSession.DataPropertyName = "DateSession";
+            this.DateTimeSession.HeaderText = "Día y hora de la sesión";
+            this.DateTimeSession.Name = "DateTimeSession";
+            this.DateTimeSession.Width = 200;
+            // 
+            // Hours
+            // 
+            this.Hours.DataPropertyName = "Hours";
+            this.Hours.HeaderText = "Horas";
+            this.Hours.Name = "Hours";
+            this.Hours.Width = 50;
+            // 
+            // Location
+            // 
+            this.Location.DataPropertyName = "Location";
+            this.Location.HeaderText = "Aula";
+            this.Location.Name = "Location";
+            this.Location.Width = 90;
             // 
             // CourseHAddSession
             // 

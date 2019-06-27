@@ -90,6 +90,12 @@
     <Compile Include="CourseHAddSession.Designer.cs">
       <DependentUpon>CourseHAddSession.cs</DependentUpon>
     </Compile>
+    <Compile Include="CourseHAddStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CourseHAddStudent.Designer.cs">
+      <DependentUpon>CourseHAddStudent.cs</DependentUpon>
+    </Compile>
     <Compile Include="CourseHistoryRegister.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -209,6 +215,12 @@
     </Compile>
     <Compile Include="StudentModify.Designer.cs">
       <DependentUpon>StudentModify.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WeekView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WeekView.Designer.cs">
+      <DependentUpon>WeekView.cs</DependentUpon>
     </Compile>
     <Compile Include="WorkforceAdvancedSearch.cs">
       <SubType>Form</SubType>
@@ -340,6 +352,9 @@
     <EmbeddedResource Include="CourseHAddSession.resx">
       <DependentUpon>CourseHAddSession.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CourseHAddStudent.resx">
+      <DependentUpon>CourseHAddStudent.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CourseHistoryRegister.resx">
       <DependentUpon>CourseHistoryRegister.cs</DependentUpon>
     </EmbeddedResource>
@@ -399,6 +414,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="StudentModify.resx">
       <DependentUpon>StudentModify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WeekView.resx">
+      <DependentUpon>WeekView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WorkforceAdvancedSearch.resx">
       <DependentUpon>WorkforceAdvancedSearch.cs</DependentUpon>
@@ -548,6 +566,12 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.queryCoordByIDResponse.datasource">
+		<DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.queryAllStudentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.QueryAllUsersResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.queryCourseByIdResponse.datasource">

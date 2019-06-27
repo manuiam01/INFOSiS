@@ -218,11 +218,12 @@ namespace INFOSiS_2._0
         {
             cleanWindow();
             panelMdiOptions.Visible = true;
+            WorkforceButtons.Usuario = user;
             if (!panelMdiInfosis.Controls.Contains(WorkforceRegister.Instance))
             {
                 panelMdiInfosis.Controls.Add(WorkforceRegister.Instance);
                 WorkforceRegister.Instance.Dock = DockStyle.Fill;
-                WorkforceRegister.PanelMdi = panelMdiInfosis;
+                WorkforceRegister.PanelMdi = panelMdiInfosis;                
                 WorkforceRegister.Instance.Visible = true;
                 WorkforceRegister.Instance.BringToFront();
             }

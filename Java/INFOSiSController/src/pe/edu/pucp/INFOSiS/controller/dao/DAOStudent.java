@@ -5,6 +5,7 @@
  */
 package pe.edu.pucp.INFOSiS.controller.dao;
 
+import java.util.ArrayList;
 import pe.edu.pucp.INFOSiS.model.bean.student.Student;
 
 /**
@@ -15,4 +16,5 @@ public interface DAOStudent {
     int insertStudent(Student student, String birthDate);
     int updateStudent(Student student, String birthDate);
     Student queryStudentById(String id);
+    ArrayList<Student> queryAll();
 }

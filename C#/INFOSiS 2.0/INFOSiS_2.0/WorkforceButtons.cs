@@ -90,21 +90,40 @@ namespace INFOSiS_2._0
         private void btnWeekAvailability_Click(object sender, EventArgs e)
         {
             cleanWindow();
-            WeekAvailability.User = Usuario;
-            if (!PanelMdi.Controls.Contains(WeekAvailability.Instance))
+            if(usuario.acces.id == 2)
             {
-                PanelMdi.Controls.Add(WeekAvailability.Instance);
-                WeekAvailability.Instance.Dock = DockStyle.Fill;
-                WeekAvailability.PanelMdi = PanelMdi;
-                
-                WeekAvailability.Instance.Visible = true;
-                WeekAvailability.Instance.BringToFront();
+                if (!PanelMdi.Controls.Contains(WeekView.Instance))
+                {
+                    PanelMdi.Controls.Add(WeekView.Instance);
+                    WeekView.Instance.Dock = DockStyle.Fill;
+                    WeekView.PanelMdi = PanelMdi;
+                    WeekView.Instance.Visible = true;
+                    WeekView.Instance.BringToFront();
+                }
+                else
+                {
+                    WeekView.Instance.Visible = true;
+                    WeekView.Instance.BringToFront();
+                }
             }
             else
             {
                 WeekAvailability.User = Usuario;
-                WeekAvailability.Instance.Visible = true;
-                WeekAvailability.Instance.BringToFront();
+                if (!PanelMdi.Controls.Contains(WeekAvailability.Instance))
+                {
+                    PanelMdi.Controls.Add(WeekAvailability.Instance);
+                    WeekAvailability.Instance.Dock = DockStyle.Fill;
+                    WeekAvailability.PanelMdi = PanelMdi;
+
+                    WeekAvailability.Instance.Visible = true;
+                    WeekAvailability.Instance.BringToFront();
+                }
+                else
+                {
+                    WeekAvailability.User = Usuario;
+                    WeekAvailability.Instance.Visible = true;
+                    WeekAvailability.Instance.BringToFront();
+                }
             }
         }
     }
