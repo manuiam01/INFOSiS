@@ -41,10 +41,12 @@ namespace INFOSiS_2._0
                     }
 
                 }
-                if (!seencuentra) { 
+                if (!seencuentra)
+                {
                     fullname = s.firstName + " " + s.primaryLastName + " " + s.secondLastName;
                     table.Rows.Add(s.idNumber, fullname);
                 }
+                
 
             }
             dgvStudents.DataSource = table;

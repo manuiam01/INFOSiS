@@ -80,18 +80,18 @@ namespace INFOSiS_2._0
         private void BtnReporte_Click(object sender, EventArgs e)
         {
             cleanWindow();
-            if (!PanelMdi.Controls.Contains(ProfessorReport.Instance))
+            if (!PanelMdi.Controls.Contains(ProfessorHistory.Instance))
             {
-                PanelMdi.Controls.Add(ProfessorReport.Instance);
-                ProfessorReport.Instance.Dock = DockStyle.Fill;
-                ProfessorReport.PanelMdi = PanelMdi;
-                ProfessorReport.Instance.Visible = true;
-                ProfessorReport.Instance.BringToFront();
+                PanelMdi.Controls.Add(ProfessorHistory.Instance);
+                ProfessorHistory.Instance.Dock = DockStyle.Fill;
+                ProfessorHistory.PanelMdi = PanelMdi;
+                ProfessorHistory.Instance.Visible = true;
+                ProfessorHistory.Instance.BringToFront();
             }
             else
             {
-                ProfessorReport.Instance.Visible = true;
-                ProfessorReport.Instance.BringToFront();
+                ProfessorHistory.Instance.Visible = true;
+                ProfessorHistory.Instance.BringToFront();
             }
 
         }

@@ -69,23 +69,9 @@ namespace INFOSiS_2._0
                 //d.Add(dtpTime.Value.TimeOfDay);
                 s.dateSession = d;
                 s.hours = Int32.Parse(txtHours.Text);
-                s.location = txtLocation.Text;
-                //MessageBox.Show(s.dateSession.ToString(), "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                //try
-                //{
-                    listSession.Add(s);
-                    dgvSessions.DataSource = listSession;
-                    //int index = 0;
-                    //foreach (Server.session session in listSession)
-                    //{
-                    //    dgvSessions.Rows[index].Cells[0].Value = session.dateSession.ToString();
-                    //    index++;
-                    //}
-                //}
-                //catch (Exception ex)
-                //{
-                //    MessageBox.Show("Error desconocido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //}
+                s.location = txtLocation.Text;               
+                listSession.Add(s);
+                dgvSessions.DataSource = listSession;              
 
             }
 
@@ -98,6 +84,16 @@ namespace INFOSiS_2._0
             {
                 e.Handled = true;
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow c in dgvSessions.SelectedRows)
+            {
+                listSession.RemoveAt(c.Index);
+
+            }
+            dgvSessions.DataSource = listSession;
         }
     }
 }

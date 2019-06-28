@@ -110,18 +110,18 @@ namespace INFOSiS_2._0
                 PanelMdi.Controls.Remove(item);
             }
 
-            if (!PanelMdi.Controls.Contains(CourseReport.Instance))
+            if (!PanelMdi.Controls.Contains(CourseHistory.Instance))
             {
-                PanelMdi.Controls.Add(CourseReport.Instance);
-                CourseReport.Instance.Dock = DockStyle.Fill;
-                CourseReport.PanelMdi = PanelMdi;
-                CourseReport.Instance.Visible = true;
-                CourseReport.Instance.BringToFront();
+                PanelMdi.Controls.Add(CourseHistory.Instance);
+                CourseHistory.Instance.Dock = DockStyle.Fill;
+                CourseHistory.PanelMdi = PanelMdi;
+                CourseHistory.Instance.Visible = true;
+                CourseHistory.Instance.BringToFront();
             }
             else
             {
-                CourseReport.Instance.Visible = true;
-                CourseReport.Instance.BringToFront();
+                CourseHistory.Instance.Visible = true;
+                CourseHistory.Instance.BringToFront();
             }
         }
 
@@ -144,6 +144,28 @@ namespace INFOSiS_2._0
             {
                 CourseHistoryRegister.Instance.Visible = true;
                 CourseHistoryRegister.Instance.BringToFront();
+            }
+        }
+
+        private void btnCourseHistoryModify_Click(object sender, EventArgs e)
+        {
+            foreach (Control item in PanelMdi.Controls.OfType<Control>())
+            {
+                PanelMdi.Controls.Remove(item);
+            }
+
+            if (!PanelMdi.Controls.Contains(CourseHistoryModify.Instance))
+            {
+                PanelMdi.Controls.Add(CourseHistoryModify.Instance);
+                CourseHistoryModify.Instance.Dock = DockStyle.Fill;
+                CourseHistoryModify.PanelMdi = PanelMdi;
+                CourseHistoryModify.Instance.Visible = true;
+                CourseHistoryModify.Instance.BringToFront();
+            }
+            else
+            {
+                CourseHistoryModify.Instance.Visible = true;
+                CourseHistoryModify.Instance.BringToFront();
             }
         }
     }
