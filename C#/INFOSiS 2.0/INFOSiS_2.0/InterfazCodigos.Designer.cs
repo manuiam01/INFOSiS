@@ -44,6 +44,7 @@
             this.txtCodigo.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodigo.Location = new System.Drawing.Point(101, 26);
             this.txtCodigo.Margin = new System.Windows.Forms.Padding(2);
+            this.txtCodigo.MaxLength = 8;
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(167, 23);
             this.txtCodigo.TabIndex = 10;

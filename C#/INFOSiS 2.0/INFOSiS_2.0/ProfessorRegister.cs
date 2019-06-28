@@ -46,6 +46,7 @@ namespace INFOSiS_2._0
             txtSecondName.CharacterCasing = CharacterCasing.Upper;
             txtPrimaryLastName.CharacterCasing = CharacterCasing.Upper;
             txtSecondLastName.CharacterCasing = CharacterCasing.Upper;
+            txtPUCPCode.CharacterCasing = CharacterCasing.Upper;
 
         }
 
@@ -114,8 +115,7 @@ namespace INFOSiS_2._0
             {
                 if (rbDNI.Checked)
                 {
-                    if (txtDocumentNumber.Text.Count() != 8 ||
-                       (txtDocumentNumber.Text.Count() == 8 && !verifyDocumentNumber(txtDocumentNumber.Text)))
+                    if (txtDocumentNumber.Text.Count() != 8)
                     {
                         MessageBox.Show("Número de documento inválido", "Error en el registro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         secondValidation = false;

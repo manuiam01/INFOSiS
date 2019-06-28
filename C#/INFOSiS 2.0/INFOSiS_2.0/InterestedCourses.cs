@@ -24,6 +24,7 @@ namespace INFOSiS_2._0
             servidor = new Server.ServerClient();
             table = new DataTable();
             cursos = new BindingList<string>();
+            txbCourses.CharacterCasing = CharacterCasing.Upper;
             table.Columns.Add("ID", typeof(string));
             table.Columns.Add("Nombre", typeof(string));
             BindingList<Server.course> courses = new BindingList<Server.course>(servidor.queryAllCourse());
@@ -77,7 +78,24 @@ namespace INFOSiS_2._0
 
         private void TextBox1_TextChanged(object sender, EventArgs e)
         {
+            CurrencyManager cm = (CurrencyManager)BindingContext[dgvCursos.DataSource];
+            cm.SuspendBinding();
+            if (txbCourses.Text.Equals(""))
+            {
+                foreach(DataGridViewRow row in dgvCursos.Rows)
+                    row.Visible = true;
+            }
+            else
+            {
+                foreach(DataGridViewRow row in dgvCursos.Rows)
+                {
+                    if (row.Cells[1].Value.ToString().Contains(txbCourses.Text))
+                        row.Visible = true;
+                    else
+                        row.Visible = false;
+                }
 
+            }
         }
     }
 }

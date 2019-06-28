@@ -27,6 +27,7 @@ namespace INFOSiS_2._0
             servidor = new Server.ServerClient();
             //dgvCourses.AutoGenerateColumns = false;
             table = new DataTable();
+            tbCourse.CharacterCasing = CharacterCasing.Upper;
             table.Columns.Add("Nombre", typeof(string));
             table.Columns.Add("Fecha inicio", typeof(DateTime));
             table.Columns.Add("Fecha fin", typeof(DateTime));
@@ -71,7 +72,24 @@ namespace INFOSiS_2._0
 
         private void TbCourse_TextChanged(object sender, EventArgs e)
         {
+            CurrencyManager cm = (CurrencyManager)BindingContext[dgvCourses.DataSource];
+            cm.SuspendBinding();
+            if (tbCourse.Text.Equals(""))
+            {
+                foreach (DataGridViewRow row in dgvCourses.Rows)
+                    row.Visible = true;
+            }
+            else
+            {
+                foreach (DataGridViewRow row in dgvCourses.Rows)
+                {
+                    if (row.Cells[0].Value.ToString().Contains(tbCourse.Text))
+                        row.Visible = true;
+                    else
+                        row.Visible = false;
+                }
 
+            }
         }
     }
 }

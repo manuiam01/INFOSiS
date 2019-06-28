@@ -43,8 +43,12 @@ namespace INFOSiS_2._0
             servidor = new Server.ServerClient();
             idcursos = new BindingList<string>();
             tbCursos.Columns.Add("ID", typeof(string));
-
             tbCursos.Columns.Add("Nombre", typeof(string));
+            txbNDocumento.CharacterCasing = CharacterCasing.Upper;
+            txbApePa.CharacterCasing = CharacterCasing.Upper;
+            txbApeMa.CharacterCasing = CharacterCasing.Upper;
+            txbNombre.CharacterCasing = CharacterCasing.Upper;
+            txbSegundoNom.CharacterCasing = CharacterCasing.Upper;
         }
 
         private void InterestedRegister_Load(object sender, EventArgs e)
@@ -176,11 +180,10 @@ namespace INFOSiS_2._0
             else if (txtEmail.Text == "")
                 MessageBox.Show("No ingresó el correo del interesado", "Aviso", MessageBoxButtons.OK, iconoWarning);
             else if (dgvInterestedCourses.Rows.Count == 0)
-                MessageBox.Show("No escogió cursos de interés", "Aviso", MessageBoxButtons.OK);
+                MessageBox.Show("No escogió cursos de interés", "Aviso", MessageBoxButtons.OK, iconoWarning);
             else
             {
-                bool isValid = new EmailAddressAttribute().IsValid(txtEmail.Text);
-                if (!isValid)
+                if (!(new EmailAddressAttribute().IsValid(txtEmail.Text)))
                     MessageBox.Show("El correo ingresado no es válido", "Aviso", MessageBoxButtons.OK);
                 else
                 {
@@ -286,9 +289,12 @@ namespace INFOSiS_2._0
 
         private void txbNDocumento_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            if (rbDNI.Checked)
             {
-                e.Handled = true;
+                if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+                {
+                    e.Handled = true;
+                }
             }
         }
 
@@ -318,6 +324,24 @@ namespace INFOSiS_2._0
         private void txbApeMa_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+        }
+
+        private void rbDNI_CheckedChanged(object sender, EventArgs e)
+        {
+            txbNDocumento.MaxLength = 8;
+            txbNDocumento.Text = "";
+        }
+
+        private void rbCarnet_CheckedChanged(object sender, EventArgs e)
+        {
+            txbNDocumento.MaxLength = 12;
+            txbNDocumento.Text = "";
+        }
+
+        private void rbPasaporte_CheckedChanged(object sender, EventArgs e)
+        {
+            txbNDocumento.MaxLength = 12;
+            txbNDocumento.Text = "";
         }
     }
 }

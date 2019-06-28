@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Collections;
+using System.ComponentModel.DataAnnotations;
 
 namespace INFOSiS_2._0
 {
@@ -40,6 +41,12 @@ namespace INFOSiS_2._0
             InitializeComponent();
             setState(Estado.Inicial);
             server = new Server.ServerClient();
+            txtFirstName.CharacterCasing = CharacterCasing.Upper;
+            txtSecondName.CharacterCasing = CharacterCasing.Upper;
+            txtPrimaryLastName.CharacterCasing = CharacterCasing.Upper;
+            txtSecondLastName.CharacterCasing = CharacterCasing.Upper;
+            txtPUCPCode.CharacterCasing = CharacterCasing.Upper;
+            txtDocumentNumber.CharacterCasing = CharacterCasing.Upper;
         }
 
         public enum Estado
@@ -164,32 +171,48 @@ namespace INFOSiS_2._0
         {
             server = new Server.ServerClient();
             intern = new Server.intern();
-            intern = server.SearchInternByIdPUCP(txtPUCPCode.Text);
-            if(intern.idNumber != null)
+            if (txtPUCPCode.Text.Count() != 8)
             {
-                txtPUCPCode.Enabled = false;
-                txtDocumentNumber.Text = intern.idNumber;
-                if (intern.idType == 0) rbDNI.Checked = true;
-                else if (intern.idType == 1) rbForeignCard.Checked = true;
-                else if (intern.idType == 2) rbPassport.Checked = true;
-                txtFirstName.Text = intern.firstName;
-                txtSecondName.Text = intern.middleName;
-                txtPrimaryLastName.Text = intern.primaryLastName;
-                txtSecondLastName.Text = intern.secondLastName;
-                if (intern.gender == "F") rbWoman.Checked = true;
-                else if (intern.gender == "M") rbMan.Checked = true;
-                txtCellphone.Text = intern.cellPhoneNumber;
-                txtHomephone.Text = intern.homePhone;
-                txtEmailPUCP.Text = intern.emailPUCP;
-                txtEmail.Text = intern.email;
-                txtPUCPCode.Text = intern.idPUCP;
-                txtAddress.Text = intern.address;
-                if (intern.user.isActive) rbActive.Checked = true;
-                else if (!intern.user.isActive) rbInactive.Checked = true;
-                if (intern.birthday.Date < dtpBirthday.MinDate) dtpBirthday.Value = dtpBirthday.MaxDate; //fecha nula
-                else dtpBirthday.Value = intern.birthday.Date;
-                setState(Estado.Buscar);
+                MessageBox.Show("Código PUCP inválido", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
+
+            else
+            {
+                intern = server.SearchInternByIdPUCP(txtPUCPCode.Text);
+                if (intern.idNumber != null)
+                {
+                    txtPUCPCode.Enabled = false;
+                    txtDocumentNumber.Text = intern.idNumber;
+                    if (intern.idType == 0) rbDNI.Checked = true;
+                    else if (intern.idType == 1) rbForeignCard.Checked = true;
+                    else if (intern.idType == 2) rbPassport.Checked = true;
+                    txtFirstName.Text = intern.firstName;
+                    txtSecondName.Text = intern.middleName;
+                    txtPrimaryLastName.Text = intern.primaryLastName;
+                    txtSecondLastName.Text = intern.secondLastName;
+                    if (intern.gender == "F") rbWoman.Checked = true;
+                    else if (intern.gender == "M") rbMan.Checked = true;
+                    txtCellphone.Text = intern.cellPhoneNumber;
+                    txtHomephone.Text = intern.homePhone;
+                    txtEmailPUCP.Text = intern.emailPUCP;
+                    txtEmail.Text = intern.email;
+                    txtPUCPCode.Text = intern.idPUCP;
+                    txtAddress.Text = intern.address;
+                    if (intern.user.isActive) rbActive.Checked = true;
+                    else if (!intern.user.isActive) rbInactive.Checked = true;
+                    if (intern.birthday.Date < dtpBirthday.MinDate) dtpBirthday.Value = dtpBirthday.MaxDate; //fecha nula
+                    else dtpBirthday.Value = intern.birthday.Date;
+                    setState(Estado.Buscar);
+                }
+                else
+                {
+                    MessageBox.Show("El código ingresado no pertenece a ningún practicante", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+            
+            
         }
 
         private void lbAdvancedSearch_Click(object sender, EventArgs e)
@@ -230,8 +253,17 @@ namespace INFOSiS_2._0
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            clean();
-            setState(Estado.Inicial);
+            if (txtDocumentNumber.Text.Count() != 0)
+            {
+                DialogResult result = MessageBox.Show("Está seguro de no guardar los cambios?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    clean();
+                    setState(Estado.Inicial);
+                }
+            }
+            
+            
         }
 
         private void clean()
@@ -269,10 +301,16 @@ namespace INFOSiS_2._0
         {
             intern = new Server.intern();
 
+            if (txtDocumentNumber.Text.Equals("") || txtFirstName.Text.Equals("") ||
+                txtPrimaryLastName.Text.Equals("") || txtDocumentNumber.Text.Equals("") ||
+                txtEmailPUCP.Text.Equals(""))
+            {
+                MessageBox.Show("Revisar los campos obligatorios", "Registro inválido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
             if (rbDNI.Checked)
             {
-                if (txtDocumentNumber.Text.Count() != 8 ||
-                   (txtDocumentNumber.Text.Count() == 8 && !verifyDocumentNumber(txtDocumentNumber.Text)))
+                if (txtDocumentNumber.Text.Count() != 8)
                 {
                     MessageBox.Show("Número de documento inválido", "Error en el registro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -284,8 +322,7 @@ namespace INFOSiS_2._0
             }
             else if (rbForeignCard.Checked || rbPassport.Checked)
             {
-                if (txtDocumentNumber.Text.Count() != 12 ||
-                   (txtDocumentNumber.Text.Count() == 12 && !verifyDocumentNumber(txtDocumentNumber.Text)))
+                if (txtDocumentNumber.Text.Count() != 12)
                 {
                     MessageBox.Show("Número de documento inválido", "Error en el registro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -296,25 +333,26 @@ namespace INFOSiS_2._0
                     else if (rbPassport.Checked) intern.idType = 2;
                 }
             }
-            else if (!rbDNI.Checked && !rbForeignCard.Checked && !rbPassport.Checked)
-            {
-                MessageBox.Show("Escoge un tipo de documento", "Error en el registro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+
             if (txtPUCPCode.Text.Count() != 8)
             {
                 MessageBox.Show("Código PUCP inválido", "Error en el registro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            if (!txtEmailPUCP.Text.Contains("@") || !txtEmailPUCP.Text.Contains("."))
+            if (!(new EmailAddressAttribute().IsValid(txtEmailPUCP.Text)))
             {
                 MessageBox.Show("Correo PUCP inválido", "Error en el registro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (txtEmail.Text.Count() > 0 && (!txtEmail.Text.Contains("@") || !txtEmail.Text.Contains(".")))
+            if (txtEmail.Text.Count() > 0 && (!(new EmailAddressAttribute().IsValid(txtEmail.Text))))
             {
                 MessageBox.Show("Correo alternativo inválido", "Error en el registro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (rbMan.Checked == false && rbWoman.Checked == false)
+            {
+                MessageBox.Show("No eligió el sexo", "Error en el registro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             intern.idPUCP = txtPUCPCode.Text;
@@ -394,6 +432,44 @@ namespace INFOSiS_2._0
                     e.Handled = true;
                 }
             }
+        }
+
+        private void rbDNI_CheckedChanged_1(object sender, EventArgs e)
+        {
+            txtDocumentNumber.Text = "";
+            txtDocumentNumber.MaxLength = 8;
+        }
+
+        private void rbForeignCard_CheckedChanged_1(object sender, EventArgs e)
+        {
+            txtDocumentNumber.Text = "";
+            txtDocumentNumber.MaxLength = 12;
+        }
+
+        private void rbPassport_CheckedChanged_1(object sender, EventArgs e)
+        {
+            txtDocumentNumber.Text = "";
+            txtDocumentNumber.MaxLength = 12;
+        }
+
+        private void txtFirstName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+        }
+
+        private void txtSecondName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+        }
+
+        private void txtPrimaryLastName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+        }
+
+        private void txtSecondLastName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
         }
     }
 }

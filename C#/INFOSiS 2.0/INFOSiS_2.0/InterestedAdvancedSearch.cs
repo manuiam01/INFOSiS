@@ -57,8 +57,16 @@ namespace INFOSiS_2._0
         private void BtnSelect_Click(object sender, EventArgs e)
         {
             inte = new Server.interested();
-            inte = (Server.interested)dgvInteresados.CurrentRow.DataBoundItem;
-            this.DialogResult = DialogResult.OK;
+            if (dgvInteresados.Rows.Count!= 0)
+            {
+                inte = (Server.interested)dgvInteresados.CurrentRow.DataBoundItem;
+                this.DialogResult = DialogResult.OK;
+            }
+            else
+            {
+                MessageBox.Show("No escogió a algún interesado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            
         }
     }
 }

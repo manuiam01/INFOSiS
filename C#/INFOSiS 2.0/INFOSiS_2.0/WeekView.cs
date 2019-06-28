@@ -33,6 +33,7 @@ namespace INFOSiS_2._0
         {
             InitializeComponent();
             server = new Server.ServerClient();
+
             BindingList<Server.intern> interns = new BindingList<Server.intern>(server.QueryAllInterns());
 
             cbInterns.DataSource = interns;
@@ -46,6 +47,7 @@ namespace INFOSiS_2._0
 
             if(weekAvailability != null && weekAvailability.Length == 77)
             {
+                lbNoWeek.Visible = false;
                 int j = -1;
                 for (int i = 0; i < 77; i++)
                 {
@@ -68,7 +70,7 @@ namespace INFOSiS_2._0
                         }
                         else c.BackColor = Color.Silver;
 
-                        c.Text = schedule[row, 0].ToString();
+                        //c.Text = schedule[row, 0].ToString();
                     }
                 }
                 //MARTES
@@ -82,7 +84,7 @@ namespace INFOSiS_2._0
                     }
                     else c.BackColor = Color.Silver;
 
-                    c.Text = schedule[row, 1].ToString();
+                    //c.Text = schedule[row, 1].ToString();
                 }
                 //MIÉRCOLES
                 foreach (Control c in gbWed.Controls)
@@ -95,7 +97,7 @@ namespace INFOSiS_2._0
                     }
                     else c.BackColor = Color.Silver;
 
-                    c.Text = schedule[row, 2].ToString();
+                    //c.Text = schedule[row, 2].ToString();
                 }
                 //JUEVES
                 foreach (Control c in gbThu.Controls)
@@ -108,7 +110,7 @@ namespace INFOSiS_2._0
                     }
                     else c.BackColor = Color.Silver;
 
-                    c.Text = schedule[row, 3].ToString();
+                    //c.Text = schedule[row, 3].ToString();
                 }
                 //VIERNES
                 foreach (Control c in gbFri.Controls)
@@ -121,7 +123,7 @@ namespace INFOSiS_2._0
                     }
                     else c.BackColor = Color.Silver;
 
-                    c.Text = schedule[row, 4].ToString();
+                    //c.Text = schedule[row, 4].ToString();
                 }
                 //SÁBADO
                 foreach (Control c in gbSat.Controls)
@@ -134,7 +136,7 @@ namespace INFOSiS_2._0
                     }
                     else c.BackColor = Color.Silver;
 
-                    c.Text = schedule[row, 5].ToString();
+                    //c.Text = schedule[row, 5].ToString();
                 }
                 //DOMINGO
                 foreach (Control c in gbSun.Controls)
@@ -147,12 +149,37 @@ namespace INFOSiS_2._0
                     }
                     else c.BackColor = Color.Silver;
 
-                    c.Text = schedule[row, 6].ToString();
+                    //c.Text = schedule[row, 6].ToString();
                 }
             }
             else
             {
-                MessageBox.Show("No registrada", "Disponibilidad Semanal", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show("No registrada", "Disponibilidad Semanal", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                lbNoWeek.Visible = true;
+
+                //foreach (Control c in this.Controls)
+                //{
+                //    if (c is Button)
+                //    {
+                //        c.BackColor = Color.Silver;
+                //    }
+                //}
+
+                //foreach (Control c in gbMon.Controls) if (c is Button) c.BackColor = Color.Silver;
+
+                foreach (Control c in this.Controls)
+                {
+                    if (c is GroupBox)
+                    {
+                        foreach (Control b in c.Controls)
+                        {
+                            if (b is Button)
+                            {
+                                b.BackColor = Color.Silver;
+                            }
+                        }
+                    }
+                }
             }
         }
     }
