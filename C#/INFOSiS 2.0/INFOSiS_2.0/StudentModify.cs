@@ -23,6 +23,7 @@ namespace INFOSiS_2._0
             dateNacimiento.MaxDate = DateTime.Today;
             listaCodigos = new BindingList<ListaStrings>();
             dgvCodigos.DataSource = listaCodigos;
+            txtDocumento.CharacterCasing = CharacterCasing.Upper;
         }
 
         public static StudentModify Instance
@@ -260,6 +261,35 @@ namespace INFOSiS_2._0
                 txtApellidoPaterno.Text = "";
                 listaCodigos = new BindingList<ListaStrings>();
                 dgvCodigos.DataSource = listaCodigos;
+            }
+        }
+
+        private void RbnDNI_CheckedChanged(object sender, EventArgs e)
+        {
+            txtDocumento.MaxLength = 8;
+            txtDocumento.Text = "";
+        }
+
+        private void RbnCarneExtranjeria_CheckedChanged(object sender, EventArgs e)
+        {
+            txtDocumento.MaxLength = 12;
+            txtDocumento.Text = "";
+        }
+
+        private void RbnPasaporte_CheckedChanged(object sender, EventArgs e)
+        {
+            txtDocumento.MaxLength = 12;
+            txtDocumento.Text = "";
+        }
+
+        private void TxtDocumento_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (rbnDNI.Checked)
+            {
+                if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+                {
+                    e.Handled = true;
+                }
             }
         }
     }

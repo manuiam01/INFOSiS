@@ -113,6 +113,7 @@
             this.txtCellphone.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtCellphone.Location = new System.Drawing.Point(160, 51);
             this.txtCellphone.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCellphone.MaxLength = 12;
             this.txtCellphone.Name = "txtCellphone";
             this.txtCellphone.Size = new System.Drawing.Size(286, 31);
             this.txtCellphone.TabIndex = 146;
@@ -134,6 +135,7 @@
             this.txtHomephone.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtHomephone.Location = new System.Drawing.Point(160, 91);
             this.txtHomephone.Margin = new System.Windows.Forms.Padding(4);
+            this.txtHomephone.MaxLength = 10;
             this.txtHomephone.Name = "txtHomephone";
             this.txtHomephone.Size = new System.Drawing.Size(286, 31);
             this.txtHomephone.TabIndex = 148;
@@ -155,6 +157,7 @@
             this.txtEmailPUCP.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtEmailPUCP.Location = new System.Drawing.Point(160, 130);
             this.txtEmailPUCP.Margin = new System.Windows.Forms.Padding(4);
+            this.txtEmailPUCP.MaxLength = 100;
             this.txtEmailPUCP.Name = "txtEmailPUCP";
             this.txtEmailPUCP.Size = new System.Drawing.Size(286, 31);
             this.txtEmailPUCP.TabIndex = 150;
@@ -176,6 +179,7 @@
             this.txtEmail.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtEmail.Location = new System.Drawing.Point(160, 170);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
+            this.txtEmail.MaxLength = 100;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(286, 31);
             this.txtEmail.TabIndex = 152;
@@ -185,6 +189,7 @@
             this.txtPUCPCode.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtPUCPCode.Location = new System.Drawing.Point(160, 209);
             this.txtPUCPCode.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPUCPCode.MaxLength = 8;
             this.txtPUCPCode.Name = "txtPUCPCode";
             this.txtPUCPCode.Size = new System.Drawing.Size(286, 31);
             this.txtPUCPCode.TabIndex = 154;
@@ -218,6 +223,7 @@
             this.txtAddress.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtAddress.Location = new System.Drawing.Point(160, 250);
             this.txtAddress.Margin = new System.Windows.Forms.Padding(4);
+            this.txtAddress.MaxLength = 200;
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(286, 31);
             this.txtAddress.TabIndex = 158;
@@ -362,6 +368,7 @@
             this.rbDNI.TabStop = true;
             this.rbDNI.Text = "DNI";
             this.rbDNI.UseVisualStyleBackColor = true;
+            this.rbDNI.CheckedChanged += new System.EventHandler(this.RbDNI_CheckedChanged);
             // 
             // rbForeignCard
             // 
@@ -375,6 +382,7 @@
             this.rbForeignCard.TabStop = true;
             this.rbForeignCard.Text = "Carné de extranjería";
             this.rbForeignCard.UseVisualStyleBackColor = true;
+            this.rbForeignCard.CheckedChanged += new System.EventHandler(this.RbForeignCard_CheckedChanged);
             // 
             // rbPassport
             // 
@@ -388,6 +396,7 @@
             this.rbPassport.TabStop = true;
             this.rbPassport.Text = "Pasaporte";
             this.rbPassport.UseVisualStyleBackColor = true;
+            this.rbPassport.CheckedChanged += new System.EventHandler(this.RbPassport_CheckedChanged);
             // 
             // txtDocumentNumber
             // 
@@ -397,6 +406,7 @@
             this.txtDocumentNumber.Name = "txtDocumentNumber";
             this.txtDocumentNumber.Size = new System.Drawing.Size(284, 31);
             this.txtDocumentNumber.TabIndex = 133;
+            this.txtDocumentNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtDocumentNumber_KeyPress);
             // 
             // lblDocumentNumber
             // 
@@ -427,6 +437,7 @@
             this.txtFirstName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtFirstName.Location = new System.Drawing.Point(212, 178);
             this.txtFirstName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtFirstName.MaxLength = 100;
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(284, 31);
             this.txtFirstName.TabIndex = 136;
@@ -436,6 +447,7 @@
             this.txtSecondName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtSecondName.Location = new System.Drawing.Point(212, 217);
             this.txtSecondName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSecondName.MaxLength = 100;
             this.txtSecondName.Name = "txtSecondName";
             this.txtSecondName.Size = new System.Drawing.Size(284, 31);
             this.txtSecondName.TabIndex = 137;
@@ -445,6 +457,7 @@
             this.txtPrimaryLastName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtPrimaryLastName.Location = new System.Drawing.Point(212, 256);
             this.txtPrimaryLastName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPrimaryLastName.MaxLength = 100;
             this.txtPrimaryLastName.Name = "txtPrimaryLastName";
             this.txtPrimaryLastName.Size = new System.Drawing.Size(284, 31);
             this.txtPrimaryLastName.TabIndex = 138;
@@ -454,6 +467,7 @@
             this.txtSecondLastName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtSecondLastName.Location = new System.Drawing.Point(212, 295);
             this.txtSecondLastName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSecondLastName.MaxLength = 100;
             this.txtSecondLastName.Name = "txtSecondLastName";
             this.txtSecondLastName.Size = new System.Drawing.Size(284, 31);
             this.txtSecondLastName.TabIndex = 139;

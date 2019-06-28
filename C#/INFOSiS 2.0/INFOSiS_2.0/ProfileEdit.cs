@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.ComponentModel.DataAnnotations;
 
 namespace INFOSiS_2._0
 {
@@ -35,6 +36,7 @@ namespace INFOSiS_2._0
         public ProfileEdit()
         {
             InitializeComponent();
+            txtDocumentNumber.CharacterCasing = CharacterCasing.Upper;
         }
 
         public void poner_datos(Server.user u)
@@ -173,77 +175,118 @@ namespace INFOSiS_2._0
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("¿Seguro que desea guardar los cambios?", "Confirmar modificación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
+            if(txtFirstName.Text.Equals(""))
+                MessageBox.Show("Nombre no válido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else if (txtPrimaryLastName.Text.Equals(""))
+                MessageBox.Show("Apellido paterno no válido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else if(txtCellphone.Text.Count()!=9 || txtCellphone.Text.Equals(""))
+                MessageBox.Show("El número de celular no es válido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else if(!(new EmailAddressAttribute().IsValid(txtEmail.Text)))
+                MessageBox.Show("El correo ingresado no es válido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else
             {
-                if (user.acces.id == 2)
+                DialogResult result = MessageBox.Show("¿Seguro que desea guardar los cambios?", "Confirmar modificación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
                 {
-                    //Coordinator
-                    Server.coordinator c = server.queryCoordByID(user.username);
-                    c.address = txtAddress.Text;
-                    c.birthday = dtpBirthday.Value;
-                    c.cellPhoneNumber = txtCellphone.Text;
-                    c.email = txtEmail.Text;
-                    c.emailPUCP = txtEmailPUCP.Text;
-                    c.firstName = txtFirstName.Text;
-                    c.homePhone = txtHomephone.Text;
-                    c.middleName = txtSecondName.Text;
-                    c.primaryLastName = txtPrimaryLastName.Text;
-                    c.secondLastName = txtSecondLastName.Text;
-                    if (rbMan.Checked == true)
+                    if (user.acces.id == 2)
                     {
-                        c.gender = "M";
-                    }
-                    else
-                    {
-                        c.gender = "F";
-                    }
-                    int res = server.updateCoordinator(c);
-                    if (res < 0)
-                    {
-                        MessageBox.Show("No se pudo actualizar sus datos personales", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        //Coordinator
+                        Server.coordinator c = server.queryCoordByID(user.username);
+                        c.address = txtAddress.Text;
+                        c.birthday = dtpBirthday.Value;
+                        c.cellPhoneNumber = txtCellphone.Text;
+                        c.email = txtEmail.Text;
+                        c.emailPUCP = txtEmailPUCP.Text;
+                        c.firstName = txtFirstName.Text;
+                        c.homePhone = txtHomephone.Text;
+                        c.middleName = txtSecondName.Text;
+                        c.primaryLastName = txtPrimaryLastName.Text;
+                        c.secondLastName = txtSecondLastName.Text;
+                        if (rbMan.Checked == true)
+                        {
+                            c.gender = "M";
+                        }
+                        else
+                        {
+                            c.gender = "F";
+                        }
+                        int res = server.updateCoordinator(c);
+                        if (res < 0)
+                        {
+                            MessageBox.Show("No se pudo actualizar sus datos personales", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
+                        }
+                        else
+                        {
+                            MessageBox.Show("Se actualizaron sus datos personales", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            poner_datos(this.user);
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Se actualizaron sus datos personales", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        poner_datos(this.user);
+                        //Practicante
+                        Server.intern c = server.SearchInternByIdPUCP(user.username);
+                        c.address = txtAddress.Text;
+                        c.birthday = dtpBirthday.Value;
+                        c.cellPhoneNumber = txtCellphone.Text;
+                        c.email = txtEmail.Text;
+                        c.emailPUCP = txtEmailPUCP.Text;
+                        c.firstName = txtFirstName.Text;
+                        c.homePhone = txtHomephone.Text;
+                        c.middleName = txtSecondName.Text;
+                        c.primaryLastName = txtPrimaryLastName.Text;
+                        c.secondLastName = txtSecondLastName.Text;
+                        if (rbMan.Checked == true)
+                        {
+                            c.gender = "M";
+                        }
+                        else
+                        {
+                            c.gender = "F";
+                        }
+                        int res = server.UpdateIntern(c);
+                        if (res < 0)
+                        {
+                            MessageBox.Show("No se pudo actualizar sus datos personales", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("Se actualizaron sus datos personales", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            poner_datos(this.user);
+                        }
+
                     }
                 }
-                else
+            }
+            
+        }
+
+        private void RbDNI_CheckedChanged(object sender, EventArgs e)
+        {
+            txtDocumentNumber.MaxLength = 8;
+            txtDocumentNumber.Text = "";
+        }
+
+        private void RbForeignCard_CheckedChanged(object sender, EventArgs e)
+        {
+            txtDocumentNumber.MaxLength = 12;
+            txtDocumentNumber.Text = "";
+        }
+
+        private void RbPassport_CheckedChanged(object sender, EventArgs e)
+        {
+            txtDocumentNumber.MaxLength = 12;
+            txtDocumentNumber.Text = "";
+        }
+
+        private void TxtDocumentNumber_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (rbDNI.Checked)
+            {
+                if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
                 {
-                    //Practicante
-                    Server.intern c = server.SearchInternByIdPUCP(user.username);
-                    c.address = txtAddress.Text;
-                    c.birthday = dtpBirthday.Value;
-                    c.cellPhoneNumber = txtCellphone.Text;
-                    c.email = txtEmail.Text;
-                    c.emailPUCP = txtEmailPUCP.Text;
-                    c.firstName = txtFirstName.Text;
-                    c.homePhone = txtHomephone.Text;
-                    c.middleName = txtSecondName.Text;
-                    c.primaryLastName = txtPrimaryLastName.Text;
-                    c.secondLastName = txtSecondLastName.Text;
-                    if (rbMan.Checked == true)
-                    {
-                        c.gender = "M";
-                    }
-                    else
-                    {
-                        c.gender = "F";
-                    }
-                    int res = server.UpdateIntern(c);
-                    if (res < 0)
-                    {
-                        MessageBox.Show("No se pudo actualizar sus datos personales", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                    }
-                    else
-                    {
-                        MessageBox.Show("Se actualizaron sus datos personales", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        poner_datos(this.user);
-                    }
-
+                    e.Handled = true;
                 }
             }
         }

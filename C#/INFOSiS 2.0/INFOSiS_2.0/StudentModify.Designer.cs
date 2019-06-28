@@ -219,6 +219,7 @@
             this.rbnPasaporte.TabStop = true;
             this.rbnPasaporte.Text = "Pasaporte";
             this.rbnPasaporte.UseVisualStyleBackColor = true;
+            this.rbnPasaporte.CheckedChanged += new System.EventHandler(this.RbnPasaporte_CheckedChanged);
             // 
             // rbnCarneExtranjeria
             // 
@@ -232,6 +233,7 @@
             this.rbnCarneExtranjeria.TabStop = true;
             this.rbnCarneExtranjeria.Text = "Carné de Extranjería";
             this.rbnCarneExtranjeria.UseVisualStyleBackColor = true;
+            this.rbnCarneExtranjeria.CheckedChanged += new System.EventHandler(this.RbnCarneExtranjeria_CheckedChanged);
             // 
             // rbnDNI
             // 
@@ -245,6 +247,7 @@
             this.rbnDNI.TabStop = true;
             this.rbnDNI.Text = "DNI";
             this.rbnDNI.UseVisualStyleBackColor = true;
+            this.rbnDNI.CheckedChanged += new System.EventHandler(this.RbnDNI_CheckedChanged);
             // 
             // txtDocumento
             // 
@@ -254,6 +257,7 @@
             this.txtDocumento.Name = "txtDocumento";
             this.txtDocumento.Size = new System.Drawing.Size(221, 27);
             this.txtDocumento.TabIndex = 1;
+            this.txtDocumento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtDocumento_KeyPress);
             // 
             // label2
             // 

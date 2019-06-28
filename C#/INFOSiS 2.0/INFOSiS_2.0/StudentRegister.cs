@@ -49,6 +49,12 @@ namespace INFOSiS_2._0
             Server.interested interested = server.QueryInterestedByID(identificacion);
             if (interested.idNumber==identificacion)
             {
+                Server.student st = server.queryStudentById(identificacion);
+                if (st.idNumber.Equals(identificacion))
+                {
+                    MessageBox.Show("ERROR: El documento ingresado ya se encuentra como alumno", "Alumno ya registrado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 txtNombre.Text = interested.firstName;
                 txtSegundoNombre.Text = interested.middleName;
                 txtApellidoPaterno.Text = interested.primaryLastName;
@@ -134,7 +140,7 @@ namespace INFOSiS_2._0
                 titulo = "Dirección no válida";
                 icono = MessageBoxIcon.Error;
             }
-            else if(!(txtTelefono.Text.Length==7 && int.TryParse(txtTelefono.Text,out telefono)))
+            else if(!(txtTelefono.Text.Length==10))
             {
                 mensaje = "ERROR: El telefono ingresado no es válido";
                 titulo = "Teléfono no válido";

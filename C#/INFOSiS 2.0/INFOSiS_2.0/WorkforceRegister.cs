@@ -109,7 +109,7 @@ namespace INFOSiS_2._0
             }
             if(rbMan.Checked == false && rbWoman.Checked == false)
             {
-                MessageBox.Show("No eligió el sexo", "Error en el registro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No eligió el genero", "Error en el registro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             

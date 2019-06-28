@@ -109,7 +109,7 @@ namespace INFOSiS_2._0
                || txtSecondLastName.Text.Count() == 0 || txtPUCPCode.Text.Count() == 0 || txtEmailPUCP.Text.Count() == 0)
             {
                 MessageBox.Show("Revisar los campos obligatorios", "Registro inválido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                firstValidation = false; 
+                return; 
             }
             if (firstValidation)
             {
@@ -118,7 +118,7 @@ namespace INFOSiS_2._0
                     if (txtDocumentNumber.Text.Count() != 8)
                     {
                         MessageBox.Show("Número de documento inválido", "Error en el registro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        secondValidation = false;
+                        return;
                     }
                 }
                 else if (rbForeignCard.Checked || rbPassport.Checked)
@@ -126,7 +126,7 @@ namespace INFOSiS_2._0
                     if (txtDocumentNumber.Text.Count() != 12)
                     {
                         MessageBox.Show("Número de documento inválido", "Error en el registro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        secondValidation = false;
+                        return;
                     }
                 }
 
@@ -135,6 +135,8 @@ namespace INFOSiS_2._0
                     MessageBox.Show("Código PUCP inválido", "Error en el registro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     //secondValidation = false;
                 }
+                else if(rbMan.Checked == false && rbWoman.Checked == false)
+                    MessageBox.Show("No escogió el género", "Error en el registro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 else if (!(new EmailAddressAttribute().IsValid(txtEmailPUCP.Text)))
                 {
                     MessageBox.Show("Correo PUCP inválido", "Error en el registro", MessageBoxButtons.OK, MessageBoxIcon.Error);
