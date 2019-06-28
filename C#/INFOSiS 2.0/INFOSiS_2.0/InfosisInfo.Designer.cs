@@ -297,7 +297,7 @@
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(579, 53);
             this.label23.TabIndex = 19;
-            this.label23.Text = "\"La autoestima hasta arriba y el perreo hasta abajo\"";
+            this.label23.Text = "\"*Alto en estrés*\"";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label24
@@ -310,6 +310,7 @@
             this.label24.Size = new System.Drawing.Size(579, 52);
             this.label24.TabIndex = 18;
             this.label24.Text = "mbezerrabrandao@pucp.pe ";
+            this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label25
             // 
