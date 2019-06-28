@@ -37,6 +37,7 @@ namespace INFOSiS_2._0
         public ProfileAssistance()
         {
             InitializeComponent();
+            lblTime.Text = DateTime.Now.ToString("T", CultureInfo.CreateSpecificCulture("en-US"));
         }
 
         public void prepararUsuario(Server.user usuario)
@@ -151,6 +152,11 @@ namespace INFOSiS_2._0
                 }
             }
             
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lblTime.Text= DateTime.Now.ToString("T", CultureInfo.CreateSpecificCulture("en-US"));
         }
     }
 }
