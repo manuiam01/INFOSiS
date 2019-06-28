@@ -13,6 +13,14 @@
         <servlet-name>CourseHistoryReport</servlet-name>
         <servlet-class>pe.edu.pucp.INFOSiS.servlets.CourseHistoryReport</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>InterestedCourseReport</servlet-name>
+        <servlet-class>pe.edu.pucp.INFOSiS.servlets.InterestedCourseReport</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>InternReport</servlet-name>
+        <servlet-class>pe.edu.pucp.INFOSiS.servlets.InternReport</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>/faces/*</url-pattern>
@@ -20,6 +28,14 @@
     <servlet-mapping>
         <servlet-name>CourseHistoryReport</servlet-name>
         <url-pattern>/CourseHistoryReport</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InterestedCourseReport</servlet-name>
+        <url-pattern>/InterestedCourseReport</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InternReport</servlet-name>
+        <url-pattern>/InternReport</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

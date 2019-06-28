@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rptInterested" language="groovy" pageWidth="555" pageHeight="802" columnWidth="535" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="caf34657-c106-45be-bd26-fb9bf73f9d14">
+	<property name="ireport.zoom" value="1.363636363636365"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="27"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="PieChartDataset" uuid="a9eb99ab-c693-4470-a8c4-239538a1271c"/>
+	<subDataset name="Interesados" uuid="378e941b-6ce1-4958-acab-9cc815aafc8e">
+		<queryString>
+			<![CDATA[SELECT * FROM inf282g3.Interested;]]>
+		</queryString>
+		<field name="idNumber" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="firstName" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="primaryLastName" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="middleName" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="secondLastName" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="gender" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="email" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="cellPhoneNumber" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="isUnsuscribed" class="java.lang.Integer">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="regDate" class="java.sql.Date">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+	</subDataset>
+	<parameter name="ID_COURSE" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[100]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT CO.idCourse, CO.name, CO.description,
+	(SELECT COUNT(*) FROM StudentHistory S INNER JOIN CourseHistory C ON S.idCourseHistory = C.idCourseHistory WHERE C.idCourse = CO.idCourse) AS StudentCount,
+    (SELECT COUNT(*) FROM InterestedxCourseType I WHERE I.idCourse = CO.idCourse) AS InterestedCount
+FROM Course AS CO
+WHERE CO.idCourse = $P{ID_COURSE}]]>
+	</queryString>
+	<field name="idCourse" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="description" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="StudentCount" class="java.lang.Long"/>
+	<field name="InterestedCount" class="java.lang.Long"/>
+	<variable name="porcentajeEstudiantes" class="java.lang.String">
+		<variableExpression><![CDATA[($F{StudentCount}/$F{InterestedCount})*100]]></variableExpression>
+	</variable>
+	<title>
+		<band height="145" splitType="Stretch">
+			<staticText>
+				<reportElement style="SubTitle" x="37" y="82" width="410" height="62" forecolor="#000000" uuid="92daf6b3-59ae-4e47-a98f-4ebd2586d085"/>
+				<textElement textAlignment="Right">
+					<font fontName="Gill Sans MT" size="36" isBold="false" isItalic="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Reporte de Interesados]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="11" y="3" width="528" height="79" forecolor="#FFFFFF" backcolor="#060668" uuid="c5a343a4-a4ff-469d-894a-2e3cf6bf1e6a"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Gill Sans MT" size="64" isBold="true"/>
+				</textElement>
+				<text><![CDATA[INFOPUC ]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="80" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="37" y="0" width="84" height="17" forecolor="#000000" uuid="b68b1ddd-92ad-4190-ad46-baac7cfbd1ce"/>
+				<textElement>
+					<font fontName="Gill Sans MT" size="12" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<text><![CDATA[ID CURSO:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="43" y="19" width="73" height="20" uuid="f11ad5f3-dbed-465c-bc7c-514813bd2bd6"/>
+				<textElement>
+					<font fontName="Gill Sans MT" size="12"/>
+				</textElement>
+				<text><![CDATA[NOMBRE:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="41" width="111" height="20" uuid="366b575b-882f-4937-9ecc-3f6e0bb0c84a"/>
+				<textElement>
+					<font fontName="Gill Sans MT" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DESCRIPCION:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="111" y="0" width="100" height="20" forecolor="#666666" uuid="72babf4b-5222-4606-ad8c-dec80f9559c1"/>
+				<textElement>
+					<font fontName="Gill Sans MT" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{idCourse}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="111" y="19" width="100" height="20" forecolor="#666666" uuid="9716f368-b9e2-4b06-821d-b1b11ec72139"/>
+				<textElement>
+					<font fontName="Gill Sans MT" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="41" width="410" height="33" forecolor="#666666" uuid="6d69543f-e14a-4cd8-954f-08115aab9308"/>
+				<textElement>
+					<font fontName="Gill Sans MT" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{description}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="115" splitType="Stretch">
+			<textField>
+				<reportElement x="178" y="7" width="100" height="20" forecolor="#666666" uuid="2ab396dd-8adc-4eac-a371-4de70e3b5a62"/>
+				<textElement>
+					<font fontName="Gill Sans MT" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{StudentCount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="178" y="27" width="100" height="20" forecolor="#666666" uuid="1bd349cb-25b0-4ae7-8a4a-957169491941"/>
+				<textElement>
+					<font fontName="Gill Sans MT" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{InterestedCount}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="33" y="7" width="142" height="20" uuid="8660f77d-00a4-4b51-ac4e-a3e68f7a09aa"/>
+				<textElement>
+					<font fontName="Gill Sans MT" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cantidad de estudiantes:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="31" y="27" width="147" height="20" uuid="0e2eb454-09d8-4d9d-9c0a-5c0d3d2a40ac"/>
+				<textElement>
+					<font fontName="Gill Sans MT" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cantidad de interesados:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="299" y="72" width="37" height="20" forecolor="#666666" uuid="18c32df2-36b6-43d1-b0a8-72725bb77d13"/>
+				<textElement>
+					<font fontName="Gill Sans MT" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{porcentajeEstudiantes}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="49" y="72" width="250" height="20" uuid="c9b60d2c-18cf-4e83-a002-f3e514964db6"/>
+				<textElement>
+					<font fontName="Gill Sans MT" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[% Interesados que se volvieron Alumnos:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="336" y="72" width="17" height="20" forecolor="#666666" uuid="d46eeecb-417d-40b2-9aad-316f9db0df8f"/>
+				<textElement>
+					<font fontName="Gill Sans MT" size="12"/>
+				</textElement>
+				<text><![CDATA[%]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="30" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="58" splitType="Stretch">
+			<staticText>
+				<reportElement x="478" y="11" width="42" height="20" uuid="d2c3f1c9-7be1-470e-8368-339aa3917aa9"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Gill Sans MT" size="12"/>
+				</textElement>
+				<text><![CDATA[Página ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" mode="Opaque" x="0" y="0" width="111" height="34" forecolor="#FFFFFF" backcolor="#060668" uuid="98739fb4-d436-4cbc-bbc6-eab06bbc777a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Gill Sans MT" size="20" isBold="true" pdfFontName="Helvetica"/>
+				</textElement>
+				<text><![CDATA[INFOSiS]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="520" y="11" width="19" height="20" uuid="07b46e24-1834-4ba3-b58f-db1fb9dcca11"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Gill Sans MT" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

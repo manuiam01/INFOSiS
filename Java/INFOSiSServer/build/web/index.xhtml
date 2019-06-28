@@ -8,10 +8,26 @@
               href="default.css" />
     </h:head>
     <h:body>
-        <h1> Reporte de un Curso Dictado </h1>
+        <h1> Reporte de los Alumnos de un Curso Dictado </h1>
         <form action="CourseHistoryReport" method="POST">
             <label id="lblNumero1">Ingrese el código de un curso dictado:</label>
             <input type="text" name="courseHistoryId"/>
+            <input type="submit" value="Reporte"/>
+        </form>
+        <h1> Reporte de Interesados que se volvieron Alumnos en un Curso</h1>
+        <form action="InterestedCourseReport" method="POST">
+            <label id="lblNumero1">Ingrese el código de un curso:</label>
+            <input type="text" name="courseId"/>
+            <input type="submit" value="Reporte"/>
+        </form>
+        <h1> Reporte de un Practicante</h1>
+        <form action="InternReport" method="POST">
+            <label id="lblNumero1">Ingrese el código de un practicante:</label>
+            <input type="text" name="idIntern"/>
+            <labe2 id="lblNumero2">Ingrese una fecha de inicio:</labe2>
+            <input type="text" name="startDate"/>
+            <labe3 id="lblNumero3">Ingrese una fecha de fin:</labe3>
+            <input type="text" name="endDate"/>
             <input type="submit" value="Reporte"/>
         </form>
     </h:body>
