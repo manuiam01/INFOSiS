@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace INFOSiS_2._0
 {
@@ -21,7 +22,9 @@ namespace INFOSiS_2._0
         private Server.professor assistant;
         private Server.session[] sessions;
         private BindingList<string> idAlumnos;
-        private long[] dates;
+        private BindingList<float?> grades;
+        private BindingList<float?> amountPaid;
+        
         private DataTable tbAlumnos = new DataTable();
         private int cantHours;
         public CourseHistoryRegister()
@@ -31,6 +34,8 @@ namespace INFOSiS_2._0
             txtProfessor.Enabled = false;
             txtAssistant.Enabled = false;
             idAlumnos = new BindingList<string>();
+            grades = new BindingList<float?>();
+            amountPaid = new BindingList<float?>();
             tbAlumnos.Columns.Add("ID", typeof(string));
             tbAlumnos.Columns.Add("Nombre", typeof(string));
             tbAlumnos.Columns.Add("Nota", typeof(float));
@@ -210,29 +215,273 @@ namespace INFOSiS_2._0
 
         private void btnAddStudent_Click(object sender, EventArgs e)
         {
+            foreach (DataGridViewRow c in dgvStudents.Rows)
+            {
+                if (c.Cells[2].Value != null) {
+                    grades.Insert(c.Index, float.Parse(c.Cells[2].Value.ToString()));
+                    amountPaid.Insert(c.Index, float.Parse(c.Cells[3].Value.ToString()));
+                }
+                
+            }
             String fullname;
             server = new Server.ServerClient();
             CourseHAddStudent formAddStudent = new CourseHAddStudent(idAlumnos);
             if (formAddStudent.ShowDialog() == DialogResult.OK) {
                 if (formAddStudent.Alumnos != null) {
-                    dgvStudents.AutoGenerateColumns = false;
-                    idAlumnos = formAddStudent.Alumnos;
                     
-                    foreach (string id in idAlumnos)
-                    {
+                    dgvStudents.AutoGenerateColumns = false;                   
+                    BindingList<String> auxAlumnos = new BindingList<string>();
+                    BindingList<float?> auxGrades = new BindingList<float?>();
+                    BindingList<float?> auxAmount = new BindingList<float?>();
+                    int tam = idAlumnos.Count();
+                    for (int i = 0; i < tam; i++) {
+                        auxAlumnos.Add(idAlumnos.ElementAt(i));
+                        auxGrades.Add(grades.ElementAt(i));
+                        auxAmount.Add(amountPaid.ElementAt(i));
+                    }
+                    foreach (String id in formAddStudent.Alumnos) {                     
+                        auxAlumnos.Add(id);
+                        idAlumnos.Add(id);
+                        auxGrades.Add(0f);
+                        grades.Add(0f);
+                        auxAmount.Add(0f);
+                        amountPaid.Add(0f);
+                        
+                    }
+                    tbAlumnos.Clear();
+                    for (int i = 0; i < auxAlumnos.Count(); i++) {                      
                         Server.student s = new Server.student();
-                        s = server.queryStudentById(id);
-                        fullname = s.firstName + " " + s.primaryLastName + " " + s.secondLastName;
-                        tbAlumnos.Rows.Add(s.idNumber, fullname, 0,0);
-                    }
-                    dgvStudents.DataSource = tbAlumnos;
-                    idAlumnos = new BindingList<string>();
-                    foreach (DataGridViewRow row in dgvStudents.Rows)
-                    {
-                        if(row.Cells[0].Value != null) idAlumnos.Add(row.Cells[0].Value.ToString());                       
-                    }
+                        s = server.queryStudentById(auxAlumnos.ElementAt(i));
+                        fullname = s.firstName + " " + s.primaryLastName + " " + s.secondLastName;                       
+                        tbAlumnos.Rows.Add(s.idNumber, fullname, auxGrades.ElementAt(i), auxAmount.ElementAt(i));
+                    }                   
+                    dgvStudents.DataSource = tbAlumnos;                   
                 }
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow c in dgvStudents.Rows)
+            {
+                if (c.Cells[2].Value != null)
+                {
+                    grades.Insert(c.Index, float.Parse(c.Cells[2].Value.ToString()));
+                    amountPaid.Insert(c.Index, float.Parse(c.Cells[3].Value.ToString()));
+                }
+
+            }
+            server = new Server.ServerClient();
+            BindingList<String> idStudents = new BindingList<string>();
+            String silabo;
+            StreamReader reader;
+            bool hayAlumnos = false;
+            OpenFileDialog opSilabo = new OpenFileDialog();
+            opSilabo.Title = "Abrir archivo de alumnos del Curso";
+            opSilabo.Filter = "CSV Files|*.csv";
+            if (opSilabo.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    using (reader = new StreamReader(opSilabo.FileName)) {
+                        while (!reader.EndOfStream)
+                        {
+                            String line = reader.ReadLine();
+                            String[] values = line.Split(';');
+                            if (values[4].Equals("MATRICULADO"))
+                            {
+                                String codPucp = values[1];                            
+                                String FirstLastName = values[5];
+                                String SecondLastName = values[6];
+                                String[] nombres = values[7].Split(' ');
+                                String firstName = nombres[0];
+                                String middleName = "";
+                                for (int i = 1; i < nombres.Length; i++) {
+                                    if (i > 1) middleName = middleName + " ";
+                                    middleName = middleName + nombres[i];
+                                }
+                                String birthday = values[8];
+                                DateTime dateNacimiento = Convert.ToDateTime(birthday);
+                                birthday = dateNacimiento.ToString("yyyy/MM/dd");
+                                char[] b = new char[values[9].Length];
+                                b = values[9].ToCharArray();
+                                String Gender = b[0].ToString();
+
+                                values[10] = values[10].Replace(" ", String.Empty);
+                                values[11] = values[11].Replace(" ", String.Empty);
+                                values[12] = values[12].Replace(" ", String.Empty);
+                                int idtype;
+                                String idNumber;
+                                if (values[11] != "")
+                                {
+                                    idtype = 0;
+                                    idNumber = values[11];
+                                }
+                                else if (values[12] != "")
+                                {
+                                    idtype = 1;
+                                    idNumber = values[12];
+                                }
+                                else {
+                                    idtype = 2;
+                                    idNumber = values[10];
+                                }
+                                String address = values[22];
+                                String email = values[24];
+                                String cellPhone = values[25];
+                                String homePhone = values[26];
+                                Server.interested interested = new Server.interested();
+                                interested.idNumber = idNumber;
+                                interested.idType = idtype;
+                                interested.firstName = firstName;
+                                interested.middleName = middleName;
+                                interested.primaryLastName = FirstLastName;
+                                interested.secondLastName = SecondLastName;
+                                interested.gender = Gender;
+                                interested.email = email;
+                                interested.cellPhoneNumber = cellPhone;
+                                interested.isUnsubscribed = false;
+                                server.InsertInterested(interested);
+
+                                //Server.student s = new Server.student();
+                                //s.idNumber = idNumber;
+                                Server.student student = server.queryStudentById(idNumber);
+                                bool seEncuentra = false;
+                                BindingList<String> listaPucp;
+                                if (student.idNumber == idNumber)
+                                {
+                                    
+                                    if (student.idPUCPList != null)
+                                    {
+                                        listaPucp = new BindingList<string>(student.idPUCPList);
+                                        foreach (String str in listaPucp)
+                                        {
+                                            if (str == codPucp) seEncuentra = true;
+                                        }
+                                        if (!seEncuentra) listaPucp.Add(codPucp);
+
+                                    }
+                                    else
+                                    {
+                                        listaPucp = new BindingList<string>();
+                                        listaPucp.Add(codPucp);
+                                    }
+                                   
+                                    student.idPUCPList = new string[listaPucp.Count];
+                                    listaPucp.CopyTo(student.idPUCPList, 0);
+                                    int result = server.updateStudent(student, birthday);                                    
+                                }
+                                else {
+                                    student = new Server.student();
+                                    student.idNumber = idNumber;
+                                    student.address = address;
+                                    student.homePhone = homePhone;
+                                    listaPucp = new BindingList<string>();
+                                    listaPucp.Add(codPucp);
+                                    student.idPUCPList = new string[listaPucp.Count];
+                                    listaPucp.CopyTo(student.idPUCPList, 0);
+                                    int result = server.InsertStudent(student, birthday);
+
+                                }
+                                seEncuentra = false;
+                                foreach (String str in idAlumnos)
+                                {
+                                    if (str == idNumber) seEncuentra = true;
+                                }
+                                if (!seEncuentra)
+                                    idStudents.Add(idNumber);
+                            }
+                            
+                                
+
+                        }
+                    }
+                    if (idStudents != null)
+                    {
+                        BindingList<String> auxAlumnos = new BindingList<string>();
+                        BindingList<float?> auxGrades = new BindingList<float?>();
+                        BindingList<float?> auxAmount = new BindingList<float?>();
+                        int tam = idAlumnos.Count();
+                        for (int i = 0; i < tam; i++)
+                        {
+                            auxAlumnos.Add(idAlumnos.ElementAt(i));
+                            auxGrades.Add(grades.ElementAt(i));
+                            auxAmount.Add(amountPaid.ElementAt(i));
+                        }
+                        foreach (String id in idStudents)
+                        {
+                            auxAlumnos.Add(id);
+                            idAlumnos.Add(id);
+                            auxGrades.Add(0f);
+                            grades.Add(0f);
+                            auxAmount.Add(0f);
+                            amountPaid.Add(0f);
+
+                        }
+                        tbAlumnos.Clear();
+                        for (int i = 0; i < auxAlumnos.Count(); i++)
+                        {
+                            Server.student s = new Server.student();
+                            s = server.queryStudentById(auxAlumnos.ElementAt(i));
+                            String fullname = s.firstName + " " + s.primaryLastName + " " + s.secondLastName;
+                            tbAlumnos.Rows.Add(s.idNumber, fullname, auxGrades.ElementAt(i), auxAmount.ElementAt(i));
+                        }
+                        dgvStudents.DataSource = tbAlumnos;
+                        dgvStudents.AutoGenerateColumns = false;
+                        idAlumnos = idStudents;
+                        
+                        foreach (string id in idAlumnos)
+                        {                         
+                            Server.student s = new Server.student();
+                            s = server.queryStudentById(id);
+                            String fullname = s.firstName + " " + s.primaryLastName + " " + s.secondLastName;
+                            tbAlumnos.Rows.Add(s.idNumber, fullname, 0, 0);
+                        }
+                        dgvStudents.DataSource = tbAlumnos;
+                        idAlumnos = new BindingList<string>();
+                        foreach (DataGridViewRow row in dgvStudents.Rows)
+                        {
+                            if (row.Cells[0].Value != null) idAlumnos.Add(row.Cells[0].Value.ToString());
+                        }
+                    }
+                }
+                catch (Exception ex) {
+                    MessageBox.Show("El archivo seleccionado es inválido", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                 
+            }
+            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow c in dgvStudents.SelectedRows)
+            {
+                idAlumnos.RemoveAt(c.Index);
+                grades.RemoveAt(c.Index);
+                amountPaid.RemoveAt(c.Index);
+            }
+            BindingList<String> auxAlumnos = new BindingList<string>();
+            BindingList<float?> auxGrades = new BindingList<float?>();
+            BindingList<float?> auxAmount = new BindingList<float?>();
+            int tam = idAlumnos.Count();
+            for (int i = 0; i < tam; i++)
+            {
+                auxAlumnos.Add(idAlumnos.ElementAt(i));
+                auxGrades.Add(grades.ElementAt(i));
+                auxAmount.Add(amountPaid.ElementAt(i));
+            }
+            tbAlumnos.Clear();
+            for (int i = 0; i < auxAlumnos.Count(); i++)
+            {
+                Server.student s = new Server.student();
+                s = server.queryStudentById(auxAlumnos.ElementAt(i));
+                String fullname = s.firstName + " " + s.primaryLastName + " " + s.secondLastName;              
+                tbAlumnos.Rows.Add(s.idNumber, fullname, auxGrades.ElementAt(i), auxAmount.ElementAt(i));
+            }
+            dgvStudents.DataSource = tbAlumnos;
+
+            
         }
     }
 }

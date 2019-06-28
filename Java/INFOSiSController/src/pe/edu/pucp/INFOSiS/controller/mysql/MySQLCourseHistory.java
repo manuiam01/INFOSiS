@@ -60,7 +60,7 @@ import pe.edu.pucp.INFOSiS.model.bean.student.Student;
 public class MySQLCourseHistory implements DAOCourseHistory{
     @Override
     public int insert(CourseHistory courseHistory, ArrayList<Long> dias){
-        System.out.println("entra");
+        
         int result = 0;
         try{
             DBManager dbManager = DBManager.getdbManager();
@@ -148,7 +148,7 @@ public class MySQLCourseHistory implements DAOCourseHistory{
         return result;
     }
     @Override
-    public int update (CourseHistory courseHistory){
+    public int update (CourseHistory courseHistory, ArrayList<Long> dias){
           
         int result = 0;
         try{
@@ -162,6 +162,9 @@ public class MySQLCourseHistory implements DAOCourseHistory{
             cs.setString(3,courseHistory.getProfessor().getIdPUCP());
             cs.setString(4,courseHistory.getAssistant().getIdPUCP());
             cs.setInt(5, courseHistory.getHours());
+            for(int i = 0; i< dias.size();i++){
+                courseHistory.getSessions().get(i).setDateSession(new Date(dias.get(i)));
+            }
             SimpleDateFormat formatIni = new SimpleDateFormat("yyyy-MM-dd");           
             //DateTimeFormatter formatIni = DateTimeFormatter.ofPattern("yyyy-MM-dd");
             ArrayList<Date> dateSession = new ArrayList<>();
@@ -543,5 +546,59 @@ public class MySQLCourseHistory implements DAOCourseHistory{
         }
 
         return lSesiones;
+    }
+
+    @Override
+    public CourseHistory queryById(int id) {
+        CourseHistory c = new CourseHistory();
+        
+        try{
+            DBManager dbManager = DBManager.getdbManager();
+            Connection con = DriverManager.getConnection(dbManager.getUrl(), dbManager.getUser(), dbManager.getPassword());
+            CallableStatement cs = con.prepareCall("{call COURSEH_BY_ID(?)}");          
+            cs.setInt(1,id);
+            ResultSet rs = cs.executeQuery();           
+            while(rs.next()){
+                
+                c.setId(rs.getInt("idCourseHistory"));
+                c.setCourse(DBController.queryCourseById(rs.getString(2)));
+                c.setProfessor(DBController.searchProfessorByIdPUCP(rs.getString(3)));
+                c.setAssistant(DBController.searchProfessorByIdPUCP(rs.getString(4)));
+                c.setHours(rs.getInt(5));
+                c.setStartDate(rs.getDate(6));
+                c.setEndDate(rs.getDate(7)); 
+                c.setSurvey(rs.getBytes(8));
+                ArrayList<Session> sessions = DBController.querySessionByCourseH(c.getId());               
+                c.setSessions(sessions);
+
+                ArrayList<Student> students = new ArrayList<>();
+                ArrayList<Float> grades = new ArrayList<>();
+                ArrayList<String> states = new ArrayList<>();
+                ArrayList<Float> amountPaids = new ArrayList<>();
+
+                cs = con.prepareCall("{call SEARCH_STUDENTH_BY_COURSEH(?)}");
+                cs.setInt(1, c.getId());
+                ResultSet rs2 = cs.executeQuery();
+                 while(rs2.next()){
+                    Student s = new Student();
+                    s.setId(rs2.getInt(2));
+                    students.add(s);
+                    grades.add(rs.getFloat(4));
+                    states.add(rs2.getString(5));                      
+                    amountPaids.add(rs2.getFloat(6));                       
+                }
+                 c.setStudents(students);
+                 c.setHistoryGrade(grades);
+                 c.setHistoryState(states); 
+                 c.setAmountPaids(amountPaids);
+                 
+               
+            }            
+            con.close();
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        
+        return c;
     }
 }

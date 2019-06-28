@@ -38,12 +38,12 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtLocation = new System.Windows.Forms.TextBox();
             this.dgvSessions = new System.Windows.Forms.DataGridView();
-            this.btnSearchCourse = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.DateTimeSession = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Hours = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Location = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnSearchCourse = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSessions)).BeginInit();
             this.SuspendLayout();
@@ -151,55 +151,9 @@
             this.Location});
             this.dgvSessions.Location = new System.Drawing.Point(12, 227);
             this.dgvSessions.Name = "dgvSessions";
+            this.dgvSessions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvSessions.Size = new System.Drawing.Size(380, 178);
             this.dgvSessions.TabIndex = 8;
-            // 
-            // btnSearchCourse
-            // 
-            this.btnSearchCourse.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnSearchCourse.BackColor = System.Drawing.Color.MidnightBlue;
-            this.btnSearchCourse.FlatAppearance.BorderSize = 0;
-            this.btnSearchCourse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearchCourse.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearchCourse.ForeColor = System.Drawing.Color.White;
-            this.btnSearchCourse.Location = new System.Drawing.Point(36, 171);
-            this.btnSearchCourse.Name = "btnSearchCourse";
-            this.btnSearchCourse.Size = new System.Drawing.Size(102, 26);
-            this.btnSearchCourse.TabIndex = 180;
-            this.btnSearchCourse.Text = "Añadir sesiones";
-            this.btnSearchCourse.UseVisualStyleBackColor = false;
-            this.btnSearchCourse.Click += new System.EventHandler(this.btnSearchCourse_Click);
-            // 
-            // button1
-            // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button1.BackColor = System.Drawing.Color.MidnightBlue;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(144, 171);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(217, 26);
-            this.button1.TabIndex = 181;
-            this.button1.Text = "Eliminar sesiones seleccionadas";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button2.BackColor = System.Drawing.Color.MidnightBlue;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(144, 423);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(102, 26);
-            this.button2.TabIndex = 182;
-            this.button2.Text = "Guardar";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // DateTimeSession
             // 
@@ -222,13 +176,61 @@
             this.Location.Name = "Location";
             this.Location.Width = 90;
             // 
+            // btnSearchCourse
+            // 
+            this.btnSearchCourse.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnSearchCourse.BackColor = System.Drawing.Color.MidnightBlue;
+            this.btnSearchCourse.FlatAppearance.BorderSize = 0;
+            this.btnSearchCourse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearchCourse.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearchCourse.ForeColor = System.Drawing.Color.White;
+            this.btnSearchCourse.Location = new System.Drawing.Point(36, 171);
+            this.btnSearchCourse.Name = "btnSearchCourse";
+            this.btnSearchCourse.Size = new System.Drawing.Size(102, 26);
+            this.btnSearchCourse.TabIndex = 180;
+            this.btnSearchCourse.Text = "Añadir sesiones";
+            this.btnSearchCourse.UseVisualStyleBackColor = false;
+            this.btnSearchCourse.Click += new System.EventHandler(this.btnSearchCourse_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnDelete.BackColor = System.Drawing.Color.MidnightBlue;
+            this.btnDelete.FlatAppearance.BorderSize = 0;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.ForeColor = System.Drawing.Color.White;
+            this.btnDelete.Location = new System.Drawing.Point(144, 171);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(217, 26);
+            this.btnDelete.TabIndex = 181;
+            this.btnDelete.Text = "Eliminar sesiones seleccionadas";
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button2.BackColor = System.Drawing.Color.MidnightBlue;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(144, 423);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(102, 26);
+            this.button2.TabIndex = 182;
+            this.button2.Text = "Guardar";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // CourseHAddSession
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(410, 461);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnSearchCourse);
             this.Controls.Add(this.dgvSessions);
             this.Controls.Add(this.groupBox1);
@@ -254,7 +256,7 @@
         private System.Windows.Forms.TextBox txtLocation;
         private System.Windows.Forms.DataGridView dgvSessions;
         private System.Windows.Forms.Button btnSearchCourse;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridViewTextBoxColumn DateTimeSession;
         private System.Windows.Forms.DataGridViewTextBoxColumn Hours;

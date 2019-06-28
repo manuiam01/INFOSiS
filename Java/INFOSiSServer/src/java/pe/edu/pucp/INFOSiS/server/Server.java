@@ -260,8 +260,13 @@ public class Server {
     }
     
     @WebMethod(operationName="updateCourseHistory")
-    public int updateCourseHistory(@WebParam(name="CourseHistory") CourseHistory courseHistory){
-        return DBController.updateCourseHistory(courseHistory);
+    public int updateCourseHistory(@WebParam(name="CourseHistory") CourseHistory courseHistory,
+                                   @WebParam(name="dias") ArrayList<Long> dias ){
+        return DBController.updateCourseHistory(courseHistory,dias);
+    }
+    @WebMethod(operationName="queryCourseHById")
+    public CourseHistory queryCourseHById(@WebParam(name="id") int id  ){
+        return DBController.queryCourseHById(id);
     }
     
 

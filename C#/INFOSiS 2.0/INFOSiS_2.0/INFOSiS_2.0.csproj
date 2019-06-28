@@ -96,6 +96,12 @@
     <Compile Include="CourseHAddStudent.Designer.cs">
       <DependentUpon>CourseHAddStudent.cs</DependentUpon>
     </Compile>
+    <Compile Include="CourseHistoryModify.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CourseHistoryModify.Designer.cs">
+      <DependentUpon>CourseHistoryModify.cs</DependentUpon>
+    </Compile>
     <Compile Include="CourseHistoryRegister.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -113,6 +119,12 @@
     </Compile>
     <Compile Include="CourseHSelectCourse.Designer.cs">
       <DependentUpon>CourseHSelectCourse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CourseHSelectCourseH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CourseHSelectCourseH.Designer.cs">
+      <DependentUpon>CourseHSelectCourseH.cs</DependentUpon>
     </Compile>
     <Compile Include="CourseHSelectProfessor.cs">
       <SubType>Form</SubType>
@@ -132,11 +144,11 @@
     <Compile Include="CourseRegister.Designer.cs">
       <DependentUpon>CourseRegister.cs</DependentUpon>
     </Compile>
-    <Compile Include="CourseReport.cs">
+    <Compile Include="CourseHistory.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CourseReport.Designer.cs">
-      <DependentUpon>CourseReport.cs</DependentUpon>
+    <Compile Include="CourseHistory.Designer.cs">
+      <DependentUpon>CourseHistory.cs</DependentUpon>
     </Compile>
     <Compile Include="CoursesCalendar.cs">
       <SubType>UserControl</SubType>
@@ -271,11 +283,11 @@
     <Compile Include="ProfessorRegister.Designer.cs">
       <DependentUpon>ProfessorRegister.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProfessorReport.cs">
+    <Compile Include="ProfessorHistory.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ProfessorReport.Designer.cs">
-      <DependentUpon>ProfessorReport.cs</DependentUpon>
+    <Compile Include="ProfessorHistory.Designer.cs">
+      <DependentUpon>ProfessorHistory.cs</DependentUpon>
     </Compile>
     <Compile Include="ProfessorModify.cs">
       <SubType>UserControl</SubType>
@@ -367,6 +379,9 @@
     <EmbeddedResource Include="CourseHAddStudent.resx">
       <DependentUpon>CourseHAddStudent.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CourseHistoryModify.resx">
+      <DependentUpon>CourseHistoryModify.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CourseHistoryRegister.resx">
       <DependentUpon>CourseHistoryRegister.cs</DependentUpon>
     </EmbeddedResource>
@@ -375,6 +390,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CourseHSelectCourse.resx">
       <DependentUpon>CourseHSelectCourse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CourseHSelectCourseH.resx">
+      <DependentUpon>CourseHSelectCourseH.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CourseHSelectProfessor.resx">
       <DependentUpon>CourseHSelectProfessor.cs</DependentUpon>
@@ -385,8 +403,8 @@
     <EmbeddedResource Include="CourseRegister.resx">
       <DependentUpon>CourseRegister.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CourseReport.resx">
-      <DependentUpon>CourseReport.cs</DependentUpon>
+    <EmbeddedResource Include="CourseHistory.resx">
+      <DependentUpon>CourseHistory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CoursesCalendar.resx">
       <DependentUpon>CoursesCalendar.cs</DependentUpon>
@@ -454,8 +472,8 @@
     <EmbeddedResource Include="ProfessorRegister.resx">
       <DependentUpon>ProfessorRegister.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProfessorReport.resx">
-      <DependentUpon>ProfessorReport.cs</DependentUpon>
+    <EmbeddedResource Include="ProfessorHistory.resx">
+      <DependentUpon>ProfessorHistory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProfessorModify.resx">
       <DependentUpon>ProfessorModify.cs</DependentUpon>
@@ -593,6 +611,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.queryCourseHByDateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.queryCourseHByIdResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.queryCourseHistoryByCourseResponse.datasource">
@@ -779,21 +800,6 @@
     <None Include="Resources\perfil5.png" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\Server\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\Server\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\Server\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\Server\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Libro_infosis.png" />
   </ItemGroup>
   <ItemGroup>
@@ -840,6 +846,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\infoManuAsAConcept.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\Server\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\Server\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\Server\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\Server\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

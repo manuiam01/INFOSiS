@@ -30,6 +30,9 @@
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvSessions = new System.Windows.Forms.DataGridView();
+            this.DateTimeSession = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Hours = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Location = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAddSession = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -45,14 +48,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dgvStudents = new System.Windows.Forms.DataGridView();
-            this.btnAddStudent = new System.Windows.Forms.Button();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StudentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Grade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AmounPaid = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DateTimeSession = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Hours = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Location = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnAddStudent = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSessions)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -65,11 +67,11 @@
             this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox2.Controls.Add(this.dgvSessions);
             this.groupBox2.Controls.Add(this.btnAddSession);
-            this.groupBox2.Location = new System.Drawing.Point(34, 213);
+            this.groupBox2.Location = new System.Drawing.Point(35, 211);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.groupBox2.Size = new System.Drawing.Size(382, 285);
+            this.groupBox2.Size = new System.Drawing.Size(319, 285);
             this.groupBox2.TabIndex = 178;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Sesiones:";
@@ -82,10 +84,30 @@
             this.DateTimeSession,
             this.Hours,
             this.Location});
-            this.dgvSessions.Location = new System.Drawing.Point(13, 69);
+            this.dgvSessions.Location = new System.Drawing.Point(7, 59);
             this.dgvSessions.Name = "dgvSessions";
-            this.dgvSessions.Size = new System.Drawing.Size(359, 187);
+            this.dgvSessions.Size = new System.Drawing.Size(300, 187);
             this.dgvSessions.TabIndex = 178;
+            // 
+            // DateTimeSession
+            // 
+            this.DateTimeSession.DataPropertyName = "DateSession";
+            this.DateTimeSession.HeaderText = "Fecha de la sesión";
+            this.DateTimeSession.Name = "DateTimeSession";
+            this.DateTimeSession.Width = 150;
+            // 
+            // Hours
+            // 
+            this.Hours.DataPropertyName = "Hours";
+            this.Hours.HeaderText = "Horas";
+            this.Hours.Name = "Hours";
+            this.Hours.Width = 50;
+            // 
+            // Location
+            // 
+            this.Location.DataPropertyName = "Location";
+            this.Location.HeaderText = "Aula";
+            this.Location.Name = "Location";
             // 
             // btnAddSession
             // 
@@ -95,11 +117,11 @@
             this.btnAddSession.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddSession.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddSession.ForeColor = System.Drawing.Color.White;
-            this.btnAddSession.Location = new System.Drawing.Point(13, 28);
+            this.btnAddSession.Location = new System.Drawing.Point(7, 18);
             this.btnAddSession.Name = "btnAddSession";
-            this.btnAddSession.Size = new System.Drawing.Size(213, 26);
+            this.btnAddSession.Size = new System.Drawing.Size(138, 26);
             this.btnAddSession.TabIndex = 177;
-            this.btnAddSession.Text = "Agregar Sesiones";
+            this.btnAddSession.Text = "Editar Sesiones";
             this.btnAddSession.UseVisualStyleBackColor = false;
             this.btnAddSession.Click += new System.EventHandler(this.btnAddSession_Click);
             // 
@@ -111,7 +133,7 @@
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Gill Sans MT", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(323, 507);
+            this.btnSave.Location = new System.Drawing.Point(324, 536);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(204, 43);
             this.btnSave.TabIndex = 179;
@@ -131,7 +153,7 @@
             this.groupBox1.Controls.Add(this.lblProfessor);
             this.groupBox1.Controls.Add(this.txtCourse);
             this.groupBox1.Controls.Add(this.lblCourse);
-            this.groupBox1.Location = new System.Drawing.Point(34, 57);
+            this.groupBox1.Location = new System.Drawing.Point(35, 55);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 6, 4, 6);
@@ -250,7 +272,7 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Gill Sans MT", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(28, 13);
+            this.label1.Location = new System.Drawing.Point(29, 11);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(313, 38);
@@ -260,13 +282,15 @@
             // groupBox3
             // 
             this.groupBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBox3.Controls.Add(this.button2);
+            this.groupBox3.Controls.Add(this.button1);
             this.groupBox3.Controls.Add(this.dgvStudents);
             this.groupBox3.Controls.Add(this.btnAddStudent);
-            this.groupBox3.Location = new System.Drawing.Point(424, 213);
+            this.groupBox3.Location = new System.Drawing.Point(362, 211);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.groupBox3.Size = new System.Drawing.Size(392, 285);
+            this.groupBox3.Size = new System.Drawing.Size(455, 285);
             this.groupBox3.TabIndex = 179;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Alumnos:";
@@ -280,26 +304,10 @@
             this.StudentName,
             this.Grade,
             this.AmounPaid});
-            this.dgvStudents.Location = new System.Drawing.Point(18, 69);
+            this.dgvStudents.Location = new System.Drawing.Point(7, 59);
             this.dgvStudents.Name = "dgvStudents";
-            this.dgvStudents.Size = new System.Drawing.Size(359, 187);
+            this.dgvStudents.Size = new System.Drawing.Size(441, 187);
             this.dgvStudents.TabIndex = 178;
-            // 
-            // btnAddStudent
-            // 
-            this.btnAddStudent.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnAddStudent.BackColor = System.Drawing.Color.MidnightBlue;
-            this.btnAddStudent.FlatAppearance.BorderSize = 0;
-            this.btnAddStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddStudent.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddStudent.ForeColor = System.Drawing.Color.White;
-            this.btnAddStudent.Location = new System.Drawing.Point(18, 28);
-            this.btnAddStudent.Name = "btnAddStudent";
-            this.btnAddStudent.Size = new System.Drawing.Size(213, 26);
-            this.btnAddStudent.TabIndex = 177;
-            this.btnAddStudent.Text = "Agregar Alumnos";
-            this.btnAddStudent.UseVisualStyleBackColor = false;
-            this.btnAddStudent.Click += new System.EventHandler(this.btnAddStudent_Click);
             // 
             // ID
             // 
@@ -327,25 +335,53 @@
             this.AmounPaid.HeaderText = "Monto Pagado";
             this.AmounPaid.Name = "AmounPaid";
             // 
-            // DateTimeSession
+            // btnAddStudent
             // 
-            this.DateTimeSession.DataPropertyName = "DateSession";
-            this.DateTimeSession.HeaderText = "Fecha de la sesión";
-            this.DateTimeSession.Name = "DateTimeSession";
-            this.DateTimeSession.Width = 150;
+            this.btnAddStudent.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnAddStudent.BackColor = System.Drawing.Color.MidnightBlue;
+            this.btnAddStudent.FlatAppearance.BorderSize = 0;
+            this.btnAddStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddStudent.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddStudent.ForeColor = System.Drawing.Color.White;
+            this.btnAddStudent.Location = new System.Drawing.Point(7, 18);
+            this.btnAddStudent.Name = "btnAddStudent";
+            this.btnAddStudent.Size = new System.Drawing.Size(159, 26);
+            this.btnAddStudent.TabIndex = 177;
+            this.btnAddStudent.Text = "Agregar Alumnos";
+            this.btnAddStudent.UseVisualStyleBackColor = false;
+            this.btnAddStudent.Click += new System.EventHandler(this.btnAddStudent_Click);
             // 
-            // Hours
+            // button1
             // 
-            this.Hours.DataPropertyName = "Hours";
-            this.Hours.HeaderText = "Horas";
-            this.Hours.Name = "Hours";
-            this.Hours.Width = 50;
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button1.BackColor = System.Drawing.Color.MidnightBlue;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(172, 18);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(276, 26);
+            this.button1.TabIndex = 179;
+            this.button1.Text = "Eliminar Alumnos Seleccionados";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Location
+            // button2
             // 
-            this.Location.DataPropertyName = "Location";
-            this.Location.HeaderText = "Aula";
-            this.Location.Name = "Location";
+            this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button2.BackColor = System.Drawing.Color.MidnightBlue;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(103, 250);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(228, 26);
+            this.button2.TabIndex = 180;
+            this.button2.Text = "Agregar Alumnos desde CSV";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // CourseHistoryRegister
             // 
@@ -357,7 +393,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Name = "CourseHistoryRegister";
-            this.Size = new System.Drawing.Size(848, 574);
+            this.Size = new System.Drawing.Size(848, 614);
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSessions)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -396,5 +432,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DateTimeSession;
         private System.Windows.Forms.DataGridViewTextBoxColumn Hours;
         private System.Windows.Forms.DataGridViewTextBoxColumn Location;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
     }
 }

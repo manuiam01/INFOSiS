@@ -17,7 +17,8 @@ import pe.edu.pucp.INFOSiS.model.bean.course.Session;
  */
 public interface DAOCourseHistory {
     int insert(CourseHistory courseHistory, ArrayList<Long> dias);
-    int update(CourseHistory courseHistory);
+    int update(CourseHistory courseHistory, ArrayList<Long> dias);
+    CourseHistory queryById(int id);
     ArrayList<CourseHistory> queryByDate(Date datecourse);
     ArrayList<CourseHistory> queryByCourse(String idCourse);
     ArrayList<CourseHistory> queryByIdProfessor(String idProfessor);
