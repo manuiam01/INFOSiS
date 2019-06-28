@@ -96,6 +96,12 @@
     <Compile Include="CourseHAddStudent.Designer.cs">
       <DependentUpon>CourseHAddStudent.cs</DependentUpon>
     </Compile>
+    <Compile Include="CourseHistoryModify.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CourseHistoryModify.Designer.cs">
+      <DependentUpon>CourseHistoryModify.cs</DependentUpon>
+    </Compile>
     <Compile Include="CourseHistoryRegister.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -113,6 +119,12 @@
     </Compile>
     <Compile Include="CourseHSelectCourse.Designer.cs">
       <DependentUpon>CourseHSelectCourse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CourseHSelectCourseH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CourseHSelectCourseH.Designer.cs">
+      <DependentUpon>CourseHSelectCourseH.cs</DependentUpon>
     </Compile>
     <Compile Include="CourseHSelectProfessor.cs">
       <SubType>Form</SubType>
@@ -355,6 +367,9 @@
     <EmbeddedResource Include="CourseHAddStudent.resx">
       <DependentUpon>CourseHAddStudent.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CourseHistoryModify.resx">
+      <DependentUpon>CourseHistoryModify.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CourseHistoryRegister.resx">
       <DependentUpon>CourseHistoryRegister.cs</DependentUpon>
     </EmbeddedResource>
@@ -363,6 +378,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CourseHSelectCourse.resx">
       <DependentUpon>CourseHSelectCourse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CourseHSelectCourseH.resx">
+      <DependentUpon>CourseHSelectCourseH.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CourseHSelectProfessor.resx">
       <DependentUpon>CourseHSelectProfessor.cs</DependentUpon>
@@ -575,6 +593,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.queryCourseHByDateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Server\INFOSiS_2._0.Server.queryCourseHByIdResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\Server\INFOSiS_2._0.Server.queryCourseHistoryByCourseResponse.datasource">

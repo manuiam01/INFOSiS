@@ -115,6 +115,7 @@
             this.btnCourseHistoryModify.TabIndex = 97;
             this.btnCourseHistoryModify.Text = "Modificar un Curso Dictado";
             this.btnCourseHistoryModify.UseVisualStyleBackColor = false;
+            this.btnCourseHistoryModify.Click += new System.EventHandler(this.btnCourseHistoryModify_Click);
             // 
             // btnCourseHistoryReport
             // 
