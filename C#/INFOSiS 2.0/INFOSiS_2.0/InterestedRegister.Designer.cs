@@ -231,9 +231,9 @@
             this.lblSecondLastName.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSecondLastName.Location = new System.Drawing.Point(39, 248);
             this.lblSecondLastName.Name = "lblSecondLastName";
-            this.lblSecondLastName.Size = new System.Drawing.Size(114, 18);
+            this.lblSecondLastName.Size = new System.Drawing.Size(105, 18);
             this.lblSecondLastName.TabIndex = 162;
-            this.lblSecondLastName.Text = "Apellido materno: *";
+            this.lblSecondLastName.Text = "Apellido materno:";
             // 
             // lblGender
             // 
@@ -269,6 +269,7 @@
             this.rbPasaporte.TabStop = true;
             this.rbPasaporte.Text = "Pasaporte";
             this.rbPasaporte.UseVisualStyleBackColor = true;
+            this.rbPasaporte.CheckedChanged += new System.EventHandler(this.rbPasaporte_CheckedChanged);
             // 
             // rbCarnet
             // 
@@ -281,6 +282,7 @@
             this.rbCarnet.TabStop = true;
             this.rbCarnet.Text = "Carné de Extranjería";
             this.rbCarnet.UseVisualStyleBackColor = true;
+            this.rbCarnet.CheckedChanged += new System.EventHandler(this.rbCarnet_CheckedChanged);
             // 
             // rbDNI
             // 
@@ -293,6 +295,7 @@
             this.rbDNI.TabStop = true;
             this.rbDNI.Text = "DNI";
             this.rbDNI.UseVisualStyleBackColor = true;
+            this.rbDNI.CheckedChanged += new System.EventHandler(this.rbDNI_CheckedChanged);
             // 
             // groupBox2
             // 
@@ -383,7 +386,7 @@
             this.btBuscarCursos.Font = new System.Drawing.Font("Gill Sans MT", 11F);
             this.btBuscarCursos.ForeColor = System.Drawing.Color.White;
             this.btBuscarCursos.Location = new System.Drawing.Point(6, 21);
-            this.btBuscarCursos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btBuscarCursos.Margin = new System.Windows.Forms.Padding(2);
             this.btBuscarCursos.Name = "btBuscarCursos";
             this.btBuscarCursos.Size = new System.Drawing.Size(116, 28);
             this.btBuscarCursos.TabIndex = 1;
@@ -450,7 +453,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.gbxInterestedData);
             this.Controls.Add(this.lblInterestedRegister);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "InterestedRegister";
             this.Size = new System.Drawing.Size(811, 566);
             this.Load += new System.EventHandler(this.InterestedRegister_Load);
