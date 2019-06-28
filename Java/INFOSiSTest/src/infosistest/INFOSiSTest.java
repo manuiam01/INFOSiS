@@ -58,16 +58,21 @@ public class INFOSiSTest {
 //        MySQLCourse mysqlcourse = new MySQLCourse();
 //        Course course = mysqlcourse.queryById("1023");
 //        System.out.println(course.getName());
-       MySQLInterested mysql = new MySQLInterested();
-       ArrayList<Interested> inte = mysql.queryAllInterested();
-       for(Interested i : inte){
-           if(i.isIsUnsubscribed())
-               System.out.println(i.getFirstName());
-       }
+//       MySQLInterested mysql = new MySQLInterested();
+//       ArrayList<Interested> inte = mysql.queryAllInterested();
+//       for(Interested i : inte){
+//           if(i.isIsUnsubscribed())
+//               System.out.println(i.getFirstName());
+//       }
 //       ArrayList<Interested> inte = mysql.search_by_name("Ga", "", "", "");
 //       for(Interested i : inte){
 //           System.out.println(i.getCourses().get(0).getName());
 //       }
+        MySQLCourseHistory mysql = new MySQLCourseHistory();
+        CourseHistory c = new CourseHistory();
+        c = mysql.queryById(44);
+        
+        
     }
     
 }

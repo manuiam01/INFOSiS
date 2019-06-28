@@ -437,8 +437,8 @@ public class MySQLCourseHistory implements DAOCourseHistory{
                 s.setDateSession(rs2.getTimestamp(3));
                 s.setHours(rs2.getInt(4));
                 s.setLocation(rs2.getString(5));
-//                s.setIsActive(rs2.getBoolean(6));
-//                if(s.isIsActive()) sessions.add(s);
+                s.setIsActive(rs2.getBoolean(6));
+                if(s.isIsActive()) sessions.add(s);
             }           
             con.close();
         }catch(Exception ex){
@@ -581,9 +581,9 @@ public class MySQLCourseHistory implements DAOCourseHistory{
                 ResultSet rs2 = cs.executeQuery();
                  while(rs2.next()){
                     Student s = new Student();
-                    s.setId(rs2.getInt(2));
+                    s.setIdNumber(rs2.getString(2));
                     students.add(s);
-                    grades.add(rs.getFloat(4));
+                    grades.add(rs2.getFloat(4));
                     states.add(rs2.getString(5));                      
                     amountPaids.add(rs2.getFloat(6));                       
                 }
