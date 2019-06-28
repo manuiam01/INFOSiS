@@ -20,6 +20,7 @@ namespace INFOSiS_2._0
         public CourseHSelectCourseH(String idCourse)
         {
             InitializeComponent();
+            idCourseH = 0;
             server = new Server.ServerClient();
             table = new DataTable();
             table.Columns.Add("StartDate", typeof(string));

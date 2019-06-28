@@ -134,6 +134,15 @@ namespace INFOSiS_2._0
 
         private void btnAddStudent_Click(object sender, EventArgs e)
         {
+            foreach (DataGridViewRow c in dgvStudents.Rows)
+            {
+                if (c.Cells[2].Value != null)
+                {
+                    grades.Insert(c.Index, float.Parse(c.Cells[2].Value.ToString()));
+                    amountPaid.Insert(c.Index, float.Parse(c.Cells[3].Value.ToString()));
+                }
+
+            }
             String fullname;
             server = new Server.ServerClient();
             CourseHAddStudent formAddStudent = new CourseHAddStudent(idAlumnos);
@@ -141,22 +150,37 @@ namespace INFOSiS_2._0
             {
                 if (formAddStudent.Alumnos != null)
                 {
-                    dgvStudents.AutoGenerateColumns = false;
-                    idAlumnos = formAddStudent.Alumnos;
 
-                    foreach (string id in idAlumnos)
+                    dgvStudents.AutoGenerateColumns = false;
+                    BindingList<String> auxAlumnos = new BindingList<string>();
+                    BindingList<float?> auxGrades = new BindingList<float?>();
+                    BindingList<float?> auxAmount = new BindingList<float?>();
+                    int tam = idAlumnos.Count();
+                    for (int i = 0; i < tam; i++)
+                    {
+                        auxAlumnos.Add(idAlumnos.ElementAt(i));
+                        auxGrades.Add(grades.ElementAt(i));
+                        auxAmount.Add(amountPaid.ElementAt(i));
+                    }
+                    foreach (String id in formAddStudent.Alumnos)
+                    {
+                        auxAlumnos.Add(id);
+                        idAlumnos.Add(id);
+                        auxGrades.Add(0f);
+                        grades.Add(0f);
+                        auxAmount.Add(0f);
+                        amountPaid.Add(0f);
+
+                    }
+                    tbAlumnos.Clear();
+                    for (int i = 0; i < auxAlumnos.Count(); i++)
                     {
                         Server.student s = new Server.student();
-                        s = server.queryStudentById(id);
+                        s = server.queryStudentById(auxAlumnos.ElementAt(i));
                         fullname = s.firstName + " " + s.primaryLastName + " " + s.secondLastName;
-                        tbAlumnos.Rows.Add(s.idNumber, fullname, 0, 0);
+                        tbAlumnos.Rows.Add(s.idNumber, fullname, auxGrades.ElementAt(i), auxAmount.ElementAt(i));
                     }
                     dgvStudents.DataSource = tbAlumnos;
-                    idAlumnos = new BindingList<string>();
-                    foreach (DataGridViewRow row in dgvStudents.Rows)
-                    {
-                        if (row.Cells[0].Value != null) idAlumnos.Add(row.Cells[0].Value.ToString());
-                    }
                 }
             }
         }
@@ -203,7 +227,7 @@ namespace INFOSiS_2._0
             }
             server = new Server.ServerClient();
             BindingList<String> idStudents = new BindingList<string>();
-            
+            String silabo;
             StreamReader reader;
             bool hayAlumnos = false;
             OpenFileDialog opSilabo = new OpenFileDialog();
@@ -332,6 +356,7 @@ namespace INFOSiS_2._0
                     }
                     if (idStudents != null)
                     {
+                        dgvStudents.AutoGenerateColumns = false;
                         BindingList<String> auxAlumnos = new BindingList<string>();
                         BindingList<float?> auxGrades = new BindingList<float?>();
                         BindingList<float?> auxAmount = new BindingList<float?>();
@@ -361,22 +386,8 @@ namespace INFOSiS_2._0
                             tbAlumnos.Rows.Add(s.idNumber, fullname, auxGrades.ElementAt(i), auxAmount.ElementAt(i));
                         }
                         dgvStudents.DataSource = tbAlumnos;
-                        dgvStudents.AutoGenerateColumns = false;
-                        idAlumnos = idStudents;
 
-                        foreach (string id in idAlumnos)
-                        {
-                            Server.student s = new Server.student();
-                            s = server.queryStudentById(id);
-                            String fullname = s.firstName + " " + s.primaryLastName + " " + s.secondLastName;
-                            tbAlumnos.Rows.Add(s.idNumber, fullname, 0, 0);
-                        }
-                        dgvStudents.DataSource = tbAlumnos;
-                        idAlumnos = new BindingList<string>();
-                        foreach (DataGridViewRow row in dgvStudents.Rows)
-                        {
-                            if (row.Cells[0].Value != null) idAlumnos.Add(row.Cells[0].Value.ToString());
-                        }
+
                     }
                 }
                 catch (Exception ex)
@@ -482,28 +493,33 @@ namespace INFOSiS_2._0
 
         private void button3_Click(object sender, EventArgs e)
         {
-            server = new Server.ServerClient();
-            CourseHSelectCourseH formCourseH = new CourseHSelectCourseH(txtSearchCourse.Text);
-           
-            if (formCourseH.ShowDialog() == DialogResult.OK)
+            if (txtSearchCourse.Text == "")
             {
+                MessageBox.Show("No ingresó el curso a buscar", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else {
+                server = new Server.ServerClient();
+                CourseHSelectCourseH formCourseH = new CourseHSelectCourseH(txtSearchCourse.Text);
 
-                if (formCourseH.IdCourseH != null)
+                if (formCourseH.ShowDialog() == DialogResult.OK)
                 {
-                    courseH = server.queryCourseHById(formCourseH.IdCourseH);
-                    professor = courseH.professor;
-                    assistant = courseH.assistant;
-                    course = courseH.course;
-                    txtCourse.Text = course.name;
-                    txtProfessor.Text = professor.firstName + " " + professor.primaryLastName + " " + professor.secondLastName;
-                    txtAssistant.Text = assistant.firstName + " " + assistant.primaryLastName + " " + assistant.secondLastName;
 
-                    BindingList<Server.session> listsessions;
-                    if (courseH.sessions != null) listsessions = new BindingList<Server.session>(sessions);
-                    else listsessions = new BindingList<Server.session>();
-                      if (listsessions != null)
+                    if (formCourseH.IdCourseH > 0)
+                    {
+                        courseH = server.queryCourseHById(formCourseH.IdCourseH);
+                        professor = courseH.professor;
+                        assistant = courseH.assistant;
+                        course = courseH.course;
+                        txtCourse.Text = course.name;
+                        txtProfessor.Text = professor.firstName + " " + professor.primaryLastName + " " + professor.secondLastName;
+                        txtAssistant.Text = assistant.firstName + " " + assistant.primaryLastName + " " + assistant.secondLastName;
+
+                        BindingList<Server.session> listsessions;
+                        if (courseH.sessions != null) listsessions = new BindingList<Server.session>(courseH.sessions);
+                        else listsessions = new BindingList<Server.session>();
+                        if (listsessions != null)
                         {
-                            dgvSessions.AutoGenerateColumns = false;                            
+                            dgvSessions.AutoGenerateColumns = false;
                             dgvSessions.Columns[0].DefaultCellStyle.Format = "MM/dd/yyyy HH:mm:ss";
                             dgvSessions.DataSource = listsessions;
 
@@ -511,10 +527,10 @@ namespace INFOSiS_2._0
                         }
 
 
-                    
-                    String fullname;
-                    
-                    
+
+                        String fullname;
+
+
                         if (courseH.students != null)
                         {
 
@@ -532,7 +548,7 @@ namespace INFOSiS_2._0
                                 grades.Add(courseH.historyGrade.ElementAt(i));
                                 amountPaid.Add(courseH.amountPaids.ElementAt(i));
                             }
-                            
+
                             tbAlumnos.Clear();
                             for (int i = 0; i < auxAlumnos.Count(); i++)
                             {
@@ -543,12 +559,14 @@ namespace INFOSiS_2._0
                             }
                             dgvStudents.DataSource = tbAlumnos;
                         }
-                    
 
+
+
+                    }
 
                 }
-
             }
+            
         }
     }
 }

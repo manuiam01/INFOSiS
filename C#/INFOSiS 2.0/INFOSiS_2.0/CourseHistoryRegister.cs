@@ -398,6 +398,7 @@ namespace INFOSiS_2._0
                     }
                     if (idStudents != null)
                     {
+                        dgvStudents.AutoGenerateColumns = false;
                         BindingList<String> auxAlumnos = new BindingList<string>();
                         BindingList<float?> auxGrades = new BindingList<float?>();
                         BindingList<float?> auxAmount = new BindingList<float?>();
@@ -427,22 +428,8 @@ namespace INFOSiS_2._0
                             tbAlumnos.Rows.Add(s.idNumber, fullname, auxGrades.ElementAt(i), auxAmount.ElementAt(i));
                         }
                         dgvStudents.DataSource = tbAlumnos;
-                        dgvStudents.AutoGenerateColumns = false;
-                        idAlumnos = idStudents;
                         
-                        foreach (string id in idAlumnos)
-                        {                         
-                            Server.student s = new Server.student();
-                            s = server.queryStudentById(id);
-                            String fullname = s.firstName + " " + s.primaryLastName + " " + s.secondLastName;
-                            tbAlumnos.Rows.Add(s.idNumber, fullname, 0, 0);
-                        }
-                        dgvStudents.DataSource = tbAlumnos;
-                        idAlumnos = new BindingList<string>();
-                        foreach (DataGridViewRow row in dgvStudents.Rows)
-                        {
-                            if (row.Cells[0].Value != null) idAlumnos.Add(row.Cells[0].Value.ToString());
-                        }
+                        
                     }
                 }
                 catch (Exception ex) {
