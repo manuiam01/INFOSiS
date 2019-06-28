@@ -24,6 +24,7 @@ namespace INFOSiS_2._0
             listaCodigos = new BindingList<ListaStrings>();
             //listaCodigos.Add(new ListaStrings("20161811"));
             dgvCodigos.DataSource = listaCodigos;
+            txtDocumento.CharacterCasing = CharacterCasing.Upper;
         }
 
         public static StudentRegister Instance
@@ -240,6 +241,35 @@ namespace INFOSiS_2._0
                 txtApellidoPaterno.Text = "";
                 listaCodigos = new BindingList<ListaStrings>();
                 dgvCodigos.DataSource = listaCodigos;
+            }
+        }
+
+        private void rbnDNI_CheckedChanged(object sender, EventArgs e)
+        {
+            txtDocumento.MaxLength = 8;
+            txtDocumento.Text = "";
+        }
+
+        private void rbnCarneExtranjeria_CheckedChanged(object sender, EventArgs e)
+        {
+            txtDocumento.MaxLength = 12;
+            txtDocumento.Text = "";
+        }
+
+        private void rbnPasaporte_CheckedChanged(object sender, EventArgs e)
+        {
+            txtDocumento.MaxLength = 12;
+            txtDocumento.Text = "";
+        }
+
+        private void txtDocumento_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (rbnDNI.Checked)
+            {
+                if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+                {
+                    e.Handled = true;
+                }
             }
         }
     }

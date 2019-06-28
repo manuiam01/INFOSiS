@@ -44,7 +44,7 @@ namespace INFOSiS_2._0
             intern = new Server.intern();
             if (dgvInterns.Rows.Count == 0)
             {
-                MessageBox.Show("No escogió algún practicante", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("No escogió a algún practicante", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else
             {

@@ -143,6 +143,86 @@ namespace INFOSiS_2._0.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Icono_INFOSiS {
+            get {
+                object obj = ResourceManager.GetObject("Icono_INFOSiS", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap infoDiego {
+            get {
+                object obj = ResourceManager.GetObject("infoDiego", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap infoDiegoToma2 {
+            get {
+                object obj = ResourceManager.GetObject("infoDiegoToma2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap infoEddie {
+            get {
+                object obj = ResourceManager.GetObject("infoEddie", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap infoEstephy {
+            get {
+                object obj = ResourceManager.GetObject("infoEstephy", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap infoJeremi {
+            get {
+                object obj = ResourceManager.GetObject("infoJeremi", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap infoLogo {
+            get {
+                object obj = ResourceManager.GetObject("infoLogo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap infoManuAsAConcept {
+            get {
+                object obj = ResourceManager.GetObject("infoManuAsAConcept", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap infosisclock {
             get {
                 object obj = ResourceManager.GetObject("infosisclock", resourceCulture);
@@ -426,6 +506,16 @@ namespace INFOSiS_2._0.Properties {
         internal static System.Drawing.Bitmap profesor7 {
             get {
                 object obj = ResourceManager.GetObject("profesor7", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap welcome_icon {
+            get {
+                object obj = ResourceManager.GetObject("welcome icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

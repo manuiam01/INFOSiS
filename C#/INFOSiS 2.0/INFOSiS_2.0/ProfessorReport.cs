@@ -38,6 +38,7 @@ namespace INFOSiS_2._0
         {
             InitializeComponent();
             btnReport.Enabled = false;
+            txtPUCPcode.CharacterCasing = CharacterCasing.Upper;
         }
 
 

@@ -42,6 +42,11 @@ namespace INFOSiS_2._0
             servidor = new Server.ServerClient();
             tbCursos.Columns.Add("ID", typeof(string));
             tbCursos.Columns.Add("Nombre", typeof(string));
+            txbNDocumento.CharacterCasing = CharacterCasing.Upper;
+            txbApePa.CharacterCasing = CharacterCasing.Upper;
+            txbApeMa.CharacterCasing = CharacterCasing.Upper;
+            txbNombre.CharacterCasing = CharacterCasing.Upper;
+            txbSegundoNom.CharacterCasing = CharacterCasing.Upper;
         }
         public void establecerEstado(Estado e)
         {

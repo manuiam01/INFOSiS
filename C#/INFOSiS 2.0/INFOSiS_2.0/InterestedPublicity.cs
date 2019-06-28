@@ -244,12 +244,16 @@ namespace INFOSiS_2._0
 
         private void BtCancelar_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Está seguro de que quiere cancelar el envío?", "Aviso", MessageBoxButtons.YesNo, iconoPregunta);
-            if(result == DialogResult.Yes)
+            if (txbCourseSelected.Text.Count() != 0)
             {
-                dgvInteresadosMailing.DataSource = null;
-                txbCourseSelected.Text = "";
+                DialogResult result = MessageBox.Show("Está seguro de que quiere cancelar el envío?", "Aviso", MessageBoxButtons.YesNo, iconoPregunta);
+                if (result == DialogResult.Yes)
+                {
+                    dgvInteresadosMailing.DataSource = null;
+                    txbCourseSelected.Text = "";
+                }
             }
+            
         }
     }
 }

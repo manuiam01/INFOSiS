@@ -156,6 +156,12 @@
     <Compile Include="CoursesCalendar.Designer.cs">
       <DependentUpon>CoursesCalendar.cs</DependentUpon>
     </Compile>
+    <Compile Include="InfosisInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InfosisInfo.Designer.cs">
+      <DependentUpon>InfosisInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="InterestedAdvancedSearch.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -233,6 +239,12 @@
     </Compile>
     <Compile Include="WeekView.Designer.cs">
       <DependentUpon>WeekView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WelcomeControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WelcomeControl.Designer.cs">
+      <DependentUpon>WelcomeControl.cs</DependentUpon>
     </Compile>
     <Compile Include="WorkforceAdvancedSearch.cs">
       <SubType>Form</SubType>
@@ -397,6 +409,9 @@
     <EmbeddedResource Include="CoursesCalendar.resx">
       <DependentUpon>CoursesCalendar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="InfosisInfo.resx">
+      <DependentUpon>InfosisInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InterestedAdvancedSearch.resx">
       <DependentUpon>InterestedAdvancedSearch.cs</DependentUpon>
     </EmbeddedResource>
@@ -435,6 +450,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WeekView.resx">
       <DependentUpon>WeekView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WelcomeControl.resx">
+      <DependentUpon>WelcomeControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WorkforceAdvancedSearch.resx">
       <DependentUpon>WorkforceAdvancedSearch.cs</DependentUpon>
@@ -816,6 +834,33 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\infosisEye.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icono_INFOSiS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\welcome icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\infoLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\infoDiego.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\infoJeremi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\infoDiegoToma2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\infoEstephy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\infoEddie.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\infoManuAsAConcept.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

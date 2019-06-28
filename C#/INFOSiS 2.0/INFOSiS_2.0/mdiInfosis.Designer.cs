@@ -30,18 +30,18 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MdiInfosis));
             this.panelHeader = new System.Windows.Forms.Panel();
+            this.lblRol = new System.Windows.Forms.Label();
+            this.lblName = new System.Windows.Forms.Label();
+            this.lblWellcome = new System.Windows.Forms.Label();
+            this.lblInfosis = new System.Windows.Forms.Label();
+            this.panelMdiOptions = new System.Windows.Forms.Panel();
+            this.panelMdiInfosis = new System.Windows.Forms.Panel();
             this.btnStudent = new System.Windows.Forms.Button();
             this.btnProfessor = new System.Windows.Forms.Button();
             this.btnInterested = new System.Windows.Forms.Button();
             this.btnCourse = new System.Windows.Forms.Button();
             this.btnInterns = new System.Windows.Forms.Button();
             this.btnProfile = new System.Windows.Forms.Button();
-            this.lblInfosis = new System.Windows.Forms.Label();
-            this.panelMdiOptions = new System.Windows.Forms.Panel();
-            this.panelMdiInfosis = new System.Windows.Forms.Panel();
-            this.lblWellcome = new System.Windows.Forms.Label();
-            this.lblName = new System.Windows.Forms.Label();
-            this.lblRol = new System.Windows.Forms.Label();
             this.panelHeader.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,6 +64,70 @@
             this.panelHeader.Name = "panelHeader";
             this.panelHeader.Size = new System.Drawing.Size(1661, 144);
             this.panelHeader.TabIndex = 0;
+            // 
+            // lblRol
+            // 
+            this.lblRol.AutoSize = true;
+            this.lblRol.Font = new System.Drawing.Font("Gill Sans MT", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRol.ForeColor = System.Drawing.Color.White;
+            this.lblRol.Location = new System.Drawing.Point(417, 90);
+            this.lblRol.Name = "lblRol";
+            this.lblRol.Size = new System.Drawing.Size(166, 34);
+            this.lblRol.TabIndex = 9;
+            this.lblRol.Text = "<Rol de canela>";
+            // 
+            // lblName
+            // 
+            this.lblName.AutoSize = true;
+            this.lblName.Font = new System.Drawing.Font("Gill Sans MT", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblName.ForeColor = System.Drawing.Color.White;
+            this.lblName.Location = new System.Drawing.Point(416, 51);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(161, 39);
+            this.lblName.TabIndex = 8;
+            this.lblName.Text = "<Nombre>";
+            // 
+            // lblWellcome
+            // 
+            this.lblWellcome.AutoSize = true;
+            this.lblWellcome.Font = new System.Drawing.Font("Gill Sans MT", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWellcome.ForeColor = System.Drawing.Color.White;
+            this.lblWellcome.Location = new System.Drawing.Point(416, 9);
+            this.lblWellcome.Name = "lblWellcome";
+            this.lblWellcome.Size = new System.Drawing.Size(184, 42);
+            this.lblWellcome.TabIndex = 7;
+            this.lblWellcome.Text = "<Bienvenida>";
+            // 
+            // lblInfosis
+            // 
+            this.lblInfosis.AutoSize = true;
+            this.lblInfosis.Font = new System.Drawing.Font("Gill Sans MT", 49.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInfosis.ForeColor = System.Drawing.Color.White;
+            this.lblInfosis.Location = new System.Drawing.Point(12, 9);
+            this.lblInfosis.Name = "lblInfosis";
+            this.lblInfosis.Size = new System.Drawing.Size(392, 114);
+            this.lblInfosis.TabIndex = 0;
+            this.lblInfosis.Text = "INFOSiS";
+            this.lblInfosis.Click += new System.EventHandler(this.lblInfosis_Click);
+            // 
+            // panelMdiOptions
+            // 
+            this.panelMdiOptions.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.panelMdiOptions.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelMdiOptions.Location = new System.Drawing.Point(0, 144);
+            this.panelMdiOptions.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelMdiOptions.Name = "panelMdiOptions";
+            this.panelMdiOptions.Size = new System.Drawing.Size(345, 911);
+            this.panelMdiOptions.TabIndex = 92;
+            // 
+            // panelMdiInfosis
+            // 
+            this.panelMdiInfosis.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelMdiInfosis.Location = new System.Drawing.Point(345, 144);
+            this.panelMdiInfosis.Margin = new System.Windows.Forms.Padding(4);
+            this.panelMdiInfosis.Name = "panelMdiInfosis";
+            this.panelMdiInfosis.Size = new System.Drawing.Size(1316, 911);
+            this.panelMdiInfosis.TabIndex = 93;
             // 
             // btnStudent
             // 
@@ -154,69 +218,6 @@
             this.btnProfile.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnProfile.UseVisualStyleBackColor = true;
             this.btnProfile.Click += new System.EventHandler(this.BtnProfile_Click);
-            // 
-            // lblInfosis
-            // 
-            this.lblInfosis.AutoSize = true;
-            this.lblInfosis.Font = new System.Drawing.Font("Gill Sans MT", 49.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInfosis.ForeColor = System.Drawing.Color.White;
-            this.lblInfosis.Location = new System.Drawing.Point(12, 9);
-            this.lblInfosis.Name = "lblInfosis";
-            this.lblInfosis.Size = new System.Drawing.Size(398, 115);
-            this.lblInfosis.TabIndex = 0;
-            this.lblInfosis.Text = "INFOSiS";
-            // 
-            // panelMdiOptions
-            // 
-            this.panelMdiOptions.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.panelMdiOptions.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelMdiOptions.Location = new System.Drawing.Point(0, 144);
-            this.panelMdiOptions.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panelMdiOptions.Name = "panelMdiOptions";
-            this.panelMdiOptions.Size = new System.Drawing.Size(345, 911);
-            this.panelMdiOptions.TabIndex = 92;
-            // 
-            // panelMdiInfosis
-            // 
-            this.panelMdiInfosis.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMdiInfosis.Location = new System.Drawing.Point(345, 144);
-            this.panelMdiInfosis.Margin = new System.Windows.Forms.Padding(4);
-            this.panelMdiInfosis.Name = "panelMdiInfosis";
-            this.panelMdiInfosis.Size = new System.Drawing.Size(1316, 911);
-            this.panelMdiInfosis.TabIndex = 93;
-            // 
-            // lblWellcome
-            // 
-            this.lblWellcome.AutoSize = true;
-            this.lblWellcome.Font = new System.Drawing.Font("Gill Sans MT", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWellcome.ForeColor = System.Drawing.Color.White;
-            this.lblWellcome.Location = new System.Drawing.Point(416, 9);
-            this.lblWellcome.Name = "lblWellcome";
-            this.lblWellcome.Size = new System.Drawing.Size(184, 42);
-            this.lblWellcome.TabIndex = 7;
-            this.lblWellcome.Text = "<Bienvenida>";
-            // 
-            // lblName
-            // 
-            this.lblName.AutoSize = true;
-            this.lblName.Font = new System.Drawing.Font("Gill Sans MT", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.ForeColor = System.Drawing.Color.White;
-            this.lblName.Location = new System.Drawing.Point(416, 51);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(161, 39);
-            this.lblName.TabIndex = 8;
-            this.lblName.Text = "<Nombre>";
-            // 
-            // lblRol
-            // 
-            this.lblRol.AutoSize = true;
-            this.lblRol.Font = new System.Drawing.Font("Gill Sans MT", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRol.ForeColor = System.Drawing.Color.White;
-            this.lblRol.Location = new System.Drawing.Point(417, 90);
-            this.lblRol.Name = "lblRol";
-            this.lblRol.Size = new System.Drawing.Size(166, 34);
-            this.lblRol.TabIndex = 9;
-            this.lblRol.Text = "<Rol de canela>";
             // 
             // MdiInfosis
             // 

@@ -73,7 +73,7 @@
             this.lblLugar.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLugar.ForeColor = System.Drawing.Color.White;
             this.lblLugar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.lblLugar.Location = new System.Drawing.Point(474, 83);
+            this.lblLugar.Location = new System.Drawing.Point(474, 88);
             this.lblLugar.Name = "lblLugar";
             this.lblLugar.Size = new System.Drawing.Size(83, 29);
             this.lblLugar.TabIndex = 6;

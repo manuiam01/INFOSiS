@@ -16,6 +16,7 @@ namespace INFOSiS_2._0
         {
             InitializeComponent();
             dgvCodigos.DataSource = listaCodigos;
+            txtCodigo.CharacterCasing = CharacterCasing.Upper;
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
