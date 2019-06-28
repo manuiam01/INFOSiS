@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblRegAsistencia = new System.Windows.Forms.Label();
             this.lblPUCPCode = new System.Windows.Forms.Label();
             this.txtPUCPCode = new System.Windows.Forms.TextBox();
@@ -35,12 +36,14 @@
             this.txtName = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtEntrada = new System.Windows.Forms.TextBox();
             this.txtSalida = new System.Windows.Forms.TextBox();
+            this.txtEntrada = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.btnEntrada = new System.Windows.Forms.Button();
             this.btnSalida = new System.Windows.Forms.Button();
+            this.lblTime = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -132,17 +135,27 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Registro de Asistencia";
             // 
-            // label2
+            // txtSalida
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(7, 38);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(75, 25);
-            this.label2.TabIndex = 183;
-            this.label2.Text = "Entrada: ";
+            this.txtSalida.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtSalida.Enabled = false;
+            this.txtSalida.Location = new System.Drawing.Point(134, 73);
+            this.txtSalida.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSalida.MaxLength = 8;
+            this.txtSalida.Name = "txtSalida";
+            this.txtSalida.Size = new System.Drawing.Size(217, 31);
+            this.txtSalida.TabIndex = 185;
+            // 
+            // txtEntrada
+            // 
+            this.txtEntrada.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtEntrada.Enabled = false;
+            this.txtEntrada.Location = new System.Drawing.Point(134, 38);
+            this.txtEntrada.Margin = new System.Windows.Forms.Padding(4);
+            this.txtEntrada.MaxLength = 8;
+            this.txtEntrada.Name = "txtEntrada";
+            this.txtEntrada.Size = new System.Drawing.Size(217, 31);
+            this.txtEntrada.TabIndex = 183;
             // 
             // label3
             // 
@@ -156,27 +169,17 @@
             this.label3.TabIndex = 184;
             this.label3.Text = "Salida: ";
             // 
-            // txtEntrada
+            // label2
             // 
-            this.txtEntrada.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtEntrada.Enabled = false;
-            this.txtEntrada.Location = new System.Drawing.Point(134, 38);
-            this.txtEntrada.Margin = new System.Windows.Forms.Padding(4);
-            this.txtEntrada.MaxLength = 8;
-            this.txtEntrada.Name = "txtEntrada";
-            this.txtEntrada.Size = new System.Drawing.Size(217, 31);
-            this.txtEntrada.TabIndex = 183;
-            // 
-            // txtSalida
-            // 
-            this.txtSalida.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtSalida.Enabled = false;
-            this.txtSalida.Location = new System.Drawing.Point(134, 73);
-            this.txtSalida.Margin = new System.Windows.Forms.Padding(4);
-            this.txtSalida.MaxLength = 8;
-            this.txtSalida.Name = "txtSalida";
-            this.txtSalida.Size = new System.Drawing.Size(217, 31);
-            this.txtSalida.TabIndex = 185;
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(7, 38);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(75, 25);
+            this.label2.TabIndex = 183;
+            this.label2.Text = "Entrada: ";
             // 
             // btnEntrada
             // 
@@ -212,10 +215,27 @@
             this.btnSalida.UseVisualStyleBackColor = false;
             this.btnSalida.Click += new System.EventHandler(this.btnSalida_Click);
             // 
+            // lblTime
+            // 
+            this.lblTime.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblTime.Font = new System.Drawing.Font("Gill Sans MT", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTime.Location = new System.Drawing.Point(390, 16);
+            this.lblTime.Name = "lblTime";
+            this.lblTime.Size = new System.Drawing.Size(302, 62);
+            this.lblTime.TabIndex = 188;
+            this.lblTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // ProfileAssistance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lblTime);
             this.Controls.Add(this.btnSalida);
             this.Controls.Add(this.btnEntrada);
             this.Controls.Add(this.groupBox2);
@@ -246,5 +266,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnEntrada;
         private System.Windows.Forms.Button btnSalida;
+        private System.Windows.Forms.Label lblTime;
+        private System.Windows.Forms.Timer timer1;
     }
 }

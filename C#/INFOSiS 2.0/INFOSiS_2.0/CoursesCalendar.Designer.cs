@@ -103,6 +103,7 @@
             this.btnExportar.TabIndex = 14;
             this.btnExportar.Text = "Exportar Cursos";
             this.btnExportar.UseVisualStyleBackColor = false;
+            this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click);
             // 
             // btnMostrar
             // 

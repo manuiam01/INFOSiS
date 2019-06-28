@@ -79,6 +79,11 @@ namespace INFOSiS_2._0
                     lblName.Text = c2.firstName + " " + c2.primaryLastName;
                     break;
             }
+            panelMdiInfosis.Controls.Add(WelcomeControl.Instance);
+            WelcomeControl.Instance.Dock = DockStyle.Fill;
+            WelcomeControl.PanelMdi = panelMdiInfosis;
+            WelcomeControl.Instance.Visible = true;
+            WelcomeControl.Instance.BringToFront();
         }
 
         public void cleanWindow()
@@ -305,6 +310,25 @@ namespace INFOSiS_2._0
         private void MdiInfosis_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void lblInfosis_Click(object sender, EventArgs e)
+        {
+            cleanWindow();
+            panelMdiOptions.Visible = true;
+            if (!panelMdiInfosis.Controls.Contains(WelcomeControl.Instance))
+            {
+                panelMdiInfosis.Controls.Add(WelcomeControl.Instance);
+                WelcomeControl.Instance.Dock = DockStyle.Fill;
+                WelcomeControl.PanelMdi = panelMdiInfosis;
+                WelcomeControl.Instance.Visible = true;
+                WelcomeControl.Instance.BringToFront();
+            }
+            else
+            {
+                WelcomeControl.Instance.Visible = true;
+                WelcomeControl.Instance.BringToFront();
+            }
         }
     }
 }
