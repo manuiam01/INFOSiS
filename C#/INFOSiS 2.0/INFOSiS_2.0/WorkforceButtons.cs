@@ -41,6 +41,12 @@ namespace INFOSiS_2._0
         public WorkforceButtons()
         {
             InitializeComponent();
+            if (usuario.acces.id == 0)
+            {
+                btnModificarIntern.Visible = false;
+                btnNewIntern.Visible = false;
+            }
+
         }
 
         private void btnNewIntern_Click(object sender, EventArgs e)
