@@ -40,6 +40,9 @@ WHERE state = 'APROBADO';]]>
 	<parameter name="ID_COURSE_HISTORY" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[1]]></defaultValueExpression>
 	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["D:\\Users\\TEMP\\Downloads\\rowor\\INFOSiS\\Java\\INFOSiSServer\\src\\java\\pe\\edu\\pucp\\INFOSiS\\reports\\"]]></defaultValueExpression>
+	</parameter>
 	<queryString>
 		<![CDATA[SELECT
      DATE_FORMAT(CourseHistory.`startDate`,'%d/%m/%Y') AS CourseHistory_startDate,
@@ -109,7 +112,7 @@ WHERE
 		</band>
 	</pageHeader>
 	<columnHeader>
-		<band height="167" splitType="Stretch">
+		<band height="187" splitType="Stretch">
 			<staticText>
 				<reportElement style="Column header" positionType="Float" x="307" y="0" width="40" height="14" forecolor="#000000" uuid="cb65a5bf-eca8-4fcb-b4fa-f4bc16d13f58"/>
 				<textElement>
@@ -181,38 +184,38 @@ WHERE
 				<text><![CDATA[CURSO:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" positionType="Float" x="0" y="93" width="222" height="33" forecolor="#000000" uuid="14595f14-ceba-42f5-90f7-fb9628fccf9e"/>
+				<reportElement style="Column header" positionType="Float" x="0" y="98" width="222" height="33" forecolor="#000000" uuid="14595f14-ceba-42f5-90f7-fb9628fccf9e"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font fontName="Gill Sans MT" size="16" isBold="true" pdfFontName="Helvetica"/>
 				</textElement>
 				<text><![CDATA[NOTAS DEL CURSO]]></text>
 			</staticText>
 			<rectangle>
-				<reportElement x="0" y="126" width="555" height="38" forecolor="#FFFFFF" backcolor="#060668" uuid="98bf8062-e767-49e5-ba6d-484c916b0d66"/>
+				<reportElement x="1" y="145" width="552" height="38" forecolor="#FFFFFF" backcolor="#060668" uuid="98bf8062-e767-49e5-ba6d-484c916b0d66"/>
 			</rectangle>
 			<staticText>
-				<reportElement x="55" y="137" width="86" height="20" forecolor="#FFFFFF" uuid="f39e0791-cf87-4193-a0ca-553f9c4ff06e"/>
+				<reportElement x="81" y="156" width="83" height="20" forecolor="#FFFFFF" uuid="f39e0791-cf87-4193-a0ca-553f9c4ff06e"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Gill Sans MT" size="11"/>
 				</textElement>
 				<text><![CDATA[NOMBRE]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="141" y="131" width="108" height="33" forecolor="#FFFFFF" uuid="4d6892c5-cb90-4efe-94a7-51d13654158e"/>
+				<reportElement x="167" y="150" width="105" height="33" forecolor="#FFFFFF" uuid="4d6892c5-cb90-4efe-94a7-51d13654158e"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Gill Sans MT" size="11"/>
 				</textElement>
 				<text><![CDATA[APELLIDO PATERNO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="363" y="136" width="70" height="20" forecolor="#FFFFFF" uuid="edfbbbfe-debb-4761-8078-0ae2c0e71446"/>
+				<reportElement x="373" y="155" width="67" height="20" forecolor="#FFFFFF" uuid="edfbbbfe-debb-4761-8078-0ae2c0e71446"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Gill Sans MT" size="11"/>
 				</textElement>
 				<text><![CDATA[NOTA FINAL]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="432" y="137" width="100" height="20" forecolor="#FFFFFF" uuid="0ee84604-7794-4fdc-8499-e4282d8569c4"/>
+				<reportElement x="442" y="156" width="97" height="20" forecolor="#FFFFFF" uuid="0ee84604-7794-4fdc-8499-e4282d8569c4"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Gill Sans MT" size="11"/>
 				</textElement>
@@ -226,14 +229,14 @@ WHERE
 				<textFieldExpression><![CDATA[$F{Professors_secondLastName}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="0" y="137" width="55" height="20" forecolor="#FFFFFF" uuid="9e6ebcbd-bc3f-4196-bc07-4ad70ab5bd2e"/>
+				<reportElement x="26" y="156" width="52" height="20" forecolor="#FFFFFF" uuid="9e6ebcbd-bc3f-4196-bc07-4ad70ab5bd2e"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Gill Sans MT" size="11"/>
 				</textElement>
 				<text><![CDATA[ID]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="249" y="131" width="114" height="33" forecolor="#FFFFFF" uuid="11c663a4-038a-4da4-b12a-82fcf4a29408"/>
+				<reportElement x="275" y="150" width="111" height="33" forecolor="#FFFFFF" uuid="11c663a4-038a-4da4-b12a-82fcf4a29408"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Gill Sans MT" size="11"/>
 				</textElement>
@@ -242,7 +245,7 @@ WHERE
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="32" splitType="Stretch">
+		<band height="37" splitType="Stretch">
 			<textField>
 				<reportElement x="67" y="7" width="85" height="20" forecolor="#666666" uuid="8f72d587-00d1-481e-be2d-c82178cc0357"/>
 				<textElement>
@@ -288,16 +291,16 @@ WHERE
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="20" splitType="Stretch">
+		<band height="25" splitType="Stretch">
 			<textField>
-				<reportElement x="382" y="0" width="100" height="20" forecolor="#666666" uuid="dba903b3-c463-4455-8397-1b3a9f7921d6"/>
+				<reportElement x="455" y="0" width="100" height="20" forecolor="#666666" uuid="dba903b3-c463-4455-8397-1b3a9f7921d6"/>
 				<textElement>
 					<font fontName="Gill Sans MT" size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$V{PROMEDIO}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement style="Column header" positionType="Float" x="307" y="0" width="75" height="14" forecolor="#000000" uuid="24988337-a9fe-4120-8267-735ea4b42cf1"/>
+				<reportElement style="Column header" positionType="Float" x="380" y="0" width="75" height="14" forecolor="#000000" uuid="24988337-a9fe-4120-8267-735ea4b42cf1"/>
 				<textElement>
 					<font fontName="Gill Sans MT" size="12" isBold="true" pdfFontName="Helvetica"/>
 				</textElement>
@@ -306,23 +309,23 @@ WHERE
 		</band>
 	</columnFooter>
 	<pageFooter>
-		<band height="37" splitType="Stretch">
+		<band height="46" splitType="Stretch">
 			<staticText>
-				<reportElement style="Column header" positionType="Float" mode="Opaque" x="0" y="3" width="111" height="34" forecolor="#FFFFFF" backcolor="#060668" uuid="ba3914b3-76c9-4cf4-b8ce-2652bfb4f647"/>
+				<reportElement style="Column header" positionType="Float" mode="Opaque" x="2" y="5" width="111" height="34" forecolor="#FFFFFF" backcolor="#060668" uuid="ba3914b3-76c9-4cf4-b8ce-2652bfb4f647"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Gill Sans MT" size="20" isBold="true" pdfFontName="Helvetica"/>
 				</textElement>
 				<text><![CDATA[INFOSiS]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="478" y="14" width="42" height="20" uuid="25264c3f-4343-4ad3-84a5-f38cd895d33f"/>
+				<reportElement x="482" y="14" width="42" height="20" uuid="25264c3f-4343-4ad3-84a5-f38cd895d33f"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font fontName="Gill Sans MT" size="12"/>
 				</textElement>
 				<text><![CDATA[Página ]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="520" y="14" width="19" height="20" uuid="ee26f092-a062-4c1e-b8d5-509bd4c1f4c8"/>
+				<reportElement x="524" y="14" width="19" height="20" uuid="ee26f092-a062-4c1e-b8d5-509bd4c1f4c8"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font fontName="Gill Sans MT" size="12" isBold="true"/>
 				</textElement>
@@ -331,6 +334,12 @@ WHERE
 		</band>
 	</pageFooter>
 	<summary>
-		<band height="613" splitType="Stretch"/>
+		<band height="123" splitType="Stretch">
+			<subreport>
+				<reportElement x="26" y="25" width="461" height="62" uuid="6eb4d418-2db7-46df-8954-10a38b5d7742"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "CourseHistoryReport_ProfessorsUwur.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
 	</summary>
 </jasperReport>
